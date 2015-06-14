@@ -1,93 +1,37 @@
-<!-- Footer
-================================================== -->
+<!-- Footer include below this line -->
 <footer class="bs-docs-footer" role="contentinfo">
   <div class="container">
-    {% include social-buttons.html %}
 
-    <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> and <a href="https://twitter.com/fat" target="_blank">@fat</a>.</p>
-    <p>Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
+    <p>Designed and built by <a href="http://www.helpfultechnology.com">Helpful Technology</a> and the <a href="https://www.bas.ac.uk/team/business-teams/information-services/">BAS Web and Applications Team</a>.</p>
+    <p>Maintained on behalf of BAS by the the <a href="https://www.bas.ac.uk/team/business-teams/information-services/">BAS Web and Applications Team</a>.</p>
     <p>Code licensed under <a rel="license" href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>, documentation under <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</p>
     <ul class="bs-docs-footer-links text-muted">
       <li>Currently v{{ site.current_version }}</li>
       <li>&middot;</li>
-      <li><a href="{{ site.repo }}">GitHub</a></li>
+      <li><a href="{{ site.issues }}">Issues</a></li>
+      
+      <li>&middot;</li>
+      <li><a href="{{ site.repo }}">Code repository</a></li>
+      
+      <li>&middot;</li>
+      <li><a href="../getting-started/#releases">Releases</a></li>
+
       <li>&middot;</li>
       <li><a href="../getting-started/#examples">Examples</a></li>
-      <li>&middot;</li>
-      <li><a href="../2.3.2/">v2.3.2 docs</a></li>
-      <li>&middot;</li>
-      <li><a href="../about/">About</a></li>
-      <li>&middot;</li>
-      <li><a href="{{ site.expo }}">Expo</a></li>
-      <li>&middot;</li>
-      <li><a href="{{ site.blog }}">Blog</a></li>
-      <li>&middot;</li>
-      <li><a href="{{ site.repo }}/issues">Issues</a></li>
-      <li>&middot;</li>
-      <li><a href="{{ site.repo }}/releases">Releases</a></li>
     </ul>
   </div>
 </footer>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-{% if site.github %}
-  <script src="../dist/js/bootstrap.min.js"></script>
-{% else %}
-  <script src="../dist/js/bootstrap.js"></script>
-{% endif %}
+<!-- bootstrap JS -->
+<script src="../dist/js/bootstrap.min.js"></script>
+<script src="../assets/js/src/application.js"></script>
 
-{% if site.github %}
-  <script src="../assets/js/docs.min.js"></script>
-{% else %}
-  {% for file in site.data.configBridge.paths.docsJs %}
-  <script src="{{ file }}"></script>
-  {% endfor %}
-{% endif %}
+<!-- Jira issue collecter - used for feedback -->
+<script type="text/javascript" src="https://jira.ceh.ac.uk/s/d41d8cd98f00b204e9800998ecf8427e/en_UKfqje4i-1988229788/6264/37/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=95ce64ed"></script>
 
-{% if page.slug == "customize" %}
-  <script>var __configBridge = {{ site.data.configBridge.config | jsonify }}</script>
-  {% if site.github %}
-    <script src="../assets/js/customize.min.js"></script>
-  {% else %}
-    {% for file in site.data.configBridge.paths.customizerJs %}
-    <script src="{{ file }}"></script>
-    {% endfor %}
-  {% endif %}
-{% endif %}
+<script src="../assets/js/src/application-bsk.js"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-{% comment %}
-  Inject Twitter widgets asynchronously. Snippet snipped from Twitter's
-  JS interface site: https://dev.twitter.com/docs/tfw-javascript
-
-  * "js.async=1;" added to add async attribute to the generated script tag.
-{% endcomment %}
-<script>
-  window.twttr = (function (d,s,id) {
-    var t, js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.async=1;
-    js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-    return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-  }(document, "script", "twitter-wjs"));
-</script>
-
-<!-- Analytics
-================================================== -->
-<script>
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>

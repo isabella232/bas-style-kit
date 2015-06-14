@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="../" class="navbar-brand">Bootstrap</a>
+      <a href="../" class="navbar-brand">BAS Style Kit</a>
     </div>
     <nav id="bs-navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -23,13 +23,10 @@
         <li{% if page.slug == "js" %} class="active"{% endif %}>
           <a href="../javascript/">JavaScript</a>
         </li>
-        <li{% if page.slug == "customize" %} class="active"{% endif %}>
-          <a href="../customize/">Customize</a>
-        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ site.expo }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');">Expo</a></li>
-        <li><a href="{{ site.blog }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Blog</a></li>
+        <li><a href="{{ site.style_guide_url }}">BAS Style Guide</a></li>
+        <li><a {{ site.feedback_attributes }}>Submit Feedback</a></li>
       </ul>
     </nav>
   </div>

@@ -1,19 +1,15 @@
-- name: Lyft
-  url: https://www.lyft.com
-  expo_url: http://expo.getbootstrap.com/2014/10/29/lyft/
-  img: lyft
+- name: Custom application
+  url: https://www.example.com
+  thumbnail_img: https://placeholdit.imgix.net/~text?txtsize=50&txt=Website%20example&w=270&h=230
 
-- name: Vogue
-  url: http://www.vogue.com
-  expo_url: http://expo.getbootstrap.com/2014/09/30/vogue/
-  img: vogue
+- name: Website
+  url: https://www.example.com
+  thumbnail_img: https://placeholdit.imgix.net/~text?txtsize=50&txt=Custom%20app%20example&w=270&h=230
 
-- name: Riot Design
-  url: http://riotdesign.eu/en/
-  expo_url: http://expo.getbootstrap.com/2014/03/13/riot-design/
-  img: riot
+- name: Apex application
+  url: https://www.example.com
+  thumbnail_img: https://placeholdit.imgix.net/~text?txtsize=50&txt=Off%20the%20shelf%20example&w=270&h=230
 
-- name: Newsweek
-  url: http://www.newsweek.com/
-  expo_url: http://expo.getbootstrap.com/2014/02/12/newsweek/
-  img: newsweek
+- name: Off the shelf application
+  url: https://www.example.com
+  thumbnail_img: https://placeholdit.imgix.net/~text?txtsize=50&txt=Eventbrite%20example&w=270&h=230

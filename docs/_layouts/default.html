@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta, title, CSS, favicons, etc. -->
-    {% include header.html %}
+    {% include head.html %}
   </head>
   <body>
     <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
@@ -15,11 +15,12 @@
       <div class="container">
         <h1>{{ page.title }}</h1>
         <p>{{ page.lead }}</p>
-        {% include ads.html %}
       </div>
     </div>
 
     <div class="container bs-docs-container">
+
+      {% include new-website-banner.html %}
 
       <div class="row">
         <div class="col-md-{% if page.fullwidth == true %}12{% else %}9{% endif %}" role="main">
@@ -37,22 +38,13 @@
                 {% include nav/components.html %}
               {% elsif page.slug == "js" %}
                 {% include nav/javascript.html %}
-              {% elsif page.slug == "customize" %}
-                {% include nav/customize.html %}
-              {% elsif page.slug == "about" %}
-                {% include nav/about.html %}
-              {% elsif page.slug == "migration" %}
-                {% include nav/migration.html %}
+              {% elsif page.slug == "feedback" %}
+                {% include nav/feedback.html %}
               {% endif %}
             </ul>
             <a class="back-to-top" href="#top">
               Back to top
             </a>
-            {% if page.slug == "css" or page.slug == "components" or page.slug == "js" %}
-            <a href="#" class="bs-docs-theme-toggle" role="button">
-              Preview theme
-            </a>
-            {% endif %}
           </nav>
         </div>
         {% endunless %}

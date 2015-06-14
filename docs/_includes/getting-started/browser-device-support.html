@@ -1,6 +1,6 @@
 <div class="bs-docs-section">
   <h1 id="support" class="page-header">Browser and device support</h1>
-  <p class="lead">Bootstrap is built to work best in the latest desktop and mobile browsers, meaning older browsers might display differently styled, though fully functional, renderings of certain components.</p>
+  <p class="lead">The BAS Style Kit is built to work best in the latest desktop and mobile browsers, meaning older browsers might display differently styled, though fully functional, renderings of certain components.</p>
 
   <h2 id="support-browsers">Supported browsers</h2>
   <p>Specifically, we support the <strong>latest versions</strong> of the following browsers and platforms. On Windows, <strong>we support Internet Explorer 8-11</strong>. More specific support information is provided below.</p>
@@ -50,11 +50,11 @@
       </tbody>
     </table>
   </div>
-  <p>Unofficially, Bootstrap should look and behave well enough in Chromium and Chrome for Linux, Firefox for Linux, and Internet Explorer 7, though they are not officially supported.</p>
-  <p>For a list of some of the browser bugs that Bootstrap has to grapple with, see our <a href="../browser-bugs/">Wall of browser bugs</a>.</p>
+  <p>Unofficially, Chromium/Chrome for Linux and Firefox for Linux should also work fine.</p>
 
   <h2 id="support-ie8-ie9">Internet Explorer 8 and 9</h2>
-  <p>Internet Explorer 8 and 9 are also supported, however, please be aware that some CSS3 properties and HTML5 elements are not fully supported by these browsers. In addition, <strong>Internet Explorer 8 requires the use of <a href="https://github.com/scottjehl/Respond">Respond.js</a> to enable media query support.</strong></p>
+  <p>Internet Explorer 8 and 9 are supported by Bootstrap, but are not supported by the BAS Style Kit due to the substantial extra time this would require. We are more than happy to accept contributions from and work with those that require such support however.</p>
+  <p>Please be aware that some CSS3 properties and HTML5 elements are not fully supported by these browsers. In addition, <strong>Internet Explorer 8 requires the use of <a href="https://github.com/scottjehl/Respond">Respond.js</a> to enable media query support.</strong></p>
   <div class="table-responsive">
     <table class="table table-bordered table-striped">
       <thead>
@@ -96,26 +96,22 @@
 
   <h2 id="support-ie8-respondjs">Internet Explorer 8 and Respond.js</h2>
   <p>Beware of the following caveats when using Respond.js in your development and production environments for Internet Explorer 8.</p>
-  <h3 id="respond-js-x-domain">Respond.js and cross-domain CSS</h3>
-  <p>Using Respond.js with CSS hosted on a different (sub)domain (for example, on a CDN) requires some additional setup. <a href="https://github.com/scottjehl/Respond/blob/master/README.md#cdnx-domain-setup">See the Respond.js docs</a> for details.</p>
-  <h3 id="respond-file-proto">Respond.js and <code>file://</code></h3>
-  <p>Due to browser security rules, Respond.js doesn't work with pages viewed via the <code>file://</code> protocol (like when opening a local HTML file). To test responsive features in IE8, view your pages over HTTP(S). <a href="https://github.com/scottjehl/Respond/blob/master/README.md#support--caveats">See the Respond.js docs</a> for details.</p>
-  <h3 id="respond-import">Respond.js and <code>@import</code></h3>
-  <p>Respond.js doesn't work with CSS that's referenced via <code>@import</code>. In particular, some Drupal configurations are known to use <code>@import</code>. <a href="https://github.com/scottjehl/Respond/blob/master/README.md#support--caveats">See the Respond.js docs</a> for details.</p>
-
+  <ul>
+   <li>Using Respond.js with CSS hosted on a different (sub)domain (for example, on a CDN) requires some additional setup. <a href="https://github.com/scottjehl/Respond/blob/master/README.md#cdnx-domain-setup">See the Respond.js docs</a> for details.</li>
+    <li>Due to browser security rules, Respond.js doesn't work with pages viewed via the <code>file://</code> protocol (like when opening a local HTML file). To test responsive features in IE8, view your pages over HTTP(S). <a href="https://github.com/scottjehl/Respond/blob/master/README.md#support--caveats">See the Respond.js docs</a> for details.</li>
+    <li>Respond.js doesn't work with CSS that's referenced via <code>@import</code>. In particular, some Drupal configurations are known to use <code>@import</code>. <a href="https://github.com/scottjehl/Respond/blob/master/README.md#support--caveats">See the Respond.js docs</a> for details.</li>
+  </ul>
+ 
   <h2 id="support-ie8-box-sizing">Internet Explorer 8 and box-sizing</h2>
-  <p>IE8 does not fully support <code>box-sizing: border-box;</code> when combined with <code>min-width</code>, <code>max-width</code>, <code>min-height</code>, or <code>max-height</code>. For that reason, as of v3.0.1, we no longer use <code>max-width</code> on <code>.container</code>s.</p>
-
-  <h2 id="support-ie8-font-face">Internet Explorer 8 and @font-face</h2>
-  <p>IE8 has some issues with <code>@font-face</code> when combined with <code>:before</code>. Bootstrap uses that combination with its Glyphicons. If a page is cached, and loaded without the mouse over the window (i.e. hit the refresh button or load something in an iframe) then the page gets rendered before the font loads. Hovering over the page (body) will show some of the icons and hovering over the remaining icons will show those as well. <a href="https://github.com/twbs/bootstrap/issues/13863">See issue #13863</a> for details.</p>
+  <p>IE8 does not fully support <code>box-sizing: border-box;</code> when combined with <code>min-width</code>, <code>max-width</code>, <code>min-height</code>, or <code>max-height</code>. For that reason we no don't use <code>max-width</code> on <code>.container</code>s.</p>
 
   <h2 id="support-ie-compatibility-modes">IE Compatibility modes</h2>
-  <p>Bootstrap is not supported in the old Internet Explorer compatibility modes. To be sure you're using the latest rendering mode for IE, consider including the appropriate <code>&lt;meta&gt;</code> tag in your pages:</p>
+  <p>The BAS Style Kit is not supported in the old Internet Explorer compatibility modes. To be sure you're using the latest rendering mode for IE, consider including the appropriate <code>&lt;meta&gt;</code> tag in your pages:</p>
 {% highlight html %}
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 {% endhighlight %}
   <p>Confirm the document mode by opening the debugging tools: press <kbd>F12</kbd> and check the "Document Mode".</p>
-  <p>This tag is included in all of Bootstrap's documentation and examples to ensure the best rendering possible in each supported version of Internet Explorer.</p>
+  <p>This tag is included in all of our documentation and examples to ensure the best rendering possible in each supported version of Internet Explorer.</p>
   <p>See <a href="https://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge">this StackOverflow question</a> for more information.</p>
 
   <h2 id="support-ie10-width">Internet Explorer 10 in Windows 8 and Windows Phone 8</h2>
@@ -146,7 +142,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 }
 {% endhighlight %}
   <p>For more information and usage guidelines, read <a href="http://timkadlec.com/2013/01/windows-phone-8-and-device-width/">Windows Phone 8 and Device-Width</a>.</p>
-  <p>As a heads up, we include this in all of Bootstrap's documentation and examples as a demonstration.</p>
+  <p>We include this in all of this documentation and our examples as a demonstration.</p>
 
   <h2 id="support-safari-percentages">Safari percent rounding</h2>
   <p>The rendering engine of versions of Safari prior to v7.1 for OS X and Safari for iOS v8.0 had some trouble with the number of decimal places used in our <code>.col-*-1</code> grid classes. So if you had 12 individual grid columns, you'd notice that they came up short compared to other rows of columns. Besides upgrading Safari/iOS, you have some options for workarounds:</p>
@@ -164,10 +160,10 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   <p>The <code>.dropdown-backdrop</code> element isn't used on iOS in the nav because of the complexity of z-indexing. Thus, to close dropdowns in navbars, you must directly click the dropdown element (or <a href="https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile">any other element which will fire a click event in iOS</a>).</p>
 
   <h2 id="support-browser-zooming">Browser zooming</h2>
-  <p>Page zooming inevitably presents rendering artifacts in some components, both in Bootstrap and the rest of the web. Depending on the issue, we may be able to fix it (search first and then open an issue if need be). However, we tend to ignore these as they often have no direct solution other than hacky workarounds.</p>
+  <p>Page zooming inevitably presents rendering artefacts in some components, we tend to ignore these as they often have no direct solution other than hacky workarounds.</p>
 
   <h2 id="support-sticky-hover-mobile">Sticky <code>:hover</code>/<code>:focus</code> on mobile</h2>
-  <p>Even though real hovering isn't possible on most touchscreens, most mobile browsers emulate hovering support and make <code>:hover</code> "sticky". In other words, <code>:hover</code> styles start applying after tapping an element and only stop applying after the user taps some other element. This can cause Bootstrap's <code>:hover</code> states to become unwantedly "stuck" on such browsers. Some mobile browsers also make <code>:focus</code> similarly sticky. There is currently no simple workaround for these issues other than removing such styles entirely.</p>
+  <p>Even though real hovering isn't possible on most touchscreens, most mobile browsers emulate hovering support and make <code>:hover</code> "sticky". In other words, <code>:hover</code> styles start applying after tapping an element and only stop applying after the user taps some other element. This can cause <code>:hover</code> states to become unwantedly "stuck" on such browsers. Some mobile browsers also make <code>:focus</code> similarly sticky. There is currently no simple workaround for these issues other than removing such styles entirely.</p>
 
   <h2 id="support-printing">Printing</h2>
   <p>Even in some modern browsers, printing can be quirky.</p>
@@ -204,7 +200,7 @@ $(function () {
   <p>Want to see an example? <a href="http://jsbin.com/kuvoz/1">Check out this JS Bin demo.</a></p>
 
   <h2 id="support-validators">Validators</h2>
-  <p>In order to provide the best possible experience to old and buggy browsers, Bootstrap uses <a href="http://browserhacks.com">CSS browser hacks</a> in several places to target special CSS to certain browser versions in order to work around bugs in the browsers themselves. These hacks understandably cause CSS validators to complain that they are invalid. In a couple places, we also use bleeding-edge CSS features that aren't yet fully standardized, but these are used purely for progressive enhancement.</p>
+  <p>In order to provide the best possible experience to old and buggy browsers, some <a href="http://browserhacks.com">CSS browser hacks</a> are used in several places to target special CSS to certain browser versions in order to work around bugs in the browsers themselves. These hacks understandably cause CSS validators to complain that they are invalid. In a couple places, we also use bleeding-edge CSS features that aren't yet fully standardized, but these are used purely for progressive enhancement.</p>
   <p>These validation warnings don't matter in practice since the non-hacky portion of our CSS does fully validate and the hacky portions don't interfere with the proper functioning of the non-hacky portion, hence why we deliberately ignore these particular warnings.</p>
   <p>Our HTML docs likewise have some trivial and inconsequential HTML validation warnings due to our inclusion of a workaround for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=654072">a certain Firefox bug</a>.</p>
 </div>
