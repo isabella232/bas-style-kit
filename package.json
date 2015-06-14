@@ -1,30 +1,18 @@
 {
-  "name": "bootstrap",
-  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-  "version": "3.3.4",
-  "keywords": [
-    "css",
-    "less",
-    "mobile-first",
-    "responsive",
-    "front-end",
-    "framework",
-    "web"
-  ],
-  "homepage": "http://getbootstrap.com",
-  "author": "Twitter, Inc.",
-  "scripts": {
-    "test": "grunt test"
-  },
-  "style": "dist/css/bootstrap.css",
-  "less": "less/bootstrap.less",
+  "name": "bas-style-kit",
+  "description": "A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.",
+  "version": "0.1.0",
+  "homepage": "https://bas-style-kit.web.nerc-bas.ac.uk",
+  "author": "British Antarctic Survey",
+  "style": "dist/css/bas-style-kit.css",
+  "less": "less/bas-style-kit.less",
   "main": "./dist/js/npm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/twbs/bootstrap.git"
+    "url": "TODO: Project repo URL"
   },
   "bugs": {
-    "url": "https://github.com/twbs/bootstrap/issues"
+    "url": "https://jira.ceh.ac.uk/basweb"
   },
   "license": "MIT",
   "devDependencies": {
@@ -69,19 +57,5 @@
     "less/**/*.less",
     "Gruntfile.js",
     "LICENSE"
-  ],
-  "jspm": {
-    "main": "js/bootstrap",
-    "shim": {
-      "js/bootstrap": {
-        "deps": "jquery",
-        "exports": "$"
-      }
-    },
-    "files": [
-      "css",
-      "fonts",
-      "js"
-    ]
-  }
+  ]
 }
