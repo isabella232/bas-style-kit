@@ -56,6 +56,22 @@ Host *.v.m
     Port 22
 ```
 
+### Development - remote
+
+* [Terraform](terraform.io) `brew cask install terraform`
+* [Rsync](https://rsync.samba.org/) `brew install rsync`
+* You have an entry like [1] in your `~/.ssh/config`
+
+[1] SSH config entry
+
+```shell
+Host *.web.nerc-bas.ac.uk
+    ForwardAgent yes
+    User app
+    IdentityFile ~/.ssh/id_rsa
+    Port 22
+```
+
 ## Setup
 
 ### All environments
@@ -82,10 +98,54 @@ Vagrant will automatically configure the localhost hosts file for infrastructure
 Note: Vagrant managed VMs also have a second, host-guest only, network for management purposes not documented here.
 
 Note: Currently Vagrant is configured to automatically forward port `9001` of the `bas-style-kit-dev-web1.v.m` guest to port `9001` on your localhost.
-
 ```shell
 $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 ```
+
+### Development - remote
+
+VMs are powered by DigitalOcean, managed using Terraform and configured by Ansible.
+
+Create a `terraform.tfvars` file and populate according to [1].
+
+```shell
+$ terraform get
+$ terraform apply
+```
+
+Terraform will automatically configure DNS records for infrastructure it creates on your behalf:
+
+| Kind      | Name                            | Points To                                            | FQDN                                                 | Notes                             |
+| --------- | ------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | --------------------------------- |
+| **A**     | bas-style-kit-dev-web2.internal | *computed value*                                     | `bas-style-kit-dev-web2.internal.web.nerc-bas.ac.uk` | The VM's private IP address       |
+| **A**     | bas-style-kit-dev-web2.external | *computed value*                                     | `bas-style-kit-dev-web2.external.web.nerc-bas.ac.uk` | The VM's public IP address        |
+| **CNAME** | bas-style-kit-dev-web2          | `bas-style-kit-dev-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`          | A pointer for the default address |
+
+You will need to configure these DNS records manually:
+
+| Kind      | Name                               | Points To                                             | FQDN                                                   | Notes                                                    |
+| --------- | ---------------------------------- | ----------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------- |
+| **CNAME** | bas-style-kit                      | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`           | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`            | Vanity URL to current production instance of application |
+
+Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178), therefore these tasks need to be performed manually:
+
+```shell
+$ ansible-galaxy install https://github.com/antarctica/ansible-prelude,v0.1.1 --roles-path=provisioning/roles_bootstrap  --no-deps --force
+$ ansible-playbook -i provisioning/local provisioning/prelude.yml
+$ ansible-playbook -i provisioning/development provisioning/bootstrap-digitalocean.yml
+$ ansible-playbook -i provisioning/development provisioning/site-dev.yml
+```
+
+[1]
+
+`.ftvars` files store sensitive information and **MUST NOT** be checked into source control.
+
+```javascript
+digital_ocean_token = "[token]"
+ssh_fingerprint = "[fingerprint]"
+```
+
+Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` is the [fingerprint of your public key](https://gist.github.com/felnne/596d2bf11842a0cf64d6).
 
 ## Usage
 

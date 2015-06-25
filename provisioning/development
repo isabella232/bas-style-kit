@@ -11,12 +11,20 @@ bas-style-kit-dev-web1.v.m
 [vagrant:children]
 vagrant-dev
 
+[digital-ocean-dev]
+bas-style-kit-dev-web2.web.nerc-bas.ac.uk
+
+[digital-ocean:children]
+digital-ocean-dev
+
 [all-servers:children]
 vagrant
+digital-ocean
 
 
 [bas-style-kit-webservers-dev]
 bas-style-kit-dev-web1.v.m
+bas-style-kit-dev-web2.web.nerc-bas.ac.uk
 
 [bas-style-kit-webservers:children]
 bas-style-kit-webservers-dev

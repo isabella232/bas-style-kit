@@ -32,6 +32,8 @@ Thumbs.db
 # Komodo
 .komodotools
 *.komodoproject
+.terraform
+terraform.tfvars
 
 # Folders to ignore
 bower_components
