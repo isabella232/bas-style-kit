@@ -1,0 +1,43 @@
+<div class="bs-docs-section">
+  <h1 id="download" class="page-header">Download</h1>
+
+  <p class="lead">The BAS Style Kit (currently v{{ site.current_version }}) has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
+
+  <div class="row bs-downloads">
+    <div class="col-sm-6">
+      <h3 id="download-compiled">Compiled</h3>
+      <p>Compiled and minified CSS, JavaScript, and web-fonts. No docs or original source files are included.</p>
+      <p>
+        <a href="{{ site.download.dist }}" class="btn btn-lg btn-outline">Download Compiled</a>
+      </p>
+    </div>
+    <div class="col-sm-6">
+      <h3 id="download-source">Source code</h3>
+      <p>Source Less, JavaScript, and font files, along with our docs. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong></p>
+      <p>
+        <a href="{{ site.download.source }}" class="btn btn-lg btn-outline" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
+      </p>
+    </div>
+  </div>
+
+  <h2 id="download-cdn">BAS Style Kit CDN</h2>
+  <p>An Amazon CloudFront CDN is used to provide CDN support the BAS Style Kit. It includes the compiled CSS, JS and web-fonts. Just use these links:</p>
+
+{% highlight html %}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="{{ site.cdn.css }}">
+{% endhighlight %}
+
+  <h2 id="download-npm">Install with npm</h2>
+  <p>You can also install the BAS Style Kit using <a href="https://www.npmjs.com">npm</a>:</p>
+  {% highlight bash %}$ npm install bas-style-kit{% endhighlight %}
+  <p>The BAS Style Kit's <code>package.json</code> contains some additional metadata under the following keys:</p>
+  <ul>
+    <li><code>less</code> - path to the main <a href="http://lesscss.org">Less</a> source file</li>
+    <li><code>style</code> - path to the pre-compiled, but non-minified, CSS file</li>
+  </ul>
+  <p>The BAS Style Kit module depends on the Bootstrap module, call<code>require('bootstrap')</code> will load all of Bootstrap's jQuery plugins onto the jQuery object. The <code>bootstrap</code> module itself does not export anything. You can manually load Bootstrap's jQuery plugins individually by loading the <code>/js/*.js</code> files under the package's top-level directory.</p>
+
+  <h2 id="download-autoprefixer">Autoprefixer required for Less</h2>
+  <p>The BAS Style Kit uses <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> to deal with <a href="http://webdesign.about.com/od/css/a/css-vendor-prefixes.htm">CSS vendor prefixes</a>. If you're compiling the BAS Style Kit from its Less source and not using our Gruntfile, you'll need to integrate Autoprefixer into your build process yourself. If you're using the pre-compiled CSS or using our Gruntfile, you don't need to worry about this because Autoprefixer is already integrated into our Gruntfile.</p>
+</div>

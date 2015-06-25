@@ -1,84 +1,70 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+VAGRANTFILE_API_VERSION = "2"
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
-Vagrant.configure(2) do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
+# Project Settings
+  hostname_project = "bas-style-kit"
+  hostname_environment = "dev"
+  domain_name = "v.m"
 
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "antarctica/trusty"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  # Disable automatic box update checking. If you disable this, then
-  # boxes will only be checked for updates when the user runs
-  # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
+  # Applies to all VMs
+    config.vm.box = "antarctica/trusty"
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 9001, host: 9001
+    # SSH keys
+      # Vagrant will replace the default insecure private key with a new random key, this is more secure
+      # but makes the use of provisioner's more difficult (as they don't know which key to use).
+      # To fix this, the localhost user's public key is added to the vagrant user's authorized_keys file.
+      # Provisioning tools will need to configured to use the localhost user's private key when authenticating.
+      config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "id_rsa.pub"
+      config.vm.provision "shell", inline: 'cat /home/vagrant/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys && rm /home/vagrant/id_rsa.pub'
 
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+    # Shared folders
+      # /vagrant is not used to ensure consistency across environments [development/staging/production]
+      config.vm.synced_folder "./", "/app"
+      config.vm.synced_folder '.', '/vagrant', disabled: true
 
-  # Create a public network, which generally matched to bridged network.
-  # Bridged networks make the machine appear as another physical device on
-  # your network.
-  # config.vm.network "public_network"
+    # Network adapters
+      config.vm.network "private_network", type: "dhcp"  # Define Networking
 
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  config.vm.synced_folder "./", "/app"
-  config.vm.synced_folder '.', '/vagrant', disabled: true
+    # Automatic hostname registration
+      config.hostmanager.enabled = true
+      config.hostmanager.manage_host = true
+      config.hostmanager.ignore_private_ip = false
+      config.hostmanager.include_offline = true
 
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
-  #
-  # View the documentation for the provider you are using for more
-  # information on available options.
+    # Host configuration
+      config.trigger.before :up do
+        run "ansible-galaxy install https://github.com/antarctica/ansible-prelude,v0.1.1 --roles-path=provisioning/roles_bootstrap  --no-deps --force"
+      end
 
-  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
-  # such as FTP and Heroku are also available. See the documentation at
-  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
-  # config.push.define "atlas" do |push|
-  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
-  # end
+  # VMs
+  config.vm.define hostname_project + "-" + hostname_environment + "-" + "web1" + "." + domain_name do |vm1|
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   sudo apt-get update
-  #   sudo apt-get install -y apache2
-  # SHELL
-  config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "id_rsa.pub"
-  config.vm.provision "shell", inline: 'cat /home/vagrant/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys && rm /home/vagrant/id_rsa.pub'
+    vm1.vm.hostname = hostname_project + "-" + hostname_environment + "-" + "web1" + "." + domain_name  # Define hostname
 
-  config.vm.provision "ansible" do |ansible|
+    # Provision using ansible
+      # Due to bug[1] in Vagrant this block MUST be in the LAST VM specified in this Vagrantfile
+      # [1] https://github.com/mitchellh/vagrant/issues/1784
 
-    # Standard configuration
-      ansible.limit = 'all'
+        # Prelude - perform project setup on local machine
+          vm1.vm.provision "ansible" do |ansible|
 
-    # Playbook specific configuration
-      ansible.playbook = 'provisioning/site.yml'
+            # Standard configuration
+              ansible.inventory_path = 'provisioning/local'
+              ansible.limit = 'all'
+
+            # Playbook specific configuration
+              ansible.playbook = 'provisioning/prelude.yml'
+          end
+
+        # Bootstrap - adds controller user with public keys
+        vm1.vm.provision "ansible" do |ansible|
+
+          # Standard configuration
+            ansible.limit = 'all'
+
+          # Playbook specific configuration
+            ansible.playbook = 'provisioning/bootstrap-vagrant.yml'
+        end
   end
-
 end

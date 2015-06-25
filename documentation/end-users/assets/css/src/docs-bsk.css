@@ -1,0 +1,25 @@
+/* Custom Bootstrap Docs styles for the BAS Style Kit */
+
+/* Use Open Sans font with a default fall-back */
+body {
+	font-family: "Open Sans", sans-serif
+}
+
+/* Use to indicate content that needs to be reviewed, either to update wording or remove entirely */
+.bsk-u-mark-todo-update {
+	background-color: #F9AFAF;
+}
+
+/* Use to indicate new content that needs to be added */
+.bsk-u-mark-todo-add {
+	background-color: #E6FCE3;
+}
+
+/* As the first element in the first feature block on the home page is an alert there's too much top padding */
+.bs-docs-featurette:first-of-type {
+	padding-top: 50px;
+}
+/* As the first element after a page header is an alert there's too much top margin */
+.bs-docs-header {
+  margin-bottom: 20px;
+}

@@ -1,32 +1,29 @@
 # Dependencies
-markdown:         kramdown
-highlighter:      rouge
+markdown: kramdown
+highlighter: rouge
 
 # Permalinks
-permalink:        pretty
+permalink: pretty
 
 # Server
-source:           docs
-destination:      _gh_pages
-host:             0.0.0.0
-port:             9001
-url:              http://getbootstrap.com
-encoding:         UTF-8
+source: documentation/end-users
+destination: site
+host: 0.0.0.0
+port: 9001
+url:  localhost
+encoding: UTF-8
 
 # Custom vars
-current_version:  3.3.4
-repo:             https://github.com/twbs/bootstrap
-sass_repo:        https://github.com/twbs/bootstrap-sass
+current_version: 0.1.0
+repo: https://stash.ceh.ac.uk/projects/BASWEB/repos/bas-style-kit/browse
+issues: https://jira.ceh.ac.uk/browse/BASWEB/component/14697/
+
+style_guide_url: https://hackpad.com/BAS-Style-Guide-e0x7fJ4BMsf
+feedback_attributes: data-bsk-action="open-feedback-form"
 
 download:
-  source:         https://github.com/twbs/bootstrap/archive/v3.3.4.zip
-  dist:           https://github.com/twbs/bootstrap/releases/download/v3.3.4/bootstrap-3.3.4-dist.zip
-  sass:           https://github.com/twbs/bootstrap-sass/archive/v3.3.4.tar.gz
-
-blog:             http://blog.getbootstrap.com
-expo:             http://expo.getbootstrap.com
+  source: https://stash.ceh.ac.uk/plugins/servlet/archive/projects/BASWEB/repos/bas-style-kit
+  dist: https://s3-eu-west-1.amazonaws.com/packages.calcifer.co/scratch/bas-style-kit/releases/0.0.0/bas-style-kit-dist.zip
 
 cdn:
-  css:            https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css
-  css_theme:      https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css
-  js:             https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js
+  css: https://d2ark1l5l32iip.cloudfront.net/bas-style-kit/0.0.0/bas-style-kit.min.css

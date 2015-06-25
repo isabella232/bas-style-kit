@@ -1,0 +1,89 @@
+---
+layout: home
+title: BAS Style Kit
+---
+
+<main class="bs-docs-masthead" id="content" role="main" tabindex="-1">
+  <div class="container">
+    <span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline">❄️</span>
+    <p class="lead">A collection of HTML, CSS, and JS components <br /> for developing web projects consistent with the BAS brand.</p>
+    <p class="lead">
+      <a href="getting-started#download" class="btn btn-outline-inverse btn-lg">Download the BAS Style Kit</a>
+    </p>
+    <p class="version">Currently v{{ site.current_version }}</p>
+  </div>
+</main>
+
+<div class="bs-docs-featurette">
+  <div class="container">
+    
+    {% include new-website-banner.html %}
+
+    <hr class="half-rule">
+
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="assets/img/less.png" alt="Sass and Less support" class="img-responsive">
+        <h3>Preprocessors</h3>
+        <p>Get started with the BAS Style Kit using pre-compiled CSS, or build on and adapt the underlying <a href="../css/#less">Less</a>  source code.</p>
+      </div>
+      <div class="col-sm-4">
+        <img src="assets/img/devices.png" alt="Responsive across devices" class="img-responsive">
+        <h3>Built on Bootstrap.</h3>
+        <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</p>
+      </div>
+      <div class="col-sm-4">
+        <img src="assets/img/components.png" alt="Components" class="img-responsive">
+        <h3>Designed for BAS</h3>
+        <p>From simple forms to complex data-tables, extensive documentation covers the components used most in BAS projects.</p>
+      </div>
+    </div>
+
+    <hr class="half-rule">
+
+    <h2 class="bs-docs-featurette-title">Counterpart to the BAS Style Guide</h2>
+    <p class="lead">The BAS Style Guide gives official guidance and suggestions on how to design BAS projects on the web, including the resources in this Style Kit.</p>
+    <a href="{{ site.style_guide_url }}" class="btn btn-outline btn-lg">View the BAS Style Guide</a>
+  </div>
+</div>
+
+<div class="bs-docs-featurette">
+  <div class="container">
+
+    <h2 class="bs-docs-featurette-title">Built from open source components</h2>
+    <p class="lead">Ensuring all BAS projects benefit from the very best frameworks and resources used by others.</p>
+
+    <hr class="half-rule">
+
+    <h2 class="bs-docs-featurette-title">A living, shared, resource, developed in the open</h2>
+    <p class="lead">Anyone can contribute changes, whether its a new cool component or clarifying documentation.</p>
+    <p class="lead">If you're got a need for something that's not covered yet and you're not sure what to use, <br /> <a {{ site.feedback_attributes }}>let us know</a> and we'll do our best to find something suitable.</p>
+    <a href="{{ site.repo }}" class="btn btn-outline btn-lg">View the code repository</a>
+
+    <hr class="half-rule">
+
+    <div class="bs-callout bs-callout-info">
+      <p class="lead"><strong>Some parts of the BAS Style Kit, such as the BAS Logo, are licensed works.</strong></p>
+      <p class="lead">This means they may only be used in projects officially endorsed by BAS, subject to certain conditions. This is explained in detail where this applies.</p>
+    </div>
+  </div>
+</div>
+
+<div class="bs-docs-featurette">
+  <div class="container">
+    <h2 class="bs-docs-featurette-title"><mark class="bsk-u-mark-todo-add">Add a section here for examples</mark></h2>
+    <p class="lead"><mark class="bsk-u-mark-todo-add">Include summary text to cover websites, custom applications, off the shelf application (i.e. APEX), Eventbrite events etc.</mark></p>
+
+    <hr class="half-rule">
+
+    <div class="row bs-docs-featured-sites">
+    {% for showcase in site.data.showcase %}
+      <div class="col-xs-6 col-sm-3">
+        <a href="{{ showcase.url }}" target="_blank" title="{{ showcase.name }}">
+          <img src="{{ showcase.thumbnail_img }}" alt="{{ showcase.name }}" class="img-responsive">
+        </a>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>

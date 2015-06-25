@@ -1,0 +1,15 @@
+- name: Custom application
+  url: https://www.example.com
+  thumbnail_img: https://placeholdit.imgix.net/~text?txtsize=50&txt=Website%20example&w=270&h=230
+
+- name: Website
+  url: https://www.example.com
+  thumbnail_img: https://placeholdit.imgix.net/~text?txtsize=50&txt=Custom%20app%20example&w=270&h=230
+
+- name: Apex application
+  url: https://www.example.com
+  thumbnail_img: https://placeholdit.imgix.net/~text?txtsize=50&txt=Off%20the%20shelf%20example&w=270&h=230
+
+- name: Off the shelf application
+  url: https://www.example.com
+  thumbnail_img: https://placeholdit.imgix.net/~text?txtsize=50&txt=Eventbrite%20example&w=270&h=230

@@ -1,0 +1,10 @@
+---
+# These variables override those defined by roles
+
+# Core
+core_ssl_private_key_source_path: ../../../certificates/star.web.nerc-bas.ac.uk
+core_ssl_private_key_source_file: star.web.nerc-bas.ac.uk.key
+
+# Nginx
+nginx_default_var_www_ssl_cert_path: /app/provisioning/certificates/star.web.nerc-bas.ac.uk
+nginx_default_var_www_ssl_cert_file: star.web.nerc-bas.ac.uk-certificate-including-trust-chain.crt
