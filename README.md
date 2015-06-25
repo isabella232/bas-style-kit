@@ -172,6 +172,8 @@ In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m).
 ### Development - remote
 
 ```shell
+$ ansible-playbook -i provisioning/development provisioning/update-dev.yml
+
 $ ssh bas-style-kit-dev-web2.web.nerc-bas.ac.uk
 
 $ cd /app
