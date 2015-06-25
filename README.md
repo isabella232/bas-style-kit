@@ -169,6 +169,17 @@ $ jekyll build
 
 In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m).
 
+### Development - remote
+
+```shell
+$ ssh bas-style-kit-dev-web2.web.nerc-bas.ac.uk
+
+$ cd /app
+$ jekyll build
+```
+
+In a web-browser, go to [the documentation](https://bas-style-kit.web.nerc-bas.ac.uk).
+
 ## Contributing
 
 This project welcomes contributions, see `CONTRIBUTING` for our general policy.
