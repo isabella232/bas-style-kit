@@ -1,0 +1,5 @@
+---
+# These variables override those defined by roles
+
+project_hostname_project: "bas-style-kit"
+project_repository: "ssh://git@stash.ceh.ac.uk:7999/basweb/bas-style-kit.git"

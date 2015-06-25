@@ -1,9 +1,0 @@
----
-#Install ruby, rvm
-- name: Install curl
-  action: apt pkg=curl state=installed
-- name: trust rvm gpg key
-  command: gpg --homedir /root/.gnupg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-- name: Install ruby and rvm
-  script: rvm_install.sh "{{ruby_version}}" > /var/log/rvm_install.log
- 
