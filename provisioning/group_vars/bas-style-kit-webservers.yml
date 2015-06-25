@@ -1,6 +1,18 @@
 ---
 # These variables override those defined by roles
 
+# Generic
+app_root: /app
+app_site_root: "{{ app_root }}/site"
+
+# Core
+core_ssl_private_key_enabled: true
+
 # RVM
 rvm1_rubies:
   - 'ruby-2.2.2'
+
+# Nginx
+nginx_default_var_www_document_root: "{{ app_site_root }}"
+
+nginx_default_var_www_ssl_enabled: true

@@ -26,9 +26,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Network adapters
       config.vm.network "private_network", type: "dhcp"  # Define Networking
 
-    # Forwarded ports
-      config.vm.network "forwarded_port", guest: 9001, host: 9001
-
     # Automatic hostname registration
       config.hostmanager.enabled = true
       config.hostmanager.manage_host = true

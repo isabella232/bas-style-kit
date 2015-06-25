@@ -97,7 +97,6 @@ Vagrant will automatically configure the localhost hosts file for infrastructure
 
 Note: Vagrant managed VMs also have a second, host-guest only, network for management purposes not documented here.
 
-Note: Currently Vagrant is configured to automatically forward port `9001` of the `bas-style-kit-dev-web1.v.m` guest to port `9001` on your localhost.
 ```shell
 $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 ```
@@ -165,10 +164,10 @@ Currently it is only possible to view this documentation by building a copy of t
 $ ssh bas-style-kit-dev-web1.v.m
 
 $ cd /app
-$ jekyll serve
+$ jekyll build
 ```
 
-In a web-browser, go to [the documentation](http://localhost:9001).
+In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m).
 
 ## Contributing
 

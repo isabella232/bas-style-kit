@@ -25,5 +25,8 @@
     src: git+ssh://git@stash.ceh.ac.uk:7999/barc/jekyll.git
     version: v0.1.0
 -
+    src: git+ssh://git@stash.ceh.ac.uk:7999/barc/nginx.git
+    version: v1.0.1
+-
     src: git+ssh://git@stash.ceh.ac.uk:7999/barc/git.git
     version: v0.1.3
