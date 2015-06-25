@@ -1,0 +1,9 @@
+---
+# Setup deployed application
+
+- name: update web-servers
+  hosts: digital-ocean-dev
+  remote_user: app
+  tasks:
+    - name: checkout app from repository app directory
+      git: repo="{{ project_repository }}" version=master dest="{{ app_root }}" accept_hostkey=yes
