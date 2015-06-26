@@ -16,8 +16,8 @@
       copy: src="certificates/star.web.nerc-bas.ac.uk/star.web.nerc-bas.ac.uk-certificate-including-trust-chain.crt" dest="/app/provisioning/certificates/star.web.nerc-bas.ac.uk/star.web.nerc-bas.ac.uk-certificate-including-trust-chain.crt"
     - name: set owner for app directory
       file: path="{{ app_root }}" owner=app group=app recurse=yes state=directory
-    - name: start webhook server as a daemon to rebuild documentation on push
-      command: "{{ app_root }}/provisioning/scripts/github-auto-deploy/GitAutoDeploy.py --daemon-mode"
+    - name: set execute permissions on git-auto-deploy application
+      file: path="{{ app_root }}/provisioning/scripts/github-auto-deploy/GitAutoDeploy.py" mode=0775
 
 - name: setup web-servers
   hosts: bas-style-kit-webservers-dev
