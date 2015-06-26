@@ -13,7 +13,6 @@ This project is based on the BASIS project template (version 1).
 * add 'https://github.com/FontFaceKit/open-sans' as npm dependency
 * add bootstrap as npm dependency
 
-* add proper provisioning
 * add credits/acknowledgements page in end-user documentation for Bootstrap other libraries.
 
 * add font-awesome and dev-icons to components
