@@ -26,3 +26,6 @@
     - nodejs
     - jekyll
     - nginx
+  tasks:
+    - name: run jekyll build
+      shell: "/usr/local/rvm/bin/rvm all do jekyll build chdir={{ app_root }} executable=/bin/bash"

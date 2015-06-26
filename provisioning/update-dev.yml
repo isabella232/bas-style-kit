@@ -1,5 +1,5 @@
 ---
-# Setup deployed application
+# Update deployed application
 
 - name: update web-servers
   hosts: digital-ocean-dev
@@ -7,3 +7,10 @@
   tasks:
     - name: checkout app from repository app directory
       git: repo="{{ project_repository }}" version=master dest="{{ app_root }}" accept_hostkey=yes
+
+- name: update web-servers
+  hosts: bas-style-kit-webservers-dev
+  remote_user: app
+  tasks:
+    - name: run jekyll build
+      shell: "/usr/local/rvm/bin/rvm all do jekyll build chdir={{ app_root }} executable=/bin/bash"
