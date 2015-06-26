@@ -13,7 +13,6 @@ This project is based on the BASIS project template (version 1).
 * add 'https://github.com/FontFaceKit/open-sans' as npm dependency
 * add bootstrap as npm dependency
 
-* add proper provisioning
 * add credits/acknowledgements page in end-user documentation for Bootstrap other libraries.
 
 * add font-awesome and dev-icons to components
@@ -122,9 +121,9 @@ Terraform will automatically configure DNS records for infrastructure it creates
 
 You will need to configure these DNS records manually:
 
-| Kind      | Name                               | Points To                                             | FQDN                                                   | Notes                                                    |
-| --------- | ---------------------------------- | ----------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------- |
-| **CNAME** | bas-style-kit                      | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`           | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`            | Vanity URL to current production instance of application |
+| Kind      | Name                               | Points To                                             | FQDN                                          | Notes                                                    |
+| --------- | ---------------------------------- | ----------------------------------------------------- | --------------------------------------------- | -------------------------------------------------------- |
+| **CNAME** | bas-style-kit                      | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`           | `bas-style-kit.web.nerc-bas.ac.uk`            | Vanity URL to current production instance of application |
 
 Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178), therefore these tasks need to be performed manually:
 
@@ -134,6 +133,16 @@ $ ansible-playbook -i provisioning/local provisioning/prelude.yml
 $ ansible-playbook -i provisioning/development provisioning/bootstrap-digitalocean.yml
 $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 ```
+
+A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
+
+A [new webhook](https://github.com/felnne/bas-style-kit/settings/hooks/new) will need to be configured in GitHub using the following values:
+
+* Payload URL: `http://bas-style-kit.web.nerc-bas.ac.uk`
+* Content type: `application/json`
+* Secret: Leave blank
+* Which events would you like to trigger this webhook: `Just the push event`
+* Active: `true`
 
 [1]
 
@@ -156,28 +165,20 @@ TODO: Main section (i.e. LESS/JS/etc.)
 
 The documentation for this project is provided as a static website, which can be built using [Jekyll](http://jekyllrb.com).
 
-Currently it is only possible to view this documentation by building a copy of this site locally, however in future a hosted version will be available.
+The latest version of this documentation, built from the *master* branch of the project repository is available at [bas-style-kit.web.nerc-bas.ac.uk/](https://bas-style-kit.web.nerc-bas.ac.uk/).
 
 ### Development - local
-
-```shell
-$ ssh bas-style-kit-dev-web1.v.m
-
-$ cd /app
-$ jekyll build
-```
 
 In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m).
 
 ### Development - remote
 
+A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
+
+This process can also be triggered manually through Ansible: 
+
 ```shell
 $ ansible-playbook -i provisioning/development provisioning/update-dev.yml
-
-$ ssh bas-style-kit-dev-web2.web.nerc-bas.ac.uk
-
-$ cd /app
-$ jekyll build
 ```
 
 In a web-browser, go to [the documentation](https://bas-style-kit.web.nerc-bas.ac.uk).

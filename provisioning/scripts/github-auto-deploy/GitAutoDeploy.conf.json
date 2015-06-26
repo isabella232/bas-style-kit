@@ -1,0 +1,11 @@
+{
+	"port": 8001, 
+	"repositories": 
+	[
+		{
+			"url": "https://github.com/felnne/bas-style-kit", 
+			"path": "/app",
+			"deploy": ". provisioning/scripts/deploy.sh"
+		}
+	]
+}
