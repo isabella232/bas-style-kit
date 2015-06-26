@@ -122,9 +122,9 @@ Terraform will automatically configure DNS records for infrastructure it creates
 
 You will need to configure these DNS records manually:
 
-| Kind      | Name                               | Points To                                             | FQDN                                                   | Notes                                                    |
-| --------- | ---------------------------------- | ----------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------- |
-| **CNAME** | bas-style-kit                      | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`           | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`            | Vanity URL to current production instance of application |
+| Kind      | Name                               | Points To                                             | FQDN                                          | Notes                                                    |
+| --------- | ---------------------------------- | ----------------------------------------------------- | --------------------------------------------- | -------------------------------------------------------- |
+| **CNAME** | bas-style-kit                      | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`           | `bas-style-kit.web.nerc-bas.ac.uk`            | Vanity URL to current production instance of application |
 
 Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178), therefore these tasks need to be performed manually:
 
