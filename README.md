@@ -170,26 +170,16 @@ The latest version of this documentation, built from the *master* branch of the 
 
 ### Development - local
 
-```shell
-$ ssh bas-style-kit-dev-web1.v.m
-
-$ cd /app
-$ jekyll build
-```
-
 In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m).
 
 ### Development - remote
 
-```shell
-$ ansible-playbook -i provisioning/development provisioning/update-dev.yml
 A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
 
-$ ssh bas-style-kit-dev-web2.web.nerc-bas.ac.uk
 This process can also be triggered manually through Ansible: 
 
-$ cd /app
-$ jekyll build
+```shell
+$ ansible-playbook -i provisioning/development provisioning/update-dev.yml
 ```
 
 In a web-browser, go to [the documentation](https://bas-style-kit.web.nerc-bas.ac.uk).
