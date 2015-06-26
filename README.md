@@ -134,15 +134,24 @@ $ ansible-playbook -i provisioning/development provisioning/bootstrap-digitaloce
 $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 ```
 
-A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
+A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site.
 
 A [new webhook](https://github.com/felnne/bas-style-kit/settings/hooks/new) will need to be configured in GitHub using the following values:
 
-* Payload URL: `http://bas-style-kit.web.nerc-bas.ac.uk`
+* Payload URL: `http://bas-style-kit.web.nerc-bas.ac.uk:8001`
 * Content type: `application/json`
 * Secret: Leave blank
 * Which events would you like to trigger this webhook: `Just the push event`
 * Active: `true`
+
+The server side application which will respond to this webhook uses [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy), which should be started as a background process:
+
+```shell
+$ bas-style-kit-dev-web2.web.nerc-bas.ac.uk
+$ cd /app/provisioning/scripts/github-auto-deploy
+
+$ ./GitAutoDeploy.py --daemon-mode
+```
 
 [1]
 
