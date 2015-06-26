@@ -135,6 +135,16 @@ $ ansible-playbook -i provisioning/development provisioning/bootstrap-digitaloce
 $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 ```
 
+A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
+
+A [new webhook](https://github.com/felnne/bas-style-kit/settings/hooks/new) will need to be configured in GitHub using the following values:
+
+* Payload URL: `http://bas-style-kit.web.nerc-bas.ac.uk`
+* Content type: `application/json`
+* Secret: Leave blank
+* Which events would you like to trigger this webhook: `Just the push event`
+* Active: `true`
+
 [1]
 
 `.ftvars` files store sensitive information and **MUST NOT** be checked into source control.
@@ -156,7 +166,7 @@ TODO: Main section (i.e. LESS/JS/etc.)
 
 The documentation for this project is provided as a static website, which can be built using [Jekyll](http://jekyllrb.com).
 
-Currently it is only possible to view this documentation by building a copy of this site locally, however in future a hosted version will be available.
+The latest version of this documentation, built from the *master* branch of the project repository is available at [bas-style-kit.web.nerc-bas.ac.uk/](https://bas-style-kit.web.nerc-bas.ac.uk/).
 
 ### Development - local
 
@@ -173,8 +183,10 @@ In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m).
 
 ```shell
 $ ansible-playbook -i provisioning/development provisioning/update-dev.yml
+A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
 
 $ ssh bas-style-kit-dev-web2.web.nerc-bas.ac.uk
+This process can also be triggered manually through Ansible: 
 
 $ cd /app
 $ jekyll build
