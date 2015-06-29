@@ -30,7 +30,7 @@ You will need to have the following software available on your localhost dependi
 * [NMap](http://nmap.org/) `brew cask install nmap` [1]
 * [Git](http://git-scm.com/) `brew install git`
 * [Ansible](http://www.ansible.com) `brew install ansible`
-* You have a [private key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa` 
+* You have a [private key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa`
 and [public key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa.pub` in `~/.ssh/`
 
 [1] `nmap` is needed to determine if you access internal resources (such as Stash).
@@ -172,19 +172,39 @@ TODO: Main section (i.e. LESS/JS/etc.)
 
 ### Documentation
 
-The documentation for this project is provided as a static website, which can be built using [Jekyll](http://jekyllrb.com).
+The documentation for this project is provided as a static website, built using [Jekyll](http://jekyllrb.com).
 
-The latest version of this documentation, built from the *master* branch of the project repository is available at [bas-style-kit.web.nerc-bas.ac.uk/](https://bas-style-kit.web.nerc-bas.ac.uk/).
+The latest version of this documentation, built from the *master* branch of the project repository, is available at [bas-style-kit.web.nerc-bas.ac.uk/](https://bas-style-kit.web.nerc-bas.ac.uk/).
 
-### Development - local
+#### Development - local
 
-In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m).
+Ansible will automatically build the Jekyll site as part of its *setup* tasks.
 
-### Development - remote
+To manually rebuild the documentation:
+
+```shell
+$ ssh bas-style-kit-dev-web1.v.m
+$ cd /app
+
+$ jekyll build
+```
+
+To automatically rebuild when changes are made to source files:
+
+```shell
+$ ssh bas-style-kit-dev-web1.v.m
+$ cd /app
+
+$ jekyll build --watch --force_polling
+```
+
+In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m) and refresh as needed.
+
+#### Development - remote
 
 A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
 
-This process can also be triggered manually through Ansible: 
+This process can also be triggered manually through Ansible:
 
 ```shell
 $ ansible-playbook -i provisioning/development provisioning/update-dev.yml
