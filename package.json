@@ -9,12 +9,13 @@
   "main": "./dist/js/npm",
   "repository": {
     "type": "git",
-    "url": "TODO: Project repo URL"
+    "url": "git@github.com:felnne/bas-style-kit.git"
   },
   "bugs": {
     "url": "https://jira.ceh.ac.uk/basweb"
   },
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "btoa": "~1.1.2",
     "glob": "~5.0.5",
