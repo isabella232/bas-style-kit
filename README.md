@@ -11,6 +11,7 @@ This project is based on the BASIS project template (version 1).
 ## TODO:
 
 * add 'https://github.com/FontFaceKit/open-sans' as npm dependency
+* add font-awesome and dev-icons as npm dependencies
 
 * add npm install --production for prod
 
