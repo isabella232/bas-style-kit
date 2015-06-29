@@ -13,12 +13,33 @@ This project is based on the BASIS project template (version 1).
 * add 'https://github.com/FontFaceKit/open-sans' as npm dependency
 * add bootstrap as npm dependency
 
+* add npm install --production for prod
+
+* remove grunt file when possible
+* remove `/grunt` directory when possible
+
 * add credits/acknowledgements page in end-user documentation for Bootstrap other libraries.
 
 * add font-awesome and dev-icons to components
 * integrate Helpful's style guide
 * add BAS logo's as a component
 * add our XL grid size
+
+### tasks to re-implement
+
+* Clean (clean all files in dist and docs/dist [or documentation/end-users/dist equivalent])
+
+* jshint
+* jscs
+** concat (all of the individual bootstrap JS plugins into the un-minified bootstrap.js file [if we have our own JS files])
+* uglify (for the concated JS files)
+* qunit (not sure if we need this)
+
+* less (using options: strict math, sourcemaps)
+* autoprefixer
+* csslint
+* csscomb (using options file less/.csscomb.json)
+* copy (web fonts to dist directory & to docs dist)
 
 ## Requirements
 

@@ -29,5 +29,11 @@
     - jekyll
     - nginx
   tasks:
+    - name: install gulp npm package globally
+      npm: name=gulp global=yes
+    - name: install node dependencies through npm
+      npm: path=/app
+    - name: run gulp build task
+      command: "gulp chdir=/app"
     - name: run jekyll build
       shell: "/usr/local/rvm/bin/rvm all do jekyll build chdir={{ app_root }} executable=/bin/bash"
