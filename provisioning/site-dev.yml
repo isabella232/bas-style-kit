@@ -31,6 +31,11 @@
   tasks:
     - name: install gulp npm package globally
       npm: name=gulp global=yes
+
+- name: complete setup of web-servers
+  hosts: bas-style-kit-webservers-dev
+  remote_user: app
+  tasks:
     - name: install node dependencies through npm
       npm: path=/app
     - name: run gulp build task
