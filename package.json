@@ -16,6 +16,9 @@
   },
   "license": "MIT",
   "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.4"
+  },
   "devDependencies": {
     "del": "^1.2",
     "gulp": "^3.9",
