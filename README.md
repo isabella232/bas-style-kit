@@ -13,6 +13,7 @@ This project is based on the BASIS project template (version 1).
 * add 'https://github.com/FontFaceKit/open-sans' as npm dependency
 * add font-awesome and dev-icons as npm dependencies
 
+* add a prod environment (i.e. convert dev-remote to prod-remote)
 * add npm install --production for prod
 
 * remove grunt file when possible
