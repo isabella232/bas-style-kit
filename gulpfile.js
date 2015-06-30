@@ -16,6 +16,11 @@ var destinations = {
   'css': path.join('.', 'dist', 'css'),
   'docs': path.join('.', 'documentation', 'end-users')
 };
+var configs = {
+  less: {
+    strictMath: true
+    // Less stylemaps are not supported by the gulp-less plugin, therefore gulp-sourcemaps is used
+  },
   autoprefixer: {
     browsers: [
       "Android 2.3",
@@ -30,6 +35,7 @@ var destinations = {
     cascade: false,
     remove: true
   }
+};
 
 
 // Atomic tasks - do only one thing
@@ -37,10 +43,7 @@ var destinations = {
 gulp.task('less', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(sourcemaps.init())
-    .pipe(less({
-      strictMath: true
-      // Less stylemaps are not supported by the gulp-less plugin, therefore gulp-sourcemaps is used
-    }))
+    .pipe(less(configs.less))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(destinations.css))
     .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));
