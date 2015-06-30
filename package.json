@@ -37,10 +37,11 @@
   "files": [
     "dist",
     "fonts",
-    "grunt",
     "js/*.js",
     "less/**/*.less",
-    "Gruntfile.js",
-    "LICENSE"
+    "gulp.js",
+    "LICENSE",
+    "LICENSE-bootstrap",
+    "README.md"
   ]
 }
