@@ -9,6 +9,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var csslint = require('gulp-csslint');
 var csscomb = require('gulp-csscomb');
+var minifycss = require('gulp-minify-css');
+var rename = require("gulp-rename");
 
 // Variables
 var sources = {
@@ -39,6 +41,9 @@ var configs = {
   },
   csslint: {
     csslintrc: '.csslintrc'
+  },
+  minifycss: {
+    compatibility: 'ie8'
   }
 };
 
@@ -46,6 +51,19 @@ var configs = {
 gulp.task('less-only', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(less(configs.less))
+    .pipe(gulp.dest(destinations.css))
+    .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));
+});
+
+gulp.task('less-no-min', function() {
+  return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
+    .pipe(sourcemaps.init())
+    .pipe(less(configs.less))
+    .pipe(autoprefixer(configs.autoprefixer))
+    .pipe(csscomb())
+    .pipe(csslint(configs.csslint.csslintrc))
+    .pipe(csslint.reporter())
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(destinations.css))
     .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));
 });
@@ -58,6 +76,8 @@ gulp.task('less', function() {
     .pipe(csscomb())
     .pipe(csslint(configs.csslint.csslintrc))
     .pipe(csslint.reporter())
+    .pipe(minifycss(configs.minifycss))
+    .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(destinations.css))
     .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));

@@ -37,8 +37,6 @@ This project is based on the BASIS project template (version 1).
 * uglify (for the concated JS files)
 * qunit (not sure if we need this)
 
-* minified with source maps
-
 * copy (web fonts to dist directory & to docs dist)
 
 ## Requirements
@@ -217,9 +215,11 @@ This command will:
 * Compile `less/bas-style-kit.less` into `dist/css/bas-style-kit.css` and `documentation/end-users/dist/css/bas-style-kit.css`
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
 * Run compiled CSS through [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/) - see the *linting* sub-section for more information
+* Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` suffix
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for this compiled CSS file in both locations
 
-Note: To only compile the Less files into CSS you can use the `gulp less-only` task.
+To prevent the compiled CSS being minified use the `gulp-less-no-min` task instead.
+To only compile Less files into CSS you can use the `gulp less-only` task instead.
 
 #### CSS linting
 
