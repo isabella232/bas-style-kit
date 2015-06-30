@@ -37,10 +37,11 @@ This project is based on the BASIS project template (version 1).
 * uglify (for the concated JS files)
 * qunit (not sure if we need this)
 
-* less (using options: strict math, sourcemaps)
+* less (using options: minified-styles + sourcemaps)
 * autoprefixer
-* csslint
-* csscomb (using options file less/.csscomb.json)
+* csslint (using options file .csslintrc)
+* csscomb (using options file .csscomb.json)
+
 * copy (web fonts to dist directory & to docs dist)
 
 ## Requirements
@@ -191,7 +192,33 @@ Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` 
 
 It is assumed you have setup the environment you wish to use and your working directory is the root of this project.
 
-TODO: Main section (i.e. LESS/JS/etc.)
+### Less styles
+
+As the BAS Style Kit is based on Bootstrap we use the same CSS preprocessor, [Less](http://lesscss.org/), to ensure we can easily extend this framework to meet our needs.
+
+Note: The BAS Style Kit is **not** a custom build of Bootstrap, it is a layer over the top. This means removing the Style Kit from a project will result in using the base Bootstrap features, rather than removing all styling.
+
+These styles are structured in a similar, if not identical, way as needed (i.e. if we extend Bootstrap's `grid.less` we will use create a `grid.less` with our customisations/additions).
+This ensures any familiarity with Bootstrap's structure can be reused within the BAS Style Kit, even if the styles themselves will naturally be different.
+
+All Less styles are located in the `less` directory and the main entry point is `less/bas-style-kit.less`. This is file simply imports other files that make up the BAS Style Kit styles.
+Less files are loaded in sequence, therefore if file *a* relies on file *b*, file *a* will need to be included before file *b*. This should make sense when looking at the files.
+
+Importantly this file includes a `variables.less` and various mixins from the Bootstrap framework itself. This is because we make additions to the Bootstrap grid for example and this requires the use of a number of mixins.
+Generally we simply use these mixins with different parameters and there is therefore no reason to duplicate their functionality so we simply import these mixins as needed and call them from within our styles.
+
+Importantly these imported mixins are *unaltered* and we therefore do not alter the underlying Bootstrap framework in any way.
+
+#### Compiling Less styles
+
+Less is a CSS pre-processor and therefore has to be compiled down to CSS before it can be used within a browser.
+
+The Bas Style Kit uses a Gulp task to do this, through the `gulp less` command.
+
+This command will:
+
+* Compile `less/bas-style-kit.less` into `dist/css/bas-style-kit.css` and `documentation/end-users/dist/css/bas-style-kit.css`
+* Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for this compiled CSS file in both locations
 
 ### Documentation
 
