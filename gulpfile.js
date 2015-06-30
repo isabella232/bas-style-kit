@@ -44,16 +44,15 @@ var configs = {
 
 // Atomic tasks - do only one thing
 
-gulp.task('less', function() {
+// Tasks
+gulp.task('less-only', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
-    .pipe(sourcemaps.init())
     .pipe(less(configs.less))
-    .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(destinations.css))
     .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));
 });
 
-gulp.task('less-autoprefixer', function() {
+gulp.task('less', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(sourcemaps.init())
     .pipe(less(configs.less))

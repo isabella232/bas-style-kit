@@ -211,7 +211,7 @@ Importantly these imported mixins are *unaltered* and we therefore do not alter 
 
 Less is a CSS pre-processor and therefore has to be compiled down to CSS before it can be used within a browser.
 
-The Bas Style Kit uses a Gulp task to do this, through the `gulp less` command.
+The Bas Style Kit uses a Gulp task to do this `gulp less`.
 
 This command will:
 
@@ -219,6 +219,8 @@ This command will:
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
 * Run compiled CSS through [csslint](http://csslint.net/) - see the *linting* sub-section for more information
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for this compiled CSS file in both locations
+
+Note: To only compile the Less files into CSS you can use the `gulp less-only` task.
 
 #### CSS linting
 
