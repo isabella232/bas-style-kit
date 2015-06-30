@@ -38,9 +38,9 @@ This project is based on the BASIS project template (version 1).
 * qunit (not sure if we need this)
 
 * less (using options: minified-styles + sourcemaps)
-* autoprefixer
 * csslint (using options file .csslintrc)
 * csscomb (using options file .csscomb.json)
+* minified with source maps
 
 * copy (web fonts to dist directory & to docs dist)
 
@@ -218,6 +218,7 @@ The Bas Style Kit uses a Gulp task to do this, through the `gulp less` command.
 This command will:
 
 * Compile `less/bas-style-kit.less` into `dist/css/bas-style-kit.css` and `documentation/end-users/dist/css/bas-style-kit.css`
+* Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for this compiled CSS file in both locations
 
 ### Documentation
