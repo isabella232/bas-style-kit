@@ -37,7 +37,6 @@ This project is based on the BASIS project template (version 1).
 * uglify (for the concated JS files)
 * qunit (not sure if we need this)
 
-* csslint (using options file .csslintrc)
 * csscomb (using options file .csscomb.json)
 * minified with source maps
 
@@ -218,7 +217,22 @@ This command will:
 
 * Compile `less/bas-style-kit.less` into `dist/css/bas-style-kit.css` and `documentation/end-users/dist/css/bas-style-kit.css`
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
+* Run compiled CSS through [csslint](http://csslint.net/) - see the *linting* sub-section for more information
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for this compiled CSS file in both locations
+
+#### CSS linting
+
+Compiled CSS is ran through the same linting tools Boostrap uses, and with the same settings.
+
+Errors are reported when running the appropriate gulp task and outputted to the terminal.
+
+##### Known errors
+
+These errors are known and accepted for the reasons given here:
+
+* `margin-left: 0%;`
+  * Breaks the *no units for zero values* rule.
+  * This value is calculated by a mixin and there is therefore no way to remove the unit if a result is `0`.
 
 ### Documentation
 

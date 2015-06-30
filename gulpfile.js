@@ -7,6 +7,7 @@ var path = require('path');
 var less = require('gulp-less');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
+var csslint = require('gulp-csslint');
 
 // Variables
 var sources = {
@@ -34,6 +35,9 @@ var configs = {
     ],
     cascade: false,
     remove: true
+  },
+  csslint: {
+    csslintrc: '.csslintrc'
   }
 };
 
@@ -54,6 +58,8 @@ gulp.task('less-autoprefixer', function() {
     .pipe(sourcemaps.init())
     .pipe(less(configs.less))
     .pipe(autoprefixer(configs.autoprefixer))
+    .pipe(csslint(configs.csslint.csslintrc))
+    .pipe(csslint.reporter())
     .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(destinations.css))
     .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));
