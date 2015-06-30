@@ -8,6 +8,7 @@ var less = require('gulp-less');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var csslint = require('gulp-csslint');
+var csscomb = require('gulp-csscomb');
 
 // Variables
 var sources = {
@@ -54,6 +55,7 @@ gulp.task('less', function() {
     .pipe(sourcemaps.init())
     .pipe(less(configs.less))
     .pipe(autoprefixer(configs.autoprefixer))
+    .pipe(csscomb())
     .pipe(csslint(configs.csslint.csslintrc))
     .pipe(csslint.reporter())
     .pipe(sourcemaps.write(path.join('.', 'maps')))

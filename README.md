@@ -37,7 +37,6 @@ This project is based on the BASIS project template (version 1).
 * uglify (for the concated JS files)
 * qunit (not sure if we need this)
 
-* csscomb (using options file .csscomb.json)
 * minified with source maps
 
 * copy (web fonts to dist directory & to docs dist)
@@ -217,14 +216,14 @@ This command will:
 
 * Compile `less/bas-style-kit.less` into `dist/css/bas-style-kit.css` and `documentation/end-users/dist/css/bas-style-kit.css`
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
-* Run compiled CSS through [csslint](http://csslint.net/) - see the *linting* sub-section for more information
+* Run compiled CSS through [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/) - see the *linting* sub-section for more information
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for this compiled CSS file in both locations
 
 Note: To only compile the Less files into CSS you can use the `gulp less-only` task.
 
 #### CSS linting
 
-Compiled CSS is ran through the same linting tools Boostrap uses, and with the same settings.
+Compiled CSS is ran through the same linting tools Bootstrap uses, [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/), and uses the same settings.
 
 Errors are reported when running the appropriate gulp task and outputted to the terminal.
 
@@ -232,9 +231,7 @@ Errors are reported when running the appropriate gulp task and outputted to the 
 
 These errors are known and accepted for the reasons given here:
 
-* `margin-left: 0%;`
-  * Breaks the *no units for zero values* rule.
-  * This value is calculated by a mixin and there is therefore no way to remove the unit if a result is `0`.
+None.
 
 ### Documentation
 

@@ -26,6 +26,7 @@
     "gulp-sourcemaps": "^1.5",
     "gulp-autoprefixer": "^2.3",
     "gulp-csslint": "^0.1",
+    "gulp-csscomb": "^3.0",
     "run-sequence": "^0.3"
   },
   "engines": {
