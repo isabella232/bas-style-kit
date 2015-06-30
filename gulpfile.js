@@ -41,9 +41,6 @@ var configs = {
   }
 };
 
-
-// Atomic tasks - do only one thing
-
 // Tasks
 gulp.task('less-only', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
