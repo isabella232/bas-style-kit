@@ -37,7 +37,6 @@ This project is based on the BASIS project template (version 1).
 * uglify (for the concated JS files)
 * qunit (not sure if we need this)
 
-* less (using options: minified-styles + sourcemaps)
 * csslint (using options file .csslintrc)
 * csscomb (using options file .csscomb.json)
 * minified with source maps
