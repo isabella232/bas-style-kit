@@ -9,10 +9,13 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Grid Template for Bootstrap</title>
+    <title>Grid Template for the BAS Style Kit</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- BAS Style Kit CSS -->
+    <link href="../../dist/css/bas-style-kit.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="grid.css" rel="stylesheet">
@@ -32,8 +35,8 @@
     <div class="container">
 
       <div class="page-header">
-        <h1>Bootstrap grid examples</h1>
-        <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
+        <h1>BAS Style Kit grid examples</h1>
+        <p class="lead">Basic grid layouts to get you familiar with building within the customised Bootstrap grid system used by the BAS Style Kit.</p>
       </div>
 
       <h3>Three equal columns</h3>
@@ -81,8 +84,8 @@
       <hr>
 
       <h3>Mixed: mobile and desktop</h3>
-      <p>The Bootstrap 3 grid system has four tiers of classes: xs (phones), sm (tablets), md (desktops), and lg (larger desktops). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</p>
-      <p>Each tier of classes scales up, meaning if you plan on setting the same widths for xs and sm, you only need to specify xs.</p>
+      <p>The BAS Style Kit adds an additional grid size to give five tiers of classes: <code>xs</code> (phones), <code>sm</code> (tablets), <code>md</code> (tablets, small desktops), <code>lg</code> (desktops) and <code>xl</code> (large desktops - custom to the BAS Style Kit). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</p>
+      <p>Each tier of classes scales up, meaning if you plan on setting the same widths for <code>xs</code> and <code>sm</code>, you only need to specify <code>xs</code>.</p>
       <div class="row">
         <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
         <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
@@ -142,6 +145,26 @@
         <div class="col-sm-6 col-md-5 col-lg-6">.col-sm-6 .col-md-5 .col-lg-6</div>
         <div class="col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0">.col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0</div>
       </div>
+
+      <hr>
+
+      <h3>Magic slider</h3>
+      <p class="text-success lead"><i class="fa fa-arrows-h"></i> This page is responsive
+        <span class="hidden-xs text-muted"><i class="fa fa-mobile"></i> Extra small</span>
+        <span class="hidden-sm hidden-md hidden-lg hidden-xl visible-xs-inline"><i class="fa fa-mobile"></i> Extra small</span>
+        ·
+        <span class="hidden-sm text-muted"><i class="fa fa-tablet"></i> Small </span>
+        <span class="hidden-xs hidden-md hidden-lg hidden-xl visible-sm-inline"><i class="fa fa-tablet"></i> Small </span>
+        ·
+        <span class="hidden-md text-muted"><i class="fa fa-tablet"></i> <i class="fa fa-laptop"></i> Medium</span>
+        <span class="hidden-xs hidden-sm hidden-lg hidden-xl visible-md-inline"><i class="fa fa-tablet"></i> <i class="fa fa-laptop"></i> Medium</span>
+        ·
+        <span class="hidden-lg-x text-muted"><i class="fa fa-laptop"></i> <i class="fa fa-desktop"></i> Large</span>
+        <span class="hidden-xs hidden-sm hidden-md hidden-xl visible-lg-inline"><i class="fa fa-laptop"></i> <i class="fa fa-desktop"></i> Large</span>
+        ·
+        <span class="hidden-xl text-muted"><i class="fa fa-desktop"></i> Extra large (custom size)</span>
+        <span class="hidden-xs hidden-sm hidden-md hidden-lg visible-xl-inline"><i class="fa fa-desktop"></i> Extra large (custom size)</span>
+      </p>
 
 
     </div> <!-- /container -->
