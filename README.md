@@ -33,7 +33,7 @@ This project is based on the BASIS project template (version 1).
 
 * jshint
 * jscs
-** concat (all of the individual bootstrap JS plugins into the un-minified bootstrap.js file [if we have our own JS files])
+* concat (all of the individual bootstrap JS plugins into the un-minified bootstrap.js file [if we have our own JS files])
 * uglify (for the concated JS files)
 * qunit (not sure if we need this)
 
