@@ -18,9 +18,10 @@ var sources = {
   'openSans': path.join('.', 'node_modules', 'open-sans-fontface')
 };
 var destinations = {
-  'css': path.join('.', 'dist', 'css'),
-  'fonts': path.join('.', 'dist', 'fonts'),
-  'docs': path.join('.', 'documentation', 'end-users')
+  'dist': path.join('.', 'dist'),
+  'docsDist': path.join('.', 'documentation', 'end-users', 'dist'),
+  'css': path.join('css'),
+  'fonts': path.join('fonts')
 };
 var configs = {
   less: {
@@ -54,7 +55,8 @@ gulp.task('less-only', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(less(configs.less))
     .pipe(gulp.dest(destinations.css))
-    .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
 
 gulp.task('less-no-min', function() {
@@ -66,8 +68,8 @@ gulp.task('less-no-min', function() {
     .pipe(csslint(configs.csslint.csslintrc))
     .pipe(csslint.reporter())
     .pipe(sourcemaps.write(path.join('.', 'maps')))
-    .pipe(gulp.dest(destinations.css))
-    .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
 
 gulp.task('less', function() {
@@ -81,12 +83,13 @@ gulp.task('less', function() {
     .pipe(minifycss(configs.minifycss))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
-    .pipe(gulp.dest(destinations.css))
-    .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
 
 gulp.task('fonts', function() {
   return gulp.src(path.join(sources.openSans, 'fonts', '**/*.*'))
-    .pipe(gulp.dest(path.join(destinations.fonts, 'open-sans')))
-    .pipe(gulp.dest(path.join(destinations.docs, destinations.fonts, 'open-sans')));
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'open-sans')))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'open-sans')));
+});
 });

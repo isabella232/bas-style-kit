@@ -38,8 +38,6 @@ This project is based on the BASIS project template (version 1).
 * uglify (for the concated JS files)
 * qunit (not sure if we need this)
 
-* copy (web fonts to dist directory & to docs dist)
-
 ## To note
 
 * The BAS public website isn't using our custom `XL` grid size
