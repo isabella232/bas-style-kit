@@ -30,8 +30,6 @@ This project is based on the BASIS project template (version 1).
 
 ### tasks to re-implement
 
-* Clean (clean all files in dist and docs/dist [or documentation/end-users/dist equivalent])
-
 * jshint
 * jscs
 * concat (all of the individual bootstrap JS plugins into the un-minified bootstrap.js file [if we have our own JS files])
@@ -252,6 +250,12 @@ These fonts are:
 Font face declarations and and font-family selections are defined through the BAS Style Kit's Less/CSS styles
 
 Font files themselves are copied to their correct location using `gulp fonts`.
+
+### Utility tasks
+
+These tasks are useful as part of larger workflows, they have limited utility on their own.
+
+* `gulp clean` - this will remove all files in `dist` (but not the `dist` directory itself) and all BAS Style Kit related files in `documentation/end-users/dist`
 
 ### Documentation
 

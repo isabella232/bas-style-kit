@@ -92,4 +92,14 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'open-sans')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'open-sans')));
 });
+
+gulp.task('clean', function() {
+  return del([
+    path.join(destinations.dist, '**/*'),
+    path.join(destinations.docsDist, 'css', 'bas-style-kit.css'),
+    path.join(destinations.docsDist, 'css', 'bas-style-kit.min.css'),
+    path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.css.map'),
+    path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.min.css.map'),
+    path.join(destinations.docsDist, 'fonts', '**/*')
+  ]);
 });
