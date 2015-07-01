@@ -26,6 +26,8 @@ This project is based on the BASIS project template (version 1).
 * integrate Helpful's style guide
 * add BAS logo's as a component
 
+* Update the grid classes used in the documentation to make width narrower (i.e. how it was before when large was the widest size)
+
 ### tasks to re-implement
 
 * Clean (clean all files in dist and docs/dist [or documentation/end-users/dist equivalent])
@@ -211,9 +213,9 @@ Importantly these imported mixins are *unaltered* and we therefore do not alter 
 
 Less is a CSS pre-processor and therefore has to be compiled down to CSS before it can be used within a browser.
 
-The Bas Style Kit uses a Gulp task to do this `gulp less`.
+Less compilation and post-processing steps are performed using `gulp less`.
 
-This command will:
+This task will:
 
 * Compile `less/bas-style-kit.less` into `dist/css/bas-style-kit.css` and `documentation/end-users/dist/css/bas-style-kit.css`
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
@@ -221,8 +223,10 @@ This command will:
 * Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` suffix
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for this compiled CSS file in both locations
 
-To prevent the compiled CSS being minified use the `gulp-less-no-min` task instead.
-To only compile Less files into CSS you can use the `gulp less-only` task instead.
+Alternative tasks:
+
+* To prevent the compiled CSS being minified use `gulp-less-no-min`
+* To only compile Less files into CSS use `gulp less-only`
 
 #### CSS linting
 
