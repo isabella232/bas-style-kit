@@ -26,7 +26,6 @@ This project is based on the BASIS project template (version 1).
 * add font-awesome and dev-icons to components
 * integrate Helpful's style guide
 * add BAS logo's as a component
-* add our XL grid size
 
 ### tasks to re-implement
 
@@ -39,6 +38,10 @@ This project is based on the BASIS project template (version 1).
 * qunit (not sure if we need this)
 
 * copy (web fonts to dist directory & to docs dist)
+
+## To note
+
+* The BAS public website isn't using our custom `XL` grid size
 
 ## Requirements
 
