@@ -1,10 +1,5 @@
 /* Custom Bootstrap Docs styles for the BAS Style Kit */
 
-/* Use Open Sans font with a default fall-back */
-body {
-	font-family: "Open Sans", sans-serif
-}
-
 /* Use to indicate content that needs to be reviewed, either to update wording or remove entirely */
 .bsk-u-mark-todo-update {
 	background-color: #F9AFAF;

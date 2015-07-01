@@ -14,10 +14,12 @@ var rename = require("gulp-rename");
 
 // Variables
 var sources = {
-  'stylesheets': path.join('.', 'less')
+  'stylesheets': path.join('.', 'less'),
+  'openSans': path.join('.', 'node_modules', 'open-sans-fontface')
 };
 var destinations = {
   'css': path.join('.', 'dist', 'css'),
+  'fonts': path.join('.', 'dist', 'fonts'),
   'docs': path.join('.', 'documentation', 'end-users')
 };
 var configs = {
@@ -81,4 +83,10 @@ gulp.task('less', function() {
     .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(destinations.css))
     .pipe(gulp.dest(path.join(destinations.docs, destinations.css)));
+});
+
+gulp.task('fonts', function() {
+  return gulp.src(path.join(sources.openSans, 'fonts', '**/*.*'))
+    .pipe(gulp.dest(path.join(destinations.fonts, 'open-sans')))
+    .pipe(gulp.dest(path.join(destinations.docs, destinations.fonts, 'open-sans')));
 });

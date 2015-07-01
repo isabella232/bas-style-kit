@@ -10,7 +10,6 @@ This project is based on the BASIS project template (version 1).
 
 ## TODO:
 
-* add 'https://github.com/FontFaceKit/open-sans' as npm dependency
 * add font-awesome and dev-icons as npm dependencies
 
 * add a prod environment (i.e. convert dev-remote to prod-remote)
@@ -235,7 +234,22 @@ Errors are reported when running the appropriate gulp task and outputted to the 
 
 These errors are known and accepted for the reasons given here:
 
-None.
+* `[GENERAL] Too many @font-face declarations (10). Too many different web fonts in the same stylesheet. (font-faces)`
+  * This is caused by the large number of variants for the Open Sans web-font
+  * Ideally a number of these variants can be dropped which will prevent this error, until then this is not a significant error
+  * Logged as [BASWEB-431](https://jira.ceh.ac.uk/browse/BASWEB-431)
+
+### Fonts
+
+The BAS Style Kit includes a number of web-fonts to provide typographic styling and font based icon libraries.
+
+These fonts are:
+
+* [Open Sans](https://www.google.com/fonts/specimen/Open+Sans) - Used to provide the base typographic font across the BAS Style Kit
+
+Font face declarations and and font-family selections are defined through the BAS Style Kit's Less/CSS styles
+
+Font files themselves are copied to their correct location using `gulp fonts`.
 
 ### Documentation
 

@@ -1,9 +1,21 @@
 // This file is the main entry point for building the BAS Style Kit CSS (i.e. run this file through a LESS compiler)
 
+// Import font-faces
+@import "../node_modules/open-sans-fontface/open-sans.less";
+
 // Import unaltered Bootstrap variables and mixins as needed
 @import "../node_modules/bootstrap/less/variables.less";
 @import "../node_modules/bootstrap/less/mixins/grid-framework.less";
 @import "../node_modules/bootstrap/less/mixins/responsive-visibility.less";
+@import "../node_modules/bootstrap/less/mixins/text-emphasis.less";
+@import "../node_modules/bootstrap/less/mixins/text-overflow.less";
+@import "../node_modules/bootstrap/less/mixins/background-variant.less";
+@import "../node_modules/bootstrap/less/mixins/vendor-prefixes.less";
+@import "../node_modules/bootstrap/less/mixins/tab-focus.less";
+@import "../node_modules/bootstrap/less/mixins/image.less";
+
+// Import unaltered Bootstrap styles so that custom variables can be applied as needed
+@import "../node_modules/bootstrap/less/scaffolding.less";
 
 // Core variables and mixins
 @import "variables.less";
