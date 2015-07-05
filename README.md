@@ -259,8 +259,13 @@ Font files themselves are copied to their correct location using:
 
 * `gulp font-opensans`
 * `gulp font-fontawesome`.
+#### Icon web-fonts
+
+To display the dizzying array of icons within the various icon web-fonts, a set of gulp tasks are used to parse the icon classes within each web-font. these are then exported to `.yml` files for rendering in Jekyll. Where possible, icons are linked to their detail pages on their respective provider's site.
 
 ### Glyphicons
+These data files are created using:
+* `gulp fa` (for Font Awesome)
 
 Bootstrap includes a default icon web-font, Glyphicons Halflings. This font is **NOT** supported within the BAS Style Kit and **SHOULD NOT** be used. Font Awesome, or any of the other speciality web-fonts listed above **SHOULD** be used instead.
 
