@@ -20,8 +20,11 @@ This project is based on the BASIS project template (version 1).
 
 * Switch to 24-span grid
 
+* License map-glyphs ($30)
+
 * add credits/acknowledgements page in end-user documentation for Bootstrap other libraries.
   - Font Awesome
+  - Map Glyphs (mention attribution-free usage)
 
 * add mapglyphs, weather-icons and dev-icons to components
 * integrate Helpful's style guide
@@ -252,13 +255,15 @@ These fonts are:
 
 * [Open Sans](https://www.google.com/fonts/specimen/Open+Sans) - Used to provide the base typographic font across the BAS Style Kit
 * [Font Awesome](http://fontawesome.io) - Used to provide base icons covering general purposes/actions used within web sites and applications
+* [Map Glyphs](http://mapglyphs.com) - Used for providing silhouette's for states, countries, continents and globes [1]
 
 Font face declarations, font-family selections and font file location variables are defined/set through the BAS Style Kit's Less/CSS styles.
 
 Font files themselves are copied to their correct location using:
 
 * `gulp font-opensans`
-* `gulp font-fontawesome`.
+* `gulp font-fontawesome`
+* `gulp font-mapglyphs`
 #### Icon web-fonts
 
 To display the dizzying array of icons within the various icon web-fonts, a set of gulp tasks are used to parse the icon classes within each web-font. these are then exported to `.yml` files for rendering in Jekyll. Where possible, icons are linked to their detail pages on their respective provider's site.
@@ -266,6 +271,7 @@ To display the dizzying array of icons within the various icon web-fonts, a set 
 These data files are created using:
 
 * `gulp fa` (for Font Awesome)
+* `gulp mg` (for Map Glyphs)
 
 #### Glyphicons
 
@@ -276,6 +282,8 @@ As Bootstrap uses Glyphicons by default references it its web-font files are inc
 To avoid browser warnings over references to these missing web-fonts they are copied into the `dist` directories of this project. This is not ideal as they are placed directly within the `fonts` directory, rather than in a name-spaced directory. Again this because references to these fonts are set within Boostrap's pre-compiled styles.
 
 These fonts can be copied to their expected location using `gulp font-glyphicons`.
+
+[1] Map Glyphs is not distributed publicly and requires a license for attribution free usage. For these reasons the font is bundled with the BAS Style Kit as BAS has paid for attribution free usage when used in official projects.
 
 ### Utility tasks
 

@@ -21,7 +21,8 @@ var sources = {
   'stylesheets': path.join('.', 'less'),
   'openSans': path.join('.', 'node_modules', 'open-sans-fontface'),
   'fontAwesome': path.join('.', 'node_modules', 'font-awesome'),
-  'bootstrap': path.join('.', 'node_modules', 'bootstrap')
+  'bootstrap': path.join('.', 'node_modules', 'bootstrap'),
+  'mapglyphs': path.join('.', 'fonts', 'mapglyphs'),
 };
 var destinations = {
   'dist': path.join('.', 'dist'),
@@ -63,6 +64,14 @@ var configs = {
       glyphClassSrcPreix: "@fa-var-",
       jekyllDataFileDir: path.join(destinations.jekyllData),
       jekyllDataFileName: "fontawesomeicons.yml"
+    },
+    dataMgGlyphs: {
+      glyphClassSourceFile: path.join(sources.stylesheets, 'map-glyphs', 'icons.less'),
+      glyphClassRegex: /\.map-([a-zA-Z0-9-]+)/,
+      glyphClassSrcPreix: ".map-",
+      jekyllDataFileDir: path.join(destinations.jekyllData),
+      jekyllDataFileName: "mapglyphsicons.yml"
+    },
     }
   }
 };
@@ -116,6 +125,11 @@ gulp.task('font-fontawesome', function() {
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'font-awesome')));
 });
 
+gulp.task('font-mapglyphs', function() {
+  return gulp.src(path.join(sources.mapglyphs, '**/*.*'))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'map-glyphs')))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'map-glyphs')));
+});
 gulp.task('font-glyphicons', function() {
   return gulp.src(path.join(sources.bootstrap, 'fonts', '**/*.*'))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts)))
@@ -190,6 +204,70 @@ gulp.task('data-fa', function() {
 
   //Debug - enable as needed
   //gulpUtil.log('Found ' + fontAwesomeGlyphLines.length + ' lines in icons.less');
+  //gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
+  //gulpUtil.log('Class 4 looks like: ' + classes[3]);
+  //gulpUtil.log('Yaml output looks like: ' + classesYml);
+
+  return false;
+});
+
+gulp.task('data-mg', function() {
+  var classes = [];
+
+  // Get lines from Map Glyphs's icons.less file to determine available glyph classes
+  var mapGlyphFile = fs.readFileSync(configs.tasks.dataMgGlyphs.glyphClassSourceFile, 'utf8');
+  var mapGlyphLines = mapGlyphFile.split('\n');
+
+  // For each line from the file check if it defines a glyph class using a regex
+  for (var i = 0, len = mapGlyphLines.length; i < len; i++) {
+    
+    var re = configs.tasks.dataMgGlyphs.glyphClassRegex;
+    var str = mapGlyphLines[i];
+    var match;
+
+    if ((match = re.exec(str)) !== null) {
+      if (match.index === re.lastIndex) {
+          re.lastIndex++;
+      }
+
+      // Strip off the common prefix and add to array 
+      var className = match[0].replace(configs.tasks.dataMgGlyphs.glyphClassSrcPreix, '');
+      classes.push(className);
+    }
+  }
+
+  // Sort classes array by alphabetical order for cleanness
+  classes = classes.sort();
+
+  // Convert classes array to yaml
+  var classesYml = yaml.stringify(classes, 4);
+
+  // Ensure output file directory exists
+  mkdirp(configs.tasks.dataMgGlyphs.jekyllDataFileDir, function (err) {
+    if (err)
+    {
+      gulpUtil.error(err);
+    } else
+    {
+      // Write out Jekyll data file
+      fs.writeFile(
+        path.join(configs.tasks.dataMgGlyphs.jekyllDataFileDir, configs.tasks.dataMgGlyphs.jekyllDataFileName), 
+        classesYml, 
+        function(err) {
+          if(err)
+          {
+            gulpUtil.error(err);
+          } else
+          {
+            gulpUtil.log('Map Glyphs classes file written - containing ' + classes.length + ' icon classes');
+          }
+        }
+      ); 
+    }
+  });
+
+  //Debug - enable as needed
+  //gulpUtil.log('Found ' + mapGlyphLines.length + ' lines in icons.less');
   //gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
   //gulpUtil.log('Class 4 looks like: ' + classes[3]);
   //gulpUtil.log('Yaml output looks like: ' + classesYml);

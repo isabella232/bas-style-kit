@@ -23,6 +23,20 @@
   margin-bottom: 20px;
 }
 
+/* The logo on the homepage emulates the BAS logo but using web-fonts/CSS rather than an image - these styles support this */
+.bs-docs-booticon {
+  border-radius: 100%;
+  line-height: 1.5;
+  border-width: 3px;
+}
+
+/* Make the logo on the homepage even more in your face */
+.bs-docs-booticon-lg {
+  width: 216px;
+  height: 216px;
+  font-size: 160px;
+}
+
 /*
  * Font icons
  *

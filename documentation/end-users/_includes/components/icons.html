@@ -19,7 +19,26 @@
     </ul>
   </div>
 
-  
+  <h2 id="map-glyphs">Map Glyphs <small>version 2.0</small></h2>
+  <p class="lead"><a href="http://mapglyphs.com/">Map Glyphs</a> is a set of outline <em>maps</em> covering states, countries, continents and globes.</p>
+
+  <h3 id="map-glyphs-available-glyphs">Available glyphs <small>in alphabetical order</small></h3>
+  <div class="bsk-icons">
+    <ul class="bsk-icons-list">
+      {% for iconClassName in site.data.mapglyphsicons %}
+        <li>
+            <i class="icon mg mg-fw map-{{ iconClassName }}"></i>
+            <span class="icon-class">mg map-{{ iconClassName }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="bs-callout bs-callout-warning" id="callout-mapglyphs-attribution">
+    <h4>This web-font is a licensed work</h4>
+    <p>Under the licensing terms for this web-font, public attribution is required <strong>unless</strong> a non-attribution license is purchased.</p>
+    <p>BAS has purchased such a license allowing this web-font to be used attribution free within official BAS projects. This license <strong>does not cover</strong> all users of this Style Kit. I.e. if you are using this Style Kit for a personal project (even if work related) this is <strong>not covered</strong>.</p>
+    <p>For more information and assistance please use the <a {{ site.feedback_attributes }}>submit feedback</a> link to get in touch.</p> 
+  </div>
 
   <h2 id="glyphicons-how-to-use">How to use</h2>
   <p>For performance reasons, all icons require a base class and individual icon class. To use, place the following code just about anywhere. Be sure to leave a space between the icon and text for proper padding.</p>
