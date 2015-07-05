@@ -93,6 +93,12 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'open-sans')));
 });
 
+gulp.task('font-glyphicons', function() {
+  return gulp.src(path.join(sources.bootstrap, 'fonts', '**/*.*'))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts)));
+});
+
 gulp.task('clean', function() {
   return del([
     path.join(destinations.dist, '**/*'),
