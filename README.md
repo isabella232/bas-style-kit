@@ -10,7 +10,7 @@ This project is based on the BASIS project template (version 1).
 
 ## TODO:
 
-* add mapglyphs, weather-icons and dev-icons as npm dependencies
+* add weather-icons as npm dependencies
 
 * add a prod environment (i.e. convert dev-remote to prod-remote)
 * add npm install --production for prod
@@ -25,8 +25,9 @@ This project is based on the BASIS project template (version 1).
 * add credits/acknowledgements page in end-user documentation for Bootstrap other libraries.
   - Font Awesome
   - Map Glyphs (mention attribution-free usage)
+  - Devicons
 
-* add mapglyphs, weather-icons and dev-icons to components
+* add weather-icons to components
 * integrate Helpful's style guide
 * add BAS logo's as a component
 
@@ -256,6 +257,7 @@ These fonts are:
 * [Open Sans](https://www.google.com/fonts/specimen/Open+Sans) - Used to provide the base typographic font across the BAS Style Kit
 * [Font Awesome](http://fontawesome.io) - Used to provide base icons covering general purposes/actions used within web sites and applications
 * [Map Glyphs](http://mapglyphs.com) - Used for providing silhouette's for states, countries, continents and globes [1]
+* [Devicons](http://vorillaz.github.io/devicons) - Used for brand logos of technology frameworks, tools and services
 
 Font face declarations, font-family selections and font file location variables are defined/set through the BAS Style Kit's Less/CSS styles.
 
@@ -264,6 +266,8 @@ Font files themselves are copied to their correct location using:
 * `gulp font-opensans`
 * `gulp font-fontawesome`
 * `gulp font-mapglyphs`
+* `gulp font-devicons`
+
 #### Icon web-fonts
 
 To display the dizzying array of icons within the various icon web-fonts, a set of gulp tasks are used to parse the icon classes within each web-font. these are then exported to `.yml` files for rendering in Jekyll. Where possible, icons are linked to their detail pages on their respective provider's site.
@@ -272,6 +276,7 @@ These data files are created using:
 
 * `gulp fa` (for Font Awesome)
 * `gulp mg` (for Map Glyphs)
+* `gulp di` (for Devicons)
 
 #### Glyphicons
 

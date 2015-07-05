@@ -23,6 +23,7 @@ var sources = {
   'fontAwesome': path.join('.', 'node_modules', 'font-awesome'),
   'bootstrap': path.join('.', 'node_modules', 'bootstrap'),
   'mapglyphs': path.join('.', 'fonts', 'mapglyphs'),
+  'devicons': path.join('.', 'node_modules', 'devicons')
 };
 var destinations = {
   'dist': path.join('.', 'dist'),
@@ -72,6 +73,12 @@ var configs = {
       jekyllDataFileDir: path.join(destinations.jekyllData),
       jekyllDataFileName: "mapglyphsicons.yml"
     },
+    dataDiGlyphs: {
+      glyphClassSourceFile: path.join(sources.stylesheets, 'devicons', 'icons.less'),
+      glyphClassRegex: /\.devicons-([a-zA-Z0-9-_]+)/,
+      glyphClassSrcPreix: ".devicons-",
+      jekyllDataFileDir: path.join(destinations.jekyllData),
+      jekyllDataFileName: "deviconsicons.yml"
     }
   }
 };
@@ -130,6 +137,13 @@ gulp.task('font-mapglyphs', function() {
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'map-glyphs')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'map-glyphs')));
 });
+
+gulp.task('font-devicons', function() {
+  return gulp.src(path.join(sources.devicons, 'fonts', '**/*.*'))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'devicons')))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'devicons')));
+});
+
 gulp.task('font-glyphicons', function() {
   return gulp.src(path.join(sources.bootstrap, 'fonts', '**/*.*'))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts)))
@@ -268,6 +282,70 @@ gulp.task('data-mg', function() {
 
   //Debug - enable as needed
   //gulpUtil.log('Found ' + mapGlyphLines.length + ' lines in icons.less');
+  //gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
+  //gulpUtil.log('Class 4 looks like: ' + classes[3]);
+  //gulpUtil.log('Yaml output looks like: ' + classesYml);
+
+  return false;
+});
+
+gulp.task('data-di', function() {
+  var classes = [];
+
+  // Get lines from Devicon's icons.less file to determine available glyph classes
+  var deviconsFile = fs.readFileSync(configs.tasks.dataDiGlyphs.glyphClassSourceFile, 'utf8');
+  var deviconsLines = deviconsFile.split('\n');
+
+  // For each line from the file check if it defines a glyph class using a regex
+  for (var i = 0, len = deviconsLines.length; i < len; i++) {
+    
+    var re = configs.tasks.dataDiGlyphs.glyphClassRegex;
+    var str = deviconsLines[i];
+    var match;
+
+    if ((match = re.exec(str)) !== null) {
+      if (match.index === re.lastIndex) {
+          re.lastIndex++;
+      }
+
+      // Strip off the common prefix and add to array 
+      var className = match[0].replace(configs.tasks.dataDiGlyphs.glyphClassSrcPreix, '');
+      classes.push(className);
+    }
+  }
+
+  // Sort classes array by alphabetical order for cleanness
+  classes = classes.sort();
+
+  // Convert classes array to yaml
+  var classesYml = yaml.stringify(classes, 4);
+
+  // Ensure output file directory exists
+  mkdirp(configs.tasks.dataDiGlyphs.jekyllDataFileDir, function (err) {
+    if (err)
+    {
+      gulpUtil.error(err);
+    } else
+    {
+      // Write out Jekyll data file
+      fs.writeFile(
+        path.join(configs.tasks.dataDiGlyphs.jekyllDataFileDir, configs.tasks.dataDiGlyphs.jekyllDataFileName), 
+        classesYml, 
+        function(err) {
+          if(err)
+          {
+            gulpUtil.error(err);
+          } else
+          {
+            gulpUtil.log('Devicons classes file written - containing ' + classes.length + ' icon classes');
+          }
+        }
+      ); 
+    }
+  });
+
+  //Debug - enable as needed
+  //gulpUtil.log('Found ' + deviconsLines.length + ' lines in icons.less');
   //gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
   //gulpUtil.log('Class 4 looks like: ' + classes[3]);
   //gulpUtil.log('Yaml output looks like: ' + classesYml);

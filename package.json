@@ -19,7 +19,8 @@
   "dependencies": {
     "bootstrap": "3.3.4",
     "open-sans-fontface": "^1.4",
-    "font-awesome": "^4.3"
+    "font-awesome": "^4.3",
+    "devicons": "^1.8"
   },
   "devDependencies": {
     "del": "^1.2",

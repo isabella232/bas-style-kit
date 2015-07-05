@@ -40,6 +40,24 @@
     <p>For more information and assistance please use the <a {{ site.feedback_attributes }}>submit feedback</a> link to get in touch.</p> 
   </div>
 
+  <h2 id="devicons">Devicons <small>version 1.8.x</small></h2>
+  <p class="lead"><a href="http://vorillaz.github.io/devicons">Devicons</a> is a set of brand logos for technology frameworks, tools and services.</p>
+
+  <h3 id="devicons-available-glyphs">Available glyphs <small>in alphabetical order</small></h3>
+  <div class="bsk-icons">
+    <ul class="bsk-icons-list">
+      {% for iconClassName in site.data.deviconsicons %}
+        <li>
+            <a href="http://vorillaz.github.io/devicons/#/singleicon/{{ iconClassName }}">
+              <i class="icon devicons devicons-{{ iconClassName }}"></i>
+              <span class="icon-class">devicons devicons-{{ iconClassName }}</span>
+            </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
   <h2 id="glyphicons-how-to-use">How to use</h2>
   <p>For performance reasons, all icons require a base class and individual icon class. To use, place the following code just about anywhere. Be sure to leave a space between the icon and text for proper padding.</p>
   <div class="bs-callout bs-callout-danger" id="callout-glyphicons-dont-mix">
