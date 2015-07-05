@@ -1,5 +1,9 @@
 /* Custom Bootstrap Docs styles for the BAS Style Kit */
 
+/*
+ * General
+ */
+
 /* Use to indicate content that needs to be reviewed, either to update wording or remove entirely */
 .bsk-u-mark-todo-update {
 	background-color: #F9AFAF;

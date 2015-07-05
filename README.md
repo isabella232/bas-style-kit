@@ -248,13 +248,13 @@ The BAS Style Kit includes a number of web-fonts to provide typographic styling 
 These fonts are:
 
 * [Open Sans](https://www.google.com/fonts/specimen/Open+Sans) - Used to provide the base typographic font across the BAS Style Kit
+Font face declarations, font-family selections and font file location variables are defined/set through the BAS Style Kit's Less/CSS styles.
 ### Glyphicons
 
 Bootstrap includes a default icon web-font, Glyphicons Halflings. This font is **NOT** supported within the BAS Style Kit and **SHOULD NOT** be used. Font Awesome, or any of the other speciality web-fonts listed above **SHOULD** be used instead.
 
 As Bootstrap uses Glyphicons by default references it its web-font files are included in the pre-compiled CSS this project uses as a base. It is not therefore possible to remove such references without modifying and supplying our own version of Bootstrap.
 
-Font face declarations and and font-family selections are defined through the BAS Style Kit's Less/CSS styles
 To avoid browser warnings over references to these missing web-fonts they are copied into the `dist` directories of this project. This is not ideal as they are placed directly within the `fonts` directory, rather than in a name-spaced directory. Again this because references to these fonts are set within Boostrap's pre-compiled styles.
 
 Font files themselves are copied to their correct location using `gulp fonts`.
