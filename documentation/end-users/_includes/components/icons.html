@@ -1,19 +1,25 @@
 <div class="bs-docs-section">
-  <h1 id="glyphicons" class="page-header">Glyphicons</h1>
+  <h1 id="icons" class="page-header">Icons</h1>
 
-  <h2 id="glyphicons-glyphs">Available glyphs</h2>
-  <p>Includes over 250 glyphs in font format from the Glyphicon Halflings set. <a href="http://glyphicons.com/">Glyphicons</a> Halflings are normally not available for free, but their creator has made them available for Bootstrap free of cost. As a thank you, we only ask that you include a link back to <a href="http://glyphicons.com/">Glyphicons</a> whenever possible.</p>
-  <div class="bs-glyphicons">
-    <ul class="bs-glyphicons-list">
-      {% for iconClassName in site.data.glyphicons %}
+  <h2 id="font-awesome">Font awesome</h2>
+  <p class="lead"><a href="http://fontawesome.io/">Font Awesome</a> is a free pictographic web-font of over 500 web-related actions.</p>
+  <p>This is the <em>base</em> icon web-font within the BAS Style Kit and is used for generic or typical purposes/actions within web sites and applications.</p>
+
+  <h3 id="font-awesome-available-glyphs">Available glyphs <small>in alphabetical order</small></h3>
+  <div class="bsk-icons">
+    <ul class="bsk-icons-list">
+      {% for iconClassName in site.data.fontawesomeicons %}
         <li>
-          <span class="glyphicon {{ iconClassName }}" aria-hidden="true"></span>
-          <span class="glyphicon-class">glyphicon {{ iconClassName }}</span>
+          <a href="http://fontawesome.io/icon/{{ iconClassName }}/">
+            <i class="icon fa fa-fw fa-{{ iconClassName }}"></i>
+            <span class="icon-class">fa {{ iconClassName }}</span>
+          </a>
         </li>
       {% endfor %}
     </ul>
   </div>
 
+  
 
   <h2 id="glyphicons-how-to-use">How to use</h2>
   <p>For performance reasons, all icons require a base class and individual icon class. To use, place the following code just about anywhere. Be sure to leave a space between the icon and text for proper padding.</p>

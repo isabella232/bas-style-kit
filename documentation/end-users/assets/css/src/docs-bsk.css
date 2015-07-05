@@ -22,3 +22,60 @@
 .bs-docs-header {
   margin-bottom: 20px;
 }
+
+/*
+ * Font icons
+ *
+ * Special styles for displaying various font icons and their classes in the docs.
+ */
+
+.bsk-icons {
+  margin: 0 -10px 20px;
+  overflow: hidden;
+}
+.bsk-icons-list {
+  padding-left: 0;
+  list-style: none;
+}
+.bsk-icons-list li {
+  float: left;
+  width: 25%;
+  height: 115px;
+  padding: 10px;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #fff;
+}
+.bsk-icons-list li a {
+  color: #333333;
+}
+.bsk-icons-list li a:hover {
+  color: #ffffff;
+}
+.bsk-icons-list .icon {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.bsk-icons-list .icon-class {
+  display: block;
+  text-align: center;
+  word-wrap: break-word; /* Help out IE10+ with class names */
+}
+.bsk-icons-list li:hover {
+  color: #fff;
+  background-color: #563d7c;
+}
+
+@media (min-width: 768px) {
+  .bsk-icons {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .bsk-icons li {
+    width: 12.5%;
+    font-size: 12px;
+  }
+}

@@ -2,6 +2,9 @@
 var del = require('del');
 var gulp = require('gulp');
 var path = require('path');
+var fs = require('fs');
+var yaml = require('yamljs');
+var mkdirp = require('mkdirp');
 
 // Gulp modules
 var less = require('gulp-less');
@@ -11,15 +14,20 @@ var csslint = require('gulp-csslint');
 var csscomb = require('gulp-csscomb');
 var minifycss = require('gulp-minify-css');
 var rename = require("gulp-rename");
+var gulpUtil = require('gulp-util');
 
 // Variables
 var sources = {
   'stylesheets': path.join('.', 'less'),
-  'openSans': path.join('.', 'node_modules', 'open-sans-fontface')
+  'openSans': path.join('.', 'node_modules', 'open-sans-fontface'),
+  'fontAwesome': path.join('.', 'node_modules', 'font-awesome'),
+  'bootstrap': path.join('.', 'node_modules', 'bootstrap')
 };
 var destinations = {
   'dist': path.join('.', 'dist'),
+  'jekyll': path.join('.', 'documentation', 'end-users'),
   'docsDist': path.join('.', 'documentation', 'end-users', 'dist'),
+  'jekyllData': path.join('.', 'documentation', 'end-users', '_data'),
   'css': path.join('css'),
   'fonts': path.join('fonts')
 };
@@ -47,6 +55,15 @@ var configs = {
   },
   minifycss: {
     compatibility: 'ie8'
+  },
+  tasks: {
+    dataFaGlyphs: {
+      glyphClassSourceFile: path.join(sources.fontAwesome, 'less', 'icons.less'),
+      glyphClassRegex: /\@fa-var-([a-zA-Z0-9-]+)/,
+      glyphClassSrcPreix: "@fa-var-",
+      jekyllDataFileDir: path.join(destinations.jekyllData),
+      jekyllDataFileName: "fontawesomeicons.yml"
+    }
   }
 };
 
@@ -87,10 +104,16 @@ gulp.task('less', function() {
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
 
-gulp.task('fonts', function() {
+gulp.task('font-opensans', function() {
   return gulp.src(path.join(sources.openSans, 'fonts', '**/*.*'))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'open-sans')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'open-sans')));
+});
+
+gulp.task('font-fontawesome', function() {
+  return gulp.src(path.join(sources.fontAwesome, 'fonts', '**/*.*'))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'font-awesome')))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'font-awesome')));
 });
 
 gulp.task('font-glyphicons', function() {
@@ -108,4 +131,68 @@ gulp.task('clean', function() {
     path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.min.css.map'),
     path.join(destinations.docsDist, 'fonts', '**/*')
   ]);
+});
+
+gulp.task('data-fa', function() {
+  var classes = [];
+
+  // Get lines from Font Awesome's icons.less file to determine available glyph classes
+  var fontAwesomeGlyphFile = fs.readFileSync(configs.tasks.dataFaGlyphs.glyphClassSourceFile, 'utf8');
+  var fontAwesomeGlyphLines = fontAwesomeGlyphFile.split('\n');
+
+  // For each line from the file check if it defines a glyph class using a regex
+  for (var i = 0, len = fontAwesomeGlyphLines.length; i < len; i++) {
+    
+    var re = configs.tasks.dataFaGlyphs.glyphClassRegex;
+    var str = fontAwesomeGlyphLines[i];
+    var match;
+
+    if ((match = re.exec(str)) !== null) {
+      if (match.index === re.lastIndex) {
+          re.lastIndex++;
+      }
+
+      // Strip off the common prefix and add to array 
+      var className = match[0].replace(configs.tasks.dataFaGlyphs.glyphClassSrcPreix, '');
+      classes.push(className);
+    }
+  }
+
+  // Sort classes array by alphabetical order for cleanness
+  classes = classes.sort();
+
+  // Convert classes array to yaml
+  var classesYml = yaml.stringify(classes, 4);
+
+  // Ensure output file directory exists
+  mkdirp(configs.tasks.dataFaGlyphs.jekyllDataFileDir, function (err) {
+    if (err)
+    {
+      gulpUtil.error(err);
+    } else
+    {
+      // Write out Jekyll data file
+      fs.writeFile(
+        path.join(configs.tasks.dataFaGlyphs.jekyllDataFileDir, configs.tasks.dataFaGlyphs.jekyllDataFileName), 
+        classesYml, 
+        function(err) {
+          if(err)
+          {
+            gulpUtil.error(err);
+          } else
+          {
+            gulpUtil.log('Font Awesome classes file written - containing ' + classes.length + ' icon classes');
+          }
+        }
+      ); 
+    }
+  });
+
+  //Debug - enable as needed
+  //gulpUtil.log('Found ' + fontAwesomeGlyphLines.length + ' lines in icons.less');
+  //gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
+  //gulpUtil.log('Class 4 looks like: ' + classes[3]);
+  //gulpUtil.log('Yaml output looks like: ' + classesYml);
+
+  return false;
 });

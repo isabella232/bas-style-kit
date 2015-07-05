@@ -18,7 +18,8 @@
   "private": true,
   "dependencies": {
     "bootstrap": "3.3.4",
-    "open-sans-fontface": "^1.4"
+    "open-sans-fontface": "^1.4",
+    "font-awesome": "^4.3"
   },
   "devDependencies": {
     "del": "^1.2",
@@ -30,7 +31,10 @@
     "gulp-csscomb": "^3.0",
     "gulp-minify-css": "^1.2",
     "gulp-rename": "^1.2",
-    "run-sequence": "^0.3"
+    "gulp-util": "^3.0",
+    "run-sequence": "^0.3",
+    "yamljs": "^0.2",
+    "mkdirp": "^0.5"
   },
   "engines": {
     "node": ">=0.10.1"
