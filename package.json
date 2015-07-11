@@ -34,6 +34,7 @@
     "gulp-sourcemaps": "^1.5",
     "gulp-util": "^3.0",
     "mkdirp": "^0.5",
+    "run-sequence": "^1.1.1",
     "yamljs": "^0.2"
   },
   "engines": {

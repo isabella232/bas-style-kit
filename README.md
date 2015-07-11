@@ -190,21 +190,25 @@ functionality so we can simply import any mixins we need for our styles, without
 [Less](http://lesscss.org/) is a [CSS pre-processor](https://github.com/showcases/css-preprocessors)
 and therefore has to be compiled down to CSS before it can be used within a browser.
 
-Less compilation and any further processing steps are performed using `gulp less-min`.
+Less compilation, processing steps and output of both minified and non-minified CSS files using `gulp less`.
 
-This task will:
+This task will call these tasks in parallel: `gulp [less-min | less-no-min]`.
+
+`gulp less-no-min` will:
 
 * Compile `less/bas-style-kit.less` into CSS
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
 * Run compiled CSS through [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/) - see *linting* for more
-* Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` filename suffix
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled CSS files
 * Output compiled, processed CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
-Alternative tasks:
+`gulp less-min` will, in addition to the steps performed in `gulp less-no-min`:
 
-* To only compile Less files into CSS use `gulp less-only`
-* To prevent CSS minfication use `gulp-less-no-min`
+* Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` filename suffix
+* Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled minified CSS files
+* Output compiled, minified CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
+
+Note: If needed to only compile Less files into CSS use the `gulp less-only` task.
 
 #### CSS linting
 
@@ -234,25 +238,18 @@ The BAS Style Kit includes a number of web-fonts to provide typographic styling 
 
 Font file locations and font-family declarations are defined through the BAS Style Kit's Less/CSS styles.
 
-The font files themselves are copied to their location using:
+Font files can be copied to their relevant locations using `jekyll fonts`.
 
-* `gulp fonts-opensans`
-* `gulp fonts-fontawesome`
-* `gulp fonts-mapglyphs`
-* `gulp fonts-devicons`
-* `gulp fonts-glyphicons`
+This task will call these tasks in parallel:
+`gulp [fonts-opensans | fonts-fontawesome | fonts-mapglyphs | fonts-devicons | fonts-glyphicons]`.
 
-#### Icon web-fonts
+Individual font files can be copied if needed using:
 
-To display the dizzying array of icons within icon web-fonts,
-Gulp is used to parse the icon classes into a Jekyll data file.
-
-Where possible, icons are linked to the detail page on their respective provider's site.
-
-Jekyll data files are created using:
-
-
-Note: There is no task for Glyphicons as this icon font is not supported by this project.
+* `gulp fonts-opensans` - For Open Sans
+* `gulp fonts-fontawesome` - For Font Awesome
+* `gulp fonts-mapglyphs` - For Map Glyphs
+* `gulp fonts-devicons` - For Devicons
+* `gulp fonts-glyphicons` - For Glyphicons
 
 #### Map Glyphs
 
@@ -271,14 +268,36 @@ As we don't modify this CSS, it is not possible to remove such references. To av
 these missing web-fonts they are copied into the `dist` directories of this project using `gulp fonts-glyphicons`.
 This is not ideal as they are placed directly within the `fonts` directory, rather than in a name-spaced directory.
 
+#### Jekyll data files for icon fonts
+
+To display the dizzying array of icons within icon fonts,
+Gulp is used to parse the icon classes into a Jekyll data file.
+
+Where possible, icons are linked to the detail page on their respective provider's site.
+
+Jekyll data files can be generated for all icon fonts using `gulp jekyll-data`.
+
+This task will call these tasks in parallel: `gulp [jekyll-data-fa | jekyll-data-mg | jekyll-data-di]`.
+
+Individual font data files can be generated if needed using:
+
 * `gulp jekyll-data-fa` - For Font Awesome
 * `gulp jekyll-data-mg` - For Map Glyphs
 * `gulp jekyll-data-di` - For Devicons
+
+Note: There is no task for Glyphicons as this icon font is not supported by this project.
+
 ### Utility tasks
 
 These tasks are useful as part of larger workflows, they have limited utility on their own.
 
 * `gulp clean` - Removes all BAS Style Kit related files in `dist` and `documentation/end-users/dist`
+
+### Special tasks
+
+This is limited essentially to the *default* task run when `gulp` is run by itself:
+
+This task calls the `gulp clean` task, then these tasks in parallel: `gulp [clean | less | fonts | jekyll-data]`
 
 ### Documentation
 

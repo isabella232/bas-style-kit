@@ -17,6 +17,7 @@ var csscomb = require('gulp-csscomb');
 var minifycss = require('gulp-minify-css');
 var rename = require("gulp-rename");
 var gulpUtil = require('gulp-util');
+var runSequence = require('run-sequence');
 
 // Variables
 
@@ -360,4 +361,38 @@ gulp.task('clean', function() {
     path.join(configs.tasks.dataMgGlyphs.jekyllDataFileDir, configs.tasks.dataMgGlyphs.jekyllDataFileName),
     path.join(configs.tasks.dataDiGlyphs.jekyllDataFileDir, configs.tasks.dataDiGlyphs.jekyllDataFileName)
   ]);
+});
+
+// Combined tasks
+
+gulp.task('less', [
+  'less-no-min',
+  'less-min'
+]);
+
+gulp.task('fonts', [
+  'fonts-opensans',
+  'fonts-fontawesome',
+  'fonts-mapglyphs',
+  'fonts-devicons',
+  'fonts-glyphicons'
+]);
+
+gulp.task('jekyll-data', [
+  'jekyll-data-fa',
+  'jekyll-data-mg',
+  'jekyll-data-di'
+]);
+
+// Special tasks
+
+gulp.task('default', function(callback) {
+  runSequence(
+    'clean',
+    [
+      'less',
+      'fonts',
+      'jekyll-data'
+    ],
+    callback);
 });
