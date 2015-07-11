@@ -10,6 +10,8 @@ This project is based on the BASIS project template (version 1).
 
 ## TODO:
 
+* Update to latest version of bootstrap
+
 * add weather-icons as npm dependencies
 
 * add a prod environment (i.e. convert dev-remote to prod-remote)
@@ -39,11 +41,26 @@ This project is based on the BASIS project template (version 1).
 
 ### tasks to re-implement
 
-* jshint
-* jscs
-* concat (all of the individual bootstrap JS plugins into the un-minified bootstrap.js file [if we have our own JS files])
-* uglify (for the concated JS files)
-* qunit (not sure if we need this)
+* `jshint`
+* `jscs`
+* `concat` (all of the individual bootstrap JS plugins into the un-minified bootstrap.js file [if we have our own JS files])
+* `uglify` (for the concated JS files)
+* `qunit` (not sure if we need this)
+
+* http://blog.nodejitsu.com/npmawesome-9-gulp-plugins/
+* https://github.com/giakki/uncss (possibly)
+
+* `less` task should be renamed to `less-min` so `less` can be a combined task
+
+### links/components
+
+* http://sandglaz.github.io/bootstrap-tagautocomplete/
+* http://sliptree.github.io/bootstrap-tokenfield/
+* http://alexjab.github.io/bootstrap-milestones/
+* http://getfuelux.com/javascript.html
+* http://seiyria.com/bootstrap-slider/
+* http://jondmiles.com/bootstrap-datepaginator/#options
+* http://www.jasny.net/bootstrap/components/#alerts
 
 ## To note
 
