@@ -1,10 +1,6 @@
 .vagrant
-.vagrant
 .terraform
 terraform.tfvars
-
-bower_components
 node_modules
-.ruby-version
 
 site

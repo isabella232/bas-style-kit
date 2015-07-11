@@ -1,8 +1,8 @@
 <div class="bs-docs-section">
   <h1 id="helper-classes" class="page-header">Helper classes</h1>
 
-  <h3 id="helper-classes-colors">Contextual colors</h3>
-  <p>Convey meaning through color with a handful of emphasis utility classes. These may also be applied to links and will darken on hover just like our default link styles.</p>
+  <h3 id="helper-classes-colors">Contextual colours</h3>
+  <p>Convey meaning through colour with a handful of emphasis utility classes. These may also be applied to links and will darken on hover just like our default link styles.</p>
   <div class="bs-example" data-example-id="contextual-colors-helpers">
     <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
     <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -25,11 +25,11 @@
   </div>
   <div class="bs-callout bs-callout-warning" id="callout-helper-context-color-accessibility">
     <h4>Conveying meaning to assistive technologies</h4>
-    <p>Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies – such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (the contextual colors are only used to reinforce meaning that is already present in the text/markup), or is included through alternative means, such as additional text hidden with the <code>.sr-only</code> class.</p>
+    <p>Using colour to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies – such as screen readers. Ensure that information denoted by the colour is either obvious from the content itself (the contextual colours are only used to reinforce meaning that is already present in the text/markup), or is included through alternative means, such as additional text hidden with the <code>.sr-only</code> class.</p>
   </div>
 
   <h3 id="helper-classes-backgrounds">Contextual backgrounds</h3>
-  <p>Similar to the contextual text color classes, easily set the background of an element to any contextual class. Anchor components will darken on hover, just like the text classes.</p>
+  <p>Similar to the contextual text colour classes, easily set the background of an element to any contextual class. Anchor components will darken on hover, just like the text classes.</p>
   <div class="bs-example bs-example-bg-classes" data-example-id="contextual-backgrounds-helpers">
     <p class="bg-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
     <p class="bg-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
@@ -50,7 +50,7 @@
   </div>
   <div class="bs-callout bs-callout-warning" id="callout-helper-bg-accessibility">
     <h4>Conveying meaning to assistive technologies</h4>
-    <p>As with <a href="#helper-classes-colors">contextual colors</a>, ensure that any meaning conveyed through color is also conveyed in a format that is not purely presentational.</p>
+    <p>As with <a href="#helper-classes-colors">contextual colours</a>, ensure that any meaning conveyed through colour is also conveyed in a format that is not purely presentational.</p>
   </div>
 
   <h3 id="helper-classes-close">Close icon</h3>
@@ -103,8 +103,8 @@
   </div>
 
 
-  <h3 id="helper-classes-center">Center content blocks</h3>
-  <p>Set an element to <code>display: block</code> and center via <code>margin</code>. Available as a mixin and class.</p>
+  <h3 id="helper-classes-center">Centre content blocks</h3>
+  <p>Set an element to <code>display: block</code> and centre via <code>margin</code>. Available as a mixin and class.</p>
 {% highlight html %}
 <div class="center-block">...</div>
 {% endhighlight %}
@@ -151,8 +151,7 @@
 
   <h3 id="helper-classes-show-hide">Showing and hiding content</h3>
   <p>Force an element to be shown or hidden (<strong>including for screen readers</strong>) with the use of <code>.show</code> and <code>.hidden</code> classes. These classes use <code>!important</code> to avoid specificity conflicts, just like the <a href="#helper-classes-floats">quick floats</a>. They are only available for block level toggling. They can also be used as mixins.</p>
-  <p><code>.hide</code> is available, but it does not always affect screen readers and is <strong>deprecated</strong> as of v3.0.1. Use <code>.hidden</code> or <code>.sr-only</code> instead.</p>
-  <p>Furthermore, <code>.invisible</code> can be used to toggle only the visibility of an element, meaning its <code>display</code> is not modified and the element can still affect the flow of the document.</p>
+  <p><code>.invisible</code> can be used to toggle only the visibility of an element, meaning its <code>display</code> is not modified and the element can still affect the flow of the document.</p>
 {% highlight html %}
 <div class="show">...</div>
 <div class="hidden">...</div>

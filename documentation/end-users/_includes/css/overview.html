@@ -13,7 +13,7 @@
 {% endhighlight %}
 
   <h2 id="overview-mobile">Mobile first</h2>
-  <p>The BAS Style Kit is <em>mobile first</strong>, meaning our websites and applications will be readable and functional at any screen size.</p>
+  <p>The BAS Style Kit is <em>mobile first</em>, meaning our websites and applications will be readable and functional at any screen size.</p>
   <p>To ensure proper rendering and touch zooming, <strong>ensure the viewport meta tag</strong> is included in the page <code>&lt;head&gt;</code>.</p>
 {% highlight html %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,15 +22,6 @@
 {% highlight html %}
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 {% endhighlight %}
-
-  <h2 id="overview-type-links">Typography and links</h2>
-  <p>The BAS Style Kit sets basic global display, typography, and link styles - specifically, we:</p>
-  <ul>
-    <li>Set <code>background-color: #fff;</code> on the <code>body</code></li>
-    <li>Use the <code>@font-family-base</code>, <code>@font-size-base</code>, and <code>@line-height-base</code> attributes as our typographic base</li>
-    <li>Set the global link colour via <code>@link-color</code> and apply link underlines only on <code>:hover</code></li>
-  </ul>
-  <p>These styles can be found within <code>scaffolding.less</code>. <mark class="bsk-u-mark-todo-update">If we don't override these variables change to say that an overide file will be needed first.</mark></p>
 
   <h2 id="overview-normalize">Normalize.css</h2>
   <p>For improved cross-browser rendering, we use <a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize.css</a>, a project by <a href="https://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> and <a href="https://twitter.com/jon_neal" target="_blank">Jonathan Neal</a>.</p>
@@ -49,4 +40,7 @@
   ...
 </div>
 {% endhighlight %}
+
+  <h2 id="overview-background">Page background</h2>
+  <p>The BAS Style Kit sets a global page background of <code>#fff</code> on the <code>body</code> element.</p>
 </div>
