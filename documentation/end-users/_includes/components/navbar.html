@@ -7,7 +7,7 @@
 
   <div class="bs-callout bs-callout-warning" id="callout-navbar-overflow">
     <h4>Overflowing content</h4>
-    <p>Since Bootstrap doesn't know how much space the content in your navbar needs, you might run into issues with content wrapping into a second row. To resolve this, you can:</p>
+    <p>Since the Style Kit doesn't know how much space the content in your navbar needs, you might run into issues with content wrapping into a second row. To resolve this, you can:</p>
     <ol type="a">
       <li>Reduce the amount or width of navbar items.</li>
       <li>Hide certain navbar items at certain screen sizes using <a href="../css/#responsive-utilities">responsive utility classes</a>.</li>
@@ -16,8 +16,7 @@
   </div>
   <div class="bs-callout bs-callout-danger" id="callout-navbar-js">
     <h4>Requires JavaScript plugin</h4>
-    <p>If JavaScript is disabled and the viewport is narrow enough that the navbar collapses, it will be impossible to expand the navbar and view the content within the <code>.navbar-collapse</code>.</p>
-    <p>The responsive navbar requires the <a href="../javascript/#collapse">collapse plugin</a> to be included in your version of Bootstrap.</p>
+    <p>If JavaScript is disabled and the viewport is narrow enough that the navbar collapses, it will be impossible to expand the navbar and view the content within the <code>.navbar-collapse</code>. The responsive navbar requires the <a href="../javascript/#collapse">collapse JavaScript plugin</a>.</p>
   </div>
   <div class="bs-callout bs-callout-info" id="callout-navbar-breakpoint">
     <h4>Changing the collapsed mobile navbar breakpoint</h4>
@@ -31,7 +30,7 @@
   <div class="bs-example" data-example-id="default-navbar">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+        <!-- Project and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -39,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Project</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -86,7 +85,7 @@
 {% highlight html %}
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Project and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -94,7 +93,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">Project</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -139,7 +138,6 @@
 </nav>
 {% endhighlight %}
 
-
   <h2 id="navbar-brand-image">Brand image</h2>
   <p>Replace the navbar brand with your own image by swapping the text for an <code>&lt;img&gt;</code>. Since the <code>.navbar-brand</code> has its own padding and height, you may need to override some CSS depending on your image.</p>
   <div class="bs-example" data-example-id="navbar-with-image-brand">
@@ -147,7 +145,7 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">
-            <img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+            <img alt="Project" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGOfPtRkwAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAABCZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIgogICAgICAgICAgICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgICAgICAgICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyI+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOkNvbXByZXNzaW9uPjU8L3RpZmY6Q29tcHJlc3Npb24+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjE1MDwvdGlmZjpYUmVzb2x1dGlvbj4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WVJlc29sdXRpb24+MTUwPC90aWZmOllSZXNvbHV0aW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+MzI8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpDb2xvclNwYWNlPjE8L2V4aWY6Q29sb3JTcGFjZT4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjMyPC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAg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">
           </a>
         </div>
       </div>
@@ -158,13 +156,12 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
-        <img alt="Brand" src="...">
+        <img alt="Project" src="data:image/png;base64,iVBORw0KGgoAA...K5CYII=">
       </a>
     </div>
   </div>
 </nav>
 {% endhighlight %}
-
 
   <h2 id="navbar-forms">Forms</h2>
   <p>Place form content within <code>.navbar-form</code> for proper vertical alignment and collapsed behavior in narrow viewports. Use the alignment options to decide where it resides within the navbar content.</p>
@@ -179,7 +176,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Project</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
           <form class="navbar-form navbar-left" role="search">
@@ -211,7 +208,6 @@
     <p>Screen readers will have trouble with your forms if you don't include a label for every input. For these inline forms, you can hide the labels using the <code>.sr-only</code> class. There are further alternative methods of providing a label for assistive technologies, such as the <code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code> attribute. If none of these is present, screen readers may resort to using the <code>placeholder</code> attribute, if present, but note that use of <code>placeholder</code> as a replacement for other labelling methods is not advised.</p>
   </div>
 
-
   <h2 id="navbar-buttons">Buttons</h2>
   <p>Add the <code>.navbar-btn</code> class to <code>&lt;button&gt;</code> elements not residing in a <code>&lt;form&gt;</code> to vertically center them in the navbar.</p>
   <div class="bs-example" data-example-id="navbar-button">
@@ -224,7 +220,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Project</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
           <button type="button" class="btn btn-default navbar-btn">Sign in</button>
@@ -253,21 +249,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Project</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
-          <p class="navbar-text">Signed in as Mark Otto</p>
+          <p class="navbar-text">Signed in as Connie Watson</p>
         </div>
       </div>
     </nav>
   </div>
 {% highlight html %}
-<p class="navbar-text">Signed in as Mark Otto</p>
+<p class="navbar-text">Signed in as Connie Watson</p>
 {% endhighlight %}
 
-
   <h2 id="navbar-links">Non-nav links</h2>
-  <p>For folks using standard links that are not within the regular navbar navigation component, use the <code>.navbar-link</code> class to add the proper colors for the default and inverse navbar options.</p>
+  <p>If using standard links that are not within the regular navbar navigation component, use the <code>.navbar-link</code> class to add the proper colors for the default and inverse navbar options.</p>
   <div class="bs-example" data-example-id="navbar-link">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -278,18 +273,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Project</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
-          <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+          <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Connie Watson</a></p>
         </div>
       </div>
     </nav>
   </div>
 {% highlight html %}
-<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Connie Watson</a></p>
 {% endhighlight %}
-
 
   <h2 id="navbar-component-alignment">Component alignment</h2>
   <p>Align nav links, forms, buttons, or text, using the <code>.navbar-left</code> or <code>.navbar-right</code> utility classes. Both classes will add a CSS float in the specified direction. For example, to align nav links, put them in a separate <code>&lt;ul&gt;</code> with the respective utility class applied.</p>
@@ -297,9 +291,8 @@
   <div class="bs-callout bs-callout-warning" id="callout-navbar-right-align">
     <h4>Right aligning multiple components</h4>
     <p>Navbars currently have a limitation with multiple <code>.navbar-right</code> classes. To properly space content, we use negative margin on the last <code>.navbar-right</code> element. When there are multiple elements using that class, these margins don't work as intended.</p>
-    <p>We'll revisit this when we can rewrite that component in v4.</p>
+    <p>This is a Bootstrap limitation and will be improved in future versions of this underlying framework.</p>
   </div>
-
 
   <h2 id="navbar-fixed-top">Fixed to top</h2>
   <p>Add <code>.navbar-fixed-top</code> and include a <code>.container</code> or <code>.container-fluid</code> to center and pad navbar content.</p>
@@ -314,7 +307,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Project</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
@@ -341,9 +334,8 @@
 {% highlight scss %}
 body { padding-top: 70px; }
 {% endhighlight %}
-    <p>Make sure to include this <strong>after</strong> the core Bootstrap CSS.</p>
+    <p>Make sure to include this <strong>after</strong> the core Bootstrap &amp; BAS Style Kit CSS.</p>
   </div>
-
 
   <h2 id="navbar-fixed-bottom">Fixed to bottom</h2>
   <p>Add <code>.navbar-fixed-bottom</code> and include a <code>.container</code> or <code>.container-fluid</code> to center and pad navbar content.</p>
@@ -358,7 +350,7 @@ body { padding-top: 70px; }
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Project</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-7">
@@ -403,7 +395,7 @@ body { padding-bottom: 70px; }
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Project</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -439,7 +431,7 @@ body { padding-bottom: 70px; }
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Project</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

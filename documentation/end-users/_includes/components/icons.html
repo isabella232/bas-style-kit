@@ -473,7 +473,42 @@
   <span class="devicons devicons-jira" aria-hidden="true"></span><span class="sr-only">Jira trigger</span> Jira has automatically contacted the project <abbr title="Principle Investigator">PI</abbr> for a monthly status update. 
 </div>
 {% endhighlight %}
+
+  <h3>Icons in drop downs</h3>
+  <div class="bs-callout bs-callout-info">
+    These examples work with <strong>all</strong> icon web-fonts.
+  </div>
+  <div class="bs-callout bs-callout-warning">
+    <h4>Make sure alert contexts are accessible</h4>
+    <p>If using an icon in an <a href="#alerts">alert</a> to convey that it's an error message, for example, ensure you include <code>.sr-only</code> text to convey this to users of assistive technologies. This applies to all contexts, including success, info, etc.</p>
+  </div>
+  <div class="bs-example" data-example-id="icons-examples-alerts">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuIcons1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuIcons1">
+      <li><a href="#"><i class="fa fa-fw fa-star"></i> Vase</a></li>
+      <li><a href="#"><i class="mg mg-fw map-is"></i> Rapture</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#"><i class="devicons devicons-linux"></i> Squawk</a></li>
+    </ul>
+  </div>
+{% highlight html %}
+<div class="dropup">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuIcons1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropup
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuIcons1">
+    <li><a href="#"><i class="fa fa-fw fa-star"></i> Vase</a></li>
+    <li><a href="#"><i class="mg mg-fw map-is"></i> Rapture</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#"><i class="devicons devicons-linux"></i> Squawk</a></li>
+  </ul>
+</div>
+{% endhighlight %}
   
   <h3>More examples</h3>
-  <mark class="bsk-u-mark-todo-add">Buttons, drop-downs, tables, other stuff?</mark>
+  <mark class="bsk-u-mark-todo-add">Buttons, drop-downs, tables, nav-bars, tabs and other stuff?</mark>
 </div>

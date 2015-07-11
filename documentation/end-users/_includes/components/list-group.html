@@ -1,26 +1,24 @@
 <div class="bs-docs-section">
   <h1 id="list-group" class="page-header">List group</h1>
 
-  <p class="lead">List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.</p>
+  <p class="lead">List groups are a flexible and powerful component for displaying stacked information, either as a simple list or using custom content.</p>
 
   <h2 id="list-group-basic">Basic example</h2>
-  <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
+  <p>A basic list group is a <code>ul</code> list with some <code>li</code>'s and the proper classes.</p>
   <div class="bs-example" data-example-id="simple-list-group">
     <ul class="list-group">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+      <li class="list-group-item">Espresso</li>
+      <li class="list-group-item">Cappuccino</li>
+      <li class="list-group-item">Americano</li>
+      <li class="list-group-item">Caf Mocha (Mochachino)</li>
     </ul>
   </div>
 {% highlight html %}
 <ul class="list-group">
-  <li class="list-group-item">Cras justo odio</li>
-  <li class="list-group-item">Dapibus ac facilisis in</li>
-  <li class="list-group-item">Morbi leo risus</li>
-  <li class="list-group-item">Porta ac consectetur ac</li>
-  <li class="list-group-item">Vestibulum at eros</li>
+  <li class="list-group-item">Espresso</li>
+  <li class="list-group-item">Cappuccino</li>
+  <li class="list-group-item">Americano</li>
+  <li class="list-group-item">Caf Mocha (Mochachino)</li>
 </ul>
 {% endhighlight %}
 
@@ -30,15 +28,19 @@
     <ul class="list-group">
       <li class="list-group-item">
         <span class="badge">14</span>
-        Cras justo odio
+        Espresso
       </li>
       <li class="list-group-item">
-        <span class="badge">2</span>
-        Dapibus ac facilisis in
+        <span class="badge">20</span>
+        Cappuccino
       </li>
       <li class="list-group-item">
         <span class="badge">1</span>
-        Morbi leo risus
+        Americano
+      </li>
+      <li class="list-group-item">
+        <span class="badge">5</span>
+        Caf Mocha (Mochachino)
       </li>
     </ul>
   </div>
@@ -46,79 +48,73 @@
 <ul class="list-group">
   <li class="list-group-item">
     <span class="badge">14</span>
-    Cras justo odio
+    Espresso
   </li>
 </ul>
 {% endhighlight %}
 
   <h2 id="list-group-linked">Linked items</h2>
-  <p>Linkify list group items by using anchor tags instead of list items (that also means a parent <code>&lt;div&gt;</code> instead of an <code>&lt;ul&gt;</code>). No need for individual parents around each element.</p>
+  <p>Linkify list group items by using links (<code>a</code>'s') in a <code>div</code>, there is no need for individual parents around each element.</p>
   <div class="bs-example" data-example-id="list-group-anchors">
     <div class="list-group">
       <a href="#" class="list-group-item active">
-        Cras justo odio
+        All items
       </a>
-      <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-      <a href="#" class="list-group-item">Morbi leo risus</a>
-      <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-      <a href="#" class="list-group-item">Vestibulum at eros</a>
+      <a href="#" class="list-group-item">Pending items</a>
+      <a href="#" class="list-group-item">In progress items</a>
+      <a href="#" class="list-group-item">Done items</a>
     </div>
   </div>
 {% highlight html %}
 <div class="list-group">
   <a href="#" class="list-group-item active">
-    Cras justo odio
+    All items
   </a>
-  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item">Morbi leo risus</a>
-  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item">Vestibulum at eros</a>
+  <a href="#" class="list-group-item">Pending items</a>
+  <a href="#" class="list-group-item">In progress items</a>
+  <a href="#" class="list-group-item">Done items</a>
 </div>
 {% endhighlight %}
 
   <h2 id="list-group-buttons">Button items</h2>
-  <p>List group items may be buttons instead of list items (that also means a parent <code>&lt;div&gt;</code> instead of an <code>&lt;ul&gt;</code>). No need for individual parents around each element. <strong class="text-danger">Don't use the standard <code>.btn</code> classes here.</strong></p>
+  <p>List group items may be buttons instead of list items, i.e. <code>button</code>'s in a <code>div</code>, again, there is no need for individual parents around each element. <strong class="text-danger">Don't use the standard <code>.btn</code> classes here.</strong></p>
   <div class="bs-example" data-example-id="list-group-btns">
     <div class="list-group">
-      <button type="button" class="list-group-item">Cras justo odio</button>
-      <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-      <button type="button" class="list-group-item">Morbi leo risus</button>
-      <button type="button" class="list-group-item">Porta ac consectetur ac</button>
-      <button type="button" class="list-group-item">Vestibulum at eros</button>
+      <button type="button" class="list-group-item">Create feature</button>
+      <button type="button" class="list-group-item">Create group</button>
+      <button type="button" class="list-group-item">Manage topics</button>
+      <button type="button" class="list-group-item">Manage access controls</button>
     </div>
   </div>
 {% highlight html %}
 <div class="list-group">
-  <button type="button" class="list-group-item">Cras justo odio</button>
-  <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-  <button type="button" class="list-group-item">Morbi leo risus</button>
-  <button type="button" class="list-group-item">Porta ac consectetur ac</button>
-  <button type="button" class="list-group-item">Vestibulum at eros</button>
+  <button type="button" class="list-group-item">Create feature</button>
+  <button type="button" class="list-group-item">Create group</button>
+  <button type="button" class="list-group-item">Manage topics</button>
+  <button type="button" class="list-group-item">Manage access controls</button>
 </div>
 {% endhighlight %}
 
   <h2 id="list-group-disabled">Disabled items</h2>
-  <p>Add <code>.disabled</code> to a <code>.list-group-item</code> to gray it out to appear disabled.</p>
+  <p>Add <code>.disabled</code> to a <code>.list-group-item</code> to grey it out to appear disabled.</p>
   <div class="bs-example" data-example-id="list-group-disabled">
     <div class="list-group">
-      <a href="#" class="list-group-item disabled">
-        Cras justo odio
+      <a href="#" class="list-group-item active">
+        All items
       </a>
-      <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-      <a href="#" class="list-group-item">Morbi leo risus</a>
-      <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-      <a href="#" class="list-group-item">Vestibulum at eros</a>
+      <a href="#" class="list-group-item">Pending items</a>
+      <a href="#" class="list-group-item">In progress items</a>
+      <a href="#" class="list-group-item disabled">Done items</a>
     </div>
   </div>
 {% highlight html %}
 <div class="list-group">
-  <a href="#" class="list-group-item disabled">
-    Cras justo odio
+  <a href="#" class="list-group-item active">
+    All items
   </a>
-  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item">Morbi leo risus</a>
-  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item">Vestibulum at eros</a>
+  <a href="#" class="list-group-item">Pending items</a>
+  <a href="#" class="list-group-item">In progress items</a>
+  <a href="#" class="list-group-item disabled">Done items</a>
 </div>
 {% endhighlight %}
 
@@ -128,61 +124,120 @@
     <div class="row">
       <div class="col-sm-6">
         <ul class="list-group">
-          <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
-          <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
-          <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
-          <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+          <li class="list-group-item list-group-item-success active">Success - active</li>
+          <li class="list-group-item list-group-item-info">Info</li>
+          <li class="list-group-item list-group-item-warning">Warning</li>
+          <li class="list-group-item list-group-item-danger">Danger</li>
         </ul>
       </div>
       <div class="col-sm-6">
         <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-success">Dapibus ac facilisis in</a>
-          <a href="#" class="list-group-item list-group-item-info">Cras sit amet nibh libero</a>
-          <a href="#" class="list-group-item list-group-item-warning">Porta ac consectetur ac</a>
-          <a href="#" class="list-group-item list-group-item-danger">Vestibulum at eros</a>
+          <a href="#" class="list-group-item list-group-item-success">Success</a>
+          <a href="#" class="list-group-item list-group-item-info">Info</a>
+          <a href="#" class="list-group-item list-group-item-warning">Warning</a>
+          <a href="#" class="list-group-item list-group-item-danger disabled">Danger - disabled</a>
         </div>
       </div>
     </div>
   </div>
 {% highlight html %}
 <ul class="list-group">
-  <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
-  <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
-  <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
-  <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+  <li class="list-group-item list-group-item-success active">Success - active</li>
+  <li class="list-group-item list-group-item-info">Info</li>
+  <li class="list-group-item list-group-item-warning">Warning</li>
+  <li class="list-group-item list-group-item-danger">Danger</li>
 </ul>
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-success">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item list-group-item-info">Cras sit amet nibh libero</a>
-  <a href="#" class="list-group-item list-group-item-warning">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item list-group-item-danger">Vestibulum at eros</a>
+  <a href="#" class="list-group-item list-group-item-success">Success</a>
+  <a href="#" class="list-group-item list-group-item-info">Info</a>
+  <a href="#" class="list-group-item list-group-item-warning">Warning</a>
+  <a href="#" class="list-group-item list-group-item-danger disabled">Danger - disabled</a>
 </div>
 {% endhighlight %}
 
   <h2 id="list-group-custom-content">Custom content</h2>
-  <p>Add nearly any HTML within, even for linked list groups like the one below.</p>
+  <p>Add nearly any HTML within, even for linked list groups, like the one below which uses <a href="#media-default">media objects</a>.</p>
   <div class="bs-example" data-example-id="list-group-custom-content">
     <div class="list-group">
       <a href="#" class="list-group-item active">
-        <h4 class="list-group-item-heading">List group item heading</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="http://ia.media-imdb.com/images/M/MV5BOTYyMTIzODgyNF5BMl5BanBnXkFtZTcwNDU0MTkxNw@@._V1_UY100_CR27,0,100,100_AL_.jpg" width="42" height="42" alt="Ryan Reynolds">
+          </div>
+          <div class="media-body">
+            <h4 class="list-group-item-heading">Ryan Reynolds</h4>
+            <p class="list-group-item-text">as William Matthew 'Will' Hayes.</p>
+          </div>
+        </div>
       </a>
       <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">List group item heading</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="http://ia.media-imdb.com/images/M/MV5BMTMzMDg5ODM2Ml5BMl5BanBnXkFtZTcwMDU0MTkxNw@@._V1_UX100_CR0,0,100,100_AL_.jpg" width="42" height="42" alt="Ryan Reynolds">
+          </div>
+          <div class="media-body">
+            <h4 class="list-group-item-heading">Abigail Breslin</h4>
+            <p class="list-group-item-text">as Maya Hayes.</p>
+          </div>
+        </div>
       </a>
       <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">List group item heading</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="http://ia.media-imdb.com/images/M/MV5BMTg4Mzk2NDkzMl5BMl5BanBnXkFtZTcwNjU0MTkxNw@@._V1_UX100_CR0,0,100,100_AL_.jpg" width="42" height="42" alt="Ryan Reynolds">
+          </div>
+          <div class="media-body">
+            <h4 class="list-group-item-heading">Isla Fisher</h4>
+            <p class="list-group-item-text">as April Hoffman.</p>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="list-group-item">
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="http://ia.media-imdb.com/images/M/MV5BMjE3MjAxNzc1MV5BMl5BanBnXkFtZTcwMjU0MTkxNw@@._V1_UX100_CR0,0,100,100_AL_.jpg" width="42" height="42" alt="Ryan Reynolds">
+          </div>
+          <div class="media-body">
+            <h4 class="list-group-item-heading">Elizabeth Banks</h4>
+            <p class="list-group-item-text">as "Emily Jones"/ Sarah.</p>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="list-group-item">
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="http://ia.media-imdb.com/images/M/MV5BMjMxODkyNzEwM15BMl5BanBnXkFtZTcwMTQ0MTkxNw@@._V1_UX100_CR0,0,100,100_AL_.jpg" width="42" height="42" alt="Ryan Reynolds">
+          </div>
+          <div class="media-body">
+            <h4 class="list-group-item-heading">Rachel Weisz</h4>
+            <p class="list-group-item-text"> as "Summer Hartley"/ Natasha.</p>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="list-group-item">
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="http://ia.media-imdb.com/images/M/MV5BMTMxMjcxMzMzMV5BMl5BanBnXkFtZTcwNjQzOTQ4Mg@@._V1_UX100_CR0,0,100,100_AL_.jpg" width="42" height="42" alt="Ryan Reynolds">
+          </div>
+          <div class="media-body">
+            <h4 class="list-group-item-heading">Kevin Kline</h4>
+            <p class="list-group-item-text">as Professor Hampton Roth.</p>
+          </div>
+        </div>
       </a>
     </div>
   </div>
 {% highlight html %}
-<div class="list-group">
-  <a href="#" class="list-group-item active">
-    <h4 class="list-group-item-heading">List group item heading</h4>
-    <p class="list-group-item-text">...</p>
-  </a>
-</div>
+<a href="#" class="list-group-item">
+  <div class="media">
+    <div class="media-left">
+      <img class="media-object" src="http://ia.media-imdb.com/images/M/MV5BMTg4Mzk2NDkzMl5BMl5BanBnXkFtZTcwNjU0MTkxNw@@._V1_UX100_CR0,0,100,100_AL_.jpg" width="42" height="42" alt="Ryan Reynolds">
+    </div>
+    <div class="media-body">
+      <h4 class="list-group-item-heading">Isla Fisher</h4>
+      <p class="list-group-item-text">as April Hoffman.</p>
+    </div>
+  </div>
+</a>
 {% endhighlight %}
 </div>
