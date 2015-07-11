@@ -251,9 +251,6 @@ Where possible, icons are linked to the detail page on their respective provider
 
 Jekyll data files are created using:
 
-* `gulp fa` - For Font Awesome
-* `gulp mg` - For Map Glyphs
-* `gulp di` - For Devicons
 
 Note: There is no task for Glyphicons as this icon font is not supported by this project.
 
@@ -274,6 +271,9 @@ As we don't modify this CSS, it is not possible to remove such references. To av
 these missing web-fonts they are copied into the `dist` directories of this project using `gulp fonts-glyphicons`.
 This is not ideal as they are placed directly within the `fonts` directory, rather than in a name-spaced directory.
 
+* `gulp jekyll-data-fa` - For Font Awesome
+* `gulp jekyll-data-mg` - For Map Glyphs
+* `gulp jekyll-data-di` - For Devicons
 ### Utility tasks
 
 These tasks are useful as part of larger workflows, they have limited utility on their own.

@@ -154,7 +154,7 @@ gulp.task('fonts-glyphicons', function() {
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts)));
 });
 
-gulp.task('data-fa', function() {
+gulp.task('jekyll-data-fa', function() {
   var classes = [];
 
   // Get lines from Font Awesome's icons.less file to determine available glyph classes
@@ -218,7 +218,7 @@ gulp.task('data-fa', function() {
   return false;
 });
 
-gulp.task('data-mg', function() {
+gulp.task('jekyll-data-mg', function() {
   var classes = [];
 
   // Get lines from Map Glyphs's icons.less file to determine available glyph classes
@@ -282,7 +282,7 @@ gulp.task('data-mg', function() {
   return false;
 });
 
-gulp.task('data-di', function() {
+gulp.task('jekyll-data-di', function() {
   var classes = [];
 
   // Get lines from Devicon's icons.less file to determine available glyph classes
@@ -355,6 +355,9 @@ gulp.task('clean', function() {
     path.join(destinations.docsDist, 'css', 'bas-style-kit.min.css'),
     path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.css.map'),
     path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.min.css.map'),
-    path.join(destinations.docsDist, 'fonts', '**/*')
+    path.join(destinations.docsDist, 'fonts', '**/*'),
+    path.join(configs.tasks.dataFaGlyphs.jekyllDataFileDir, configs.tasks.dataFaGlyphs.jekyllDataFileName),
+    path.join(configs.tasks.dataMgGlyphs.jekyllDataFileDir, configs.tasks.dataMgGlyphs.jekyllDataFileName),
+    path.join(configs.tasks.dataDiGlyphs.jekyllDataFileDir, configs.tasks.dataDiGlyphs.jekyllDataFileName)
   ]);
 });
