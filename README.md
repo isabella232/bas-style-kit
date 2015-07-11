@@ -8,62 +8,6 @@ A collection of HTML, CSS, and JS components for developing web projects consist
 
 This project is based on the BASIS project template (version 1).
 
-## TODO:
-
-* Update to latest version of bootstrap
-
-* add weather-icons as npm dependencies
-
-* add a prod environment (i.e. convert dev-remote to prod-remote)
-* add npm install --production for prod
-
-
-* Switch to 24-span grid
-
-* License map-glyphs ($30)
-
-* add credits/acknowledgements page in end-user documentation for Bootstrap other libraries.
-  - Font Awesome
-  - Map Glyphs (mention attribution-free usage)
-  - Devicons
-
-* add weather-icons to components
-* integrate Helpful's style guide
-* add BAS logo's as a component
-
-* Update the grid classes used in the documentation to make width narrower (i.e. how it was before when large was the widest size)
-
-* Work out how to remove the dependency on glyphicons without modifying bootstrap (i.e. empty font-files?). Report this as an issue.
-
-* Think about making all icon web-fonts optional due to impact this may have South or on mobile?
-
-### tasks to re-implement
-
-* `jshint`
-* `jscs`
-* `concat` (all of the individual bootstrap JS plugins into the un-minified bootstrap.js file [if we have our own JS files])
-* `uglify` (for the concated JS files)
-* `qunit` (not sure if we need this)
-
-* http://blog.nodejitsu.com/npmawesome-9-gulp-plugins/
-* https://github.com/giakki/uncss (possibly)
-
-* `less` task should be renamed to `less-min` so `less` can be a combined task
-
-### links/components
-
-* http://sandglaz.github.io/bootstrap-tagautocomplete/
-* http://sliptree.github.io/bootstrap-tokenfield/
-* http://alexjab.github.io/bootstrap-milestones/
-* http://getfuelux.com/javascript.html
-* http://seiyria.com/bootstrap-slider/
-* http://jondmiles.com/bootstrap-datepaginator/#options
-* http://www.jasny.net/bootstrap/components/#alerts
-
-## To note
-
-* The BAS public website isn't using our custom `XL` grid size
-
 ## Requirements
 
 You will need to have the following software available on your localhost depending on the environment you wish to use:
