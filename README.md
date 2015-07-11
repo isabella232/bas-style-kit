@@ -3,7 +3,7 @@
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
 * More information about this project is available in `documentation/project-management`
-* Documentation for end users is stored in `documentation/end-users` and available as a static site using the instructions in the *Usage* section
+* Documentation for end users is stored in `documentation/end-users` and online, see the *Usage* section for details
 * Documentation for developers is available in `documentation/developers`
 
 This project is based on the BASIS project template (version 1).
@@ -113,7 +113,8 @@ You will need to configure these DNS records manually:
 | --------- | ---------------------------------- | ----------------------------------------------------- | --------------------------------------------- | -------------------------------------------------------- |
 | **CNAME** | bas-style-kit                      | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`           | `bas-style-kit.web.nerc-bas.ac.uk`            | Vanity URL to current production instance of application |
 
-Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178), therefore these tasks need to be performed manually:
+Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178),
+therefore these tasks need to be performed manually:
 
 ```shell
 $ ansible-galaxy install https://github.com/antarctica/ansible-prelude,v0.1.1 --roles-path=provisioning/roles_bootstrap  --no-deps --force
@@ -122,9 +123,11 @@ $ ansible-playbook -i provisioning/development provisioning/bootstrap-digitaloce
 $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 ```
 
-A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site.
+A post-commit webhook is used to automatically pull the latest changes from the repositories master branch
+and rebuild the Jekyll site.
 
-A [new webhook](https://github.com/felnne/bas-style-kit/settings/hooks/new) will need to be configured in GitHub using the following values:
+A [new webhook](https://github.com/felnne/bas-style-kit/settings/hooks/new) will need to be configured in GitHub
+using the following values:
 
 * Payload URL: `http://bas-style-kit.web.nerc-bas.ac.uk:8001`
 * Content type: `application/json`
@@ -132,7 +135,8 @@ A [new webhook](https://github.com/felnne/bas-style-kit/settings/hooks/new) will
 * Which events would you like to trigger this webhook: `Just the push event`
 * Active: `true`
 
-The server side application which will respond to this webhook uses [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy), which should be started as a background process:
+The server side application which will respond to this webhook uses
+[Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy), which should be started as a background process:
 
 ```shell
 $ bas-style-kit-dev-web2.web.nerc-bas.ac.uk
@@ -150,7 +154,8 @@ digital_ocean_token = "[token]"
 ssh_fingerprint = "[fingerprint]"
 ```
 
-Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` is the [fingerprint of your public key](https://gist.github.com/felnne/596d2bf11842a0cf64d6).
+Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` is the
+[fingerprint of your public key](https://gist.github.com/felnne/596d2bf11842a0cf64d6).
 
 ## Usage
 
@@ -158,45 +163,55 @@ It is assumed you have setup the environment you wish to use and your working di
 
 ### Less styles
 
-As the BAS Style Kit is based on Bootstrap we use the same CSS preprocessor, [Less](http://lesscss.org/), to ensure we can easily extend this framework to meet our needs.
+As the BAS Style Kit is based on Bootstrap we use the same CSS preprocessor, [Less](http://lesscss.org/),
+to ensure we can easily extend this framework to meet our needs.
 
-Note: The BAS Style Kit is **not** a custom build of Bootstrap, it is a layer over the top. This means removing the Style Kit from a project will result in using the base Bootstrap features, rather than removing all styling.
+Note: The BAS Style Kit is **not** a custom build of Bootstrap, it is a layer over the top.
+Removing the Style Kit will result in using the underlying Bootstrap features, rather than breaking styling.
 
-These styles are structured in a similar, if not identical, way as needed (i.e. if we extend Bootstrap's `grid.less` we will use create a `grid.less` with our customisations/additions).
-This ensures any familiarity with Bootstrap's structure can be reused within the BAS Style Kit, even if the styles themselves will naturally be different.
+These styles are structured in a similar, if not identical, way to Boostrap.
+E.g. if we extend Bootstrap's `grid.less` we will use create a `grid.less` with our customisations/additions).
 
-All Less styles are located in the `less` directory and the main entry point is `less/bas-style-kit.less`. This is file simply imports other files that make up the BAS Style Kit styles.
-Less files are loaded in sequence, therefore if file *a* relies on file *b*, file *a* will need to be included before file *b*. This should make sense when looking at the files.
+All Less styles are located in the `less` directory and the main entry point is `less/bas-style-kit.less`.
+This is file simply imports other files that make up the BAS Style Kit styles. Less files are loaded in sequence,
+therefore if file *a* relies on file *b*, file *a* will need to be included before file *b*.
+This should make sense when looking at the files.
 
-Importantly this file includes a `variables.less` and various mixins from the Bootstrap framework itself. This is because we make additions to the Bootstrap grid for example and this requires the use of a number of mixins.
-Generally we simply use these mixins with different parameters and there is therefore no reason to duplicate their functionality so we simply import these mixins as needed and call them from within our styles.
+This ensures any familiarity with Bootstrap's structure can be reused within the BAS Style Kit,
+even if the styles themselves will be different.
 
-Importantly these imported mixins are *unaltered* and we therefore do not alter the underlying Bootstrap framework in any way.
+Importantly this file includes a `variables.less` and various mixins from the Bootstrap framework itself.
+This is because we make additions to the Bootstrap grid for example and this requires the use of a number of mixins.
+Generally we simply use these mixins with different parameters. There is therefore no reason to duplicate their
+functionality so we can simply import any mixins we need for our styles, without needing to maintain our own versions.
 
 #### Compiling Less styles
 
-Less is a CSS pre-processor and therefore has to be compiled down to CSS before it can be used within a browser.
+[Less](http://lesscss.org/) is a [CSS pre-processor](https://github.com/showcases/css-preprocessors)
+and therefore has to be compiled down to CSS before it can be used within a browser.
 
 Less compilation and any further processing steps are performed using `gulp less-min`.
 
 This task will:
 
-* Compile `less/bas-style-kit.less` into `dist/css/bas-style-kit.css` and `documentation/end-users/dist/css/bas-style-kit.css`
+* Compile `less/bas-style-kit.less` into CSS
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
-* Run compiled CSS through [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/) - see the *linting* sub-section for more information
-* Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` suffix
-* Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for this compiled CSS file in both locations
+* Run compiled CSS through [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/) - see *linting* for more
+* Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` filename suffix
+* Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled CSS files
+* Output compiled, processed CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
 Alternative tasks:
 
-* To prevent the compiled CSS being minified use `gulp-less-no-min`
 * To only compile Less files into CSS use `gulp less-only`
+* To prevent CSS minfication use `gulp-less-no-min`
 
 #### CSS linting
 
-Compiled CSS is ran through the same linting tools Bootstrap uses, [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/), and uses the same settings.
+Compiled CSS is ran through the same linting tools Bootstrap uses,
+[csslint](http://csslint.net/) & [csscomb](http://csscomb.com/), and uses the same setting files.
 
-Errors are reported when running the appropriate gulp task and outputted to the terminal.
+Errors are reported to the terminal.
 
 ##### Known errors
 
@@ -204,62 +219,73 @@ These errors are known and accepted for the reasons given here:
 
 * `[GENERAL] Too many @font-face declarations (10). Too many different web fonts in the same stylesheet. (font-faces)`
   * This is caused by the large number of variants for the Open Sans web-font
-  * Ideally a number of these variants can be dropped which will prevent this error, until then this is not a significant error
-  * Logged as [BASWEB-431](https://jira.ceh.ac.uk/browse/BASWEB-431)
+  * Ideally a number of these variants can be dropped preventing this error
+  * See [BASWEB-431](https://jira.ceh.ac.uk/browse/BASWEB-431) for details
 
 ### Fonts
 
-The BAS Style Kit includes a number of web-fonts to provide typographic styling and font based icon libraries.
+The BAS Style Kit includes a number of web-fonts to provide typographic styling and icon-font libraries:
 
-These fonts are:
+* [Open Sans](https://www.google.com/fonts/specimen/Open+Sans) - Base typographic font
+* [Font Awesome](http://fontawesome.io) - Base icon-font for general purposes/actions in projects
+* [Map Glyphs](http://mapglyphs.com) - Icon-font for states, countries, continents and globes [1]
+* [Devicons](http://vorillaz.github.io/devicons) - Icon-font for logos of technology frameworks, tools and services
+* [Glyphicons Halflings](http://glyphicons.com/) - Icon-font included with Bootstrap, **NOT** supported here
 
-* [Open Sans](https://www.google.com/fonts/specimen/Open+Sans) - Used to provide the base typographic font across the BAS Style Kit
-* [Font Awesome](http://fontawesome.io) - Used to provide base icons covering general purposes/actions used within web sites and applications
-* [Map Glyphs](http://mapglyphs.com) - Used for providing silhouette's for states, countries, continents and globes [1]
-* [Devicons](http://vorillaz.github.io/devicons) - Used for brand logos of technology frameworks, tools and services
+Font file locations and font-family declarations are defined through the BAS Style Kit's Less/CSS styles.
 
-Font face declarations, font-family selections and font file location variables are defined/set through the BAS Style Kit's Less/CSS styles.
+The font files themselves are copied to their location using:
 
-Font files themselves are copied to their correct location using:
-
-* `gulp font-opensans`
-* `gulp font-fontawesome`
-* `gulp font-mapglyphs`
-* `gulp font-devicons`
+* `gulp fonts-opensans`
+* `gulp fonts-fontawesome`
+* `gulp fonts-mapglyphs`
+* `gulp fonts-devicons`
+* `gulp fonts-glyphicons`
 
 #### Icon web-fonts
 
-To display the dizzying array of icons within the various icon web-fonts, a set of gulp tasks are used to parse the icon classes within each web-font. these are then exported to `.yml` files for rendering in Jekyll. Where possible, icons are linked to their detail pages on their respective provider's site.
+To display the dizzying array of icons within icon web-fonts,
+Gulp is used to parse the icon classes into a Jekyll data file.
 
-These data files are created using:
+Where possible, icons are linked to the detail page on their respective provider's site.
 
-* `gulp fa` (for Font Awesome)
-* `gulp mg` (for Map Glyphs)
-* `gulp di` (for Devicons)
+Jekyll data files are created using:
+
+* `gulp fa` - For Font Awesome
+* `gulp mg` - For Map Glyphs
+* `gulp di` - For Devicons
+
+Note: There is no task for Glyphicons as this icon font is not supported by this project.
+
+#### Map Glyphs
+
+Map Glyphs is not distributed publicly and requires a license for attribution free usage.
+
+BAS has paid for attribution free usage when used in official projects and bundles the font within the Style Kit.
 
 #### Glyphicons
 
-Bootstrap includes a default icon web-font, Glyphicons Halflings. This font is **NOT** supported within the BAS Style Kit and **SHOULD NOT** be used. Font Awesome, or any of the other speciality web-fonts listed above **SHOULD** be used instead.
+Bootstrap includes a default icon web-font, Glyphicons Halflings.
+This font is **NOT** supported within the BAS Style Kit and **SHOULD NOT** be used.
+Font Awesome, or any of the other speciality icon fonts, **SHOULD** be used instead.
 
-As Bootstrap uses Glyphicons by default references it its web-font files are included in the pre-compiled CSS this project uses as a base. It is not therefore possible to remove such references without modifying and supplying our own version of Bootstrap.
-
-To avoid browser warnings over references to these missing web-fonts they are copied into the `dist` directories of this project. This is not ideal as they are placed directly within the `fonts` directory, rather than in a name-spaced directory. Again this because references to these fonts are set within Boostrap's pre-compiled styles.
-
-These fonts can be copied to their expected location using `gulp font-glyphicons`.
-
-[1] Map Glyphs is not distributed publicly and requires a license for attribution free usage. For these reasons the font is bundled with the BAS Style Kit as BAS has paid for attribution free usage when used in official projects.
+As Bootstrap uses Glyphicons by defaultm references it its web-font files are included in the pre-compiled CSS.
+As we don't modify this CSS, it is not possible to remove such references. To avoid browser warnings over references to
+these missing web-fonts they are copied into the `dist` directories of this project using `gulp fonts-glyphicons`.
+This is not ideal as they are placed directly within the `fonts` directory, rather than in a name-spaced directory.
 
 ### Utility tasks
 
 These tasks are useful as part of larger workflows, they have limited utility on their own.
 
-* `gulp clean` - this will remove all files in `dist` (but not the `dist` directory itself) and all BAS Style Kit related files in `documentation/end-users/dist`
+* `gulp clean` - Removes all BAS Style Kit related files in `dist` and `documentation/end-users/dist`
 
 ### Documentation
 
 The documentation for this project is provided as a static website, built using [Jekyll](http://jekyllrb.com).
 
-The latest version of this documentation, built from the *master* branch of the project repository, is available at [bas-style-kit.web.nerc-bas.ac.uk/](https://bas-style-kit.web.nerc-bas.ac.uk/).
+The latest version of this documentation, built from the *master* branch of the project repository,
+is available at [bas-style-kit.web.nerc-bas.ac.uk/](https://bas-style-kit.web.nerc-bas.ac.uk/).
 
 #### Development - local
 
@@ -287,7 +313,8 @@ In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m) 
 
 #### Development - remote
 
-A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
+A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild
+the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
 
 This process can also be triggered manually through Ansible:
 
@@ -305,11 +332,14 @@ This project welcomes contributions, see `CONTRIBUTING` for our general policy.
 
 The vast majority of this project is based on the amazing [Bootstrap](http://getbootstrap.com) project.
 
-Therefore 97% of any credit for this project should go to Boostrap's [authors and contributors](http://getbootstrap.com/about/).
+97% of any credit for this project should go to Boostrap's [authors and contributors](http://getbootstrap.com/about/).
 
-The original Bootstrap licensing statement is shown below, see their original `LICENSE-bootstrap` further licensing information.
+The original Bootstrap licensing statement is shown below,
+see their original `LICENSE-bootstrap` further licensing information.
 
-> Code and documentation copyright 2011-2015 Twitter, Inc. Code released under [the MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE). Docs released under [Creative Commons](https://github.com/twbs/bootstrap/blob/master/docs/LICENSE).
+> Code and documentation copyright 2011-2015 Twitter, Inc. Code released under
+[the MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE).
+Docs released under [Creative Commons](https://github.com/twbs/bootstrap/blob/master/docs/LICENSE).
 
 The authors of this project are incredibly grateful for their work.
 

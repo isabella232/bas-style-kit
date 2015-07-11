@@ -1,4 +1,5 @@
 // Node modules
+
 var del = require('del');
 var gulp = require('gulp');
 var path = require('path');
@@ -7,6 +8,7 @@ var yaml = require('yamljs');
 var mkdirp = require('mkdirp');
 
 // Gulp modules
+
 var less = require('gulp-less');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
@@ -17,6 +19,7 @@ var rename = require("gulp-rename");
 var gulpUtil = require('gulp-util');
 
 // Variables
+
 var sources = {
   'stylesheets': path.join('.', 'less'),
   'openSans': path.join('.', 'node_modules', 'open-sans-fontface'),
@@ -84,6 +87,7 @@ var configs = {
 };
 
 // Tasks
+
 gulp.task('less-only', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(less(configs.less))
@@ -120,45 +124,34 @@ gulp.task('less-min', function() {
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
 
-gulp.task('font-opensans', function() {
+gulp.task('fonts-opensans', function() {
   return gulp.src(path.join(sources.openSans, 'fonts', '**/*.*'))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'open-sans')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'open-sans')));
 });
 
-gulp.task('font-fontawesome', function() {
+gulp.task('fonts-fontawesome', function() {
   return gulp.src(path.join(sources.fontAwesome, 'fonts', '**/*.*'))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'font-awesome')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'font-awesome')));
 });
 
-gulp.task('font-mapglyphs', function() {
+gulp.task('fonts-mapglyphs', function() {
   return gulp.src(path.join(sources.mapglyphs, '**/*.*'))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'map-glyphs')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'map-glyphs')));
 });
 
-gulp.task('font-devicons', function() {
+gulp.task('fonts-devicons', function() {
   return gulp.src(path.join(sources.devicons, 'fonts', '**/*.*'))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'devicons')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'devicons')));
 });
 
-gulp.task('font-glyphicons', function() {
+gulp.task('fonts-glyphicons', function() {
   return gulp.src(path.join(sources.bootstrap, 'fonts', '**/*.*'))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts)));
-});
-
-gulp.task('clean', function() {
-  return del([
-    path.join(destinations.dist, '**/*'),
-    path.join(destinations.docsDist, 'css', 'bas-style-kit.css'),
-    path.join(destinations.docsDist, 'css', 'bas-style-kit.min.css'),
-    path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.css.map'),
-    path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.min.css.map'),
-    path.join(destinations.docsDist, 'fonts', '**/*')
-  ]);
 });
 
 gulp.task('data-fa', function() {
@@ -170,7 +163,7 @@ gulp.task('data-fa', function() {
 
   // For each line from the file check if it defines a glyph class using a regex
   for (var i = 0, len = fontAwesomeGlyphLines.length; i < len; i++) {
-    
+
     var re = configs.tasks.dataFaGlyphs.glyphClassRegex;
     var str = fontAwesomeGlyphLines[i];
     var match;
@@ -180,7 +173,7 @@ gulp.task('data-fa', function() {
           re.lastIndex++;
       }
 
-      // Strip off the common prefix and add to array 
+      // Strip off the common prefix and add to array
       var className = match[0].replace(configs.tasks.dataFaGlyphs.glyphClassSrcPreix, '');
       classes.push(className);
     }
@@ -201,8 +194,8 @@ gulp.task('data-fa', function() {
     {
       // Write out Jekyll data file
       fs.writeFile(
-        path.join(configs.tasks.dataFaGlyphs.jekyllDataFileDir, configs.tasks.dataFaGlyphs.jekyllDataFileName), 
-        classesYml, 
+        path.join(configs.tasks.dataFaGlyphs.jekyllDataFileDir, configs.tasks.dataFaGlyphs.jekyllDataFileName),
+        classesYml,
         function(err) {
           if(err)
           {
@@ -212,7 +205,7 @@ gulp.task('data-fa', function() {
             gulpUtil.log('Font Awesome classes file written - containing ' + classes.length + ' icon classes');
           }
         }
-      ); 
+      );
     }
   });
 
@@ -234,7 +227,7 @@ gulp.task('data-mg', function() {
 
   // For each line from the file check if it defines a glyph class using a regex
   for (var i = 0, len = mapGlyphLines.length; i < len; i++) {
-    
+
     var re = configs.tasks.dataMgGlyphs.glyphClassRegex;
     var str = mapGlyphLines[i];
     var match;
@@ -244,7 +237,7 @@ gulp.task('data-mg', function() {
           re.lastIndex++;
       }
 
-      // Strip off the common prefix and add to array 
+      // Strip off the common prefix and add to array
       var className = match[0].replace(configs.tasks.dataMgGlyphs.glyphClassSrcPreix, '');
       classes.push(className);
     }
@@ -265,8 +258,8 @@ gulp.task('data-mg', function() {
     {
       // Write out Jekyll data file
       fs.writeFile(
-        path.join(configs.tasks.dataMgGlyphs.jekyllDataFileDir, configs.tasks.dataMgGlyphs.jekyllDataFileName), 
-        classesYml, 
+        path.join(configs.tasks.dataMgGlyphs.jekyllDataFileDir, configs.tasks.dataMgGlyphs.jekyllDataFileName),
+        classesYml,
         function(err) {
           if(err)
           {
@@ -276,7 +269,7 @@ gulp.task('data-mg', function() {
             gulpUtil.log('Map Glyphs classes file written - containing ' + classes.length + ' icon classes');
           }
         }
-      ); 
+      );
     }
   });
 
@@ -298,7 +291,7 @@ gulp.task('data-di', function() {
 
   // For each line from the file check if it defines a glyph class using a regex
   for (var i = 0, len = deviconsLines.length; i < len; i++) {
-    
+
     var re = configs.tasks.dataDiGlyphs.glyphClassRegex;
     var str = deviconsLines[i];
     var match;
@@ -308,7 +301,7 @@ gulp.task('data-di', function() {
           re.lastIndex++;
       }
 
-      // Strip off the common prefix and add to array 
+      // Strip off the common prefix and add to array
       var className = match[0].replace(configs.tasks.dataDiGlyphs.glyphClassSrcPreix, '');
       classes.push(className);
     }
@@ -329,8 +322,8 @@ gulp.task('data-di', function() {
     {
       // Write out Jekyll data file
       fs.writeFile(
-        path.join(configs.tasks.dataDiGlyphs.jekyllDataFileDir, configs.tasks.dataDiGlyphs.jekyllDataFileName), 
-        classesYml, 
+        path.join(configs.tasks.dataDiGlyphs.jekyllDataFileDir, configs.tasks.dataDiGlyphs.jekyllDataFileName),
+        classesYml,
         function(err) {
           if(err)
           {
@@ -340,7 +333,7 @@ gulp.task('data-di', function() {
             gulpUtil.log('Devicons classes file written - containing ' + classes.length + ' icon classes');
           }
         }
-      ); 
+      );
     }
   });
 
@@ -351,4 +344,17 @@ gulp.task('data-di', function() {
   //gulpUtil.log('Yaml output looks like: ' + classesYml);
 
   return false;
+});
+
+// Utility tasks
+
+gulp.task('clean', function() {
+  return del([
+    path.join(destinations.dist, '**/*'),
+    path.join(destinations.docsDist, 'css', 'bas-style-kit.css'),
+    path.join(destinations.docsDist, 'css', 'bas-style-kit.min.css'),
+    path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.css.map'),
+    path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.min.css.map'),
+    path.join(destinations.docsDist, 'fonts', '**/*')
+  ]);
 });
