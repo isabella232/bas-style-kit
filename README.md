@@ -17,8 +17,6 @@ This project is based on the BASIS project template (version 1).
 * add a prod environment (i.e. convert dev-remote to prod-remote)
 * add npm install --production for prod
 
-* remove grunt file when possible
-* remove `/grunt` directory when possible
 
 * Switch to 24-span grid
 
