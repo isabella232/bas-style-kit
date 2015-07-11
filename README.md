@@ -177,7 +177,7 @@ Importantly these imported mixins are *unaltered* and we therefore do not alter 
 
 Less is a CSS pre-processor and therefore has to be compiled down to CSS before it can be used within a browser.
 
-Less compilation and post-processing steps are performed using `gulp less`.
+Less compilation and any further processing steps are performed using `gulp less-min`.
 
 This task will:
 

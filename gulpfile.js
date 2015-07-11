@@ -105,7 +105,7 @@ gulp.task('less-no-min', function() {
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
 
-gulp.task('less', function() {
+gulp.task('less-min', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(sourcemaps.init())
     .pipe(less(configs.less))
