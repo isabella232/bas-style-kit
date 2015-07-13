@@ -1,42 +1,46 @@
-@blue: #25658f;
-@lblue: #7FCCFF;
-@lgrey: #E7EBF1;
-@mgrey: #4D5D66;
-@lmgrey: #e3e3e3;
-@orange: #B93E14;
-@turq: #0DA59F;
+
+// Added as a colour scheme
+@blue: #25658f;  // ✔︎ - As @bsk-blue
+@lblue: #7FCCFF;  // ✔︎ - As @bsk-blue-light
+@lgrey: #E7EBF1;  // ✔︎ - As @bsk-grey-light
+@mgrey: #4D5D66;  // ✔︎ - As @bsk-grey-dark
+@lmgrey: #e3e3e3;  // ✔︎ - As @bsk-grey
+@orange: #B93E14;  // ✔︎ - As @bsk-orange
+@turq: #0DA59F;  // ✔︎ - As @bsk-turquoise
 
 .xlgreybg {
-	background-color: lighten(@lgrey, 4%);
+	background-color: lighten(@lgrey, 4%);  // ✔︎ - As @bsk-grey-lighter for the colour and  .bsk-grey-lighter-bg for the background
 }
 
 .lgreybg {
-	background-color: @lgrey;
+	background-color: @lgrey;  // ✔︎ - As bsk-grey-light-bg
 }
 
 .lmgreybg {
-	background-color: @lmgrey;
+	background-color: @lmgrey;  // ✔︎ - As bsk-grey-bg
 }
 
 .mgreybg {
-	background-color: @color1a;
-	color: #cbd9df;
+	background-color: @color1a;  // ✔︎ - But using bsk-grey-dark-bg NOT @color1a
+	color: #cbd9df;  // ✘ - Not implemented - these styles are too specific for a general framework - candidate for PW overrides
 	a {
-		color: white;
+		color: white;  // ✘ - Not implemented - these styles are too specific for a general framework - candidate for PW overrides
 	}
 }
 
 .turqbg {
-	background-color: @turq !important;
-	color: fade(white, 90%);
+	background-color: @turq !important;  // ✔︎ - As︎ @bsk-turquoise for the colour and .bsk-turquoise-bg for the background
+	color: fade(white, 90%);  // ✘ - Not implemented - these styles are too specific for a general framework - candidate for PW overrides
 	a {
-		color: white;
+		color: white;  // ✘ - Not implemented - these styles are too specific for a general framework - candidate for PW overrides
 	}
 }
 
 .dbluebg {
-	background-color: darken(@blue, 10%);
+	background-color: darken(@blue, 10%);  // ✔︎ - As bsk-blue-dark-bg
 }
+
+// -- done to here --
 
 @color1a: #333;
 @color1b: #333;
