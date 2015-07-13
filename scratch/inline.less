@@ -1,0 +1,28 @@
+.btn {
+	border-radius: 0;
+}
+
+.btn-default {
+	border: 0;
+	color: white;
+	background-color: @turq;;
+	&:hover, &:active, &:focus {
+		background-color: darken(@turq, 10%);
+		color: white;
+	}
+}
+
+.btn-lg {
+	@media (max-width: 767px) {
+		font-size: 1em;
+		padding: 10px;
+	}
+}
+
+a {
+	color: lighten(@blue, 5%);
+}
+
+.ssba img {
+	margin: 5px 8px 0 0;
+}
