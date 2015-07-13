@@ -12,8 +12,6 @@
 
   border-radius: @navbar-bsk-border-radius;
 
-  // TODO: .navbar-btn needs styling but 'upstream' styles don't reference padding/line-height variables
-
   .navbar-text {
     color: @navbar-bsk-color;
   }
@@ -192,7 +190,17 @@
       padding: 25px @navbar-bsk-lg-padding-horizontal;
     }
 
-    // TODO: .navbar-btn needs styling but 'upstream' styles don't reference padding/line-height variables
+    .navbar-btn {
+      .navbar-lg-vertical-align(@input-height-base);
+      font-size: @font-size-large;
+
+      &.btn-sm {
+        .navbar-lg-vertical-align(@input-height-small);
+      }
+      &.btn-xs {
+        .navbar-lg-vertical-align(22px);
+      }
+    }
 
     .navbar-text {
       .navbar-lg-vertical-align(@line-height-computed-x2);
