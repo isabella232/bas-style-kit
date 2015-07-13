@@ -1,0 +1,51 @@
+.secondaryNav {
+	font-size: 0.9em;
+	&.first-level {
+		background-color: #444;
+		li a { 
+			padding-top: 12px;
+			padding-bottom: 12px;
+		}
+		li.active a, a:hover {
+			background-color: #666;
+		}
+	}
+}
+
+.dropdown-menu {
+	> li { 
+		padding: 0;
+		margin: 0;
+		> a {
+			white-space: normal;
+			padding: 5px 15px;
+			border-bottom: 1px solid #eee;
+		}
+	}
+}
+
+ul.level-four-nav {
+	padding: 0;
+	list-style: none;
+	margin-left: -5px;
+	li {
+		padding-bottom: 0;
+		a {
+			display: block;
+			padding: 3px 8px;
+			line-height: 1.5em;
+			font-weight: 600;
+			&:hover, &:active, &:focus {
+				background: @blue;
+				color: white;
+				text-decoration: none;
+			}
+		}
+		&.active {
+			a {
+				background: @blue;
+				color: white;
+			}
+		}
+	}	
+}

@@ -1,0 +1,116 @@
+.newsFitersRow {
+	padding-bottom: 30px;
+	padding-top: 10px;
+	p {
+		a {
+			padding:15px  0 5px;
+			margin-right: 10px;
+			margin-top: 5px;
+			color: #333;
+			font-size: 1.5em;
+			.gsLight;
+			&:hover, &:active {
+				color: @blue;
+				text-decoration: none;
+				.gsMedium;
+			}
+		}
+		.divider {
+			margin-right: 10px;
+			color: @mgrey;
+			font-size: 1.5em;
+			padding-right: 5px;
+			border-left: 1px solid #ccc;
+			.gsLight;
+		}
+		.active {
+			color: @blue;
+			.gsMedium;
+			
+		}
+	}
+}
+
+.listing-grid {
+	.imgHead {
+		position: relative;
+		display: block;
+		img {
+			margin-bottom: 0;
+			width: 100%;
+			height: auto;
+			&.listing-feature {
+				margin-top: 15px;
+			}
+		}
+		.cutOut {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: @turq;
+			padding: 7px 10px;
+			display: block;
+			color: white;
+			font-size: 0.8em;
+		}
+	}
+	.inner {
+		padding: 15px 0;
+		position: relative;
+		h4 {
+			font-size: 1.4em;
+			line-height: 1.2em;
+		}
+		.lowerMeta {
+			padding: 10px 0;
+			position: absolute;
+			bottom: 0;
+			left: 15px;
+		}
+		&.feature {
+			padding: 15px 15px 50px 15px;
+			&.stdPadding {
+				padding: 15px;
+			}
+		}
+	}
+}
+
+.listingLeadPara {
+	padding: 20px 0 15px;
+	margin-top: 18px;
+	font-size: 1em;
+}
+
+.horizontalListing {
+	margin: 60px 0;
+	hr {
+		border: 1px solid #f3f3f3;
+	}
+	.media {
+		margin-top: 35px;
+		margin-bottom: 5px;
+		.media-left img {
+			margin-bottom: 20px;
+			width: 100%;
+			height: auto;
+			@media (min-width: 768px) {
+				float: left;
+				margin-right: 30px;
+				width: 150px;
+				height: auto;
+			}
+		}
+		.media-body {
+			h3 {
+				margin-top: 0;
+				margin-bottom: 10px;
+				line-height: 1.1em;
+			}
+		}
+		.btn-default {
+				margin-top: 12px;
+				display: inline-block;
+			}
+	}
+}
