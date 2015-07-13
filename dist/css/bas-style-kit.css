@@ -4067,6 +4067,19 @@ fieldset[disabled] .navbar-bsk .btn-link:focus {
   .navbar-bsk-lg .navbar-form {
     padding: 25px 15px;
   }
+  .navbar-bsk-lg .navbar-btn {
+    margin-top: 33px;
+    margin-bottom: 33px;
+    font-size: 18px;
+  }
+  .navbar-bsk-lg .navbar-btn.btn-sm {
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+  .navbar-bsk-lg .navbar-btn.btn-xs {
+    margin-top: 39px;
+    margin-bottom: 39px;
+  }
   .navbar-bsk-lg .navbar-text {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -4112,6 +4125,24 @@ fieldset[disabled] .navbar-bsk .btn-link:focus {
   .hidden-xl {
     display: none !important;
   }
+}
+.bsk-grey-lighter-bg {
+  background-color: #f4f6f9;
+}
+.bsk-grey-light-bg {
+  background-color: #e7ebf1;
+}
+.bsk-grey-bg {
+  background-color: #e3e3e3;
+}
+.bsk-grey-dark-bg {
+  background-color: #4d5d66;
+}
+.bsk-turquoise-bg {
+  background-color: #0da59f;
+}
+.bsk-blue-dark-bg {
+  background-color: #1b4866;
 }
 
 /*# sourceMappingURL=maps/bas-style-kit.css.map */
