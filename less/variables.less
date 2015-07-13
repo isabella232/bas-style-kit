@@ -41,6 +41,48 @@
 @grid-columns: 12;
 
 
+//== Navbar
+//
+//##
+
+// BSK navbar
+// Like an inverted navbar but a bit different
+@navbar-bsk-border-radius:                  0;  // TODO: Set to @border-radius-base if this is set to 0
+
+@navbar-bsk-color:                         lighten(@gray-light, 15%);  // TODO: I added this style - check with HT
+@navbar-bsk-bg:                             #111;  // TODO: Use lighten/darken functions to generate colour
+@navbar-bsk-border:                         @navbar-bsk-bg;
+@navbar-bsk-divider-color:                  darken(@navbar-bsk-bg, 10%);// TODO: I added this style- check with HT
+
+@navbar-bsk-link-color:                     #fff;  // TODO: base + hover colours cannot be the same - need style from HT
+@navbar-bsk-link-hover-color:               #fff;  // TODO: base + hover colours cannot be the same - need style from HT
+@navbar-bsk-link-hover-bg:                  #444;
+@navbar-bsk-link-active-color:              @navbar-bsk-link-hover-color;
+@navbar-bsk-link-active-bg:                 darken(@navbar-bsk-link-hover-bg, 10%);  // TODO: See [1]
+@navbar-bsk-link-disabled-color:            #444;  // TODO: I added this style - check with HT
+@navbar-bsk-link-disabled-bg:               transparent;  // TODO: I added this style - check with HT
+
+@navbar-bsk-toggle-hover-bg:                #444;  // TODO: See [2]
+@navbar-bsk-toggle-icon-bar-bg:             #fff;
+@navbar-bsk-toggle-border-color:            @navbar-bsk-bg;  // TODO: See [2]
+
+// [1] I've overridden this from being exactly the same as the hover background. The Less styles explicitly make the
+// active and hover pseudo-selectors the same colour (#444), however on the public website the active menu item is given
+// a background of #535353 (i.e. darker) - presumably the Less styles were not updated to reflect this? - Check with HT
+
+// [2] HT's styles effectively remove a hover state for the menu button - I think this is bad from a usability perspective
+// so have used the same hover background used for menu items. I have disabled the icon border (though making the border
+// colour the same as the navbar background) as this isn't such an issue in my view. Ideally the PW styles should adopt
+// this change but if not this should be set in the PW override styles.
+
+// BSK large navbar
+// The same as a regular BSK navbar but thicker
+@line-height-computed-x2:                 (@line-height-computed * 2);  // Hack, move to proper place if this works
+@navbar-bsk-lg-height:                    100px;  // double normal
+@navbar-bsk-lg-padding-horizontal:        floor((@grid-gutter-width / 2));  // Needs making bigger somehow
+@navbar-bsk-lg-padding-vertical:          ((@navbar-bsk-lg-height - @line-height-computed-x2) / 2);
+
+
 //== Non-bootstrap
 //
 //## Define any BAS Style Kit specific variables here

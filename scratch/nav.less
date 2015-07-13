@@ -1,0 +1,69 @@
+.navbar {
+	background-color: #111;  // ✔︎
+	border-radius: 0;  // ✔︎ - Not needed if .navbar-fixed-top is used, but needs to cover 'stand alone' navbars so added
+	margin-bottom: 0;  // ✘ - Not applicable for the BSK, candidate for PW overrides, also a dynamic value
+	font-size: 1.1em;  // ✔︎ - Using @font-size-large rather than hard coded value
+	border-width: 0 !important;  // ✘ - I see no reason for this, however the border colour is set to match the background
+  a {
+		color: white;  // ✔ - as @navbar-bsk-link-color
+		text-decoration: none;  // ✘ - Not needed?
+	}
+	.icon-bar {
+		background-color: white;  // ✔ - as @navbar-bsk-toggle-icon-bar-bg but with extra hover styles
+	}
+	.navbar-brand {
+		font-size: 0.8em;  // ✔︎ - Using @font-size-large rather than hard coded value
+		height: auto;  // ✘ - Not included as doesn't seem to be needed
+		padding: 10px 15px 10px;  // ✘ - For the sake of 5px I don't want to change this in the BSK and have to deal with edge cases, candidate for PW overrides
+		img {
+			width: 300px;  // ✔
+			height: auto;  // ✘ - Not included as doesn't seem to be needed
+			@media (max-width: 767px) {  // change to '@grid-float-breakpoint-max' if used
+				width: 145px;  // ✔
+			}
+		}
+	}
+
+  // Assuming this should be targeting .navbar-nav
+	ul {
+		padding: 0 0 0 0;  // ✘ - This is already the case, unless there's something that overrides this I can't see?
+		li {
+			padding-bottom: 0;  // ✘ - This is to override a non-bootstrap style, therefore not something for the BSK, candidate for PW overrides
+		}
+	}
+
+	.navbar-right {
+		margin-right: 10px;  // ✘ - For the sake of 5px I don't want to change this in the BSK and have to deal with edge cases, candidate for PW overrides
+		@media (max-width: 767px) {  // change to '@grid-float-breakpoint-max' if used
+			margin-right: 0;  // ✘ - I don't want to change this in the BSK and have to deal with edge cases, candidate for PW overrides
+		}
+
+		li {
+			> a {
+				padding: 35px 16px;  // ✔ - Though only added to the '.navbar-bsk-lg' version of our navbar using variables
+				@media (max-width: 767px) {  // ✔ - changed to '@grid-float-breakpoint-max'
+					padding: 10px;  // ✔ - Though only added to the '.navbar-bsk-lg' version of our navbar using variables
+				}
+
+        &:focus, &:active, &:hover {
+          background-color: #444;  // ✔ - as @navbar-inverse-link-hover-bg - BUT with darker :active colour
+        }
+			}
+		}
+		.dropdown {
+			li {
+				background: white;  // ✘ - This is already the case so not implementing in the BSK
+				a {
+					padding: 10px;  // ✔ - Implemented but under an alternative selector
+					&:focus, &:active, &:hover {
+						background-color: #ddd;  // ✘ - Using '@navbar-bsk-link-active-bg' instead
+					}
+				}
+			}
+		}
+	}
+	.navbar-collapse {
+		padding-right: 0;  // ✘ - I can see why this used on the public website, but I can't replicate this using just the BSK, therefore a candidate for PW overrides
+	}
+
+}
