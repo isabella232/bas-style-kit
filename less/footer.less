@@ -1,0 +1,107 @@
+//
+// Footers
+// --------------------------------------------------
+
+// Footers are modelled on navbars, but designed as a more general container, meaning they don't make assumptions about
+// their contents for example.
+//
+// Note: No equivalent of this component exists within Bootstrap, these styles are only found in the BAS Style Kit.
+//
+// Note: Unlike navbars, you can use text and other elements without footer specific classes. Suitable styles will be
+// applied as needed and is why a 'color' is set at the root of a footer, unlike in navbars which set this in classes
+// for specific elements (i.e. navbar-text).
+//
+// TODO: Support 'sticky' footers
+
+// Wrapper and base class
+//
+// Provide a static footer from which we expand to create full-width, fixed, and
+// other footer variations.
+
+.footer-bsk {
+  position: relative;
+  min-height: @footer-height; // Ensure a footer always shows
+  margin-top: @footer-margin-top;
+  padding-top: @footer-padding-top;
+  padding-bottom: @footer-padding-bottom;
+  border: 1px solid transparent;
+
+  // Prevent floats from breaking the footer
+  // TODO: Check if this is needed
+  &:extend(.clearfix all);
+
+  @media (min-width: @grid-float-breakpoint) {
+    border-radius: @footer-border-radius;
+  }
+}
+
+
+// Divider
+//
+// Used to separate bands of content, spanning the full width of the parent.
+
+.footer-bsk-divider {
+  margin-top:    @line-height-computed;
+  margin-bottom: @line-height-computed;
+  border: 0;
+  border-top: 1px solid;
+}
+
+
+// Social media links
+//
+// Expects a containing element with a series of links each containing an icon for a different website/service
+// TODO: Relocate/Generalise?
+.footer-bsk-social-links {
+  a {
+    &.twitter {
+      color: @brands-twitter-primary;
+    }
+    &.facebook {
+      color: @brands-facebook-primary;
+    }
+    &.youtube {
+      color: @brands-youtube-primary;
+    }
+    &.rss {
+      color: @brands-rss-primary;
+    }
+    &:hover {
+      &.twitter {
+        color: darken(@brands-twitter-primary, 15%);
+      }
+      &.facebook {
+        color: darken(@brands-facebook-primary, 15%);
+      }
+      &.youtube {
+        color: darken(@brands-youtube-primary, 15%);
+      }
+      &.rss {
+        color: darken(@brands-rss-primary, 15%);
+      }
+    }
+  }
+}
+
+
+// Alternate footers
+// --------------------------------------------------
+
+// BSK footer
+.footer-bsk-default {
+  color: @footer-bsk-default-color;
+  background-color: @footer-bsk-default-bg;
+  border-color: @footer-bsk-default-border;
+
+  .footer-bsk-divider {
+    border-top-color: @footer-bsk-default-divider;
+  }
+
+  a {
+    color: @navbar-bsk-default-link-color;
+
+    &:hover {
+      color: @navbar-bsk-default-link-hover-color;
+    }
+  }
+}

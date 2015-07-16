@@ -21,6 +21,11 @@
 // TODO: What about GDS colours?
 // TODO: What about a BAS brand colour? (i.e. logo blue)
 
+// Brands
+@brands-twitter-primary:                    #55ACEE;  // as defined by brand
+@brands-facebook-primary:                   #3B5998;  // as defined by brand
+@brands-youtube-primary:                    #CD201F;  // as defined by brand
+@brands-rss-primary:                        #f26522;  // as defined by convention
 
 //== Typography
 //
@@ -118,3 +123,21 @@
 
 // Sets the path to the devicons font-face relative to the generated CSS file (i.e. /dist/css)
 @di-font-path: "../fonts/devicons";
+//== Footers
+//
+//##
+
+// Basics of a footer
+@footer-height:                             50px;
+@footer-margin-top:                         ((@line-height-computed * 2) + 10px);
+@footer-border-radius:                      @border-radius-base;
+@footer-padding-top:                        @footer-margin-top;
+@footer-padding-bottom:                     (@footer-padding-top - 10px);
+
+@footer-bsk-default-color:                  #f8f8f8;  // TODO: Use lighten/darken functions to generate colour
+@footer-bsk-default-bg:                     #333;  // TODO: Use lighten/darken functions to generate colour
+@footer-bsk-default-border:                 @footer-bsk-default-bg;
+
+@footer-bsk-default-divider:                #777;  // TODO: Use lighten/darken functions to generate colour
+@navbar-bsk-default-link-color:             @bsk-blue-light;
+@navbar-bsk-default-link-hover-color:       darken(@navbar-bsk-default-link-color, 15%);  // TODO: check with HT

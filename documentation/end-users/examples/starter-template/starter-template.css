@@ -2,3 +2,66 @@
 body {
   padding-top: 50px;
 }
+
+
+/* scratch */
+.footer {
+  padding: 50px 0 40px;
+  background: #333;
+  color: #f8f8f8;
+  margin-bottom: 0;
+}
+
+.footer h2, h3, h4 {
+  margin-bottom: 20px;
+  color: white;
+}
+.footer a {
+  color: #7FCCFF;
+}
+.footer img {
+  margin-bottom: 15px;
+}
+.footer hr {
+  border-top: 1px solid #777;
+}
+.footer ul li {
+  margin-bottom: 0;
+  padding-bottom: 3px;
+}
+
+.follow-us {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.follow-us li {
+  float: left;
+  margin-right: 10px;
+}
+.follow-us li a {
+  width: 50px;
+  height: 50px;
+  background-image: url(./social-media.png);
+  border: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
+  display: block;
+}
+.follow-us li a.twitter {
+  background-position: 0 0;
+}
+.follow-us li a.facebook {
+  background-position: 277px 0;
+}
+.follow-us li a.linkedin {
+  background-position: 107px 0;
+}
+.follow-us li a.youtube {
+  background-position: 221px 0;
+}
+.follow-us li a.rss {
+  background-position: 50px 0;
+}

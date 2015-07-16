@@ -1,0 +1,29 @@
+.footer {
+  padding: 50px 0 40px;  // ✔︎ - But through the results of calculated variables
+  background: #333;  // ✔︎ - As @footer-bsk-default-bg
+  color: #f8f8f8;  // ✔︎ - As @footer-bsk-default-color
+  margin-bottom: 0px;  // ✘ - Not implemented - not needed?
+  .gsLight;  // ✘ - Not implemented - not sure what this does
+
+  // ✘ - Not implemented - appear ok by default and I don't want to override margins without good reason - PW override?
+  h2, h3, h4 {
+    margin-bottom: 20px;
+    color: white;
+    .gsMedium;
+  }
+  a {
+    color: @lblue;  // ✔︎ - As @navbar-bsk-default-link-color using @bsk-blue-light
+  }
+  img {
+    margin-bottom: 15px;  // ✘ - Not implemented - given the generic nature of this component too specific for BSK, candidate for PW overrides
+  }
+  hr {
+    border-top: 1px solid #777;   // ✔︎ - As .footer-bsk-divider
+  }
+
+  // ✘ - Not implemented - given the generic nature of this component too specific for BSK, candidate for PW overrides
+  ul li {
+    margin-bottom: 0;
+    padding-bottom: 3px;
+  }
+}
