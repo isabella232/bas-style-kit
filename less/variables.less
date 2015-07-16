@@ -8,15 +8,15 @@
 //## Brand and background colors for use across the BAS Style Kit.
 
 // Brand colour scheme
-@bsk-blue-light:         #7FCCFF;  // TODO: Can we use lighten for this?
-@bsk-blue:               #25658f;
-@bsk-blue-dark:          darken(@bsk-blue, 10%);
-@bsk-grey-lighter:       lighten(@bsk-grey-light, 4%);
-@bsk-grey-light:         #E7EBF1;  // TODO: Can we use lighten for this?
-@bsk-grey:               #E3E3E3;
-@bsk-grey-dark:          #4D5D66;  // TODO: Can we use darken for this?
-@bsk-orange:             #B93E14;  // TODO: Rename to red - since this isn't actually orange
-@bsk-turquoise:          #0DA59F;
+@bsk-blue-light:                            #7FCCFF;  // TODO: Can we use lighten for this?
+@bsk-blue:                                  #25658f;
+@bsk-blue-dark:                             darken(@bsk-blue, 10%);
+@bsk-grey-lighter:                          lighten(@bsk-grey-light, 4%);
+@bsk-grey-light:                            #E7EBF1;  // TODO: Can we use lighten for this?
+@bsk-grey:                                  #E3E3E3;
+@bsk-grey-dark:                             #4D5D66;  // TODO: Can we use darken for this?
+@bsk-orange:                                #B93E14;  // TODO: Rename to red - since this isn't actually orange
+@bsk-turquoise:                             #0DA59F;
 
 // TODO: What about GDS colours?
 // TODO: What about a BAS brand colour? (i.e. logo blue)
@@ -31,9 +31,9 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:                    "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-@semibold-font-weight:    600;
+@semibold-font-weight:                      600;
 
 
 //== Media queries breakpoints
@@ -41,11 +41,11 @@
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
 
 // Extra large screen / wider desktop
-@screen-xl:                  1800px;
-@screen-xl-min:              @screen-xl;
+@screen-xl:                                 1800px;
+@screen-xl-min:                             @screen-xl;
 
 // So media queries don't overlap when required, provide a maximum
-@screen-lg-max:              (@screen-xl-min - 1);
+@screen-lg-max:                             (@screen-xl-min - 1);
 
 
 //== Container sizes
@@ -53,9 +53,9 @@
 //## Define the maximum width of `.container` for different screen sizes.
 
 // Extra large screen / wider desktop
-@container-extra-large-desktop: ((1724px + @grid-gutter-width));
+@container-extra-large-desktop:             ((1724px + @grid-gutter-width));
 //** For `@screen-xl-min` and up.
-@container-xl:                  @container-extra-large-desktop;
+@container-xl:                              @container-extra-large-desktop;
 
 
 //== Grid system
@@ -63,7 +63,7 @@
 //## Define your custom responsive grid.
 
 //** Number of columns in the grid.
-@grid-columns: 12;
+@grid-columns:                              12;
 
 
 //== Navbar
@@ -74,7 +74,7 @@
 // Like an inverted navbar but a bit different
 @navbar-bsk-border-radius:                  0;  // TODO: Set to @border-radius-base if this is set to 0
 
-@navbar-bsk-color:                         lighten(@gray-light, 15%);  // TODO: I added this style - check with HT
+@navbar-bsk-color:                          lighten(@gray-light, 15%);  // TODO: I added this style - check with HT
 @navbar-bsk-bg:                             #111;  // TODO: Use lighten/darken functions to generate colour
 @navbar-bsk-border:                         @navbar-bsk-bg;
 @navbar-bsk-divider-color:                  darken(@navbar-bsk-bg, 10%);// TODO: I added this style- check with HT
@@ -102,27 +102,30 @@
 
 // BSK large navbar
 // The same as a regular BSK navbar but thicker
-@line-height-computed-x2:                 (@line-height-computed * 2);  // Hack, move to proper place if this works
-@navbar-bsk-lg-height:                    100px;  // double normal
-@navbar-bsk-lg-padding-horizontal:        floor((@grid-gutter-width / 2));  // Needs making bigger somehow
-@navbar-bsk-lg-padding-vertical:          ((@navbar-bsk-lg-height - @line-height-computed-x2) / 2);
+@line-height-computed-x2:                   (@line-height-computed * 2);  // Hack, move to proper place if this works
+@navbar-bsk-lg-height:                      100px;  // double normal
+@navbar-bsk-lg-padding-horizontal:          floor((@grid-gutter-width / 2));  // Needs making bigger somehow
+@navbar-bsk-lg-padding-vertical:            ((@navbar-bsk-lg-height - @line-height-computed-x2) / 2);
 
 
-//== Non-bootstrap
+//== Font faces
 //
-//## Define any BAS Style Kit specific variables here
+//## Define the location of where font-face fonts are stored
+
 
 // Sets the path to the open-sans font-face relative to the generated CSS file (i.e. /dist/css)
-@OpenSansPath: "../fonts/open-sans";
+@OpenSansPath:                              "../fonts/open-sans";
 
 // Sets the path to the font-awesome font-face relative to the generated CSS file (i.e. /dist/css)
-@fa-font-path: "../fonts/font-awesome";
+@fa-font-path:                              "../fonts/font-awesome";
 
 // Sets the path to the map-glyphs font-face relative to the generated CSS file (i.e. /dist/css)
-@mg-font-path: "../fonts/map-glyphs";
+@mg-font-path:                              "../fonts/map-glyphs";
 
 // Sets the path to the devicons font-face relative to the generated CSS file (i.e. /dist/css)
-@di-font-path: "../fonts/devicons";
+@di-font-path:                              "../fonts/devicons";
+
+
 //== Footers
 //
 //##
