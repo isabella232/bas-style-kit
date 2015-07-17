@@ -1,0 +1,201 @@
+<div class="bs-docs-section">
+  <h1 id="footer" class="page-header">Footer</h1>
+
+  <p class="lead">Footers are a containing component that can hold anything you want, such as additional navigation, legal and contact information or anything else you want.</p>
+  <p class="text-info">This component is unique to the BAS Style Kit, but modelled on the <a href="#navbar">navbar</a> component.</p>
+
+  <h2 id="footer-default">Default footer</h2>
+  <p>Footers can range from very simple, minimal elements containing simple text, to large <em>fat</em> footers containing lots of links, information and actions. <br />
+  The footer component is designed to be compatible with almost all elements and components to allow you to use it as your project demands.</p>
+  <div class="bs-callout bs-callout-info" id="callout-footer-content">
+    <h4>Default footer content</h4>
+    <p>The <a href="{{ site.style_guide_url }}">BAS Style Guide</a> details some required and recommended content to include in footers.</p>
+  </div>
+
+  <div class="bs-example" data-example-id="footer-default">
+    <footer class="footer-bsk footer-bsk-default">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- 2/3 + 1/3 columns -->
+          <div class="col-xs-12 col-md-8">
+            <!-- main content -->
+            <h2>Footer content</h2>
+            Footer content with a <a href="#">link</a>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <div class="pull-right">
+              <!-- social media -->
+              <h2 class="text-right">Social media</h2>
+              <ul class="list-inline footer-bsk-social-links">
+                <li><a href="#" class="twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
+                <li><a href="#" class="facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
+                <li><a href="#" class="youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
+                <li><a href="#" class="rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div role="separator" class="footer-bsk-divider"></div>
+            <!-- Copyright & legal -->
+            <div class="pull-right">
+              Copyright &amp; Legal
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+{% highlight html %}
+<footer class="footer-bsk footer-bsk-default">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- 2/3 + 1/3 columns -->
+      <div class="col-xs-12 col-md-8">
+        <!-- main content -->
+        <h2>Footer content</h2>
+        Footer content with a <a href="#">link</a>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="pull-right">
+          <!-- social media -->
+          <h2 class="text-right">Social media</h2>
+          <ul class="list-inline footer-bsk-social-links">
+            <li><a href="#" class="twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
+            <li><a href="#" class="facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
+            <li><a href="#" class="youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
+            <li><a href="#" class="rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div role="separator" class="footer-bsk-divider"></div>
+        <!-- Copyright & legal -->
+        <div class="pull-right">
+          Copyright &amp; Legal
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endhighlight %}
+  <div class="bs-callout bs-callout-info" id="callout-footer-falist">
+    <h4><code>.list-inline</code> and <code>.fa-ui</code> </h4>
+    <p>These styles are incompatible as the Font Awesome styles assume the use of a vertical list. <br />
+    In practical terms this doesn't make a difference as in the inline list styles present list items with icons in an acceptable way.</p>
+  </div>
+
+  <h2 id="footer-divider">Divider</h2>
+  <p>Use to separate sections of content, a divider acts like a horizontal line spanning the full width of the parent.</p>
+  <div class="bs-example" data-example-id="footer-static-bottom">
+    <footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
+      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+      <div class="container-fluid">
+        Above divider
+        <div role="separator" class="footer-bsk-divider"></div>
+        Below divider
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+...
+<div role="separator" class="footer-bsk-divider"></div>
+...
+{% endhighlight %}
+
+  <h2 id="footer-social-links">Social media links</h2>
+  <p>A common set of links to various BAS social media profiles can be easily added using a list of font-icons, which will scale with the base font-size.</p>
+  <p class="text-info">See the <a href="{{ site.style_guide_url }}">BAS Style Guide</a> for more information on linking to these files.</p>
+  <div class="bs-example" data-example-id="footer-static-bottom">
+    <footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
+      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+      <div class="container-fluid">
+        <h2>Social media</h2>
+        <ul class="list-inline footer-bsk-social-links">
+          <li><a href="#" class="twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
+          <li><a href="#" class="facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
+          <li><a href="#" class="youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
+          <li><a href="#" class="rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
+        </ul>
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+...
+<h2>Social media</h2>
+<ul class="list-inline footer-bsk-social-links">
+  <li><a href="#" class="twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
+  <li><a href="#" class="facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
+  <li><a href="#" class="youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
+  <li><a href="#" class="rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
+</ul>
+...
+{% endhighlight %}
+
+  <h2 id="footer-fixed-bottom">Fixed to bottom</h2>
+  <p>Add <code>.footer-bsk-fixed-bottom</code> and include a <code>.container</code> or <code>.container-fluid</code> to center and pad footer content.</p>
+  <div class="bs-example bs-footer-bottom-example" data-example-id="footer-bsk-fixed-bottom">
+    <footer class="footer-bsk footer-bsk-default footer-bsk-fixed-bottom">
+      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+      <div class="container-fluid">
+        Footer content with a <a href="#">link</a>
+        <div role="separator" class="footer-bsk-divider"></div>
+        <!-- Copyright & legal -->
+        <div class="pull-right">
+          Copyright &amp; Legal
+        </div>
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+<footer class="footer-bsk footer-bsk-default footer-bsk-fixed-bottom">
+  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+  <div class="container-fluid">
+    Footer content with a <a href="#">link</a>
+    <div role="separator" class="footer-bsk-divider"></div>
+    <!-- Copyright & legal -->
+    <div class="pull-right">
+      Copyright &amp; Legal
+    </div>
+  </div>
+</footer>
+{% endhighlight %}
+  <div class="bs-callout bs-callout-danger" id="callout-navbar-fixed-bottom-padding">
+    <h4>Body padding required</h4>
+    <p>The fixed footer will overlay your other content, unless you add <code>padding</code> to the bottom of the <code>&lt;body&gt;</code>.</p>
+    <p>Make sure to include this <strong>after</strong> the core Bootstrap CSS &amp; BAS Style Kit CSS.</p>
+  </div>
+
+  <h2 id="footer-static-bottom">Static bottom</h2>
+  <p>Create a full-width footer that scrolls away with the page by adding <code>.footer-bsk-static-bottom</code> and include a <code>.container</code> or <code>.container-fluid</code> to center and pad footer content.</p>
+  <p>Unlike the <code>.footer-bsk-fixed-bottom</code> class, you do not need to change any padding on the <code>body</code>.</p>
+  <div class="bs-example" data-example-id="footer-static-bottom">
+    <footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
+      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+      <div class="container-fluid">
+        Footer content with a <a href="#">link</a>
+        <div role="separator" class="footer-bsk-divider"></div>
+        <!-- Copyright & legal -->
+        <div class="pull-right">
+          Copyright &amp; Legal
+        </div>
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+<footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
+  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+  <div class="container-fluid">
+    Footer content with a <a href="#">link</a>
+    <div role="separator" class="footer-bsk-divider"></div>
+    <!-- Copyright & legal -->
+    <div class="pull-right">
+      Copyright &amp; Legal
+    </div>
+  </div>
+</footer>
+{% endhighlight %}
+</div>

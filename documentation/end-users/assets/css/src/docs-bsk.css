@@ -128,3 +128,18 @@
 .color-swatches .bsk-turquoise {
   background-color:  #0DA59F;
 }
+
+
+/*
+ * Examples
+ *
+ * Isolated sections of example content for each component or feature. Usually
+ * followed by a code snippet.
+ */
+
+/* Footer */
+.bs-footer-bottom-example .footer-bsk-fixed-bottom {
+  position: relative;
+  margin-right: 0;
+  margin-left: 0;
+}

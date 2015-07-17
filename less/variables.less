@@ -36,6 +36,15 @@
 @semibold-font-weight:                      600;
 
 
+//-- Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+@zindex-footer:                             1000;
+@zindex-footer-fixed:                       1030;
+
+
 //== Media queries breakpoints
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
@@ -72,7 +81,7 @@
 
 // BSK navbar
 // Like an inverted navbar but a bit different
-@navbar-bsk-border-radius:                  0;  // TODO: Set to @border-radius-base if this is set to 0
+@navbar-bsk-border-radius:                  0;  // TODO: Set to @border-radius-base if this is general
 
 @navbar-bsk-color:                          lighten(@gray-light, 15%);  // TODO: I added this style - check with HT
 @navbar-bsk-bg:                             #111;  // TODO: Use lighten/darken functions to generate colour
@@ -133,7 +142,7 @@
 // Basics of a footer
 @footer-height:                             50px;
 @footer-margin-top:                         ((@line-height-computed * 2) + 10px);
-@footer-border-radius:                      @border-radius-base;
+@footer-border-radius:                      0;  // TODO: Set to @border-radius-base if this is general
 @footer-padding-top:                        @footer-margin-top;
 @footer-padding-bottom:                     (@footer-padding-top - 10px);
 

@@ -36,6 +36,39 @@
 }
 
 
+//
+// Footer alignment options
+//
+// Display the footer across the entirety of the page or fixed it to the top or
+// bottom of the page.
+
+// Common styles
+.footer-bsk-static-bottom, .footer-bsk-fixed-bottom {
+  border-width: 1px 0 0;
+
+  // Undo the rounded corners
+  @media (min-width: @grid-float-breakpoint) {
+    border-radius: 0;
+  }
+}
+
+// Static bottom (unfixed, but 100% wide) footer
+.footer-bsk-static-bottom {
+  z-index: @zindex-footer;
+}
+
+// Fix the bottom footer when screen real estate supports it
+.footer-bsk-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: @zindex-navbar-fixed;
+
+  margin-bottom: 0; // override .navbar defaults
+}
+
+
 // Divider
 //
 // Used to separate bands of content, spanning the full width of the parent.
