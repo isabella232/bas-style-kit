@@ -1,0 +1,56 @@
+//
+// Headers
+// --------------------------------------------------
+
+// Headers are modelled on navbars, but designed as a lighter weight alternative for use in integrating non-BAS systems
+// with the BAS design. A good example of this is an Eventbrite template, where a full blown navbar would be both
+// unnecessary, and too unwieldy to implement due to its complex structure.
+//
+// Note: No (direct) equivalent of this component exists within Bootstrap,
+// these styles are only found in the BAS Style Kit.
+//
+// Note: Unlike navbars, you can use text and other elements without header specific classes. However it is only really
+// designed to hold an img element for the BAS logo.
+
+// Wrapper and base class
+//
+// Provide a static footer from which we expand to create full-width, fixed, and
+// other footer variations.
+
+.header-bsk {
+  position: relative;
+  min-height: @header-height; // Ensure a footer always shows
+  margin-bottom: @header-margin-bottom;
+  padding-top: @header-padding-vertical;
+  padding-bottom: @header-padding-vertical;
+  border: 1px solid transparent;
+
+  // Prevent floats from breaking the header
+  // TODO: Check if this is needed
+  &:extend(.clearfix all);
+
+  @media (min-width: @grid-float-breakpoint) {
+    border-radius: @header-border-radius;
+  }
+}
+
+
+// Logo image
+//
+// For padding and shit...
+// Used to separate bands of content, spanning the full width of the parent.
+
+.header-bsk-img-logo {
+  width: 300px;
+  padding: (@header-padding-vertical /2) 0;
+}
+
+
+// Alternate footers
+// --------------------------------------------------
+
+// BSK footer
+.header-bsk-default {
+  background-color: @header-bsk-default-bg;
+  border-color: @header-bsk-default-border;
+}
