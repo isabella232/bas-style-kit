@@ -38,9 +38,12 @@ var destinations = {
   'fonts': path.join('fonts')
 };
 var configs = {
+  env: {
+    debug: false
+  },
   less: {
     strictMath: true
-    // Less stylemaps are not supported by the gulp-less plugin, therefore gulp-sourcemaps is used
+    // Less source-maps are not supported by the gulp-less plugin, therefore gulp-sourcemaps is used instead
   },
   autoprefixer: {
     browsers: [
@@ -210,11 +213,13 @@ gulp.task('jekyll-data-fa', function() {
     }
   });
 
-  //Debug - enable as needed
-  //gulpUtil.log('Found ' + fontAwesomeGlyphLines.length + ' lines in icons.less');
-  //gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
-  //gulpUtil.log('Class 4 looks like: ' + classes[3]);
-  //gulpUtil.log('Yaml output looks like: ' + classesYml);
+  //Debug - enable using configs.env.debug = true
+  if (configs.env.debug == true) {
+    gulpUtil.log('Found ' + fontAwesomeGlyphLines.length + ' lines in icons.less');
+    gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
+    gulpUtil.log('Class 4 looks like: ' + classes[3]);
+    gulpUtil.log('Yaml output looks like: ' + classesYml);
+  }
 
   return false;
 });
@@ -274,11 +279,13 @@ gulp.task('jekyll-data-mg', function() {
     }
   });
 
-  //Debug - enable as needed
-  //gulpUtil.log('Found ' + mapGlyphLines.length + ' lines in icons.less');
-  //gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
-  //gulpUtil.log('Class 4 looks like: ' + classes[3]);
-  //gulpUtil.log('Yaml output looks like: ' + classesYml);
+  //Debug - enable using configs.env.debug = true
+  if (configs.env.debug == true) {
+    gulpUtil.log('Found ' + mapGlyphLines.length + ' lines in icons.less');
+    gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
+    gulpUtil.log('Class 4 looks like: ' + classes[3]);
+    gulpUtil.log('Yaml output looks like: ' + classesYml);
+  }
 
   return false;
 });
@@ -338,11 +345,13 @@ gulp.task('jekyll-data-di', function() {
     }
   });
 
-  //Debug - enable as needed
-  //gulpUtil.log('Found ' + deviconsLines.length + ' lines in icons.less');
-  //gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
-  //gulpUtil.log('Class 4 looks like: ' + classes[3]);
-  //gulpUtil.log('Yaml output looks like: ' + classesYml);
+  //Debug - enable using configs.env.debug = true
+  if (configs.env.debug == true) {
+    gulpUtil.log('Found ' + deviconsLines.length + ' lines in icons.less');
+    gulpUtil.log('Found ' + classes.length + ' icon classes in icons.less');
+    gulpUtil.log('Class 4 looks like: ' + classes[3]);
+    gulpUtil.log('Yaml output looks like: ' + classesYml);
+  }
 
   return false;
 });
