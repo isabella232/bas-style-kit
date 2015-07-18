@@ -7,42 +7,19 @@
   <h2 id="footer-default">Default footer</h2>
   <p>Footers can range from very simple, minimal elements containing simple text, to large <em>fat</em> footers containing lots of links, information and actions. <br />
   The footer component is designed to be compatible with almost all elements and components to allow you to use it as your project demands.</p>
-  <div class="bs-callout bs-callout-info" id="callout-footer-content">
-    <h4>Default footer content</h4>
-    <p>The <a href="{{ site.style_guide_url }}">BAS Style Guide</a> details some required and recommended content to include in footers.</p>
-  </div>
 
   <div class="bs-example" data-example-id="footer-default">
     <footer class="footer-bsk footer-bsk-default">
       <div class="container-fluid">
-        <div class="row">
-          <!-- 2/3 + 1/3 columns -->
-          <div class="col-xs-12 col-md-8">
-            <!-- main content -->
-            <h2>Footer content</h2>
-            Footer content with a <a href="#">link</a>
-          </div>
-          <div class="col-xs-12 col-md-4">
-            <div class="pull-right">
-              <!-- social media -->
-              <h2 class="text-right">Social media</h2>
-              <ul class="list-inline footer-bsk-social-links">
-                <li><a href="#" class="twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
-                <li><a href="#" class="facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
-                <li><a href="#" class="youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
-                <li><a href="#" class="rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
-              </ul>
-            </div>
-          </div>
+        <!-- main content -->
+        <h2>Footer content</h2>
+        Footer content with a <a href="#">link</a>
+        <div role="separator" class="footer-bsk-divider"></div>
         <!-- Copyright & legal -->
         <div class="footer-bsk-ogl">
           <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="../../assets/img/ogl-symbol-white.png"></a>
           <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div role="separator" class="footer-bsk-divider"></div>
-          </div>
         <div class="footer-bsk-policy-links">
           © NERC BAS
           <ul class="list-inline">
@@ -56,49 +33,34 @@
 {% highlight html %}
 <footer class="footer-bsk footer-bsk-default">
   <div class="container-fluid">
-    <div class="row">
-      <!-- 2/3 + 1/3 columns -->
-      <div class="col-xs-12 col-md-8">
-        <!-- main content -->
-        <h2>Footer content</h2>
-        Footer content with a <a href="#">link</a>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <div class="pull-right">
-          <!-- social media -->
-          <h2 class="text-right">Social media</h2>
-          <ul class="list-inline footer-bsk-social-links">
-            <li><a href="#" class="twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
-            <li><a href="#" class="facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
-            <li><a href="#" class="youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
-            <li><a href="#" class="rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
-          </ul>
-        </div>
-      </div>
+    <!-- main content -->
+    <h2>Footer content</h2>
+    Footer content with a <a href="#">link</a>
+    <div role="separator" class="footer-bsk-divider"></div>
     <!-- Copyright & legal -->
     <div class="footer-bsk-ogl">
       <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="..."></a>
       <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div role="separator" class="footer-bsk-divider"></div>
-      </div>
+    <div class="footer-bsk-policy-links">
+      © NERC BAS
+      <ul class="list-inline">
+        <li><a href="#">Copyright</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
     </div>
   </div>
 </footer>
 {% endhighlight %}
-  <div class="bs-callout bs-callout-info" id="callout-footer-falist">
-    <h4><code>.list-inline</code> and <code>.fa-ui</code> </h4>
-    <p>These styles are incompatible as the Font Awesome styles assume the use of a vertical list. <br />
-    In practical terms this doesn't make a difference as in the inline list styles present list items with icons in an acceptable way.</p>
+  <div class="bs-callout bs-callout-info" id="callout-footer-content">
+    <h4>Default footer content</h4>
+    <p>The <a href="{{ site.style_guide_url }}">BAS Style Guide</a> details required and recommended content to include in footers.</p>
   </div>
 
   <h2 id="footer-divider">Divider</h2>
   <p>Use to separate sections of content, a divider acts like a horizontal line spanning the full width of the parent.</p>
-  <div class="bs-example" data-example-id="footer-static-bottom">
-    <footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
-      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+  <div class="bs-example" data-example-id="footer-divider">
+    <footer class="footer-bsk footer-bsk-default">
       <div class="container-fluid">
         Above divider
         <div role="separator" class="footer-bsk-divider"></div>
@@ -164,10 +126,9 @@
 
   <h2 id="footer-social-links">Social media links</h2>
   <p>A common set of links to various BAS social media profiles can be easily added using a list of font-icons, which will scale with the base font-size.</p>
-  <p class="text-info">See the <a href="{{ site.style_guide_url }}">BAS Style Guide</a> for more information on linking to these files.</p>
+  <p class="text-info">See the <a href="{{ site.style_guide_url }}">BAS Style Guide</a> for more information on these services, including current URLs.</p>
   <div class="bs-example" data-example-id="footer-static-bottom">
-    <footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
-      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+    <footer class="footer-bsk footer-bsk-default">
       <div class="container-fluid">
         <h2>Social media</h2>
         <ul class="list-inline footer-bsk-social-links">
@@ -190,6 +151,11 @@
 </ul>
 ...
 {% endhighlight %}
+  <div class="bs-callout bs-callout-warning" id="callout-footer-falist">
+    <h4>Do not use <code>.list-inline</code> and <code>.fa-ui</code> together</h4>
+    <p>These styles are incompatible as the Font Awesome styles assume the use of a vertical list. <br />
+      In practical terms this doesn't make a difference as in the inline list styles present list items with icons in an acceptable way.</p>
+  </div>
 
   <h2 id="footer-fixed-bottom">Fixed to bottom</h2>
   <p>Add <code>.footer-bsk-fixed-bottom</code> and include a <code>.container</code> or <code>.container-fluid</code> to center and pad footer content.</p>
