@@ -189,8 +189,12 @@
   </div>
 
   <h2 id="buttons-bsk">BAS buttons</h2>
-  <p>The BAS Style Kit includes an additional modifier class <code>.btn-bsk</code> which alters the appearance of buttons to match the BAS design.</p>
-  <p>This works with button sizes, contextual classes and <a href="components/#btn-groups">button groups</a> automatically, providing you use this class whenever <code>.btn</code> is used.</p>
+  <p>The BAS Style Kit includes additional styles to alter buttons to match the BAS brand.</p>
+  <p>There are two styles, the first adjusts the shape of all buttons, the second adds a new button variant incorporating the BAS colour scheme.</p>
+
+  <h3>Button shape modifier</h3>
+  <p>Adding the class <code>.btn-bsk</code> to any element where <code>.btn</code> is used will alter its appearance to match the BAS design.</p>
+  <p>This works with button sizes, contextual classes and <a href="components/#btn-groups">button groups</a> automatically.</p>
   <div class="bs-example" data-example-id="btn-bsk">
     <button type="button" class="btn btn-bsk btn-default">Default</button>
     <button type="button" class="btn btn-bsk btn-lg btn-primary">Primary</button>
@@ -202,5 +206,19 @@
 <button type="button" class="btn btn-bsk btn-lg btn-primary">Primary</button>
 <button type="button" class="btn btn-bsk btn-danger" disabled>Danger</button>
 <button type="button" class="btn btn-bsk btn-link">Link</button>
+{% endhighlight %}
+
+  <h3>BAS colour scheme variant</h3>
+  <p>To fit with the BAS colour scheme an additional button variant is provided. This works with all button sizes and containers. <br />
+    This variant purely affects the colour of a button so you will likely need to use the <code>.btn-bsk</code> class as well.</p>
+  <div class="bs-example" data-example-id="btn-bsk">
+    <button type="button" class="btn btn-bsk-primary">BSK Primary</button>
+    <button type="button" class="btn btn-bsk-primary" disabled>BSK Primary</button>
+    <button type="button" class="btn btn-bsk btn-bsk-primary">BSK Primary</button>
+  </div>
+{% highlight html %}
+<button type="button" class="btn btn-bsk-primary">BSK Primary</button>
+<button type="button" class="btn btn-bsk-primary" disabled>BSK Primary</button>
+<button type="button" class="btn btn-bsk btn-bsk-primary">BSK Primary</button>
 {% endhighlight %}
 </div>

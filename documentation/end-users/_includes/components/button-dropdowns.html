@@ -2,7 +2,7 @@
   <h1 id="btn-dropdowns" class="page-header">Button dropdowns</h1>
 
   <p class="lead">Use any button to trigger a dropdown menu by placing it within a <code>.btn-group</code> and providing the proper menu markup.</p>
-  <p class="text-info">The BAS Style Kit includes a dropdown button variant designed to match the BAS brand.</p>
+  <p class="text-info">The BAS Style Kit includes a dropdown button variant designed to match the BAS brand and supports the BAS colour scheme button variants.</p>
 
   <div class="bs-callout bs-callout-danger" id="callout-btndropdown-dependency">
     <h4>Plugin dependency</h4>
@@ -347,6 +347,31 @@
         <li><a href="#">Separated link</a></li>
       </ul>
     </div>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-bsk btn-bsk-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-bsk btn-bsk-primary">Action</button>
+      <button type="button" class="btn btn-bsk btn-bsk-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
   </div>
 {% highlight html %}
 <div class="btn-group">
@@ -364,6 +389,30 @@
 <div class="btn-group">
   <button type="button" class="btn btn-bsk btn-default">Action</button>
   <button type="button" class="btn btn-bsk btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+<div class="btn-group">
+  <button type="button" class="btn btn-bsk btn-bsk-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+<div class="btn-group">
+  <button type="button" class="btn btn-bsk btn-bsk-primary">Action</button>
+  <button type="button" class="btn btn-bsk btn-bsk-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="caret"></span>
     <span class="sr-only">Toggle Dropdown</span>
   </button>
