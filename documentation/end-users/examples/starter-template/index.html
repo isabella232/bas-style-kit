@@ -270,6 +270,129 @@
       <p><code>a</code> link</p>
       A <a href="#">link</a>
 
+      <hr />
+
+      <p><code>.btn</code></p>
+      <button class="btn btn-default">Do not press this button</button>
+
+      <p><code>.btn .btn-bsk .btn-xs</code></p>
+      <button class="btn btn-bsk btn-xs btn-default">Do not press this button</button>
+      <p><code>.btn .btn-bsk .btn-sm</code></p>
+      <button class="btn btn-bsk btn-sm btn-default">Do not press this button</button>
+      <p><code>.btn .btn-bsk</code></p>
+      <button class="btn btn-bsk btn-default">Do not press this button</button>
+      <p><code>.btn .btn-bsk .btn-lg</code></p>
+      <button class="btn btn-bsk btn-lg btn-default">Do not press this button</button>
+
+      <p><code>.btn .btn-bsk .btn-block</code></p>
+      <div class="row">
+        <div class="col-md-4">
+          <button class="btn btn-bsk btn-block btn-default">Do not press this button</button>
+        </div>
+      </div>
+
+      <hr />
+
+      <p><code>.btn-group .btn-group-lg</code> containing <code>.btn .btn-default</code> elements</p>
+      <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <button type="button" class="btn btn-default">Left</button>
+        <button type="button" class="btn btn-default">Middle</button>
+        <button type="button" class="btn btn-default">Right</button>
+      </div>
+
+      <p><code>.btn-group .btn-group-lg</code> containing <code>.btn .btn-bsk .btn-default</code> elements</p>
+      <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <button type="button" class="btn btn-bsk btn-default">Left</button>
+        <button type="button" class="btn btn-bsk btn-default">Middle</button>
+        <button type="button" class="btn btn-bsk btn-default">Right</button>
+      </div>
+
+      <p><code>.btn-group .btn-group-lg</code> containing a nested <code>.btn-group .btn-group-lg</code> dropdown and <code>.btn .btn-default</code> elements</p>
+      <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <button type="button" class="btn btn-default">1</button>
+        <button type="button" class="btn btn-default">2</button>
+
+        <div class="btn-group btn-group-lg" role="group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p><code>.btn-group .btn-group-lg</code> containing a nested <code>.btn-group .btn-group-lg</code> dropdown and <code>.btn .btn-bsk .btn-default</code> elements</p>
+      <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <button type="button" class="btn btn-bsk btn-default">1</button>
+        <button type="button" class="btn btn-bsk btn-default">2</button>
+
+        <div class="btn-group btn-group-lg" role="group">
+          <button type="button" class="btn btn-bsk btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p><code>.btn-group-vertical .btn-group-lg</code> with <code>.btn</code> elements</p>
+      <div class="btn-group-vertical btn-group-lg" role="group" aria-label="...">
+        <button type="button" class="btn btn-default">1</button>
+        <button type="button" class="btn btn-default">2</button>
+      </div>
+
+      <p><code>.btn-group-vertical .btn-group-lg</code> with <code>.btn .btn-bsk</code> elements</p>
+      <div class="btn-group-vertical btn-group-lg" role="group" aria-label="...">
+        <button type="button" class="btn btn-bsk btn-default">1</button>
+        <button type="button" class="btn btn-bsk btn-default">2</button>
+      </div>
+
+      <p><code>.btn-group .btn-group-justified .btn-group-lg</code> with <code>a.btn</code> elements</p>
+      <div class="btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+        <a href="#" class="btn btn-default">click here</a>
+        <a href="#" class="btn btn-default">click here</a>
+        <a href="#" class="btn btn-default">click here</a>
+      </div>
+
+      <p><code>.btn-group .btn-group-justified .btn-group-lg</code> with <code>a.btn .btn-bsk</code> elements</p>
+      <div class="btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+        <a href="#" class="btn btn-bsk btn-default">click here</a>
+        <a href="#" class="btn btn-bsk btn-default">click here</a>
+        <a href="#" class="btn btn-bsk btn-default">click here</a>
+      </div>
+
+      <p><code>.btn-group .btn-group-justified</code> with <code>button.btn</code> elements wrapped in <code>.btn-group .btn-group-lg</code>'s</p>
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group btn-group-lg" role="group">
+          <button type="button" class="btn btn-default">Left</button>
+        </div>
+        <div class="btn-group btn-group-lg" role="group">
+          <button type="button" class="btn btn-default">Middle</button>
+        </div>
+        <div class="btn-group btn-group-lg" role="group">
+          <button type="button" class="btn btn-default">Right</button>
+        </div>
+      </div>
+
+      <p><code>.btn-group .btn-group-justified .btn-group-lg</code> with <code>button.btn .btn-bsk</code> elements</p>
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group btn-group-lg" role="group">
+          <button type="button" class="btn btn-bsk btn-default">Left</button>
+        </div>
+        <div class="btn-group btn-group-lg" role="group">
+          <button type="button" class="btn btn-bsk btn-default">Middle</button>
+        </div>
+        <div class="btn-group btn-group-lg" role="group">
+          <button type="button" class="btn btn-bsk btn-default">Right</button>
+        </div>
+      </div>
+
     </div><!-- /.container -->
 
     <footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">

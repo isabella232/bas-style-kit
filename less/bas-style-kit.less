@@ -37,8 +37,10 @@
 // Core CSS
 @import "type.less";
 @import "grid.less";
+@import "buttons.less";
 
 // Components
+@import "button-groups.less";
 @import "navbar.less";
 @import "footer.less";
 @import "header.less";
@@ -50,3 +52,7 @@
 
 // BAS Style Kit specific styles (i.e. no equivalent exists in bootstrap)
 @import "limbo/backgrounds.less";
+
+// Reference styles
+// These styles are required by other styles, for example they are the target of an 'extends' call
+@import (reference) "reference/buttons.less";

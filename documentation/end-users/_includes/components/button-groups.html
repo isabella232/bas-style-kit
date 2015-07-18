@@ -265,3 +265,41 @@
 </div>
 {% endhighlight %}
 </div>
+
+<h2 id="btn-groups-bsk">BAS button groups</h2>
+<p>You can use the BAS Style Kit button class, <code>.btn-bsk</code> with button groups, of all types, by making sure that wherever you use <code>.btn</code> you also include <code>.btn-bsk</code> class.</p>
+<p>Grouped elements will adapt automatically to apply the relevant styles and group sizing classes will work as normal.</p>
+<div class="bs-example" data-example-id="btn-groups-bsk">
+  <div class="btn-group btn-group-lg" role="group" aria-label="...">
+    <button type="button" class="btn btn-bsk btn-default">1</button>
+    <button type="button" class="btn btn-bsk btn-default">2</button>
+
+    <div class="btn-group btn-group-lg" role="group">
+      <button type="button" class="btn btn-bsk btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Dropdown link</a></li>
+        <li><a href="#">Dropdown link</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% highlight html %}
+<div class="btn-group btn-group-lg" role="group" aria-label="...">
+  <button type="button" class="btn btn-bsk btn-default">1</button>
+  <button type="button" class="btn btn-bsk btn-default">2</button>
+
+  <div class="btn-group btn-group-lg" role="group">
+    <button type="button" class="btn btn-bsk btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+</div>
+{% endhighlight %}
