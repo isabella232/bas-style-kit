@@ -132,6 +132,14 @@
 @navbar-bsk-lg-padding-vertical:            ((@navbar-bsk-lg-height - @line-height-computed-x2) / 2);
 
 
+//== Navs
+//
+//##
+
+//=== Shared nav styles
+@nav-link-padding:                          15px 15px;
+
+
 //== Font faces
 //
 //## Define the location of where font-face fonts are stored
@@ -169,7 +177,7 @@
 @navbar-bsk-default-link-color:             @bsk-blue-light;
 @navbar-bsk-default-link-hover-color:       darken(@navbar-bsk-default-link-color, 15%);  // TODO: check with HT
 
-@navbar-bsk-ogl-symbol-margin-right:        30px;
+@navbar-bsk-ogl-symbol-margin-right:        (@padding-large-horizontal * 2);
 @navbar-bsk-ogl-symbol-width:               67px;  // As recommended by the National Archives see [1] for details
 @navbar-bsk-ogl-text-max-height:            420px;
 @navbar-bsk-ogl-text-line-height:           17px;
