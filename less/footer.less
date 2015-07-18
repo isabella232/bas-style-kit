@@ -115,6 +115,42 @@
 }
 
 
+// OGL symbol and descriptive text
+//
+// Proper sizing and positioning to give an attractive and usable licensing statement for the Open Government License
+.footer-bsk-ogl {
+  .ogl-symbol, .ogl-text {
+    float: left !important;
+  }
+  .ogl-symbol {
+    margin-right: @navbar-bsk-ogl-symbol-margin-right;
+    width: @navbar-bsk-ogl-symbol-width;
+  }
+  .ogl-text {
+    max-width: @navbar-bsk-ogl-text-max-height;
+    line-height: @navbar-bsk-ogl-text-line-height;
+  }
+}
+
+
+// Legal polices and copyright information
+//
+// Proper positioning for an inline list so that it sits flush with the split line OGL licensing statement
+// TODO: Needs some extra styles for xs display size
+.footer-bsk-policy-links {
+  float: right !important;
+  text-align: right;
+
+  .list-inline {
+    margin-bottom: 0;
+
+    li {
+      padding-right: 0;
+    }
+  }
+}
+
+
 // Alternate footers
 // --------------------------------------------------
 

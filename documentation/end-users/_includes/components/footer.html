@@ -34,15 +34,21 @@
               </ul>
             </div>
           </div>
+        <!-- Copyright & legal -->
+        <div class="footer-bsk-ogl">
+          <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="../../assets/img/ogl-symbol-white.png"></a>
+          <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
         </div>
         <div class="row">
           <div class="col-xs-12">
             <div role="separator" class="footer-bsk-divider"></div>
-            <!-- Copyright & legal -->
-            <div class="pull-right">
-              Copyright &amp; Legal
-            </div>
           </div>
+        <div class="footer-bsk-policy-links">
+          © NERC BAS
+          <ul class="list-inline">
+            <li><a href="#">Copyright</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
         </div>
       </div>
     </footer>
@@ -69,14 +75,14 @@
           </ul>
         </div>
       </div>
+    <!-- Copyright & legal -->
+    <div class="footer-bsk-ogl">
+      <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="..."></a>
+      <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
     </div>
     <div class="row">
       <div class="col-xs-12">
         <div role="separator" class="footer-bsk-divider"></div>
-        <!-- Copyright & legal -->
-        <div class="pull-right">
-          Copyright &amp; Legal
-        </div>
       </div>
     </div>
   </div>
@@ -103,6 +109,56 @@
 {% highlight html %}
 ...
 <div role="separator" class="footer-bsk-divider"></div>
+...
+{% endhighlight %}
+
+  <h2 id="footer-ogl">Open Government License</h2>
+  <p>The BAS Style Kit provides a pre-built component for displaying the OGL symbol and licensing statement, if this is appropriate.</p>
+  <p class="text-info">See the <a href="{{ site.style_guide_url }}">BAS Style Guide</a> for more information on if this license applies to your project.</p>
+  <div class="bs-example" data-example-id="footer-ogl">
+    <footer class="footer-bsk footer-bsk-default">
+      <div class="container-fluid">
+        <div class="footer-bsk-ogl">
+          <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="../../assets/img/ogl-symbol-white.png"></a>
+          <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
+        </div>
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+...
+<div class="footer-bsk-ogl">
+  <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="..."></a>
+  <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
+</div>
+...
+{% endhighlight %}
+
+  <h2 id="footer-policies">Legal Policies</h2>
+  <p>The BAS Style Kit provides a pre-built component for displaying a list of policy links and a copyright notice, if this is appropriate.</p>
+  <p class="text-info">See the <a href="{{ site.style_guide_url }}">BAS Style Guide</a> for more information on which policies and copyright notice applies to your project.</p>
+  <div class="bs-example" data-example-id="footer-policies">
+    <footer class="footer-bsk footer-bsk-default">
+      <div class="container-fluid">
+        <div class="footer-bsk-policy-links">
+          © NERC BAS
+          <ul class="list-inline">
+            <li><a href="#">Copyright</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+...
+<div class="footer-bsk-policy-links">
+  © NERC BAS
+  <ul class="list-inline">
+    <li><a href="#">Copyright</a></li>
+    <li><a href="#">Privacy</a></li>
+  </ul>
+</div>
 ...
 {% endhighlight %}
 
