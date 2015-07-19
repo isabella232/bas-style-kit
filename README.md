@@ -10,6 +10,7 @@ This project is based on the BASIS project template (version 1).
 
 ## TODO
 
+* Credits for links within a larger link - https://css-tricks.com/links-inside-of-larger-clickable-areas/
 * Document Jumbotron and Image Purchase components
 
 ## Requirements
