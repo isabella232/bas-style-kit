@@ -111,6 +111,28 @@
 	}
 }
 
+.standard-tabs {  // ✔︎ - Implemented as Pills rather than tabs since that's what these looked like
+  ul.nav-tabs {  // Use .nav-pills-bsk to use
+    li {
+      padding-bottom: 0;  // ✘ - Not implemented - don't want to mess with bootstrap's layout styles unless we need to
+      a {
+        border-radius: 0;  // ✔︎ - As @nav-pills-bsk-border-radius
+        background-color: #eee;  // ✔︎ - As @nav-pills-bsk-link-bg using @gray-lighter
+        margin-right: 5px;  // ✔︎ - Implemented as @nav-pills-bsk-link-margin-right
+        border: 0;  // ✘ - Not implemented - don't want to mess with bootstrap's styles unless we need to
+        margin-top: 7px;  // ✘ - Not implemented - don't want to mess with bootstrap's layout styles unless we need to
+      }
+      a:hover, a:active, &.active a, &.active a:hover, &.active a:active, &.active a:focus {
+        background-color: @blue;  // ✔︎ - Implemented as @nav-pills-bsk-active-link-hover-bg using @bsk-blue
+        color: white;  // ✘ - Not implemented - already the case
+        border: 0;  // ✘ - Not implemented - don't want to mess with bootstrap's styles unless we need to
+      }
+    }
+  }
+  .tab-pane {
+    padding: 30px 0;
+  }
+}
 .cust-row {
 	@media (max-width: 767px) {
 		margin-left: -5px;
@@ -256,28 +278,6 @@ ul {
 	}
 }
 
-.standard-tabs {
-	ul.nav-tabs {
-		li {
-			padding-bottom: 0;
-			a {
-				border-radius: 0;
-				background-color: #eee;
-				margin-right: 5px;
-				border: 0;
-				margin-top: 7px;
-			}
-			a:hover, a:active, &.active a, &.active a:hover, &.active a:active, &.active a:focus {
-				background-color: @blue;
-				color: white;
-				border: 0;
-			}
-		}
-	}
-	.tab-pane {
-		padding: 30px 0;
-	}
-}
 
 .padding-bottom-30 {
 	padding-bottom: 30px !important

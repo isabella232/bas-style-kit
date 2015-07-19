@@ -428,6 +428,66 @@
         </div>
       </div>
 
+      <hr />
+
+      <p><code>.nav-pills</code></p>
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#">Amy</a></li>
+        <li role="presentation"><a href="#">Becca</a></li>
+        <li role="presentation"><a href="#">Connie</a></li>
+      </ul>
+
+      <p><code>.nav-wrapper-bsk</code> containing a <code>.nav-pills .nav-pills-bsk</code> menu</p>
+      <div class="nav-wrapper-bsk">
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills nav-pills-bsk" role="tablist">
+          <li role="presentation" class="active"><a href="#amy" aria-controls="amy" role="tab" data-toggle="tab">Amy</a></li>
+          <li role="presentation"><a href="#becca" aria-controls="becca" role="tab" data-toggle="tab">Becca</a></li>
+          <li role="presentation"><a href="#connie" aria-controls="connie" role="tab" data-toggle="tab">Connie</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="amy">Amy</div>
+          <div role="tabpanel" class="tab-pane" id="becca">Becca</div>
+          <div role="tabpanel" class="tab-pane" id="connie">Connie</div>
+        </div>
+      </div>
+
+      <p><code>.nav-pills .nav-pills-bsk</code> with the last item containing a dropdown</p>
+      <ul class="nav nav-pills nav-pills-bsk">
+        <li role="presentation" class="active"><a href="#">Amy</a></li>
+        <li role="presentation"><a href="#">Becca</a></li>
+        <li role="presentation"><a href="#">Connie</a></li>
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Dropdown <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <p><code>.nav-stacked .nav-pills .nav-pills-bsk</code> <em>then</em> <code>.nav-justified .nav-pills .nav-pills-bsk</code> with the last element <code>.disabled</code></p>
+      <div class="row">
+        <div class="col-md-3">
+          <ul class="nav nav-stacked nav-pills nav-pills-bsk" role="tablist">
+            <li role="presentation" class="active"><a href="#" aria-controls="profile" role="tab" data-toggle="tab">Amy</a></li>
+            <li role="presentation"><a href="#" aria-controls="messages" role="tab" data-toggle="tab">Becca</a></li>
+            <li role="presentation"><a href="#" aria-controls="settings" role="tab" data-toggle="tab">Connie</a></li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <ul class="nav nav-justified nav-pills nav-pills-bsk" role="tablist">
+            <li role="presentation" class="active"><a href="#" aria-controls="profile" role="tab" data-toggle="tab">Amy</a></li>
+            <li role="presentation"><a href="#" aria-controls="messages" role="tab" data-toggle="tab">Becca</a></li>
+            <li role="presentation" class="disabled"><a href="#" aria-controls="settings" role="tab" data-toggle="tab">Connie</a></li>
+          </ul>
+        </div>
+      </div>
+
     </div><!-- /.container -->
 
     <footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
