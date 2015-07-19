@@ -16,3 +16,30 @@
 .extrabold {
   font-weight: bolder;
 }
+
+// Lists
+// -------------------------
+
+// Description Lists
+.dl-bsk {
+  dt, dd {
+    padding: @dl-bsk-padding;
+  }
+}
+
+.dl-bsk-horizontal-lg {
+  @media (min-width: @grid-float-breakpoint) {
+    dt {
+      width: (@dl-bsk-horizontal-lg-offset - 20);
+    }
+    dd {
+      margin-left: @dl-bsk-horizontal-lg-offset;
+    }
+  }
+}
+
+.dl-bsk-striped {
+  dt {
+    background: @dl-bsk-striped-bg;
+  }
+}

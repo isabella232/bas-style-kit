@@ -138,6 +138,14 @@
     padding: 30px 0;
   }
 }
+.dl-striped {
+  dt, dd {
+    padding: 10px;  // ✔︎ - Implemented as .dl-bsk
+  }
+  dt {
+    background: @lgrey;  // ✔︎ - Implemented as .dl-bsk-striped
+  }
+}
 .cust-row {
 	@media (max-width: 767px) {
 		margin-left: -5px;
@@ -327,13 +335,6 @@ ul {
 	}
 }
 
-.dl-striped {
-	dt, dd {
-		padding: 10px;
-	}
-	dt {
-		background: @lgrey;
-	}
 }
 
 .no-padding-list {
