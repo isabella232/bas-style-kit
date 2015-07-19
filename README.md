@@ -8,6 +8,10 @@ A collection of HTML, CSS, and JS components for developing web projects consist
 
 This project is based on the BASIS project template (version 1).
 
+## TODO
+
+* Document Jumbotron and Image Purchase components
+
 ## Requirements
 
 You will need to have the following software available on your localhost depending on the environment you wish to use:

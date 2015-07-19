@@ -1,0 +1,65 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+// Base class
+.jumbotron-bsk {
+  margin-bottom: @jumbotron-bsk-margin-bottom;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  .container &,
+  .container-fluid & {
+    border-radius: @jumbotron-bsk-border-radius; // Only round corners at higher resolutions if contained in a container
+  }
+}
+
+// Sizes
+// TODO: Convert to mixin
+.jumbotron-bsk-lg {
+  padding: @jumbotron-bsk-lg-padding (@jumbotron-bsk-lg-padding / 2);
+
+  @media screen and (min-width: @screen-sm-min) {
+    padding: (@jumbotron-bsk-lg-padding * 1.6) 0;
+
+    .container &,
+    .container-fluid & {
+      padding-left:  (@jumbotron-bsk-lg-padding * 2);
+      padding-right: (@jumbotron-bsk-lg-padding * 2);
+    }
+  }
+}
+.jumbotron-bsk-xl {
+  padding: @jumbotron-bsk-xl-padding (@jumbotron-bsk-xl-padding / 2);
+
+  @media screen and (min-width: @screen-sm-min) {
+    padding: (@jumbotron-bsk-xl-padding * 1.6) 0;
+
+    .container &,
+    .container-fluid & {
+      padding-left:  (@jumbotron-bsk-xl-padding);
+      padding-right: (@jumbotron-bsk-xl-padding);
+    }
+  }
+}
+
+// Variants
+.jumbotron-bsk-default {
+  color: @jumbotron-bsk-default-color;
+  background-color: @jumbotron-bsk-default-bg;
+}
+.jumbotron-bsk-inverse {
+  color: @jumbotron-bsk-inverse-color;
+  background-color: @jumbotron-bsk-inverse-bg;
+}
+
+// Sub-components
+.jumbotron-bsk {
+  .text-overlay {
+    text-shadow: 1px 1px 2px @jumbotron-bsk-inverse-text-overlay-shadow;
+    box-shadow: 10px 0 0 @jumbotron-bsk-inverse-text-overlay-bg, -10px 0 0 @jumbotron-bsk-inverse-text-overlay-bg;
+    background-color: @jumbotron-bsk-inverse-text-overlay-bg-fb;
+    background-color: @jumbotron-bsk-inverse-text-overlay-bg;
+  }
+}
