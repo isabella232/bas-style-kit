@@ -10,6 +10,7 @@ This project is based on the BASIS project template (version 1).
 
 ## TODO
 
+* Fix link underline in inverted thumbnails - i.e. you can't see it and I can't find a way to set it
 * Credits for links within a larger link - https://css-tricks.com/links-inside-of-larger-clickable-areas/
 * Document Jumbotron and Image Purchase components
 

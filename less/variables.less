@@ -37,8 +37,9 @@
 
 //== Typography
 //
-//## Font, line-height, and color for body text, headings, and more.
+//##
 
+// Font, line-height, and color for body text, headings, and more.
 @font-family-sans-serif:                    "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 @semibold-font-weight:                      600;
@@ -63,6 +64,7 @@
 
 @zindex-footer:                             1000;
 @zindex-footer-fixed:                       1030;
+@zindex-bsl-image-purchase-symbol:          1030;
 
 
 //== Media queries breakpoints
@@ -161,7 +163,11 @@
 
 @nav-pills-bsk-active-link-hover-bg:        @bsk-blue;  // TODO: Set to @component-active-bg if this is general
 @nav-pills-bsk-disabled-link-bg:            #fff;
+
 //== Wrappers
+@nav-wrapper-bsk-tab-pane-margin-top:       (@padding-large-vertical * 2);
+
+
 //== Jumbotron
 //
 //##
@@ -182,7 +188,6 @@
 @jumbotron-bsk-inverse-text-overlay-bg:     rgba(0,0,0,0.7);
 @jumbotron-bsk-inverse-text-overlay-shadow: rgba(0,0,0,0.9);
 
-@nav-wrapper-bsk-tab-pane-margin-top:       @padding-large-horizontal;
 
 //== Thumbnails
 //
@@ -190,15 +195,16 @@
 
 // BSK thumbnail
 // Like a normal thumbnail but with straight edges and virtually no border
-@thumbnail-bsk-padding:                         0;
-@thumbnail-bsk-border-radius:                   0;  // TODO: Set to @border-radius-base if this is general
 
-@thumbnail-bsk-caption-padding:                 10px;
+@thumbnail-bsk-padding:                     0;
+@thumbnail-bsk-border-radius:               0;  // TODO: Set to @border-radius-base if this is general
+
+@thumbnail-bsk-caption-padding:             10px;
 
 // BSK inverted thumbnail
-@thumbnail-bsk-inverse-bg:                      #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
+@thumbnail-bsk-inverse-bg:                  #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
 
-@thumbnail-bsk-inverse-caption-color:           #f8f8f8;
+@thumbnail-bsk-inverse-caption-color:       #f8f8f8;
 
 
 //== Image purchase
@@ -221,6 +227,7 @@
 
 
 // Sets the path to the open-sans font-face relative to the generated CSS file (i.e. /dist/css)
+
 @OpenSansPath:                              "../fonts/open-sans";
 
 // Sets the path to the font-awesome font-face relative to the generated CSS file (i.e. /dist/css)
@@ -237,7 +244,6 @@
 //
 //##
 
-// Basics of a footer
 @footer-height:                             50px;
 @footer-margin-top:                         ((@line-height-computed * 2) + 10px);
 @footer-border-radius:                      0;  // TODO: Set to @border-radius-base if this is general
@@ -265,7 +271,6 @@
 // This component is designed to replicate the visual appearance of a navbar so bases itself on its variables
 //##
 
-// Basics of a header
 @header-height:                             @navbar-height;
 @header-margin-bottom:                      @navbar-margin-bottom;
 @header-border-radius:                      @navbar-bsk-border-radius;
