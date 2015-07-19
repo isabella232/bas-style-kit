@@ -9,25 +9,6 @@
 	}
 }
 
-.band {
-	padding-top: 40px;
-	padding-bottom: 40px;
-	@media (max-width: 767px) {
-		padding-top: 35px;
-		padding-bottom: 35px;
-	}
-	&.greybg {
-		background: #444;
-	}
-	&.short-band {
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-	&.short-band-xs {
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
-}
 
 .nav-tabs {
 	border-bottom: 0;
@@ -111,6 +92,30 @@
 	}
 }
 
+// ✔︎ - Implemented as .band-bsk
+.band {
+  padding-top: 40px; // ✔︎ - Done as @band-bsk-padding-vertical
+  padding-bottom: 40px; // ✔︎ - Done as @band-bsk-padding-vertical
+  @media (max-width: 767px) {
+    // ✔︎ - Implemented but using @grid-float-breakpoint-max
+    padding-top: 35px;  // ✔︎ - Implemented but reduced to 20px (using @band-bsk-padding-vertical / 2) - candidate for PW overrides
+    padding-bottom: 35px;  // ✔︎ - Implemented but reduced to 20px (using @band-bsk-padding-vertical / 2) - candidate for PW overrides
+  }
+  &.greybg {
+    // ✔︎ - Implemented as .band-bsk-inverted
+    background: #444; // ✔︎ - Implemented as @band-bsk-inverse-bg
+    &.short-band {
+      // ✔︎ - Implemented as .band-bsk-md
+      padding-top: 30px; // ✔︎ - Done as @band-bsk-md-padding-vertical
+      padding-bottom: 30px; // ✔︎ - Done as @band-bsk-md-padding-vertical
+    }
+    &.short-band-xs {
+      // ✔︎ - Implemented as .band-bsk-sm
+      padding-top: 10px; // ✔︎ - Done as @band-bsk-sm-padding-vertical
+      padding-bottom: 10px; // ✔︎ - Done as @band-bsk-sm-padding-vertical
+    }
+  }
+}
 .standard-tabs {  // ✔︎ - Implemented as Pills rather than tabs since that's what these looked like
   ul.nav-tabs {  // Use .nav-pills-bsk to use
     li {
