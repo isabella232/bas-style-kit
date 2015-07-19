@@ -23,36 +23,6 @@
 	width: 100%;
 }
 
-.dropdown {
-	&.fullWidth {
-		width: 100%;
-		.btn {
-			width: 100%;
-			text-align: left;
-		}
-		.dropdown-menu {
-			width: 100%;
-		}
-		span {
-			margin-top: 10px;
-			float: right;
-		}
-	}
-	.btn {
-		background: white;
-		color: black;
-		border: 1px solid #ccc;
-		font-size: 1.1em;
-		.gsBook;
-		span {
-			margin-left: 10px;
-		}
-		&:hover {
-			background: #eee;
-			color: black;
-		}
-	}
-}
 
 .tablefy-container {
 	margin: 0 -10px;
@@ -341,6 +311,38 @@ ul {
 	li {
 		padding-bottom: 0;
 	}
+// ✘ - Not implemented - I think I know what these styles are for (creating some sort of wide drop-down menu) but
+// without an example of this I don't think this would be suitable for the BSK yet. However I have added styles for
+// dropdowns to remove rounded edges, which may be of interest. Therefore candidate for PW overrides.
+.dropdown {
+  &.fullWidth {
+    width: 100%;
+    .btn {
+      width: 100%;
+      text-align: left;
+    }
+    .dropdown-menu {
+      width: 100%;
+    }
+    span {
+      margin-top: 10px;
+      float: right;
+    }
+  }
+  .btn {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+    font-size: 1.1em;
+    .gsBook;
+    span {
+      margin-left: 10px;
+    }
+    &:hover {
+      background: #eee;
+      color: black;
+    }
+  }
 }
 
 .relative-override {
