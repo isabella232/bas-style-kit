@@ -1,0 +1,60 @@
+// ✔︎ - As the .sidebar-bsk component, dark styles implemented as .sidebar-bsk-inverse variant
+.sidebar-greybg {
+	padding: 30px;  // ✔ - If using the .sidebar-bsk-lg variant, set using @sidebar-bsk-lg-padding which is calculated as 1.5 * @sidebar-bsk-base-padding (set to 20px)
+	background: @lgrey;  // ✔ - implemented as .sidebar-bsk-inverse variant
+	overflow: hidden;  // ✔
+	font-size: 1em;  // ✘ - I don't want to mess with Bootstrap's font sizing unless we absolutely have to
+
+  // ✘ - Not implemented, these look ok to me so candidate for PW overrides if needed
+	@media (max-width: 767px) {
+		padding: 20px;
+		background: none;
+	}
+  // ✘ - Not implemented - look ok by default and where possible thumbnails should be used as an image wrapper anyway
+	img {
+		width: 100%;
+		height: auto;
+		margin-bottom: 20px;
+	}
+
+  //
+	ul {
+		padding: 0;  // ✘ - Not implemented - don't want to mess with bootstrap's sizing/layout, also too broad a selector, candidate for PW overrides
+		list-style: none; // ✘ - Not implemented - use list-unstyled instead
+		li {
+			padding: 0;  // ✘ - Not implemented - don't want to mess with bootstrap's sizing/layout, also too broad a selector, candidate for PW overrides
+		}
+	}
+	h3 {
+		margin-top: 5px;  // ✘ - Not implemented - don't want to mess with bootstrap's sizing/layout, candidate for PW overrides
+	}
+
+  // ✘ - Not implemented - instead sidebars can be nested and the colour scheme set using inverse/default variants
+	.boxed {
+		background-color: fade(#000, 50%);
+		padding: 7px 15px 5px;
+		margin: 20px 0;
+		color: white;
+	}
+}
+
+// ✘ - Not implemented - *really* don't want to mess with boostrap's grid system (except for XL size), candidate for PW overrides
+.col-right {
+	@media (min-width: 769px) {
+		float: right;
+	}
+}
+
+// ✘ - Not implemented - too simplistic for the BSK, candidate for PW overrides
+.dl-spaced {
+	dd {
+		margin-bottom: 10px;
+	}
+}
+
+// ✘ - Not implemented - too specific to the public website, therefore candidate for PW overrides
+#search_filter {
+	.checkbox {
+		margin-left: 20px;
+	}
+}
