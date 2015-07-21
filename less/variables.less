@@ -103,7 +103,7 @@
 
 @btn-bsk-border-radius:                     0;  // TODO: Set to @border-radius-base if this is general - this doesn't look nice and needs discusing with HT
 
-@btn-bsk-primary-color:                     #fff;
+@btn-bsk-primary-color:                     #fff;  // TODO: Create as variable?
 @btn-bsk-primary-bg:                        @bsk-turquoise;
 @btn-bsk-primary-border:                    darken(@bsk-turquoise, 5%);
 
@@ -122,14 +122,14 @@
 
 @navbar-bsk-link-color:                     #fff;  // TODO: base + hover colours cannot be the same - need style from HT
 @navbar-bsk-link-hover-color:               #fff;  // TODO: base + hover colours cannot be the same - need style from HT
-@navbar-bsk-link-hover-bg:                  #444;
+@navbar-bsk-link-hover-bg:                  #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
 @navbar-bsk-link-active-color:              @navbar-bsk-link-hover-color;
 @navbar-bsk-link-active-bg:                 darken(@navbar-bsk-link-hover-bg, 10%);  // TODO: See [1]
 @navbar-bsk-link-disabled-color:            #444;  // TODO: I added this style - check with HT
 @navbar-bsk-link-disabled-bg:               transparent;  // TODO: I added this style - check with HT
 
 @navbar-bsk-toggle-hover-bg:                #444;  // TODO: See [2]
-@navbar-bsk-toggle-icon-bar-bg:             #fff;
+@navbar-bsk-toggle-icon-bar-bg:             #fff;  // TODO: Create as variable?
 @navbar-bsk-toggle-border-color:            @navbar-bsk-bg;  // TODO: See [2]
 
 // [1] I've overridden this from being exactly the same as the hover background. The Less styles explicitly make the
@@ -162,7 +162,7 @@
 @nav-pills-bsk-link-margin-right:           5px;
 
 @nav-pills-bsk-active-link-hover-bg:        @bsk-blue;  // TODO: Set to @component-active-bg if this is general
-@nav-pills-bsk-disabled-link-bg:            #fff;
+@nav-pills-bsk-disabled-link-bg:            #fff;  // TODO: Create as variable?
 
 //== Wrappers
 @nav-wrapper-bsk-tab-pane-margin-top:       (@padding-large-vertical * 2);
@@ -182,7 +182,7 @@
 @jumbotron-bsk-default-color:               @gray-dark;
 @jumbotron-bsk-default-bg:                  @gray-lighter;
 
-@jumbotron-bsk-inverse-color:               #fff;
+@jumbotron-bsk-inverse-color:               #fff;  // TODO: Create as variable?
 @jumbotron-bsk-inverse-bg:                  @gray;
 @jumbotron-bsk-inverse-text-overlay-bg-fb:  #000;  // Read 'fb' as 'fall back', for older browsers that can't use RGBA
 @jumbotron-bsk-inverse-text-overlay-bg:     rgba(0,0,0,0.7);
@@ -199,7 +199,7 @@
 @thumbnail-bsk-padding:                     0;
 @thumbnail-bsk-border-radius:               0;  // TODO: Set to @border-radius-base if this is general
 
-@thumbnail-bsk-caption-padding:             10px;
+@thumbnail-bsk-caption-padding:             10px; // TODO: use common variable
 
 // BSK inverted thumbnail
 @thumbnail-bsk-inverse-bg:                  #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
@@ -217,8 +217,8 @@
 @image-purchase-bsk-on-image-color:         #fff;
 @image-purchase-bsk-on-image-text-shadow:   @jumbotron-bsk-inverse-text-overlay-shadow;
 
-@image-purchase-bsk-in-caption-default-color: #444;
-@image-purchase-bsk-in-caption-inverse-color: #fff;
+@image-purchase-bsk-in-caption-default-color: #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
+@image-purchase-bsk-in-caption-inverse-color: #fff;  // TODO: Create as variable?
 
 
 //== Font faces
@@ -244,7 +244,7 @@
 //
 //##
 
-@footer-height:                             50px;
+@footer-height:                             50px;  // TODO: Set to a variable?
 @footer-margin-top:                         ((@line-height-computed * 2) + 10px);
 @footer-border-radius:                      0;  // TODO: Set to @border-radius-base if this is general
 @footer-padding-top:                        @footer-margin-top;
@@ -284,12 +284,12 @@
 //
 //##
 
-@band-bsk-padding-vertical:                 40px;
+@band-bsk-padding-vertical:                 40px;  // TODO: Replace with variable
 
-@band-bsk-md-padding-vertical:              30px;
-@band-bsk-sm-padding-vertical:              10px;
+@band-bsk-md-padding-vertical:              30px;  // TODO: Replace with variable
+@band-bsk-sm-padding-vertical:              10px;  // TODO: Replace with variable
 
-@band-bsk-default-bg:                       #fff;  // TODO: Replace with variable
+@band-bsk-default-bg:                       #fff;  // TODO: Create as variable?
 @band-bsk-inverse-bg:                       #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
 
 
