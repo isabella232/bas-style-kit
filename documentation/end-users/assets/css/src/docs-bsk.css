@@ -143,3 +143,15 @@
   margin-right: 0;
   margin-left: 0;
 }
+
+/* Image purchase */
+.bsk-image-purchase.bsk-image-purchase-no-caption .image-purchase-symbol {
+  top: 79%;
+  left: 85%;
+}
+.bsk-image-purchase.jumbotron-bsk .image-purchase-symbol {
+  left: 96%;
+}
+.background-img-sample {
+  background-image: url(https://basprod.helpfulclients.com/wp-content/uploads/2015/03/10008128-edited-1800x459.jpg);
+}
