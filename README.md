@@ -8,12 +8,6 @@ A collection of HTML, CSS, and JS components for developing web projects consist
 
 This project is based on the BASIS project template (version 1).
 
-## TODO
-
-* Fix link underline in inverted thumbnails - i.e. you can't see it and I can't find a way to set it
-* Credits for links within a larger link - https://css-tricks.com/links-inside-of-larger-clickable-areas/
-* Document Jumbotron and Image Purchase components
-
 ## Requirements
 
 You will need to have the following software available on your localhost depending on the environment you wish to use:

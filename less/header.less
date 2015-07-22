@@ -25,10 +25,6 @@
   padding-bottom: @header-padding-vertical;
   border: 1px solid transparent;
 
-  // Prevent floats from breaking the header
-  // TODO: Check if this is needed
-  &:extend(.clearfix all);
-
   @media (min-width: @grid-float-breakpoint) {
     border-radius: @header-border-radius;
   }
