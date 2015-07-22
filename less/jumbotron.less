@@ -16,32 +16,11 @@
 }
 
 // Sizes
-// TODO: Convert to mixin
 .jumbotron-bsk-lg {
-  padding: @jumbotron-bsk-lg-padding (@jumbotron-bsk-lg-padding / 2);
-
-  @media screen and (min-width: @screen-sm-min) {
-    padding: (@jumbotron-bsk-lg-padding * 1.6) 0;
-
-    .container &,
-    .container-fluid & {
-      padding-left:  (@jumbotron-bsk-lg-padding * 2);
-      padding-right: (@jumbotron-bsk-lg-padding * 2);
-    }
-  }
+  .make-jumbotron-size(@jumbotron-bsk-lg-padding);
 }
 .jumbotron-bsk-xl {
-  padding: @jumbotron-bsk-xl-padding (@jumbotron-bsk-xl-padding / 2);
-
-  @media screen and (min-width: @screen-sm-min) {
-    padding: (@jumbotron-bsk-xl-padding * 1.6) 0;
-
-    .container &,
-    .container-fluid & {
-      padding-left:  (@jumbotron-bsk-xl-padding);
-      padding-right: (@jumbotron-bsk-xl-padding);
-    }
-  }
+  .make-jumbotron-size(@jumbotron-bsk-xl-padding);
 }
 
 // Variants
