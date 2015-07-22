@@ -2,24 +2,25 @@
 // Variables
 // --------------------------------------------------
 
+@import (reference) "../node_modules/bootstrap/less/variables.less";
 
-//== Colors
+// Colors
 //
-//## Brand and background colors for use across the BAS Style Kit.
+// Brand and background colors for use across the BAS Style Kit.
+
+// Generic colours
+@white:                                     #ffffff;
 
 // Brand colour scheme
-@bsk-blue-light:                            #7FCCFF;  // TODO: Can we use lighten for this?
+@bsk-blue-light:                            #7FCCFF;  // TODO: Can we use lighten for this? - ASK HT
 @bsk-blue:                                  #25658f;
 @bsk-blue-dark:                             darken(@bsk-blue, 10%);
 @bsk-grey-lighter:                          lighten(@bsk-grey-light, 4%);
-@bsk-grey-light:                            #E7EBF1;  // TODO: Can we use lighten for this?
+@bsk-grey-light:                            #E7EBF1;  // TODO: Can we use lighten for this? - ASK HT
 @bsk-grey:                                  #E3E3E3;
-@bsk-grey-dark:                             #4D5D66;  // TODO: Can we use darken for this?
-@bsk-orange:                                #B93E14;  // TODO: Rename to red - since this isn't actually orange
+@bsk-grey-dark:                             #4D5D66;  // TODO: Can we use darken for this? - ASK HT
+@bsk-orange:                                #B93E14;  // TODO: Rename to red - since this isn't actually orange - ASK HT
 @bsk-turquoise:                             #0DA59F;
-
-// TODO: What about GDS colours?
-// TODO: What about a BAS brand colour? (i.e. logo blue)
 
 // Brands
 @brands-twitter-primary:                    #55ACEE;  // as defined by brand
@@ -28,36 +29,7 @@
 @brands-rss-primary:                        #f26522;  // as defined by convention
 
 
-//== Scaffolding
-//
-//## Settings for some of the most global styles.
-
-//** Global textual link color.
-@link-color:                                lighten(@bsk-blue, 5%);
-
-//== Typography
-//
-//##
-
-// Font, line-height, and color for body text, headings, and more.
-@font-family-sans-serif:                    "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-@semibold-font-weight:                      600;
-
-// Description lists
-@dl-bsk-padding:                            @padding-large-vertical;
-@dl-bsk-horizontal-lg-offset:               (@dl-horizontal-offset * 1.5);
-
-@dl-bsk-striped-bg:                         @bsk-grey-light;
-
-
-//== Dropdowns
-//
-//## Dropdown menu container and contents.
-@dropdown-menu-bsk-border-radius:           0;  // TODO: Set to @border-radius-base if this is general - this doesn't look nice and needs discusing with HT
-@dropdown-menu-item-bsk-padding-vertical:   @padding-base-vertical;
-
-//-- Z-index master list
+// Z-index master list
 //
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
@@ -67,9 +39,43 @@
 @zindex-bsl-image-purchase-symbol:          1030;
 
 
-//== Media queries breakpoints
+// Scaffolding
 //
-//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+// Settings for some of the most global styles.
+
+// Global textual link color.
+@link-color:                                lighten(@bsk-blue, 5%);
+
+
+//== Typography
+//
+//
+
+// Font, line-height, and color for body text, headings, and more.
+@font-family-sans-serif:                    "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@semibold-font-weight:                      600;
+
+// Font faces
+//
+// Define the location of where font-face fonts are stored
+
+// Path to the open-sans font-face relative to the generated CSS file (i.e. /dist/css)
+@OpenSansPath:                              "../fonts/open-sans";
+
+// Path to the font-awesome font-face relative to the generated CSS file (i.e. /dist/css)
+@fa-font-path:                              "../fonts/font-awesome";
+
+// Path to the map-glyphs font-face relative to the generated CSS file (i.e. /dist/css)
+@mg-font-path:                              "../fonts/map-glyphs";
+
+// Path to the devicons font-face relative to the generated CSS file (i.e. /dist/css)
+@di-font-path:                              "../fonts/devicons";
+
+
+// Media queries breakpoints
+//
+// Define the breakpoints at which your layout will change, adapting to different screen sizes.
 
 // Extra large screen / wider desktop
 @screen-xl:                                 1800px;
@@ -79,57 +85,94 @@
 @screen-lg-max:                             (@screen-xl-min - 1);
 
 
-//== Container sizes
+// Container sizes
 //
-//## Define the maximum width of `.container` for different screen sizes.
+// Define the maximum width of `.container` for different screen sizes.
 
 // Extra large screen / wider desktop
 @container-extra-large-desktop:             ((1724px + @grid-gutter-width));
-//** For `@screen-xl-min` and up.
+
+// For `@screen-xl-min` and up.
 @container-xl:                              @container-extra-large-desktop;
 
 
-//== Grid system
+// Grid system
 //
-//## Define your custom responsive grid.
+// Define custom responsive grid.
 
-//** Number of columns in the grid.
+// Number of columns in the grid.
 @grid-columns:                              12;
 
 
-//== Buttons
+// Description lists
 //
-//## For each of Bootstrap's buttons, define text, background and border color.
+// For each of Bootstrap's buttons, define text, background and border color.
 
-@btn-bsk-border-radius:                     0;  // TODO: Set to @border-radius-base if this is general - this doesn't look nice and needs discusing with HT
+@dl-bsk-padding:                            @padding-large-vertical;
+@dl-bsk-horizontal-lg-offset:               (@dl-horizontal-offset * 1.5);
 
-@btn-bsk-primary-color:                     #fff;  // TODO: Create as variable?
+@dl-bsk-striped-bg:                         @bsk-grey-light;
+
+
+// Components
+//
+// Common, base, default variables for components
+
+@bsk-border-radius:                         0;  // TODO: Set to @border-radius-base if this is general - this doesn't look nice and needs discussing with HT
+
+@line-height-computed-x2:                   (@line-height-computed * 2);
+
+@bsk-component-default-color:               @gray-dark;
+@bsk-component-default-bg:                  @gray-lighter;
+
+@bsk-component-inverse-color:               #f8f8f8;  // TODO: Use lighten/darken functions to generate colour
+@bsk-component-inverse-bg:                  #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
+
+@bsk-component-active-bg:                   @bsk-blue;
+
+@bsk-component-inverse-link-color:          @bsk-blue-light;
+@bsk-component-inverse-link-hover-color:    darken(@bsk-component-inverse-link-color, 15%);  // TODO: check with HT
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background and border color.
+
+@btn-bsk-border-radius:                     @bsk-border-radius;
+
+@btn-bsk-primary-color:                     @white;
 @btn-bsk-primary-bg:                        @bsk-turquoise;
 @btn-bsk-primary-border:                    darken(@bsk-turquoise, 5%);
 
-//== Navbar
-//
-//##
 
-// BSK navbar
-// Like an inverted navbar but a bit different
-@navbar-bsk-border-radius:                  0;  // TODO: Set to @border-radius-base if this is general
+// Dropdowns
+//
+// Dropdown menu container and contents.
+@dropdown-menu-bsk-border-radius:           @bsk-border-radius;
+@dropdown-menu-item-bsk-padding-vertical:   @padding-base-vertical;
+
+
+// Navbar
+//
+//
+
+// BSK navbar - Like an inverted navbar but a bit different
+@navbar-bsk-border-radius:                  @bsk-border-radius;
 
 @navbar-bsk-color:                          lighten(@gray-light, 15%);  // TODO: I added this style - check with HT
-@navbar-bsk-bg:                             #111;  // TODO: Use lighten/darken functions to generate colour
+@navbar-bsk-bg:                             #111;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
 @navbar-bsk-border:                         @navbar-bsk-bg;
 @navbar-bsk-divider-color:                  darken(@navbar-bsk-bg, 10%);// TODO: I added this style- check with HT
 
-@navbar-bsk-link-color:                     #fff;  // TODO: base + hover colours cannot be the same - need style from HT
-@navbar-bsk-link-hover-color:               #fff;  // TODO: base + hover colours cannot be the same - need style from HT
-@navbar-bsk-link-hover-bg:                  #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
+@navbar-bsk-link-color:                     @white;  // TODO: base + hover colours cannot be the same - need style from HT
+@navbar-bsk-link-hover-color:               @white;  // TODO: base + hover colours cannot be the same - need style from HT
+@navbar-bsk-link-hover-bg:                  @bsk-component-inverse-bg;
 @navbar-bsk-link-active-color:              @navbar-bsk-link-hover-color;
 @navbar-bsk-link-active-bg:                 darken(@navbar-bsk-link-hover-bg, 10%);  // TODO: See [1]
-@navbar-bsk-link-disabled-color:            #444;  // TODO: I added this style - check with HT
+@navbar-bsk-link-disabled-color:            @bsk-component-inverse-bg;  // TODO: I added the use of this style - check with HT
 @navbar-bsk-link-disabled-bg:               transparent;  // TODO: I added this style - check with HT
 
-@navbar-bsk-toggle-hover-bg:                #444;  // TODO: See [2]
-@navbar-bsk-toggle-icon-bar-bg:             #fff;  // TODO: Create as variable?
+@navbar-bsk-toggle-hover-bg:                @bsk-component-inverse-bg;  // TODO: See [2]
+@navbar-bsk-toggle-icon-bar-bg:             @white;
 @navbar-bsk-toggle-border-color:            @navbar-bsk-bg;  // TODO: See [2]
 
 // [1] I've overridden this from being exactly the same as the hover background. The Less styles explicitly make the
@@ -141,135 +184,97 @@
 // colour the same as the navbar background) as this isn't such an issue in my view. Ideally the PW styles should adopt
 // this change but if not this should be set in the PW override styles.
 
-// BSK large navbar
-// The same as a regular BSK navbar but thicker
-@line-height-computed-x2:                   (@line-height-computed * 2);  // Hack, move to proper place if this works
-@navbar-bsk-lg-height:                      100px;  // double normal
-@navbar-bsk-lg-padding-horizontal:          floor((@grid-gutter-width / 2));  // Needs making bigger somehow
+// BSK large navbar - The same as a regular BSK navbar but thicker
+@navbar-bsk-lg-height:                      (@navbar-height * 2);
+@navbar-bsk-lg-padding-horizontal:          floor((@grid-gutter-width / 2));
 @navbar-bsk-lg-padding-vertical:            ((@navbar-bsk-lg-height - @line-height-computed-x2) / 2);
 
 
-//== Navs
+// Navs
 //
-//##
+//
 
-//=== Shared nav styles
+// Shared nav styles
 @nav-link-padding:                          15px 15px;
 
-//== Pills
-@nav-pills-bsk-border-radius:               0;  // TODO: Set to @border-radius-base if this is general
-@nav-pills-bsk-link-bg:                     @gray-lighter;  // TODO: Look at a possible @component-bg variable?
-@nav-pills-bsk-link-margin-right:           5px;
+// Pills
+@nav-pills-bsk-border-radius:               @bsk-border-radius;
+@nav-pills-bsk-link-bg:                     @bsk-component-default-bg;
+@nav-pills-bsk-link-margin-right:           @padding-xs-horizontal;
 
-@nav-pills-bsk-active-link-hover-bg:        @bsk-blue;  // TODO: Set to @component-active-bg if this is general
-@nav-pills-bsk-disabled-link-bg:            #fff;  // TODO: Create as variable?
+@nav-pills-bsk-active-link-hover-bg:        @bsk-component-active-bg;
+@nav-pills-bsk-disabled-link-bg:            @white;
 
-//== Wrappers
+
+// Wrappers
 @nav-wrapper-bsk-tab-pane-margin-top:       (@padding-large-vertical * 2);
 
 
-//== Jumbotron
+// Jumbotron
 //
-//##
+//
 
-@jumbotron-bsk-border-radius:               0;  // TODO: Set to @border-radius-base if this is general
+@jumbotron-bsk-border-radius:               @bsk-border-radius;
 @jumbotron-bsk-margin-bottom:               0;
 
 @jumbotron-bsk-lg-padding:                  (@jumbotron-padding * 2);
 @jumbotron-bsk-xl-padding:                  (@jumbotron-padding * 3);
-@jumbotron-bsk-height:                      400px;
 
-@jumbotron-bsk-default-color:               @gray-dark;
-@jumbotron-bsk-default-bg:                  @gray-lighter;
+@jumbotron-bsk-default-color: @bsk-component-default-color;
+@jumbotron-bsk-default-bg: @bsk-component-default-bg;
 
-@jumbotron-bsk-inverse-color:               #fff;  // TODO: Create as variable?
+@jumbotron-bsk-inverse-color:               @white;
 @jumbotron-bsk-inverse-bg:                  @gray;
 @jumbotron-bsk-inverse-text-overlay-bg-fb:  #000;  // Read 'fb' as 'fall back', for older browsers that can't use RGBA
 @jumbotron-bsk-inverse-text-overlay-bg:     rgba(0,0,0,0.7);
 @jumbotron-bsk-inverse-text-overlay-shadow: rgba(0,0,0,0.9);
 
 
-//== Thumbnails
+// Thumbnails
 //
-//##
+//
 
-// BSK thumbnail
-// Like a normal thumbnail but with straight edges and virtually no border
-
+// BSK thumbnail - Like a normal thumbnail but with straight edges and virtually no border
 @thumbnail-bsk-padding:                     0;
-@thumbnail-bsk-border-radius:               0;  // TODO: Set to @border-radius-base if this is general
+@thumbnail-bsk-border-radius:               @bsk-border-radius;
 
-@thumbnail-bsk-caption-padding:             10px; // TODO: use common variable
+@thumbnail-bsk-caption-padding:             @padding-large-vertical;
 
 // BSK inverted thumbnail
-@thumbnail-bsk-inverse-bg:                  #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
+@thumbnail-bsk-inverse-bg:                  @bsk-component-inverse-bg;
 
-@thumbnail-bsk-inverse-caption-color:       #f8f8f8;
+@thumbnail-bsk-inverse-caption-color:       @bsk-component-inverse-color;
 
 
-//== Image purchase
+// Footers
 //
-//##
-
-@image-purchase-bsk-base-opacity:           0.8;
-@image-purchase-bsk-hover-opacity:          1;
-
-@image-purchase-bsk-on-image-color:         #fff;
-@image-purchase-bsk-on-image-text-shadow:   @jumbotron-bsk-inverse-text-overlay-shadow;
-
-@image-purchase-bsk-in-caption-default-color: #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
-@image-purchase-bsk-in-caption-inverse-color: #fff;  // TODO: Create as variable?
-
-
-//== Font faces
 //
-//## Define the location of where font-face fonts are stored
 
-
-// Sets the path to the open-sans font-face relative to the generated CSS file (i.e. /dist/css)
-
-@OpenSansPath:                              "../fonts/open-sans";
-
-// Sets the path to the font-awesome font-face relative to the generated CSS file (i.e. /dist/css)
-@fa-font-path:                              "../fonts/font-awesome";
-
-// Sets the path to the map-glyphs font-face relative to the generated CSS file (i.e. /dist/css)
-@mg-font-path:                              "../fonts/map-glyphs";
-
-// Sets the path to the devicons font-face relative to the generated CSS file (i.e. /dist/css)
-@di-font-path:                              "../fonts/devicons";
-
-
-//== Footers
-//
-//##
-
-@footer-height:                             50px;  // TODO: Set to a variable?
-@footer-margin-top:                         ((@line-height-computed * 2) + 10px);
-@footer-border-radius:                      0;  // TODO: Set to @border-radius-base if this is general
+@footer-height:                             @navbar-height;
+@footer-margin-top:                         (@line-height-computed-x2 + 10px);
 @footer-padding-top:                        @footer-margin-top;
 @footer-padding-bottom:                     (@footer-padding-top - 10px);
+@footer-border-radius:                      @bsk-border-radius;
 
-@footer-bsk-default-color:                  #f8f8f8;  // TODO: Use lighten/darken functions to generate colour
-@footer-bsk-default-bg:                     #333;  // TODO: Use lighten/darken functions to generate colour
+@footer-bsk-default-color:                  @bsk-component-inverse-color;
+@footer-bsk-default-bg:                     @gray-dark;  // TODO: Ideally this should be the default background colour - not #444 // TODO: Test with @bsk-component-inverse-bg
 @footer-bsk-default-border:                 @footer-bsk-default-bg;
 
-@footer-bsk-default-divider:                #777;  // TODO: Use lighten/darken functions to generate colour
-@navbar-bsk-default-link-color:             @bsk-blue-light;
-@navbar-bsk-default-link-hover-color:       darken(@navbar-bsk-default-link-color, 15%);  // TODO: check with HT
+@footer-bsk-default-divider:                @gray-light;
+@footer-bsk-default-link-color:             @bsk-component-inverse-link-color;
+@footer-bsk-default-link-hover-color:       @bsk-component-inverse-link-hover-color;
 
-@navbar-bsk-ogl-symbol-margin-right:        (@padding-large-horizontal * 2);
-@navbar-bsk-ogl-symbol-width:               67px;  // As recommended by the National Archives see [1] for details
-@navbar-bsk-ogl-text-max-height:            420px;
-@navbar-bsk-ogl-text-line-height:           17px;
+@footer-bsk-ogl-symbol-margin-right:        (@padding-large-horizontal * 2);
+@footer-bsk-ogl-symbol-width:               67px;  // As recommended by the National Archives see [1] for details
+@footer-bsk-ogl-text-max-height:            420px;
+@footer-bsk-ogl-text-line-height:           17px;
 
 // [1] http://www.nationalarchives.gov.uk/documents/information-management/ogl-symbol-guidelines-v1.pdf [PDF!]
 
 
-//== Headers
+// Headers
 //
-// This component is designed to replicate the visual appearance of a navbar so bases itself on its variables
-//##
+// Custom component - designed to replicate the visual appearance of a navbar with minimal markup
 
 @header-height:                             @navbar-height;
 @header-margin-bottom:                      @navbar-margin-bottom;
@@ -280,32 +285,44 @@
 @header-bsk-default-border:                 @header-bsk-default-bg;
 
 
-//== Bands
+// Sidebars
 //
-//##
+// Custom component - based loosely on the well component
 
-@band-bsk-padding-vertical:                 40px;  // TODO: Replace with variable
+@sidebar-bsk-base-padding:                  (@padding-large-vertical * 2);
+@sidebar-bsk-base-bottom-margin:            @sidebar-bsk-base-padding;
+@sidebar-bsk-border-radius:                 @bsk-border-radius;
 
-@band-bsk-md-padding-vertical:              30px;  // TODO: Replace with variable
-@band-bsk-sm-padding-vertical:              10px;  // TODO: Replace with variable
-
-@band-bsk-default-bg:                       #fff;  // TODO: Create as variable?
-@band-bsk-inverse-bg:                       #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
-
-
-//== Sidebars
-//
-//##
-
-@sidebar-bsk-base-padding:                  (10px * 2);  // TODO: Replace with variable
-@sidebar-bsk-base-bottom-margin:            (@padding-large-vertical * 2);
-@sidebar-bsk-border-radius:                 0;  // TODO: Set to @border-radius-base if this is general
-
-// Sizes
 @sidebar-bsk-lg-padding:                    (@sidebar-bsk-base-padding * 1.5);
 
-// Variants
-@sidebar-bsk-default-bg:                    @bsk-grey-light;
+@sidebar-bsk-default-bg:                    @bsk-grey-light;  // TODO: Test with @bsk-component-default-bg
 
-@sidebar-bsk-inverse-colour:                #fff;  // TODO: Create as variable?
-@sidebar-bsk-inverse-bg:                    #444;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
+@sidebar-bsk-inverse-colour:                @bsk-component-inverse-color;
+@sidebar-bsk-inverse-bg:                    @bsk-component-inverse-bg;
+
+
+// Bands
+//
+// Custom component - based loosely on the well component
+
+@band-bsk-padding-vertical:                 (@padding-large-vertical * 4);
+
+@band-bsk-md-padding-vertical:              (@padding-large-vertical * 3);
+@band-bsk-sm-padding-vertical:              @padding-large-vertical;
+
+@band-bsk-default-bg:                       @white;
+@band-bsk-inverse-bg:                       @bsk-component-inverse-bg;
+
+
+// Image purchase
+//
+// Custom component
+
+@image-purchase-bsk-base-opacity:           0.8;
+@image-purchase-bsk-hover-opacity:          1;
+
+@image-purchase-bsk-on-image-color:         @white;
+@image-purchase-bsk-on-image-text-shadow:   @jumbotron-bsk-inverse-text-overlay-shadow;
+
+@image-purchase-bsk-in-caption-default-color: @bsk-component-inverse-bg;
+@image-purchase-bsk-in-caption-inverse-color: @white;
