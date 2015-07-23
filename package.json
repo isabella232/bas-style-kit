@@ -17,7 +17,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap": "3.3.4",
+    "bootstrap": "3.3.5",
     "open-sans-fontface": "^1.4",
     "font-awesome": "^4.3",
     "devicons": "^1.8"
