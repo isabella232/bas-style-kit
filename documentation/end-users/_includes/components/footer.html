@@ -124,39 +124,6 @@
 ...
 {% endhighlight %}
 
-  <h2 id="footer-social-links">Social media links</h2>
-  <p>A common set of links to various BAS social media profiles can be easily added using a list of font-icons, which will scale with the base font-size.</p>
-  <p class="text-info">See the <a href="{{ site.style_guide_url }}">BAS Style Guide</a> for more information on these services, including current URLs.</p>
-  <div class="bs-example" data-example-id="footer-static-bottom">
-    <footer class="footer-bsk footer-bsk-default">
-      <div class="container-fluid">
-        <h2>Social media</h2>
-        <ul class="list-inline footer-bsk-social-links">
-          <li><a href="#" class="twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
-          <li><a href="#" class="facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
-          <li><a href="#" class="youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
-          <li><a href="#" class="rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
-        </ul>
-      </div>
-    </footer>
-  </div><!-- /example -->
-{% highlight html %}
-...
-<h2>Social media</h2>
-<ul class="list-inline footer-bsk-social-links">
-  <li><a href="#" class="twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
-  <li><a href="#" class="facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
-  <li><a href="#" class="youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
-  <li><a href="#" class="rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
-</ul>
-...
-{% endhighlight %}
-  <div class="bs-callout bs-callout-warning" id="callout-footer-falist">
-    <h4>Do not use <code>.list-inline</code> and <code>.fa-ui</code> together</h4>
-    <p>These styles are incompatible as the Font Awesome styles assume the use of a vertical list. <br />
-      In practical terms this doesn't make a difference as in the inline list styles present list items with icons in an acceptable way.</p>
-  </div>
-
   <h2 id="footer-fixed-bottom">Fixed to bottom</h2>
   <p>Add <code>.footer-bsk-fixed-bottom</code> and include a <code>.container</code> or <code>.container-fluid</code> to center and pad footer content.</p>
   <div class="bs-example bs-footer-bottom-example" data-example-id="footer-bsk-fixed-bottom">

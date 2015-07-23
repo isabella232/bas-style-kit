@@ -1,0 +1,68 @@
+<div class="bs-docs-section">
+  <h1 id="social-media" class="page-header">Social media</h1>
+
+  <p class="lead">The social media component is used provide a consistent way to symbolise the social media services BAS uses.</p>
+  <p>See the <a href="{{ site.style_guide_url }}">BAS Style Guide</a> for more information on these services, including current URLs.</p>
+  <p class="text-info">This component is unique to the BAS Style Kit.</p>
+  <div class="bs-callout bs-callout-info" id="callout-social-media-supported-services">
+    <h4>Supported services</h4>
+    <p>The following services are currently supported <strong>Twitter</strong> (<code>.twitter</code>), <strong>Facebook</strong> (<code>.facebook</code>), <strong>Youtube</strong> (<code>.youtube</code>) and <strong>RSS</strong> (<code>.rss</code>).<br/>
+      If you need support for another service, or you've used another service already please <a {{ site.feedback_attributes }}>let us know</a> or submit a pull request.</p>
+  </div>
+  <div class="bs-callout bs-callout-warning" id="callout-social-media-branding">
+    <h4>Use of branded assets</h4>
+    <p>Where possible for any service used by the BAS Style Kit we will use officially provided assets, such as logos.</p>
+    <p>All brand assets are usually trademarks of their respective owners and therefore subject to licensing restrictions.<br />
+      You must ensure that where you use a service's assets through the BAS Style Kit that you comply with these restrictions.</p>
+    <p>We cannot provide general guidance on acceptable usage here, as it is context specific, however if you need any help please <a {{ site.feedback_attributes }}>let us know</a>.<br />
+      Finally, the use of these trademarks does not indicate endorsement of the trademark holder by BAS, nor vice versa.</p>
+  </div>
+
+  <h2 id="social-media-static">Static symbols</h2>
+  <p>Used to refer to a particular service. Wherever possible we use the <a href="components/#font-awesome">Font Awesome</a> icon for the relevant service, coloured with the service's primary brand colour.</p>
+  <p>To use include the class of the service and <code>.social-media-bsk-static</code> as a base class as a wrapper around an <code>i.fa.fa-3x</code> element containing the relevant service icon.</p>
+  <div class="bs-example" data-example-id="social-media-static">
+    <div class="social-media-bsk-static twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></div>
+  </div>
+{% highlight html %}
+<div class="social-media-bsk-static twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></div>
+{% endhighlight %}
+
+  <h2 id="social-media-link">Linked symbols</h2>
+  <p>Builds on the static symbol and adds styles for link hover etc. Use <code>.social-media-bsk-link</code> as a base class, instead of <code>.social-media-bsk-static</code>.<</p>
+  <div class="bs-example" data-example-id="social-media-link">
+    <a href="#" class="social-media-bsk-link youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a>
+  </div>
+{% highlight html %}
+<a href="#" class="social-media-bsk-link youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a>
+{% endhighlight %}
+
+  <h2 id="social-media-list">List of symbols</h2>
+  <p>If using multiple symbols styles are provided to arrange these in a nice list by wrapping <code>li</code>'s containing a static or linked symbol in a <code>ul.list-inline</code> list with the additional <code>.social-media-bsk-list</code> class as well.</p>
+  <div class="bs-callout bs-callout-info" id="callout-social-media-supported-components">
+    <h4>Supported components</h4>
+    <p>Social media lists are currently only supported when used within the <a href="#footer">Footer</a> component, and then only when using the BAS Style Kit variants.<br/>
+      If you need support for another component, or you've done testing yourself using another component please <a {{ site.feedback_attributes }}>let us know</a> or submit a pull request.</p>
+  </div>
+  <div class="bs-example" data-example-id="social-media-list">
+    <ul class="list-inline social-media-bsk-list">
+      <li><a href="#" class="social-media-bsk-link twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
+      <li><a href="#" class="social-media-bsk-link facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
+      <li><a href="#" class="social-media-bsk-link youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
+      <li><a href="#" class="social-media-bsk-link rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
+    </ul>
+  </div>
+{% highlight html %}
+<ul class="list-inline social-media-bsk-list">
+  <li><a href="#" class="social-media-bsk-link twitter"><i class="fa fa-3x fa-twitter-square"></i><span class="sr-only">Follow us on Twitter</span></a></li>
+  <li><a href="#" class="social-media-bsk-link facebook"><i class="fa fa-3x fa-facebook-square"></i><span class="sr-only">Follow us on Facebook</span></a></li>
+  <li><a href="#" class="social-media-bsk-link youtube"><i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Follow us on Youtube</span></a></li>
+  <li><a href="#" class="social-media-bsk-link rss"><i class="fa fa-3x fa-rss-square"></i><span class="sr-only">Follow us by RSS</span></a></li>
+</ul>
+{% endhighlight %}
+  <div class="bs-callout bs-callout-warning" id="callout-social-media-falist">
+    <h4>Do not use <code>.list-inline</code> and <code>.fa-ui</code> together</h4>
+    <p>These styles are incompatible as the Font Awesome styles assume the use of a vertical list. <br />
+      In practical terms this doesn't make a difference as in the inline list styles present list items with icons in an acceptable way.</p>
+  </div>
+</div>
