@@ -3,12 +3,12 @@ layout: home
 title: BAS Style Kit
 ---
 
-<main class="bs-docs-masthead" id="content" role="main" tabindex="-1">
+<main class="jumbotron jumbotron-bsk jumbotron-bsk-inverse bsk-docs-masthead" id="content" role="main" tabindex="-1">
   <div class="container">
-    <span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline"><i class="mg mg-fw map-aq"></i></span>
+    <span class="bsk-docs-symbol bsk-docs-symbol-lg bsk-docs-symbol-outline"><i class="mg mg-fw map-aq"></i></span>
     <p class="lead">A collection of HTML, CSS, and JS components <br /> for developing web projects consistent with the BAS brand.</p>
     <p class="lead">
-      <a href="getting-started#download" class="btn btn-outline-inverse btn-lg">Download the BAS Style Kit</a>
+      <a href="getting-started#download" class="btn btn-lg btn-bsk btn-bsk-primary">Download the BAS Style Kit</a>
     </p>
     <p class="version">Currently v{{ site.current_version }}</p>
   </div>
@@ -42,8 +42,8 @@ title: BAS Style Kit
     <hr class="half-rule">
 
     <h2 class="bs-docs-featurette-title">Counterpart to the BAS Style Guide</h2>
-    <p class="lead">The BAS Style Guide gives official guidance and suggestions on how to design BAS projects on the web, and how to use the resources in this Style Kit.</p>
-    <a href="{{ site.style_guide_url }}" class="btn btn-outline btn-lg">View the BAS Style Guide</a>
+    <p class="lead">The BAS Style Guide gives official guidance and suggestions on how to design BAS projects on the web, <br /> and how to use the resources in this Style Kit.</p>
+    <a href="{{ site.style_guide_url }}" class="btn btn-bsk btn-bsk-primary btn-lg">View the BAS Style Guide</a>
   </div>
 </div>
 
@@ -58,13 +58,15 @@ title: BAS Style Kit
     <h2 class="bs-docs-featurette-title">A living, shared, resource, developed in the open</h2>
     <p class="lead">Anyone can contribute changes, whether its a new component or improving the documentation.</p>
     <p class="lead">The BAS Style Kit is designed around the needs of BAS Projects. If you can't find something you need <br /> <a {{ site.feedback_attributes }}>let us know</a> and we'll work with you to find something suitable.</p>
-    <a href="{{ site.repo }}" class="btn btn-outline btn-lg">View the code repository</a>
+    <a href="{{ site.repo }}" class="btn btn-bsk btn-bsk-primary btn-lg">View the code repository</a>
 
-    <hr class="half-rule">
-
-    <div class="bs-callout bs-callout-info">
-      <p class="lead"><strong>Some parts of the BAS Style Kit, such as the BAS Logo, are licensed works.</strong></p>
-      <p class="lead">This means they may only be used in projects officially endorsed by BAS, subject to certain conditions. This is explained in detail where this applies.</p>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="bs-callout bs-callout-warning">
+          <p class="lead"><strong>Some parts of the BAS Style Kit, such as the BAS Logo, are licensed works.</strong></p>
+          <p class="lead">This means they may only be used in projects officially endorsed by BAS, subject to certain conditions. This is explained in detail where this applies.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
