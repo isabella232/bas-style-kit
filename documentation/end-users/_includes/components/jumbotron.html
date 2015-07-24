@@ -2,7 +2,9 @@
   <h1 id="jumbotron" class="page-header">Jumbotron</h1>
 
   <p class="lead">A lightweight, flexible component that can optionally extend the entire viewport to showcase key content.</p>
+  <p class="text-info">The BAS Style Kit includes additional jumbotron variants designed to match the BAS brand.</p>
 
+  <h2 id="jumbotron-default">Default jumbotron</h2>
   <div class="bs-example" data-example-id="simple-jumbotron">
     <div class="jumbotron">
       <h1>Don't Panic!</h1>
@@ -17,6 +19,8 @@
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Do something</a></p>
 </div>
 {% endhighlight %}
+
+  <h2 id="jumbotron-full-width">Full width jumbotron</h2>
   <p>To make the jumbotron full width, and without rounded corners, place it outside all <code>.container</code>s and instead add a <code>.container</code> within.</p>
 {% highlight html %}
 <div class="jumbotron">
@@ -25,4 +29,49 @@
   </div>
 </div>
 {% endhighlight %}
+
+  <h2 id="jumbotron-bsk">BAS jumbotron</h2>
+  <p>The BAS Style Kit includes two styles of jumbotron, default and inverse, designed to match the BAS design.</p>
+
+  <h3>Default BAS jumbotron</h3>
+  <p>Add <code>.jumbotron-bsk</code> with <code>.jumbotron-bsk-default</code> to produce a default jumbotron using BAS styling.</p>
+  <div class="bs-callout bs-callout-info" id="callout-jumbotron-variant">
+    <h4>You should always use a jumbotron variant</h4>
+    <p>As with buttons and other components you should always use a jumbotron variant, such as <code>.jumbotron-bsk-default</code> or <code>.jumbotron-bsk-inverse</code> rather than just the base class.</p>
+  </div>
+  <div class="bs-example" data-example-id="bsk-jumbotron-default">
+    <div class="jumbotron jumbotron-bsk jumbotron-bsk-default">
+      <h1>Don't Panic!</h1>
+      <p>This should be snappy, <em>punchy</em>, text, to highlight a message, with a possible call to action.</p>
+      <p><a class="btn btn-primary btn-lg btn-bsk btn-bsk-primary" href="#" role="button">Do something</a></p>
+    </div>
+  </div>
+{% highlight html %}
+<div class="jumbotron jumbotron-bsk jumbotron-bsk-default">
+  <h1>Don't Panic!</h1>
+  <p>This should be snappy, <em>punchy</em> text, to highlight a message and with a possible call to action.</p>
+  <p><a class="btn btn-primary btn-lg btn-bsk btn-bsk-primary" href="#" role="button">Do something</a></p>
+</div>
+{% endhighlight %}
+
+  <h3>Inverse BAS jumbotron</h3>
+  <p>Add <code>.jumbotron-bsk-inverse</code> (along with <code>.jumbotron-bsk</code>) to produce a jumbotron with a darker style.</p>
+  <div class="bs-example" data-example-id="bsk-jumbotron-inverse">
+    <div class="jumbotron jumbotron-bsk jumbotron-bsk-inverse">
+      <h1>Don't Panic!</h1>
+      <p>This should be snappy, <em>punchy</em>, text, to highlight a message, with a possible call to action.</p>
+      <p><a class="btn btn-primary btn-lg btn-bsk btn-bsk-primary" href="#" role="button">Do something</a></p>
+    </div>
+  </div>
+{% highlight html %}
+<div class="jumbotron jumbotron-bsk jumbotron-bsk-inverse">
+  <h1>Don't Panic!</h1>
+  <p>This should be snappy, <em>punchy</em> text, to highlight a message and with a possible call to action.</p>
+  <p><a class="btn btn-primary btn-lg btn-bsk btn-bsk-primary" href="#" role="button">Do something</a></p>
+</div>
+{% endhighlight %}
+
+  <h3>BAS jumbotron sizes</h3>
+  <p>If you need more padding within the Jumbotron you can add the <code>.jumbotron-bsk-lg</code> and <code>.jumbotron-bsk-lg</code>
+    classes for a <em>large</em> and <em>extra large</em> variant respectively.</p>
 </div>
