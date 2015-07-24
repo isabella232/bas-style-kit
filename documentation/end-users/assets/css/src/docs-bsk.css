@@ -1,40 +1,102 @@
 /* Custom Bootstrap Docs styles for the BAS Style Kit */
 
 /*
+ * Main navigation
+ *
+ * Turn the `.navbar` at the top of the docs purple.
+ */
+
+.navbar-bsk-docs {
+  margin-bottom: 0;
+}
+
+/*
+ * Footer
+ *
+ * Separated section of content at the bottom of all pages, save the homepage.
+ */
+
+.bsk-docs-footer-project-links,
+.bsk-docs-footer-version {
+  font-size: 120%;
+}
+.bsk-docs-footer-project-links {
+  float: left !important;
+}
+.bsk-docs-footer-project-links .list-inline {
+  margin-bottom: 0;
+}
+.bsk-docs-footer-project-links .list-inline li {
+  padding-right: 0;
+}
+.bsk-docs-footer-version {
+  float: right !important;
+  text-align: right;
+}
+
+.bsk-docs-footer-licensing,
+.bsk-docs-footer-licensing .osi-symbol,
+.bsk-docs-footer-licensing .cc-symbol,
+.bs-docs-footer-licensing .license-text {
+  float: left !important;
+}
+.bsk-docs-footer-licensing .osi-symbol,
+.bsk-docs-footer-licensing .cc-symbol {
+  color: #f8f8f8;
+}
+.bsk-docs-footer-licensing .osi-symbol {
+  margin-left: 5px;
+}
+.bsk-docs-footer-licensing .cc-symbol {
+  margin-right: 15px;
+}
+.bsk-docs-footer-licensing .osi-symbol i,
+.bsk-docs-footer-licensing .cc-symbol i{
+  font-size: 3em;
+}
+@media (min-width: 768px) {
+  .bsk-docs-footer-licensing .license-text {
+    width: 600px;
+  }
+}
+
+/*
+ * Callouts
+ *
+ * Not quite alerts, but custom and helpful notes for folks reading the docs.
+ * Requires a base and modifier class.
+ */
+
+/* Common styles for all types */
+.bs-callout {
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-left-style: solid;
+  border-radius: 0;
+}
+
+/*
  * General
  */
 
 /* Use to indicate content that needs to be reviewed, either to update wording or remove entirely */
 .bsk-u-mark-todo-update {
-	background-color: #F9AFAF;
+  background-color: #F9AFAF;
 }
 
 /* Use to indicate new content that needs to be added */
 .bsk-u-mark-todo-add {
-	background-color: #E6FCE3;
+  background-color: #E6FCE3;
 }
 
 /* As the first element in the first feature block on the home page is an alert there's too much top padding */
 .bs-docs-featurette:first-of-type {
-	padding-top: 50px;
+  padding-top: 50px;
 }
 /* As the first element after a page header is an alert there's too much top margin */
 .bs-docs-header {
   margin-bottom: 20px;
-}
-
-/* The logo on the homepage emulates the BAS logo but using web-fonts/CSS rather than an image - these styles support this */
-.bs-docs-booticon {
-  border-radius: 100%;
-  line-height: 1.5;
-  border-width: 3px;
-}
-
-/* Make the logo on the homepage even more in your face */
-.bs-docs-booticon-lg {
-  width: 216px;
-  height: 216px;
-  font-size: 160px;
 }
 
 /*
@@ -95,6 +157,101 @@
 }
 
 /*
+ * Homepage
+ *
+ * Tweaks to the custom homepage and the masthead (main jumbotron).
+ */
+
+/* Share masthead with page headers */
+.bsk-docs-masthead {
+  position: relative;
+  padding: 30px 0;
+  text-align: center;
+}
+
+/* Masthead (headings and download button) */
+.bsk-docs-masthead .bs-docs-booticon {
+  margin: 0 auto 30px;
+}
+.bsk-docs-masthead h1 {
+  font-weight: 300;
+  line-height: 1;
+  color: #fff;
+}
+.bsk-docs-masthead .lead {
+  margin: 0 auto 30px;
+  font-size: 20px;
+  color: #fff;
+}
+.bsk-docs-masthead .version {
+  margin-top: -15px;
+  margin-bottom: 30px;
+  color: #7fccff;
+}
+.bsk-docs-masthead .btn {
+  width: 100%;
+  padding: 15px 30px;
+  font-size: 20px;
+}
+
+@media (min-width: 480px) {
+  .bsk-docs-masthead .btn {
+    width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .bsk-docs-masthead {
+    padding: 80px 0;
+  }
+  .bsk-docs-masthead h1 {
+    font-size: 60px;
+  }
+  .bsk-docs-masthead .lead {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .bsk-docs-masthead .lead {
+    width: 80%;
+    font-size: 30px;
+  }
+}
+
+/* BAS Style Kit icon */
+.bsk-docs-symbol {
+  display: block;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  cursor: default;
+  border-radius: 100%;
+  line-height: 1.5;
+  border-width: 3px;
+  margin: 30px auto;
+}
+.bsk-docs-symbol-sm {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  line-height: 28px;
+}
+.bsk-docs-symbol-lg {
+  width: 216px;
+  height: 216px;
+  font-size: 160px;
+}
+.bsk-docs-symbol-outline {
+  background-color: transparent;
+  border: 3px solid #fff;
+}
+
+.bs-docs-featurette-title {
+  margin-bottom: 20px;
+}
+
+/*
  * Color swatches
  *
  * Color swatches and associated values for BAS Style Kit specific colours.
@@ -129,6 +286,15 @@
   background-color:  #0DA59F;
 }
 
+/*
+ * Code snippets
+ *
+ * Generated via Pygments and Jekyll, these are snippets of HTML, CSS, and JS.
+ */
+
+.highlight {
+  border-radius: 0px;
+}
 
 /*
  * Examples
@@ -136,6 +302,21 @@
  * Isolated sections of example content for each component or feature. Usually
  * followed by a code snippet.
  */
+
+/* Make the examples and snippets not full-width */
+@media (min-width: 768px) {
+  .bs-example {
+    border-radius: 0;
+  }
+  .bs-example + .highlight,
+  .bs-example + .zero-clipboard + .highlight {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .bs-example-standalone {
+    border-radius: 0px;
+  }
+}
 
 /* Footer */
 .bs-footer-bottom-example .footer-bsk-fixed-bottom {
