@@ -398,9 +398,9 @@ gulp.task('jekyll-data', [
 gulp.task('default', function(callback) {
   runSequence(
     'clean',
+    'fonts',
     [
       'less',
-      'fonts',
       'jekyll-data'
     ],
     callback);
