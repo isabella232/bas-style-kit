@@ -394,7 +394,10 @@ You can use the mark tag to <mark>highlight</mark> text.
 </ul>
 {% endhighlight %}
 
-  <h3>Description</h3>
+  <h2 id="type-dl">Description lists</h2>
+  <p>The BAS Style Kit includes additional styles of description list, designed to match the BAS design.</p>
+
+  <h3>Description list</h3>
   <p>A list of terms with their associated descriptions.</p>
   <div class="bs-example" data-example-id="simple-dl">
     <dl>
@@ -414,7 +417,7 @@ You can use the mark tag to <mark>highlight</mark> text.
 </dl>
 {% endhighlight %}
 
-  <h4>Horizontal description</h4>
+  <h3>Horizontal description list</h3>
   <p>Make terms and descriptions in <code>&lt;dl&gt;</code> line up side-by-side. Starts off stacked like default <code>&lt;dl&gt;</code>s, but when the navbar expands, so do these.</p>
   <div class="bs-example" data-example-id="horizontal-dl">
     <dl class="dl-horizontal">
@@ -433,9 +436,68 @@ You can use the mark tag to <mark>highlight</mark> text.
   <dd>...</dd>
 </dl>
 {% endhighlight %}
-
   <div class="bs-callout bs-callout-info" id="callout-type-dl-truncate">
     <h4>Auto-truncating</h4>
     <p>Horizontal description lists will truncate terms that are too long to fit in the left column with <code>text-overflow</code>. In narrower viewports, they will change to the default stacked layout.</p>
   </div>
+
+  <h3>BAS description list</h3>
+  <p>Adds additional padding to a description list.</p>
+  <div class="bs-example" data-example-id="dl-bsk">
+    <dl class="dl-bsk">
+      <dt>Calvin</dt>
+      <dd>Calvin Goldspink, later went on to appear in the only season of Life is Wild.</dd>
+      <dt>Daisy</dt>
+      <dd>Daisy Rebecca Evans, became engaged to footballer Jonjo Shelvey.</dd>
+      <dd>In August 2013 the pair announced they were expecting their first child their daughter.</dd>
+      <dt>Hannah</dt>
+      <dd>Hannah Lorraine Richings, not originally selected.</dd>
+    </dl>
+  </div>
+  {% highlight html %}
+  <dl class="dl-bsk">
+    <dt>...</dt>
+    <dd>...</dd>
+  </dl>
+  {% endhighlight %}
+
+  <h3>BAS striped description list</h3>
+  <p>Adds styling to definition terms to match the BAS design. <span class="text-info">Make sure you also include <code>.dl-bsk</code> to use the correct padding.</span></p>
+  <div class="bs-example" data-example-id="dl-bsk-striped">
+    <dl class="dl-bsk dl-bsk-striped">
+      <dt>Calvin</dt>
+      <dd>Calvin Goldspink, later went on to appear in the only season of Life is Wild.</dd>
+      <dt>Daisy</dt>
+      <dd>Daisy Rebecca Evans, became engaged to footballer Jonjo Shelvey.</dd>
+      <dd>In August 2013 the pair announced they were expecting their first child their daughter.</dd>
+      <dt>Hannah</dt>
+      <dd>Hannah Lorraine Richings, not originally selected.</dd>
+    </dl>
+  </div>
+{% highlight html %}
+<dl class="dl-bsk dl-bsk-striped">
+  <dt>...</dt>
+  <dd>...</dd>
+</dl>
+{% endhighlight %}
+
+  <h3>BAS large horizontal description list</h3>
+  <p>Makes a standard horizontal description wider to accommodate longer definition terms. <strong class="text-danger">Depends on <code>.dl-horizontal</code>.</strong></p>
+  <div class="bs-example" data-example-id="dl-bsk-horizontal-lg">
+    <dl class="dl-bsk dl-horizontal dl-bsk-horizontal-lg dl-bsk-striped">
+      <dt>Calvin</dt>
+      <dd>Calvin Goldspink, later went on to appear in the only season of Life is Wild.</dd>
+      <dt>Daisy</dt>
+      <dd>Daisy Rebecca Evans, became engaged to footballer Jonjo Shelvey.</dd>
+      <dd>In August 2013 the pair announced they were expecting their first child their daughter.</dd>
+      <dt>Hannah</dt>
+      <dd>Hannah Lorraine Richings, not originally selected.</dd>
+    </dl>
+  </div>
+  {% highlight html %}
+  <dl class="dl-bsk dl-horizontal dl-bsk-horizontal-lg dl-bsk-striped">
+    <dt>...</dt>
+    <dd>...</dd>
+  </dl>
+  {% endhighlight %}
 </div>

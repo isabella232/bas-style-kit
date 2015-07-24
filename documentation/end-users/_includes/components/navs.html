@@ -2,6 +2,7 @@
   <h1 id="nav" class="page-header">Navs</h1>
 
   <p class="lead">Navs available in the BAS Style Kit have shared markup, starting with the base <code>.nav</code> class, as well as shared states. Swap modifier classes to switch between each style.</p>
+  <p class="text-info">The BAS Style Kit also includes navbar variants designed to match the BAS brand.</p>
 
   <div class="bs-callout bs-callout-info" id="callout-navs-tabs-plugin">
     <h4>Using navs for tab panels requires JavaScript tabs plugin</h4>
@@ -185,5 +186,107 @@
   </li>
   ...
 </ul>
+{% endhighlight %}
+
+  <h2 id="nav-bsk">BAS navs</h2>
+
+  <h3>BAS pill nav</h3>
+  <p>The BAS Style Kit includes styles for normal, justified and stacked pills designed to match the BAS design.</p>
+  <div class="bs-example" data-example-id="nav-pills-with-dropdown">
+    <div class="nav-wrapper-bsk">
+      <ul class="nav nav-pills nav-pills-bsk" role="tablist">
+        <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">First</a></li>
+        <li role="presentation"><a href="#second" aria-controls="second" role="tab" data-toggle="tab">Second</a></li>
+        <li role="presentation"><a href="#third" aria-controls="third" role="tab" data-toggle="tab">Third</a></li>
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Dropdown <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="first">First tab panel</div>
+        <div role="tabpanel" class="tab-pane" id="second">Second tab panel</div>
+        <div role="tabpanel" class="tab-pane" id="third">Third tab panel</div>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav nav-stacked nav-pills nav-pills-bsk" role="tablist">
+          <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">First</a></li>
+          <li role="presentation"><a href="#second" aria-controls="second" role="tab" data-toggle="tab">Second</a></li>
+          <li role="presentation"><a href="#third" aria-controls="third" role="tab" data-toggle="tab">Third</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <ul class="nav nav-justified nav-pills nav-pills-bsk" role="tablist">
+          <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">First</a></li>
+          <li role="presentation"><a href="#second" aria-controls="second" role="tab" data-toggle="tab">Second</a></li>
+          <li role="presentation" class="disabled"><a href="#third" aria-controls="third" role="tab" data-toggle="tab">Disabled</a></li>
+        </ul>
+      </div>
+    </div>
+  </div><!-- /example -->
+{% highlight html %}
+<!-- Pill nav with a dropdown menu and a wrapping class to space the nav from the tab-content -->
+<div class="nav-wrapper-bsk">
+  <ul class="nav nav-pills nav-pills-bsk" role="tablist">
+    <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">First</a></li>
+    <li role="presentation"><a href="#second" aria-controls="second" role="tab" data-toggle="tab">Second</a></li>
+    <li role="presentation"><a href="#third" aria-controls="third" role="tab" data-toggle="tab">Third</a></li>
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Dropdown <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Dropdown link</a></li>
+        <li><a href="#">Dropdown link</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="first">First tab panel</div>
+    <div role="tabpanel" class="tab-pane" id="second">Second tab panel</div>
+    <div role="tabpanel" class="tab-pane" id="third">Third tab panel</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <!-- Stacked pill nav -->
+    <ul class="nav nav-stacked nav-pills nav-pills-bsk" role="tablist">
+      <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">First</a></li>
+      <li role="presentation"><a href="#second" aria-controls="second" role="tab" data-toggle="tab">Second</a></li>
+      <li role="presentation"><a href="#third" aria-controls="third" role="tab" data-toggle="tab">Third</a></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <!-- Justified pill nav -->
+    <ul class="nav nav-justified nav-pills nav-pills-bsk" role="tablist">
+      <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">First</a></li>
+      <li role="presentation"><a href="#second" aria-controls="second" role="tab" data-toggle="tab">Second</a></li>
+      <li role="presentation" class="disabled"><a href="#third" aria-controls="third" role="tab" data-toggle="tab">Disabled</a></li>
+    </ul>
+  </div>
+</div>
+{% endhighlight %}
+
+  <h3>BAS nav wrapper</h3>
+  <p>The BAS Style Kit includes a wrapping class, <code>.nav-wrapper-bsk</code> which spacing between the nav and its content. <br />
+  By using this class such spacing will be consistent across projects.</p>
+  <div class="bs-example" data-example-id="nav-pills-with-dropdown">
+    <div class="nav-wrapper-bsk">
+      ...
+    </div>
+  </div>
+{% highlight html %}
+<div class="nav-wrapper-bsk">
+  ...
+</div>
 {% endhighlight %}
 </div>

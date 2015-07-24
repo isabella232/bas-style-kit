@@ -1,0 +1,208 @@
+//
+// Navbars
+// --------------------------------------------------
+
+// Alternate navbars
+// --------------------------------------------------
+
+// BSK navbar
+.navbar-bsk {
+  background-color: @navbar-bsk-bg;
+  border-color: @navbar-bsk-color;
+
+  border-radius: @navbar-bsk-border-radius;
+
+  .navbar-text {
+    color: @navbar-bsk-color;
+  }
+
+  .navbar-nav {
+    > li > a {
+      //padding: 35px 16px;
+
+      color: @navbar-bsk-link-color;
+
+      &:hover,
+      &:focus {
+        color: @navbar-bsk-link-hover-color;
+        background-color: @navbar-bsk-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-bsk-link-active-color;
+        background-color: @navbar-bsk-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-bsk-link-disabled-color;
+        background-color: @navbar-bsk-link-disabled-bg;
+      }
+    }
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border-color: @navbar-bsk-toggle-border-color;
+    border-radius: @navbar-bsk-border-radius;
+    &:hover,
+    &:focus {
+      background-color: @navbar-bsk-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: @navbar-bsk-toggle-icon-bar-bg;
+    }
+  }
+
+  // Dropdowns
+  .navbar-nav {
+    > .open {
+      > a {
+        &,
+        &:hover,
+        &:focus {
+          background-color: @navbar-bsk-link-active-bg;
+          color: @navbar-bsk-link-active-color;
+        }
+      }
+      .active > a {
+        color: @navbar-bsk-link-active-color;
+        background-color: @navbar-bsk-link-active-bg;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      // Dropdowns get custom display
+      .open .dropdown-menu {
+        > .dropdown-header {
+          border-color: @navbar-bsk-border;
+        }
+        .divider {
+          background-color: @navbar-bsk-divider-color;
+        }
+        > li > a {
+          color: @navbar-bsk-link-color;
+
+          &:hover,
+          &:focus {
+            color: @navbar-bsk-link-hover-color;
+            background-color: @navbar-bsk-link-hover-bg;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-bsk-link-active-color;
+            background-color: @navbar-bsk-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-bsk-link-disabled-color;
+            background-color: @navbar-bsk-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+  .navbar-nav > .open .dropdown-menu li a {
+    padding: 10px;
+  }
+
+  .navbar-link {
+    color: @navbar-bsk-link-color;
+    &:hover {
+      color: @navbar-bsk-link-hover-color;
+    }
+  }
+
+  .btn-link {
+    color: @navbar-bsk-link-color;
+    &:hover,
+    &:focus {
+      color: @navbar-bsk-link-hover-color;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: @navbar-bsk-link-disabled-color;
+      }
+    }
+  }
+}
+
+// BSK large navbar (i.e a 'thick' version)
+.navbar-bsk-lg {
+  font-size: @font-size-large;
+
+  .navbar-brand {
+    &.navbar-brand-img-fix {
+      padding-top: (@navbar-padding-vertical /2);
+    }
+    img {
+      width: 150px;
+    }
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+    .navbar-brand {
+      padding-top: @navbar-bsk-lg-padding-vertical;
+      padding-bottom: @navbar-bsk-lg-padding-vertical;
+
+      line-height: @line-height-computed-x2;
+
+      &.navbar-brand-img-fix {
+        padding-top: @navbar-padding-vertical;
+      }
+      img {
+        width: 300px;
+      }
+    }
+    .navbar-brand > img {
+
+    }
+
+    .navbar-toggle {
+      .navbar-lg-vertical-align(34px);
+    }
+
+    .navbar-nav {
+      > li > a {
+        line-height: @line-height-computed-x2;
+
+        padding-top:    @navbar-bsk-lg-padding-vertical;
+        padding-bottom: @navbar-bsk-lg-padding-vertical;
+      }
+    }
+
+    .navbar-form {
+      padding: 25px @navbar-bsk-lg-padding-horizontal;
+    }
+
+    .navbar-btn {
+      .navbar-lg-vertical-align(@input-height-base);
+      font-size: @font-size-large;
+
+      &.btn-sm {
+        .navbar-lg-vertical-align(@input-height-small);
+      }
+      &.btn-xs {
+        .navbar-lg-vertical-align(22px);
+      }
+    }
+
+    .navbar-text {
+      .navbar-lg-vertical-align(@line-height-computed-x2);
+      line-height: @line-height-computed-x2;
+    }
+  }
+}

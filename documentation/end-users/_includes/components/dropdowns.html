@@ -2,8 +2,9 @@
   <h1 id="dropdowns" class="page-header">Dropdowns</h1>
 
   <p class="lead">Toggleable, contextual menu for displaying lists of links. Made interactive with the <a href="../javascript/#dropdowns">dropdown JavaScript plugin</a>.</p>
+  <p class="text-info">The BAS Style Kit includes a dropdown variant designed to match the BAS brand.</p>
 
-  <h2 id="dropdowns-example">Example</h2>
+  <h2 id="dropdowns-default">Default</h2>
   <p>Wrap the dropdown's trigger and the dropdown menu within <code>.dropdown</code>, or another element that declares <code>position: relative;</code>. Then add the menu's HTML.</p>
   <div class="bs-example" data-example-id="static-dropdown">
     <div class="dropdown clearfix">
@@ -141,5 +142,35 @@
   <li class="disabled"><a href="#">Disabled link</a></li>
   <li><a href="#">Another link</a></li>
 </ul>
+{% endhighlight %}
+
+  <h2 id="dropdowns-bsk">BAS dropdown</h2>
+  <p>The BAS Style Kit includes a dropdown style designed to match the BAS design.</p>
+  <p>Simply add <code>.dropdown-menu-bsk</code> next to <code>.dropdown-menu</code> and remember to add <code>.btn-bsk</code> to any trigger buttons to style button triggers as well.</p>
+  <div class="bs-example" data-example-id="static-dropdown-bsk">
+    <div class="dropdown clearfix">
+      <button class="btn btn-bsk btn-default dropdown-toggle" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Dropdown
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-bsk" aria-labelledby="dropdownMenu1">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </div><!-- /example -->
+{% highlight html %}
+<div class="dropdown">
+  <button class="btn btn-bsk btn-default dropdown-toggle" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-bsk" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+  </ul>
+</div>
 {% endhighlight %}
 </div>

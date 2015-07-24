@@ -1,0 +1,23 @@
+//
+// Button groups
+// --------------------------------------------------
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+
+.btn-group-xs > .btn-bsk { &:extend(.btn-xs-bsk); }
+.btn-group-sm > .btn-bsk { &:extend(.btn-sm-bsk); }
+.btn-group-lg > .btn-bsk { &:extend(.btn-lg-bsk); }
+
+
+// Vertical button groups
+// ----------------------
+
+.btn-group-vertical > .btn-bsk {
+  &:first-child:not(:last-child),
+  &:last-child:not(:first-child) {
+    border-radius: @btn-bsk-border-radius;
+
+  }
+}

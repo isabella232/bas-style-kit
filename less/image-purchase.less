@@ -1,0 +1,135 @@
+//
+// Image Purchase
+// --------------------------------------------------
+//
+// These styles focus mainly on positioning and formatting the image purchase symbol, customised to the type of
+// component the image is contained within. I.e. there are different styles where an image is inside a jumbotron
+// compared to a thumbnail.
+
+.bsk-image-purchase {
+  // Common styles
+  &.jumbotron-bsk,
+  &.thumbnail-bsk {
+    .caption {
+      .image-purchase-symbol {
+        opacity: @image-purchase-bsk-base-opacity;
+
+        &:hover, &:active {
+          opacity: @image-purchase-bsk-hover-opacity;
+        }
+      }
+    }
+  }
+}
+
+// Styles when used with jumbotrons
+.bsk-image-purchase {
+  &.jumbotron-bsk {
+    // Adjust the actual jumbotron to allow the purchase symbol to be positioned correctly
+    position: relative;
+
+    .image-purchase-symbol {
+      color: @image-purchase-bsk-on-image-color;
+      text-shadow: 0 1px 2px @image-purchase-bsk-on-image-text-shadow;
+
+      // Position the purchase symbol to the bottom right of the image, this needs to be adjusted at each media breakpoint
+      // TODO: BASWEB-466 - Refine media breakpoints for image purchase symbol
+
+      position: absolute;
+      z-index: @zindex-bsl-image-purchase-symbol;
+      padding: 5px;
+
+      left: 97%;
+      top: 89%;
+
+      @media (max-width: @screen-lg-max) {
+        left: 96%;
+        top: 89%;
+      }
+      @media (max-width: @screen-md-max) {
+        left: 94%;
+        top: 90%;
+      }
+      @media (max-width: @screen-sm-max) {
+        left: 94%;
+        top: 84%;
+      }
+      @media (max-width: @screen-xs-max) {
+        left: 88%;
+        top: 84%;
+      }
+    }
+  }
+}
+
+// Styles when used with thumbnails
+.bsk-image-purchase {
+
+  // Base styles
+  &.thumbnail-bsk {
+    .caption {
+      .image-purchase-symbol {
+        float: right !important;
+      }
+    }
+  }
+
+  // Thumbnail variants
+  &.thumbnail-bsk-default {
+    .caption {
+      .image-purchase-symbol {
+
+        color: @image-purchase-bsk-in-caption-default-color;
+      }
+    }
+  }
+  &.thumbnail-bsk-inverse {
+    .caption {
+      .image-purchase-symbol {
+        color: @image-purchase-bsk-in-caption-inverse-color;
+      }
+    }
+  }
+
+  // Where a thumbnail has no caption we overlay the purchase symbol on the actual image, like with a jumbotron
+  // This requires the user to tell us this is the case via the class these styles target.
+  &.bsk-image-purchase-no-caption {
+    // Adjust the actual thumbnail to allow the purchase symbol to be positioned correctly
+    position: relative;
+
+    .image-purchase-symbol {
+      color: @image-purchase-bsk-on-image-color;
+      text-shadow: 0 1px 2px @image-purchase-bsk-on-image-text-shadow;
+
+      // Position the purchase symbol to the bottom right of the image, this needs to be adjusted at each media breakpoint
+      // TODO: BASWEB-466 - Refine media breakpoints for image purchase symbol
+
+      position: absolute;
+      z-index: @zindex-bsl-image-purchase-symbol;
+      padding: 5px;
+
+      left: 90%;
+      top: 85%;
+
+      @media (max-width: @screen-lg-max) {
+        left: 84%;
+        top: 76%;
+      }
+    }
+  }
+
+  // Where a thumbnail is a link we can't make the purchase link an actual link so fake it using JS.
+  // These styles dress this up so it still looks like a link.
+  &a.thumbnail-bsk {
+    .caption {
+      .image-purchase-symbol {
+        cursor: pointer;
+      }
+    }
+  }
+  &a.bsk-image-purchase-no-caption {
+    .image-purchase-symbol {
+      cursor: pointer;
+    }
+  }
+}

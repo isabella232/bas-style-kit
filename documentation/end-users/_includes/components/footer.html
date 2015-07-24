@@ -1,0 +1,190 @@
+<div class="bs-docs-section">
+  <h1 id="footer" class="page-header">Footer</h1>
+
+  <p class="lead">Footers are a containing component that can hold anything you want, such as additional navigation, legal and contact information or anything else you want.</p>
+  <p class="text-info">This component is unique to the BAS Style Kit, but modelled on the <a href="#navbar">navbar</a> component.</p>
+
+  <h2 id="footer-default">Default footer</h2>
+  <p>Footers can range from very simple, minimal elements containing simple text, to large <em>fat</em> footers containing lots of links, information and actions. <br />
+  The footer component is designed to be compatible with almost all elements and components to allow you to use it as your project demands.</p>
+
+  <div class="bs-example" data-example-id="footer-default">
+    <footer class="footer-bsk footer-bsk-default">
+      <div class="container-fluid">
+        <!-- main content -->
+        <h2>Footer content</h2>
+        Footer content with a <a href="#">link</a>
+        <div role="separator" class="footer-bsk-divider"></div>
+        <!-- Copyright & legal -->
+        <div class="footer-bsk-ogl">
+          <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="../../assets/img/ogl-symbol-white.png"></a>
+          <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
+        </div>
+        <div class="footer-bsk-policy-links">
+          © NERC BAS
+          <ul class="list-inline">
+            <li><a href="#">Copyright</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+{% highlight html %}
+<footer class="footer-bsk footer-bsk-default">
+  <div class="container-fluid">
+    <!-- main content -->
+    <h2>Footer content</h2>
+    Footer content with a <a href="#">link</a>
+    <div role="separator" class="footer-bsk-divider"></div>
+    <!-- Copyright & legal -->
+    <div class="footer-bsk-ogl">
+      <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="..."></a>
+      <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
+    </div>
+    <div class="footer-bsk-policy-links">
+      © NERC BAS
+      <ul class="list-inline">
+        <li><a href="#">Copyright</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+{% endhighlight %}
+  <div class="bs-callout bs-callout-info" id="callout-footer-content">
+    <h4>Default footer content</h4>
+    <p>The <a href="{{ site.style_guide_url }}">BAS Style Guide</a> details required and recommended content to include in footers.</p>
+  </div>
+
+  <h2 id="footer-divider">Divider</h2>
+  <p>Use to separate sections of content, a divider acts like a horizontal line spanning the full width of the parent.</p>
+  <div class="bs-example" data-example-id="footer-divider">
+    <footer class="footer-bsk footer-bsk-default">
+      <div class="container-fluid">
+        Above divider
+        <div role="separator" class="footer-bsk-divider"></div>
+        Below divider
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+...
+<div role="separator" class="footer-bsk-divider"></div>
+...
+{% endhighlight %}
+
+  <h2 id="footer-ogl">Open Government License</h2>
+  <p>The BAS Style Kit provides a pre-built component for displaying the OGL symbol and licensing statement, if this is appropriate.</p>
+  <p class="text-info">See the <a href="{{ site.style_guide_url }}">BAS Style Guide</a> for more information on if this license applies to your project.</p>
+  <div class="bs-example" data-example-id="footer-ogl">
+    <footer class="footer-bsk footer-bsk-default">
+      <div class="container-fluid">
+        <div class="footer-bsk-ogl">
+          <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="../../assets/img/ogl-symbol-white.png"></a>
+          <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
+        </div>
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+...
+<div class="footer-bsk-ogl">
+  <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="..."></a>
+  <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
+</div>
+...
+{% endhighlight %}
+
+  <h2 id="footer-policies">Legal Policies</h2>
+  <p>The BAS Style Kit provides a pre-built component for displaying a list of policy links and a copyright notice, if this is appropriate.</p>
+  <p class="text-info">See the <a href="{{ site.style_guide_url }}">BAS Style Guide</a> for more information on which policies and copyright notice applies to your project.</p>
+  <div class="bs-example" data-example-id="footer-policies">
+    <footer class="footer-bsk footer-bsk-default">
+      <div class="container-fluid">
+        <div class="footer-bsk-policy-links">
+          © NERC BAS
+          <ul class="list-inline">
+            <li><a href="#">Copyright</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+...
+<div class="footer-bsk-policy-links">
+  © NERC BAS
+  <ul class="list-inline">
+    <li><a href="#">Copyright</a></li>
+    <li><a href="#">Privacy</a></li>
+  </ul>
+</div>
+...
+{% endhighlight %}
+
+  <h2 id="footer-fixed-bottom">Fixed to bottom</h2>
+  <p>Add <code>.footer-bsk-fixed-bottom</code> and include a <code>.container</code> or <code>.container-fluid</code> to center and pad footer content.</p>
+  <div class="bs-example bs-footer-bottom-example" data-example-id="footer-bsk-fixed-bottom">
+    <footer class="footer-bsk footer-bsk-default footer-bsk-fixed-bottom">
+      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+      <div class="container-fluid">
+        Footer content with a <a href="#">link</a>
+        <div role="separator" class="footer-bsk-divider"></div>
+        <!-- Copyright & legal -->
+        <div class="pull-right">
+          Copyright &amp; Legal
+        </div>
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+<footer class="footer-bsk footer-bsk-default footer-bsk-fixed-bottom">
+  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+  <div class="container-fluid">
+    Footer content with a <a href="#">link</a>
+    <div role="separator" class="footer-bsk-divider"></div>
+    <!-- Copyright & legal -->
+    <div class="pull-right">
+      Copyright &amp; Legal
+    </div>
+  </div>
+</footer>
+{% endhighlight %}
+  <div class="bs-callout bs-callout-danger" id="callout-navbar-fixed-bottom-padding">
+    <h4>Body padding required</h4>
+    <p>The fixed footer will overlay your other content, unless you add <code>padding</code> to the bottom of the <code>&lt;body&gt;</code>.</p>
+    <p>Make sure to include this <strong>after</strong> the core Bootstrap CSS &amp; BAS Style Kit CSS.</p>
+  </div>
+
+  <h2 id="footer-static-bottom">Static bottom</h2>
+  <p>Create a full-width footer that scrolls away with the page by adding <code>.footer-bsk-static-bottom</code> and include a <code>.container</code> or <code>.container-fluid</code> to center and pad footer content.</p>
+  <p>Unlike the <code>.footer-bsk-fixed-bottom</code> class, you do not need to change any padding on the <code>body</code>.</p>
+  <div class="bs-example" data-example-id="footer-static-bottom">
+    <footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
+      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+      <div class="container-fluid">
+        Footer content with a <a href="#">link</a>
+        <div role="separator" class="footer-bsk-divider"></div>
+        <!-- Copyright & legal -->
+        <div class="pull-right">
+          Copyright &amp; Legal
+        </div>
+      </div>
+    </footer>
+  </div><!-- /example -->
+{% highlight html %}
+<footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
+  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+  <div class="container-fluid">
+    Footer content with a <a href="#">link</a>
+    <div role="separator" class="footer-bsk-divider"></div>
+    <!-- Copyright & legal -->
+    <div class="pull-right">
+      Copyright &amp; Legal
+    </div>
+  </div>
+</footer>
+{% endhighlight %}
+</div>

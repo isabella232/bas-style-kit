@@ -3,6 +3,7 @@
 
   <p class="lead">Extend the <a href="../css/#grid">grid system</a> with a thumbnail component to easily display grids of images, videos, text, and more.</p>
   <p>If you're looking for Pinterest-like presentation of thumbnails of varying heights and/or widths, you'll need to use a third-party plugin such as <a href="http://masonry.desandro.com">Masonry</a>, <a href="http://isotope.metafizzy.co">Isotope</a>, or <a href="http://salvattore.com">Salvattore</a>.</p>
+  <p class="text-info">The BAS Style Kit includes additional thumbnail variants designed to match the BAS brand.</p>
 
   <h2 id="thumbnails-default">Default example</h2>
   <p>By default, thumbnails are designed to showcase linked images with minimal required markup.</p>
@@ -92,3 +93,97 @@
 </div>
 {% endhighlight %}
 </div>
+
+  <h2 id="thumbnails-bsk">BAS thumbnails</h2>
+  <p>The BAS Style Kit includes two styles of thumbnail, default and inverse, designed to match the BAS design.</p>
+
+  <h3>Default BAS thumbnail</h3>
+  <p>Add <code>.thumbnail-bsk</code> with <code>.thumbnail-bsk-default</code> to produce a default thumbnail using BAS styling.</p>
+  <div class="bs-callout bs-callout-info" id="callout-thumbnail-variant">
+    <h4>You should always use a thumbnail variant</h4>
+    <p>As with buttons and other components you should always use a thumbnail variant, such as <code>.thumbnail-bsk-default</code> or <code>.thumbnail-bsk-inverse</code> rather than just the base class.</p>
+  </div>
+  <div class="bs-example" data-example-id="bsk-thumbnail">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail thumbnail-bsk thumbnail-bsk-default">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97250&w=400&h=250" alt="thumbnail">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-default">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97250&w=400&h=250" alt="thumbnail">
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-default">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97250&w=400&h=250" alt="thumbnail">
+          <div class="caption">Thumbnail label</div>
+        </a>
+      </div>
+    </div>
+  </div><!-- /.bs-example -->
+{% highlight html %}
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail thumbnail-bsk thumbnail-bsk-default">
+      <img src="..." alt="thumbnail">
+    </div>
+  </div>
+  <div class="col-md-4">
+    <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-default">
+      <img src="..." alt="thumbnail">
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-default">
+      <img src="..." alt="thumbnail">
+      <div class="caption">Thumbnail label</div>
+    </a>
+  </div>
+</div>
+{% endhighlight %}
+
+  <h3>Inverse BAS thumbnail</h3>
+  <p>Add <code>.thumbnail-bsk-inverse</code> (along with <code>.thumbnail-bsk</code>) to produce a thumbnail with a darker style. <br />
+  This is likely the variant you'll want to use.</p>
+  <div class="bs-example" data-example-id="bsk-thumbnail-inverse">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail thumbnail-bsk thumbnail-bsk-inverse">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97250&w=400&h=250" alt="thumbnail">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-inverse">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97250&w=400&h=250" alt="thumbnail">
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-inverse">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97250&w=400&h=250" alt="thumbnail">
+          <div class="caption">Thumbnail label</div>
+        </a>
+      </div>
+    </div>
+  </div><!-- /.bs-example -->
+{% highlight html %}
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail thumbnail-bsk thumbnail-bsk-inverse">
+      <img src="..." alt="thumbnail">
+    </div>
+  </div>
+  <div class="col-md-4">
+    <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-inverse">
+      <img src="..." alt="thumbnail">
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-inverse">
+      <img src="..." alt="thumbnail">
+      <div class="caption">Thumbnail label</div>
+    </a>
+  </div>
+</div>
+{% endhighlight %}

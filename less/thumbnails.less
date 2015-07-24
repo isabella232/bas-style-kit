@@ -1,0 +1,32 @@
+//
+// Thumbnails
+// --------------------------------------------------
+
+// Base class
+.thumbnail-bsk {
+  padding: @thumbnail-bsk-padding;
+  border-radius: @thumbnail-bsk-border-radius;
+
+  > img {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .caption {
+    padding: @thumbnail-bsk-caption-padding;
+  }
+}
+
+// Variants
+
+// Uncomment when styles are needed
+//.thumbnail-bsk-default {}
+
+.thumbnail-bsk-inverse {
+  background-color: @thumbnail-bsk-inverse-bg;
+
+  .caption {
+    color: @thumbnail-bsk-inverse-caption-color;
+  }
+}
