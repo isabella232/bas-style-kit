@@ -61,6 +61,31 @@
 }
 
 /*
+ * Side navigation
+ *
+ * Scrollspy and affixed enhanced navigation to highlight sections and secondary
+ * sections of docs content.
+ */
+
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+  padding-left: 19px;
+  color: #25658F;
+  text-decoration: none;
+  background-color: transparent;
+  border-left: 1px solid #25658F;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+  padding-left: 18px;
+  font-weight: bold;
+  color: #25658F;
+  background-color: transparent;
+  border-left: 2px solid #25658F;
+}
+
+/*
  * Callouts
  *
  * Not quite alerts, but custom and helpful notes for folks reading the docs.
@@ -127,9 +152,6 @@
 .bsk-icons-list li a {
   color: #333333;
 }
-.bsk-icons-list li a:hover {
-  color: #ffffff;
-}
 .bsk-icons-list .icon {
   margin-top: 5px;
   margin-bottom: 10px;
@@ -140,9 +162,13 @@
   text-align: center;
   word-wrap: break-word; /* Help out IE10+ with class names */
 }
-.bsk-icons-list li:hover {
+.bsk-icons-list li a:hover {
+  color: #ffffff;
+}
+.bsk-icons-list li:hover,
+.bsk-icons-list li:hover a {
   color: #fff;
-  background-color: #563d7c;
+  background-color: #555;
 }
 
 @media (min-width: 768px) {
