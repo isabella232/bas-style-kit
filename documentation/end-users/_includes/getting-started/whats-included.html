@@ -1,106 +1,168 @@
 <div class="bs-docs-section">
   <h1 id="whats-included" class="page-header">What's included</h1>
 
-  <p class="lead">The BAS Style Kit is available in two forms, within which you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations.</p>
-
   <div class="bs-callout bs-callout-warning" id="jquery-required">
-    <h4>jQuery required</h4>
-    <p><strong>Note:</strong> Bootstrap, on which this project depends, requires jQuery for all of its JavaScript plugins. Therefore you must include jQuery before Bootstrap, and then the BAS Style Kit JavaScript. See the <a href="#template">starter template</a> for an example.</p>
+    <h4>jQuery and Bootstrap JS required</h4>
+    <p>The BAS Style Kit depends on Bootstrap's JavaScript plugins for providing component interactivity. These plugins in turn depend on jQuery. <br />
+      Therefore you must include jQuery before Bootstrap, see the <a href="#template">starter template</a> for an example.</p>
   </div>
 
-  <h2 id="whats-included-precompiled">Pre-compiled version</h2>
-  <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) BAS Style Kit. You'll see something like this:</p>
+  <h2 id="whats-included-compiled">Compiled styles</h2>
+  <p>Once <a href="#download">downloaded</a>, unzip the compressed folder to see the structure of (the compiled) BAS Style Kit. You'll see something like this:</p>
 
-  <p><mark class="bsk-u-mark-todo-update">This will need updating when we have a proper structure.</mark></p>
 {% highlight bash %}
 bas-style-kit/
-├── css/
-│   ├── bas-style-kit.css
-│   ├── bas-style-kit.css.map
-│   ├── bas-style-kit.min.css
-├── js/
-│   ├── bas-style-kit.js
-│   └── bas-style-kit.min.js
-└── fonts/
-    └── open-sans
-        ├── Bold
-        │   ├── OpenSans-Bold.eot
-        │   ├── OpenSans-Bold.svg
-        │   ├── OpenSans-Bold.ttf
-        │   ├── OpenSans-Bold.woff
-        │   └── OpenSans-Bold.woff2
-        ├── BoldItalic
-        │   ├── OpenSans-BoldItalic.eot
-        │   ├── OpenSans-BoldItalic.svg
-        │   ├── OpenSans-BoldItalic.ttf
-        │   ├── OpenSans-BoldItalic.woff
-        │   └── OpenSans-BoldItalic.woff2
-        ├── ExtraBold
-        │   ├── OpenSans-ExtraBold.eot
-        │   ├── OpenSans-ExtraBold.svg
-        │   ├── OpenSans-ExtraBold.ttf
-        │   ├── OpenSans-ExtraBold.woff
-        │   └── OpenSans-ExtraBold.woff2
-        ├── ExtraBoldItalic
-        │   ├── OpenSans-ExtraBoldItalic.eot
-        │   ├── OpenSans-ExtraBoldItalic.svg
-        │   ├── OpenSans-ExtraBoldItalic.ttf
-        │   ├── OpenSans-ExtraBoldItalic.woff
-        │   └── OpenSans-ExtraBoldItalic.woff2
-        ├── Italic
-        │   ├── OpenSans-Italic.eot
-        │   ├── OpenSans-Italic.svg
-        │   ├── OpenSans-Italic.ttf
-        │   ├── OpenSans-Italic.woff
-        │   └── OpenSans-Italic.woff2
-        ├── Light
-        │   ├── OpenSans-Light.eot
-        │   ├── OpenSans-Light.svg
-        │   ├── OpenSans-Light.ttf
-        │   ├── OpenSans-Light.woff
-        │   └── OpenSans-Light.woff2
-        ├── LightItalic
-        │   ├── OpenSans-LightItalic.eot
-        │   ├── OpenSans-LightItalic.svg
-        │   ├── OpenSans-LightItalic.ttf
-        │   ├── OpenSans-LightItalic.woff
-        │   └── OpenSans-LightItalic.woff2
-        ├── Regular
-        │   ├── OpenSans-Regular.eot
-        │   ├── OpenSans-Regular.svg
-        │   ├── OpenSans-Regular.ttf
-        │   ├── OpenSans-Regular.woff
-        │   └── OpenSans-Regular.woff2
-        ├── Semibold
-        │   ├── OpenSans-Semibold.eot
-        │   ├── OpenSans-Semibold.svg
-        │   ├── OpenSans-Semibold.ttf
-        │   ├── OpenSans-Semibold.woff
-        │   └── OpenSans-Semibold.woff2
-        └── SemiboldItalic
-            ├── OpenSans-SemiboldItalic.eot
-            ├── OpenSans-SemiboldItalic.svg
-            ├── OpenSans-SemiboldItalic.ttf
-            ├── OpenSans-SemiboldItalic.woff
-            └── OpenSans-SemiboldItalic.woff2
+  ├── css
+  │   ├── bas-style-kit.css
+  │   ├── bas-style-kit.min.css
+  │   └── maps
+  │       ├── bas-style-kit.css.map
+  │       └── bas-style-kit.min.css.map
+  └── fonts
+  ├── devicons
+  │   ├── devicons.eot
+  │   ├── devicons.svg
+  │   ├── devicons.ttf
+  │   └── devicons.woff
+  ├── font-awesome
+  │   ├── FontAwesome.otf
+  │   ├── fontawesome-webfont.eot
+  │   ├── fontawesome-webfont.svg
+  │   ├── fontawesome-webfont.ttf
+  │   ├── fontawesome-webfont.woff
+  │   └── fontawesome-webfont.woff2
+  ├── glyphicons-halflings-regular.eot
+  ├── glyphicons-halflings-regular.svg
+  ├── glyphicons-halflings-regular.ttf
+  ├── glyphicons-halflings-regular.woff
+  ├── glyphicons-halflings-regular.woff2
+  ├── map-glyphs
+  │   ├── MapGlyphs.eot
+  │   ├── MapGlyphs.svg
+  │   ├── MapGlyphs.ttf
+  │   └── MapGlyphs.woff
+  └── open-sans
+  ├── Bold
+  │   ├── OpenSans-Bold.eot
+  │   ├── OpenSans-Bold.svg
+  │   ├── OpenSans-Bold.ttf
+  │   ├── OpenSans-Bold.woff
+  │   └── OpenSans-Bold.woff2
+  ├── BoldItalic
+  │   ├── OpenSans-BoldItalic.eot
+  │   ├── OpenSans-BoldItalic.svg
+  │   ├── OpenSans-BoldItalic.ttf
+  │   ├── OpenSans-BoldItalic.woff
+  │   └── OpenSans-BoldItalic.woff2
+  ├── ExtraBold
+  │   ├── OpenSans-ExtraBold.eot
+  │   ├── OpenSans-ExtraBold.svg
+  │   ├── OpenSans-ExtraBold.ttf
+  │   ├── OpenSans-ExtraBold.woff
+  │   └── OpenSans-ExtraBold.woff2
+  ├── ExtraBoldItalic
+  │   ├── OpenSans-ExtraBoldItalic.eot
+  │   ├── OpenSans-ExtraBoldItalic.svg
+  │   ├── OpenSans-ExtraBoldItalic.ttf
+  │   ├── OpenSans-ExtraBoldItalic.woff
+  │   └── OpenSans-ExtraBoldItalic.woff2
+  ├── Italic
+  │   ├── OpenSans-Italic.eot
+  │   ├── OpenSans-Italic.svg
+  │   ├── OpenSans-Italic.ttf
+  │   ├── OpenSans-Italic.woff
+  │   └── OpenSans-Italic.woff2
+  ├── Light
+  │   ├── OpenSans-Light.eot
+  │   ├── OpenSans-Light.svg
+  │   ├── OpenSans-Light.ttf
+  │   ├── OpenSans-Light.woff
+  │   └── OpenSans-Light.woff2
+  ├── LightItalic
+  │   ├── OpenSans-LightItalic.eot
+  │   ├── OpenSans-LightItalic.svg
+  │   ├── OpenSans-LightItalic.ttf
+  │   ├── OpenSans-LightItalic.woff
+  │   └── OpenSans-LightItalic.woff2
+  ├── Regular
+  │   ├── OpenSans-Regular.eot
+  │   ├── OpenSans-Regular.svg
+  │   ├── OpenSans-Regular.ttf
+  │   ├── OpenSans-Regular.woff
+  │   └── OpenSans-Regular.woff2
+  ├── Semibold
+  │   ├── OpenSans-Semibold.eot
+  │   ├── OpenSans-Semibold.svg
+  │   ├── OpenSans-Semibold.ttf
+  │   ├── OpenSans-Semibold.woff
+  │   └── OpenSans-Semibold.woff2
+  └── SemiboldItalic
+  ├── OpenSans-SemiboldItalic.eot
+  ├── OpenSans-SemiboldItalic.svg
+  ├── OpenSans-SemiboldItalic.ttf
+  ├── OpenSans-SemiboldItalic.woff
+  └── OpenSans-SemiboldItalic.woff2
 {% endhighlight %}
 
-  <p>This is the most basic form of integrating the BAS Style Kit: pre-compiled files for quick drop-in usage in nearly any web project. We provide both compiled CSS and JS (<code>bas-style-kit.*</code>), as well as compiled and minified CSS and JS (<code>bas-style-kit.min.*</code>). CSS <a href="https://developer.chrome.com/devtools/docs/css-preprocessors">source maps</a> (<code>bas-style-kit.*.map</code>) are available for use with certain browsers' developer tools. Web-fonts for <a href="https://www.google.com/fonts/specimen/Open+Sans">Open-Sans</a> are also included.</p>
-
-  <h2 id="whats-included-source">Source version</h2>
-  <p>The BAS Style Kit source code download includes the pre-compiled CSS, JavaScript, and web-font assets, along with source Less, JavaScript, and documentation. More specifically, it includes the following and more:</p>
-
-  <p><mark class="bsk-u-mark-todo-update">This will need updating when we have a proper structure.</mark></p>
+  <h2 id="whats-included-source">Source styles</h2>
+  <p>Once cloned from the <a href="{{ site.repo }}">project repository</a>, you'll see something like this:</p>
+  <p>This is not a full file/directory tree as that would be impractical and not very useful.
+    Instead only high level or important files/directories are listed, with additional guidance given after.</p>
 {% highlight bash %}
-bootstrap/
-├── less/
-├── js/
-├── dist/
-│   ├── css/
-│   ├── js/
-│   └── fonts/
-└── docs/
-    └── examples/
+bas-style-kit/
+  ├── dist
+  │   ├── ...
+  ├── documentation
+  │   ├── developers
+  │   │   └── index.md
+  │   ├── end-users
+  │   │   ├── ...
+  │   └── project-management
+  │       └── index.md
+  ├── fonts
+  │   └── mapglyphs
+  │       ├── MapGlyphs.eot
+  │       ├── MapGlyphs.svg
+  │       ├── MapGlyphs.ttf
+  │       └── MapGlyphs.woff
+  ├── js
+  ├── less
+  │   ├── ...
+  ├── node_modules
+  │   ├── ...
+  ├── provisioning
+  │   ├── ...
+  ├── site
+  │   ├── ...
+  ├── _config.yml
+  ├── ansible.cfg
+  ├── ansible-roles-external.yml
+  ├── ansible-roles-internal.yml
+  ├── CONTRIBUTING
+  ├── gulpfile.js
+  ├── LICENSE
+  ├── LICENSE-bootstrap
+  ├── package.json
+  ├── README.md
+  ├── terraform.tf
+  ├── terraform.tfstate
+  ├── terraform.tfstate.backup
+  ├── terraform.tfvars
+  ├── terraform_variables.tf
+  └── Vagrantfile
 {% endhighlight %}
-  <p>The <code>less/</code> and <code>js/</code> directories are the source code for our CSS and JS respectively. The <code>dist/</code> folder includes everything listed in the pre-compiled version detailed above. The <code>docs/</code> folder includes the source code for our documentation, and <code>examples/</code> of the BAS Style Kit's usage. Beyond that, any other included file provides support for packages, license information, and development.</p>
+  <ul class="list-unstyled">
+    <li><code>/dist</code> contains the asme files found in the <a href="#whats-included-compiled">Compiled styles</a></li>
+    <li><code>/documentation</code> contains this documentation (as a Jekyll website) and additional, text only, documentation for development and project management purposes</li>
+    <li><code>/fonts</code> contains the Map Glyph icon font as this isn't available as a package through NPM</li>
+    <li><code>/js</code> is an intentionally empty directory. In the future this will be used for custom JavaScript plugins</li>
+    <li><code>/less</code> contains the source styles for the Style Kit's CSS</li>
+    <li><code>/node_modules</code> contains any packages required by this project's <code>package.json</code> file</li>
+    <li><code>/provisioning</code> related to developing this project (i.e. relevant to developers rather than end-users)</li>
+    <li><code>/site</code> contains the <em>compiled</em> or built version of the Jekyll end-user documentation, suitable for use as a document root</li>
+    <li><code>README.md</code> main project README, containing instructions on how to create instances of this project (for development or projection) and only relevant to this audience</li>
+    <li><code>gulpfile.js</code> main project task file, defining tasks such as Less style compilation and icon font class listing, relevant if customising the Style Kit yourself</li>
+    <li>All other files are related to developing this project (i.e. relevant to developers rather than end-users)</li>
+  </ul>
+  <p>See the <a href="#contributing">contributing</a> section of this documentation for information on how to setup your own instance of the BAS Style Kit for development or customisation.</p>
 </div>

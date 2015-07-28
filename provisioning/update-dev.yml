@@ -12,5 +12,7 @@
   hosts: bas-style-kit-webservers-dev
   remote_user: app
   tasks:
+    - name: run gulp build
+      command: "gulp chdir={{ app_root }}"
     - name: run jekyll build
       shell: "/usr/local/rvm/bin/rvm all do jekyll build chdir={{ app_root }} executable=/bin/bash"

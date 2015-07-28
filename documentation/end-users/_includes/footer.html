@@ -3,14 +3,14 @@
   <div class="container">
     <div class="bsk-docs-footer-project-links">
       <ul class="list-inline">
-        <li><a href="#"><i class="devicons devicons-jira"></i> Issues</a></li>
-        <li><a href="#"><i class="devicons devicons-git_merge"></i> Code</a></li>
-        <li><a href="#"><i class="fa fa-code"></i> Examples</a></li>
-        <li><a href="#"><i class="fa fa-star"></i> Acknowledgements</a></li>
+        <li><a href="{{ site.issues }}"><i class="devicons devicons-jira"></i> Issues</a></li>
+        <li><a href="{{ site.repo }}"><i class="devicons devicons-git_merge"></i> Code</a></li>
+        <li><a href="/getting-started/#examples"><i class="fa fa-code"></i> Examples</a></li>
+        <li><a href="/acknowledgements"><i class="fa fa-star"></i> Acknowledgements</a></li>
       </ul>
     </div>
     <div class="bsk-docs-footer-version">
-      Currently <a href="#">v0.1.0</a>
+      Currently <a href="{{ site.repo }}?at=refs%2Ftags%2Fv{{ site.current_version }}">v{{ site.current_version }}</a>
     </div>
     <div class="clearfix"></div>
     <div role="separator" class="footer-bsk-divider"></div>
@@ -24,8 +24,8 @@
     <div class="footer-bsk-policy-links">
       © NERC BAS
       <ul class="list-inline">
-        <li><a href="#">Copyright</a></li>
-        <li><a href="#">Privacy</a></li>
+        <li><a href="https://www.bas.ac.uk/about-this-site/copyright-statement/">Copyright</a></li>
+        <li><a href="https://www.bas.ac.uk/about-this-site/privacy-cookie-policy/">Privacy</a></li>
       </ul>
     </div>
   </div>
