@@ -1,28 +1,37 @@
 <div class="bs-docs-section">
   <h1 id="download" class="page-header">Download</h1>
 
-  <p class="lead">The BAS Style Kit (currently v{{ site.current_version }}) has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
+  <p class="lead">There are currently two ways to download the BAS Style Kit (currently v{{ site.current_version }}) depending on your use case.</p>
 
   <div class="row bs-downloads">
-    <div class="col-sm-12">
-      <h3 id="download-compiled">Compiled</h3>
-      <p>Compiled and minified CSS, JavaScript, and web-fonts. No docs or original source files are included.</p>
-      <p>
-        <a href="{{ site.download.dist }}" class="btn btn-lg btn-bsk btn-bsk-primary">Download Compiled</a>
-      </p>
+    <div class="col-sm-24 col-md-12">
+      <h3 id="download-compiled">Compiled styles (i.e. CSS)</h3>
+      <p>The simplest and quickest way to integrate the Syle Kit, suits single pages and small/medium websites/web-apps.
+        Use this version if you do not intend to modify the styles of the Style Kit significantly and/or you wish to take advantage of the BAS CDN.</p>
+      <p>Includes both regular (<code>bas-style-kit.*</code>) and minified (<code>bas-style-kit.min.*</code>) compiled CSS.
+        CSS <a href="https://developer.chrome.com/devtools/docs/css-preprocessors">source maps</a> (<code>bas-style-kit.*.map</code>) are available for use with certain browsers' developer tools.
+        Web-fonts for <a href="https://www.google.com/fonts/specimen/Open+Sans">Open-Sans</a> and iconic fonts are also included.</p>
     </div>
-    <div class="col-sm-12">
-      <h3 id="download-source">Source code</h3>
-      <p>Source Less, JavaScript, and font files, along with our docs. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong></p>
-      <p>
-        <a href="{{ site.download.source }}" class="btn btn-lg btn-bsk btn-bsk-primary">Download source</a>
-      </p>
+    <div class="col-sm-24 col-md-12">
+      <h3 id="download-source">Source styles (i.e. Less)</h3>
+      <p>For more advanced use ages where significant modifications are neded, or you wish to integrate the Style Kit in larger or complex projects.</p>
+      <p>This version includes pre-compiled CSS and web-fonts, along with source Less styles and documentation. <br />
+      Use this version if you plan to integrate the Style Kit into a larger application with its own styling workflow. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong></p>
+    </div>
+  </div>
+  <div class="row bs-downloads">
+    <div class="col-sm-24 col-md-12">
+      <a href="{{ site.download.dist }}" class="btn btn-lg btn-bsk btn-bsk-primary">Download Compiled</a>
+    </div>
+    <div class="col-sm-24 col-md-12">
+      <a href="{{ site.download.source }}" class="btn btn-lg btn-bsk btn-bsk-primary">Download source</a>
     </div>
   </div>
 
   <h2 id="download-cdn">BAS Style Kit CDN</h2>
-  <p>An Amazon CloudFront CDN is used to provide CDN support the BAS Style Kit. It includes the compiled CSS, JS and web-fonts. Just use these links:</p>
-
+  <p>If using the compiled styles, you can make use of the BAS CDN to speed up loading times between BAS websites and apps.</p>
+  <p>This works because the same files, from the same URL (i.e. the CDN) are used by each website or app and cached by the browser.</p>
+  <p class="text-success">Due to the performance benefits and lack of need to include in your projects directly, it is recommended to use the BAS CDN wherever practical.</p>
 {% highlight html %}
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="{{ site.cdn.css }}">
@@ -31,13 +40,4 @@
   <h2 id="download-npm">Install with npm</h2>
   <p>You can also install the BAS Style Kit using <a href="https://www.npmjs.com">npm</a>:</p>
   {% highlight bash %}$ npm install bas-style-kit{% endhighlight %}
-  <p>The BAS Style Kit's <code>package.json</code> contains some additional metadata under the following keys:</p>
-  <ul>
-    <li><code>less</code> - path to the main <a href="http://lesscss.org">Less</a> source file</li>
-    <li><code>style</code> - path to the pre-compiled, but non-minified, CSS file</li>
-  </ul>
-  <p>The BAS Style Kit module depends on the Bootstrap module, call<code>require('bootstrap')</code> will load all of Bootstrap's jQuery plugins onto the jQuery object. The <code>bootstrap</code> module itself does not export anything. You can manually load Bootstrap's jQuery plugins individually by loading the <code>/js/*.js</code> files under the package's top-level directory.</p>
-
-  <h2 id="download-autoprefixer">Autoprefixer required for Less</h2>
-  <p>The BAS Style Kit uses <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> to deal with <a href="http://webdesign.about.com/od/css/a/css-vendor-prefixes.htm">CSS vendor prefixes</a>. If you're compiling the BAS Style Kit from its Less source and not using our Gruntfile, you'll need to integrate Autoprefixer into your build process yourself. If you're using the pre-compiled CSS or using our Gruntfile, you don't need to worry about this because Autoprefixer is already integrated into our Gruntfile.</p>
 </div>
