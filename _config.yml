@@ -27,4 +27,4 @@ download:
   dist: https://s3-eu-west-1.amazonaws.com/packages.calcifer.co/scratch/bas-style-kit/releases/0.0.0/bas-style-kit-dist.zip
 
 cdn:
-  css: https://cdn.bas.ac.uk/bas-style-kit/0.0.0/bas-style-kit.min.css
+  css: https://cdn.bas.ac.uk/bas-style-kit/0.1.0/bas-style-kit.min.css
