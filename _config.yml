@@ -14,17 +14,17 @@ url:  localhost
 encoding: UTF-8
 
 # Custom vars
-current_version: 0.1.0
-repo: https://stash.ceh.ac.uk/projects/BASWEB/repos/bas-style-kit/browse
-issues: https://jira.ceh.ac.uk/browse/BASWEB/component/14697
+current_version: 0.1.0-alpha
+repo: https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit/browse
+issues: https://jira.ceh.ac.uk/browse/BSK
 
-style_guide_url: https://hackpad.com/BAS-Style-Guide-e0x7fJ4BMsf
+style_guide_url: https://antarctica.hackpad.com/BAS-Style-Guide-NT1D10DRTCo
 feedback_attributes: data-bsk-action="open-feedback-form"
-discussions_url: https://hackpad.com/BAS-Style-Guide-Discussions-FG5NNMtG2BI
+discussions_url: https://antarctica.hackpad.com/BAS-Style-Kit-Discussions-zjz6NiUOhdA
 
 download:
-  source: https://stash.ceh.ac.uk/plugins/servlet/archive/projects/BASWEB/repos/bas-style-kit
-  dist: https://s3-eu-west-1.amazonaws.com/packages.calcifer.co/scratch/bas-style-kit/releases/0.0.0/bas-style-kit-dist.zip
+  source: https://stash.ceh.ac.uk/plugins/servlet/archive/projects/BSK/repos/bas-style-kit
+  dist: http://ramadda.nerc-bas.ac.uk/repository/entry/get/Polar%20Data%20Centre/SoftwareDist/scratch/bas-style-kit/0.1.0-alpha/bas_style_kit_0.1.0-alpha.zip?entryid=synth%3A9f0d14b7-c78f-4b1c-a537-ce3ebf9a32b4%3AL3NjcmF0Y2gvYmFzLXN0eWxlLWtpdC8wLjEuMC1hbHBoYS9iYXNfc3R5bGVfa2l0XzAuMS4wLWFscGhhLnppcA%3D%3D
 
 cdn:
-  css: https://cdn.bas.ac.uk/bas-style-kit/0.1.0/bas-style-kit.min.css
+  css: http://ramadda.nerc-bas.ac.uk/repository/entry/get/Polar%20Data%20Centre/SoftwareDist/scratch/bas-style-kit/0.1.0-alpha/dist/css/bas-style-kit.min.css?entryid=synth%3A9f0d14b7-c78f-4b1c-a537-ce3ebf9a32b4%3AL3NjcmF0Y2gvYmFzLXN0eWxlLWtpdC8wLjEuMC1hbHBoYS9kaXN0L2Nzcy9iYXMtc3R5bGUta2l0Lm1pbi5jc3M%3D
