@@ -23,7 +23,7 @@ feedback_attributes: data-bsk-action="open-feedback-form"
 discussions_url: https://antarctica.hackpad.com/BAS-Style-Kit-Discussions-zjz6NiUOhdA
 
 download:
-  source: https://stash.ceh.ac.uk/plugins/servlet/archive/projects/BSK/repos/bas-style-kit
+  source: https://stash.ceh.ac.uk/plugins/servlet/archive/projects/BSK/repos/bas-style-kit?at=refs%2Ftags%2Fv0.1.0-alpha
   dist: http://ramadda.nerc-bas.ac.uk/repository/entry/get/Polar%20Data%20Centre/SoftwareDist/scratch/bas-style-kit/0.1.0-alpha/bas_style_kit_0.1.0-alpha.zip?entryid=synth%3A9f0d14b7-c78f-4b1c-a537-ce3ebf9a32b4%3AL3NjcmF0Y2gvYmFzLXN0eWxlLWtpdC8wLjEuMC1hbHBoYS9iYXNfc3R5bGVfa2l0XzAuMS4wLWFscGhhLnppcA%3D%3D
 
 cdn:
