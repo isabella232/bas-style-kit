@@ -193,6 +193,7 @@
   position: relative;
   padding: 30px 0;
   text-align: center;
+  background-image: url('../../img/ice-berg-header.jpg');
 }
 
 /* Masthead (headings and download button) */
