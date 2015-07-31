@@ -7,6 +7,7 @@
   "floats": false,
   "font-sizes": false,
   "gradients": false,
+  "import": false,
   "important": false,
   "known-properties": false,
   "outline-none": false,
