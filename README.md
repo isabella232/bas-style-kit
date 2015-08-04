@@ -370,7 +370,7 @@ The vast majority of this project is based on the amazing [Bootstrap](http://get
 97% of any credit for this project should go to Boostrap's [authors and contributors](http://getbootstrap.com/about/).
 
 The original Bootstrap licensing statement is shown below,
-see their original `LICENSE-bootstrap` further licensing information.
+see their original `LICENSE-BOOTSTRAP-MIT` further licensing information.
 
 > Code and documentation copyright 2011-2015 Twitter, Inc. Code released under
 [the MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE).
