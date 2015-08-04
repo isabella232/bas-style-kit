@@ -10,6 +10,7 @@ of Jira issues by version is automatically maintained.
 ## Fixed
 
 * Source download link updated to current release tag, not develop branch
+* Fixing z-index for purchase symbol, now doesn't float over the top of navbars.
 
 ## [0.1.0-alpha] - 2015-07-30
 
