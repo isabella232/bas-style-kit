@@ -313,6 +313,9 @@
  */
 
 /* BSK colors */
+.color-swatches .bsk-bas-brand {
+  background-color: #003A5D;
+}
 .color-swatches .bsk-blue-light {
   background-color: #7FCCFF;
 }
