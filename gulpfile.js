@@ -130,37 +130,61 @@ gulp.task('less-min', function() {
 });
 
 gulp.task('fonts-opensans', function() {
-  return gulp.src(path.join(sources.openSans, 'fonts', '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.openSans, 'fonts', '**/*.*'),
+      '!' + path.join(sources.openSans, 'fonts', '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'open-sans')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'open-sans')));
 });
 
 gulp.task('fonts-gillsans', function() {
-  return gulp.src(path.join(sources.gillSans, '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.gillSans, '**/*.*'),
+      '!' + path.join(sources.gillSans, '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'gill-sans')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'gill-sans')));
 });
 
 gulp.task('fonts-fontawesome', function() {
-  return gulp.src(path.join(sources.fontAwesome, 'fonts', '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.fontAwesome, 'fonts', '**/*.*'),
+      '!' + path.join(sources.fontAwesome, 'fonts', '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'font-awesome')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'font-awesome')));
 });
 
 gulp.task('fonts-mapglyphs', function() {
-  return gulp.src(path.join(sources.mapglyphs, '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.mapglyphs, '**/*.*'),
+      '!' + path.join(sources.mapglyphs, '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'map-glyphs')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'map-glyphs')));
 });
 
 gulp.task('fonts-devicons', function() {
-  return gulp.src(path.join(sources.devicons, 'fonts', '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.devicons, 'fonts', '**/*.*'),
+      '!' + path.join(sources.devicons, 'fonts', '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'devicons')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'devicons')));
 });
 
 gulp.task('fonts-glyphicons', function() {
-  return gulp.src(path.join(sources.bootstrap, 'fonts', '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.bootstrap, 'fonts', '**/*.*'),
+      '!' + path.join(sources.bootstrap, 'fonts', '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts)));
 });
