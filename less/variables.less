@@ -57,6 +57,9 @@
 // Use the BAS logo font for select elements and styles
 @font-family-brand:                        "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+@headings-font-family:                      @font-family-brand;
+@headings-font-weight:                      200;
+
 // Font faces
 //
 // Define the location of where font-face fonts are stored
@@ -164,6 +167,9 @@
 
 // BSK navbar - Like an inverted navbar but a bit different
 @navbar-bsk-border-radius:                  @bsk-border-radius;
+@navbar-bsk-font-family:                    @font-family-brand;
+@navbar-bsk-font-weight:                    200;
+@navbar-bsk-font-size:                      (@font-size-base + 1px);
 
 @navbar-bsk-color:                          lighten(@gray-light, 15%);  // TODO: I added this style - check with HT
 @navbar-bsk-bg:                             #111;  // TODO: Can we use one of the colours from the gray colour scheme? - check with HT
@@ -286,6 +292,10 @@
 // Headers
 //
 // Custom component - designed to replicate the visual appearance of a navbar with minimal markup
+
+@header-font-family:                        @navbar-bsk-font-family;
+@header-font-weight:                        @navbar-bsk-font-weight;
+@header-font-size:                          @navbar-bsk-font-size;
 
 @header-height:                             @navbar-height;
 @header-margin-bottom:                      @navbar-margin-bottom;
