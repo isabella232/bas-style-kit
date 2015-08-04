@@ -233,7 +233,7 @@ The BAS Style Kit includes a number of web-fonts to provide typographic styling 
 * [Open Sans](https://www.google.com/fonts/specimen/Open+Sans) - Base typographic font
 * [Gill Sans](http://www.fonts.com/font/monotype/gill-sans) - Brand typographic font
 * [Font Awesome](http://fontawesome.io) - Base icon-font for general purposes/actions in projects
-* [Map Glyphs](http://mapglyphs.com) - Icon-font for states, countries, continents and globes [1]
+* [Map Glyphs](http://mapglyphs.com) - Icon-font for states, countries, continents and globes
 * [Devicons](http://vorillaz.github.io/devicons) - Icon-font for logos of technology frameworks, tools and services
 * [Glyphicons Halflings](http://glyphicons.com/) - Icon-font included with Bootstrap, **NOT** supported here
 
