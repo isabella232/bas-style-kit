@@ -1,6 +1,8 @@
 <div class="bs-docs-section">
   <h1 id="type" class="page-header">Typography</h1>
 
+  <p class="text-info">The BAS Style Kit includes alternative typographic fonts designed to match the BAS brand.</p>
+
   <h2 id="type-headings">Headings</h2>
   <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, are available. <code>.h1</code> through <code>.h6</code> classes are also available, for when you want to match the font styling of a heading but still want your text to be displayed inline.</p>
   <div class="bs-example bs-example-type" data-example-id="simple-headings">
@@ -500,4 +502,143 @@ You can use the mark tag to <mark>highlight</mark> text.
     <dd>...</dd>
   </dl>
   {% endhighlight %}
+
+  <h2 id="type-bsk">BAS Typography</h2>
+  <p>The BAS Style Kit includes two additional fonts, <a href="https://en.wikipedia.org/wiki/Open_Sans">Open Sans</a> and
+    <a href="https://en.wikipedia.org/wiki/Gill_Sans">Gill Sans</a>, which are applied to all elements and components as described below. <br />
+    In general, Open Sans is used as a <em>base</em> font applied everywhere by default, with Gill Sans used as a <em>brand</em> font for specific, targeted elements and components.
+  </p>
+  <div class="bs-callout bs-callout-info" id="callout-gillsans-purpose">
+    <h4>Why two fonts?</h4>
+    <p>Gill Sans is the font used in the BAS logo and is used as the corporate, or <em>brand</em> font. It is used in specific areas, usually high impact areas (such as headings) as a design feature.
+    There is no technical reason for using Gill Sans - however it should be used accordance with the <a href="{{ site.style_guide_url }}">BAS Style Guide</a>.</p>
+  </div>
+  <div class="bs-callout bs-callout-warning" id="callout-gillsans-licensing-terms">
+    <h4>This web-font is a licensed work</h4>
+    <p><strong>This font may not be used without a license.</strong> BAS has purchased such a license allowing this web-font to be used within official BAS projects. <br />
+      This is subject to a limit of 250,000 page views within a 30 day period. This limit applies across all such websites and applications that use fonts under the BAS subscription. <br />
+      This font subscription is with <a href="https://wwww.fonts.com">Fonts.com</a> and is paid for by the BAS Communications Team.
+    </p>
+    <p>
+      This license <strong>does not cover</strong> all users of this Style Kit. I.e. if you are using this Style Kit for a personal project (even if work related) this is <strong>not covered</strong>. <br />
+      For more information and assistance please use the <a {{ site.feedback_attributes }}>submit feedback</a> link to get in touch.
+    </p>
+  </div>
+  <div class="bs-callout bs-callout-info" id="callout-gillsans-licensing-domains">
+    <h4>Domain white-listing for web-font usage</h4>
+    <p>
+      In order to use this web-font within a website or application its domain must be white-listed within the BAS font subscription. The following common domains are allowed:</p>
+    <ul class="list-unstyled">
+      <li><code>*.bas.ac.uk</code></li>
+    </ul>
+    <p>There is no limit to the number of domains that can be white-listed and wild cards are supported and additional domains can be added by <a {{ site.feedback_attributes }}>submitting feedback</a>.</p>
+    <p><strong>Note:</strong> Only general/common domains are listed here. Development environments will also need to white-listed and will count towards our page-view limit.</p>
+  </div>
+
+  <h3>Font variants</h3>
+  <p>The BAS Style Kit includes the following variants of Open Sans and Gill Sans.</p>
+  <div class="band-bsk band-bsk-md band-bsk-default"></div>
+  <div class="row">
+    <div class="col-md-8">
+      <p class="text-2x bsk-docs-open-sans-light">Open Sans Light, and <em>italic form</em></p>
+{% highlight scss %}
+* {
+  font-family: "Open Sans", ... ;
+  font-weight: 300;
+}
+{% endhighlight %}
+    </div>
+    <div class="col-md-8">
+      <p class="text-2x bsk-docs-open-sans-book">Open Sans Regular, and <em>italic form</em></p>
+{% highlight scss %}
+* {
+  font-family: "Open Sans", ... ;
+  font-weight: normal;
+}
+{% endhighlight %}
+    </div>
+    <div class="col-md-8">
+      <p class="text-2x bsk-docs-open-sans-roman">Open Sans Bold, and <em>italic form</em></p>
+{% highlight scss %}
+* {
+  font-family: "Open Sans", ... ;
+  font-weight: bold;
+}
+{% endhighlight %}
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-8">
+      <p class="text-2x bsk-docs-gill-sans-light">Gill Sans Light, and <em>italic form</em></p>
+{% highlight scss %}
+* {
+  font-family: "Gill Sans", ... ;
+  font-weight: 100;
+}
+{% endhighlight %}
+    </div>
+    <div class="col-md-8">
+      <p class="text-2x bsk-docs-gill-sans-book">Gill Sans Book, and <em>italic form</em></p>
+{% highlight scss %}
+* {
+  font-family: "Gill Sans", ... ;
+  font-weight: 200;
+}
+{% endhighlight %}
+    </div>
+    <div class="col-md-8">
+      <p class="text-2x bsk-docs-gill-sans-roman">Gill Sans Roman, and <em>italic form</em></p>
+{% highlight scss %}
+* {
+  font-family: "Gill Sans", ... ;
+  font-weight: 300;
+}
+{% endhighlight %}
+    </div>
+  </div>
+  <div class="bs-callout bs-callout-info" id="callout-additional-fonts-usage">
+    <h4>The Style Kit does not provide classes for using these fonts</h4>
+    <p>If you wish to use them for an element or class you will need to apply the relevant <code>font-family</code>' and <code>font weight</code> properties using the values shown above.</p>
+  </div>
+
+  <h3>Font application</h3>
+  <p>Open Sans is applied on the <code>body</code> element meaning it is used globally across all elements and components, unless explicitly overridden.</p>
+  <p>In addition to this, Gill Sans is applied to a specific set of elements and components as shown below.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Element/Component</th>
+        <th>Selector (if applicable)</th>
+        <th>Font variant</th>
+        <th>Notes (if applicable)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="/components/#footer">Footer</a></td>
+        <td><code>.footer-bsk</code></td>
+        <td>Gill Sans Light</td>
+        <td>Font size increased <var>1px</var> greater than base</td>
+      </tr>
+      <tr>
+        <td><a href="/components/#navbar">Navbar</a></td>
+        <td><code>.navbar-bsk</code></td>
+        <td>Gill Sans Book</td>
+        <td>Font size increased <var>1px</var> greater than base</td>
+      </tr>
+      <tr>
+        <td><a href="/components/#header">Header</a></td>
+        <td><code>.header-bsk</code></td>
+        <td>Gill Sans Book</td>
+        <td>Font size increased <var>1px</var> greater than base</td>
+      </tr>
+      <tr>
+        <td><a href="#type-headings">Headings</a></td>
+        <td><code>h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6</code></td>
+        <td>Gill Sans Book</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

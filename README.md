@@ -231,6 +231,7 @@ These errors are known and accepted for the reasons given here:
 The BAS Style Kit includes a number of web-fonts to provide typographic styling and icon-font libraries:
 
 * [Open Sans](https://www.google.com/fonts/specimen/Open+Sans) - Base typographic font
+* [Gill Sans](http://www.fonts.com/font/monotype/gill-sans) - Brand typographic font
 * [Font Awesome](http://fontawesome.io) - Base icon-font for general purposes/actions in projects
 * [Map Glyphs](http://mapglyphs.com) - Icon-font for states, countries, continents and globes [1]
 * [Devicons](http://vorillaz.github.io/devicons) - Icon-font for logos of technology frameworks, tools and services
@@ -241,15 +242,30 @@ Font file locations and font-family declarations are defined through the BAS Sty
 Font files can be copied to their relevant locations using `jekyll fonts`.
 
 This task will call these tasks in parallel:
-`gulp [fonts-opensans | fonts-fontawesome | fonts-mapglyphs | fonts-devicons | fonts-glyphicons]`.
+`gulp [fonts-opensans | fonts-gillsans | fonts-fontawesome | fonts-mapglyphs | fonts-devicons | fonts-glyphicons]`.
 
 Individual font files can be copied if needed using:
 
 * `gulp fonts-opensans` - For Open Sans
+* `gulp fonts-gillsans` - For Gill Sans
 * `gulp fonts-fontawesome` - For Font Awesome
 * `gulp fonts-mapglyphs` - For Map Glyphs
 * `gulp fonts-devicons` - For Devicons
 * `gulp fonts-glyphicons` - For Glyphicons
+
+#### Gill Sans
+
+Gill Sans is the font face used in the BAS logo. It is not distributed publicly and requires a license for use.
+
+BAS pays for a subscription to use this font within BAS projects, subject to a limit of 250,000 page views within a 30
+day period. This limit applies across all websites and applications that use fonts under the BAS subscription.
+
+This means if projects other than the BAS Style Kit (and websites and applications in which it is used) use fonts from
+this subscription, they will all count against the same page view restriction.
+
+This font subscription is with [Fonts.com](https://wwww.fonts.com) and is paid for the BAS Communications Team.
+If we would like access to this subscription or have questions related to licensing, please create an issue within
+this project in the first instance.
 
 #### Map Glyphs
 

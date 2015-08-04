@@ -105,6 +105,35 @@
  * General
  */
 
+.text-2x {
+  font-size: 150%;
+}
+
+.bsk-docs-open-sans-light {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+.bsk-docs-open-sans-regular {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+.bsk-docs-open-sans-bold {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+.bsk-docs-gill-sans-light {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+.bsk-docs-gill-sans-book  {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+}
+.bsk-docs-gill-sans-roman {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
 /* Use to indicate content that needs to be reviewed, either to update wording or remove entirely */
 .bsk-u-mark-todo-update {
   background-color: #F9AFAF;
