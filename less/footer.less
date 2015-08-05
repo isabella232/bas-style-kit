@@ -85,14 +85,29 @@
 .footer-bsk-ogl {
   .ogl-symbol, .ogl-text {
     float: left !important;
+
+    @media (max-width: @screen-xs-max) {
+      float: none !important;
+      text-align: center;
+    }
   }
   .ogl-symbol {
+    margin-bottom: @footer-bsk-ogl-symbol-margin-bottom;
     margin-right: @footer-bsk-ogl-symbol-margin-right;
     width: @footer-bsk-ogl-symbol-width;
+
+    @media (max-width: @screen-xs-max) {
+      .center-block();
+    }
   }
   .ogl-text {
+    margin-bottom: @footer-bsk-olg-text-margin-bottom;
     max-width: @footer-bsk-ogl-text-max-height;
     line-height: @footer-bsk-ogl-text-line-height;
+
+    @media (max-width: @screen-xs-max) {
+      max-width: none;
+    }
   }
 }
 
@@ -104,6 +119,11 @@
 .footer-bsk-policy-links {
   float: right !important;
   text-align: right;
+
+  @media (max-width: @screen-xs-max) {
+    float: none !important;
+    text-align: center;
+  }
 
   .list-inline {
     margin-bottom: 0;
