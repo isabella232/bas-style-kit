@@ -1,0 +1,15 @@
+
+body {
+  color: white;
+  background-color: #FFBF47;
+}
+
+.jumbotron-bsk-default, .band-bsk-default, .header-bsk-default {
+  background-color: transparent;
+}
+.jumbotron-bsk-default {
+  color: #333;
+}
+.header-bsk-default {
+  border-color: transparent;
+}
