@@ -1,0 +1,9 @@
+---
+# Setup infrastructure and application
+
+- name: sync documentation site to web-servers
+  hosts: bas-style-kit-webservers-prod
+  remote_user: app
+  tasks:
+    - name: copy project to app directory
+      synchronize: src="../site" dest="{{ app_root }}" delete=yes

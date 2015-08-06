@@ -9,26 +9,45 @@ provider "digitalocean" {
 
 # Resources
 
-# 'bas-style-kit-dev-web2' resource
+# 'bas-style-kit-stage-web1' resource
 
 # VM
 
-module "bas-style-kit-dev-web2-droplet" {
-    source = "github.com/antarctica/terraform-module-digital-ocean-droplet?ref=v1.0.0"
-    hostname = "bas-style-kit-dev-web2"
-    ssh_fingerprint = "${var.ssh_fingerprint}"
-    image = 11744346
+module "bas-style-kit-stage-web1-droplet" {
+  source = "github.com/antarctica/terraform-module-digital-ocean-droplet?ref=v1.0.0"
+  hostname = "bas-style-kit-stage-web1"
+  ssh_fingerprint = "${var.ssh_fingerprint}"
+  image = 11744346
 }
 
 # DNS records (public, private and default [which is an APEX record and points to public])
 
-module "bas-style-kit-dev-web2-records" {
-    source = "github.com/antarctica/terraform-module-digital-ocean-records?ref=v0.1.1"
-    hostname = "bas-style-kit-dev-web2"
-    machine_interface_ipv4_public = "${module.bas-style-kit-dev-web2-droplet.ip_v4_address_public}"
-    machine_interface_ipv4_private = "${module.bas-style-kit-dev-web2-droplet.ip_v4_address_private}"
+module "bas-style-kit-stage-web1-records" {
+  source = "github.com/antarctica/terraform-module-digital-ocean-records?ref=v0.1.1"
+  hostname = "bas-style-kit-stage-web1"
+  machine_interface_ipv4_public = "${module.bas-style-kit-stage-web1-droplet.ip_v4_address_public}"
+  machine_interface_ipv4_private = "${module.bas-style-kit-stage-web1-droplet.ip_v4_address_private}"
 }
 
+# 'bas-style-kit-prod-web1' resource
+
+# VM
+
+module "bas-style-kit-prod-web1-droplet" {
+  source = "github.com/antarctica/terraform-module-digital-ocean-droplet?ref=v1.0.0"
+  hostname = "bas-style-kit-prod-web1"
+  ssh_fingerprint = "${var.ssh_fingerprint}"
+  image = 11744346
+}
+
+# DNS records (public, private and default [which is an APEX record and points to public])
+
+module "bas-style-kit-prod-web1-records" {
+  source = "github.com/antarctica/terraform-module-digital-ocean-records?ref=v0.1.1"
+  hostname = "bas-style-kit-prod-web1"
+  machine_interface_ipv4_public = "${module.bas-style-kit-prod-web1-droplet.ip_v4_address_public}"
+  machine_interface_ipv4_private = "${module.bas-style-kit-prod-web1-droplet.ip_v4_address_private}"
+}
 
 # Provisioning (using a fake resource as provisioners can't be first class objects)
 
