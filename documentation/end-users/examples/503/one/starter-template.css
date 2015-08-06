@@ -1,0 +1,12 @@
+
+body {
+  color: white;
+  background-color: #912B88;
+}
+
+.jumbotron-bsk-default, .band-bsk-default {
+  background-color: transparent;
+}
+.jumbotron-bsk-default {
+  color: white;
+}
