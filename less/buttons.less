@@ -14,6 +14,12 @@
 // Alternate buttons
 // --------------------------------------------------
 
+.btn-bsk {
+  &.btn-default {
+    .button-variant(@btn-default-color; @btn-bsk-default-bg; @btn-default-border);
+  }
+}
+
 .btn-bsk-primary {
   .button-variant(@btn-bsk-primary-color; @btn-bsk-primary-bg; @btn-bsk-primary-border);
 }
