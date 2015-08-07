@@ -14,7 +14,6 @@ url:  localhost
 encoding: UTF-8
 
 # Custom vars
-current_version: 0.1.0-alpha
 repo: https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit/browse
 issues: https://jira.ceh.ac.uk/browse/BSK
 
