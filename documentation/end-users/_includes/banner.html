@@ -1,0 +1,9 @@
+<div class="bs-callout bs-callout-info">
+  {% if site.data.provisioned.env == 'production' %}
+  <p class="lead"><strong>This is a new website,</strong> your <a {{ site.feedback_attributes }}>feedback</a> and <a href="#">contributions</a> will help us improve it.</p>
+  {% elsif site.data.provisioned.env == 'staging' %}
+  <p class="lead"><strong>This is a preview of the next version,</strong> your <a {{ site.feedback_attributes }}>feedback</a> and <a href="#">contributions</a> will help make it the best yet!</p>
+  {% elsif site.data.provisioned.env == 'development' %}
+  <p class="lead"><strong>Local documentation build,</strong> you should not see this unless you are a developer. If you are, thanks for your contributions <i class="fa fa-smile-o"></i>.</p>
+  {% endif %}
+</div>
