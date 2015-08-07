@@ -169,9 +169,9 @@ Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` 
 
 VMs are powered by DigitalOcean, managed using Terraform and configured by Ansible.
 
-You **MUST** have setup and configured a *development* environment, before you can create a *staging* environment.
 An Azure CDN is used to host the distribution assets of each version, it is managed manually.
 
+You **MUST** have setup and configured a *development* environment, before you can create a *production* environment.
 Specifically, you must have a `/site` or `/dist` directory. If you don't, you **MUST** create them in a *development*
 environment, using the steps listed in the *usage* section of this README.
 
@@ -458,6 +458,8 @@ $ jekyll build --watch --force_polling
 
 ### Staging - remote
 
+#### End-user documentation
+
 To generate end-user documentation for a *staging* environment ensure you have the *develop* branch checked out in a
 *development* environment.
 
@@ -546,6 +548,8 @@ $ duck --upload azure://bascdnprod.blob.core.windows.net/bas-style-kit/0.1.0-alp
 
 [1] You can find this access key through the [Azure management portal](http://manage.windowsazure.com/) by logging in
 and selecting *Storage* -> *bascdnprod* -> *manage access keys*
+
+#### End-user documentation
 
 To generate end-user documentation for a *production* environment ensure you have the relevant release tag checked out
 in a *development* environment.
