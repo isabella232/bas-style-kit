@@ -63,7 +63,9 @@ Host *.web.nerc-bas.ac.uk
 
 * [Terraform](terraform.io) `brew cask install terraform`
 * [Rsync](https://rsync.samba.org/) `brew install rsync`
+* [Duck](https://duck.sh/) `brew install duck`
 * You have an entry like [1] in your `~/.ssh/config`
+* You have access to the BAS CDN Azure account [2]
 
 [1] SSH config entry
 
@@ -74,6 +76,9 @@ Host *.web.nerc-bas.ac.uk
     IdentityFile ~/.ssh/id_rsa
     Port 22
 ```
+
+[2] Currently this account is tied to Felix Fennell - this will be changed, see https://jira.ceh.ac.uk/browse/BSK-54
+for details.
 
 ## Setup
 
@@ -165,6 +170,8 @@ Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` 
 VMs are powered by DigitalOcean, managed using Terraform and configured by Ansible.
 
 You **MUST** have setup and configured a *development* environment, before you can create a *staging* environment.
+An Azure CDN is used to host the distribution assets of each version, it is managed manually.
+
 Specifically, you must have a `/site` or `/dist` directory. If you don't, you **MUST** create them in a *development*
 environment, using the steps listed in the *usage* section of this README.
 
@@ -204,6 +211,33 @@ $ ansible-playbook -i provisioning/production provisioning/site-prod.yml
 
 End-user documentation for this project can then be accessed from [bas-style-kit-](bas-style-kit.web.nerc-bas.ac.uk).
 
+An Azure CDN is used to host the distribution assets of each version, for use within websites and applications. It is
+unlikely you will need to create this CDN since only a single instance is used for this project [2]. However for
+completeness the steps to create a CDN are listed here.
+
+There are two stages to setup the CDN - creating the underlying storage account and container, and adding a CDN in
+front of this.
+
+To create the underlying storage account and container:
+
+1. Login to the [Azure management portal](http://manage.windowsazure.com/)
+2. Select *New* -> *Data Services* -> *Storage* -> *Quick Create* service using these options:
+  * *URL* - `bascdnprod`(.core.windows.net)
+  * *Location/affinity group* - `West Europe`
+  * *Replication* - `Geo-Redundant` [3]
+3. Select *Storage* -> *bascdnprod* -> *containers* -> *add* using these options:
+  * *Name* - `bas-style-kit`
+  * *Access* - `public blob`
+
+To create the CDN backed by this storage account:
+
+1. Login to the [Azure management portal](http://manage.windowsazure.com/)
+2. Select *New* -> *App Services* -> *CDN* -> *Quick Create* service using these options:
+  * *Origin type* - `Storage Accounts`
+  * *Origin URL* - `bascdnprod.blob.core.windows.net`
+3. Select *CDN* -> *[4]* and set these options:
+  * *Enable HTTPS*
+
 [1]
 
 `.ftvars` files store sensitive information and **MUST NOT** be checked into source control.
@@ -216,6 +250,15 @@ ssh_fingerprint = "[fingerprint]"
 Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` is the
 [fingerprint of your public key](https://gist.github.com/felnne/596d2bf11842a0cf64d6).
 
+[2] This CDN may also be used by other projects as needed, these will use the same storage account, but different
+containers within this. The CDN in front of these containers will also be shared as it links to the storage account,
+not the containers within.
+
+[3] The means the content in the storage account will be mirrored between the `West Europe` and `North Europe`
+locations. Data will not pass beyond the EU (i.e. to a US location). However as Microsoft is a US company this isn't
+really a meaningful distinction.
+
+[4] The name of the CDN instance is random but will be something like `az792977`.
 
 ## Usage
 
@@ -452,6 +495,57 @@ Note: The definitive version of this documentation, built from the latest releas
 [here](https://bas-style-kit.web.nerc-bas.ac.uk/).
 
 ### Production - remote
+
+#### CDN distribution for assets and project release
+
+The distribution assets (i.e. compiled CSS, etc.) and the current snapshot of the overall project are hosted on the
+project CDN for each release. These resources are used by others in their own websites and applications in order to
+implement or build on a particular release of the Style Kit.
+
+Note: You **MUST** make sure you have the correct version checked out and that you do not have the *master* branch
+checked out instead. This ensures the correct distribution files are used and the associated documentation generated.
+
+The distribution files to be uploaded to the CDN will have already been compiled within the `dist` directory. The
+snapshot of the overall project to be uploaded can be downloaded from Stash directly as a `.zip` archive. Both files
+will be uploaded the CDN's underlying Storage Account.
+
+To upload the distribution files (it is assumed all files inside `/dist` will be uploaded):
+
+```
+$ duck --upload azure://bascdnprod.blob.core.windows.net/bas-style-kit/[version]/dist dist/ -u bascdndev -p [primary_access_key]
+```
+
+Where: `[version]` represents the release being uploaded and `[primary access key]` is the primary access key of the
+Storage Account being used [1], in this case `bascdnprod`.
+
+E.g.
+
+```
+$ duck --upload azure://bascdnprod.blob.core.windows.net/bas-style-kit/0.1.0-alpha/dist dist/ -u bascdndev -p xxx
+```
+
+To upload the snapshot of the overall project:
+
+1. Access the [project's Stash repo](https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit/browse)
+2. Using the tag/branch selector, select the relevant tag for the release
+3. Select the *download* action
+4. Change to the path containing the downloaded `.zip` archive and use the command below to upload to the CDN:
+
+```
+$ duck --upload azure://bascdnprod.blob.core.windows.net/bas-style-kit/[version] [snapshot] -u bascdndev -p [primary_access_key]
+```
+
+Where: `[version]` represents the release being uploaded, `[snapshot]` the snapshit archive and `[primary access key]`
+the primary access key of the Storage Account being used [1], in this case `bascdnprod`.
+
+E.g.
+
+```
+$ duck --upload azure://bascdnprod.blob.core.windows.net/bas-style-kit/0.1.0-alpha/ bas-style-kit/0.1.0-alpha.zip dist/ -u bascdndev -p xxx
+```
+
+[1] You can find this access key through the [Azure management portal](http://manage.windowsazure.com/) by logging in
+and selecting *Storage* -> *bascdnprod* -> *manage access keys*
 
 To generate end-user documentation for a *production* environment ensure you have the relevant release tag checked out
 in a *development* environment.
