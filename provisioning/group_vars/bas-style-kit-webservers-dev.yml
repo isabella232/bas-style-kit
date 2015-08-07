@@ -1,0 +1,6 @@
+---
+# These variables override those defined by roles
+
+# RVM
+rvm1_rubies:
+  - 'ruby-2.2.2'

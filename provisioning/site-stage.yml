@@ -1,0 +1,34 @@
+---
+# Setup infrastructure and application
+
+# We can't combine this play with the later setup play as Nginx won't be able to start
+# as the document root wouldn't yet exist.
+- name: prepare web-servers for setup
+  hosts: bas-style-kit-webservers-stage
+  remote_user: controller
+  sudo: yes
+  roles:
+    - core
+  tasks:
+    - name: create app directory
+      file: path="{{ app_root }}" owner=app group=app state=directory
+
+- name: sync documentation site to web-servers
+  hosts: bas-style-kit-webservers-stage
+  remote_user: app
+  tasks:
+    - name: create directory for SSL certificate
+      file: path="{{ app_root }}/provisioning/certificates/star.web.nerc-bas.ac.uk" state=directory
+    - name: copy SSL certificate to app directory
+      copy: src="certificates/star.web.nerc-bas.ac.uk/star.web.nerc-bas.ac.uk-certificate-including-trust-chain.crt" dest="/app/provisioning/certificates/star.web.nerc-bas.ac.uk/star.web.nerc-bas.ac.uk-certificate-including-trust-chain.crt"
+    - name: create directory for site
+      file: path="{{ app_site_root }}" state=directory
+    - name: copy project to app directory
+      synchronize: src="../site" dest="{{ app_root }}" delete=yes
+
+- name: setup web-servers
+  hosts: bas-style-kit-webservers-stage
+  remote_user: controller
+  sudo: yes
+  roles:
+    - nginx

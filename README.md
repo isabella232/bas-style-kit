@@ -43,7 +43,23 @@ Host *.v.m
     Port 22
 ```
 
-### Development - remote
+### Staging - remote
+
+* [Terraform](terraform.io) `brew cask install terraform`
+* [Rsync](https://rsync.samba.org/) `brew install rsync`
+* You have an entry like [1] in your `~/.ssh/config`
+
+[1] SSH config entry
+
+```shell
+Host *.web.nerc-bas.ac.uk
+    ForwardAgent yes
+    User app
+    IdentityFile ~/.ssh/id_rsa
+    Port 22
+```
+
+### Production - remote
 
 * [Terraform](terraform.io) `brew cask install terraform`
 * [Rsync](https://rsync.samba.org/) `brew install rsync`
@@ -88,9 +104,16 @@ Note: Vagrant managed VMs also have a second, host-guest only, network for manag
 $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 ```
 
-### Development - remote
+### Staging - remote
 
 VMs are powered by DigitalOcean, managed using Terraform and configured by Ansible.
+
+You **MUST** have setup and configured a *development* environment, before you can create a *staging* environment.
+Specifically, you must have a `/site` or `/dist` directory. If you don't, you **MUST** create them in a *development*
+environment, using the steps listed in the *usage* section of this README.
+
+You **SHOULD** also make sure you have up-to date CSS files etc. by running the relevant tasks outlined in the *usage*
+section of this README.
 
 Create a `terraform.tfvars` file and populate according to [1].
 
@@ -101,17 +124,17 @@ $ terraform apply
 
 Terraform will automatically configure DNS records for infrastructure it creates on your behalf:
 
-| Kind      | Name                            | Points To                                            | FQDN                                                 | Notes                             |
-| --------- | ------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | --------------------------------- |
-| **A**     | bas-style-kit-dev-web2.internal | *computed value*                                     | `bas-style-kit-dev-web2.internal.web.nerc-bas.ac.uk` | The VM's private IP address       |
-| **A**     | bas-style-kit-dev-web2.external | *computed value*                                     | `bas-style-kit-dev-web2.external.web.nerc-bas.ac.uk` | The VM's public IP address        |
-| **CNAME** | bas-style-kit-dev-web2          | `bas-style-kit-dev-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`          | A pointer for the default address |
+| Kind      | Name                              | Points To                                              | FQDN                                                   | Notes                             |
+| --------- | --------------------------------- | ------------------------------------------------------ | ------------------------------------------------------ | --------------------------------- |
+| **A**     | bas-style-kit-stage-web1.internal | *computed value*                                       | `bas-style-kit-stage-web1.internal.web.nerc-bas.ac.uk` | The VM's private IP address       |
+| **A**     | bas-style-kit-stage-web1.external | *computed value*                                       | `bas-style-kit-stage-web1.external.web.nerc-bas.ac.uk` | The VM's public IP address        |
+| **CNAME** | bas-style-kit-stage-web1          | `bas-style-kit-stage-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-stage-web1.web.nerc-bas.ac.uk`          | A pointer for the default address |
 
 You will need to configure these DNS records manually:
 
-| Kind      | Name                               | Points To                                             | FQDN                                          | Notes                                                    |
-| --------- | ---------------------------------- | ----------------------------------------------------- | --------------------------------------------- | -------------------------------------------------------- |
-| **CNAME** | bas-style-kit                      | `bas-style-kit-dev-web2.web.nerc-bas.ac.uk`           | `bas-style-kit.web.nerc-bas.ac.uk`            | Vanity URL to current production instance of application |
+| Kind      | Name                              | Points To                                        | FQDN                                         | Notes                                             |
+| --------- | --------------------------------- | ------------------------------------------------ | -------------------------------------------- | ------------------------------------------------- |
+| **CNAME** | bas-style-kit-staging             | `bas-style-kit-stage-web1.web.nerc-bas.ac.uk`    | `bas-style-kit-staging.web.nerc-bas.ac.uk`   | Vanity URL to current staging instance of project |
 
 Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178),
 therefore these tasks need to be performed manually:
@@ -119,31 +142,11 @@ therefore these tasks need to be performed manually:
 ```shell
 $ ansible-galaxy install https://github.com/antarctica/ansible-prelude,v0.1.1 --roles-path=provisioning/roles_bootstrap  --no-deps --force
 $ ansible-playbook -i provisioning/local provisioning/prelude.yml
-$ ansible-playbook -i provisioning/development provisioning/bootstrap-digitalocean.yml
-$ ansible-playbook -i provisioning/development provisioning/site-dev.yml
+$ ansible-playbook -i provisioning/staging provisioning/bootstrap-digitalocean.yml
+$ ansible-playbook -i provisioning/staging provisioning/site-stage.yml
 ```
 
-A post-commit webhook is used to automatically pull the latest changes from the repositories master branch
-and rebuild the Jekyll site.
-
-A [new webhook](https://github.com/felnne/bas-style-kit/settings/hooks/new) will need to be configured in GitHub
-using the following values:
-
-* Payload URL: `http://bas-style-kit.web.nerc-bas.ac.uk:8001`
-* Content type: `application/json`
-* Secret: Leave blank
-* Which events would you like to trigger this webhook: `Just the push event`
-* Active: `true`
-
-The server side application which will respond to this webhook uses
-[Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy), which should be started as a background process:
-
-```shell
-$ bas-style-kit-dev-web2.web.nerc-bas.ac.uk
-$ cd /app/provisioning/scripts/github-auto-deploy
-
-$ ./GitAutoDeploy.py --daemon-mode
-```
+End-user documentation for this project can then be accessed from [bas-style-kit-staging](bas-style-kit-staging.web.nerc-bas.ac.uk).
 
 [1]
 
@@ -157,11 +160,72 @@ ssh_fingerprint = "[fingerprint]"
 Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` is the
 [fingerprint of your public key](https://gist.github.com/felnne/596d2bf11842a0cf64d6).
 
+### Production - remote
+
+VMs are powered by DigitalOcean, managed using Terraform and configured by Ansible.
+
+You **MUST** have setup and configured a *development* environment, before you can create a *staging* environment.
+Specifically, you must have a `/site` or `/dist` directory. If you don't, you **MUST** create them in a *development*
+environment, using the steps listed in the *usage* section of this README.
+
+See the *developer* documentation for instructions on how to prepare to a deploy a release, which will take place as
+part of this setup process.
+
+Create a `terraform.tfvars` file and populate according to [1].
+
+```shell
+$ terraform get
+$ terraform apply
+```
+
+Terraform will automatically configure DNS records for infrastructure it creates on your behalf:
+
+| Kind      | Name                             | Points To                                             | FQDN                                                  | Notes                             |
+| --------- | -------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | --------------------------------- |
+| **A**     | bas-style-kit-prod-web1.internal | *computed value*                                      | `bas-style-kit-prod-web1.internal.web.nerc-bas.ac.uk` | The VM's private IP address       |
+| **A**     | bas-style-kit-prod-web1.external | *computed value*                                      | `bas-style-kit-prod-web1.external.web.nerc-bas.ac.uk` | The VM's public IP address        |
+| **CNAME** | bas-style-kit-prod-web1          | `bas-style-kit-prod-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-prod-web1.web.nerc-bas.ac.uk`          | A pointer for the default address |
+
+You will need to configure these DNS records manually:
+
+| Kind      | Name                             | Points To                                       | FQDN                                 | Notes                                                |
+| --------- | -------------------------------- | ----------------------------------------------- | ------------------------------------ | ---------------------------------------------------- |
+| **CNAME** | bas-style-kit                    | `bas-style-kit-prod-web1.web.nerc-bas.ac.uk`    | `bas-style-kit.web.nerc-bas.ac.uk`   | Vanity URL to current production instance of project |
+
+Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178),
+therefore these tasks need to be performed manually:
+
+```shell
+$ ansible-galaxy install https://github.com/antarctica/ansible-prelude,v0.1.1 --roles-path=provisioning/roles_bootstrap  --no-deps --force
+$ ansible-playbook -i provisioning/local provisioning/prelude.yml
+$ ansible-playbook -i provisioning/production provisioning/bootstrap-digitalocean.yml
+$ ansible-playbook -i provisioning/production provisioning/site-prod.yml
+```
+
+End-user documentation for this project can then be accessed from [bas-style-kit-](bas-style-kit.web.nerc-bas.ac.uk).
+
+[1]
+
+`.ftvars` files store sensitive information and **MUST NOT** be checked into source control.
+
+```javascript
+digital_ocean_token = "[token]"
+ssh_fingerprint = "[fingerprint]"
+```
+
+Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` is the
+[fingerprint of your public key](https://gist.github.com/felnne/596d2bf11842a0cf64d6).
+
+
 ## Usage
+
+### All environments
 
 It is assumed you have setup the environment you wish to use and your working directory is the root of this project.
 
-### Less styles
+### Development - local
+
+#### Less styles
 
 As the BAS Style Kit is based on Bootstrap we use the same CSS preprocessor, [Less](http://lesscss.org/),
 to ensure we can easily extend this framework to meet our needs.
@@ -185,7 +249,7 @@ This is because we make additions to the Bootstrap grid for example and this req
 Generally we simply use these mixins with different parameters. There is therefore no reason to duplicate their
 functionality so we can simply import any mixins we need for our styles, without needing to maintain our own versions.
 
-#### Compiling Less styles
+##### Compiling Less styles
 
 [Less](http://lesscss.org/) is a [CSS pre-processor](https://github.com/showcases/css-preprocessors)
 and therefore has to be compiled down to CSS before it can be used within a browser.
@@ -210,14 +274,14 @@ This task will call these tasks in parallel: `gulp [less-min | less-no-min]`.
 
 Note: If needed to only compile Less files into CSS use the `gulp less-only` task.
 
-#### CSS linting
+##### CSS linting
 
 Compiled CSS is ran through the same linting tools Bootstrap uses,
 [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/), and uses the same setting files.
 
 Errors are reported to the terminal.
 
-##### Known errors
+###### Known errors
 
 These errors are known and accepted for the reasons given here:
 
@@ -226,7 +290,7 @@ These errors are known and accepted for the reasons given here:
   * Ideally a number of these variants can be dropped preventing this error
   * See [BASWEB-431](https://jira.ceh.ac.uk/browse/BASWEB-431) for details
 
-### Fonts
+#### Fonts
 
 The BAS Style Kit includes a number of web-fonts to provide typographic styling and icon-font libraries:
 
@@ -253,7 +317,7 @@ Individual font files can be copied if needed using:
 * `gulp fonts-devicons` - For Devicons
 * `gulp fonts-glyphicons` - For Glyphicons
 
-#### Gill Sans
+##### Gill Sans
 
 Gill Sans is the font face used in the BAS logo. It is not distributed publicly and requires a license for use.
 
@@ -267,13 +331,13 @@ This font subscription is with [Fonts.com](https://wwww.fonts.com) and is paid f
 If we would like access to this subscription or have questions related to licensing, please create an issue within
 this project in the first instance.
 
-#### Map Glyphs
+##### Map Glyphs
 
 Map Glyphs is not distributed publicly and requires a license for attribution free usage.
 
 BAS has paid for attribution free usage when used in official projects and bundles the font within the Style Kit.
 
-#### Glyphicons
+##### Glyphicons
 
 Bootstrap includes a default icon web-font, Glyphicons Halflings.
 This font is **NOT** supported within the BAS Style Kit and **SHOULD NOT** be used.
@@ -284,7 +348,7 @@ As we don't modify this CSS, it is not possible to remove such references. To av
 these missing web-fonts they are copied into the `dist` directories of this project using `gulp fonts-glyphicons`.
 This is not ideal as they are placed directly within the `fonts` directory, rather than in a name-spaced directory.
 
-#### Jekyll data files for icon fonts
+##### Jekyll data files for icon fonts
 
 To display the dizzying array of icons within icon fonts,
 Gulp is used to parse the icon classes into a Jekyll data file.
@@ -303,28 +367,33 @@ Individual font data files can be generated if needed using:
 
 Note: There is no task for Glyphicons as this icon font is not supported by this project.
 
-### Utility tasks
+#### Utility tasks
 
 These tasks are useful as part of larger workflows, they have limited utility on their own.
 
 * `gulp clean` - Removes all BAS Style Kit related files in `dist` and `documentation/end-users/dist`
 
-### Special tasks
+#### Special tasks
 
 This is limited essentially to the *default* task run when `gulp` is run by itself:
 
 This task calls the `gulp clean` task, then these tasks in parallel: `gulp [clean | less | fonts | jekyll-data]`
 
-### Documentation
+#### End-user documentation
 
-The documentation for this project is provided as a static website, built using [Jekyll](http://jekyllrb.com).
+Other than distributed assets, the end-user documentation is the primary output of this project as it is used by users
+to apply the Style Kit to their own projects. It is a static website, built using [Jekyll](http://jekyllrb.com) and
+modelled on the Bootstrap end-user documentation.
 
-The latest version of this documentation, built from the *master* branch of the project repository,
-is available at [bas-style-kit.web.nerc-bas.ac.uk/](https://bas-style-kit.web.nerc-bas.ac.uk/).
+In this, *development* environment this documentation will be re-generated frequently and used locally to ensure new
+features are correctly documented.
 
-#### Development - local
+Note: The *development* environment is the only environment which can build the Jekyll site, as it is the only environment
+in which Jekyll is available. This means other environments rely on the site files being generated in a *development*
+environment first, before they are then uploaded to another environment. This is explained in these other environments.
 
-Ansible will automatically build the Jekyll site as part of its *setup* tasks.
+Note: The definitive version of this documentation, built from the latest release of the project, is available at
+[here](https://bas-style-kit.web.nerc-bas.ac.uk/).
 
 To manually rebuild the documentation:
 
@@ -335,7 +404,7 @@ $ cd /app
 $ jekyll build
 ```
 
-To automatically rebuild when changes are made to source files:
+To automatically rebuild when changes are made to source files (this is only useful in development environments):
 
 ```shell
 $ ssh bas-style-kit-dev-web1.v.m
@@ -344,24 +413,78 @@ $ cd /app
 $ jekyll build --watch --force_polling
 ```
 
-In a web-browser, go to [the documentation](https://bas-style-kit-dev-web1.v.m) and refresh as needed.
+### Staging - remote
 
-#### Development - remote
+To generate end-user documentation for a *staging* environment ensure you have the *develop* branch checked out in a
+*development* environment.
 
-A post-commit webhook is used to automatically pull the latest changes from the repositories master branch and rebuild
-the Jekyll site using the [Github Auto Deploy](https://github.com/logsol/Github-Auto-Deploy) application.
-
-This process can also be triggered manually through Ansible:
+Within this environment prepare the distribution assets:
 
 ```shell
-$ ansible-playbook -i provisioning/development provisioning/update-dev.yml
+$ ssh bas-style-kit-dev-web1.v.m
+$ cd /app
+
+$ gulp
+
+$ logout
 ```
 
-In a web-browser, go to [the documentation](https://bas-style-kit.web.nerc-bas.ac.uk).
+Then generate the documentation:
+
+```shell
+$ ssh bas-style-kit-dev-web1.v.m
+$ cd /app
+
+$ jekyll build
+
+$ logout
+```
+
+And finally publish this to the *staging* environment:
+
+```shell
+$ ansible-playbook -i provisioning/staging provisioning/update-stage.yml
+```
+
+This will update the documentation on the staging server using the generated distribution and site files.
+
+Note: The definitive version of this documentation, built from the latest release of the project, is available at
+[here](https://bas-style-kit.web.nerc-bas.ac.uk/).
+
+### Production - remote
+
+To generate end-user documentation for a *production* environment ensure you have the relevant release tag checked out
+in a *development* environment.
+
+Note: You **MUST** make sure you have the correct version checked out and that you do not have the *master* branch
+checked out instead. This ensures the correct distribution files are used and the associated documentation generated.
+
+Within this environment generate the documentation:
+
+```shell
+$ ssh bas-style-kit-dev-web1.v.m
+$ cd /app
+
+$ jekyll build
+
+$ logout
+```
+
+Then publish this to the *production* environment:
+
+```shell
+$ ansible-playbook -i provisioning/production provisioning/update-prod.yml
+```
+
+This will update the documentation on the production server using the generated site files.
 
 ## Contributing
 
 This project welcomes contributions, see `CONTRIBUTING` for our general policy.
+
+## Releases
+
+See the *developer* documentation for instructions on how to create and manage releases.
 
 ## Acknowledgements
 
