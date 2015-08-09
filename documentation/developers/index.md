@@ -51,8 +51,10 @@ release. These steps are required before this merge can take place:
 complete as possible now
 * Clean and re-build the `/dist` directory using Gulp tasks (these are documented in the *usage* section of the project `README`)
 * Check the `env` key in `documentation/end-users/data/provisioned.yml` is set to `production`
+* Check the `url_base` key in `documentation/end-users/data/provisioned.yml` is set to `/[version]` where `[version]` is the release
 * Regenerate the `/site`, end-user documentation, using Jekyll (this is documented in the *usage* section of the project `README`)
 * Check the `env` key in `documentation/end-users/data/provisioned.yml` is set to `development`
+* Check the `url_base` key in `documentation/end-users/data/provisioned.yml` is set to `..`
 
 Now open a new pull request in stash to merge the release into the *master* branch. Review the project again to ensure
 it is fit for release and then accept the request to create a merge-commit.

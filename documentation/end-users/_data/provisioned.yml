@@ -2,3 +2,6 @@
 
 env: development
 version: 0.1.0-alpha
+
+# For development/staging use ".." (not quotes), for production use version string "0.1.0-alpha" (no quotes)
+url_base: ..

@@ -12,16 +12,16 @@
     <nav id="bs-navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li{% if page.slug == "getting-started" %} class="active"{% endif %}>
-          <a href="/{{ site.data.provisioned.version }}/getting-started/">Getting started</a>
+          <a href="{{ site.data.provisioned.url_base }}/getting-started/">Getting started</a>
         </li>
         <li{% if page.slug == "css" %} class="active"{% endif %}>
-          <a href="/{{ site.data.provisioned.version }}/css/">CSS</a>
+          <a href="{{ site.data.provisioned.url_base }}/css/">CSS</a>
         </li>
         <li{% if page.slug == "components" %} class="active"{% endif %}>
-          <a href="/{{ site.data.provisioned.version }}/components/">Components</a>
+          <a href="{{ site.data.provisioned.url_base }}/components/">Components</a>
         </li>
         <li{% if page.slug == "js" %} class="active"{% endif %}>
-          <a href="/{{ site.data.provisioned.version }}/javascript/">JavaScript</a>
+          <a href="{{ site.data.provisioned.url_base }}/javascript/">JavaScript</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
