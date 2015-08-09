@@ -10,7 +10,13 @@
       </ul>
     </div>
     <div class="bsk-docs-footer-version">
-      <a href="{{ site.repo }}?at=refs%2Ftags%2Fv{{ site.data.provisioned.version }}">v{{ site.data.provisioned.version }}</a>
+      {% if site.data.provisioned.env == 'production' %}
+      <a href="{{ site.repo }}?at=refs%2Ftags%2Fv{{ site.data.provisioned.version }}">Version {{ site.data.provisioned.version }}</a>
+      {% elsif site.data.provisioned.env == 'staging' %}
+      Changes since version <a href="{{ site.repo }}?at=refs%2Fbranches%2Fdevelop">version {{ site.data.provisioned.version }}</a>
+      {% elsif site.data.provisioned.env == 'development' %}
+      Local version
+      {% endif %}
     </div>
     <div class="clearfix"></div>
     <div role="separator" class="footer-bsk-divider"></div>

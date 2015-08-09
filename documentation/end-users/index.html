@@ -10,14 +10,24 @@ title: BAS Style Kit
     <p class="lead">
       <a href="getting-started#download" class="btn btn-lg btn-bsk btn-bsk-primary">Download the BAS Style Kit</a>
     </p>
-    <p class="version">v{{ site.data.provisioned.version }}</p>
+    <p class="version">
+      {% if site.data.provisioned.env == 'production' %}
+      Version {{ site.data.provisioned.version }}
+      {% elsif site.data.provisioned.env == 'staging' %}
+      Changes since version {{ site.data.provisioned.version }}
+      {% elsif site.data.provisioned.env == 'development' %}
+      Local version
+      {% endif %}
+    </p>
   </div>
 </main>
 
 <div class="bs-docs-featurette">
   <div class="container">
 
-    {% include banner.html %}
+    <div class="bsk-docs-featurette-wide">
+      {% include banner.html %}
+    </div>
 
     <hr class="half-rule">
 
@@ -42,7 +52,8 @@ title: BAS Style Kit
     <hr class="half-rule">
 
     <h2 class="bs-docs-featurette-title">Counterpart to the BAS Style Guide</h2>
-    <p class="lead">The BAS Style Guide gives official guidance and suggestions on how to design BAS projects on the web, <br /> and how to use the resources in this Style Kit.</p>
+    <p class="lead">The BAS Style Guide gives official guidance and suggestions on how to design BAS projects on the
+      web, and how to use the resources in this Style Kit.</p>
     <a href="{{ site.style_guide_url }}" class="btn btn-bsk btn-bsk-primary btn-lg">View the BAS Style Guide</a>
   </div>
 </div>
@@ -51,8 +62,11 @@ title: BAS Style Kit
   <div class="container">
     <h2 class="bs-docs-featurette-title">A living, shared, resource, developed in the open</h2>
     <p class="lead">Anyone can contribute changes, whether its a new component or improving the documentation.</p>
-    <p class="lead">The BAS Style Kit is designed around the needs of BAS Projects. If you can't find something you need <br /> <a {{ site.feedback_attributes }}>let us know</a> and we'll work with you to find something suitable.</p>
+    <p class="lead">The BAS Style Kit is designed around the needs of BAS Projects. If you can't find something you
+      need <a {{ site.feedback_attributes }}>let us know</a> and we'll work with you to find something suitable.</p>
     <a href="{{ site.repo }}" class="btn btn-bsk btn-bsk-primary btn-lg">View the code repository</a>
+
+    <hr class="half-rule">
 
     <div class="row">
       <div class="col-xl-8 col-xl-offset-2">
