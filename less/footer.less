@@ -84,29 +84,31 @@
 // Proper sizing and positioning to give an attractive and usable licensing statement for the Open Government License
 .footer-bsk-ogl {
   .ogl-symbol, .ogl-text {
-    float: left !important;
+    text-align: center;
 
-    @media (max-width: @screen-xs-max) {
-      float: none !important;
-      text-align: center;
+    @media (min-width: @screen-sm-min) {
+      float: left !important;
+      text-align: left;
     }
   }
   .ogl-symbol {
+    .center-block();
     margin-bottom: @footer-bsk-ogl-symbol-margin-bottom;
-    margin-right: @footer-bsk-ogl-symbol-margin-right;
-    width: @footer-bsk-ogl-symbol-width;
 
-    @media (max-width: @screen-xs-max) {
-      .center-block();
+    @media (min-width: @screen-sm-min) {
+
+      margin-left: 0;
+      margin-bottom: 0;
+      margin-right: @footer-bsk-ogl-symbol-margin-right;
+      width: @footer-bsk-ogl-symbol-width;
     }
   }
   .ogl-text {
     margin-bottom: @footer-bsk-olg-text-margin-bottom;
-    max-width: @footer-bsk-ogl-text-max-height;
     line-height: @footer-bsk-ogl-text-line-height;
 
-    @media (max-width: @screen-xs-max) {
-      max-width: none;
+    @media (min-width: @screen-sm-min) {
+      max-width: @footer-bsk-ogl-text-max-height;
     }
   }
 }
@@ -115,14 +117,12 @@
 // Legal polices and copyright information
 //
 // Proper positioning for an inline list so that it sits flush with the split line OGL licensing statement
-// TODO: BASWEB-469 - Add additional styles for footers at XS breakpoint
 .footer-bsk-policy-links {
-  float: right !important;
-  text-align: right;
+  text-align: center;
 
-  @media (max-width: @screen-xs-max) {
-    float: none !important;
-    text-align: center;
+  @media (min-width: @screen-sm-min) {
+    float: right !important;
+    text-align: right;
   }
 
   .list-inline {
