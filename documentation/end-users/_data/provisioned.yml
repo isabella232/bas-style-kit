@@ -6,7 +6,7 @@ env: development
 # Use semver
 version: 0.1.0-alpha
 
-# For development/staging use ".." (not quotes), for production use version string "0.1.0-alpha" (no quotes)
+# For development/staging use ".." (not quotes), for production use root with version string "/0.1.0-alpha" (no quotes)
 url_base: ..
 
 # Google analytics token (each environment uses a different token - dev is not tracked as it isn't a valid FQDN)
