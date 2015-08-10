@@ -38,34 +38,35 @@
       z-index: @zindex-bsl-image-purchase-symbol;
       padding: 5px;
 
-      // Applies to extra-large breakpoint
-      left: 98%;
-      top: 91%;
+      // Applies to extra-small breakpoint
+      //
+      // At this screen size there are approaches we can take:
+      // 1 - Keep the symbol in the image, which can lead to the image being too far inside the image
+      // 2 - allow the image to escape, which can look odd and potentially appear completely outside the image
+      //
+      // To keep things isolated I have opted to approach 1. On phones images should look fine, the inside creeping
+      // *should* only be a problem when you view the site at extra-small on a desktop (which is obviously rare).
+      //
+      // I am happy to re-evaluate this if someone has an alternative approach or suggestion.
+      //
+      left: 92%;
+      top: 86%;
 
-      @media (max-width: @screen-lg-max) {
-        left: 97%;
+      @media (max-width: @screen-sm-max) {
+        left: 96%;
         top: 92%;
       }
       @media (max-width: @screen-md-max) {
         left: 97%;
         top: 92%;
       }
-      @media (max-width: @screen-sm-max) {
-        left: 96%;
+      @media (max-width: @screen-lg-max) {
+        left: 97%;
         top: 92%;
       }
-      @media (max-width: @screen-xs-max) {
-        // At this screen size there are approaches we can take:
-        // 1 - Keep the symbol in the image, which can lead to the image being too far inside the image
-        // 2 - allow the image to escape, which can look odd and potentially appear completely outside the image
-        //
-        // To keep things isolated I have opted to approach 1. On phones images should look fine, the inside creeping
-        // *should* only be a problem when you view the site at extra-small on a desktop (which is obviously rare).
-        //
-        // I am happy to re-evaluate this if someone has an alternative approach or suggestion.
-        //
-        left: 92%;
-        top: 86%;
+      @media (min-width: @screen-xl-min) {
+        left: 98%;
+        top: 91%;
       }
     }
   }
@@ -118,33 +119,34 @@
       padding: 5px;
 
       // Applies to extra-large breakpoint
-      left: 93%;
-      top: 88%;
+      //
+      // At this screen size there are approaches we can take:
+      // 1 - Keep the symbol in the image, which can lead to the image being too far inside the image
+      // 2 - allow the image to escape, which can look odd and potentially appear completely outside the image
+      //
+      // To keep things isolated I have opted to approach 1. On phones images should look fine, the inside creeping
+      // *should* only be a problem when you view the site at extra-small on a desktop (which is obviously rare).
+      //
+      // I am happy to re-evaluate this if someone has an alternative approach or suggestion.
+      //
+      left: 92%;
+      top: 86%;
 
-      @media (max-width: @screen-lg-max) {
-        left: 90%;
-        top: 82%;
+      @media (max-width: @screen-sm-max) {
+        left: 96%;
+        top: 93%;
       }
       @media (max-width: @screen-md-max) {
         left: 89%;
         top: 80%;
       }
-      @media (max-width: @screen-sm-max) {
-        left: 96%;
-        top: 93%;
+      @media (max-width: @screen-lg-max) {
+        left: 90%;
+        top: 82%;
       }
-      @media (max-width: @screen-xs-max) {
-        // At this screen size there are approaches we can take:
-        // 1 - Keep the symbol in the image, which can lead to the image being too far inside the image
-        // 2 - allow the image to escape, which can look odd and potentially appear completely outside the image
-        //
-        // To keep things isolated I have opted to approach 1. On phones images should look fine, the inside creeping
-        // *should* only be a problem when you view the site at extra-small on a desktop (which is obviously rare).
-        //
-        // I am happy to re-evaluate this if someone has an alternative approach or suggestion.
-        //
-        left: 92%;
-        top: 86%;
+      @media (min-width: @screen-xl-min) {
+        left: 93%;
+        top: 88%;
       }
     }
   }
