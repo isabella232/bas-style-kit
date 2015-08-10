@@ -49,6 +49,7 @@ release. These steps are required before this merge can take place:
   * The `project_version` key in `provisioning/group_vars/all-servers.yml`
 * The change log is suitably updated, use the Git log and Jira to help, it can updated later but its best to be as
 complete as possible now
+* Install new NPM modules `npm install` and update existing modules `npm update`
 * Clean and re-build the `/dist` directory using Gulp tasks (these are documented in the *usage* section of the project `README`)
 * Check the `env` key in `documentation/end-users/data/provisioned.yml` is set to `production`
 * Check the `url_base` key in `documentation/end-users/data/provisioned.yml` is set to `/[version]` where `[version]` is the release
