@@ -392,13 +392,6 @@
 }
 
 /* Image purchase */
-.bsk-image-purchase.bsk-image-purchase-no-caption .image-purchase-symbol {
-  top: 79%;
-  left: 85%;
-}
-.bsk-image-purchase.jumbotron-bsk .image-purchase-symbol {
-  left: 96%;
-}
 .background-img-sample {
   background-image: url('../../img/polar-bears.jpg');
 }
