@@ -129,17 +129,12 @@ $ terraform apply
 
 Terraform will automatically configure DNS records for infrastructure it creates on your behalf:
 
-| Kind      | Name                              | Points To                                              | FQDN                                                   | Notes                             |
-| --------- | --------------------------------- | ------------------------------------------------------ | ------------------------------------------------------ | --------------------------------- |
-| **A**     | bas-style-kit-stage-web1.internal | *computed value*                                       | `bas-style-kit-stage-web1.internal.web.nerc-bas.ac.uk` | The VM's private IP address       |
-| **A**     | bas-style-kit-stage-web1.external | *computed value*                                       | `bas-style-kit-stage-web1.external.web.nerc-bas.ac.uk` | The VM's public IP address        |
-| **CNAME** | bas-style-kit-stage-web1          | `bas-style-kit-stage-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-stage-web1.web.nerc-bas.ac.uk`          | A pointer for the default address |
-
-You will need to configure these DNS records manually:
-
-| Kind      | Name                              | Points To                                        | FQDN                                         | Notes                                             |
-| --------- | --------------------------------- | ------------------------------------------------ | -------------------------------------------- | ------------------------------------------------- |
-| **CNAME** | bas-style-kit-staging             | `bas-style-kit-stage-web1.web.nerc-bas.ac.uk`    | `bas-style-kit-staging.web.nerc-bas.ac.uk`   | Vanity URL to current staging instance of project |
+| Kind      | Name                              | Points To                                              | FQDN                                                   | Notes                                             |
+| --------- | --------------------------------- | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------- |
+| **A**     | bas-style-kit-stage-web1.internal | *computed value*                                       | `bas-style-kit-stage-web1.internal.web.nerc-bas.ac.uk` | The VM's private IP address                       |
+| **A**     | bas-style-kit-stage-web1.external | *computed value*                                       | `bas-style-kit-stage-web1.external.web.nerc-bas.ac.uk` | The VM's public IP address                        |
+| **CNAME** | bas-style-kit-stage-web1          | `bas-style-kit-stage-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-stage-web1.web.nerc-bas.ac.uk`          | A pointer for the default address                 |
+| **CNAME** | bas-style-kit-staging             | `bas-style-kit-stage-web1.web.nerc-bas.ac.uk`          | `bas-style-kit-staging.web.nerc-bas.ac.uk`             | Vanity URL to current staging instance of project |
 
 Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178),
 therefore these tasks need to be performed manually:
@@ -187,17 +182,12 @@ $ terraform apply
 
 Terraform will automatically configure DNS records for infrastructure it creates on your behalf:
 
-| Kind      | Name                             | Points To                                             | FQDN                                                  | Notes                             |
-| --------- | -------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | --------------------------------- |
-| **A**     | bas-style-kit-prod-web1.internal | *computed value*                                      | `bas-style-kit-prod-web1.internal.web.nerc-bas.ac.uk` | The VM's private IP address       |
-| **A**     | bas-style-kit-prod-web1.external | *computed value*                                      | `bas-style-kit-prod-web1.external.web.nerc-bas.ac.uk` | The VM's public IP address        |
-| **CNAME** | bas-style-kit-prod-web1          | `bas-style-kit-prod-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-prod-web1.web.nerc-bas.ac.uk`          | A pointer for the default address |
-
-You will need to configure these DNS records manually:
-
-| Kind      | Name                             | Points To                                       | FQDN                                 | Notes                                                |
-| --------- | -------------------------------- | ----------------------------------------------- | ------------------------------------ | ---------------------------------------------------- |
-| **CNAME** | bas-style-kit                    | `bas-style-kit-prod-web1.web.nerc-bas.ac.uk`    | `bas-style-kit.web.nerc-bas.ac.uk`   | Vanity URL to current production instance of project |
+| Kind      | Name                             | Points To                                             | FQDN                                                  | Notes                                                |
+| --------- | -------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------- |
+| **A**     | bas-style-kit-prod-web1.internal | *computed value*                                      | `bas-style-kit-prod-web1.internal.web.nerc-bas.ac.uk` | The VM's private IP address                          |
+| **A**     | bas-style-kit-prod-web1.external | *computed value*                                      | `bas-style-kit-prod-web1.external.web.nerc-bas.ac.uk` | The VM's public IP address                           |
+| **CNAME** | bas-style-kit-prod-web1          | `bas-style-kit-prod-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-prod-web1.web.nerc-bas.ac.uk`          | A pointer for the default address                    |
+| **CNAME** | bas-style-kit                    | `bas-style-kit-prod-web1.web.nerc-bas.ac.uk`          | `bas-style-kit.web.nerc-bas.ac.uk`                    | Vanity URL to current production instance of project |
 
 Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178),
 therefore these tasks need to be performed manually:

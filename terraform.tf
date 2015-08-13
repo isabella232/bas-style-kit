@@ -32,9 +32,18 @@ module "bas-style-kit-stage-web1-droplet" {
 
 module "bas-style-kit-stage-web1-records" {
   source = "github.com/antarctica/terraform-module-digital-ocean-records?ref=v1.0.2"
-  hostname = "bas-style-kit-stage-web1"
+  hostname = "bas-style-kit-stage-web1" # If this changes you *MUST* update the vanity record below
   machine_interface_ipv4_public = "${module.bas-style-kit-stage-web1-droplet.ip_v4_address_public}"
   machine_interface_ipv4_private = "${module.bas-style-kit-stage-web1-droplet.ip_v4_address_private}"
+}
+
+# Additional vanity DNS records (point to default record)
+# Add a record to the domain
+resource "digitalocean_record" "bas-style-kit-staging-vanity-records" {
+  domain = "web.nerc-bas.ac.uk"
+  type = "CNAME"
+  name = "bas-style-kit-staging"
+  value = "bas-style-kit-stage-web1.web.nerc-bas.ac.uk."
 }
 
 # 'bas-style-kit-prod-web1' resource
@@ -52,9 +61,18 @@ module "bas-style-kit-prod-web1-droplet" {
 
 module "bas-style-kit-prod-web1-records" {
   source = "github.com/antarctica/terraform-module-digital-ocean-records?ref=v1.0.2"
-  hostname = "bas-style-kit-prod-web1"
+  hostname = "bas-style-kit-prod-web1"  # If this changes you *MUST* update the vanity record below
   machine_interface_ipv4_public = "${module.bas-style-kit-prod-web1-droplet.ip_v4_address_public}"
   machine_interface_ipv4_private = "${module.bas-style-kit-prod-web1-droplet.ip_v4_address_private}"
+}
+
+# Additional vanity DNS records (point to default record)
+# Add a record to the domain
+resource "digitalocean_record" "bas-style-kit-vanity-records" {
+  domain = "web.nerc-bas.ac.uk"
+  type = "CNAME"
+  name = "bas-style-kit"
+  value = "bas-style-kit-prod-web1.web.nerc-bas.ac.uk."
 }
 
 # Provisioning (using a fake resource as provisioners can't be first class objects)
