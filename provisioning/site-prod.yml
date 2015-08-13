@@ -33,4 +33,5 @@
   remote_user: controller
   sudo: yes
   roles:
+    - security
     - nginx
