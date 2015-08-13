@@ -6,7 +6,7 @@ A collection of HTML, CSS, and JS components for developing web projects consist
 * Documentation for end users is stored in `documentation/end-users` and online, see the *Usage* section for details
 * Documentation for developers is available in `documentation/developers`
 
-This project is based on the BASIS project template (version 1).
+This project is based on the BASIS project template (version 2).
 
 ## Requirements
 
@@ -32,6 +32,8 @@ and [public key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa.
     * [Host manager](https://github.com/smdahlen/vagrant-hostmanager) `vagrant plugin install vagrant-hostmanager`
     * [Vagrant triggers](https://github.com/emyl/vagrant-triggers) `vagrant plugin install vagrant-triggers`
 * You have an entry like [1] in your `~/.ssh/config`
+* You have a [self signed SSL certificate for local use](https://gist.github.com/felnne/25c220a03f8f39663a5d), with the
+certificate assumed at, `app/provisioning/certificates/v.m/v.m.tls.crt`, and private key, `/etc/ssl/private/v.m.tls.key`
 
 [1] SSH config entry
 
@@ -45,9 +47,13 @@ Host *.v.m
 
 ### Staging - remote
 
-* [Terraform](terraform.io) `brew cask install terraform`
+* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
 * [Rsync](https://rsync.samba.org/) `brew install rsync`
 * You have an entry like [1] in your `~/.ssh/config`
+* An environment variable: `TF_VAR_digital_ocean_token=XXX` set,
+where `XXX` is your DigitalOcean personal access token - used by Terraform
+* An environment variable: `TF_VAR_ssh_fingerprint=XXX` set,
+ where `XXX` is [your public key fingerprint](https://gist.github.com/felnne/596d2bf11842a0cf64d6) - used by Terraform
 
 [1] SSH config entry
 
@@ -61,11 +67,15 @@ Host *.web.nerc-bas.ac.uk
 
 ### Production - remote
 
-* [Terraform](terraform.io) `brew cask install terraform`
+* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
 * [Rsync](https://rsync.samba.org/) `brew install rsync`
 * [Duck](https://duck.sh/) `brew install duck`
 * You have an entry like [1] in your `~/.ssh/config`
 * You have access to the BAS CDN Azure account [2]
+* An environment variable: `TF_VAR_digital_ocean_token=XXX` set,
+where `XXX` is your DigitalOcean personal access token - used by Terraform
+* An environment variable: `TF_VAR_ssh_fingerprint=XXX` set,
+ where `XXX` is [your public key fingerprint](https://gist.github.com/felnne/596d2bf11842a0cf64d6) - used by Terraform
 
 [1] SSH config entry
 
@@ -120,8 +130,6 @@ environment, using the steps listed in the *usage* section of this README.
 You **SHOULD** also make sure you have up-to date CSS files etc. by running the relevant tasks outlined in the *usage*
 section of this README.
 
-Create a `terraform.tfvars` file and populate according to [1].
-
 ```shell
 $ terraform get
 $ terraform apply
@@ -148,15 +156,6 @@ $ ansible-playbook -i provisioning/staging provisioning/site-stage.yml
 
 End-user documentation for this project can then be accessed from [bas-style-kit-staging](bas-style-kit-staging.web.nerc-bas.ac.uk).
 
-[1]
-
-`.ftvars` files store sensitive information and **MUST NOT** be checked into source control.
-
-```javascript
-digital_ocean_token = "[token]"
-ssh_fingerprint = "[fingerprint]"
-```
-
 Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` is the
 [fingerprint of your public key](https://gist.github.com/felnne/596d2bf11842a0cf64d6).
 
@@ -172,8 +171,6 @@ environment, using the steps listed in the *usage* section of this README.
 
 See the *developer* documentation for instructions on how to prepare to a deploy a release, which will take place as
 part of this setup process.
-
-Create a `terraform.tfvars` file and populate according to [1].
 
 ```shell
 $ terraform get
@@ -202,7 +199,7 @@ $ ansible-playbook -i provisioning/production provisioning/site-prod.yml
 End-user documentation for this project can then be accessed from [bas-style-kit-](bas-style-kit.web.nerc-bas.ac.uk).
 
 An Azure CDN is used to host the distribution assets of each version, for use within websites and applications. It is
-unlikely you will need to create this CDN since only a single instance is used for this project [2]. However for
+unlikely you will need to create this CDN since only a single instance is used for this project [1]. However for
 completeness the steps to create a CDN are listed here.
 
 There are two stages to setup the CDN - creating the underlying storage account and container, and adding a CDN in
@@ -214,7 +211,7 @@ To create the underlying storage account and container:
 2. Select *New* -> *Data Services* -> *Storage* -> *Quick Create* service using these options:
   * *URL* - `bascdnprod`(.core.windows.net)
   * *Location/affinity group* - `West Europe`
-  * *Replication* - `Geo-Redundant` [3]
+  * *Replication* - `Geo-Redundant` [2]
 3. Select *Storage* -> *bascdnprod* -> *containers* -> *add* using these options:
   * *Name* - `bas-style-kit`
   * *Access* - `public blob`
@@ -225,30 +222,18 @@ To create the CDN backed by this storage account:
 2. Select *New* -> *App Services* -> *CDN* -> *Quick Create* service using these options:
   * *Origin type* - `Storage Accounts`
   * *Origin URL* - `bascdnprod.blob.core.windows.net`
-3. Select *CDN* -> *[4]* and set these options:
+3. Select *CDN* -> *[3]* and set these options:
   * *Enable HTTPS*
 
-[1]
-
-`.ftvars` files store sensitive information and **MUST NOT** be checked into source control.
-
-```javascript
-digital_ocean_token = "[token]"
-ssh_fingerprint = "[fingerprint]"
-```
-
-Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` is the
-[fingerprint of your public key](https://gist.github.com/felnne/596d2bf11842a0cf64d6).
-
-[2] This CDN may also be used by other projects as needed, these will use the same storage account, but different
+[1] This CDN may also be used by other projects as needed, these will use the same storage account, but different
 containers within this. The CDN in front of these containers will also be shared as it links to the storage account,
 not the containers within.
 
-[3] The means the content in the storage account will be mirrored between the `West Europe` and `North Europe`
+[2] The means the content in the storage account will be mirrored between the `West Europe` and `North Europe`
 locations. Data will not pass beyond the EU (i.e. to a US location). However as Microsoft is a US company this isn't
 really a meaningful distinction.
 
-[4] The name of the CDN instance is random but will be something like `az792977`.
+[3] The name of the CDN instance is random but will be something like `az792977`.
 
 ## Usage
 
