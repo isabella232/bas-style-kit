@@ -1,5 +1,13 @@
 # Terraform definition file - this file is used to describe the required infrastructure for this project.
 
+# Variables
+
+variable "digital_ocean_token" {}  # Define using environment variable - e.g. TF_VAR_digital_ocean_token=XXX
+variable "ssh_fingerprint" {}      # Define using environment variable - e.g. TF_VAR_ssh_fingerprint=XXX
+
+
+# Providers
+
 # Digital Ocean provider configuration
 
 provider "digitalocean" {
@@ -14,7 +22,7 @@ provider "digitalocean" {
 # VM
 
 module "bas-style-kit-stage-web1-droplet" {
-  source = "github.com/antarctica/terraform-module-digital-ocean-droplet?ref=v1.0.0"
+  source = "github.com/antarctica/terraform-module-digital-ocean-droplet?ref=v1.1.0"
   hostname = "bas-style-kit-stage-web1"
   ssh_fingerprint = "${var.ssh_fingerprint}"
   image = 11744346
@@ -23,7 +31,7 @@ module "bas-style-kit-stage-web1-droplet" {
 # DNS records (public, private and default [which is an APEX record and points to public])
 
 module "bas-style-kit-stage-web1-records" {
-  source = "github.com/antarctica/terraform-module-digital-ocean-records?ref=v0.1.1"
+  source = "github.com/antarctica/terraform-module-digital-ocean-records?ref=v1.0.2"
   hostname = "bas-style-kit-stage-web1"
   machine_interface_ipv4_public = "${module.bas-style-kit-stage-web1-droplet.ip_v4_address_public}"
   machine_interface_ipv4_private = "${module.bas-style-kit-stage-web1-droplet.ip_v4_address_private}"
@@ -34,7 +42,7 @@ module "bas-style-kit-stage-web1-records" {
 # VM
 
 module "bas-style-kit-prod-web1-droplet" {
-  source = "github.com/antarctica/terraform-module-digital-ocean-droplet?ref=v1.0.0"
+  source = "github.com/antarctica/terraform-module-digital-ocean-droplet?ref=v1.1.0"
   hostname = "bas-style-kit-prod-web1"
   ssh_fingerprint = "${var.ssh_fingerprint}"
   image = 11744346
@@ -43,7 +51,7 @@ module "bas-style-kit-prod-web1-droplet" {
 # DNS records (public, private and default [which is an APEX record and points to public])
 
 module "bas-style-kit-prod-web1-records" {
-  source = "github.com/antarctica/terraform-module-digital-ocean-records?ref=v0.1.1"
+  source = "github.com/antarctica/terraform-module-digital-ocean-records?ref=v1.0.2"
   hostname = "bas-style-kit-prod-web1"
   machine_interface_ipv4_public = "${module.bas-style-kit-prod-web1-droplet.ip_v4_address_public}"
   machine_interface_ipv4_private = "${module.bas-style-kit-prod-web1-droplet.ip_v4_address_private}"
