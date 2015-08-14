@@ -25,7 +25,7 @@ module "bas-style-kit-stage-web1-droplet" {
   source = "github.com/antarctica/terraform-module-digital-ocean-droplet?ref=v1.1.0"
   hostname = "bas-style-kit-stage-web1"
   ssh_fingerprint = "${var.ssh_fingerprint}"
-  image = 11744346
+  image = 13126041
 }
 
 # DNS records (public, private and default [which is an APEX record and points to public])
@@ -54,7 +54,7 @@ module "bas-style-kit-prod-web1-droplet" {
   source = "github.com/antarctica/terraform-module-digital-ocean-droplet?ref=v1.1.0"
   hostname = "bas-style-kit-prod-web1"
   ssh_fingerprint = "${var.ssh_fingerprint}"
-  image = 11744346
+  image = 13126041
 }
 
 # DNS records (public, private and default [which is an APEX record and points to public])
