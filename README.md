@@ -95,7 +95,7 @@ for details.
 ### All environments
 
 ```shell
-$ git clone ssh://git@stash.ceh.ac.uk:7999/basweb/bas-style-kit.git
+$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git
 $ cd bas-style-kit
 ```
 
@@ -148,7 +148,7 @@ Note: Terraform cannot provision VMs itself due to [this issue](https://github.c
 therefore these tasks need to be performed manually:
 
 ```shell
-$ ansible-galaxy install https://github.com/antarctica/ansible-prelude,v0.1.1 --roles-path=provisioning/roles_bootstrap  --no-deps --force
+$ ansible-galaxy install https://github.com/antarctica/ansible-prelude,v0.1.2 --roles-path=provisioning/roles_bootstrap  --no-deps --force
 $ ansible-playbook -i provisioning/local provisioning/prelude.yml
 $ ansible-playbook -i provisioning/staging provisioning/bootstrap-digitalocean.yml
 $ ansible-playbook -i provisioning/staging provisioning/site-stage.yml
