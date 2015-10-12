@@ -321,29 +321,27 @@
  */
 
 /* BSK colors */
-.color-swatches .bsk-bas-brand {
-  background-color: #003A5D;
-}
-.color-swatches .bsk-blue-light {
-  background-color: #7FCCFF;
-}
-.color-swatches .bsk-blue {
-  background-color: #25658f;
-}
-.color-swatches .bsk-blue-dark {
-  background-color: #1b4866;
-}
 .color-swatches .bsk-grey-lighter {
-  background-color: #f4f6f9;
+  background-color: #F4F6F9;
 }
 .color-swatches .bsk-grey-light {
   background-color: #E7EBF1;
 }
 .color-swatches .bsk-grey {
-  background-color: #e3e3e3;
+  background-color: #E3E3E3;
 }
 .color-swatches .bsk-grey-dark {
   background-color: #4D5D66;
+}
+
+.color-swatches .bsk-blue-light {
+  background-color: #77CCFF;
+}
+.color-swatches .bsk-blue {
+  background-color: #006AAA;
+}
+.color-swatches .bsk-blue-dark {
+  background-color: #003A5D;
 }
 .color-swatches .bsk-red {
   background-color: #B93E14;

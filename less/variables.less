@@ -14,13 +14,18 @@
 // Brand colour scheme
 @bsk-bas-brand:                             #003A5D;
 
-@bsk-blue-light:                            #7FCCFF;  // TODO: Can we use lighten for this? - ASK HT
-@bsk-blue:                                  #25658f;
-@bsk-blue-dark:                             darken(@bsk-blue, 10%);
+// greyscale colour scheme
+// TODO: These all need further work [BSK-BSK-21]
 @bsk-grey-lighter:                          lighten(@bsk-grey-light, 4%);
 @bsk-grey-light:                            #E7EBF1;  // TODO: Can we use lighten for this? - ASK HT
 @bsk-grey:                                  #E3E3E3;
 @bsk-grey-dark:                             #4D5D66;  // TODO: Can we use darken for this? - ASK HT
+
+// 'colour' colour scheme
+// All shades of blue should be based off of the BAS brand colour
+@bsk-blue-light:                            lighten(@bsk-bas-brand, 55%);
+@bsk-blue:                                  lighten(@bsk-bas-brand, 15%);  // TODO: [BSK-81]
+@bsk-blue-dark:                             @bsk-bas-brand;
 @bsk-red:                                   #B93E14;
 @bsk-turquoise:                             #0DA59F;
 
