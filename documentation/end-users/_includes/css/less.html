@@ -14,7 +14,7 @@
 
   <h3 id="less-variables-colors">Colours</h3>
   <p>Easily make use of two colour schemes: grayscale and semantic. Grayscale colours provide quick access to commonly used shades of black while semantic include various colours assigned to meaningful contextual values.</p>
-  <p class="text-info">The BAS Style Kit includes an additional colour scheme defining the colour pallet of the BAS brand.</p>
+  <p class="text-info">The BAS Style Kit includes the primary BAS colour and an additional colour scheme to define the BAS brand.</p>
   <div class="bs-example">
     <div class="color-swatches">
       <div class="color-swatch gray-darker"></div>
@@ -64,62 +64,48 @@
 {% endhighlight %}
 
   <h4 id="less-variables-brand-colors">BAS Style Kit colours</h4>
-  <p>These colours implement the BAS colour pallet and are used to override Bootstrap colours where appropriate.</p>
 
-  <p class="text-info"><strong>This example is being used to help resolve <a href="https://jira.ceh.ac.uk/browse/BSK-18">
-    <i class="devicons devicons-jira"></i>BSK-18</a></strong>. Testing code will be removed when this is resolved.</p>
-
+  <p>This is the primary BAS colour as used in the BAS logo.</p>
   <div class="bs-example">
-    <div class="row">
-      <div class="col-md-24">
-        <div class="color-swatches">
-          <div class="color-swatch bsk-grey-lighter"></div>
-          <div class="color-swatch bsk-grey-light"></div>
-          <div class="color-swatch bsk-grey"></div>
-          <div class="color-swatch bsk-grey-dark"></div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div class="row">
-      <div class="col-md-24">
-        <div class="color-swatches">
-          <div class="color-swatch bsk-blue-light"></div>
-          <div class="color-swatch bsk-blue"></div>
-          <div class="color-swatch bsk-blue-dark"></div>
-          <div class="color-swatch bsk-red"></div>
-          <div class="color-swatch bsk-turquoise"></div>
-        </div>
-      </div>
-    </div>
-    <div class="band-bsk band-bsk-default band-bsk-sm"></div>
-    <div class="row">
-      <div class="col-md-24">
-        <div class="color-swatches">
-          <div class="color-swatch bsk-bas-brand"></div>
-          <div class="color-swatch bsk-bas-brand"></div>
-          <div class="color-swatch bsk-bas-brand"></div>
-          <div class="color-swatch bsk-bas-brand"></div>
-          <div class="color-swatch bsk-bas-brand"></div>
-        </div>
-      </div>
+    <div class="color-swatches">
+      <div class="color-swatch bsk-blue-dark"></div>
     </div>
   </div>
 {% highlight scss %}
-@bsk-bas-brand:          #003A5D;
+@bsk-bas-brand:                             #003A5D;
+{% endhighlight %}
 
-@bsk-blue-light:         #7FCCFF;
-@bsk-blue:               #25658f;
-@bsk-blue-dark;          darken(@blue, 10%);  // #25658f
-@bsk-grey-lighter:       lighten(@bsk-grey-light, 4%);  // #1b4866
+  <p>These colours form the BAS colour pallet and include the primary BAS colour, they are used to override Bootstrap colours where appropriate.</p>
+  <div class="bs-example">
+    <div class="color-swatches">
+      <div class="color-swatch bsk-grey-lighter"></div>
+      <div class="color-swatch bsk-grey-light"></div>
+      <div class="color-swatch bsk-grey"></div>
+      <div class="color-swatch bsk-grey-dark"></div>
+    </div>
+  </div>
+{% highlight scss %}
+@bsk-grey-lighter:       lighten(@bsk-grey-light, 4%);  // #1B4866
 @bsk-grey-light:         #E7EBF1;
 @bsk-grey:               #E3E3E3;
 @bsk-grey-dark:          #4D5D66;
+{% endhighlight %}
+  <div class="bs-example">
+    <div class="color-swatches">
+      <div class="color-swatch bsk-blue-light"></div>
+      <div class="color-swatch bsk-blue"></div>
+      <div class="color-swatch bsk-blue-dark"></div>
+      <div class="color-swatch bsk-red"></div>
+      <div class="color-swatch bsk-turquoise"></div>
+    </div>
+  </div>
+{% highlight scss %}
+@bsk-blue-light:         lighten(@bsk-bas-brand, 55%);  // #77CCFF
+@bsk-blue:               lighten(@bsk-bas-brand, 15%);  // #006AAA
+@bsk-blue-dark;          @bsk-bas-brand;                // #003A5D
 @bsk-red:                #B93E14;
 @bsk-turquoise:          #0DA59F;
 {% endhighlight %}
-
-  <p>These additional colours as used as backgrounds</p>
 
   <h3 id="less-variables-scaffolding">Scaffolding</h3>
   <p>A handful of variables for quickly customizing key elements of your site's skeleton.</p>
