@@ -129,7 +129,7 @@
 //
 // Common, base, default variables for components
 
-@bsk-border-radius:                         0;  // TODO: Set to @border-radius-base if this is general - this doesn't look nice and needs discussing with HT
+@border-radius-base:                        0;
 
 @line-height-computed-x2:                   (@line-height-computed * 2);
 
@@ -148,8 +148,8 @@
 //
 // For each of Bootstrap's buttons, define text, background and border color.
 
-@btn-bsk-border-radius:                     @bsk-border-radius;
 
+@btn-bsk-border-radius:                     @border-radius-base;
 @btn-bsk-default-bg:                        @bsk-component-default-bg;
 
 @btn-bsk-primary-color:                     @white;
@@ -161,7 +161,7 @@
 //
 // Dropdown menu container and contents.
 
-@dropdown-menu-bsk-border-radius:           @bsk-border-radius;
+@dropdown-menu-bsk-border-radius:           @border-radius-base;
 @dropdown-menu-bsk-padding-vertical:        0;
 
 @dropdown-menu-bsk-item-padding-vertical:   @padding-base-vertical;
@@ -173,7 +173,7 @@
 //
 
 // BSK navbar - Like an inverted navbar but a bit different
-@navbar-bsk-border-radius:                  @bsk-border-radius;
+@navbar-bsk-border-radius:                  @border-radius-base;
 @navbar-bsk-font-family:                    @font-family-brand;
 @navbar-bsk-font-weight:                    200;
 @navbar-bsk-font-size:                      (@font-size-base + 1px);
@@ -224,7 +224,7 @@
 @nav-link-padding:                          15px 15px;
 
 // Pills
-@nav-pills-bsk-border-radius:               @bsk-border-radius;
+@nav-pills-bsk-border-radius:               @border-radius-base;
 @nav-pills-bsk-link-bg:                     @bsk-component-default-bg;
 @nav-pills-bsk-link-margin-right:           @padding-xs-horizontal;
 
@@ -240,7 +240,7 @@
 //
 //
 
-@jumbotron-bsk-border-radius:               @bsk-border-radius;
+@jumbotron-bsk-border-radius:               @border-radius-base;
 @jumbotron-bsk-margin-bottom:               0;
 
 @jumbotron-bsk-lg-padding:                  (@jumbotron-padding * 2);
@@ -262,7 +262,7 @@
 
 // BSK thumbnail - Like a normal thumbnail but with straight edges and virtually no border
 @thumbnail-bsk-padding:                     0;
-@thumbnail-bsk-border-radius:               @bsk-border-radius;
+@thumbnail-bsk-border-radius:               @border-radius-base;
 
 @thumbnail-bsk-caption-padding:             @padding-large-vertical;
 
@@ -289,7 +289,7 @@
 @footer-margin-top:                         (@line-height-computed-x2 + 10px);
 @footer-padding-top:                        @footer-margin-top;
 @footer-padding-bottom:                     (@footer-padding-top - 10px);
-@footer-border-radius:                      @bsk-border-radius;
+@footer-border-radius: @border-radius-base;
 
 @footer-bsk-default-color:                  @bsk-component-inverse-color;
 @footer-bsk-default-bg:                     @gray-dark;
@@ -332,7 +332,7 @@
 
 @sidebar-bsk-base-padding:                  (@padding-large-vertical * 2);
 @sidebar-bsk-base-bottom-margin:            @sidebar-bsk-base-padding;
-@sidebar-bsk-border-radius:                 @bsk-border-radius;
+@sidebar-bsk-border-radius:                 @border-radius-base;
 
 @sidebar-bsk-lg-padding:                    (@sidebar-bsk-base-padding * 1.5);
 
