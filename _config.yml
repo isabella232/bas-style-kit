@@ -26,4 +26,4 @@ download:
   dist: https://bascdnprod.blob.core.windows.net/bas-style-kit/0.1.0-alpha/bas_style_kit_0.1.0-alpha.zip
 
 cdn:
-  css: https://az792977.vo.msecnd.net/bas-style-kit/0.1.0-alpha/dist/css/bas-style-kit.min.css
+  bsk-css: https://s3-eu-west-1.amazonaws.com/bas-cdn-prod/bas-style-kit/0.1.0-alpha/dist/css/bas-style-kit.min.css
