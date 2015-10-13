@@ -93,14 +93,14 @@ var configs = {
 
 // Tasks
 
-gulp.task('less-only', function() {
+gulp.task('bsk-less-only', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(less(configs.less))
     .pipe(gulp.dest(destinations.css))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
-gulp.task('less-no-min', function() {
+gulp.task('bsk-less-no-min', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(sourcemaps.init())
     .pipe(less(configs.less))
@@ -112,8 +112,42 @@ gulp.task('less-no-min', function() {
     .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
-gulp.task('less-min', function() {
+gulp.task('bsk-less-min', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
+    .pipe(sourcemaps.init())
+    .pipe(less(configs.less))
+    .pipe(autoprefixer(configs.autoprefixer))
+    .pipe(csscomb())
+    .pipe(csslint(configs.csslint.csslintrc))
+    .pipe(csslint.reporter())
+    .pipe(minifycss(configs.minifycss))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
+});
+
+gulp.task('bootstrap-bsk-less-only', function() {
+  return gulp.src(path.join(sources.stylesheets, 'bootstrap-bsk.less'))
+    .pipe(less(configs.less))
+    .pipe(gulp.dest(destinations.css))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
+});
+gulp.task('bootstrap-bsk-less-no-min', function() {
+  return gulp.src(path.join(sources.stylesheets, 'bootstrap-bsk.less'))
+    .pipe(sourcemaps.init())
+    .pipe(less(configs.less))
+    .pipe(autoprefixer(configs.autoprefixer))
+    .pipe(csscomb())
+    .pipe(csslint(configs.csslint.csslintrc))
+    .pipe(csslint.reporter())
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
+});
+gulp.task('bootstrap-bsk-less-min', function() {
+  return gulp.src(path.join(sources.stylesheets, 'bootstrap-bsk.less'))
     .pipe(sourcemaps.init())
     .pipe(less(configs.less))
     .pipe(autoprefixer(configs.autoprefixer))
@@ -387,6 +421,10 @@ gulp.task('clean', function() {
     path.join(destinations.docsDist, 'css', 'bas-style-kit.min.css'),
     path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.css.map'),
     path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.min.css.map'),
+    path.join(destinations.docsDist, 'css', 'bootstrap-bsk.css'),
+    path.join(destinations.docsDist, 'css', 'bootstrap-bsk.min.css'),
+    path.join(destinations.docsDist, 'css', 'maps', 'bootstrap-bsk.css.map'),
+    path.join(destinations.docsDist, 'css', 'maps', 'bootstrap-bsk.min.css.map'),
     path.join(destinations.docsDist, 'fonts', '**/*'),
     path.join(configs.tasks.dataFaGlyphs.jekyllDataFileDir, configs.tasks.dataFaGlyphs.jekyllDataFileName),
     path.join(configs.tasks.dataMgGlyphs.jekyllDataFileDir, configs.tasks.dataMgGlyphs.jekyllDataFileName),
@@ -397,8 +435,10 @@ gulp.task('clean', function() {
 // Combined tasks
 
 gulp.task('less', [
-  'less-no-min',
-  'less-min'
+  'bsk-less-no-min',
+  'bsk-less-min',
+  'bootstrap-bsk-less-no-min',
+  'bootstrap-bsk-less-min'
 ]);
 
 gulp.task('fonts', [
