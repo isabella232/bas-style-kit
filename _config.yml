@@ -27,3 +27,4 @@ download:
 
 cdn:
   bsk-css: https://s3-eu-west-1.amazonaws.com/bas-cdn-prod/bas-style-kit/0.1.0-alpha/dist/css/bas-style-kit.min.css
+  bootstrap-bsk-css: https://s3-eu-west-1.amazonaws.com/bas-cdn-prod/bas-style-kit/0.1.0-alpha/dist/css/bootstrap-bsk.min.css
