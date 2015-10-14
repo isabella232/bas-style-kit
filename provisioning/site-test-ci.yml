@@ -7,10 +7,13 @@
   roles:
     - curl
     - gulp
-    - jekyll
   tasks:
     - name: install gulp npm package globally
       npm: name=gulp global=yes
+    - name: install jekyll without documentation
+      command: "gem install jekyll --no-ri --no-rdoc"
+    - name: install rouge gem
+      gem: name=rouge state=present
 
 - name: configure project environment
   hosts: all
