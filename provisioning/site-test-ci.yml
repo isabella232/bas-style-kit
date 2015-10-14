@@ -1,18 +1,22 @@
 ---
 # Setup infrastructure for testing project
 
-- name: setup and test the apache web-server role
+- name: setup project environment
   hosts: all
   sudo: yes
   roles:
     - curl
     - gulp
-    - jekyll
   tasks:
+    - name: install jekyll and rouge gems
+      gem: name="{{ item }}" state=latest
+      with_items:
+        - jekyll
+        - rouge
     - name: install gulp npm package globally
       npm: name=gulp global=yes
 
-- name: setup and test the apache web-server role
+- name: configure project environment
   hosts: all
   tasks:
     - name: install node dependencies through npm
