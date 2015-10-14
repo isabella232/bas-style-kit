@@ -4,9 +4,6 @@
 - name: setup project environment
   hosts: all
   sudo: yes
-  roles:
-    - curl
-    - gulp
   tasks:
     - name: install gulp npm package globally
       npm: name=gulp global=yes
