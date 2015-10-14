@@ -122,9 +122,9 @@ $ vagrant up
 
 Vagrant will automatically configure the localhost hosts file for infrastructure it creates on your behalf:
 
-| Name                       | Points To                                     | FQDN                         | Notes                             |
-| -------------------------- | --------------------------------------------- | ---------------------------- | --------------------------------- |
-| bas-style-kit-dev-web1.v.m | *computed value*                              | `bas-style-kit-dev-web1.v.m` | The VM's private IP address       |
+| Name                       | Points To        | FQDN                         | Notes                       |
+| -------------------------- | ---------------- | ---------------------------- | --------------------------- |
+| bas-style-kit-dev-web1.v.m | *computed value* | `bas-style-kit-dev-web1.v.m` | The VM's private IP address |
 
 Note: Vagrant managed VMs also have a second, host-guest only, network for management purposes not documented here.
 
