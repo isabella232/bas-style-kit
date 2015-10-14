@@ -1,0 +1,19 @@
+---
+# Setup infrastructure for testing project
+
+- name: setup and test the apache web-server role
+  hosts: all
+  sudo: yes
+  roles:
+    - curl
+    - gulp
+    - jekyll
+  tasks:
+    - name: install gulp npm package globally
+      npm: name=gulp global=yes
+
+- name: setup and test the apache web-server role
+  hosts: all
+  tasks:
+    - name: install node dependencies through npm
+      npm: path=.
