@@ -1,5 +1,7 @@
 # BAS Style Kit
 
+Develop: [![Build Status](https://semaphoreci.com/api/v1/projects/0f33c45e-b93f-4491-aa1a-eb4848653351/569676/badge.svg)](https://semaphoreci.com/antarctica/bas-style-kit)
+
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
 * More information about this project is available in `documentation/project-management`
@@ -58,6 +60,8 @@ where `XXX` is your DigitalOcean personal access token - used by Terraform
 `AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [2]
 * Suitable permissions within AWS to create/destroy S3 buckets
 * Access to the `bas-cdn-dev` and `bas-style-kit-docs-stage` S3 buckets
+* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
+organisation [3]
 
 [1] SSH config entry
 
@@ -71,6 +75,8 @@ Host *.web.nerc-bas.ac.uk
 
 [2] Specifically for a user account delegated from the BAS AWS account, use the
 [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
+
+[3] Please contact the *Project Maintainer* if you do not have permission to access this organisation.
 
 ### Production - remote
 
@@ -140,12 +146,47 @@ $ terraform get
 $ terraform apply
 ```
 
+#### Continuous Integration
 
+If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the Project Repository and
+the *develop* branch as the project repository and associate this with the `antarctica` organisation in Semaphore.
 
+If the project already exists check the settings below and then add the *develop* branch as a new build branch manually.
+
+In the settings for this project set the *Build Settings* to:
+
+* Language: `Python`
+* Python version: `2.7`
+
+For the *Setup* thread enter these commands:
 
 ```shell
+sudo pip install ansible
+ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local
 ```
 
+For *Thread #1* enter these commands:
+
+```shell
+gulp clean
+gulp less
+gulp fonts
+gulp jekyll-data
+jekyll build
+```
+
+[1] Note: This service should already exist and is out of the scope of this project.
+See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
+
+In the settings for this project set the *Branches* settings to:
+
+* Build new branches: `Never`
+
+Copy the build badge for the *develop* branch to this README.
+
+#### Continuous Deployment
+
+TODO:
 
 End-user documentation for this project can then be accessed from
 [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
