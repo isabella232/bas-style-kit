@@ -3,14 +3,13 @@
 
 - name: setup project environment
   hosts: all
-  sudo: yes
   tasks:
-    - name: install gulp npm package globally
-      npm: name=gulp global=yes
     - name: install jekyll without documentation
       command: "gem install jekyll --no-ri --no-rdoc"
     - name: install rouge gem
       command: "gem install rouge"
+    - name: install gulp globally
+      command: "npm install --global gulp"
 
 - name: configure project environment
   hosts: all
