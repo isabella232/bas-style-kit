@@ -4,7 +4,8 @@
 
 variable "digital_ocean_token" {}  # Define using environment variable - e.g. TF_VAR_digital_ocean_token=XXX
 variable "ssh_fingerprint" {}      # Define using environment variable - e.g. TF_VAR_ssh_fingerprint=XXX
-
+variable "aws_access_key" {}  # Define using environment variable - e.g. TF_VAR_aws_access_key=XXX
+variable "aws_secret_key" {}  # Define using environment variable - e.g. TF_VAR_aws_secret_key=XXX
 
 # Providers
 
@@ -12,6 +13,13 @@ variable "ssh_fingerprint" {}      # Define using environment variable - e.g. TF
 
 provider "digitalocean" {
 	token = "${var.digital_ocean_token}"
+}
+
+# AWS provider configuration
+provider "aws" {
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
+  region = "eu-west-1"
 }
 
 
@@ -74,6 +82,20 @@ resource "digitalocean_record" "bas-style-kit-vanity-records" {
   name = "bas-style-kit"
   value = "bas-style-kit-prod-web1.web.nerc-bas.ac.uk."
 }
+
+# `bas-style-kit-docs-stage` resource
+
+# S3 bucket with static website hosting
+resource "aws_s3_bucket" "bas-style-kit-docs-stage-bucket" {
+  bucket = "bas-style-kit-docs-stage"
+  acl = "public-read"
+  policy = "${file("provisioning/data/S3-bucket-policies/bas-style-kit-docs-stage.json")}"
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+  }
+}
+
 
 # Provisioning (using a fake resource as provisioners can't be first class objects)
 
