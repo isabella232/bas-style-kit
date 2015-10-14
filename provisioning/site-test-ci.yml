@@ -13,7 +13,7 @@
     - name: install jekyll without documentation
       command: "gem install jekyll --no-ri --no-rdoc"
     - name: install rouge gem
-      gem: name=rouge state=present
+      command: "gem install rouge"
 
 - name: configure project environment
   hosts: all
