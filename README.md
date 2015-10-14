@@ -54,6 +54,10 @@ Host *.v.m
 where `XXX` is your DigitalOcean personal access token - used by Terraform
 * An environment variable: `TF_VAR_ssh_fingerprint=XXX` set,
  where `XXX` is [your public key fingerprint](https://gist.github.com/felnne/596d2bf11842a0cf64d6) - used by Terraform
+* An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
+`AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [2]
+* Suitable permissions within AWS to create/destroy S3 buckets
+* Access to the `bas-cdn-dev` and `bas-style-kit-docs-stage` S3 buckets
 
 [1] SSH config entry
 
@@ -64,6 +68,9 @@ Host *.web.nerc-bas.ac.uk
     IdentityFile ~/.ssh/id_rsa
     Port 22
 ```
+
+[2] Specifically for a user account delegated from the BAS AWS account, use the
+[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
 
 ### Production - remote
 
@@ -121,43 +128,27 @@ $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 
 ### Staging - remote
 
-VMs are powered by DigitalOcean, managed using Terraform and configured by Ansible.
+Static website hosting is powered by AWS S3, managed using terraform, configured by Ansible and deployed by SemaphoreCI.
 
-You **MUST** have setup and configured a *development* environment, before you can create a *staging* environment.
-Specifically, you must have a `/site` or `/dist` directory. If you don't, you **MUST** create them in a *development*
-environment, using the steps listed in the *usage* section of this README.
+Distribution assets of each version are stored in the *development* environment of the BAS CDN, deployments to this CDN
+are managed automatically by SemaphoreCI [1].
 
-You **SHOULD** also make sure you have up-to date CSS files etc. by running the relevant tasks outlined in the *usage*
-section of this README.
+#### Infrastructure
 
 ```shell
 $ terraform get
 $ terraform apply
 ```
 
-Terraform will automatically configure DNS records for infrastructure it creates on your behalf:
 
-| Kind      | Name                              | Points To                                              | FQDN                                                   | Notes                                             |
-| --------- | --------------------------------- | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------- |
-| **A**     | bas-style-kit-stage-web1.internal | *computed value*                                       | `bas-style-kit-stage-web1.internal.web.nerc-bas.ac.uk` | The VM's private IP address                       |
-| **A**     | bas-style-kit-stage-web1.external | *computed value*                                       | `bas-style-kit-stage-web1.external.web.nerc-bas.ac.uk` | The VM's public IP address                        |
-| **CNAME** | bas-style-kit-stage-web1          | `bas-style-kit-stage-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-stage-web1.web.nerc-bas.ac.uk`          | A pointer for the default address                 |
-| **CNAME** | bas-style-kit-staging             | `bas-style-kit-stage-web1.web.nerc-bas.ac.uk`          | `bas-style-kit-staging.web.nerc-bas.ac.uk`             | Vanity URL to current staging instance of project |
 
-Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178),
-therefore these tasks need to be performed manually:
 
 ```shell
-$ ansible-galaxy install https://github.com/antarctica/ansible-prelude,v0.1.2 --roles-path=provisioning/roles_bootstrap  --no-deps --force
-$ ansible-playbook -i provisioning/local provisioning/prelude.yml
-$ ansible-playbook -i provisioning/staging provisioning/bootstrap-digitalocean.yml
-$ ansible-playbook -i provisioning/staging provisioning/site-stage.yml
 ```
 
-End-user documentation for this project can then be accessed from [bas-style-kit-staging](bas-style-kit-staging.web.nerc-bas.ac.uk).
 
-Where: `[token]` is your DigitalOcean personal access token and `[fingerprint]` is the
-[fingerprint of your public key](https://gist.github.com/felnne/596d2bf11842a0cf64d6).
+End-user documentation for this project can then be accessed from
+[here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
 
 ### Production - remote
 
@@ -435,41 +426,18 @@ $ jekyll build --watch --force_polling
 
 #### End-user documentation
 
-To generate end-user documentation for a *staging* environment ensure you have the *develop* branch checked out in a
-*development* environment.
+TODO: Set and use environment variable to determine build environment (currently locked to *development*).
 
-Within this environment prepare the distribution assets:
+The Continuous Deployment element of SemaphoreCI will deploy project documentation to the staging documentation
+website automatically. This documentation is generated from the *develop* branch of the Project Repository providing it
+has passed certain tests. These is automatic, taking place whenever changes are pushed to the Project Repository.
 
-```shell
-$ ssh bas-style-kit-dev-web1.v.m
-$ cd /app
+The Continuous Deployment element of SemaphoreCI will also deploy distribution assets to the *development* environment
+of the BAS CDN automatically. These assets are also generated from the *develop* branch of the Project Repository
+providing it has passed the same tests. These processes are also automatic.
 
-$ gulp
-
-$ logout
-```
-
-Then generate the documentation:
-
-```shell
-$ ssh bas-style-kit-dev-web1.v.m
-$ cd /app
-
-$ jekyll build
-
-$ logout
-```
-
-And finally publish this to the *staging* environment:
-
-```shell
-$ ansible-playbook -i provisioning/staging provisioning/update-stage.yml
-```
-
-This will update the documentation on the staging server using the generated distribution and site files.
-
-Note: The definitive version of this documentation, built from the latest release of the project, is available at
-[here](https://bas-style-kit.web.nerc-bas.ac.uk/).
+Note: The definitive version of this documentation, built from the latest, passing, version of the *develop* branch of
+this project, is available [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
 
 ### Production - remote
 
