@@ -7,12 +7,8 @@
   roles:
     - curl
     - gulp
+    - jekyll
   tasks:
-    - name: install jekyll and rouge gems
-      gem: name="{{ item }}" state=latest
-      with_items:
-        - jekyll
-        - rouge
     - name: install gulp npm package globally
       npm: name=gulp global=yes
 
