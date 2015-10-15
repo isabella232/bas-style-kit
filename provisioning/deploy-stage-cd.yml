@@ -3,7 +3,7 @@
 - name: setup project environment and deployment
   hosts: all
   vars:
-    - aws_s3_sync_source: "site"
+    - aws_s3_sync_source: "../site"
     - aws_s3_sync_target: "s3://bas-style-kit-docs-stage"
   tasks:
     - name: deploy staging site to S3 static website
