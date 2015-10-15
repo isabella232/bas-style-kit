@@ -4,3 +4,4 @@ terraform.tfvars
 node_modules
 
 site
+provisioning/.vault_pass.txt

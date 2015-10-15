@@ -59,9 +59,9 @@ where `XXX` is your DigitalOcean personal access token - used by Terraform
 * An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
 `AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [2]
 * Suitable permissions within AWS to create/destroy S3 buckets
-* Access to the `bas-cdn-dev` and `bas-style-kit-docs-stage` S3 buckets
 * Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
 organisation [3]
+* Ansible Vault password file [4]
 
 [1] SSH config entry
 
@@ -77,6 +77,12 @@ Host *.web.nerc-bas.ac.uk
 [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
 
 [3] Please contact the *Project Maintainer* if you do not have permission to access this organisation.
+
+[4] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
+vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
+
+For obvious reasons this file is **MUST NOT** be checked into source control and instead be manually copied into place. 
+Users can request this file using the information in the *Feedback* section of this README.
 
 ### Production - remote
 
@@ -162,7 +168,7 @@ For the *Setup* thread enter these commands:
 
 ```shell
 sudo pip install ansible
-ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local
+ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
 ```
 
 For *Thread #1* enter these commands:
@@ -186,7 +192,16 @@ Copy the build badge for the *develop* branch to this README.
 
 #### Continuous Deployment
 
-TODO:
+If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
+
+* Set the deployment strategy to: `Automatic`
+* Set the branch to deploy to: `develop`
+* Set the deploy commands to `ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connection=local`
+* Skip the deployment SSH key option
+* Set the server name to: `s3-bas-style-kit-docs-stage`
+* Set the server URL to: `http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/`
+
+If the deployment already exists check the settings above are correct.
 
 End-user documentation for this project can then be accessed from
 [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
