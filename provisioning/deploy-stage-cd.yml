@@ -7,4 +7,4 @@
     - aws_s3_sync_target: "s3://bas-style-kit-docs-stage"
   tasks:
     - name: deploy staging site to S3 static website
-      command: "aws s3 sync"
+      command: "aws s3 sync {{ aws_s3_sync_source }} {{ aws_s3_sync_target }}"
