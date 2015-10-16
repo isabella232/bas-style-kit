@@ -7,6 +7,8 @@ of Jira issues by version is automatically maintained.
 
 ## [Unreleased][unreleased]
 
+## [0.1.0-beta] - 2015-10-16
+
 ## Fixed
 
 * Source download link updated to current release tag, not develop branch

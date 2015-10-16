@@ -20,8 +20,8 @@ encoding: UTF-8
 
 # Project vars
 
+version: 0.1.0-beta
 
-version: 0.1.0-alpha
 repo: https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit/browse
 issues: https://jira.ceh.ac.uk/browse/BSK
 style_guide_url: https://antarctica.hackpad.com/BAS-Style-Guide-NT1D10DRTCo
