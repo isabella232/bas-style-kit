@@ -2,9 +2,6 @@
 
 - name: setup project deployment environment
   hosts: all
-  vars:
-    - aws_s3_sync_source: "../site"
-    - aws_s3_sync_target: "s3://bas-style-kit-docs-stage"
   tasks:
     - name: install jekyll without documentation
       command: "gem install jekyll --no-ri --no-rdoc"

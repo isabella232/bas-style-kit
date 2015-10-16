@@ -81,7 +81,7 @@ Host *.web.nerc-bas.ac.uk
 [4] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
 vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
 
-For obvious reasons this file is **MUST NOT** be checked into source control and instead be manually copied into place. 
+For obvious reasons this file is **MUST NOT** be checked into source control and instead be manually copied into place.
 Users can request this file using the information in the *Feedback* section of this README.
 
 ### Production - remote
@@ -154,10 +154,11 @@ $ terraform apply
 
 #### Continuous Integration
 
-If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the Project Repository and
-the *develop* branch as the project repository and associate this with the `antarctica` organisation in Semaphore.
+If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the *develop* branch of the
+Project Repository as the project repository, associate with the `antarctica` organisation.
 
-If the project already exists check the settings below and then add the *develop* branch as a new build branch manually.
+If the project already exists, but not for this branch, check the settings below are correct and add the *develop*
+branch as a new build branch manually.
 
 In the settings for this project set the *Build Settings* to:
 
@@ -170,20 +171,19 @@ For the *Setup* thread enter these commands:
 pip install ansible
 ```
 
-For *Thread #1* enter these commands:
+For *Thread #1* rename to *Build and Test* with these commands:
 
 ```shell
 ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local
 ```
-
-[1] Note: This service should already exist and is out of the scope of this project.
-See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
 
 In the settings for this project set the *Branches* settings to:
 
 * Build new branches: `Never`
 
 Copy the build badge for the *develop* branch to this README.
+
+If the project and branch already exists, check the settings above are correct.
 
 #### Continuous Deployment
 
@@ -200,6 +200,9 @@ If the deployment already exists check the settings above are correct.
 
 End-user documentation for this project can then be accessed from
 [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
+
+[1] Note: This service should already exist and is out of the scope of this project.
+See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
 
 [2]
 ```shell
