@@ -1,7 +1,7 @@
 ---
 # Setup infrastructure for testing project
 
-- name: setup project environment and deployment
+- name: setup project test environment
   hosts: all
   tasks:
     - name: install jekyll without documentation
@@ -10,19 +10,26 @@
       command: "gem install rouge"
     - name: install gulp globally
       command: "npm install --global gulp"
-    - name: install AWSCLI from pip
-      pip: name=awscli
-
-- name: configure project environment and deployment
-  hosts: all
-  vars_files:
-    - vars/aws-cli-auth.yml
-  tasks:
     - name: install node dependencies through npm
       npm: path=.
-    - name: ensure AWSCLI configuration directory exists
-      file: path=~/.aws state=directory
-    - name: copy configuration environment file
-      copy: src=files/~.aws/aws-cli-config dest=~/.aws/config
-    - name: generate credentials environment file
-      template: src=templates/~.aws/credentials.j2 dest=~/.aws/credentials mode=0600
+
+- name: build and test project
+  hosts: all
+  tasks:
+    - name: run task to check generated files can be cleaned
+      command: gulp clean
+    # TODO: Check this happens
+    - name: run task to check less compiles and CSS lints
+      command: gulp less
+    # TODO: Check CSS files are created
+    - name: run task to check fonts can be copied
+      command: gulp fonts
+    # TODO: Check this happens
+    - name: run task to check jekyll data files for font glyphs can be generated
+      command: gulp jekyll-data
+    # TODO: Check this happens
+    - name: build static site using jekyll
+      command: jekyll build
+      args:
+        chdir: ../
+    # TODO: Check this happens
