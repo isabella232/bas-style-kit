@@ -187,6 +187,12 @@ Set *Environment Variables* as shown in the table below:
 | ------------ | ------- | --------------- |
 | `JEKYLL_ENV` | staging | No (unchecked)  |
 
+Set *Configuration Files* as shown in the table below:
+
+| File Path                                    | Content | Encrypt File  |
+| -------------------------------------------- | ------- | ------------- |
+| `bas-style-kit/provisioning/.vault_pass.txt` | [3]     | Yes (checked) |
+
 Copy the build badge for the *develop* branch to this README.
 
 If the project and branch already exists, check the settings above are correct.
@@ -215,6 +221,9 @@ See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/bro
 pip install ansible
 ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
 ```
+
+[3] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
+information in the *Feedback* section of this README.
 
 ### Production - remote
 
