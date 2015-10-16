@@ -352,6 +352,8 @@
 
 .highlight {
   border-radius: 0px;
+  background-color: #F4F6F9;
+  border-color: #E7EBF1;
 }
 
 /*
@@ -360,6 +362,10 @@
  * Isolated sections of example content for each component or feature. Usually
  * followed by a code snippet.
  */
+
+.bs-example {
+  border-color: #E7EBF1;
+}
 
 /* Make the examples and snippets not full-width */
 @media (min-width: 768px) {
