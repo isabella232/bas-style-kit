@@ -12,25 +12,25 @@
     <nav id="bs-navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li{% if page.slug == "getting-started" %} class="active"{% endif %}>
-          <a href="{{ site.data.provisioned.url_base }}/getting-started/">Getting started</a>
+          <a href="{{ site.url_base }}/getting-started/">Getting started</a>
         </li>
         <li{% if page.slug == "css" %} class="active"{% endif %}>
-          <a href="{{ site.data.provisioned.url_base }}/css/">CSS</a>
+          <a href="{{ site.url_base }}/css/">CSS</a>
         </li>
         <li{% if page.slug == "components" %} class="active"{% endif %}>
-          <a href="{{ site.data.provisioned.url_base }}/components/">Components</a>
+          <a href="{{ site.url_base }}/components/">Components</a>
         </li>
         <li{% if page.slug == "js" %} class="active"{% endif %}>
-          <a href="{{ site.data.provisioned.url_base }}/javascript/">JavaScript</a>
+          <a href="{{ site.url_base }}/javascript/">JavaScript</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ site.style_guide_url }}">BAS Style Guide</a></li>
         <li><a {{ site.feedback_attributes }}>Submit Feedback</a></li>
-        {% if site.data.provisioned.env == 'production' %}
+        {% if jekyll.environment == "production" %}
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            {{ site.data.provisioned.version }} <span class="caret"></span>
+            {{ site.version }} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu dropdown-menu-bsk">
             {% for version in site.data.versions %}

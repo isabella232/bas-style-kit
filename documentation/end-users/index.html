@@ -11,10 +11,10 @@ title: BAS Style Kit
       <a href="getting-started#download" class="btn btn-lg btn-bsk btn-bsk-primary">Download the BAS Style Kit</a>
     </p>
     <p class="version">
-      Version {{ site.data.provisioned.version }}
-      Changes since version {{ site.data.provisioned.version }}
       {% if jekyll.environment == "production" %}
+      Version {{ site.version }}
       {% elsif jekyll.environment == "staging" %}
+      Changes since version {{ site.version }}
       {% elsif jekyll.environment == "development" %}
       Local version
       {% endif %}

@@ -5,15 +5,15 @@
       <ul class="list-inline">
         <li><a href="{{ site.issues }}"><i class="devicons devicons-jira"></i> Issues</a></li>
         <li><a href="{{ site.repo }}"><i class="devicons devicons-git_merge"></i> Code</a></li>
-        <li><a href="{{ site.data.provisioned.url_base }}/getting-started/#examples"><i class="fa fa-code"></i> Examples</a></li>
-        <li><a href="{{ site.data.provisioned.url_base }}/acknowledgements"><i class="fa fa-star"></i> Acknowledgements</a></li>
+        <li><a href="{{ site.url_base }}/getting-started/#examples"><i class="fa fa-code"></i> Examples</a></li>
+        <li><a href="{{ site.url_base }}/acknowledgements"><i class="fa fa-star"></i> Acknowledgements</a></li>
       </ul>
     </div>
     <div class="bsk-docs-footer-version">
-      <a href="{{ site.repo }}?at=refs%2Ftags%2Fv{{ site.data.provisioned.version }}">Version {{ site.data.provisioned.version }}</a>
-      Changes since version <a href="{{ site.repo }}?at=refs%2Fbranches%2Fdevelop">version {{ site.data.provisioned.version }}</a>
       {% if jekyll.environment == "production" %}
+      <a href="{{ site.repo }}?at=refs%2Ftags%2Fv{{ site.version }}">Version {{ site.version }}</a>
       {% elsif jekyll.environment == "staging" %}
+      Changes since version <a href="{{ site.repo }}?at=refs%2Fbranches%2Fdevelop">version {{ site.version }}</a>
       {% elsif jekyll.environment == "development" %}
       Local version
       {% endif %}
@@ -40,8 +40,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <!-- bootstrap JS -->
-<script src="{{ site.data.provisioned.url_base }}/dist/js/bootstrap.min.js"></script>
-<script src="{{ site.data.provisioned.url_base }}/assets/js/src/application.js"></script>
+<script src="{{ site.url_base }}/dist/js/bootstrap.min.js"></script>
+<script src="{{ site.url_base }}/assets/js/src/application.js"></script>
 
 <!-- Jira issue collecter - used for feedback -->
 <script type="text/javascript" src="https://jira.ceh.ac.uk/s/d41d8cd98f00b204e9800998ecf8427e/en_UK-ux1ghj-1988229788/6264/37/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=579472a5"></script>
@@ -49,7 +49,7 @@
 <!-- Google Analytics tracking - used for analytics -->
 {% include analytics.html %}
 
-<script src="{{ site.data.provisioned.url_base }}/assets/js/src/application-bsk.js"></script>
+<script src="{{ site.url_base }}/assets/js/src/application-bsk.js"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="{{ site.data.provisioned.url_base }}/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="{{ site.url_base }}/assets/js/ie10-viewport-bug-workaround.js"></script>

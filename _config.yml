@@ -16,6 +16,7 @@ encoding: UTF-8
 # Custom vars
 repo: https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit/browse
 issues: https://jira.ceh.ac.uk/browse/BSK
+version: 0.1.0-alpha
 
 style_guide_url: https://antarctica.hackpad.com/BAS-Style-Guide-NT1D10DRTCo
 feedback_attributes: data-bsk-action="open-feedback-form"
@@ -28,3 +29,11 @@ download:
 cdn:
   bsk-css: https://s3-eu-west-1.amazonaws.com/bas-cdn-prod/bas-style-kit/0.1.0-alpha/dist/css/bas-style-kit.min.css
   bootstrap-bsk-css: https://s3-eu-west-1.amazonaws.com/bas-cdn-prod/bas-style-kit/0.1.0-alpha/dist/css/bootstrap-bsk.min.css
+
+# Google analytics token (each environment uses a different token - dev is not tracked as it isn't a valid FQDN)
+
+analytics_token_prod:  UA-64130716-27
+analytics_token_stage: UA-64130716-28
+
+# For development/staging use ".." (not quotes), for production use root with version string "/0.1.0-alpha" (no quotes)
+url_base: ..
