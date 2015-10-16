@@ -1,3 +1,8 @@
+---
+# Jekyll master configuration file
+
+# Additional configuration can be set in files contained in the documentation/end-users/_data directory
+
 # Dependencies
 markdown: kramdown
 highlighter: rouge
@@ -13,7 +18,7 @@ port: 9001
 url:  localhost
 encoding: UTF-8
 
-# Custom vars
+# Project vars
 repo: https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit/browse
 issues: https://jira.ceh.ac.uk/browse/BSK
 version: 0.1.0-alpha

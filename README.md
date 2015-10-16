@@ -177,7 +177,7 @@ For *Thread #1* rename to *Build and Test* with these commands:
 ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local
 ```
 
-In the settings for this project set the *Branches* settings to:
+Set the *Branches* settings to:
 
 * Build new branches: `Never`
 
@@ -308,6 +308,8 @@ really a meaningful distinction.
 It is assumed you have setup the environment you wish to use and your working directory is the root of this project.
 
 ### Development - local
+
+TODO: When refactoring move all these sections down to end-user documentation out of this README.
 
 #### Less styles
 
@@ -465,19 +467,19 @@ This task calls the `gulp clean` task, then these tasks in parallel: `gulp [clea
 
 #### End-user documentation
 
+TODO: When refactoring move this first paragraph out of environment specific section.
+
 Other than distributed assets, the end-user documentation is the primary output of this project as it is used by users
 to apply the Style Kit to their own projects. It is a static website, built using [Jekyll](http://jekyllrb.com) and
 modelled on the Bootstrap end-user documentation.
 
-In this, *development* environment this documentation will be re-generated frequently and used locally to ensure new
-features are correctly documented.
+In the *development* environment documentation is built from within the Project VM, triggered either manually or
+automatically, to ensure new features are correctly documented.
 
-Note: The definitive version of this documentation, built from the latest release of the project, is available at
-[here](https://bas-style-kit.web.nerc-bas.ac.uk/).
 The `JEKYLL_ENV` is not set in this environment to use its default value of `development`. This should not be changed
 to ensure the documentation is built in the correct way.
 
-To manually rebuild the documentation:
+To manually build the documentation:
 
 ```shell
 $ ssh bas-style-kit-dev-web1.v.m
@@ -486,7 +488,7 @@ $ cd /app
 $ jekyll build
 ```
 
-To automatically rebuild when changes are made to source files (this is only useful in development environments):
+To automatically build whenever changes are made to source files:
 
 ```shell
 $ ssh bas-style-kit-dev-web1.v.m
@@ -494,6 +496,9 @@ $ cd /app
 
 $ jekyll build --watch --force_polling
 ```
+
+Note: The definitive version of this documentation, built from the latest release of the project, is available at
+[here](https://bas-style-kit.web.nerc-bas.ac.uk/).
 
 ### Staging - remote
 

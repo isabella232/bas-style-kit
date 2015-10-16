@@ -27,7 +27,7 @@
 - name: build and deploy project to staging website
   hosts: all
   vars:
-    - aws_s3_sync_source: "../site"
+    - aws_s3_sync_source: "site"
     - aws_s3_sync_target: "s3://bas-style-kit-docs-stage"
   tasks:
     - name: run task to clean generated files
@@ -44,3 +44,5 @@
         chdir: ../
     - name: deploy staging site to S3 static website
       command: "aws s3 sync {{ aws_s3_sync_source }} {{ aws_s3_sync_target }}"
+      args:
+        chdir: ../
