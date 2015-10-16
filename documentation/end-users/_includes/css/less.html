@@ -80,18 +80,6 @@
     <div class="color-swatches">
       <div class="color-swatch bsk-grey-lighter"></div>
       <div class="color-swatch bsk-grey-light"></div>
-      <div class="color-swatch bsk-grey"></div>
-      <div class="color-swatch bsk-grey-dark"></div>
-    </div>
-  </div>
-{% highlight scss %}
-@bsk-grey-lighter:       lighten(@bsk-grey-light, 4%);  // #1B4866
-@bsk-grey-light:         #E7EBF1;
-@bsk-grey:               #E3E3E3;
-@bsk-grey-dark:          #4D5D66;
-{% endhighlight %}
-  <div class="bs-example">
-    <div class="color-swatches">
       <div class="color-swatch bsk-blue-light"></div>
       <div class="color-swatch bsk-blue"></div>
       <div class="color-swatch bsk-blue-dark"></div>
@@ -100,6 +88,9 @@
     </div>
   </div>
 {% highlight scss %}
+@bsk-grey-lighter:       lighten(@bsk-grey-light, 4%);  // #1B4866
+@bsk-grey-light:         #E7EBF1;
+
 @bsk-blue-light:         lighten(@bsk-bas-brand, 55%);  // #77CCFF
 @bsk-blue:               lighten(@bsk-bas-brand, 15%);  // #006AAA
 @bsk-blue-dark;          @bsk-bas-brand;                // #003A5D
