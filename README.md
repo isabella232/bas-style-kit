@@ -492,11 +492,11 @@ $ jekyll build --watch --force_polling
 
 #### End-user documentation
 
-TODO: Set and use environment variable to determine build environment (currently locked to *development*).
-
 The Continuous Deployment element of SemaphoreCI will deploy project documentation to the staging documentation
 website automatically. This documentation is generated from the *develop* branch of the Project Repository providing it
 has passed certain tests. These is automatic, taking place whenever changes are pushed to the Project Repository.
+
+The `JEKYLL_ENV` will be automatically set to `staging` to ensure the documentation is built in the correct way.
 
 The Continuous Deployment element of SemaphoreCI will also deploy distribution assets to the *development* environment
 of the BAS CDN automatically. These assets are also generated from the *develop* branch of the Project Repository
