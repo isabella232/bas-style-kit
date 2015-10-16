@@ -2,18 +2,31 @@
 // Navbars
 // --------------------------------------------------
 
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+
 // Alternate navbars
 // --------------------------------------------------
 
 // BSK navbar
 .navbar-bsk {
+  font-family: @navbar-bsk-font-family;
+  font-weight: @navbar-bsk-font-weight;
+  font-size: @navbar-bsk-font-size;
+
   background-color: @navbar-bsk-bg;
   border-color: @navbar-bsk-color;
-
   border-radius: @navbar-bsk-border-radius;
 
   .navbar-text {
     color: @navbar-bsk-color;
+  }
+
+  .navbar-brand {
+    font-family: @navbar-bsk-brand-font-family;
+    font-weight: @navbar-bsk-brand-font-weight;
+
+    color: @navbar-bsk-brand-color;
   }
 
   .navbar-nav {
@@ -114,6 +127,8 @@
     }
   }
   .navbar-nav > .open .dropdown-menu li a {
+    font-family: @navbar-bsk-dropdown-font-family;
+
     padding: 10px;
   }
 

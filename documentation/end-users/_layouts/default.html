@@ -20,14 +20,14 @@
 
     <div class="container bs-docs-container">
 
-      {% include new-website-banner.html %}
+      {% include banner.html %}
 
       <div class="row">
-        <div class="col-md-{% if page.fullwidth == true %}24{% else %}18{% endif %}" role="main">
+        <div class="col-md-{% if page.fullwidth == true %}12{% else %}9{% endif %}" role="main">
           {{ content }}
         </div>
         {% unless page.fullwidth == true %}
-        <div class="col-md-6" role="complementary">
+        <div class="col-md-3" role="complementary">
           <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
             <ul class="nav bs-docs-sidenav sidebar-bsk sidebar-bsk-default">
               {% if page.slug == "getting-started" %}

@@ -1,46 +1,48 @@
 <div class="bs-docs-section">
   <h1 id="download" class="page-header">Download</h1>
 
-  <p class="lead">There are currently two ways to download the BAS Style Kit (currently v{{ site.current_version }}) depending on your use case.</p>
+  <p class="lead">There are currently two ways to download the BAS Style Kit (currently v{{ site.provisioned.version }}) depending on your use case.</p>
 
   <div class="row bs-downloads">
-    <div class="col-sm-24 col-md-12">
+    <div class="col-sm-12 col-md-6">
       <h3 id="download-compiled">Compiled styles (i.e. CSS)</h3>
-      <p>The simplest and quickest way to integrate the Syle Kit, suits single pages and small/medium websites/web-apps.
-        Use this version if you do not intend to modify the styles of the Style Kit significantly and/or you wish to take advantage of the BAS CDN.</p>
-      <p>Includes both regular (<code>bas-style-kit.*</code>) and minified (<code>bas-style-kit.min.*</code>) compiled CSS.
-        CSS <a href="https://developer.chrome.com/devtools/docs/css-preprocessors">source maps</a> (<code>bas-style-kit.*.map</code>) are available for use with certain browsers' developer tools.
-        Web-fonts for <a href="https://www.google.com/fonts/specimen/Open+Sans">Open-Sans</a> and iconic fonts are also included.</p>
+      <ul>
+        <li>The simplest and quickest way to integrate the Style Kit, suits single pages and small/medium websites/web-apps.</li>
+        <li>Includes both regular and minified compiled CSS, plus CSS <a href="https://developer.chrome.com/devtools/docs/css-preprocessors">source maps</a> and
+          fonts for <a href="https://www.google.com/fonts/specimen/Open+Sans">Open-Sans</a> and iconic web-fonts.</li>
+        <li>Use this version if you do not intend to modify the styles of the Style Kit significantly and/or you wish to take advantage of the BAS CDN.</li>
+      </ul>
     </div>
-    <div class="col-sm-24 col-md-12">
+    <div class="col-sm-12 col-md-6">
       <h3 id="download-source">Source styles (i.e. Less)</h3>
-      <p>For more advanced use ages where significant modifications are neded, or you wish to integrate the Style Kit in larger or complex projects.</p>
-      <p>This version includes pre-compiled CSS and web-fonts, along with source Less styles and documentation. <br />
-      Use this version if you plan to integrate the Style Kit into a larger application with its own styling workflow. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong></p>
+      <ul>
+        <li>For more advanced use ages where significant modifications are neded, or you wish to integrate the Style Kit in larger or complex projects.</li>
+        <li>Includes everything from the Compiled Styles, along with source Less styles, this documentation and a <a href="http://www.vagrantup.com">Vagrant</a> and <a href="http://www.ansible.com">Ansible</a> based development environment.</li>
+        <li>Use this version if you plan to integrate the Style Kit into a larger application with its own styling workflow. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong></li>
+      </ul>
     </div>
   </div>
   <div class="row bs-downloads">
-    <div class="col-sm-24 col-md-12">
+    <div class="col-sm-12 col-md-6">
       <a href="{{ site.download.dist }}" class="btn btn-lg btn-bsk btn-bsk-primary">Download Compiled</a>
     </div>
-    <div class="col-sm-24 col-md-12">
+    <div class="col-sm-12 col-md-6">
       <a href="{{ site.download.source }}" class="btn btn-lg btn-bsk btn-bsk-primary">Download source</a>
     </div>
   </div>
 
-  <h2 id="download-cdn">BAS Style Kit CDN</h2>
-  <p>If using the compiled styles, you can make use of the BAS CDN to speed up loading times between BAS websites and apps.</p>
+  <h2 id="download-cdn">BAS CDN</h2>
+  <p>When using the compiled styles, you should use the BAS CDN to speed up loading times between BAS websites and apps.</p>
   <p>This works because the same files, from the same URL (i.e. the CDN) are used by each website or app and cached by the browser.</p>
-  <!--<p class="text-success">Due to the performance benefits and lack of need to include in your projects directly, it is recommended to use the BAS CDN wherever practical.</p>-->
-  <p class="text-danger">This CDN does not currently exist. The URL given here will work and can be used but the host is not a CDN.
-    See <a href="https://jira.ceh.ac.uk/browse/BSK-9"><i class="devicons devicons-jira"></i> BSK-9</a> for more information.</p>
 {% highlight html %}
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="{{ site.cdn.css }}">
+<!-- Latest compiled and minified customised Bootstrap CSS for the BAS Style Kit -->
+<link rel="stylesheet" href="{{ site.cdn.bootstrap-bsk-css }}">
+<!-- Latest compiled and minified BAS Style Kit CSS -->
+<link rel="stylesheet" href="{{ site.cdn.bsk-css }}">
 {% endhighlight %}
 
-  <h2 id="download-npm">Install with npm</h2>
-  <p>You can also install the BAS Style Kit using <a href="https://www.npmjs.com">npm</a>:</p>
-  <p class="text-danger">This package does not currently exist. See <a href="https://jira.ceh.ac.uk/browse/BSK-10"><i class="devicons devicons-jira"></i> BSK-10</a> for more information.</p>
-  {% highlight bash %}$ npm install bas-style-kit{% endhighlight %}
+  <h2 id="download-npm">Install with NPM</h2>
+  <p>You can also install the BAS Style Kit using <a href="https://www.npmjs.com">NPM</a>:</p>
+  <p class="text-danger">This package is not currently available. See <a href="https://jira.ceh.ac.uk/browse/BSK-10"><i class="devicons devicons-jira"></i>BSK-10</a> for more information.</p>
+{% highlight bash %}$ npm install bas-style-kit{% endhighlight %}
 </div>

@@ -10,6 +10,7 @@
     <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
     <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
     <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p class="text-inverse-bg text-inverse">I'm ready to run through the heat of the sun</p>
   </div>
 {% highlight html %}
 <p class="text-muted">...</p>
@@ -18,6 +19,7 @@
 <p class="text-info">...</p>
 <p class="text-warning">...</p>
 <p class="text-danger">...</p>
+<p class="text-inverse">...</p>
 {% endhighlight %}
   <div class="bs-callout bs-callout-info" id="callout-helper-context-color-specificity">
     <h4>Dealing with specificity</h4>
@@ -62,7 +64,6 @@
 <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 {% endhighlight %}
 
-
   <h3 id="helper-classes-carets">Carets</h3>
   <p>Use carets to indicate dropdown functionality and direction. Note that the default caret will reverse automatically in <a href="../components/#btn-dropdowns-dropup">dropup menus</a>.</p>
   <div class="bs-example" data-example-id="caret">
@@ -71,7 +72,6 @@
 {% highlight html %}
 <span class="caret"></span>
 {% endhighlight %}
-
 
   <h3 id="helper-classes-floats">Quick floats</h3>
   <p>Float an element to the left or right with a class. <code>!important</code> is included to avoid specificity issues. Classes can also be used as mixins.</p>
@@ -102,7 +102,6 @@
     <p>To align components in navbars with utility classes, use <code>.navbar-left</code> or <code>.navbar-right</code> instead. <a href="../components/#navbar-component-alignment">See the navbar docs</a> for details.</p>
   </div>
 
-
   <h3 id="helper-classes-center">Centre content blocks</h3>
   <p>Set an element to <code>display: block</code> and centre via <code>margin</code>. Available as a mixin and class.</p>
 {% highlight html %}
@@ -121,7 +120,6 @@
   .center-block();
 }
 {% endhighlight %}
-
 
   <h3 id="helper-classes-clearfix">Clearfix</h3>
   <p>Easily clear <code>float</code>s by adding <code>.clearfix</code> <strong>to the parent element</strong>. Utilizes <a href="http://nicolasgallagher.com/micro-clearfix-hack/">the micro clearfix</a> as popularized by Nicolas Gallagher. Can also be used as a mixin.</p>
@@ -147,7 +145,6 @@
   .clearfix();
 }
 {% endhighlight %}
-
 
   <h3 id="helper-classes-show-hide">Showing and hiding content</h3>
   <p>Force an element to be shown or hidden (<strong>including for screen readers</strong>) with the use of <code>.show</code> and <code>.hidden</code> classes. These classes use <code>!important</code> to avoid specificity conflicts, just like the <a href="#helper-classes-floats">quick floats</a>. They are only available for block level toggling. They can also be used as mixins.</p>
@@ -177,7 +174,6 @@
 }
 {% endhighlight %}
 
-
   <h3 id="helper-classes-screen-readers">Screen reader and keyboard navigation content</h3>
   <p>Hide an element to all devices <strong>except screen readers</strong> with <code>.sr-only</code>. Combine <code>.sr-only</code> with <code>.sr-only-focusable</code> to show the element again when it's focused (e.g. by a keyboard-only user). Necessary for following <a href="../getting-started/#accessibility">accessibility best practices</a>. Can also be used as mixins.</p>
 {% highlight html %}
@@ -190,7 +186,6 @@
   .sr-only-focusable();
 }
 {% endhighlight %}
-
 
   <h3 id="helper-classes-image-replacement">Image replacement</h3>
   <p>Utilize the <code>.text-hide</code> class or mixin to help replace an element's text content with a background image.</p>

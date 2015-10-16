@@ -105,6 +105,43 @@
  * General
  */
 
+.text-2x {
+  font-size: 150%;
+}
+
+.list-2x {
+  font-size: 150%;
+}
+.list-2x li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.bsk-docs-open-sans-light {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+.bsk-docs-open-sans-regular {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+.bsk-docs-open-sans-bold {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+.bsk-docs-gill-sans-light {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+.bsk-docs-gill-sans-book  {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+}
+.bsk-docs-gill-sans-roman {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
 /* Use to indicate content that needs to be reviewed, either to update wording or remove entirely */
 .bsk-u-mark-todo-update {
   background-color: #F9AFAF;
@@ -213,7 +250,6 @@
 .bsk-docs-masthead .version {
   margin-top: -15px;
   margin-bottom: 30px;
-  color: #7fccff;
 }
 .bsk-docs-masthead .btn {
   width: 100%;
@@ -285,28 +321,23 @@
  */
 
 /* BSK colors */
-.color-swatches .bsk-blue-light {
-  background-color: #7FCCFF;
-}
-.color-swatches .bsk-blue {
-  background-color: #25658f;
-}
-.color-swatches .bsk-blue-dark {
-  background-color: #1b4866;
-}
 .color-swatches .bsk-grey-lighter {
-  background-color: #f4f6f9;
+  background-color: #F4F6F9;
 }
 .color-swatches .bsk-grey-light {
   background-color: #E7EBF1;
 }
-.color-swatches .bsk-grey {
-  background-color: #e3e3e3;
+
+.color-swatches .bsk-blue-light {
+  background-color: #77CCFF;
 }
-.color-swatches .bsk-grey-dark {
-  background-color: #4D5D66;
+.color-swatches .bsk-blue {
+  background-color: #006AAA;
 }
-.color-swatches .bsk-orange {
+.color-swatches .bsk-blue-dark {
+  background-color: #003A5D;
+}
+.color-swatches .bsk-red {
   background-color: #B93E14;
 }
 .color-swatches .bsk-turquoise {
@@ -320,7 +351,9 @@
  */
 
 .highlight {
-  border-radius: 0px;
+  border-radius: 0;
+  background-color: #F4F6F9;
+  border-color: #E7EBF1;
 }
 
 /*
@@ -329,6 +362,10 @@
  * Isolated sections of example content for each component or feature. Usually
  * followed by a code snippet.
  */
+
+.bs-example {
+  border-color: #E7EBF1;
+}
 
 /* Make the examples and snippets not full-width */
 @media (min-width: 768px) {
@@ -341,7 +378,7 @@
     border-bottom-left-radius: 0;
   }
   .bs-example-standalone {
-    border-radius: 0px;
+    border-radius: 0;
   }
 }
 
@@ -353,13 +390,6 @@
 }
 
 /* Image purchase */
-.bsk-image-purchase.bsk-image-purchase-no-caption .image-purchase-symbol {
-  top: 79%;
-  left: 85%;
-}
-.bsk-image-purchase.jumbotron-bsk .image-purchase-symbol {
-  left: 96%;
-}
 .background-img-sample {
   background-image: url('../../img/polar-bears.jpg');
 }

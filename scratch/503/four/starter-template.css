@@ -1,0 +1,22 @@
+
+body {
+  color: white;
+  background-color: #912B88;
+}
+
+.jumbotron-bsk-default, .band-bsk-default, .footer-bsk-default, .header-bsk-default {
+  background-color: transparent;
+}
+.jumbotron-bsk-default {
+  color: white;
+}
+.footer-bsk-default, .header-bsk-default {
+  border-color: transparent;
+}
+.footer-bsk-default a {
+  color: #fff;
+  text-decoration: underline;
+}
+.footer-bsk-default a:hover {
+  color: #ccc;
+}

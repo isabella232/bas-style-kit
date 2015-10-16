@@ -2,11 +2,10 @@
 // Grid system
 // --------------------------------------------------
 
-// Columns
-//
-// Common styles for small and large grid columns
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "../node_modules/bootstrap/less/mixins.less";
 
-.make-grid-columns();
 
 // Container widths
 //
@@ -18,10 +17,56 @@
   }
 }
 
-// Extra large grid
+
+// Columns
+//
+// Common styles for default and custom grids
+
+.make-grid-columns();
+.make-bsk-grid-columns();
+
+
+// Extra small (custom) grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+.make-bsk-grid(xs);
+
+
+// Small (custom) grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: @screen-sm-min) {
+  .make-bsk-grid(sm);
+}
+
+
+// Medium (custom) grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: @screen-md-min) {
+  .make-bsk-grid(md);
+}
+
+
+// Large (custom) grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: @screen-lg-min) {
+  .make-bsk-grid(lg);
+}
+
+
+// Extra large (default and custom) grid
 //
 // Columns, offsets, pushes, and pulls for the extra large desktop device range.
 
 @media (min-width: @screen-xl-min) {
   .make-grid(xl);
+  .make-bsk-grid(xl);
 }

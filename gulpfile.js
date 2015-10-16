@@ -24,6 +24,7 @@ var runSequence = require('run-sequence');
 var sources = {
   'stylesheets': path.join('.', 'less'),
   'openSans': path.join('.', 'node_modules', 'open-sans-fontface'),
+  'gillSans': path.join('.', 'fonts', 'gill-sans'),
   'fontAwesome': path.join('.', 'node_modules', 'font-awesome'),
   'bootstrap': path.join('.', 'node_modules', 'bootstrap'),
   'mapglyphs': path.join('.', 'fonts', 'mapglyphs'),
@@ -92,15 +93,14 @@ var configs = {
 
 // Tasks
 
-gulp.task('less-only', function() {
+gulp.task('bsk-less-only', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(less(configs.less))
     .pipe(gulp.dest(destinations.css))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
-
-gulp.task('less-no-min', function() {
+gulp.task('bsk-less-no-min', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(sourcemaps.init())
     .pipe(less(configs.less))
@@ -112,8 +112,7 @@ gulp.task('less-no-min', function() {
     .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
-
-gulp.task('less-min', function() {
+gulp.task('bsk-less-min', function() {
   return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
     .pipe(sourcemaps.init())
     .pipe(less(configs.less))
@@ -128,32 +127,91 @@ gulp.task('less-min', function() {
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
 
+gulp.task('bootstrap-bsk-less-only', function() {
+  return gulp.src(path.join(sources.stylesheets, 'bootstrap-bsk.less'))
+    .pipe(less(configs.less))
+    .pipe(gulp.dest(destinations.css))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
+});
+gulp.task('bootstrap-bsk-less-no-min', function() {
+  return gulp.src(path.join(sources.stylesheets, 'bootstrap-bsk.less'))
+    .pipe(sourcemaps.init())
+    .pipe(less(configs.less))
+    .pipe(autoprefixer(configs.autoprefixer))
+    .pipe(csscomb())
+    .pipe(csslint(configs.csslint.csslintrc))
+    .pipe(csslint.reporter())
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
+});
+gulp.task('bootstrap-bsk-less-min', function() {
+  return gulp.src(path.join(sources.stylesheets, 'bootstrap-bsk.less'))
+    .pipe(sourcemaps.init())
+    .pipe(less(configs.less))
+    .pipe(autoprefixer(configs.autoprefixer))
+    .pipe(csscomb())
+    .pipe(csslint(configs.csslint.csslintrc))
+    .pipe(csslint.reporter())
+    .pipe(minifycss(configs.minifycss))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
+});
+
 gulp.task('fonts-opensans', function() {
-  return gulp.src(path.join(sources.openSans, 'fonts', '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.openSans, 'fonts', '**/*.*'),
+      '!' + path.join(sources.openSans, 'fonts', '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'open-sans')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'open-sans')));
 });
-
+gulp.task('fonts-gillsans', function() {
+  return gulp.src(
+    [
+            path.join(sources.gillSans, '**/*.*'),
+      '!' + path.join(sources.gillSans, '**/*.svg')
+    ])
+    .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'gill-sans')))
+    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'gill-sans')));
+});
 gulp.task('fonts-fontawesome', function() {
-  return gulp.src(path.join(sources.fontAwesome, 'fonts', '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.fontAwesome, 'fonts', '**/*.*'),
+      '!' + path.join(sources.fontAwesome, 'fonts', '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'font-awesome')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'font-awesome')));
 });
-
 gulp.task('fonts-mapglyphs', function() {
-  return gulp.src(path.join(sources.mapglyphs, '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.mapglyphs, '**/*.*'),
+      '!' + path.join(sources.mapglyphs, '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'map-glyphs')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'map-glyphs')));
 });
-
 gulp.task('fonts-devicons', function() {
-  return gulp.src(path.join(sources.devicons, 'fonts', '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.devicons, 'fonts', '**/*.*'),
+      '!' + path.join(sources.devicons, 'fonts', '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'devicons')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'devicons')));
 });
-
 gulp.task('fonts-glyphicons', function() {
-  return gulp.src(path.join(sources.bootstrap, 'fonts', '**/*.*'))
+  return gulp.src(
+    [
+            path.join(sources.bootstrap, 'fonts', '**/*.*'),
+      '!' + path.join(sources.bootstrap, 'fonts', '**/*.svg')
+    ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts)));
 });
@@ -223,7 +281,6 @@ gulp.task('jekyll-data-fa', function() {
 
   return false;
 });
-
 gulp.task('jekyll-data-mg', function() {
   var classes = [];
 
@@ -289,7 +346,6 @@ gulp.task('jekyll-data-mg', function() {
 
   return false;
 });
-
 gulp.task('jekyll-data-di', function() {
   var classes = [];
 
@@ -365,6 +421,10 @@ gulp.task('clean', function() {
     path.join(destinations.docsDist, 'css', 'bas-style-kit.min.css'),
     path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.css.map'),
     path.join(destinations.docsDist, 'css', 'maps', 'bas-style-kit.min.css.map'),
+    path.join(destinations.docsDist, 'css', 'bootstrap-bsk.css'),
+    path.join(destinations.docsDist, 'css', 'bootstrap-bsk.min.css'),
+    path.join(destinations.docsDist, 'css', 'maps', 'bootstrap-bsk.css.map'),
+    path.join(destinations.docsDist, 'css', 'maps', 'bootstrap-bsk.min.css.map'),
     path.join(destinations.docsDist, 'fonts', '**/*'),
     path.join(configs.tasks.dataFaGlyphs.jekyllDataFileDir, configs.tasks.dataFaGlyphs.jekyllDataFileName),
     path.join(configs.tasks.dataMgGlyphs.jekyllDataFileDir, configs.tasks.dataMgGlyphs.jekyllDataFileName),
@@ -375,12 +435,15 @@ gulp.task('clean', function() {
 // Combined tasks
 
 gulp.task('less', [
-  'less-no-min',
-  'less-min'
+  'bsk-less-no-min',
+  'bsk-less-min',
+  'bootstrap-bsk-less-no-min',
+  'bootstrap-bsk-less-min'
 ]);
 
 gulp.task('fonts', [
   'fonts-opensans',
+  'fonts-gillsans',
   'fonts-fontawesome',
   'fonts-mapglyphs',
   'fonts-devicons',
@@ -399,9 +462,7 @@ gulp.task('default', function(callback) {
   runSequence(
     'clean',
     'fonts',
-    [
-      'less',
-      'jekyll-data'
-    ],
+    'less',
+    'jekyll-data',
     callback);
 });

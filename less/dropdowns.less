@@ -2,13 +2,17 @@
 // Dropdown menus
 // --------------------------------------------------
 
+@import (reference) "variables.less";
+
+
 // The dropdown menu (ul)
 .dropdown-menu-bsk {
+  padding: @dropdown-menu-bsk-padding-vertical;
   border-radius: @dropdown-menu-bsk-border-radius;
 
   // Links within the dropdown menu
   > li > a {
-    padding: @dropdown-menu-item-bsk-padding-vertical 20px;
+    padding: @dropdown-menu-bsk-item-padding-vertical @dropdown-menu-bsk-item-padding-horizontal;
   }
 }
 

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+      {{ page.title }} &middot; BAS Style Kit
+    </title>
+
+    <!-- Customised Bootstrap CSS for BAS Style Kit -->
+    <link href="/{{ site.version }}/dist/css/bootstrap-bsk.min.css" rel="stylesheet">
+    <!-- Bootstrap docs CSS -->
+    <link href="/{{ site.version }}/assets/css/docs.min.css" rel="stylesheet">
+    <!-- BAS Style Kit CSS -->
+    <link href="/{{ site.version }}/dist/css/bas-style-kit.min.css" rel="stylesheet">
+    <!-- BAS Style Kit docs CSS -->
+    <link href="/{{ site.version }}/assets/css/src/docs-bsk.css" rel="stylesheet">
+
+    <!--[if lt IE 9]><script src="/{{ site.version }}/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/{{ site.version }}/assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/{{ site.version }}/apple-touch-icon.png">
+    <link rel="icon" href="/{{ site.version }}/favicon.ico">
+  </head>
+  <body>
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+    <header class="navbar navbar-bsk navbar-bsk-docs navbar-static-top" id="top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">BAS Style Kit</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Docs page layout -->
+    <div class="jumbotron jumbotron-bsk" id="content" tabindex="-1">
+      <div class="container">
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.lead }}</p>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+        <div class="col-md-{% if page.fullwidth == true %}12{% else %}9{% endif %}" role="main">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
+      <div class="container">
+        <div class="bsk-docs-footer-project-links">
+          <ul class="list-inline">
+            <li><a href="{{ site.issues }}"><i class="devicons devicons-jira"></i> Issues</a></li>
+            <li><a href="{{ site.repo }}"><i class="devicons devicons-git_merge"></i> Code</a></li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div role="separator" class="footer-bsk-divider"></div>
+        <!-- Copyright & legal -->
+        <div class="bsk-docs-footer-licensing">
+          <a class="osi-symbol" rel="license" href="https://hackpad.com/BAS-Style-Kit-License-tYBcBNjApkJ"><i class="devicons devicons-opensource"></i><span class="sr-only">Open Source Initiative Symbol</span></a>
+          <a class="cc-symbol" rel="license" href="https://creativecommons.org/licenses/by/3.0/"><i class="devicons devicons-creativecommons"></i><span class="sr-only">Create Commons Symbol</span></a>
+          <div class="license-text">Except where otherwise stated, Code is licensed under the <a rel="license" href="https://hackpad.com/BAS-Style-Kit-License-tYBcBNjApkJ">MIT License</a>, <br />
+            Documentation is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Public License v3.0</a></div>
+        </div>
+        <div class="footer-bsk-policy-links">
+          © NERC BAS
+          <ul class="list-inline">
+            <li><a href="https://www.bas.ac.uk/about-this-site/copyright-statement/">Copyright</a></li>
+            <li><a href="https://www.bas.ac.uk/about-this-site/privacy-cookie-policy/">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- bootstrap JS -->
+    <script src="/{{ site.version }}/dist/js/bootstrap.min.js"></script>
+    <script src="/{{ site.version }}/assets/js/src/application.js"></script>
+
+    <!-- Jira issue collecter - used for feedback -->
+    <script type="text/javascript" src="https://jira.ceh.ac.uk/s/d41d8cd98f00b204e9800998ecf8427e/en_UK-ux1ghj-1988229788/6264/37/1.4.7/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=579472a5"></script>
+
+    <!-- Google Analytics tracking - used for analytics -->
+    {% include analytics.html %}
+
+    <script src="/{{ site.version }}/assets/js/src/application-bsk.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/{{ site.version }}/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>

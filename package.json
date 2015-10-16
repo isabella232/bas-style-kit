@@ -1,7 +1,7 @@
 {
   "name": "bas-style-kit",
   "description": "A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.",
-  "version": "0.1.0",
+  "version": "0.1.0-beta",
   "homepage": "https://bas-style-kit.web.nerc-bas.ac.uk",
   "author": "British Antarctic Survey",
   "style": "dist/css/bas-style-kit.css",
@@ -9,18 +9,17 @@
   "main": "./dist/js/npm",
   "repository": {
     "type": "git",
-    "url": "git@github.com:felnne/bas-style-kit.git"
+    "url": "git@github.com:antarctica/bas-style-kit.git"
   },
   "bugs": {
-    "url": "https://jira.ceh.ac.uk/basweb"
+    "url": "https://jira.ceh.ac.uk/bsk"
   },
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "bootstrap": "3.3.5",
-    "open-sans-fontface": "^1.4",
-    "font-awesome": "^4.3",
-    "devicons": "^1.8"
+    "devicons": "^1.8",
+    "font-awesome": "^4.4",
+    "open-sans-fontface": "^1.4"
   },
   "devDependencies": {
     "del": "^1.2",

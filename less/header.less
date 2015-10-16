@@ -2,6 +2,9 @@
 // Headers
 // --------------------------------------------------
 
+@import (reference) "variables.less";
+
+
 // Headers are modelled on navbars, but designed as a lighter weight alternative for use in integrating non-BAS systems
 // with the BAS design. A good example of this is an Eventbrite template, where a full blown navbar would be both
 // unnecessary, and too unwieldy to implement due to its complex structure.
@@ -17,6 +20,10 @@
 // Provide a static footer from which we expand to create full-width, fixed, and other footer variations.
 
 .header-bsk {
+  font-family: @header-font-family;
+  font-weight: @header-font-weight;
+  font-size: @header-font-size;
+
   position: relative;
   min-height: @header-height; // Ensure a footer always shows
   margin-bottom: @header-margin-bottom;

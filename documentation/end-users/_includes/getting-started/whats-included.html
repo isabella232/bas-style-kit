@@ -1,10 +1,15 @@
 <div class="bs-docs-section">
   <h1 id="whats-included" class="page-header">What's included</h1>
 
+  <div class="bs-callout bs-callout-warning" id="custom-bootstrap-css-required">
+    <h4>Customised Bootstrap CSS required</h4>
+    <p>The BAS Style Kit depends on a customised version of Bootstrap's CSS to override some key settings (such as the default border-radius). <br />
+      You must include these custom Bootstrap styles <strong>before</strong> the Style Kit's main CSS. See the <a href="#template">Basic template</a> for an example.</p>
+  </div>
   <div class="bs-callout bs-callout-warning" id="jquery-required">
     <h4>jQuery and Bootstrap JS required</h4>
-    <p>The BAS Style Kit depends on Bootstrap's JavaScript plugins for providing component interactivity. These plugins in turn depend on jQuery. <br />
-      Therefore you must include jQuery before Bootstrap, see the <a href="#template">starter template</a> for an example.</p>
+    <p>The BAS Style Kit depends on Bootstrap's JavaScript plugins, which depend on jQuery, for providing component interactivity. <br />
+      Therefore you must include jQuery before Bootstrap, see the <a href="#template">Basic template</a> for an example.</p>
   </div>
 
   <h2 id="whats-included-compiled">Compiled styles</h2>
@@ -15,90 +20,80 @@ bas-style-kit/
   ├── css
   │   ├── bas-style-kit.css
   │   ├── bas-style-kit.min.css
+  │   ├── bootstrap-bsk.css
+  │   ├── bootstrap-bsk.min.css
   │   └── maps
   │       ├── bas-style-kit.css.map
   │       └── bas-style-kit.min.css.map
+  │       ├── bootstrap-bsk.css.map
+  │       └── bootstrap-bsk.min.css.map
   └── fonts
   ├── devicons
   │   ├── devicons.eot
-  │   ├── devicons.svg
   │   ├── devicons.ttf
   │   └── devicons.woff
   ├── font-awesome
   │   ├── FontAwesome.otf
   │   ├── fontawesome-webfont.eot
-  │   ├── fontawesome-webfont.svg
   │   ├── fontawesome-webfont.ttf
   │   ├── fontawesome-webfont.woff
   │   └── fontawesome-webfont.woff2
   ├── glyphicons-halflings-regular.eot
-  ├── glyphicons-halflings-regular.svg
   ├── glyphicons-halflings-regular.ttf
   ├── glyphicons-halflings-regular.woff
   ├── glyphicons-halflings-regular.woff2
   ├── map-glyphs
   │   ├── MapGlyphs.eot
-  │   ├── MapGlyphs.svg
   │   ├── MapGlyphs.ttf
   │   └── MapGlyphs.woff
   └── open-sans
   ├── Bold
   │   ├── OpenSans-Bold.eot
-  │   ├── OpenSans-Bold.svg
   │   ├── OpenSans-Bold.ttf
   │   ├── OpenSans-Bold.woff
   │   └── OpenSans-Bold.woff2
   ├── BoldItalic
   │   ├── OpenSans-BoldItalic.eot
-  │   ├── OpenSans-BoldItalic.svg
   │   ├── OpenSans-BoldItalic.ttf
   │   ├── OpenSans-BoldItalic.woff
   │   └── OpenSans-BoldItalic.woff2
   ├── ExtraBold
   │   ├── OpenSans-ExtraBold.eot
-  │   ├── OpenSans-ExtraBold.svg
   │   ├── OpenSans-ExtraBold.ttf
   │   ├── OpenSans-ExtraBold.woff
   │   └── OpenSans-ExtraBold.woff2
   ├── ExtraBoldItalic
   │   ├── OpenSans-ExtraBoldItalic.eot
-  │   ├── OpenSans-ExtraBoldItalic.svg
   │   ├── OpenSans-ExtraBoldItalic.ttf
   │   ├── OpenSans-ExtraBoldItalic.woff
   │   └── OpenSans-ExtraBoldItalic.woff2
   ├── Italic
   │   ├── OpenSans-Italic.eot
-  │   ├── OpenSans-Italic.svg
   │   ├── OpenSans-Italic.ttf
   │   ├── OpenSans-Italic.woff
   │   └── OpenSans-Italic.woff2
   ├── Light
   │   ├── OpenSans-Light.eot
-  │   ├── OpenSans-Light.svg
   │   ├── OpenSans-Light.ttf
   │   ├── OpenSans-Light.woff
   │   └── OpenSans-Light.woff2
   ├── LightItalic
   │   ├── OpenSans-LightItalic.eot
-  │   ├── OpenSans-LightItalic.svg
   │   ├── OpenSans-LightItalic.ttf
   │   ├── OpenSans-LightItalic.woff
   │   └── OpenSans-LightItalic.woff2
   ├── Regular
   │   ├── OpenSans-Regular.eot
-  │   ├── OpenSans-Regular.svg
   │   ├── OpenSans-Regular.ttf
   │   ├── OpenSans-Regular.woff
   │   └── OpenSans-Regular.woff2
   ├── Semibold
   │   ├── OpenSans-Semibold.eot
-  │   ├── OpenSans-Semibold.svg
   │   ├── OpenSans-Semibold.ttf
   │   ├── OpenSans-Semibold.woff
   │   └── OpenSans-Semibold.woff2
   └── SemiboldItalic
   ├── OpenSans-SemiboldItalic.eot
-  ├── OpenSans-SemiboldItalic.svg
   ├── OpenSans-SemiboldItalic.ttf
   ├── OpenSans-SemiboldItalic.woff
   └── OpenSans-SemiboldItalic.woff2
@@ -122,7 +117,6 @@ bas-style-kit/
   ├── fonts
   │   └── mapglyphs
   │       ├── MapGlyphs.eot
-  │       ├── MapGlyphs.svg
   │       ├── MapGlyphs.ttf
   │       └── MapGlyphs.woff
   ├── js
@@ -152,7 +146,7 @@ bas-style-kit/
   └── Vagrantfile
 {% endhighlight %}
   <ul class="list-unstyled">
-    <li><code>/dist</code> contains the asme files found in the <a href="#whats-included-compiled">Compiled styles</a></li>
+    <li><code>/dist</code> contains the same files found in the <a href="#whats-included-compiled">Compiled styles</a></li>
     <li><code>/documentation</code> contains this documentation (as a Jekyll website) and additional, text only, documentation for development and project management purposes</li>
     <li><code>/fonts</code> contains the Map Glyph icon font as this isn't available as a package through NPM</li>
     <li><code>/js</code> is an intentionally empty directory. In the future this will be used for custom JavaScript plugins</li>

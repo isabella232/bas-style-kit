@@ -51,19 +51,30 @@
 {% endhighlight %}
   <div class="bs-callout bs-callout-warning" id="callout-formgroup-inputgroup">
     <h4>Don't mix form groups with input groups</h4>
-    <p>Do not mix form groups directly with <a href="/components/#input-groups">input groups</a>. Instead, nest the input group inside of the form group.</p>
+    <p>Do not mix form groups directly with <a href="../components/#input-groups">input groups</a>.
+      Instead, nest the input group inside of the form group.</p>
   </div>
 
 
   <h2 id="forms-inline">Inline form</h2>
-  <p>Add <code>.form-inline</code> to your form (which doesn't have to be a <code>&lt;form&gt;</code>) for left-aligned and inline-block controls. <strong>This only applies to forms within viewports that are at least 768px wide.</strong></p>
+  <p>Add <code>.form-inline</code> to your form (which doesn't have to be a <code>&lt;form&gt;</code>) for left-aligned
+    and inline-block controls. <strong>This only applies to forms within viewports that are at least 768px wide.</strong></p>
   <div class="bs-callout bs-callout-danger" id="callout-inline-form-width">
     <h4>May require custom widths</h4>
-    <p>Inputs and selects have <code>width: 100%;</code> applied by default in the BAS Style Kit. Within inline forms, we reset that to <code>width: auto;</code> so multiple controls can reside on the same line. Depending on your layout, additional custom widths may be required.</p>
+    <p>Inputs and selects have <code>width: 100%;</code> applied by default in the BAS Style Kit. Within inline forms,
+      we reset that to <code>width: auto;</code> so multiple controls can reside on the same line.
+      Depending on your layout, additional custom widths may be required.</p>
   </div>
   <div class="bs-callout bs-callout-warning" id="callout-inline-form-labels">
     <h4>Always add labels</h4>
-    <p>Screen readers will have trouble with your forms if you don't include a label for every input. For these inline forms, you can hide the labels using the <code>.sr-only</code> class. There are further alternative methods of providing a label for assistive technologies, such as the <code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code> attribute. If none of these is present, screen readers may resort to using the <code>placeholder</code> attribute, if present, but note that use of <code>placeholder</code> as a replacement for other labelling methods is not advised.</p>
+    <p>
+      Screen readers will have trouble with your forms if you don't include a label for every input. For these inline
+      forms, you can hide the labels using the <code>.sr-only</code> class. There are further alternative methods of
+      providing a label for assistive technologies, such as the <code>aria-label</code>, <code>aria-labelledby</code>
+      or <code>title</code> attribute. If none of these is present, screen readers may resort to using the
+      <code>placeholder</code> attribute, if present, but note that use of <code>placeholder</code> as a replacement
+      for other labelling methods is not advised.
+    </p>
   </div>
 
   <div class="bs-example" data-example-id="simple-form-inline">
@@ -162,19 +173,19 @@
   <div class="bs-example" data-example-id="simple-horizontal-form">
     <form class="form-horizontal">
       <div class="form-group">
-        <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
-        <div class="col-sm-20">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
           <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
         </div>
       </div>
       <div class="form-group">
-        <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
-        <div class="col-sm-20">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
           <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
         </div>
       </div>
       <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-20">
+        <div class="col-sm-offset-2 col-sm-10">
           <div class="checkbox">
             <label>
               <input type="checkbox"> Remember me
@@ -183,7 +194,7 @@
         </div>
       </div>
       <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-20">
+        <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-default">Sign in</button>
         </div>
       </div>
@@ -192,19 +203,19 @@
 {% highlight html %}
 <form class="form-horizontal">
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
-    <div class="col-sm-20">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
       <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
-    <div class="col-sm-20">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
     </div>
   </div>
   <div class="form-group">
-    <div class="col-sm-offset-4 col-sm-20">
+    <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
         <label>
           <input type="checkbox"> Remember me
@@ -213,7 +224,7 @@
     </div>
   </div>
   <div class="form-group">
-    <div class="col-sm-offset-4 col-sm-20">
+    <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Sign in</button>
     </div>
   </div>
@@ -240,7 +251,8 @@
 {% endhighlight %}
   <div class="bs-callout bs-callout-info" id="callout-xref-input-group">
     <h4>Input groups</h4>
-    <p>To add integrated text or buttons before and/or after any text-based <code>&lt;input&gt;</code>, <a href="../components/#input-groups">check out the input group component</a>.</p>
+    <p>To add integrated text or buttons before and/or after any text-based <code>&lt;input&gt;</code>,
+      <a href="../components/#input-groups">check out the input group component</a>.</p>
   </div>
 
   <h3>Textarea</h3>
@@ -458,14 +470,14 @@
   <div class="bs-example" data-example-id="horizontal-static-form-control">
     <form class="form-horizontal">
       <div class="form-group">
-        <label class="col-sm-4 control-label">Email</label>
-        <div class="col-sm-20">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
           <p class="form-control-static">email@example.com</p>
         </div>
       </div>
       <div class="form-group">
-        <label for="inputPassword" class="col-sm-4 control-label">Password</label>
-        <div class="col-sm-20">
+        <label for="inputPassword" class="col-sm-2 col-bsk-sm-4 control-label">Password</label>
+        <div class="col-sm-10 col-bsk-sm-20">
           <input type="password" class="form-control" id="inputPassword" placeholder="Password">
         </div>
       </div>
@@ -474,14 +486,14 @@
 {% highlight html %}
 <form class="form-horizontal">
   <div class="form-group">
-    <label class="col-sm-4 control-label">Email</label>
-    <div class="col-sm-20">
-      <p class="form-control-static">email@example.com</p>
+    <label class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">user@example.com</p>
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword" class="col-sm-4 control-label">Password</label>
-    <div class="col-sm-20">
+    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword" placeholder="Password">
     </div>
   </div>
@@ -543,12 +555,24 @@
 
   <div class="bs-callout bs-callout-warning" id="callout-fieldset-disabled-pointer-events">
     <h4>Caveat about link functionality of <code>&lt;a&gt;</code></h4>
-    <p>By default, browsers will treat all native form controls (<code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> and <code>&lt;button&gt;</code> elements) inside a <code>&lt;fieldset disabled&gt;</code> as disabled, preventing both keyboard and mouse interactions on them. However, if your form also includes <code>&lt;a ... class="btn btn-*"&gt;</code> elements, these will only be given a style of <code>pointer-events: none</code>. As noted in the section about <a href="#buttons-disabled">disabled state for buttons</a> (and specifically in the sub-section for anchor elements), this CSS property is not yet standardized and isn't fully supported in Opera 18 and below, or in Internet Explorer 11, and won't prevent keyboard users from being able to focus or activate these links. So to be safe, use custom JavaScript to disable such links.</p>
+    <p>
+      By default, browsers will treat all native form controls (<code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>
+      and <code>&lt;button&gt;</code> elements) inside a <code>&lt;fieldset disabled&gt;</code> as disabled, preventing
+      both keyboard and mouse interactions on them. However,
+      if your form also includes <code>&lt;a ... class="btn btn-*"&gt;</code> elements,
+      these will only be given a style of <code>pointer-events: none</code>.
+      As noted in the section about <a href="#buttons-disabled">disabled state for buttons</a> (and specifically in the
+      sub-section for anchor elements), this CSS property is not yet standardized and isn't fully supported in Opera 18
+      and below, or in Internet Explorer 11, and won't prevent keyboard users from being able to focus or activate these
+      links. So to be safe, use custom JavaScript to disable such links.</p>
   </div>
 
   <div class="bs-callout bs-callout-danger" id="callout-fieldset-disabled-ie">
     <h4>Cross-browser compatibility</h4>
-    <p>While these styles apply in all browsers, Internet Explorer 11 and below don't fully support the <code>disabled</code> attribute on a <code>&lt;fieldset&gt;</code>. Use custom JavaScript to disable the fieldset in these browsers.</p>
+    <p>While these styles apply in all browsers, Internet Explorer 11 and below don't fully support the
+      <code>disabled</code> attribute on a <code>&lt;fieldset&gt;</code>.
+      Use custom JavaScript to disable the fieldset in these browsers.
+    </p>
   </div>
 
   <div class="bs-example" data-example-id="disabled-fieldset">
@@ -598,7 +622,8 @@
 
 
   <h2 id="forms-control-readonly">Readonly state</h2>
-  <p>Add the <code>readonly</code> boolean attribute on an input to prevent modification of the input's value. Read-only inputs appear lighter (just like disabled inputs), but retain the standard cursor.</p>
+  <p>Add the <code>readonly</code> boolean attribute on an input to prevent modification of the input's value.
+    Read-only inputs appear lighter (just like disabled inputs), but retain the standard cursor.</p>
   <div class="bs-example" data-example-id="readonly-text-form-control">
     <form>
       <input class="form-control" type="text" placeholder="Readonly input here…" readonly>
@@ -610,12 +635,27 @@
 
 
   <h2 id="forms-control-validation">Validation states</h2>
-  <p>Validation styles for error, warning, and success states on form controls are provided by Bootstrap, the BAS Style Kit's underlying framework. To use, add <code>.has-warning</code>, <code>.has-error</code>, or <code>.has-success</code> to the parent element. Any <code>.control-label</code>, <code>.form-control</code>, and <code>.help-block</code> within that element will receive the validation styles.</p>
+  <p>
+    Validation styles for error, warning, and success states on form controls are provided by Bootstrap, the
+    BAS Style Kit's underlying framework. To use, add <code>.has-warning</code>, <code>.has-error</code>,
+    or <code>.has-success</code> to the parent element. Any <code>.control-label</code>, <code>.form-control</code>,
+    and <code>.help-block</code> within that element will receive the validation styles.
+  </p>
 
   <div class="bs-callout bs-callout-warning" id="callout-form-validation-state-accessibility">
     <h4>Conveying validation state to assistive technologies and colourblind users</h4>
-    <p>Using these validation styles to denote the state of a form control only provides a visual, colour-based indication, which will not be conveyed to users of assistive technologies - such as screen readers - or to colourblind users.</p>
-    <p>Ensure that an alternative indication of state is also provided. For instance, you can include a hint about state in the form control's <code>&lt;label&gt;</code> text itself (as is the case in the following code example), include a <a href="../components/#glyphicons">Glyphicon</a> (with appropriate alternative text using the <code>.sr-only</code> class - see the <a href="../components/#glyphicons-examples">Glyphicon examples</a>), or by providing an additional <a href="#forms-help-text">help text</a> block. Specifically for assistive technologies, invalid form controls can also be assigned an <code>aria-invalid="true"</code> attribute.</p>
+    <p>
+      Using these validation styles to denote the state of a form control only provides a visual,
+      colour-based indication, which will not be conveyed to users of assistive technologies - such as screen readers -
+      or to colourblind users.
+    </p>
+    <p>Ensure that an alternative indication of state is also provided. For instance, you can include a hint about
+      state in the form control's <code>&lt;label&gt;</code> text itself (as is the case in the following code example),
+      include a <a href="../components/#glyphicons">Glyphicon</a> (with appropriate alternative text using the
+      <code>.sr-only</code> class - see the <a href="../components/#glyphicons-examples">Glyphicon examples</a>), or by
+      providing an additional <a href="#forms-help-text">help text</a> block. Specifically for assistive technologies,
+      invalid form controls can also be assigned an <code>aria-invalid="true"</code> attribute.
+    </p>
   </div>
 
   <div class="bs-example" data-example-id="form-validation-states">
@@ -702,7 +742,12 @@
   <p><strong class="text-danger">Feedback icons only work with textual <code>&lt;input class="form-control"&gt;</code> elements.</strong></p>
   <div class="bs-callout bs-callout-warning" id="callout-has-feedback-icon-positioning">
     <h4>Icons, labels, and input groups</h4>
-    <p>Manual positioning of feedback icons is required for inputs without a label and for <a href="../components#input-groups">input groups</a> with an add-on on the right. You are strongly encouraged to provide labels for all inputs for accessibility reasons. If you wish to prevent labels from being displayed, hide them with the <code>.sr-only</code> class. If you must do without labels, adjust the <code>top</code> value of the feedback icon. For input groups, adjust the <code>right</code> value to an appropriate pixel value depending on the width of your addon.</p>
+    <p>Manual positioning of feedback icons is required for inputs without a label and for
+      <a href="../components#input-groups">input groups</a> with an add-on on the right. You are strongly encouraged to
+      provide labels for all inputs for accessibility reasons. If you wish to prevent labels from being displayed,
+      hide them with the <code>.sr-only</code> class. If you must do without labels, adjust the <code>top</code> value
+      of the feedback icon. For input groups, adjust the <code>right</code> value to an appropriate pixel value
+      depending on the width of your addon.</p>
   </div>
   <div class="bs-callout bs-callout-warning" id="callout-has-feedback-icon-accessibility">
     <h4>Conveying the icon's meaning to assistive technologies</h4>
@@ -774,16 +819,16 @@
   <div class="bs-example" data-example-id="horizontal-form-validation-state-with-icon">
     <form class="form-horizontal">
       <div class="form-group has-success has-feedback">
-        <label class="control-label col-sm-6" for="inputSuccess3">Input with success</label>
-        <div class="col-sm-18">
+        <label class="control-label col-sm-3" for="inputSuccess3">Input with success</label>
+        <div class="col-sm-9">
           <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
           <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
           <span id="inputSuccess3Status" class="sr-only">(success)</span>
         </div>
       </div>
       <div class="form-group has-success has-feedback">
-        <label class="control-label col-sm-6" for="inputGroupSuccess2">Input group with success</label>
-        <div class="col-sm-18">
+        <label class="control-label col-sm-3" for="inputGroupSuccess2">Input group with success</label>
+        <div class="col-sm-9">
           <div class="input-group">
             <span class="input-group-addon">@</span>
             <input type="text" class="form-control" id="inputGroupSuccess2" aria-describedby="inputGroupSuccess2Status">
@@ -797,16 +842,16 @@
 {% highlight html %}
 <form class="form-horizontal">
   <div class="form-group has-success has-feedback">
-    <label class="control-label col-sm-6" for="inputSuccess3">Input with success</label>
-    <div class="col-sm-18">
+    <label class="control-label col-sm-3" for="inputSuccess3">Input with success</label>
+    <div class="col-sm-9">
       <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
       <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
       <span id="inputSuccess3Status" class="sr-only">(success)</span>
     </div>
   </div>
   <div class="form-group has-success has-feedback">
-    <label class="control-label col-sm-6" for="inputGroupSuccess2">Input group with success</label>
-    <div class="col-sm-18">
+    <label class="control-label col-sm-3" for="inputGroupSuccess2">Input group with success</label>
+    <div class="col-sm-9">
       <div class="input-group">
         <span class="input-group-addon">@</span>
         <input type="text" class="form-control" id="inputGroupSuccess2" aria-describedby="inputGroupSuccess2Status">
@@ -939,14 +984,14 @@
   <div class="bs-example" data-example-id="form-group-height-sizes">
     <form class="form-horizontal">
       <div class="form-group form-group-lg">
-        <label class="col-sm-4 control-label" for="formGroupInputLarge">Large label</label>
-        <div class="col-sm-20">
+        <label class="col-sm-2 control-label" for="formGroupInputLarge">Large label</label>
+        <div class="col-sm-10">
           <input class="form-control" type="text" id="formGroupInputLarge" placeholder="Large input">
         </div>
       </div>
       <div class="form-group form-group-sm">
-        <label class="col-sm-4 control-label" for="formGroupInputSmall">Small label</label>
-        <div class="col-sm-20">
+        <label class="col-sm-2 col-bsk-sm-4 control-label" for="formGroupInputSmall">Small label</label>
+        <div class="col-sm-10 col-bsk-sm-20">
           <input class="form-control" type="text" id="formGroupInputSmall" placeholder="Small input">
         </div>
       </div>
@@ -955,14 +1000,14 @@
 {% highlight html %}
 <form class="form-horizontal">
   <div class="form-group form-group-lg">
-    <label class="col-sm-4 control-label" for="formGroupInputLarge">Large label</label>
-    <div class="col-sm-20">
+    <label class="col-sm-2 control-label" for="formGroupInputLarge">Large label</label>
+    <div class="col-sm-10">
       <input class="form-control" type="text" id="formGroupInputLarge" placeholder="Large input">
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label" for="formGroupInputSmall">Small label</label>
-    <div class="col-sm-20">
+    <label class="col-sm-2control-label" for="formGroupInputSmall">Small label</label>
+    <div class="col-sm-10">
       <input class="form-control" type="text" id="formGroupInputSmall" placeholder="Small input">
     </div>
   </div>
@@ -975,28 +1020,28 @@
   <div class="bs-example" data-example-id="form-control-column-sizing">
     <form>
       <div class="row">
+        <div class="col-xs-2">
+          <input type="text" class="form-control" placeholder=".col-xs-2">
+        </div>
+        <div class="col-xs-3">
+          <input type="text" class="form-control" placeholder=".col-xs-3">
+        </div>
         <div class="col-xs-4">
           <input type="text" class="form-control" placeholder=".col-xs-4">
-        </div>
-        <div class="col-xs-6">
-          <input type="text" class="form-control" placeholder=".col-xs-6">
-        </div>
-        <div class="col-xs-8">
-          <input type="text" class="form-control" placeholder=".col-xs-8">
         </div>
       </div>
     </form>
   </div><!-- /.bs-example -->
 {% highlight html %}
 <div class="row">
+  <div class="col-xs-2 col-bsk-xs-4">
+    <input type="text" class="form-control" placeholder=".col-xs-2">
+  </div>
+  <div class="col-xs-3">
+    <input type="text" class="form-control" placeholder=".col-xs-3">
+  </div>
   <div class="col-xs-4">
     <input type="text" class="form-control" placeholder=".col-xs-4">
-  </div>
-  <div class="col-xs-6">
-    <input type="text" class="form-control" placeholder=".col-xs-6">
-  </div>
-  <div class="col-xs-8">
-    <input type="text" class="form-control" placeholder=".col-xs-8">
   </div>
 </div>
 {% endhighlight %}

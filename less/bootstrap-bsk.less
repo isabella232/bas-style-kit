@@ -1,0 +1,8 @@
+// This file is required to import unaltered Bootstrap styles so that custom variables can be applied as needed.
+// It is a separate file to prevent too many CSS selectors being contained in a single file, which is limited up to IE9.
+
+@import "../node_modules/bootstrap/less/bootstrap.less";
+
+// Load BAS Style Kit variables to override Bootstrap
+// Note: This file **MUST** be loaded after Bootstrap
+@import "variables.less";

@@ -10,29 +10,39 @@ title: BAS Style Kit
     <p class="lead">
       <a href="getting-started#download" class="btn btn-lg btn-bsk btn-bsk-primary">Download the BAS Style Kit</a>
     </p>
-    <p class="version">Currently v{{ site.current_version }}</p>
+    <p class="version">
+      {% if jekyll.environment == "production" %}
+      Version {{ site.version }}
+      {% elsif jekyll.environment == "staging" %}
+      Changes since version {{ site.version }}
+      {% elsif jekyll.environment == "development" %}
+      Local version
+      {% endif %}
+    </p>
   </div>
 </main>
 
 <div class="bs-docs-featurette">
   <div class="container">
 
-    {% include new-website-banner.html %}
+    <div class="bsk-docs-featurette-wide">
+      {% include banner.html %}
+    </div>
 
     <hr class="half-rule">
 
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-sm-4">
         <img src="assets/img/less.png" alt="Sass and Less support" class="img-responsive">
         <h3>Built using LESS</h3>
         <p>Get started with the BAS Style Kit using pre-compiled CSS, or build on and adapt the underlying <a href="../css/#less">Less</a>  source code.</p>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-4">
         <img src="assets/img/devices.png" alt="Responsive across devices" class="img-responsive">
         <h3>Based on Bootstrap</h3>
         <p><a href="http://getbootstrap.com/">Bootstrap</a> is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</p>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-4">
         <img src="assets/img/components.png" alt="Components" class="img-responsive">
         <h3>Designed for BAS</h3>
         <p>From simple page designs to complex interactive maps, extensive documentation covers everything you'll need.</p>
@@ -42,7 +52,8 @@ title: BAS Style Kit
     <hr class="half-rule">
 
     <h2 class="bs-docs-featurette-title">Counterpart to the BAS Style Guide</h2>
-    <p class="lead">The BAS Style Guide gives official guidance and suggestions on how to design BAS projects on the web, <br /> and how to use the resources in this Style Kit.</p>
+    <p class="lead">The BAS Style Guide gives official guidance and suggestions on how to design BAS projects on the
+      web, and how to use the resources in this Style Kit.</p>
     <a href="{{ site.style_guide_url }}" class="btn btn-bsk btn-bsk-primary btn-lg">View the BAS Style Guide</a>
   </div>
 </div>
@@ -51,11 +62,14 @@ title: BAS Style Kit
   <div class="container">
     <h2 class="bs-docs-featurette-title">A living, shared, resource, developed in the open</h2>
     <p class="lead">Anyone can contribute changes, whether its a new component or improving the documentation.</p>
-    <p class="lead">The BAS Style Kit is designed around the needs of BAS Projects. If you can't find something you need <br /> <a {{ site.feedback_attributes }}>let us know</a> and we'll work with you to find something suitable.</p>
+    <p class="lead">The BAS Style Kit is designed around the needs of BAS Projects. If you can't find something you
+      need <a {{ site.feedback_attributes }}>let us know</a> and we'll work with you to find something suitable.</p>
     <a href="{{ site.repo }}" class="btn btn-bsk btn-bsk-primary btn-lg">View the code repository</a>
 
+    <hr class="half-rule">
+
     <div class="row">
-      <div class="col-xl-16 col-xl-offset-4">
+      <div class="col-xl-8 col-xl-offset-2">
         <div class="bs-callout bs-callout-warning">
           <p class="lead"><strong>Some parts of the BAS Style Kit, such as the BAS Logo, are licensed works.</strong></p>
           <p class="lead">This means they may only be used in projects officially endorsed by BAS, subject to certain conditions. This is explained in detail where this applies.</p>
@@ -74,7 +88,7 @@ title: BAS Style Kit
 
     <div class="row bs-docs-featured-sites">
     {% for showcase in site.data.showcase %}
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-6 col-sm-3">
         <a href="{{ showcase.url }}" target="_blank" title="{{ showcase.name }}">
           <img src="{{ showcase.thumbnail_img }}" alt="{{ showcase.name }}" class="img-responsive">
         </a>
