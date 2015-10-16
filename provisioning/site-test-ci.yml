@@ -30,4 +30,6 @@
     # TODO: Check this happens
     - name: build static site using jekyll
       command: jekyll build
+      args:
+        chdir: ../
     # TODO: Check this happens

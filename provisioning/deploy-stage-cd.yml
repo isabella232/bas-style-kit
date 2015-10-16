@@ -45,5 +45,7 @@
       command: gulp jekyll-data
     - name: build static site using jekyll
       command: jekyll build
+      args:
+        chdir: ../
     - name: deploy staging site to S3 static website
       command: "aws s3 sync {{ aws_s3_sync_source }} {{ aws_s3_sync_target }}"
