@@ -463,12 +463,10 @@ modelled on the Bootstrap end-user documentation.
 In this, *development* environment this documentation will be re-generated frequently and used locally to ensure new
 features are correctly documented.
 
-Note: The *development* environment is the only environment which can build the Jekyll site, as it is the only environment
-in which Jekyll is available. This means other environments rely on the site files being generated in a *development*
-environment first, before they are then uploaded to another environment. This is explained in these other environments.
-
 Note: The definitive version of this documentation, built from the latest release of the project, is available at
 [here](https://bas-style-kit.web.nerc-bas.ac.uk/).
+The `JEKYLL_ENV` is not set in this environment to use its default value of `development`. This should not be changed
+to ensure the documentation is built in the correct way.
 
 To manually rebuild the documentation:
 
