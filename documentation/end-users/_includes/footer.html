@@ -10,11 +10,11 @@
       </ul>
     </div>
     <div class="bsk-docs-footer-version">
-      {% if site.data.provisioned.env == 'production' %}
       <a href="{{ site.repo }}?at=refs%2Ftags%2Fv{{ site.data.provisioned.version }}">Version {{ site.data.provisioned.version }}</a>
-      {% elsif site.data.provisioned.env == 'staging' %}
       Changes since version <a href="{{ site.repo }}?at=refs%2Fbranches%2Fdevelop">version {{ site.data.provisioned.version }}</a>
-      {% elsif site.data.provisioned.env == 'development' %}
+      {% if jekyll.environment == "production" %}
+      {% elsif jekyll.environment == "staging" %}
+      {% elsif jekyll.environment == "development" %}
       Local version
       {% endif %}
     </div>

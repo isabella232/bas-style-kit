@@ -181,6 +181,12 @@ In the settings for this project set the *Branches* settings to:
 
 * Build new branches: `Never`
 
+Set *Environment Variables* as shown in the table below:
+
+| Name         | Content | Encrypt Content |
+| ------------ | ------- | --------------- |
+| `JEKYLL_ENV` | staging | No (unchecked)  |
+
 Copy the build badge for the *develop* branch to this README.
 
 If the project and branch already exists, check the settings above are correct.

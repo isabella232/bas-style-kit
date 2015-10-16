@@ -1,9 +1,9 @@
 <div class="bs-callout bs-callout-info">
-  {% if site.data.provisioned.env == 'production' %}
+  {% if jekyll.environment == "production" %}
   <p class="lead"><strong>This is a new website,</strong> your <a {{ site.feedback_attributes }}>feedback</a> and <a href="/{{ site.data.provisioned.version }}/getting-started#contributing">contributions</a> will help us improve it.</p>
-  {% elsif site.data.provisioned.env == 'staging' %}
+  {% elsif jekyll.environment == "staging" %}
   <p class="lead"><strong>Preview documentation,</strong> features and content may change before release. Please give <a {{ site.feedback_attributes }}>feedback</a>.</p>
-  {% elsif site.data.provisioned.env == 'development' %}
+  {% elsif jekyll.environment == "development" %}
   <p class="lead"><strong>Local version,</strong> <a {{ site.feedback_attributes }}>get in touch</a> for advise on documentation. Thanks for your contributions <i class="fa fa-smile-o"></i>.</p>
   {% endif %}
 </div>
