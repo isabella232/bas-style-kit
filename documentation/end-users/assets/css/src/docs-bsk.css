@@ -351,7 +351,7 @@
  */
 
 .highlight {
-  border-radius: 0px;
+  border-radius: 0;
   background-color: #F4F6F9;
   border-color: #E7EBF1;
 }
@@ -378,7 +378,7 @@
     border-bottom-left-radius: 0;
   }
   .bs-example-standalone {
-    border-radius: 0px;
+    border-radius: 0;
   }
 }
 
