@@ -4,10 +4,10 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  {% if site.data.provisioned.env == 'production' %}
   ga('create', '{{ site.data.provisioned.analytics_token_prod }}', 'auto');
-  {% elsif site.data.provisioned.env == 'staging' %}
   ga('create', '{{ site.data.provisioned.analytics_token_stage }}', 'auto');
+  {% if jekyll.environment == "production" %}
+  {% elsif jekyll.environment == "staging" %}
   {% endif %}
 
   ga('set', 'anonymizeIp', true);
