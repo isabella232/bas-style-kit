@@ -19,10 +19,11 @@ url:  localhost
 encoding: UTF-8
 
 # Project vars
+
+
+version: 0.1.0-alpha
 repo: https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit/browse
 issues: https://jira.ceh.ac.uk/browse/BSK
-version: 0.1.0-alpha
-
 style_guide_url: https://antarctica.hackpad.com/BAS-Style-Guide-NT1D10DRTCo
 feedback_attributes: data-bsk-action="open-feedback-form"
 discussions_url: https://antarctica.hackpad.com/BAS-Style-Kit-Discussions-zjz6NiUOhdA
@@ -30,13 +31,11 @@ discussions_url: https://antarctica.hackpad.com/BAS-Style-Kit-Discussions-zjz6Ni
 download:
   source: https://stash.ceh.ac.uk/plugins/servlet/archive/projects/BSK/repos/bas-style-kit?at=refs%2Ftags%2Fv0.1.0-alpha
   dist: https://bascdnprod.blob.core.windows.net/bas-style-kit/0.1.0-alpha/bas_style_kit_0.1.0-alpha.zip
-
 cdn:
   bsk-css: https://s3-eu-west-1.amazonaws.com/bas-cdn-prod/bas-style-kit/0.1.0-alpha/dist/css/bas-style-kit.min.css
   bootstrap-bsk-css: https://s3-eu-west-1.amazonaws.com/bas-cdn-prod/bas-style-kit/0.1.0-alpha/dist/css/bootstrap-bsk.min.css
 
 # Google analytics token (each environment uses a different token - dev is not tracked as it isn't a valid FQDN)
-
 analytics_token_prod:  UA-64130716-27
 analytics_token_stage: UA-64130716-28
 

@@ -82,7 +82,7 @@ Host *.web.nerc-bas.ac.uk
 vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
 
 For obvious reasons this file is **MUST NOT** be checked into source control and instead be manually copied into place.
-Users can request this file using the information in the *Feedback* section of this README.
+Users can request this file using the information in the *Issue Tracker* section of the Project Management documentation.
 
 ### Production - remote
 
@@ -223,7 +223,7 @@ ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connec
 ```
 
 [3] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
-information in the *Feedback* section of this README.
+information in the *Issue Tracker* section of the Project Management documentation..
 
 ### Production - remote
 
