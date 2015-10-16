@@ -6,8 +6,6 @@
     - aws_s3_sync_source: "../site"
     - aws_s3_sync_target: "s3://bas-style-kit-docs-stage"
   tasks:
-    - name: install AWSCLI from pip
-      pip: name=awscli
     - name: install jekyll without documentation
       command: "gem install jekyll --no-ri --no-rdoc"
     - name: install rouge gem
