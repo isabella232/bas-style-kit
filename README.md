@@ -167,18 +167,13 @@ In the settings for this project set the *Build Settings* to:
 For the *Setup* thread enter these commands:
 
 ```shell
-sudo pip install ansible
-ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
+pip install ansible
 ```
 
 For *Thread #1* enter these commands:
 
 ```shell
-gulp clean
-gulp less
-gulp fonts
-gulp jekyll-data
-jekyll build
+ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local
 ```
 
 [1] Note: This service should already exist and is out of the scope of this project.
@@ -196,7 +191,7 @@ If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.c
 
 * Set the deployment strategy to: `Automatic`
 * Set the branch to deploy to: `develop`
-* Set the deploy commands to `ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connection=local`
+* Set the deploy commands to [2]
 * Skip the deployment SSH key option
 * Set the server name to: `s3-bas-style-kit-docs-stage`
 * Set the server URL to: `http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/`
@@ -205,6 +200,12 @@ If the deployment already exists check the settings above are correct.
 
 End-user documentation for this project can then be accessed from
 [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
+
+[2]
+```shell
+pip install ansible
+ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
+```
 
 ### Production - remote
 
