@@ -1,5 +1,6 @@
 # BAS Style Kit
 
+Master: [![Build Status](https://semaphoreci.com/api/v1/projects/0f33c45e-b93f-4491-aa1a-eb4848653351/573094/badge.svg)](https://semaphoreci.com/antarctica/bas-style-kit)
 Develop: [![Build Status](https://semaphoreci.com/api/v1/projects/0f33c45e-b93f-4491-aa1a-eb4848653351/569676/badge.svg)](https://semaphoreci.com/antarctica/bas-style-kit)
 
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
