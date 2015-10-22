@@ -7,7 +7,7 @@ module Jekyll
 
     def generate(site)
 
-      site.config['repo'] = ENV['REVISION'] || 'unknown'
+      site.config['revision'] = ENV['REVISION'] || 'unknown'
 
     end
 
