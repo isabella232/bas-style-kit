@@ -22,7 +22,7 @@ encoding: UTF-8
 
 version: 0.1.0-beta
 
-repo: https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit/browse
+repo: https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit
 issues: https://jira.ceh.ac.uk/browse/BSK
 style_guide_url: https://antarctica.hackpad.com/BAS-Style-Guide-NT1D10DRTCo
 feedback_attributes: data-bsk-action="open-feedback-form"
