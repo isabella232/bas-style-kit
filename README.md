@@ -192,6 +192,8 @@ In the settings for this project set the *Build Settings* to:
 For the *Setup* thread enter these commands:
 
 ```shell
+source provisioning/data/semaphore-ci/set-environment.sh
+declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
 ```
 
@@ -204,12 +206,6 @@ ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connectio
 Set the *Branches* settings to:
 
 * Build new branches: `Never`
-
-Set *Environment Variables* as shown in the table below:
-
-| Name         | Content | Encrypt Content |
-| ------------ | ------- | --------------- |
-| `JEKYLL_ENV` | staging | No (unchecked)  |
 
 Set *Configuration Files* as shown in the table below:
 
@@ -242,6 +238,8 @@ See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/bro
 
 [2]
 ```shell
+source provisioning/data/semaphore-ci/set-environment.sh
+declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
 ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
 ```
