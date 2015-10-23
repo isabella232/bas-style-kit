@@ -229,13 +229,13 @@ If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.c
 * Set the branch to deploy to: `develop`
 * Set the deploy commands to [2]
 * Skip the deployment SSH key option
-* Set the server name to: `s3-bas-style-kit-docs-stage`
-* Set the server URL to: `http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/`
+* Set the server name to: `staging-documentation`
+* Set the server URL to: `https://style-kit-preview.web.bas.ac.uk/`
 
 If the deployment already exists check the settings above are correct.
 
 End-user documentation for this project can then be accessed from
-[here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
+[here](https://style-kit-preview.web.bas.ac.uk/).
 
 [1] Note: This service should already exist and is out of the scope of this project.
 See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
