@@ -83,8 +83,8 @@ Host *.web.nerc-bas.ac.uk
 [4] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
 vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
 
-For obvious reasons this file is **MUST NOT** be checked into source control and instead be manually copied into place.
-Users can request this file using the information in the *Issue Tracker* section of the Project Management documentation.
+For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
+this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
 
 [5] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
 
