@@ -347,6 +347,10 @@ To manually build the documentation:
 $ ssh bas-style-kit-dev-web1.v.m
 $ cd /app
 
+$ gulp clean
+$ gulp fonts
+$ gulp less
+$ gulp jekyll-data
 $ jekyll build
 ```
 
