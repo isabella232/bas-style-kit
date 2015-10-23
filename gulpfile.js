@@ -140,8 +140,6 @@ gulp.task('bootstrap-bsk-less-no-min', function() {
     .pipe(less(configs.less))
     .pipe(autoprefixer(configs.autoprefixer))
     .pipe(csscomb())
-    .pipe(csslint(configs.csslint.csslintrc))
-    .pipe(csslint.reporter())
     .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
@@ -152,8 +150,6 @@ gulp.task('bootstrap-bsk-less-min', function() {
     .pipe(less(configs.less))
     .pipe(autoprefixer(configs.autoprefixer))
     .pipe(csscomb())
-    .pipe(csslint(configs.csslint.csslintrc))
-    .pipe(csslint.reporter())
     .pipe(minifycss(configs.minifycss))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
