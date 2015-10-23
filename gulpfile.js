@@ -118,8 +118,11 @@ gulp.task('bsk-less-min', function() {
     .pipe(less(configs.less))
     .pipe(autoprefixer(configs.autoprefixer))
     .pipe(csscomb())
+gulp.task('bsk-less-lint', function() {
+  return gulp.src(path.join(destinations.dist, destinations.css, 'bas-style-kit.css'))
     .pipe(csslint(configs.csslint.csslintrc))
     .pipe(csslint.reporter())
+});
     .pipe(minifycss(configs.minifycss))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
@@ -426,6 +429,10 @@ gulp.task('less', [
   'bsk-less-min',
   'bootstrap-bsk-less-no-min',
   'bootstrap-bsk-less-min'
+]);
+
+gulp.task('lint', [
+  'bsk-less-lint'
 ]);
 
 gulp.task('fonts', [

@@ -28,6 +28,15 @@ $ logout
 
 In *staging* environments the Continuous Integration and Deployment system will call Gulp commands as needed.
 
+### High level tasks
+
+High level tasks are provided for convenience, they don't do anything by themselves, except call other tasks.
+
+* `gulp lint` - Runs all linting tasks, including Less/CSS
+
+Note: This list is not definitive. There can be other high level tasks (`gulp less` for example) defined within other
+sections of this documentation.
+
 ### Utility tasks
 
 These tasks are useful as part of larger workflows, they have limited utility on their own.

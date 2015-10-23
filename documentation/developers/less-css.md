@@ -50,7 +50,6 @@ bootstrap-bsk-less-min]`.
 
 * Compile `less/bas-style-kit.less`  into CSS
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
-* Run compiled CSS through [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/) - see *linting* for more
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled CSS files
 * Output compiled, processed CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
@@ -84,13 +83,15 @@ bootstrap-bsk-less-min]`.
 
 ### CSS linting
 
-Compiled CSS, which is part of the Style Kit, is ran through the same linting tools Bootstrap uses,
-[csslint](http://csslint.net/) & [csscomb](http://csscomb.com/), and uses the same setting files (except where noted).
+`gulp bsk-less-lint` is a task which will run compiled CSS (but not our customised version of Bootstrap) through
+[csslint](http://csslint.net/), the same tools Bootstrap uses.
 
-Errors are reported to the terminal.
+Because we use the same linting tools as Bootstrap, and we only change variables in our custom version of Bootstrap,
+we don't lint our custom version as well.
 
-Note: We do not lint our custom Bootstrap CSS as we only change variable values and there is no point linting the
-compiled CSS twice.
+Any errors are reported to the terminal.
+
+This task is included in the high level `lint` task, which is defined in the [Gulp|../gulp.md] section.
 
 #### Known errors
 
