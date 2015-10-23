@@ -53,7 +53,7 @@ bootstrap-bsk-less-min]`.
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled CSS files
 * Output compiled, processed CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
-`gulp bsk-less-min` is a compound task which will, in addition to the steps performed in `bsk-less-no-min`:
+`gulp bsk-less-min` is a compound task which takes the output of the `bsk-less-no-min` task and then:
 
 * Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` filename suffix
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled minified CSS files
@@ -70,8 +70,8 @@ bootstrap-bsk-less-min]`.
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled CSS files
 * Output compiled, processed CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
-`gulp bootstrap-bsk-less-min` is a compound task which will, in addition to the steps performed in
-`bootstrap-bsk-less-no-min`:
+`gulp bootstrap-bsk-less-min` is a compound task which takes the output of the `bootstrap-bsk-less-no-min` task,
+and then:
 
 * Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` filename suffix
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled minified CSS files

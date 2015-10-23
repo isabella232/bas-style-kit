@@ -112,17 +112,14 @@ gulp.task('bsk-less-no-min', function() {
     .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
-gulp.task('bsk-less-min', function() {
-  return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
-    .pipe(sourcemaps.init())
-    .pipe(less(configs.less))
-    .pipe(autoprefixer(configs.autoprefixer))
-    .pipe(csscomb())
 gulp.task('bsk-less-lint', function() {
   return gulp.src(path.join(destinations.dist, destinations.css, 'bas-style-kit.css'))
     .pipe(csslint(configs.csslint.csslintrc))
     .pipe(csslint.reporter())
 });
+gulp.task('bsk-less-min', function() {
+  return gulp.src(path.join(destinations.dist, destinations.css, 'bas-style-kit.css'))
+    .pipe(sourcemaps.init())
     .pipe(minifycss(configs.minifycss))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
@@ -148,11 +145,8 @@ gulp.task('bootstrap-bsk-less-no-min', function() {
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
 gulp.task('bootstrap-bsk-less-min', function() {
-  return gulp.src(path.join(sources.stylesheets, 'bootstrap-bsk.less'))
+  return gulp.src(path.join(destinations.dist, destinations.css, 'bootstrap-bsk.css'))
     .pipe(sourcemaps.init())
-    .pipe(less(configs.less))
-    .pipe(autoprefixer(configs.autoprefixer))
-    .pipe(csscomb())
     .pipe(minifycss(configs.minifycss))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
