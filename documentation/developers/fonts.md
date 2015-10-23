@@ -9,7 +9,6 @@ The BAS Style Kit includes a number of web-fonts to provide typographic styling 
 * [Font Awesome](http://fontawesome.io) - Base icon-font for general purposes/actions in projects
 * [Map Glyphs](http://mapglyphs.com) - Icon-font for states, countries, continents and globes
 * [Devicons](http://vorillaz.github.io/devicons) - Icon-font for logos of technology frameworks, tools and services
-* [Glyphicons Halflings](http://glyphicons.com/) - Icon-font included with Bootstrap, **NOT** supported here
 
 Font file locations and font-family declarations are defined through the BAS Style Kit's Less/CSS styles.
 
@@ -20,7 +19,7 @@ Note: See this project's documentation on [Gulp|../gulp.md] if you are unfamilia
 `gulp fonts` is a high level task to copy fonts to their relevant locations.
 
 Behind the scenes these tasks are called in parallel:
-`gulp [fonts-opensans | fonts-gillsans | fonts-fontawesome | fonts-mapglyphs | fonts-devicons | fonts-glyphicons]`.
+`gulp [fonts-opensans | fonts-gillsans | fonts-fontawesome | fonts-mapglyphs | fonts-devicons]`.
 
 Individual font files can be copied if needed using:
 
@@ -29,7 +28,6 @@ Individual font files can be copied if needed using:
 * `gulp fonts-fontawesome` - For Font Awesome
 * `gulp fonts-mapglyphs` - For Map Glyphs
 * `gulp fonts-devicons` - For Devicons
-* `gulp fonts-glyphicons` - For Glyphicons
 
 ### Gill Sans
 
@@ -49,20 +47,6 @@ Map Glyphs is not distributed publicly and requires a license for attribution fr
 
 BAS has paid for attribution free usage when used in official projects and bundles the font within the Style Kit.
 
-### Glyphicons
-
-Bootstrap includes a default icon web-font, Glyphicons Halflings.
-
-Note: This font is deprecated and will be removed in the next release of the Style Kit.
-
-This font is **NOT** supported within the BAS Style Kit and **SHOULD NOT** be used.
-Font Awesome, or any of the other speciality icon fonts, **SHOULD** be used instead.
-
-As Bootstrap uses Glyphicons by default, references it its web-font files are included in the pre-compiled CSS.
-As we don't modify this CSS, it is not possible to remove such references. To avoid browser warnings over references to
-these missing web-fonts they are copied into the `dist` directories of this project using `gulp fonts-glyphicons`.
-This is not ideal as they are placed directly within the `fonts` directory, rather than in a name-spaced directory.
-
 ### Gulp tasks for icon font Jekyll data files
 
 Note: See this project's documentation on [Gulp|../gulp.md] if you are unfamiliar with its use within this project.
@@ -79,5 +63,3 @@ Individual font data files can be generated if needed using:
 * `gulp jekyll-data-fa` - For Font Awesome
 * `gulp jekyll-data-mg` - For Map Glyphs
 * `gulp jekyll-data-di` - For Devicons
-
-Note: There is no task for Glyphicons as this icon font is not supported by this project.
