@@ -36,9 +36,9 @@
   <p>This works because the same files, from the same URL (i.e. the CDN) are used by each website or app and cached by the browser.</p>
 {% highlight html %}
 <!-- Latest compiled and minified customised Bootstrap CSS for the BAS Style Kit -->
-<link rel="stylesheet" href="{{ site.cdn.bootstrap-bsk-css }}">
 <!-- Latest compiled and minified BAS Style Kit CSS -->
-<link rel="stylesheet" href="{{ site.cdn.bsk-css }}">
+<link rel="stylesheet" href="{{ site.cdn }}/bas-style-kit/{{ site.version }}/dist/css/bas-style-kit.min.css">
+<link rel="stylesheet" href="{{ site.cdn }}/bas-style-kit/{{ site.version }}/dist/css/bootstrap-bsk.min.css">
 {% endhighlight %}
 
   <h2 id="download-npm">Install with NPM</h2>
