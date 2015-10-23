@@ -59,10 +59,11 @@ where `XXX` is your DigitalOcean personal access token - used by Terraform
  where `XXX` is [your public key fingerprint](https://gist.github.com/felnne/596d2bf11842a0cf64d6) - used by Terraform
 * An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
 `AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [2]
-* Suitable permissions within AWS to create/destroy S3 buckets
+* Suitable permissions within AWS to manage S3 buckets and to manage CloudFront distributions
 * Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
 organisation [3]
 * Ansible Vault password file [4]
+* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [5]
 
 [1] SSH config entry
 
@@ -84,6 +85,8 @@ vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-
 
 For obvious reasons this file is **MUST NOT** be checked into source control and instead be manually copied into place.
 Users can request this file using the information in the *Issue Tracker* section of the Project Management documentation.
+
+[5] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
 
 ### Production - remote
 
@@ -141,17 +144,37 @@ $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 
 ### Staging - remote
 
-Static website hosting is powered by AWS S3, managed using terraform, configured by Ansible and deployed by SemaphoreCI.
+Static website hosting is powered by AWS S3 / AWS CloudFront, managed using terraform / manually, configured by Ansible
+and deployed by SemaphoreCI.
 
 Distribution assets of each version are stored in the *development* environment of the BAS CDN, deployments to this CDN
 are managed automatically by SemaphoreCI [1].
 
 #### Infrastructure
 
+The AWS S3 bucket managed by Terraform:
+
 ```shell
 $ terraform get
 $ terraform apply
 ```
+
+The CloudFront distribution that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
+
+1. Login to the [BAS AWS Console](https://178449599525.signin.aws.amazon.com/console/)
+2. Within CloudFront, setup a new web distribution with these settings (use defaults for non-specified settings):
+  * Origin domain name: `bas-style-kit-docs-stage.s3.amazonaws.com`
+  * Viewer protocol policy: *Redirect HTTP to HTTPS*
+  * Price class: *Use Only US and Europe*
+  * Alternate domain names: `style-kit-preview.web.bas.ac.uk`
+  * SSL certificate: *Custom SSL Certificate* -> `star-web-bas-ac-uk`
+  * Default root object: `index.html`
+
+To use an alternate domain name, a CNAME DNS record is required, this will need to be created by BAS ICT as below:
+
+| Kind      | Name               | Points To        | FQDN                              | Notes      |
+| --------- | ------------------ | ---------------- | --------------------------------- | ---------- |
+| **CNAME** | style-kit-preview  | *computed value* | `style-kit-preview.web.bas.ac.uk` | Vanity URL |
 
 #### Continuous Integration
 
