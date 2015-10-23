@@ -206,15 +206,6 @@ gulp.task('fonts-devicons', function() {
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'devicons')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'devicons')));
 });
-gulp.task('fonts-glyphicons', function() {
-  return gulp.src(
-    [
-            path.join(sources.bootstrap, 'fonts', '**/*.*'),
-      '!' + path.join(sources.bootstrap, 'fonts', '**/*.svg')
-    ])
-    .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts)))
-    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts)));
-});
 
 gulp.task('jekyll-data-fa', function() {
   var classes = [];
@@ -446,8 +437,7 @@ gulp.task('fonts', [
   'fonts-gillsans',
   'fonts-fontawesome',
   'fonts-mapglyphs',
-  'fonts-devicons',
-  'fonts-glyphicons'
+  'fonts-devicons'
 ]);
 
 gulp.task('jekyll-data', [
