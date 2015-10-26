@@ -51,42 +51,26 @@ Host *.v.m
 ### Staging - remote
 
 * [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
-* [Rsync](https://rsync.samba.org/) `brew install rsync`
-* You have an entry like [1] in your `~/.ssh/config`
-* An environment variable: `TF_VAR_digital_ocean_token=XXX` set,
-where `XXX` is your DigitalOcean personal access token - used by Terraform
-* An environment variable: `TF_VAR_ssh_fingerprint=XXX` set,
- where `XXX` is [your public key fingerprint](https://gist.github.com/felnne/596d2bf11842a0cf64d6) - used by Terraform
 * An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
-`AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [2]
-* Suitable permissions within AWS to manage S3 buckets and CloudFront distributions
+`AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [1]
+* Suitable permissions within AWS to manage S3 buckets and to manage CloudFront distributions
 * Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
-organisation [3]
-* Ansible Vault password file [4]
-* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [5]
+organisation [2]
+* Ansible Vault password file [3]
+* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [4]
 
-[1] SSH config entry
-
-```shell
-Host *.web.nerc-bas.ac.uk
-    ForwardAgent yes
-    User app
-    IdentityFile ~/.ssh/id_rsa
-    Port 22
-```
-
-[2] Specifically for a user account delegated from the BAS AWS account, use the
+[1] Specifically for a user account delegated from the BAS AWS account, use the
 [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
 
-[3] Please contact the *Project Maintainer* if you do not have permission to access this organisation.
+[2] Please contact the *Project Maintainer* if you do not have permission to access this organisation.
 
-[4] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
+[3] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
 vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
 
 For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
 this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
 
-[5] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
+[4] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
 
 ### Production - remote
 
@@ -248,6 +232,9 @@ If the deployment already exists check the settings above are correct.
 
 End-user documentation for this project can then be accessed from
 [here](https://style-kit-preview.web.bas.ac.uk/).
+
+[1] Note: This service should already exist and is out of the scope of this project.
+See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
 
 [2]
 ```shell
