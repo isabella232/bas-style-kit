@@ -227,7 +227,7 @@ Set *Configuration Files* as shown in the table below:
 
 | File Path                                    | Content | Encrypt File  |
 | -------------------------------------------- | ------- | ------------- |
-| `bas-style-kit/provisioning/.vault_pass.txt` | [3]     | Yes (checked) |
+| `bas-style-kit/provisioning/.vault_pass.txt` | [1]     | Yes (checked) |
 
 Copy the build badge for the *develop* branch to this README.
 
@@ -249,8 +249,8 @@ If the deployment already exists check the settings above are correct.
 End-user documentation for this project can then be accessed from
 [here](https://style-kit-preview.web.bas.ac.uk/).
 
-[1] Note: This service should already exist and is out of the scope of this project.
-See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
+[1] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
+information in the *Issue Tracker* section of the Project Management documentation.
 
 [2]
 ```shell
@@ -259,9 +259,6 @@ declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
 ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
 ```
-
-[3] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
-information in the *Issue Tracker* section of the Project Management documentation.
 
 ### Production - remote
 
@@ -336,7 +333,7 @@ Set *Configuration Files* as shown in the table below:
 
 | File Path                                    | Content | Encrypt File  |
 | -------------------------------------------- | ------- | ------------- |
-| `bas-style-kit/provisioning/.vault_pass.txt` | [3]     | Yes (checked) |
+| `bas-style-kit/provisioning/.vault_pass.txt` | [1]     | Yes (checked) |
 
 Copy the build badge for the *master* branch to this README.
 
@@ -344,7 +341,40 @@ Note: Do not repeat this step for the *pretend-master* branch, it is not necessa
 
 If the project and branch already exists, check the settings above are correct.
 
-End-user documentation for this project can then be accessed from [bas-style-kit-](bas-style-kit.web.nerc-bas.ac.uk).
+#### Continuous Deployment
+
+##### End-user documentation
+
+If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
+
+Note: To test changes that will apply to the master branch a `pretend-master` branch is used. This prevents such tests
+from being carried out on the *production* branch of the project. To implement this repeat the steps below for the
+*pretend-master* branch. Use the same S3 bucket, and server URL as the real master branch,
+use `pretend-master-documentation` as the server name.
+
+* Set the deployment strategy to: `Automatic`
+* Set the branch to deploy to: `master`
+* Set the deploy commands to [1]
+* Skip the deployment SSH key option
+* Set the server name to: `master-documentation`
+* Set the server URL to: `https://style-kit.web.bas.ac.uk/`
+
+If the deployment already exists check the settings above are correct.
+
+End-user documentation for this project can then be accessed from
+[here](https://style-kit.web.bas.ac.uk/).
+
+[1] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
+information in the *Issue Tracker* section of the Project Management documentation.
+
+[2]
+```shell
+source provisioning/data/semaphore-ci/set-environment.sh
+declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
+pip install ansible
+ansible-playbook -i provisioning/local provisioning/deploy-prod-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
+```
+
 
 An Azure CDN is used to host the distribution assets of each version, for use within websites and applications. It is
 unlikely you will need to create this CDN since only a single instance is used for this project [1]. However for
@@ -434,16 +464,22 @@ has passed certain tests. These is automatic, taking place whenever changes are 
 
 The `JEKYLL_ENV` will be automatically set to `staging` to ensure the documentation is built in the correct way.
 
-The Continuous Deployment element of SemaphoreCI will also deploy distribution assets to the *development* environment
-of the BAS CDN automatically. These assets are also generated from the *develop* branch of the Project Repository
-providing it has passed the same tests. These processes are also automatic.
-
 Note: The definitive version of this documentation, built from the latest, passing, version of the *develop* branch of
 this project, is available [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
 
 ### Production - remote
 
-#### CDN distribution for assets and project release
+#### End-user documentation
+
+The Continuous Deployment element of SemaphoreCI will deploy project documentation to the staging documentation
+website automatically. This documentation is generated from the *master* branch of the Project Repository providing it
+has passed certain tests. These is automatic, taking place whenever changes are pushed to the Project Repository.
+
+The `JEKYLL_ENV` will be automatically set to `production` to ensure the documentation is built in the correct way.
+
+Note: The definitive version of this documentation, built from the latest, passing, version of the *develop* branch of
+this project, is available [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
+
 
 The distribution assets (i.e. compiled CSS, etc.) and the current snapshot of the overall project are hosted on the
 project CDN for each release. These resources are used by others in their own websites and applications in order to
@@ -493,33 +529,6 @@ $ duck --upload azure://bascdnprod.blob.core.windows.net/bas-style-kit/0.1.0-alp
 
 [1] You can find this access key through the [Azure management portal](http://manage.windowsazure.com/) by logging in
 and selecting *Storage* -> *bascdnprod* -> *manage access keys*
-
-#### End-user documentation
-
-To generate end-user documentation for a *production* environment ensure you have the relevant release tag checked out
-in a *development* environment.
-
-Note: You **MUST** make sure you have the correct version checked out and that you do not have the *master* branch
-checked out instead. This ensures the correct distribution files are used and the associated documentation generated.
-
-Within this environment generate the documentation:
-
-```shell
-$ ssh bas-style-kit-dev-web1.v.m
-$ cd /app
-
-$ jekyll build
-
-$ logout
-```
-
-Then publish this to the *production* environment:
-
-```shell
-$ ansible-playbook -i provisioning/production provisioning/update-prod.yml
-```
-
-This will update the documentation on the production server using the generated site files.
 
 ## Contributing
 

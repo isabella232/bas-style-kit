@@ -37,5 +37,5 @@ cdn: https://cdn.web.bas.ac.uk
 analytics_token_prod:  UA-64130716-27
 analytics_token_stage: UA-64130716-28
 
-# For development/staging use ".." (not quotes), for production use root with version string "/0.1.0-alpha" (no quotes)
-url_base: ..
+# Leave as "."
+url_base: .
