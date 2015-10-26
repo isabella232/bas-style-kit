@@ -46,10 +46,8 @@
       command: "cp -a site /tmp/{{ project_version }}"
       args:
         chdir: ../site
-    - name: create directory in the versions directory of the site for this release
-      file: path="../site/versions/{{ project_version }}" state=directory
     - name: move the copy into the versions directory of the site for historical access in the future
-      command: "mv /tmp/{{ project_version }}/* site/versions/"
+      command: "mv /tmp/{{ project_version }}/* site/versions/{{ project_version }}"
       args:
         chdir: ../site
     - name: deploy production site to S3 static website
