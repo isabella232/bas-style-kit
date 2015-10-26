@@ -43,7 +43,7 @@
       args:
         chdir: ../
     - name: copy generated site to temporary location
-      command: "cp -a site/* /tmp/{{ project_version }}"
+      command: "cp -a site/. /tmp/{{ project_version }}"
       args:
         chdir: ../
     - name: move the copy into the versions directory of the site for historical access in the future
