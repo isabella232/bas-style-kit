@@ -96,6 +96,19 @@ resource "aws_s3_bucket" "bas-style-kit-docs-stage-bucket" {
   }
 }
 
+# `bas-style-kit-docs-prod` resource
+
+# S3 bucket with static website hosting
+resource "aws_s3_bucket" "bas-style-kit-docs-prod-bucket" {
+  bucket = "bas-style-kit-docs-prod"
+  acl = "public-read"
+  policy = "${file("provisioning/data/S3-bucket-policies/bas-style-kit-docs-prod.json")}"
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+  }
+}
+
 
 # Provisioning (using a fake resource as provisioners can't be first class objects)
 

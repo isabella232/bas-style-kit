@@ -51,6 +51,12 @@ Host *.v.m
 ### Staging - remote
 
 * [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
+* [Rsync](https://rsync.samba.org/) `brew install rsync`
+* You have an entry like [1] in your `~/.ssh/config`
+* An environment variable: `TF_VAR_digital_ocean_token=XXX` set,
+where `XXX` is your DigitalOcean personal access token - used by Terraform
+* An environment variable: `TF_VAR_ssh_fingerprint=XXX` set,
+ where `XXX` is [your public key fingerprint](https://gist.github.com/felnne/596d2bf11842a0cf64d6) - used by Terraform
 * An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
 `AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [1]
 * Suitable permissions within AWS to manage S3 buckets and to manage CloudFront distributions
@@ -58,31 +64,6 @@ Host *.v.m
 organisation [2]
 * Ansible Vault password file [3]
 * The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [4]
-
-[1] Specifically for a user account delegated from the BAS AWS account, use the
-[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
-
-[2] Please contact the *Project Maintainer* if you do not have permission to access this organisation.
-
-[3] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
-vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
-
-For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
-this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
-
-[4] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
-
-### Production - remote
-
-* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
-* [Rsync](https://rsync.samba.org/) `brew install rsync`
-* [Duck](https://duck.sh/) `brew install duck`
-* You have an entry like [1] in your `~/.ssh/config`
-* You have access to the BAS CDN Azure account [2]
-* An environment variable: `TF_VAR_digital_ocean_token=XXX` set,
-where `XXX` is your DigitalOcean personal access token - used by Terraform
-* An environment variable: `TF_VAR_ssh_fingerprint=XXX` set,
- where `XXX` is [your public key fingerprint](https://gist.github.com/felnne/596d2bf11842a0cf64d6) - used by Terraform
 
 [1] SSH config entry
 
@@ -94,8 +75,62 @@ Host *.web.nerc-bas.ac.uk
     Port 22
 ```
 
-[2] Currently this account is tied to Felix Fennell - this will be changed, see https://jira.ceh.ac.uk/browse/BSK-54
-for details.
+[2] Specifically for a user account delegated from the BAS AWS account, use the
+[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
+
+[3] Please contact the *Project Maintainer* if you do not have permission to access this organisation.
+
+[4] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
+vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
+
+For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
+this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
+
+[5] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
+
+### Production - remote
+
+* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
+* [Rsync](https://rsync.samba.org/) `brew install rsync`
+* You have an entry like [1] in your `~/.ssh/config`
+* An environment variable: `TF_VAR_digital_ocean_token=XXX` set,
+where `XXX` is your DigitalOcean personal access token - used by Terraform
+* An environment variable: `TF_VAR_ssh_fingerprint=XXX` set,
+ where `XXX` is [your public key fingerprint](https://gist.github.com/felnne/596d2bf11842a0cf64d6) - used by Terraform
+* An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
+`AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [2]
+* Suitable permissions within AWS to manage S3 buckets and CloudFront distributions
+* Suitable permissions to write to the BAS CDN [3]
+* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
+organisation [4]
+
+* Ansible Vault password file [5]
+* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [6]
+
+[1] SSH config entry
+
+```shell
+Host *.web.nerc-bas.ac.uk
+    ForwardAgent yes
+    User app
+    IdentityFile ~/.ssh/id_rsa
+    Port 22
+```
+
+[2] Specifically for a user account delegated from the BAS AWS account, use the
+[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
+
+[3] See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
+
+[4] Please contact the *Project Maintainer* if you do not have permission to access this organisation.
+
+[5] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
+vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
+
+For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
+this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
+
+[6] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
 
 ## Setup
 
@@ -131,9 +166,6 @@ $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 Static website hosting is powered by AWS S3 / AWS CloudFront, managed using terraform / manually, configured by Ansible
 and deployed by SemaphoreCI.
 
-Distribution assets of each version are stored in the *development* environment of the BAS CDN, deployments to this CDN
-are managed automatically by SemaphoreCI [1].
-
 #### Infrastructure
 
 The AWS S3 bucket managed by Terraform:
@@ -147,7 +179,7 @@ The CloudFront distribution that sits on top of the S3 bucket to provide SSL, re
 
 1. Login to the [BAS AWS Console](https://178449599525.signin.aws.amazon.com/console/)
 2. Within CloudFront, setup a new web distribution with these settings (use defaults for non-specified settings):
-  * Origin domain name: `bas-style-kit-docs-stage.s3.amazonaws.com`
+  * Origin domain name: `bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com`
   * Viewer protocol policy: *Redirect HTTP to HTTPS*
   * Price class: *Use Only US and Europe*
   * Alternate domain names: `style-kit-preview.web.bas.ac.uk`
@@ -156,9 +188,9 @@ The CloudFront distribution that sits on top of the S3 bucket to provide SSL, re
 
 To use an alternate domain name, a CNAME DNS record is required, this will need to be created by BAS ICT as below:
 
-| Kind      | Name               | Points To        | FQDN                              | Notes      |
-| --------- | ------------------ | ---------------- | --------------------------------- | ---------- |
-| **CNAME** | style-kit-preview  | *computed value* | `style-kit-preview.web.bas.ac.uk` | Vanity URL |
+| Kind      | Name              | Points To        | FQDN                              | Notes      |
+| --------- | ----------------- | ---------------- | --------------------------------- | ---------- |
+| **CNAME** | style-kit-preview | *computed value* | `style-kit-preview.web.bas.ac.uk` | Vanity URL |
 
 #### Continuous Integration
 
@@ -233,40 +265,37 @@ information in the *Issue Tracker* section of the Project Management documentati
 
 ### Production - remote
 
-VMs are powered by DigitalOcean, managed using Terraform and configured by Ansible.
+Static website hosting is powered by AWS S3 / AWS CloudFront, managed using terraform / manually, configured by Ansible
+and deployed by SemaphoreCI.
 
-An Azure CDN is used to host the distribution assets of each version, it is managed manually.
+Distribution assets of each version are stored in the *development* environment of the BAS CDN, deployments to this CDN
+are managed automatically by SemaphoreCI.
 
-You **MUST** have setup and configured a *development* environment, before you can create a *production* environment.
-Specifically, you must have a `/site` or `/dist` directory. If you don't, you **MUST** create them in a *development*
-environment, using the steps listed in the *usage* section of this README.
+#### Infrastructure
 
-See the *developer* documentation for instructions on how to prepare to a deploy a release, which will take place as
-part of this setup process.
+The AWS S3 bucket managed by Terraform:
 
 ```shell
 $ terraform get
 $ terraform apply
 ```
 
-Terraform will automatically configure DNS records for infrastructure it creates on your behalf:
+The CloudFront distribution that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
 
-| Kind      | Name                             | Points To                                             | FQDN                                                  | Notes                                                |
-| --------- | -------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------- |
-| **A**     | bas-style-kit-prod-web1.internal | *computed value*                                      | `bas-style-kit-prod-web1.internal.web.nerc-bas.ac.uk` | The VM's private IP address                          |
-| **A**     | bas-style-kit-prod-web1.external | *computed value*                                      | `bas-style-kit-prod-web1.external.web.nerc-bas.ac.uk` | The VM's public IP address                           |
-| **CNAME** | bas-style-kit-prod-web1          | `bas-style-kit-prod-web1.external.web.nerc-bas.ac.uk` | `bas-style-kit-prod-web1.web.nerc-bas.ac.uk`          | A pointer for the default address                    |
-| **CNAME** | bas-style-kit                    | `bas-style-kit-prod-web1.web.nerc-bas.ac.uk`          | `bas-style-kit.web.nerc-bas.ac.uk`                    | Vanity URL to current production instance of project |
+1. Login to the [BAS AWS Console](https://178449599525.signin.aws.amazon.com/console/)
+2. Within CloudFront, setup a new web distribution with these settings (use defaults for non-specified settings):
+  * Origin domain name: `bas-style-kit-docs-prod.s3-website-eu-west-1.amazonaws.com`
+  * Viewer protocol policy: *Redirect HTTP to HTTPS*
+  * Price class: *Use Only US and Europe*
+  * Alternate domain names: `style-kit.web.bas.ac.uk`
+  * SSL certificate: *Custom SSL Certificate* -> `star-web-bas-ac-uk`
+  * Default root object: `index.html`
 
-Note: Terraform cannot provision VMs itself due to [this issue](https://github.com/hashicorp/terraform/issues/1178),
-therefore these tasks need to be performed manually:
+To use an alternate domain name, a CNAME DNS record is required, this will need to be created by BAS ICT as below:
 
-```shell
-$ ansible-galaxy install https://github.com/antarctica/ansible-prelude,v0.1.1 --roles-path=provisioning/roles_bootstrap  --no-deps --force
-$ ansible-playbook -i provisioning/local provisioning/prelude.yml
-$ ansible-playbook -i provisioning/production provisioning/bootstrap-digitalocean.yml
-$ ansible-playbook -i provisioning/production provisioning/site-prod.yml
-```
+| Kind      | Name      | Points To        | FQDN                      | Notes      |
+| --------- | --------- | ---------------- | ------------------------- | ---------- |
+| **CNAME** | style-kit | *computed value* | `style-kit.web.bas.ac.uk` | Vanity URL |
 
 End-user documentation for this project can then be accessed from [bas-style-kit-](bas-style-kit.web.nerc-bas.ac.uk).
 
