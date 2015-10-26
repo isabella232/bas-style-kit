@@ -2,7 +2,7 @@
 
 # Assume staging if not specified
 
-if [ ${BRANCH_NAME} == 'master' ]
+if [ ${BRANCH_NAME} == 'master' ] || [ ${BRANCH_NAME} == 'pretend-master' ]
 then
   declare -x PROJECT_ENVIRONMENT=production
 else
