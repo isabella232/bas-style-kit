@@ -7,8 +7,9 @@ module Jekyll
 
     def generate(site)
 
-      # If set, take the first 7 characters of the current revision
-      site.config['revision'] = ENV['REVISION'][0..6] || 'unknown'
+      # If the revision is known, take the first 7 characters
+      site.config['revision'] = ENV['REVISION'] || 'unknown'
+      site.config['revision'] = site.config['revision'][0..6]
 
     end
 

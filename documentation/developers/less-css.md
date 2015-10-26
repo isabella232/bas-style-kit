@@ -43,47 +43,47 @@ CSS files.
 
 Note: This task can take some time as it includes a CSS file from our fonts provider to include GillSans.
 
-Behind the scenes these tasks are called in parallel: `gulp [bsk-less-no-min, bsk-less-min, bootstrap-bsk-less-no-min,
-bootstrap-bsk-less-min]`.
+Behind the scenes these tasks are called in parallel: `[bsk-less-no-min, bootstrap-bsk-less-no-min]` and then,
+again in parallel, `[bsk-less-min, bootstrap-bsk-less-min]`.
 
-`gulp bsk-less-no-min` is a compound task which will:
+`bsk-less-no-min` is a compound task which will:
 
 * Compile `less/bas-style-kit.less`  into CSS
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled CSS files
 * Output compiled, processed CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
-`gulp bsk-less-min` is a compound task which takes the output of the `bsk-less-no-min` task and then:
+`bsk-less-min` is a compound task which takes the output of the `bsk-less-no-min` task and then:
 
 * Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` filename suffix
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled minified CSS files
 * Output compiled, minified CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
-`gulp bsk-less-only` is an an alternative task which will:
+`bsk-less-only` is an an alternative task which will:
 
 * Compiles `less/bas-style-kit.less` into CSS only
 
-`gulp bootstrap-bsk-less-no-min` is a compound task which will:
+`bootstrap-bsk-less-no-min` is a compound task which will:
 
 * Compile `less/bootstrap-bsk.less`  into CSS
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled CSS files
 * Output compiled, processed CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
-`gulp bootstrap-bsk-less-min` is a compound task which takes the output of the `bootstrap-bsk-less-no-min` task,
+`bootstrap-bsk-less-min` is a compound task which takes the output of the `bootstrap-bsk-less-no-min` task,
 and then:
 
 * Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` filename suffix
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled minified CSS files
 * Output compiled, minified CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
-`gulp bootstrap-bsk-less-only` is an an alternative task which will:
+`bootstrap-bsk-less-only` is an an alternative task which will:
 
 * Compiles `less/bootstrap-bsk.less` into CSS only
 
 ### CSS linting
 
-`gulp bsk-less-lint` is a task which will run compiled CSS (but not our customised version of Bootstrap) through
+`bsk-less-lint` is a task which will run compiled CSS (but not our customised version of Bootstrap) through
 [csslint](http://csslint.net/), the same tools Bootstrap uses.
 
 Because we use the same linting tools as Bootstrap, and we only change variables in our custom version of Bootstrap,
