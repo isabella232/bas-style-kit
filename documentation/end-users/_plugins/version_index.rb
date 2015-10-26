@@ -8,7 +8,7 @@ module Jekyll
     def generate(site)
 
       # Get all directories at a given path (to a single depth)
-      Dir.chdir('./site/versions')
+      Dir.chdir('./documentation/end-users/_plugins/versions')
       site.config['versions'] = Dir.glob('*').select {|f| File.directory? f}
 
     end
