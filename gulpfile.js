@@ -418,12 +418,12 @@ gulp.task('clean', function() {
 
 // Combined tasks
 
-gulp.task('less', [
-  'bsk-less-no-min',
-  'bsk-less-min',
-  'bootstrap-bsk-less-no-min',
-  'bootstrap-bsk-less-min'
-]);
+gulp.task('less', function(callback) {
+  runSequence(
+    ['bsk-less-no-min', 'bootstrap-bsk-less-no-min'],
+    ['bsk-less-min', 'bootstrap-bsk-less-min'],
+    callback);
+});
 
 gulp.task('lint', [
   'bsk-less-lint'

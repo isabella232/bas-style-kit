@@ -43,8 +43,8 @@ CSS files.
 
 Note: This task can take some time as it includes a CSS file from our fonts provider to include GillSans.
 
-Behind the scenes these tasks are called in parallel: `gulp [bsk-less-no-min, bsk-less-min, bootstrap-bsk-less-no-min,
-bootstrap-bsk-less-min]`.
+Behind the scenes these tasks are called in parallel: `[bsk-less-no-min, bootstrap-bsk-less-no-min]` and then,
+again in parallel, `[bsk-less-min, bootstrap-bsk-less-min]`.
 
 `gulp bsk-less-no-min` is a compound task which will:
 
