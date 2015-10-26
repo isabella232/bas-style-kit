@@ -227,7 +227,7 @@ Set *Configuration Files* as shown in the table below:
 
 | File Path                                    | Content | Encrypt File  |
 | -------------------------------------------- | ------- | ------------- |
-| `bas-style-kit/provisioning/.vault_pass.txt` | [3]     | Yes (checked) |
+| `bas-style-kit/provisioning/.vault_pass.txt` | [1]     | Yes (checked) |
 
 Copy the build badge for the *develop* branch to this README.
 
@@ -249,8 +249,8 @@ If the deployment already exists check the settings above are correct.
 End-user documentation for this project can then be accessed from
 [here](https://style-kit-preview.web.bas.ac.uk/).
 
-[1] Note: This service should already exist and is out of the scope of this project.
-See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
+[1] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
+information in the *Issue Tracker* section of the Project Management documentation.
 
 [2]
 ```shell
@@ -259,9 +259,6 @@ declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
 ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
 ```
-
-[3] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
-information in the *Issue Tracker* section of the Project Management documentation.
 
 ### Production - remote
 
@@ -466,10 +463,6 @@ website automatically. This documentation is generated from the *develop* branch
 has passed certain tests. These is automatic, taking place whenever changes are pushed to the Project Repository.
 
 The `JEKYLL_ENV` will be automatically set to `staging` to ensure the documentation is built in the correct way.
-
-The Continuous Deployment element of SemaphoreCI will also deploy distribution assets to the *development* environment
-of the BAS CDN automatically. These assets are also generated from the *develop* branch of the Project Repository
-providing it has passed the same tests. These processes are also automatic.
 
 Note: The definitive version of this documentation, built from the latest, passing, version of the *develop* branch of
 this project, is available [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
