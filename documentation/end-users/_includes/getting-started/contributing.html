@@ -1,18 +1,36 @@
 <div class="bs-docs-section">
   <h1 id="contributing" class="page-header">Contributing</h1>
 
-  <p class="lead">We welcome contributions to the BAS Style Kit from anyone at any skill level.</p>
-  <p>A contribution may include things like documentation changes or improvements through to a fundamental refactoring of grid styles or adding a new custom component.</p>
+  <p class="lead">Contributions of any size are welcome, regardless of skill level.</p>
+  <p>Contributions include things like spotting spelling mistakes in documentation, elements that don't line up or look
+    strange on mobile, through to a fundamental refactoring of grid styles or a new component.</p>
 
-  <h2>Issue tracking</h2>
-  <p>For reporting bugs and issues, proposing changes or new additions or for any other general feedback please use our <a href="{{ site.issues }}">issue tracker, Jira</a>.</p>
-  <p>To quickly report an issue to through Jira, use the <a {{ site.feedback_attributes }}>issue submission form</a>.</p>
-  <p>If reporting an issue through Jira directly please use the <strong>BAS Style Kit</strong> project.</p>
+  <h2>Issue &amp; release tracking</h2>
+  <p>This project is managed using <a href="https://jra.ceh.ac.uk">Jira</a>, an issue tracker.</p>
+  <p>It is used to manage all feedback, which are turned into development tasks and then prioritised against others
+    into periods of work. These periods are known as <em>sprints</em> in the Agile development methodology.</p>
+  <p>Each development task belongs to a <em>version</em> or <em>release</em>. The types of changes made within a release will determine
+  its status in terms of a major (biggest and breaking changes), minor or patch (smallest change) release.</p>
+  <p>Within each release we aim to include a range of new features, improvements to existing features and documentation,
+    and bug fixes and polish. Where particularly important bugs are found a special release may be made.</p>
+  <p>You can expect a new minor release (no breaking changes) every 2-3 months, and a major release (can have breaking
+    changes) every 6 months or so - though we don't guarantee this.</p>
+  <br />
+  <p class="text-center">
+    <a href="{{ site.issues }}" class="btn btn-bsk btn-bsk-primary btn-lg">View the issue tracker*</a> - OR -
+    <a href="#" class="btn btn-bsk btn-default btn-lg" {{ site.feedback_attributes }}>Submit feedback directly</a>
+    <br /><br />
+    *Requires a Jira account (available to all BAS/NERC staff, please submit feedback to request an account
+  </p>
 
   <h2 id="contributing-discussions">Discussions</h2>
-  <p>For more general feedback or for discussions on best practice etc. where there is no clear or "right" answer,
-  please add a topic <a href="{{ site.discussions_url }}">to this document</a>.</p>
-  <p class="text-info">We are actively looking into better ways of managing these sorts of discussions so this will improve in the future.</p>
+  <p>For more general feedback or for open discussions on best practice etc., a public discussions document is available.</p>
+  <p class="text-info">We are actively looking into better ways of managing these sorts of discussions,
+    so expect this to improve in the future.</p>
+  <br />
+  <p class="text-center">
+    <a href="{{ site.discussions_url }}" class="btn btn-bsk btn-bsk-primary btn-lg">View the discussions document</a>
+  </p>
 
   <h2>Audience</h2>
   <p>Contributions will be accepted from anyone, though it is a assumed you are a BAS employee. <br />
@@ -21,7 +39,7 @@
 
   <h2>Protected aspects</h2>
   <p>These are elements of the Style Kit which we likely won't change, for either technical, design or branding reasons. They include:</p>
-  <ul>
+  <ul class="bsk-docs-breathing-room">
     <li>Anything relating the BAS logo - though this can be <a href="#contributing-discussions">discussed</a>, the usage and design of the BAS logo is controlled by NERC</li>
     <li>Anything relating to the NERC logo and its branding - similar to the above, this is controlled by NERC</li>
     <li>Font choices and colour schemes - these are design and/or branding decisions and are therefore subject to personal taste</li>
@@ -40,9 +58,10 @@
   <p>Ideally pull requests should be made in response to an issue from Jira, so that the wider context is known. However this project will also
   accept unexpected pull requests where this makes sense.</p>
 
-  <p>Changes will be merged into the next release under the project's normal timeline.<br />
-    <span class="text-danger">If your change is urgent ensure this is clear in your pull request, or make a <em>hotfix</em> branch, instead of a <em>feature</em> branch described below.</span></p>
-  <ol>
+  <p>Changes will be merged into the next release under the project's normal timeline.</p>
+  <p><span class="text-danger">If your change is urgent ensure this is clear in your pull request, or make a
+    <em>hotfix</em> branch, instead of a <em>feature</em> branch described below.</span></p>
+  <ol class="bsk-docs-breathing-room">
     <li>Before you modify the Style Kit, create a <em>feature</em> branch in the <a href="{{ site.repo }}">project repository</a>,
       where possible do this from a Jira issue for automatic linking</li>
     <li>Make your changes, making sure to update documentation where needed</li>

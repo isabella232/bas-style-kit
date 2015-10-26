@@ -158,7 +158,9 @@ gulp.task('fonts-opensans', function() {
   return gulp.src(
     [
             path.join(sources.openSans, 'fonts', '**/*.*'),
-      '!' + path.join(sources.openSans, 'fonts', '**/*.svg')
+      '!' + path.join(sources.openSans, 'fonts', '**/*.svg'),
+      '!' + path.join(sources.openSans, 'fonts', 'ExtraBold*/*.*'),
+      '!' + path.join(sources.openSans, 'fonts', 'Semibold*/*.*')
     ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'open-sans')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'open-sans')));
@@ -418,12 +420,12 @@ gulp.task('clean', function() {
 
 // Combined tasks
 
-gulp.task('less', [
-  'bsk-less-no-min',
-  'bsk-less-min',
-  'bootstrap-bsk-less-no-min',
-  'bootstrap-bsk-less-min'
-]);
+gulp.task('less', function(callback) {
+  runSequence(
+    ['bsk-less-no-min', 'bootstrap-bsk-less-no-min'],
+    ['bsk-less-min', 'bootstrap-bsk-less-min'],
+    callback);
+});
 
 gulp.task('lint', [
   'bsk-less-lint'
@@ -442,14 +444,3 @@ gulp.task('jekyll-data', [
   'jekyll-data-mg',
   'jekyll-data-di'
 ]);
-
-// Special tasks
-
-gulp.task('default', function(callback) {
-  runSequence(
-    'clean',
-    'fonts',
-    'less',
-    'jekyll-data',
-    callback);
-});

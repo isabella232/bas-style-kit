@@ -1,28 +1,29 @@
 <div class="bs-docs-section">
   <h1 id="download" class="page-header">Download</h1>
 
-  <p class="lead">There are currently two ways to download the BAS Style Kit (currently v{{ site.provisioned.version }}) depending on your use case.</p>
+  <p class="lead">There are two ways to download the BAS Style Kit (currently version {{ site.version }}):</p>
 
   <div class="row bs-downloads">
     <div class="col-sm-12 col-md-6">
       <h3 id="download-compiled">Compiled styles (i.e. CSS)</h3>
-      <ul>
-        <li>The simplest and quickest way to integrate the Style Kit, suits single pages and small/medium websites/web-apps.</li>
+      <ul class="bsk-docs-breathing-room">
+        <li>Simplest and quickest way to integrate the Style Kit, suits websites and simple web-apps.</li>
         <li>Includes both regular and minified compiled CSS, plus CSS <a href="https://developer.chrome.com/devtools/docs/css-preprocessors">source maps</a> and
-          fonts for <a href="https://www.google.com/fonts/specimen/Open+Sans">Open-Sans</a> and iconic web-fonts.</li>
-        <li>Use this version if you do not intend to modify the styles of the Style Kit significantly and/or you wish to take advantage of the BAS CDN.</li>
+          typographic and iconic web-fonts.</li>
+        <li>Use this version unless you need know you use another, and/or you wish to take advantage of the BAS CDN.</li>
       </ul>
     </div>
     <div class="col-sm-12 col-md-6">
       <h3 id="download-source">Source styles (i.e. Less)</h3>
-      <ul>
-        <li>For more advanced use ages where significant modifications are neded, or you wish to integrate the Style Kit in larger or complex projects.</li>
-        <li>Includes everything from the Compiled Styles, along with source Less styles, this documentation and a <a href="http://www.vagrantup.com">Vagrant</a> and <a href="http://www.ansible.com">Ansible</a> based development environment.</li>
-        <li>Use this version if you plan to integrate the Style Kit into a larger application with its own styling workflow. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong></li>
+      <ul class="bsk-docs-breathing-room">
+        <li>Where you want to build the Style Kit into larger projects, or only use specific elements.</li>
+        <li>Includes everything from the <em>Compiled Styles</em> plus; Less source styles, this documentation and the development environment.</li>
+        <li><strong>Requires a Less compiler and <a href="#grunt">additional setup.</a></strong></li>
       </ul>
     </div>
   </div>
-  <div class="row bs-downloads">
+  <br />
+  <div class="row bs-downloads text-center">
     <div class="col-sm-12 col-md-6">
       <a href="{{ site.download.dist }}" class="btn btn-lg btn-bsk btn-bsk-primary">Download Compiled</a>
     </div>
@@ -30,14 +31,15 @@
       <a href="{{ site.download.source }}" class="btn btn-lg btn-bsk btn-bsk-primary">Download source</a>
     </div>
   </div>
+  <br />
 
   <h2 id="download-cdn">BAS CDN</h2>
-  <p>When using the compiled styles, you should use the BAS CDN to speed up loading times between BAS websites and apps.</p>
-  <p>This works because the same files, from the same URL (i.e. the CDN) are used by each website or app and cached by the browser.</p>
+  <p>When using the <em>Compiled Styles</em>, you <strong>should</strong> use the BAS CDN to speed up loading times between BAS websites and apps.</p>
+  <p>This works because the same URLs are used in each project and so leverage the browser cache.</p>
 {% highlight html %}
 <!-- Compiled and minified customised Bootstrap CSS for the BAS Style Kit -->
 <link rel="stylesheet" href="{{ site.cdn }}/bas-style-kit/{{ site.version }}/dist/css/bas-style-kit.min.css">
-<!--  Compiled and minified BAS Style Kit CSS -->
+<!-- Compiled and minified BAS Style Kit CSS -->
 <link rel="stylesheet" href="{{ site.cdn }}/bas-style-kit/{{ site.version }}/dist/css/bootstrap-bsk.min.css">
 {% endhighlight %}
 

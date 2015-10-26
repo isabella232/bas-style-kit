@@ -11,7 +11,7 @@
     </div>
     <div class="bsk-docs-footer-version">
       {% if jekyll.environment == "production" %}
-      <a href="{{ site.repo }}/browse?at=refs%2Ftags%2Fv{{ site.version }}">Version {{ site.version }}</a>
+      Version <a href="{{ site.repo }}/browse?at=refs%2Ftags%2Fv{{ site.version }}">{{ site.version }}</a>
       {% elsif jekyll.environment == "staging" %}
       Preview of changes since version <a href="{{ site.repo }}/browse?at=refs%2Fbranches%2Fdevelop">{{ site.version }}</a> -
       revision <a href="{{ site.repo }}/commits/{{ site.revision }}">{{ site.revision }}</a>
