@@ -59,7 +59,7 @@ where `XXX` is your DigitalOcean personal access token - used by Terraform
  where `XXX` is [your public key fingerprint](https://gist.github.com/felnne/596d2bf11842a0cf64d6) - used by Terraform
 * An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
 `AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [2]
-* Suitable permissions within AWS to manage S3 buckets and to manage CloudFront distributions
+* Suitable permissions within AWS to manage S3 buckets and CloudFront distributions
 * Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
 organisation [3]
 * Ansible Vault password file [4]
@@ -166,9 +166,6 @@ $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 Static website hosting is powered by AWS S3 / AWS CloudFront, managed using terraform / manually, configured by Ansible
 and deployed by SemaphoreCI.
 
-Distribution assets of each version are stored in the *development* environment of the BAS CDN, deployments to this CDN
-are managed automatically by SemaphoreCI [1].
-
 #### Infrastructure
 
 The AWS S3 bucket managed by Terraform:
@@ -182,7 +179,7 @@ The CloudFront distribution that sits on top of the S3 bucket to provide SSL, re
 
 1. Login to the [BAS AWS Console](https://178449599525.signin.aws.amazon.com/console/)
 2. Within CloudFront, setup a new web distribution with these settings (use defaults for non-specified settings):
-  * Origin domain name: `bas-style-kit-docs-stage.s3.amazonaws.com`
+  * Origin domain name: `bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com`
   * Viewer protocol policy: *Redirect HTTP to HTTPS*
   * Price class: *Use Only US and Europe*
   * Alternate domain names: `style-kit-preview.web.bas.ac.uk`
@@ -191,9 +188,9 @@ The CloudFront distribution that sits on top of the S3 bucket to provide SSL, re
 
 To use an alternate domain name, a CNAME DNS record is required, this will need to be created by BAS ICT as below:
 
-| Kind      | Name               | Points To        | FQDN                              | Notes      |
-| --------- | ------------------ | ---------------- | --------------------------------- | ---------- |
-| **CNAME** | style-kit-preview  | *computed value* | `style-kit-preview.web.bas.ac.uk` | Vanity URL |
+| Kind      | Name              | Points To        | FQDN                              | Notes      |
+| --------- | ----------------- | ---------------- | --------------------------------- | ---------- |
+| **CNAME** | style-kit-preview | *computed value* | `style-kit-preview.web.bas.ac.uk` | Vanity URL |
 
 #### Continuous Integration
 
@@ -251,9 +248,6 @@ If the deployment already exists check the settings above are correct.
 
 End-user documentation for this project can then be accessed from
 [here](https://style-kit-preview.web.bas.ac.uk/).
-
-[1] Note: This service should already exist and is out of the scope of this project.
-See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
 
 [2]
 ```shell
