@@ -43,13 +43,13 @@
       args:
         chdir: ../
     - name: copy generated site to temporary location
-      command: "cp -a site /tmp/{{ project_version }}"
+      command: "cp -a site/* /tmp/{{ project_version }}"
       args:
-        chdir: ../site
+        chdir: ../
     - name: move the copy into the versions directory of the site for historical access in the future
-      command: "mv /tmp/{{ project_version }}/* site/versions/{{ project_version }}"
+      shell: "mv /tmp/{{ project_version }}/* site/versions/{{ project_version }}"
       args:
-        chdir: ../site
+        chdir: ../
     - name: deploy production site to S3 static website
       command: "aws s3 sync {{ aws_s3_sync_source }} {{ aws_s3_sync_target }}"
       args:
