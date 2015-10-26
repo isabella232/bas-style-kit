@@ -195,10 +195,10 @@ To use an alternate domain name, a CNAME DNS record is required, this will need 
 #### Continuous Integration
 
 If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the *develop* branch of the
-Project Repository as the project repository, associate with the `antarctica` organisation.
+Project Repository, associate with the `antarctica` organisation.
 
-If the project already exists, but not for this branch, check the settings below are correct and add the *develop*
-branch as a new build branch manually.
+If the project already exists, but not this branch, check the settings below are correct and add the *develop* branch
+as a new build branch manually.
 
 In the settings for this project set the *Build Settings* to:
 
@@ -296,6 +296,53 @@ To use an alternate domain name, a CNAME DNS record is required, this will need 
 | Kind      | Name      | Points To        | FQDN                      | Notes      |
 | --------- | --------- | ---------------- | ------------------------- | ---------- |
 | **CNAME** | style-kit | *computed value* | `style-kit.web.bas.ac.uk` | Vanity URL |
+
+#### Continuous Integration
+
+If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the *master* branch of the
+Project Repository and associate with the `antarctica` organisation.
+
+Note: To test changes that will apply to the master branch a `pretend-master` branch is used. This prevents such tests
+from being carried out on the *production* branch of the project. To implement this repeat the steps below for the
+*pretend-master* branch.
+
+If the project already exists, but not this branch, check the settings below are correct and add the *master* branch
+as a new build branch manually.
+
+In the settings for this project set the *Build Settings* to:
+
+* Language: `Python`
+* Python version: `2.7`
+
+For the *Setup* thread enter these commands:
+
+```shell
+source provisioning/data/semaphore-ci/set-environment.sh
+declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
+pip install ansible
+```
+
+For *Thread #1* rename to *Build and Test* with these commands:
+
+```shell
+ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local
+```
+
+Set the *Branches* settings to:
+
+* Build new branches: `Never`
+
+Set *Configuration Files* as shown in the table below:
+
+| File Path                                    | Content | Encrypt File  |
+| -------------------------------------------- | ------- | ------------- |
+| `bas-style-kit/provisioning/.vault_pass.txt` | [3]     | Yes (checked) |
+
+Copy the build badge for the *master* branch to this README.
+
+Note: Do not repeat this step for the *pretend-master* branch, it is not necessary.
+
+If the project and branch already exists, check the settings above are correct.
 
 End-user documentation for this project can then be accessed from [bas-style-kit-](bas-style-kit.web.nerc-bas.ac.uk).
 
