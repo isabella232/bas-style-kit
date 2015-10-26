@@ -1,20 +1,20 @@
 <div class="bs-docs-section">
   <h1 id="template" class="page-header">Basic template</h1>
-  <p class="lead">Copy the HTML below to begin working with a minimal BAS Style Kit page, or modify <a href="#examples">these examples</a>.</p>
+  <p class="lead">Copy the HTML below to create a basic page using the Style Kit, or modify <a href="#examples">these examples</a>.</p>
 {% highlight html %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content *must* come after -->
+    <!-- The above 3 meta tags *must* come first in the head -->
     <title>BAS Style Kit Template</title>
 
-    <!-- Latest compiled and minified customised Bootstrap CSS for the BAS Style Kit -->
-    <link rel="stylesheet" href="{{ site.cdn.bootstrap-bsk-css }}">
-    <!-- Latest compiled and minified BAS Style Kit CSS -->
-    <link rel="stylesheet" href="{{ site.cdn.bsk-css }}">
+    <!-- Compiled and minified customised Bootstrap CSS for the BAS Style Kit -->
+    <link rel="stylesheet" href="{{ site.cdn }}/bas-style-kit/{{ site.version }}/dist/css/bas-style-kit.min.css">
+    <!-- Compiled and minified BAS Style Kit CSS -->
+    <link rel="stylesheet" href="{{ site.cdn }}/bas-style-kit/{{ site.version }}/dist/css/bootstrap-bsk.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,12 +24,10 @@
     <![endif]-->
   </head>
   <body>
-    <h1>The story so far: In the beginning the Universe was created.</h1>
-    <p>This has made a lot of people very angry and been widely regarded as a bad move.</p>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <!-- Latest compiled and minified Bootstrap JavaScript plugins, include individual plugins instead if needed -->
+    <!-- Compiled and minified Bootstrap JavaScript plugins, include individual plugins instead if needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </body>
 </html>

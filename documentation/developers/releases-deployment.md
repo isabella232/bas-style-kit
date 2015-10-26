@@ -24,31 +24,20 @@ These steps are required before this merge can take place:
   * The change log file
   * The `current_version` key in `_config.yml`
   * The `version` key in `package.json`
-  * The `project_version` key in `provisioning/group_vars/all-servers.yml`
-2. The change log is suitably updated, use the Git log and Jira to help, it can be updated later but its best to be as
+  * The `project_version` key in `provisioning/group_vars/all.yml`
+2. Create a directory named after the release in `documentation/end-users/versions` and include an `index.html` file [1]
+3. The change log is suitably updated, use the Git log and Jira to help, it can be updated later but its best to be as
 complete as possible now
-3. Clean and re-build the `/dist` directory using Gulp tasks (these are documented in the *usage* section of the project `README`)
-4. **Follow any steps lised in the per-environment sub-sections of this section** (e.g. for production check the
-*production - remote* sub-section)
-5. Build the end-user documentation using Jekyll (this is documented in the *usage* section of the project `README`)
-6. Commit and open a a new pull request to merge the release branch into the *master* branch. Review the project again
+4. Clean and re-build the `/dist` directory using Gulp tasks (documented in the *usage* section of the `README`)
+5. Commit and open a a new pull request to merge the release branch into the *master* branch. Review the project again
 to ensure it is fit for release and then accept the request to create a merge-commit
-7. Tag this commit as the version (e.g. 0.1.0-alpha) and add the relevant change log entries to its description.
+6. Tag this commit as the version (e.g. 0.1.0-alpha) and add the relevant change log entries to its description.
+7. Checkout the merge-commit and push this to npm as a new release using `npm release`
 
-#### Production - remote
-
-* Before step 5, set the `url_base` to `/[version]` where `[version]` is the release in `_config.yml`
-* After step 7, set the `url_base` to `..` in `_config.yml`
+[1] It doesn't matter what this contains, as it should be replaced during deployment, a file is needed so Git includes
+the directory, and a HTML file is needed so that Jekyll includes the directory in the built site.
 
 ### Deploying a release
-
-Note: These instructions only apply to *production* environments. The *staging* environment is automatically deployed
-and *development* environments are not deployed.
-
-These steps assume you have checked out the project release tag you wish to deploy (e.g. 0.1.0-alpha). You will need to
-generate the `site` directory, containing the end-user documentation, which will be deployed as a website.
-
-Note: You do not need to regenerate the `/dist` directory as this is tracked in the project repository directly.
 
 Follow the steps listed in the relevant environment documented in the project `README`.
 

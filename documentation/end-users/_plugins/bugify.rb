@@ -1,3 +1,5 @@
+# Plugin from Bootstrap docs
+
 module Jekyll
   module BugFilter
     def bugify(input)

@@ -16,18 +16,18 @@ Font file locations and font-family declarations are defined through the BAS Sty
 
 Note: See this project's documentation on [Gulp|../gulp.md] if you are unfamiliar with its use within this project.
 
-`gulp fonts` is a high level task to copy fonts to their relevant locations.
+`fonts` is a high level task to copy fonts to their relevant locations.
 
 Behind the scenes these tasks are called in parallel:
-`gulp [fonts-opensans | fonts-gillsans | fonts-fontawesome | fonts-mapglyphs | fonts-devicons]`.
+`[fonts-opensans | fonts-gillsans | fonts-fontawesome | fonts-mapglyphs | fonts-devicons]`.
 
 Individual font files can be copied if needed using:
 
-* `gulp fonts-opensans` - For Open Sans
-* `gulp fonts-gillsans` - For Gill Sans
-* `gulp fonts-fontawesome` - For Font Awesome
-* `gulp fonts-mapglyphs` - For Map Glyphs
-* `gulp fonts-devicons` - For Devicons
+* `fonts-opensans` - For Open Sans
+* `fonts-gillsans` - For Gill Sans
+* `fonts-fontawesome` - For Font Awesome
+* `fonts-mapglyphs` - For Map Glyphs
+* `fonts-devicons` - For Devicons
 
 ### Gill Sans
 
@@ -54,12 +54,12 @@ Note: See this project's documentation on [Gulp|../gulp.md] if you are unfamilia
 To display the dizzying array of icons within icon fonts, a set of Gulp tasks are used to parse the icon classes into a
 Jekyll data file. Where possible, icons are linked to the detail page on their respective provider's site.
 
-`gulp jekyll-data` is a high level task to generated data files for all icon fonts.
+`jekyll-data` is a high level task to generated data files for all icon fonts.
 
-Behind the scenes these tasks are called in parallel: `gulp [jekyll-data-fa | jekyll-data-mg | jekyll-data-di]`.
+Behind the scenes these tasks are called in parallel: `[jekyll-data-fa | jekyll-data-mg | jekyll-data-di]`.
 
 Individual font data files can be generated if needed using:
 
-* `gulp jekyll-data-fa` - For Font Awesome
-* `gulp jekyll-data-mg` - For Map Glyphs
-* `gulp jekyll-data-di` - For Devicons
+* `jekyll-data-fa` - For Font Awesome
+* `jekyll-data-mg` - For Map Glyphs
+* `jekyll-data-di` - For Devicons
