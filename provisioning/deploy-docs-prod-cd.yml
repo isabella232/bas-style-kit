@@ -4,7 +4,7 @@
   hosts: all
   tasks:
     - name: install jekyll without documentation
-      command: "gem install jekyll --no-ri --no-rdoc"
+      command: "gem install jekyll --no-ri --no-rdoc -v 2.5.3"
     - name: install rouge gem
       command: "gem install rouge"
     - name: install gulp globally
