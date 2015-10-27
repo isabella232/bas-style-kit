@@ -5,15 +5,17 @@ Develop: [![Build Status](https://semaphoreci.com/api/v1/projects/0f33c45e-b93f-
 
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
-* More information about this project is available in `documentation/project-management`
-* Documentation for end users is stored in `documentation/end-users` and online, see the *Usage* section for details
-* Documentation for developers is available in `documentation/developers`
+* More information about this project is available in
+[documentation/project-management](documentation/project-management/index.md)
+* Documentation for end users is stored in `documentation/end-users` and
+[published online](https://style-kit.web.bas.ac.uk)
+* Documentation for developers is available in [documentation/developers](documentation/developers/index.md)
 
 This project is based on the BASIS project template (version 2).
 
 ## Requirements
 
-You will need to have the following software available on your localhost depending on the environment you wish to use:
+You will need to have the following software or resources available depending on the environment you wish to use:
 
 ### All environments
 
@@ -27,6 +29,8 @@ and [public key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa.
 [1] `nmap` is needed to determine if you access internal resources (such as Stash).
 
 ### Development - local
+
+To *setup* and *use* this environment:
 
 * [VMware Fusion](http://vmware.com/fusion) `brew cask install vmware-fusion`
 * [Vagrant](http://vagrantup.com) `brew cask install vagrant`
@@ -50,6 +54,8 @@ Host *.v.m
 
 ### Staging - remote
 
+To *setup* this environment:
+
 * [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
 * An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
 `AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [1]
@@ -59,13 +65,20 @@ organisation [2]
 * Ansible Vault password file [3]
 * The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [4]
 
+To *use* this environment:
+
+* Suitable permissions to push to the *develop* branch of the project repository [2]
+* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to view projects under the `antarctica`
+organisation [2]
+
 [1] Specifically for a user account delegated from the BAS AWS account, use the
 [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
 
-[2] Please contact the *Project Maintainer* if you do not have permission to access this organisation.
+[2] Please contact the *Project Maintainer* if you do not have these permissions.
 
-[3] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
-vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
+[3] This playbook uses an Ansible vault managed variables file containing the credentials of the AWS user used for
+Continuous Deployment. The password for this vault is contained in `provisioning/.vault_pass.txt` and passed to
+`ansible-playbook` at run time.
 
 For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
 this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
@@ -73,6 +86,8 @@ this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWE
 [4] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
 
 ### Production - remote
+
+To *setup* this environment:
 
 * [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
 * An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
@@ -84,15 +99,22 @@ organisation [3]
 * Ansible Vault password file [4]
 * The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [5]
 
+To *use* this environment:
+
+* Suitable permissions to push to the *master* branch of the project repository [2]
+* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to view projects under the `antarctica`
+organisation [3]
+
 [1] Specifically for a user account delegated from the BAS AWS account, use the
 [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
 
 [2] See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
 
-[3] Please contact the *Project Maintainer* if you do not have permission to access this organisation.
+[3] Please contact the *Project Maintainer* if you do not have these permissions.
 
-[4] This playbook uses an Ansible vault managed variables file to set the AWS user credentials. The password for this
-vault is contained in `provisioning/.vault_pass.txt` and passed to the `ansible-playbook` at run time.
+[4] This playbook uses an Ansible vault managed variables file containing the credentials of the AWS user used for
+Continuous Deployment. The password for this vault is contained in `provisioning/.vault_pass.txt` and passed to
+`ansible-playbook` at run time.
 
 For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
 this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
@@ -118,13 +140,17 @@ $ vagrant up
 
 Vagrant will automatically configure the localhost hosts file for infrastructure it creates on your behalf:
 
-| Name                       | Points To        | FQDN                         | Notes                       |
-| -------------------------- | ---------------- | ---------------------------- | --------------------------- |
-| bas-style-kit-dev-web1.v.m | *computed value* | `bas-style-kit-dev-web1.v.m` | The VM's private IP address |
+| Name                   | Points To        | FQDN                         | Notes                       |
+| ---------------------- | ---------------- | ---------------------------- | --------------------------- |
+| bas-style-kit-dev-web1 | *computed value* | `bas-style-kit-dev-web1.v.m` | The VM's private IP address |
 
 Note: Vagrant managed VMs also have a second, host-guest only, network for management purposes not documented here.
 
 ```shell
+$ mkdir provisioning/certificates/v.m
+$ cp /etc/ssl/certs/v.m.tls.crt /provisioning/certificates/v.m/
+$ cp /etc/ssl/private/v.m.tls.key /provisioning/certificates/v.m/
+
 $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 ```
 
@@ -161,8 +187,8 @@ To use an alternate domain name, a CNAME DNS record is required, this will need 
 
 #### Continuous Integration
 
-If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the *develop* branch of the
-Project Repository, associate with the `antarctica` organisation.
+If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the `develop` branch of the
+Project Repository and associate within the antarctica organisation.
 
 If the project already exists, but not this branch, check the settings below are correct and add the *develop* branch
 as a new build branch manually.
@@ -232,8 +258,8 @@ ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connec
 Static website hosting is powered by AWS S3 / AWS CloudFront, managed using terraform / manually, configured by Ansible
 and deployed by SemaphoreCI.
 
-Distribution assets of each version are stored in the *development* environment of the BAS CDN, deployments to this CDN
-are managed automatically by SemaphoreCI.
+Distribution assets of each version are stored in the *production* environment of the BAS CDN, deployments to this CDN
+are managed automatically by Semaphore.
 
 #### Infrastructure
 
@@ -263,12 +289,12 @@ To use an alternate domain name, a CNAME DNS record is required, this will need 
 
 #### Continuous Integration
 
-If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the *master* branch of the
-Project Repository and associate with the `antarctica` organisation.
+If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the `master` branch of the
+Project Repository and associate within the antarctica organisation.
 
-Note: To test changes that will apply to the master branch a `pretend-master` branch is used. This prevents such tests
-from being carried out on the *production* branch of the project. To implement this repeat the steps below for the
-*pretend-master* branch.
+Note: To test changes that will apply to the `master` branch a `pretend-master` branch is used. This prevents such
+tests from being carried out on the production branch of the project. To implement this repeat the steps below for the
+`pretend-master` branch. This is a temporary arrangement whilst this new release & deployment workflow is implemented.
 
 If the project already exists, but not this branch, check the settings below are correct and add the *master* branch
 as a new build branch manually.
@@ -314,10 +340,10 @@ If the project and branch already exists, check the settings above are correct.
 
 If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
 
-Note: To test changes that will apply to the master branch a `pretend-master` branch is used. This prevents such tests
-from being carried out on the *production* branch of the project. To implement this repeat the steps below for the
-*pretend-master* branch. Use the same S3 bucket, and server URL as the real master branch,
-use `pretend-master-documentation` as the server name.
+Note: To test changes that will apply to the `master` branch a `pretend-master` branch is used. This prevents such
+tests from being carried out on the production branch of the project. To implement this repeat the steps below for the
+`pretend-master` branch. Use the same server URL as the real master branch and `pretend-master-documentation` as the
+server name. This is a temporary arrangement whilst this new release & deployment workflow is implemented.
 
 * Set the deployment strategy to: `Automatic`
 * Set the branch to deploy to: `master`
@@ -346,9 +372,10 @@ ansible-playbook -i provisioning/local provisioning/deploy-docs-prod-cd.yml --co
 
 If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
 
-Note: To test changes that will apply to the master branch a `pretend-master` branch is used. This prevents such tests
-from being carried out on the *production* branch of the project. To implement this repeat the steps below for the
-*pretend-master* branch. Use `pretend-master-documentation` as the server name.
+Note: To test changes that will apply to the `master` branch a `pretend-master` branch is used. This prevents such
+tests from being carried out on the production branch of the project. To implement this repeat the steps below for the
+`pretend-master` branch. Use `pretend-master-documentation` as the server name. This is a temporary arrangement whilst
+this new release & deployment workflow is implemented.
 
 * Set the deployment strategy to: `Automatic`
 * Set the branch to deploy to: `master`
@@ -392,6 +419,9 @@ $ gulp clean
 $ gulp fonts
 $ gulp less
 $ gulp jekyll-data
+
+$ gulp lint
+
 $ jekyll build
 ```
 
@@ -404,43 +434,41 @@ $ cd /app
 $ jekyll build --watch --force_polling
 ```
 
-Note: The definitive version of this documentation, built from the latest release of the project, is available at
-[here](https://bas-style-kit.web.nerc-bas.ac.uk/).
+A local build of the documentation will be available from
+[bas-style-kit-dev-web1.v.m](http://bas-style-kit-dev-web1.v.m).
 
 ### Staging - remote
 
 #### End-user documentation
 
-The Continuous Deployment element of SemaphoreCI will deploy project documentation to the staging documentation
-website automatically. This documentation is generated from the *develop* branch of the Project Repository providing it
-has passed certain tests. These is automatic, taking place whenever changes are pushed to the Project Repository.
+Pushing to the `develop` branch will automatically trigger SemaphoreCI, passing builds will then be deployed to the
+preview documentation site, using Semaphore's Continuous Deployment facilities.
 
 The `JEKYLL_ENV` will be automatically set to `staging` to ensure the documentation is built in the correct way.
 
-Note: The definitive version of this documentation, built from the latest, passing, version of the *develop* branch of
-this project, is available [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
+The latest version of this preview documentation will be available from
+[style-kit-preview.web.bas.ac.uk](http://style-kit-preview.web.bas.ac.uk/).
 
 ### Production - remote
 
 #### End-user documentation
 
-The Continuous Deployment element of SemaphoreCI will deploy project documentation to the staging documentation
-website automatically. This documentation is generated from the *master* branch of the Project Repository providing it
-has passed certain tests. These is automatic, taking place whenever changes are pushed to the Project Repository.
+Pushing to the `master` branch will automatically trigger SemaphoreCI, passing builds will then be deployed to the
+documentation site, using Semaphore's Continuous Deployment facilities.
+
+Note: To test changes that will apply to the `master` branch a `pretend-master` branch is used. Changes pushed to this
+branch will be treated as if the commit was made to the `master` branch. This is a temporary arrangement whilst this
+new release & deployment workflow is implemented.
 
 The `JEKYLL_ENV` will be automatically set to `production` to ensure the documentation is built in the correct way.
 
-Note: The definitive version of this documentation, built from the latest, passing, version of the *develop* branch of
-this project, is available [here](http://bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com/).
+The latest, and definitive, version of this documentation will be available from
+[style-kit.web.bas.ac.uk](http://style-kit.web.bas.ac.uk/).
 
 #### Distribution assets
 
-The Continuous Deployment element of SemaphoreCI will also deploy distribution assets, i.e. the `dist` directory, to
-the *production* environment of the BAS CDN [1] automatically. These resources are used by others in their own websites
-and applications in order to use a particular version.
-
-As with end-user documentation, these assets are generated from the *master* branch of the Project Repository,
-providing it has passed the same tests. These processes are automatic.
+Pushing to the `master` branch will also automatically trigger SemaphoreCI to deploy distribution assets, i.e. the
+`dist` directory, to the *production* environment of the BAS CDN [1]
 
 [1] Note: This service should already exist and is out of the scope of this project. See the BAS CDN Project for more
 information.
@@ -457,7 +485,7 @@ See the *developer* documentation for instructions on how to create and manage r
 
 The vast majority of this project is based on the amazing [Bootstrap](http://getbootstrap.com) project.
 
-97% of any credit for this project should go to Boostrap's [authors and contributors](http://getbootstrap.com/about/).
+90% of any credit for this project should go to Boostrap's [authors and contributors](http://getbootstrap.com/about/).
 
 The original Bootstrap licensing statement is shown below,
 see their original `LICENSE-BOOTSTRAP-MIT` further licensing information.
@@ -470,4 +498,5 @@ The authors of this project are incredibly grateful for their work.
 
 ## License
 
-Copyright 2015 NERC BAS. Licensed under the MIT license, see `LICENSE` for details.
+Copyright 2015 NERC BAS. Except where otherwise stated, Code is licensed under the MIT License, Documentation is
+licensed under the Creative Commons Public License v3.0. See `LICENSE.md` for details.
