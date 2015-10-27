@@ -338,7 +338,7 @@ If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.c
 * Set the branch to deploy to: `master`
 * Set the deploy commands to [1]
 * Skip the deployment SSH key option
-* Set the server name to: `master-documentation`
+* Set the server name to: `production-documentation`
 * Set the server URL to: `https://style-kit.web.bas.ac.uk/`
 
 If the deployment already exists check the settings above are correct.
@@ -365,7 +365,7 @@ If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.c
 * Set the branch to deploy to: `master`
 * Set the deploy commands to [1]
 * Skip the deployment SSH key option
-* Set the server name to: `master-assets-cdn`
+* Set the server name to: `production-assets-cdn`
 
 If the deployment already exists check the settings above are correct.
 
