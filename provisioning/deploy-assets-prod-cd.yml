@@ -1,0 +1,38 @@
+---
+
+- name: setup project deployment environment
+  hosts: all
+  tasks:
+    - name: install gulp globally
+      command: "npm install --global gulp"
+    - name: install node dependencies through npm
+      npm: path=.
+
+- name: configure project deployment environment
+  hosts: all
+  vars_files:
+    - vars/aws-cli-auth.yml
+  tasks:
+    - name: ensure AWSCLI configuration directory exists
+      file: path=~/.aws state=directory
+    - name: copy configuration environment file
+      copy: src=files/~.aws/aws-cli-config dest=~/.aws/config
+    - name: generate credentials environment file
+      template: src=templates/~.aws/credentials.j2 dest=~/.aws/credentials mode=0600
+
+- name: build and deploy distribution assets to CDN
+  hosts: all
+  vars:
+    - aws_s3_sync_source: "dist"
+    - aws_s3_sync_target: "s3://bas-cdn-prod/bas-style-kit/{{ project_version }}-TEST" # REMOVE THE TEST SUFFIX!
+  tasks:
+    - name: run task to clean generated files
+      command: gulp clean
+    - name: run task to compile less
+      command: gulp less
+    - name: run task to copy fonts
+      command: gulp fonts
+    - name: deploy distribution assets to CDN
+      command: "aws s3 sync {{ aws_s3_sync_source }} {{ aws_s3_sync_target }}"
+      args:
+        chdir: ../
