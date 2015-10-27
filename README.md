@@ -292,10 +292,6 @@ To use an alternate domain name, a CNAME DNS record is required, this will need 
 If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the `master` branch of the
 Project Repository and associate within the antarctica organisation.
 
-Note: To test changes that will apply to the `master` branch a `pretend-master` branch is used. This prevents such
-tests from being carried out on the production branch of the project. To implement this repeat the steps below for the
-`pretend-master` branch. This is a temporary arrangement whilst this new release & deployment workflow is implemented.
-
 If the project already exists, but not this branch, check the settings below are correct and add the *master* branch
 as a new build branch manually.
 
@@ -330,8 +326,6 @@ Set *Configuration Files* as shown in the table below:
 
 Copy the build badge for the *master* branch to this README.
 
-Note: Do not repeat this step for the *pretend-master* branch, it is not necessary.
-
 If the project and branch already exists, check the settings above are correct.
 
 #### Continuous Deployment
@@ -340,16 +334,11 @@ If the project and branch already exists, check the settings above are correct.
 
 If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
 
-Note: To test changes that will apply to the `master` branch a `pretend-master` branch is used. This prevents such
-tests from being carried out on the production branch of the project. To implement this repeat the steps below for the
-`pretend-master` branch. Use the same server URL as the real master branch and `pretend-master-documentation` as the
-server name. This is a temporary arrangement whilst this new release & deployment workflow is implemented.
-
 * Set the deployment strategy to: `Automatic`
 * Set the branch to deploy to: `master`
 * Set the deploy commands to [1]
 * Skip the deployment SSH key option
-* Set the server name to: `master-documentation`
+* Set the server name to: `production-documentation`
 * Set the server URL to: `https://style-kit.web.bas.ac.uk/`
 
 If the deployment already exists check the settings above are correct.
@@ -372,16 +361,11 @@ ansible-playbook -i provisioning/local provisioning/deploy-docs-prod-cd.yml --co
 
 If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
 
-Note: To test changes that will apply to the `master` branch a `pretend-master` branch is used. This prevents such
-tests from being carried out on the production branch of the project. To implement this repeat the steps below for the
-`pretend-master` branch. Use `pretend-master-documentation` as the server name. This is a temporary arrangement whilst
-this new release & deployment workflow is implemented.
-
 * Set the deployment strategy to: `Automatic`
 * Set the branch to deploy to: `master`
 * Set the deploy commands to [1]
 * Skip the deployment SSH key option
-* Set the server name to: `master-assets-cdn`
+* Set the server name to: `production-assets-cdn`
 
 If the deployment already exists check the settings above are correct.
 
@@ -455,10 +439,6 @@ The latest version of this preview documentation will be available from
 
 Pushing to the `master` branch will automatically trigger SemaphoreCI, passing builds will then be deployed to the
 documentation site, using Semaphore's Continuous Deployment facilities.
-
-Note: To test changes that will apply to the `master` branch a `pretend-master` branch is used. Changes pushed to this
-branch will be treated as if the commit was made to the `master` branch. This is a temporary arrangement whilst this
-new release & deployment workflow is implemented.
 
 The `JEKYLL_ENV` will be automatically set to `production` to ensure the documentation is built in the correct way.
 
