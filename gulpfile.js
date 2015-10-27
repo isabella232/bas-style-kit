@@ -112,14 +112,14 @@ gulp.task('bsk-less-no-min', function() {
     .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
-gulp.task('bsk-less-min', function() {
-  return gulp.src(path.join(sources.stylesheets, 'bas-style-kit.less'))
-    .pipe(sourcemaps.init())
-    .pipe(less(configs.less))
-    .pipe(autoprefixer(configs.autoprefixer))
-    .pipe(csscomb())
+gulp.task('bsk-less-lint', function() {
+  return gulp.src(path.join(destinations.dist, destinations.css, 'bas-style-kit.css'))
     .pipe(csslint(configs.csslint.csslintrc))
     .pipe(csslint.reporter())
+});
+gulp.task('bsk-less-min', function() {
+  return gulp.src(path.join(destinations.dist, destinations.css, 'bas-style-kit.css'))
+    .pipe(sourcemaps.init())
     .pipe(minifycss(configs.minifycss))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
@@ -140,20 +140,13 @@ gulp.task('bootstrap-bsk-less-no-min', function() {
     .pipe(less(configs.less))
     .pipe(autoprefixer(configs.autoprefixer))
     .pipe(csscomb())
-    .pipe(csslint(configs.csslint.csslintrc))
-    .pipe(csslint.reporter())
     .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(path.join(destinations.dist, destinations.css)))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.css)));
 });
 gulp.task('bootstrap-bsk-less-min', function() {
-  return gulp.src(path.join(sources.stylesheets, 'bootstrap-bsk.less'))
+  return gulp.src(path.join(destinations.dist, destinations.css, 'bootstrap-bsk.css'))
     .pipe(sourcemaps.init())
-    .pipe(less(configs.less))
-    .pipe(autoprefixer(configs.autoprefixer))
-    .pipe(csscomb())
-    .pipe(csslint(configs.csslint.csslintrc))
-    .pipe(csslint.reporter())
     .pipe(minifycss(configs.minifycss))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
@@ -165,7 +158,9 @@ gulp.task('fonts-opensans', function() {
   return gulp.src(
     [
             path.join(sources.openSans, 'fonts', '**/*.*'),
-      '!' + path.join(sources.openSans, 'fonts', '**/*.svg')
+      '!' + path.join(sources.openSans, 'fonts', '**/*.svg'),
+      '!' + path.join(sources.openSans, 'fonts', 'ExtraBold*/*.*'),
+      '!' + path.join(sources.openSans, 'fonts', 'Semibold*/*.*')
     ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'open-sans')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'open-sans')));
@@ -205,15 +200,6 @@ gulp.task('fonts-devicons', function() {
     ])
     .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts, 'devicons')))
     .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts, 'devicons')));
-});
-gulp.task('fonts-glyphicons', function() {
-  return gulp.src(
-    [
-            path.join(sources.bootstrap, 'fonts', '**/*.*'),
-      '!' + path.join(sources.bootstrap, 'fonts', '**/*.svg')
-    ])
-    .pipe(gulp.dest(path.join(destinations.dist, destinations.fonts)))
-    .pipe(gulp.dest(path.join(destinations.docsDist, destinations.fonts)));
 });
 
 gulp.task('jekyll-data-fa', function() {
@@ -434,11 +420,15 @@ gulp.task('clean', function() {
 
 // Combined tasks
 
-gulp.task('less', [
-  'bsk-less-no-min',
-  'bsk-less-min',
-  'bootstrap-bsk-less-no-min',
-  'bootstrap-bsk-less-min'
+gulp.task('less', function(callback) {
+  runSequence(
+    ['bsk-less-no-min', 'bootstrap-bsk-less-no-min'],
+    ['bsk-less-min', 'bootstrap-bsk-less-min'],
+    callback);
+});
+
+gulp.task('lint', [
+  'bsk-less-lint'
 ]);
 
 gulp.task('fonts', [
@@ -446,8 +436,7 @@ gulp.task('fonts', [
   'fonts-gillsans',
   'fonts-fontawesome',
   'fonts-mapglyphs',
-  'fonts-devicons',
-  'fonts-glyphicons'
+  'fonts-devicons'
 ]);
 
 gulp.task('jekyll-data', [
@@ -455,14 +444,3 @@ gulp.task('jekyll-data', [
   'jekyll-data-mg',
   'jekyll-data-di'
 ]);
-
-// Special tasks
-
-gulp.task('default', function(callback) {
-  runSequence(
-    'clean',
-    'fonts',
-    'less',
-    'jekyll-data',
-    callback);
-});

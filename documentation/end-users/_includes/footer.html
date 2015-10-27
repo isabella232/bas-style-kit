@@ -11,9 +11,10 @@
     </div>
     <div class="bsk-docs-footer-version">
       {% if jekyll.environment == "production" %}
-      <a href="{{ site.repo }}?at=refs%2Ftags%2Fv{{ site.version }}">Version {{ site.version }}</a>
+      Version <a href="{{ site.repo }}/browse?at=refs%2Ftags%2Fv{{ site.version }}">{{ site.version }}</a>
       {% elsif jekyll.environment == "staging" %}
-      Changes since version <a href="{{ site.repo }}?at=refs%2Fbranches%2Fdevelop">version {{ site.version }}</a>
+      Preview of changes since version <a href="{{ site.repo }}/browse?at=refs%2Fbranches%2Fdevelop">{{ site.version }}</a> -
+      revision <a href="{{ site.repo }}/commits/{{ site.revision }}">{{ site.revision }}</a>
       {% elsif jekyll.environment == "development" %}
       Local version
       {% endif %}
@@ -24,8 +25,8 @@
     <div class="bsk-docs-footer-licensing">
       <a class="osi-symbol" rel="license" href="https://hackpad.com/BAS-Style-Kit-License-tYBcBNjApkJ"><i class="devicons devicons-opensource"></i><span class="sr-only">Open Source Initiative Symbol</span></a>
       <a class="cc-symbol" rel="license" href="https://creativecommons.org/licenses/by/3.0/"><i class="devicons devicons-creativecommons"></i><span class="sr-only">Create Commons Symbol</span></a>
-      <div class="license-text">Except where otherwise stated, Code is licensed under the <a rel="license" href="https://hackpad.com/BAS-Style-Kit-License-tYBcBNjApkJ">MIT License</a>, <br />
-        Documentation is licensed under the <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Public License v3.0</a></div>
+      <div class="license-text">Except where otherwise stated, code is licensed under the <a rel="license" href="https://hackpad.com/BAS-Style-Kit-License-tYBcBNjApkJ">MIT License</a> <br />
+        and documentation, the <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Public License v3.0</a></div>
     </div>
     <div class="footer-bsk-policy-links">
       © NERC BAS

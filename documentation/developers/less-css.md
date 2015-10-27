@@ -41,38 +41,63 @@ Note: See this project's documentation on [Gulp|../gulp.md] if you are unfamilia
 `gulp less` is a high level task to perform Less compilation, processing and output of both minified and non-minified
 CSS files.
 
-Behind the scenes these tasks are called in parallel: `gulp [less-min | less-no-min]`.
+Note: This task can take some time as it includes a CSS file from our fonts provider to include GillSans.
 
-`gulp less-no-min` is a compound task which will:
+Behind the scenes these tasks are called in parallel: `[bsk-less-no-min, bootstrap-bsk-less-no-min]` and then,
+again in parallel, `[bsk-less-min, bootstrap-bsk-less-min]`.
 
-* Compile `less/bas-style-kit.less` and `less/bootstrap-bsk.less` into CSS
+`bsk-less-no-min` is a compound task which will:
+
+* Compile `less/bas-style-kit.less`  into CSS
 * Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
-* Run compiled CSS through [csslint](http://csslint.net/) & [csscomb](http://csscomb.com/) - see *linting* for more
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled CSS files
 * Output compiled, processed CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
-`gulp less-min` is a compound task which will, in addition to the steps performed in `gulp less-no-min`,:
+`bsk-less-min` is a compound task which takes the output of the `bsk-less-no-min` task and then:
 
 * Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` filename suffix
 * Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled minified CSS files
 * Output compiled, minified CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
 
-`gulp less-only` is an an alternative task which will:
+`bsk-less-only` is an an alternative task which will:
 
-* Compile `less/bas-style-kit.less` and `less/bootstrap-bsk.less` into CSS only
+* Compiles `less/bas-style-kit.less` into CSS only
+
+`bootstrap-bsk-less-no-min` is a compound task which will:
+
+* Compile `less/bootstrap-bsk.less`  into CSS
+* Run compiled CSS through [autoprefixer](https://github.com/postcss/autoprefixer)
+* Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled CSS files
+* Output compiled, processed CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
+
+`bootstrap-bsk-less-min` is a compound task which takes the output of the `bootstrap-bsk-less-no-min` task,
+and then:
+
+* Minify the CSS using [clean-css](https://github.com/jakubpawlowicz/clean-css) and append a `.min` filename suffix
+* Include [CSS source maps](http://blog.teamtreehouse.com/introduction-source-maps) for compiled minified CSS files
+* Output compiled, minified CSS files and CSS maps to `dist/css` and `documentation/end-users/dist/css`
+
+`bootstrap-bsk-less-only` is an an alternative task which will:
+
+* Compiles `less/bootstrap-bsk.less` into CSS only
 
 ### CSS linting
 
-Compiled CSS is ran through the same linting tools Bootstrap uses,
-[csslint](http://csslint.net/) & [csscomb](http://csscomb.com/), and uses the same setting files (except where noted).
+`bsk-less-lint` is a task which will run compiled CSS (but not our customised version of Bootstrap) through
+[csslint](http://csslint.net/), the same tools Bootstrap uses.
 
-Errors are reported to the terminal.
+Because we use the same linting tools as Bootstrap, and we only change variables in our custom version of Bootstrap,
+we don't lint our custom version as well.
+
+Any errors are reported to the terminal.
+
+This task is included in the high level `lint` task, which is defined in the [Gulp|../gulp.md] section.
 
 #### Known errors
 
 These errors are known and accepted for the reasons given here:
 
-* `[GENERAL] Too many @font-face declarations (10). Too many different web fonts in the same stylesheet. (font-faces)`
+* `[GENERAL] Too many @font-face declarations (15). Too many different web fonts in the same stylesheet. (font-faces)`
   * This is caused by the large number of variants for the Open Sans web-font
   * Ideally a number of these variants can be dropped preventing this error
   * See [BASWEB-431](https://jira.ceh.ac.uk/browse/BASWEB-431) for details
