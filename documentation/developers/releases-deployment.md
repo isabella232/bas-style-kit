@@ -22,7 +22,7 @@ These steps are required before this merge can take place:
 
 1. Bump the release version (i.e. from 1.2.3 to 1.2.4 or 1.3.0 or 2.0.0 as required) - ensure you check:
   * The change log file
-  * The `current_version` key in `_config.yml`
+  * The `version` key in `_config.yml`
   * The `version` key in `package.json`
   * The `project_version` key in `provisioning/group_vars/all.yml`
 2. Create a directory named after the release in `documentation/end-users/versions` and include an `index.html` file [1]
