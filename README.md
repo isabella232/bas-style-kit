@@ -183,7 +183,7 @@ pip install ansible
 For *Thread #1* rename to *Build and Test* with these commands:
 
 ```shell
-ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local
+ansible-playbook -i provisioning/local provisioning/test-ci.yml --connection=local
 ```
 
 Set the *Branches* settings to:
