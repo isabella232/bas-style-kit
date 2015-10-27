@@ -25,6 +25,7 @@ These steps are required before this merge can take place:
   * The `version` key in `_config.yml`
   * The `version` key in `package.json`
   * The `project_version` key in `provisioning/group_vars/all.yml`
+  * The release branch specified in `provisioning/data/semaphore-ci/set-environment.sh`
 2. Create a directory named after the release in `documentation/end-users/versions` and include an `index.html` file [1]
 3. The change log is suitably updated, use the Git log and Jira to help, it can be updated later but its best to be as
 complete as possible now
