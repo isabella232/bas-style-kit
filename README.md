@@ -19,14 +19,10 @@ You will need to have the following software or resources available depending on
 
 ### All environments
 
-* [Mac OS X](https://www.apple.com/uk/osx/)
-* [NMap](http://nmap.org/) `brew cask install nmap` [1]
-* [Git](http://git-scm.com/) `brew install git`
-* [Ansible](http://www.ansible.com) `brew install ansible`
-* You have a [private key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa`
-and [public key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa.pub` in `~/.ssh/`
+* Mac OS X or Linux
 
-[1] `nmap` is needed to determine if you access internal resources (such as Stash).
+* [Git](http://git-scm.com/) `brew install git`
+
 
 ### Development - local
 
@@ -38,11 +34,17 @@ To *setup* and *use* this environment:
     * [Vagrant VMware](http://www.vagrantup.com/vmware) `vagrant plugin install vagrant-vmware-fusion`
     * [Host manager](https://github.com/smdahlen/vagrant-hostmanager) `vagrant plugin install vagrant-hostmanager`
     * [Vagrant triggers](https://github.com/emyl/vagrant-triggers) `vagrant plugin install vagrant-triggers`
-* You have an entry like [1] in your `~/.ssh/config`
+* [NMap](http://nmap.org/) `brew cask install nmap` [1]
+* [Ansible](http://www.ansible.com) `brew install ansible`
+* You have a [private key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa`
+and [public key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa.pub` in `~/.ssh/`
+* You have an entry like [2] in your `~/.ssh/config`
 * You have a [self signed SSL certificate for local use](https://gist.github.com/felnne/25c220a03f8f39663a5d), with the
 certificate assumed at, `app/provisioning/certificates/v.m/v.m.tls.crt`, and private key, `/etc/ssl/private/v.m.tls.key`
 
-[1] SSH config entry
+[1] `nmap` is needed to determine if you access internal resources (such as Stash).
+
+[2] SSH config entry
 
 ```shell
 Host *.v.m
