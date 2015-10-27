@@ -37,5 +37,5 @@ cdn: https://cdn.web.bas.ac.uk
 analytics_token_prod:  UA-64130716-27
 analytics_token_stage: UA-64130716-28
 
-# Leave as "/"
+# Leave as empty string
 url_base: ""
