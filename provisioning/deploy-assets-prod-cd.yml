@@ -24,7 +24,7 @@
   hosts: all
   vars:
     - aws_s3_sync_source: "dist"
-    - aws_s3_sync_target: "s3://bas-cdn-prod/bas-style-kit/{{ project_version }}-TEST" # REMOVE THE TEST SUFFIX!
+    - aws_s3_sync_target: "s3://bas-cdn-prod/bas-style-kit/{{ project_version }}-TEST/dist" # REMOVE TEST BEFORE NEXT RELEASE!
   tasks:
     - name: run task to clean generated files
       command: gulp clean
