@@ -4,7 +4,7 @@
   hosts: all
   tasks:
     - name: install jekyll without documentation
-      command: "gem install jekyll --no-ri --no-rdoc"
+      command: "gem install jekyll --no-ri --no-rdoc -v 2.5.3"
     - name: install rouge gem
       command: "gem install rouge"
     - name: install gulp globally
@@ -24,11 +24,11 @@
     - name: generate credentials environment file
       template: src=templates/~.aws/credentials.j2 dest=~/.aws/credentials mode=0600
 
-- name: build and deploy project to staging website
+- name: build and deploy project to production website
   hosts: all
   vars:
     - aws_s3_sync_source: "site"
-    - aws_s3_sync_target: "s3://bas-style-kit-docs-stage"
+    - aws_s3_sync_target: "s3://bas-style-kit-docs-prod"
   tasks:
     - name: run task to clean generated files
       command: gulp clean
@@ -42,7 +42,15 @@
       command: jekyll build
       args:
         chdir: ../
-    - name: deploy staging site to S3 static website
+    - name: copy generated site to temporary location
+      command: "cp -a site/. /tmp/{{ project_version }}"
+      args:
+        chdir: ../
+    - name: move the copy into the versions directory of the site for historical access in the future
+      shell: "mv /tmp/{{ project_version }}/* site/versions/{{ project_version }}"
+      args:
+        chdir: ../
+    - name: deploy production site to S3 static website
       command: "aws s3 sync {{ aws_s3_sync_source }} {{ aws_s3_sync_target }}"
       args:
         chdir: ../
