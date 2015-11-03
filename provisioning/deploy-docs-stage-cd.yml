@@ -4,7 +4,7 @@
   hosts: all
   tasks:
     - name: install jekyll without documentation
-      command: "gem install jekyll 3.0.0"
+      command: "gem install jekyll -v 3.0.0"
     - name: install gulp globally
       command: "npm install --global gulp"
     - name: install node dependencies through npm
