@@ -2,7 +2,7 @@
 # Setup infrastructure for testing project
 
 - name: setup project test environment
-  hosts: all
+  hosts: local
   tasks:
     - name: install jekyll without documentation
       command: "gem install jekyll -v 3.0.0"
@@ -12,7 +12,7 @@
       npm: path=.
 
 - name: build and test project
-  hosts: all
+  hosts: local
   tasks:
     - name: run task to check generated files can be cleaned
       command: gulp clean
