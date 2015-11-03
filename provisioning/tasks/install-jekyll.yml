@@ -1,0 +1,23 @@
+---
+# Installs Ruby and Jekyll
+
+# TODO: Split into new 'ruby-2' role
+
+- name: install ruby repository
+  apt_repository: repo=ppa:brightbox/ruby-ng state=present
+
+- name: install ruby
+  apt: update_cache=yes pkg={{ item }} state=present
+  with_items:
+    - ruby2.2
+    - ruby2.2-dev
+
+# TODO: Split into new 'jekyll-3' role
+
+- name: install jekyll dependencies
+  apt: update_cache=yes pkg={{ item }} state=present
+  with_items:
+    - build-essential
+
+- name: install jekyll gem
+  command: gem install jekyll

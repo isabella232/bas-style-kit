@@ -221,6 +221,8 @@ In the settings for this project set the *Build Settings* to:
 For the *Setup* thread enter these commands:
 
 ```shell
+rm -f .rbenv-version .ruby-version
+rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
@@ -267,6 +269,8 @@ information in the *Issue Tracker* section of the Project Management documentati
 
 [2]
 ```shell
+rm -f .rbenv-version .ruby-version
+rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
@@ -323,6 +327,8 @@ In the settings for this project set the *Build Settings* to:
 For the *Setup* thread enter these commands:
 
 ```shell
+rm -f .rbenv-version .ruby-version
+rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
@@ -371,6 +377,8 @@ information in the *Issue Tracker* section of the Project Management documentati
 
 [2]
 ```shell
+rm -f .rbenv-version .ruby-version
+rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
@@ -391,6 +399,8 @@ If the deployment already exists check the settings above are correct.
 
 [1]
 ```shell
+rm -f .rbenv-version .ruby-version
+rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
