@@ -148,8 +148,8 @@ Note: Vagrant managed VMs also have a second, host-guest only, network for manag
 
 ```shell
 $ mkdir provisioning/certificates/v.m
-$ cp /etc/ssl/certs/v.m.tls.crt /provisioning/certificates/v.m/
-$ cp /etc/ssl/private/v.m.tls.key /provisioning/certificates/v.m/
+$ cp /etc/ssl/certs/v.m.tls.crt provisioning/certificates/v.m/
+$ cp /etc/ssl/private/v.m.tls.key provisioning/certificates/v.m/
 
 $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 ```
