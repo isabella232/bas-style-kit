@@ -8,11 +8,12 @@
   roles:
     - curl
     - gulp
-    - jekyll
     - nginx
   tasks:
+    # TODO: Move into 'Gulp' role
     - name: install gulp npm package globally
       npm: name=gulp global=yes
+    - include: tasks/install-jekyll.yml
 
 - name: complete setup of web-server
   hosts: bas-style-kit-webservers-dev
