@@ -12,6 +12,10 @@
 * All environments requirements section
 * Minor README instruction errors for copying development SSL certificates
 
+#### Changed
+
+* Updating to latest Ansible Prelude role
+
 ## [0.1.0] - 2015-10-27
 
 ### Styles
