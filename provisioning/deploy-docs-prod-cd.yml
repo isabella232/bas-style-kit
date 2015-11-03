@@ -1,7 +1,7 @@
 ---
 
 - name: setup project deployment environment
-  hosts: all
+  hosts: local
   tasks:
     - name: install jekyll without documentation
       command: "gem install jekyll -v 3.0.0"
@@ -11,7 +11,7 @@
       npm: path=.
 
 - name: configure project deployment environment
-  hosts: all
+  hosts: local
   vars_files:
     - vars/aws-cli-auth.yml
   tasks:
@@ -23,7 +23,7 @@
       template: src=templates/~.aws/credentials.j2 dest=~/.aws/credentials mode=0600
 
 - name: build and deploy project to production website
-  hosts: all
+  hosts: local
   vars:
     - aws_s3_sync_source: "site"
     - aws_s3_sync_target: "s3://bas-style-kit-docs-prod"

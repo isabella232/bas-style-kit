@@ -11,6 +11,7 @@
 
 * Upgrading to Jekyll 3, this adds new features such as incremental building and requires Ruby 2.0 or higher
 * Upgrading to Ruby 2.2, as required by Jekyll 3 - rebuild development environments to use updated provisioning
+* Simplifying Ansible inventory to a single file, which will be used by default
 
 #### Fixed
 

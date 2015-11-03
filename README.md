@@ -171,7 +171,7 @@ $ mkdir provisioning/certificates/v.m
 $ cp /etc/ssl/certs/v.m.tls.crt provisioning/certificates/v.m/
 $ cp /etc/ssl/private/v.m.tls.key provisioning/certificates/v.m/
 
-$ ansible-playbook -i provisioning/development provisioning/site-dev.yml
+$ ansible-playbook provisioning/site-dev.yml
 ```
 
 ### Staging - remote
@@ -231,7 +231,7 @@ pip install ansible
 For *Thread #1* rename to *Build and Test* with these commands:
 
 ```shell
-ansible-playbook -i provisioning/local provisioning/test-ci.yml --connection=local
+ansible-playbook provisioning/test-ci.yml --connection=local
 ```
 
 Set the *Branches* settings to:
@@ -274,7 +274,7 @@ rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
-ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
+ansible-playbook provisioning/deploy-stage-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
 ```
 
 ### Production - remote
@@ -337,7 +337,7 @@ pip install ansible
 For *Thread #1* rename to *Build and Test* with these commands:
 
 ```shell
-ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local
+ansible-playbook provisioning/site-test-ci.yml --connection=local
 ```
 
 Set the *Branches* settings to:
@@ -382,7 +382,7 @@ rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
-ansible-playbook -i provisioning/local provisioning/deploy-docs-prod-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
+ansible-playbook provisioning/deploy-docs-prod-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
 ```
 
 ##### Distribution assets
@@ -404,7 +404,7 @@ rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
-ansible-playbook -i provisioning/local provisioning/deploy-assets-prod-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
+ansible-playbook provisioning/deploy-assets-prod-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
 ```
 
 ## Usage

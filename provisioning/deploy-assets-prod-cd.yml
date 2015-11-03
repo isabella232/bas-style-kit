@@ -1,7 +1,7 @@
 ---
 
 - name: setup project deployment environment
-  hosts: all
+  hosts: local
   tasks:
     - name: install gulp globally
       command: "npm install --global gulp"
