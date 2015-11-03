@@ -20,9 +20,7 @@ You will need to have the following software or resources available depending on
 ### All environments
 
 * Mac OS X or Linux
-
 * [Git](http://git-scm.com/) `brew install git`
-
 
 ### Development - local
 

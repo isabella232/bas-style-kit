@@ -10,6 +10,7 @@
 #### Fixed
 
 * All environments requirements section
+* Minor README instruction errors for copying development SSL certificates
 
 ## [0.1.0] - 2015-10-27
 
