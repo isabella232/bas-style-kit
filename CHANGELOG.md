@@ -15,6 +15,7 @@
 #### Changed
 
 * Updating to latest Ansible Prelude role
+* README additions, improvements, refactoring and fixes
 
 ## [0.1.0] - 2015-10-27
 

@@ -20,29 +20,41 @@ You will need to have the following software or resources available depending on
 ### All environments
 
 * Mac OS X or Linux
-* [Git](http://git-scm.com/) `brew install git`
+* [Git](http://git-scm.com/) `brew install git` [1] [2]
+* You have a [private key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa`
+and [public key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa.pub` in `~/.ssh/`
+
+[1] `brew` is a package manager for Mac OS X, see [here](http://brew.sh/) for details.
+
+[2] Although these instructions uses `brew` and `brew cask` these are not required, 
+binaries/packages can be installed manually if you wish.
 
 ### Development - local
 
 To *setup* and *use* this environment:
 
-* [VMware Fusion](http://vmware.com/fusion) `brew cask install vmware-fusion`
-* [Vagrant](http://vagrantup.com) `brew cask install vagrant`
+* [VMware Fusion](http://vmware.com/fusion) `brew cask install vmware-fusion` [1] [2]
+* [Vagrant](http://vagrantup.com) `brew cask install vagrant` [1] [2]
 * Vagrant plugins:
     * [Vagrant VMware](http://www.vagrantup.com/vmware) `vagrant plugin install vagrant-vmware-fusion`
     * [Host manager](https://github.com/smdahlen/vagrant-hostmanager) `vagrant plugin install vagrant-hostmanager`
     * [Vagrant triggers](https://github.com/emyl/vagrant-triggers) `vagrant plugin install vagrant-triggers`
-* [NMap](http://nmap.org/) `brew cask install nmap` [1]
-* [Ansible](http://www.ansible.com) `brew install ansible`
-* You have a [private key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa`
-and [public key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa.pub` in `~/.ssh/`
-* You have an entry like [2] in your `~/.ssh/config`
+* [NMap](http://nmap.org/) `brew cask install nmap` [1] [2] [3]
+* [Ansible](http://www.ansible.com) `brew install ansible` [4] [2]
+* You have an entry like [5] in your `~/.ssh/config`
 * You have a [self signed SSL certificate for local use](https://gist.github.com/felnne/25c220a03f8f39663a5d), with the
 certificate assumed at, `app/provisioning/certificates/v.m/v.m.tls.crt`, and private key, `/etc/ssl/private/v.m.tls.key`
 
-[1] `nmap` is needed to determine if you access internal resources (such as Stash).
+[1] `brew` is a package manager for Mac OS X, see [here](http://brew.sh/) for details.
 
-[2] SSH config entry
+[2] Although these instructions uses `brew` and `brew cask` these are not required, 
+binaries/packages can be installed manually if you wish.
+
+[3] `nmap` is needed to determine if you access internal resources (such as Stash).
+
+[4] `brew cask` is a package manager for Mac OS X binaries, see [here](http://caskroom.io/) for details.
+
+[5] SSH config entry
 
 ```shell
 Host *.v.m
@@ -56,59 +68,25 @@ Host *.v.m
 
 To *setup* this environment:
 
-* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
-* An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
-`AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [1]
-* Suitable permissions within AWS to manage S3 buckets and to manage CloudFront distributions
-* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
-organisation [2]
-* Ansible Vault password file [3]
-* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [4]
-
-To *use* this environment:
-
-* Suitable permissions to push to the *develop* branch of the project repository [2]
-* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to view projects under the `antarctica`
-organisation [2]
-
-[1] Specifically for a user account delegated from the BAS AWS account, use the
-[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
-
-[2] Please contact the *Project Maintainer* if you do not have these permissions.
-
-[3] This playbook uses an Ansible vault managed variables file containing the credentials of the AWS user used for
-Continuous Deployment. The password for this vault is contained in `provisioning/.vault_pass.txt` and passed to
-`ansible-playbook` at run time.
-
-For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
-this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
-
-[4] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
-
-### Production - remote
-
-To *setup* this environment:
-
-* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
-* An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
-`AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [1]
-* Suitable permissions within AWS to manage S3 buckets and CloudFront distributions
-* Suitable permissions to upload to the BAS CDN [2]
-* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
+* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0) [1] [2]
+* Suitable permissions within AWS to manage S3 buckets and to manage CloudFront distributions [3]
+* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the *antarctica*
 organisation [3]
 * Ansible Vault password file [4]
 * The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [5]
+* An environment variable `TF_VAR_aws_access_key` set to your AWS access key [6]
+* An environment variable `TF_VAR_aws_secret_key` set to your AWS access secret [6]
 
 To *use* this environment:
 
-* Suitable permissions to push to the *master* branch of the project repository [2]
-* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to view projects under the `antarctica`
+* Suitable permissions to push to the *develop* branch of the project repository [3]
+* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to view projects under the *antarctica*
 organisation [3]
 
-[1] Specifically for a user account delegated from the BAS AWS account, use the
-[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
+[1] `brew cask` is a package manager for Mac OS X binaries, see [here](http://caskroom.io/) for details.
 
-[2] See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
+[2] Although these instructions uses `brew` and `brew cask` these are not required, 
+binaries/packages can be installed manually if you wish.
 
 [3] Please contact the *Project Maintainer* if you do not have these permissions.
 
@@ -120,6 +98,48 @@ For obvious reasons, this file is **MUST NOT** be checked into source control. T
 this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
 
 [5] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
+
+[6] Specifically for a user account delegated from the BAS AWS account, use the
+[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
+
+### Production - remote
+
+To *setup* this environment:
+
+* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0) [1] [2]
+* Suitable permissions within AWS to manage S3 buckets and CloudFront distributions [3]
+* Suitable permissions to upload to the BAS CDN [3]
+* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the *antarctica*
+organisation [3]
+* Ansible Vault password file [4]
+* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [5]
+* An environment variable `TF_VAR_aws_access_key` set to your AWS access key [6]
+* An environment variable `TF_VAR_aws_secret_key` set to your AWS access secret [6]
+
+To *use* this environment:
+
+* Suitable permissions to push to the *master* branch of the project repository [3]
+* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to view projects under the *antarctica*
+organisation [3]
+
+[1] `brew cask` is a package manager for Mac OS X binaries, see [here](http://caskroom.io/) for details.
+
+[2] Although these instructions uses `brew` and `brew cask` these are not required, 
+binaries/packages can be installed manually if you wish.
+
+[3] Please contact the *Project Maintainer* if you do not have these permissions.
+
+[4] This playbook uses an Ansible vault managed variables file containing the credentials of the AWS user used for
+Continuous Deployment. The password for this vault is contained in `provisioning/.vault_pass.txt` and passed to
+`ansible-playbook` at run time.
+
+For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
+this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
+
+[5] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
+
+[6] Specifically for a user account delegated from the BAS AWS account, use the
+[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
 
 ## Setup
 
@@ -156,7 +176,7 @@ $ ansible-playbook -i provisioning/development provisioning/site-dev.yml
 
 ### Staging - remote
 
-Static website hosting is powered by AWS S3 / AWS CloudFront, managed using terraform / manually, configured by Ansible
+Static website hosting is powered by AWS S3 / AWS CloudFront, managed using Terraform / manually, configured by Ansible
 and deployed by SemaphoreCI.
 
 #### Infrastructure
@@ -168,7 +188,7 @@ $ terraform get
 $ terraform apply
 ```
 
-The CloudFront distribution that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
+The CloudFront distribution, that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
 
 1. Login to the [BAS AWS Console](https://178449599525.signin.aws.amazon.com/console/)
 2. Within CloudFront, setup a new web distribution with these settings (use defaults for non-specified settings):
@@ -188,7 +208,7 @@ To use an alternate domain name, a CNAME DNS record is required, this will need 
 #### Continuous Integration
 
 If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the `develop` branch of the
-Project Repository and associate within the antarctica organisation.
+Project Repository and associate within the *antarctica* organisation.
 
 If the project already exists, but not this branch, check the settings below are correct and add the *develop* branch
 as a new build branch manually.
@@ -255,7 +275,7 @@ ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connec
 
 ### Production - remote
 
-Static website hosting is powered by AWS S3 / AWS CloudFront, managed using terraform / manually, configured by Ansible
+Static website hosting is powered by AWS S3 / AWS CloudFront, managed using Terraform / manually, configured by Ansible
 and deployed by SemaphoreCI.
 
 Distribution assets of each version are stored in the *production* environment of the BAS CDN, deployments to this CDN
@@ -270,7 +290,7 @@ $ terraform get
 $ terraform apply
 ```
 
-The CloudFront distribution that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
+The CloudFront distribution, that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
 
 1. Login to the [BAS AWS Console](https://178449599525.signin.aws.amazon.com/console/)
 2. Within CloudFront, setup a new web distribution with these settings (use defaults for non-specified settings):
@@ -290,7 +310,7 @@ To use an alternate domain name, a CNAME DNS record is required, this will need 
 #### Continuous Integration
 
 If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the `master` branch of the
-Project Repository and associate within the antarctica organisation.
+Project Repository and associate within the *antarctica* organisation.
 
 If the project already exists, but not this branch, check the settings below are correct and add the *master* branch
 as a new build branch manually.
