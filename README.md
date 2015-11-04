@@ -209,6 +209,7 @@ For the *Setup* thread enter these commands:
 ```shell
 rm -f .rbenv-version .ruby-version
 rbenv global 2.2
+nvm use 4.2.1
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
@@ -257,6 +258,7 @@ End-user documentation for this project can then be accessed from
 ```shell
 rm -f .rbenv-version .ruby-version
 rbenv global 2.2
+nvm use 4.2.1
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
@@ -326,6 +328,7 @@ For the *Setup* thread enter these commands:
 ```shell
 rm -f .rbenv-version .ruby-version
 rbenv global 2.2
+nvm use 4.2.1
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
@@ -376,6 +379,7 @@ End-user documentation for this project can then be accessed from
 ```shell
 rm -f .rbenv-version .ruby-version
 rbenv global 2.2
+nvm use 4.2.1
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
@@ -418,6 +422,7 @@ If the deployment already exists check the settings above are correct.
 ```shell
 rm -f .rbenv-version .ruby-version
 rbenv global 2.2
+nvm use 4.2.1
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible

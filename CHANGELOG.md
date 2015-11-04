@@ -20,6 +20,7 @@
 * Simplifying Ansible inventory to a single file, which will be used by default
 * IAM users have been split into staging and production roles with associated in-line policies, managed by Terraform
 * Adopting Semaphore's S3 deployment strategy, which removes the need to store AWS credentials within this project
+* Upgrading to NodeJS 4.2, as required by NPM modules - rebuild development environments to use updated provisioning
 
 #### Fixed
 
