@@ -16,18 +16,10 @@
     name: curl
     version: v0.1.0
 -
-    src: https://github.com/antarctica/ansible-nodejs
-    name: nodejs
-    version: v0.1.3
--
     src: https://github.com/antarctica/ansible-nginx
     name: nginx
     version: v1.0.1
 -
     src: https://github.com/antarctica/ansible-git
     name: git
-    version: v0.1.3
--
-    src: https://github.com/antarctica/ansible-gulp
-    name: gulp
     version: v0.1.3
