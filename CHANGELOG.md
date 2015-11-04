@@ -32,6 +32,7 @@
 * Updating to latest Ansible Prelude role
 * README additions, improvements, refactoring and fixes
 * Minor refactoring of Terraform configuration
+* Updating NPM modules
 
 ## [0.1.0] - 2015-10-27
 
