@@ -50,7 +50,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           vm1.vm.provision "ansible" do |ansible|
 
             # Standard configuration
-              ansible.inventory_path = 'provisioning/local'
               ansible.limit = 'all'
 
             # Playbook specific configuration
