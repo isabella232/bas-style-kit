@@ -22,6 +22,10 @@
 * Adopting Semaphore's S3 deployment strategy, which removes the need to store AWS credentials within this project
 * Upgrading to NodeJS 4.2, as required by NPM modules - rebuild development environments to use updated provisioning
 
+#### Added
+
+* Tasks to verify documentation build process for Continuous Integration
+
 #### Fixed
 
 * All environments requirements section
