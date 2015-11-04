@@ -12,6 +12,7 @@
 * Upgrading to Jekyll 3, this adds new features such as incremental building and requires Ruby 2.0 or higher
 * Upgrading to Ruby 2.2, as required by Jekyll 3 - rebuild development environments to use updated provisioning
 * Simplifying Ansible inventory to a single file, which will be used by default
+* IAM users have been split into staging and production roles with associated inline policies, managed by Terraform
 
 #### Fixed
 
@@ -22,6 +23,7 @@
 
 * Updating to latest Ansible Prelude role
 * README additions, improvements, refactoring and fixes
+* Minor refactoring of Terraform configuration
 
 ## [0.1.0] - 2015-10-27
 
