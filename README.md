@@ -201,8 +201,8 @@ as a new build branch manually.
 
 In the settings for this project set the *Build Settings* to:
 
-* Language: `Python`
-* Python version: `2.7`
+* Language: *Python*
+* Version: *2.7*
 
 For the *Setup* thread enter these commands:
 
@@ -306,6 +306,8 @@ To use an alternate domain name, a CNAME DNS record is required, this will need 
 | --------- | --------- | ---------------- | ------------------------- | ---------- |
 | **CNAME** | style-kit | *computed value* | `style-kit.web.bas.ac.uk` | Vanity URL |
 
+Within the BAS CDN, ensure a top level directory `bas-style-kit` exists.
+
 #### Continuous Integration
 
 If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the `master` branch of the
@@ -316,8 +318,8 @@ as a new build branch manually.
 
 In the settings for this project set the *Build Settings* to:
 
-* Language: `Python`
-* Python version: `2.7`
+* Language: *Python*
+* Version: *2.7*
 
 For the *Setup* thread enter these commands:
 
