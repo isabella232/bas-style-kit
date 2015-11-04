@@ -260,7 +260,7 @@ rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
-ansible-playbook provisioning/deploy-stage-cd.yml --connection=local
+ansible-playbook provisioning/deploy-docs-stage-cd.yml --connection=local
 ```
 
 [3]
