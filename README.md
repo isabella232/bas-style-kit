@@ -72,10 +72,9 @@ To *setup* this environment:
 * Suitable permissions within AWS to manage S3 buckets and to manage CloudFront distributions [3]
 * Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the *antarctica*
 organisation [3]
-* Ansible Vault password file [4]
-* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [5]
-* An environment variable `TF_VAR_aws_access_key` set to your AWS access key [6]
-* An environment variable `TF_VAR_aws_secret_key` set to your AWS access secret [6]
+* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [4]
+* An environment variable `TF_VAR_aws_access_key` set to your AWS access key [5]
+* An environment variable `TF_VAR_aws_secret_key` set to your AWS access secret [5]
 
 To *use* this environment:
 
@@ -90,16 +89,9 @@ binaries/packages can be installed manually if you wish.
 
 [3] Please contact the *Project Maintainer* if you do not have these permissions.
 
-[4] This playbook uses an Ansible vault managed variables file containing the credentials of the AWS user used for
-Continuous Deployment. The password for this vault is contained in `provisioning/.vault_pass.txt` and passed to
-`ansible-playbook` at run time.
+[4] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
 
-For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
-this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
-
-[5] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
-
-[6] Specifically for a user account delegated from the BAS AWS account, use the
+[5] Specifically for a user account delegated from the BAS AWS account, use the
 [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
 
 ### Production - remote
@@ -111,10 +103,9 @@ To *setup* this environment:
 * Suitable permissions to upload to the BAS CDN [3]
 * Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the *antarctica*
 organisation [3]
-* Ansible Vault password file [4]
-* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [5]
-* An environment variable `TF_VAR_aws_access_key` set to your AWS access key [6]
-* An environment variable `TF_VAR_aws_secret_key` set to your AWS access secret [6]
+* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [4]
+* An environment variable `TF_VAR_aws_access_key` set to your AWS access key [5]
+* An environment variable `TF_VAR_aws_secret_key` set to your AWS access secret [5]
 
 To *use* this environment:
 
@@ -129,16 +120,9 @@ binaries/packages can be installed manually if you wish.
 
 [3] Please contact the *Project Maintainer* if you do not have these permissions.
 
-[4] This playbook uses an Ansible vault managed variables file containing the credentials of the AWS user used for
-Continuous Deployment. The password for this vault is contained in `provisioning/.vault_pass.txt` and passed to
-`ansible-playbook` at run time.
+[4] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
 
-For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
-this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
-
-[5] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
-
-[6] Specifically for a user account delegated from the BAS AWS account, use the
+[5] Specifically for a user account delegated from the BAS AWS account, use the
 [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
 
 ## Setup
@@ -181,12 +165,14 @@ and deployed by SemaphoreCI.
 
 #### Infrastructure
 
-The AWS S3 bucket managed by Terraform:
+The AWS S3 bucket, and associated IAM users/policies to permit access, are managed by Terraform:
 
 ```shell
 $ terraform get
 $ terraform apply
 ```
+
+Note: IAM access keys requires manual provisioning, as they would be stored in state files if managed by Terraform.
 
 The CloudFront distribution, that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
 
@@ -238,34 +224,34 @@ Set the *Branches* settings to:
 
 * Build new branches: `Never`
 
-Set *Configuration Files* as shown in the table below:
-
-| File Path                                    | Content | Encrypt File  |
-| -------------------------------------------- | ------- | ------------- |
-| `bas-style-kit/provisioning/.vault_pass.txt` | [1]     | Yes (checked) |
-
 Copy the build badge for the *develop* branch to this README.
 
 If the project and branch already exists, check the settings above are correct.
 
 #### Continuous Deployment
 
-If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
+If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the *AWS S3* strategy.
 
 * Set the deployment strategy to: `Automatic`
 * Set the branch to deploy to: `develop`
-* Set the deploy commands to [2]
-* Skip the deployment SSH key option
-* Set the server name to: `staging-documentation`
+* Set the access credentials to [1], set the region to *Ireland (eu-west-1)*
+* Set the directory to upload to `site`, set the build commands to [2]
+* Set the S3 index document to `index.html`, set the S3 bucket to *bas-style-kit-docs-stage*
+* Set the server name to: `Staging - Documentation`
 * Set the server URL to: `https://style-kit-preview.web.bas.ac.uk/`
+
+*DO NOT* run the deployment now, additional settings need to be changed first:
+
+* Edit the new deployment
+* Change the last deployment command to [3]
 
 If the deployment already exists check the settings above are correct.
 
 End-user documentation for this project can then be accessed from
 [here](https://style-kit-preview.web.bas.ac.uk/).
 
-[1] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
-information in the *Issue Tracker* section of the Project Management documentation.
+[1] Use the [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys for the
+`semmaphore-deploy-bas-style-kit-felnne-docs-stage` IAM user. This user and associated policy are managed by Terraform.
 
 [2]
 ```shell
@@ -274,7 +260,12 @@ rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
-ansible-playbook provisioning/deploy-stage-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
+ansible-playbook provisioning/deploy-stage-cd.yml --connection=local
+```
+
+[3]
+```shell
+aws s3 sync $S3_DIRECTORY s3://$S3_BUCKET_NAME/
 ```
 
 ### Production - remote
@@ -287,12 +278,16 @@ are managed automatically by Semaphore.
 
 #### Infrastructure
 
-The AWS S3 bucket managed by Terraform:
+The AWS S3 bucket, and associated IAM users/policies to permit access, are managed by Terraform:
 
 ```shell
 $ terraform get
 $ terraform apply
 ```
+
+Note: IAM access keys requires manual provisioning, as they would be stored in state files if managed by Terraform.
+
+Note: Terraform will also create an IAM and suitable policy for accessing the relevant part of the BAS CDN.
 
 The CloudFront distribution, that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
 
@@ -344,12 +339,6 @@ Set the *Branches* settings to:
 
 * Build new branches: `Never`
 
-Set *Configuration Files* as shown in the table below:
-
-| File Path                                    | Content | Encrypt File  |
-| -------------------------------------------- | ------- | ------------- |
-| `bas-style-kit/provisioning/.vault_pass.txt` | [1]     | Yes (checked) |
-
 Copy the build badge for the *master* branch to this README.
 
 If the project and branch already exists, check the settings above are correct.
@@ -358,22 +347,28 @@ If the project and branch already exists, check the settings above are correct.
 
 ##### End-user documentation
 
-If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
+If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the *AWS S3* strategy.
 
 * Set the deployment strategy to: `Automatic`
 * Set the branch to deploy to: `master`
-* Set the deploy commands to [1]
-* Skip the deployment SSH key option
-* Set the server name to: `production-documentation`
+* Set the access credentials to [1], set the region to *Ireland (eu-west-1)*
+* Set the directory to upload to `site`, set the build commands to [2]
+* Set the S3 index document to `index.html`, set the S3 bucket to *bas-style-kit-docs-prod*
+* Set the server name to: `Production - Documentation`
 * Set the server URL to: `https://style-kit.web.bas.ac.uk/`
+
+*DO NOT* run the deployment now, additional settings need to be changed first:
+
+* Edit the new deployment
+* Change the last deployment command to [3]
 
 If the deployment already exists check the settings above are correct.
 
 End-user documentation for this project can then be accessed from
 [here](https://style-kit.web.bas.ac.uk/).
 
-[1] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
-information in the *Issue Tracker* section of the Project Management documentation.
+[1] Use the [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys for the
+`semmaphore-deploy-bas-style-kit-felnne-docs-stage` IAM user. This user and associated policy are managed by Terraform.
 
 [2]
 ```shell
@@ -382,29 +377,49 @@ rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
-ansible-playbook provisioning/deploy-docs-prod-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
+ansible-playbook provisioning/deploy-docs-prod-cd.yml --connection=local
+```
+
+[3]
+```shell
+aws s3 sync $S3_DIRECTORY s3://$S3_BUCKET_NAME/
 ```
 
 ##### Distribution assets
 
-If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
+If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the *AWS S3* strategy.
 
 * Set the deployment strategy to: `Automatic`
 * Set the branch to deploy to: `master`
-* Set the deploy commands to [1]
-* Skip the deployment SSH key option
-* Set the server name to: `production-assets-cdn`
+* Set the access credentials to [1], set the region to *Ireland (eu-west-1)*
+* Set the directory to upload to `dist`, set the build commands to [2]
+* Set the S3 index document to `index.html`, set the S3 bucket to *bas-cdn-prod*
+* Set the server name to: `Production - Assets`
+* Do not set a server URL
+
+*DO NOT* run the deployment now, additional settings need to be changed first:
+
+* Edit the new deployment
+* Remove the last deployment command
+
+Note: This last command is removed because Ansible will perform the S3 sync, using the credentials set by Semaphore.
+Assets need to be deployed to a versioned directory (e.g. /bas-style-kit/0.1.0/), in Semaphore there is no way to 
+discover the project version. Using Ansible however, the `project_version` Ansible Variable can be used to ensure the 
+correct directory is used.
 
 If the deployment already exists check the settings above are correct.
 
-[1]
+[1] Use the [IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys for the
+`semmaphore-deploy-bas-style-kit-felnne-docs-stage` IAM user. This user and associated policy are managed by Terraform.
+
+[2]
 ```shell
 rm -f .rbenv-version .ruby-version
 rbenv global 2.2
 source provisioning/data/semaphore-ci/set-environment.sh
 declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
 pip install ansible
-ansible-playbook provisioning/deploy-assets-prod-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
+ansible-playbook provisioning/deploy-assets-prod-cd.yml --connection=local
 ```
 
 ## Usage
