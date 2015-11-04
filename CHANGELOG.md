@@ -5,6 +5,12 @@
 
 ## [Unreleased][unreleased]
 
+### Documentation
+
+#### Removed
+
+* Bootstrap 'bugify' Jekyll plugin, which we never used
+
 ### Infrastructure
 
 #### Changed - BREAKING!
