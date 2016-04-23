@@ -5,6 +5,3 @@
 app_project: "bas-style-kit"
 app_project_repository: "https://github.com/antarctica/bas-style-kit.git"
 app_project_directory: "/srv/apps/{{ app_project }}"
-
-# BAS Systems Inventory variables
-bas_systems_inventory_system_reference: "{{ app_project }}"

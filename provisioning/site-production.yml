@@ -7,4 +7,3 @@
   become: yes
   roles:
     - bas-ansible-roles-collection.system-core
-    - antarctica.bas-motd
