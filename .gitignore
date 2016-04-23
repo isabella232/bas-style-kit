@@ -1,8 +1,2 @@
-.vagrant
-.terraform
-terraform.tfvars
-node_modules
-
-site
-provisioning/.vault_pass.txt
-documentation/end-users/.jekyll-metadata
+# Provisioning tool directories
+provisioning/site-development-local/.vagrant

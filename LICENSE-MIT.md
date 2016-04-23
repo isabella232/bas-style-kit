@@ -1,6 +1,6 @@
-The MIT License (MIT)
+The MIT license
 
-Copyright (c) 2015 NERC BAS. https://www.bas.ac.uk
+Copyright (c) NERC BAS 2016 https://www.bas.ac.uk
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

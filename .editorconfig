@@ -1,14 +1,22 @@
-# editorconfig.org
+# A http://EditorConfig.org compliant configuration file.
 
 root = true
 
+# Defaults
 [*]
-charset = utf-8
+# set unix-style newlines with a newline ending and no trailing whitespace
 end_of_line = lf
-indent_size = 2
-indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
+# Set default charset
+charset = utf-8
+# set default indentation
+indent_style = space
+indent_size = 2
 
+# Language overrides
 [*.py]
+indent_size = 4
+
+[*.tf]
 indent_size = 4
