@@ -1,2 +1,5 @@
 # Provisioning tool directories
 provisioning/site-development-local/.vagrant
+
+# Local packages
+node_modules

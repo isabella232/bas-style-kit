@@ -1,6 +1,8 @@
 
 # BAS Style Kit
 
+[![Node dependencies status](https://david-dm.org/antarctica/bas-style-kit.svg)](https://david-dm.org/antarctica/bas-style-kit)
+
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
 **This project uses version 0.1.0 of the Base flavour of the BAS Base Project - Pristine**.

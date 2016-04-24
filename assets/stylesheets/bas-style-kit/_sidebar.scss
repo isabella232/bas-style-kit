@@ -1,0 +1,82 @@
+//
+// Sidebar
+// --------------------------------------------------
+//
+// Note: No equivalent of this component exists within Bootstrap, these styles are only found in the BAS Style Kit.
+
+// Base class
+//
+
+.sidebar-bsk {
+  padding: $sidebar-bsk-base-padding;
+  margin-bottom: $sidebar-bsk-base-bottom-margin;
+  border-radius: $sidebar-bsk-border-radius;
+  overflow: hidden;
+
+  h2:first-child,
+  h3:first-child,
+  h4:first-child {
+    margin-top: 0;
+  }
+
+  h3:first-child {
+    margin-bottom: 20px;
+  }
+
+  dl {
+    margin-bottom: 0;
+  }
+}
+
+
+// Sidebar headings
+//
+
+// If a sidebar doesn't start with a heading (h2 - h6) add this class to make the top edge of the sidebar box meet the
+// top of the main content heading by adding top padding.
+.sidebar-bsk-no-heading {
+  margin-top: $sidebar-bsk-base-padding;
+}
+
+
+// Sidebar sizes
+//
+
+.sidebar-bsk-lg {
+  padding: $sidebar-bsk-lg-padding;
+
+  h2:first-child,
+  h3:first-child,
+  h3:first-child {
+    margin-bottom: 30px;
+  }
+  h4:first-child {
+    margin-bottom: 15px;
+  }
+}
+
+
+// Sidebar variants
+//
+
+.sidebar-bsk-default {
+  background-color: $sidebar-bsk-default-bg;
+
+  .dl-bsk-striped dt {
+    color: $sidebar-bsk-default-bg;
+    background-color: $gray-light;
+  }
+
+  hr {
+    border-top-color: $gray-light;
+  }
+}
+
+.sidebar-bsk-inverse {
+  color: $sidebar-bsk-inverse-colour;
+  background-color: $sidebar-bsk-inverse-bg;
+
+  .dl-bsk-striped dt {
+    color: $sidebar-bsk-inverse-bg;
+  }
+}

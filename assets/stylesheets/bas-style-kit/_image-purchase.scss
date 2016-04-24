@@ -1,0 +1,177 @@
+//
+// Image Purchase
+// --------------------------------------------------
+//
+// These styles focus mainly on positioning and formatting the image purchase symbol, customised to the type of
+// component the image is contained within. I.e. there are different styles where an image is inside a jumbotron
+// compared to a thumbnail.
+//
+// Note: No equivalent of this component exists within Bootstrap, these styles are only found in the BAS Style Kit.
+
+// Base class
+//
+
+.bsk-image-purchase {
+  // Common styles
+  &.jumbotron-bsk,
+  &.thumbnail-bsk {
+    .caption {
+      .image-purchase-symbol {
+        opacity: $image-purchase-bsk-base-opacity;
+
+        &:hover, &:active {
+          opacity: $image-purchase-bsk-hover-opacity;
+        }
+      }
+    }
+  }
+}
+
+// Element modifiers
+//
+// Adapt the base image class based on which element it is contained within
+
+// Styles when used with jumbotrons
+.bsk-image-purchase {
+  &.jumbotron-bsk {
+    // Adjust the actual jumbotron to allow the purchase symbol to be positioned correctly
+    position: relative;
+
+    .image-purchase-symbol {
+      color: $image-purchase-bsk-on-image-color;
+      text-shadow: 0 1px 2px $image-purchase-bsk-on-image-text-shadow;
+
+      // Position the purchase symbol to the bottom right of the image, this is adjusted at each media breakpoint
+
+      position: absolute;
+      z-index: $zindex-bsl-image-purchase-symbol;
+      padding: 5px;
+
+      // Applies to extra-small breakpoint
+      //
+      // At this screen size there are approaches we can take:
+      // 1 - Keep the symbol in the image, which can lead to the image being too far inside the image
+      // 2 - allow the image to escape, which can look odd and potentially appear completely outside the image
+      //
+      // To keep things isolated I have opted to approach 1. On phones images should look fine, the inside creeping
+      // *should* only be a problem when you view the site at extra-small on a desktop (which is obviously rare).
+      //
+      // I am happy to re-evaluate this if someone has an alternative approach or suggestion.
+      //
+      left: 92%;
+      top: 86%;
+
+      @media (max-width: $screen-sm-max) {
+        left: 96%;
+        top: 92%;
+      }
+      @media (max-width: $screen-md-max) {
+        left: 97%;
+        top: 92%;
+      }
+      @media (max-width: $screen-lg-max) {
+        left: 97%;
+        top: 92%;
+      }
+      @media (min-width: $screen-xl-min) {
+        left: 98%;
+        top: 91%;
+      }
+    }
+  }
+}
+
+// Styles when used with thumbnails
+.bsk-image-purchase {
+
+  // Base styles
+  &.thumbnail-bsk {
+    .caption {
+      .image-purchase-symbol {
+        float: right !important;
+      }
+    }
+  }
+
+  // Thumbnail variants
+  &.thumbnail-bsk-default {
+    .caption {
+      .image-purchase-symbol {
+
+        color: $image-purchase-bsk-in-caption-default-color;
+      }
+    }
+  }
+  &.thumbnail-bsk-inverse {
+    .caption {
+      .image-purchase-symbol {
+        color: $image-purchase-bsk-in-caption-inverse-color;
+      }
+    }
+  }
+
+  // Where a thumbnail has no caption we overlay the purchase symbol on the actual image, like with a jumbotron
+  // This requires the user to tell us this is the case via the class these styles target.
+  &.bsk-image-purchase-no-caption {
+    // Adjust the actual thumbnail to allow the purchase symbol to be positioned correctly
+    position: relative;
+
+    // Position the purchase symbol to the bottom right of the image, this is adjusted at each media breakpoint
+
+
+    .image-purchase-symbol {
+      color: $image-purchase-bsk-on-image-color;
+      text-shadow: 0 1px 2px $image-purchase-bsk-on-image-text-shadow;
+
+      position: absolute;
+      z-index: $zindex-bsl-image-purchase-symbol;
+      padding: 5px;
+
+      // Applies to extra-large breakpoint
+      //
+      // At this screen size there are approaches we can take:
+      // 1 - Keep the symbol in the image, which can lead to the image being too far inside the image
+      // 2 - allow the image to escape, which can look odd and potentially appear completely outside the image
+      //
+      // To keep things isolated I have opted to approach 1. On phones images should look fine, the inside creeping
+      // *should* only be a problem when you view the site at extra-small on a desktop (which is obviously rare).
+      //
+      // I am happy to re-evaluate this if someone has an alternative approach or suggestion.
+      //
+      left: 92%;
+      top: 86%;
+
+      @media (max-width: $screen-sm-max) {
+        left: 96%;
+        top: 93%;
+      }
+      @media (max-width: $screen-md-max) {
+        left: 89%;
+        top: 80%;
+      }
+      @media (max-width: $screen-lg-max) {
+        left: 90%;
+        top: 82%;
+      }
+      @media (min-width: $screen-xl-min) {
+        left: 93%;
+        top: 88%;
+      }
+    }
+  }
+
+  // Where a thumbnail is a link we can't make the purchase link an actual link so fake it using JS.
+  // These styles dress this up so it still looks like a link.
+  &a.thumbnail-bsk {
+    .caption {
+      .image-purchase-symbol {
+        cursor: pointer;
+      }
+    }
+  }
+  &a.bsk-image-purchase-no-caption {
+    .image-purchase-symbol {
+      cursor: pointer;
+    }
+  }
+}

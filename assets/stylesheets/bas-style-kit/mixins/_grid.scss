@@ -1,0 +1,178 @@
+// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+// 'Standard' bootstrap 12-column grid, but with an additional 'xl' size
+
+// Generate the extra large columns
+@mixin make-xl-column(
+  $columns,
+  $gutter: $grid-gutter-width) {
+  position:      relative;
+  min-height:    1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-xl-min) {
+    float: left;
+    width: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-xl-column-offset($columns) {
+  @media (min-width: $screen-xl-min) {
+    margin-left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-xl-column-push($columns) {
+  @media (min-width: $screen-xl-min) {
+    left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-xl-column-pull($columns) {
+  @media (min-width: $screen-xl-min) {
+    right: percentage(($columns / $grid-columns));
+  }
+}
+
+// 'Custom' Style kit 24-column grid, with all standard and the additional 'xl' size
+
+// Generate the extra small columns
+@mixin make-bsk-xs-column(
+  $columns,
+  $gutter: $grid-gutter-width) {
+  position:      relative;
+  float:         left;
+  width:         percentage(($columns / $grid-bsk-columns));
+  min-height:    1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+@mixin make-bsk-xs-column-offset($columns) {
+  margin-left: percentage(($columns / $grid-bsk-columns));
+}
+@mixin make-bsk-xs-column-push($columns) {
+  left: percentage(($columns / $grid-bsk-columns));
+}
+@mixin make-bsk-xs-column-pull($columns) {
+  right: percentage(($columns / $grid-bsk-columns));
+}
+
+// Generate the small columns
+@mixin make-bsk-sm-column(
+  $columns,
+  $gutter: $grid-gutter-width) {
+  position:      relative;
+  min-height:    1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-sm-min) {
+    float: left;
+    width: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-sm-column-offset($columns) {
+  @media (min-width: $screen-sm-min) {
+    margin-left: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-sm-column-push($columns) {
+  @media (min-width: $screen-sm-min) {
+    left: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-sm-column-pull($columns) {
+  @media (min-width: $screen-sm-min) {
+    right: percentage(($columns / $grid-bsk-columns));
+  }
+}
+
+// Generate the medium columns
+@mixin make-bsk-md-column(
+  $columns,
+  $gutter: $grid-gutter-width) {
+  position:      relative;
+  min-height:    1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-md-min) {
+    float: left;
+    width: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-md-column-offset($columns) {
+  @media (min-width: $screen-md-min) {
+    margin-left: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-md-column-push($columns) {
+  @media (min-width: $screen-md-min) {
+    left: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-md-column-pull($columns) {
+  @media (min-width: $screen-md-min) {
+    right: percentage(($columns / $grid-bsk-columns));
+  }
+}
+
+// Generate the large columns
+@mixin make-bsk-lg-column(
+  $columns,
+  $gutter: $grid-gutter-width) {
+  position:      relative;
+  min-height:    1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-lg-min) {
+    float: left;
+    width: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-lg-column-offset($columns) {
+  @media (min-width: $screen-lg-min) {
+    margin-left: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-lg-column-push($columns) {
+  @media (min-width: $screen-lg-min) {
+    left: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-lg-column-pull($columns) {
+  @media (min-width: $screen-lg-min) {
+    right: percentage(($columns / $grid-bsk-columns));
+  }
+}
+
+// Generate the extra large columns
+@mixin make-bsk-xl-column(
+  $columns,
+  $gutter: $grid-gutter-width) {
+  position:      relative;
+  min-height:    1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-xl-min) {
+    float: left;
+    width: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-xl-column-offset($columns) {
+  @media (min-width: $screen-xl-min) {
+    margin-left: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-xl-column-push($columns) {
+  @media (min-width: $screen-xl-min) {
+    left: percentage(($columns / $grid-bsk-columns));
+  }
+}
+@mixin make-bsk-xl-column-pull($columns) {
+  @media (min-width: $screen-xl-min) {
+    right: percentage(($columns / $grid-bsk-columns));
+  }
+}

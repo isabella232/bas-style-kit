@@ -1,0 +1,29 @@
+{
+  "name": "bas-style-kit",
+  "description": "A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.",
+  "version": "0.2.0-alpha",
+  "homepage": "https://style-kit.web.bas.ac.uk",
+  "author": "British Antarctic Survey",
+  "contributors": [
+    {
+      "name": "Felix Fennell",
+      "email": "felnne@bas.ac.uk"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antarctica/bas-style-kit.git"
+  },
+  "bugs": {
+    "url": "https://jira.ceh.ac.uk/bsk"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap-sass": "3.3.6"
+  },
+  "devDependencies": {
+    "gulp": "^3.9",
+    "gulp-sass": "^2.1",
+    "gulp-util": "^3.0"
+  }
+}

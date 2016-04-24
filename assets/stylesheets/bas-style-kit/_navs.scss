@@ -1,0 +1,56 @@
+//
+// Navs
+// --------------------------------------------------
+
+// Pills
+// -------------------------
+
+.nav-pills-bsk {
+  > li {
+    > a {
+      border-radius:    $nav-pills-bsk-border-radius;
+      background-color: $nav-pills-bsk-link-bg;
+      margin-right:     $nav-pills-bsk-link-margin-right;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color:            $component-active-color;
+        background-color: $nav-pills-bsk-active-link-hover-bg;
+      }
+    }
+
+    // Disabled state
+    &.disabled > a {
+      background-color: $nav-pills-bsk-disabled-link-bg;
+    }
+  }
+}
+
+// Stacked pills
+.nav-pills-bsk {
+  &.nav-stacked {
+    > li {
+      > a {
+        // Adjust the spacing placed between pills to be vertical instead of horizontal
+        margin-right:  0;
+        margin-bottom: $nav-pills-bsk-link-margin-right;
+      }
+    }
+  }
+}
+
+
+// Nav wrapper
+// -------------------------
+// Where nav-pills or nav-tabs are used with a tab-pane (i.e. tabbed content) this nav wrapper can be used to apply
+// some suitable spacing between tabs and their tab-panes.
+
+.nav-wrapper-bsk {
+  .tab-pane {
+    margin-top: $nav-wrapper-bsk-tab-pane-margin-top;
+  }
+}

@@ -7,3 +7,6 @@
   become: yes
   roles:
     - bas-ansible-roles-collection.system-core
+    - bas-ansible-roles-collection.nodejs5
+  tasks:
+    - include: tasks/app/install-nodejs-modules.yml

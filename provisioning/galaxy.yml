@@ -25,6 +25,8 @@
 # Top level roles
 - src: bas-ansible-roles-collection.system-core
   version: v0.2.0
+- src: bas-ansible-roles-collection.nodejs5
+  version: v0.1.0
 
 # Pinned dependencies of top level roles
 - src: bas-ansible-roles-collection.system-security
