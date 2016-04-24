@@ -39,7 +39,8 @@
 // bottom of the page.
 
 // Common styles
-.footer-bsk-static-bottom, .footer-bsk-fixed-bottom {
+.footer-bsk-static-bottom,
+.footer-bsk-fixed-bottom {
   border-width: 1px 0 0;
 
   // Undo the rounded corners
@@ -81,7 +82,8 @@
 // Proper sizing and positioning to give an attractive and usable licensing statement for the Open Government License
 
 .footer-bsk-ogl {
-  .ogl-symbol, .ogl-text {
+  .ogl-symbol,
+  .ogl-text {
     text-align: center;
 
     @media (min-width: $screen-sm-min) {

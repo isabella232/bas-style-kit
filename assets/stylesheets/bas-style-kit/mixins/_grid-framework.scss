@@ -59,26 +59,31 @@
       width: percentage(($index / $grid-bsk-columns));
     }
   }
+
   @if ($type == push) and ($index > 0) {
     .col-bsk-#{$class}-push-#{$index} {
       left: percentage(($index / $grid-bsk-columns));
     }
   }
+
   @if ($type == push) and ($index == 0) {
     .col-bsk-#{$class}-push-0 {
       left: auto;
     }
   }
+
   @if ($type == pull) and ($index > 0) {
     .col-bsk-#{$class}-pull-#{$index} {
       right: percentage(($index / $grid-bsk-columns));
     }
   }
+
   @if ($type == pull) and ($index == 0) {
     .col-bsk-#{$class}-pull-0 {
       right: auto;
     }
   }
+
   @if ($type == offset) {
     .col-bsk-#{$class}-offset-#{$index} {
       margin-left: percentage(($index / $grid-bsk-columns));

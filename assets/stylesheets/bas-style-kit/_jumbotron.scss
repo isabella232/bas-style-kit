@@ -19,6 +19,7 @@
 .jumbotron-bsk-lg {
   @include make-jumbotron-size($jumbotron-bsk-lg-padding);
 }
+
 .jumbotron-bsk-xl {
   @include make-jumbotron-size($jumbotron-bsk-xl-padding);
 }
@@ -28,6 +29,7 @@
   color:            $jumbotron-bsk-default-color;
   background-color: $jumbotron-bsk-default-bg;
 }
+
 .jumbotron-bsk-inverse {
   color:            $jumbotron-bsk-inverse-color;
   background-color: $jumbotron-bsk-inverse-bg;

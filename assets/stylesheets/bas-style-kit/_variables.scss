@@ -10,7 +10,7 @@
 // Brand and background colours for use across the BAS Style Kit.
 
 // Generic colours
-$white:                                       #ffffff;
+$white:                                       #FFFFFF;
 
 // Brand colour scheme
 $bsk-bas-brand:                               #003A5D;
@@ -32,7 +32,7 @@ $bsk-turquoise:                               #0DA59F;
 $brands-twitter-primary:                      #55ACEE;  // as defined by brand
 $brands-facebook-primary:                     #3B5998;  // as defined by brand
 $brands-youtube-primary:                      #CD201F;  // as defined by brand
-$brands-rss-primary:                          #f26522;  // as defined by convention
+$brands-rss-primary:                          #F26522;  // as defined by convention
 
 
 // Z-index master list
@@ -133,7 +133,7 @@ $line-height-computed-x2:                     ($line-height-computed * 2);
 $bsk-component-default-color:                 $gray-dark;
 $bsk-component-default-bg:                    $gray-lighter;
 
-$bsk-component-inverse-color:                 #f8f8f8;  // TODO: Use lighten/darken functions to generate colour
+$bsk-component-inverse-color:                 #F8F8F8;  // TODO: Use lighten/darken functions to generate colour
 $bsk-component-inverse-bg:                    $gray;
 
 $bsk-component-active-bg:                     $bsk-blue;
@@ -253,9 +253,9 @@ $jumbotron-bsk-default-bg:                    $bsk-component-default-bg;
 $jumbotron-bsk-inverse-color:                 $white;
 $jumbotron-bsk-inverse-bg:                    $gray;
 // Read 'fb' as 'fall back', for older browsers that can't use RGBA
-$jumbotron-bsk-inverse-text-overlay-bg-fb:    #000;
-$jumbotron-bsk-inverse-text-overlay-bg:       rgba(0,0,0,0.7);
-$jumbotron-bsk-inverse-text-overlay-shadow:   rgba(0,0,0,0.9);
+$jumbotron-bsk-inverse-text-overlay-bg-fb:    #000000;
+$jumbotron-bsk-inverse-text-overlay-bg:       rgba(0, 0, 0, 0.7);
+$jumbotron-bsk-inverse-text-overlay-shadow:   rgba(0, 0, 0, 0.9);
 
 
 // Thumbnails
