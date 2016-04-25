@@ -28,6 +28,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
+* [Style] Font Awesome updated to 4.6
+* [Style] Open-Sans web-font is now imported using its bundled Sass styles
 * [Infrastructure] Updating to latest Ansible Prelude role
 * [Infrastructure] README additions, improvements, refactoring and fixes
 * [Infrastructure] Minor refactoring of Terraform configuration

@@ -57,12 +57,10 @@ $link-color:                                  lighten($bsk-blue, 5%);
 //
 
 // Font, line-height, and colour for body text, headings, and more.
-//$font-family-sans-serif:                      "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-sans-serif:                        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-serif:                      "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Use the BAS logo font for select elements and styles
-//$font-family-brand:                           "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-brand:                             "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-brand:                           "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 $headings-font-family:                        $font-family-brand;
 $headings-font-weight:                        200;
@@ -76,7 +74,7 @@ $headings-font-weight:                        200;
 $fa-font-path:                                "../fonts/font-awesome";
 
 // Path to the open-sans font-face relative to the generated CSS file (i.e. /dist/css)
-$os-font-path:                                "../fonts/open-sans";
+$OpenSansPath:                                "../fonts/open-sans";
 
 // Path to the gill-sans font-face relate to the generated CSS file (i.e. /dist/css)
 $gs-font-path:                                "../fonts/gill-sans";

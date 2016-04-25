@@ -19,7 +19,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "bootstrap-sass": "3.3.6"
+    "bootstrap-sass": "3.3.6",
+    "font-awesome": "^4.6",
+    "open-sans-fontface": "^1.4"
   },
   "devDependencies": {
     "gulp": "^3.9",
