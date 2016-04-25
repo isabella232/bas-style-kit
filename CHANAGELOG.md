@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed - BREAKING!
 
 * [Style] Switching from Less to Sass preprocessor - compiled css remains compatible
+* [Infrastructure] Gulp tasks heavily refactored
 * [Infrastructure] Switching from SassLint to StyleLint
 * [Infrastructure] Refactoring project to use version 0.1.0 of the Base flavour of the BAS Base Project - Pristine
 * [Infrastructure] Upgrading to Jekyll 3, adding new features such as incremental building, requires Ruby 2.0 or higher

@@ -11,6 +11,7 @@ var        del = require('del'),
 var       gulp = require('gulp'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
+          util = require('gulp-util'),
         rename = require('gulp-rename'),
        csscomb = require('gulp-csscomb'),
      styleLint = require('gulp-stylelint'),
@@ -188,3 +189,84 @@ gulp.task('atomic--clean-dist', function() {
   ]);
 });
 
+
+// Compound Tasks
+//
+
+gulp.task('build--styles-bas-style-kit-no-min', function() {
+    return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(csscomb())
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
+});
+
+gulp.task('build--styles-bas-style-kit-min', function() {
+    return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(csscomb())
+    .pipe(sourcemaps.init())
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
+});
+
+gulp.task('build--styles-bootstrap-bsk-no-min', function() {
+    return gulp.src(path.join(config.sources.stylesheets, 'bootstrap-bsk.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(csscomb())
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
+});
+
+gulp.task('build--styles-bootstrap-bsk-min', function() {
+    return gulp.src(path.join(config.sources.stylesheets, 'bootstrap-bsk.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(csscomb())
+    .pipe(sourcemaps.init())
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
+});
+
+
+// High Level Tasks
+//
+
+gulp.task('styles', ['build--styles-bas-style-kit-no-min'], function() {
+  util.log(util.colors.yellow('Note: \'bootstrap-bsk\' styles ' + util.colors.underline('are not') + ' (re)compiled, either:'));
+  util.log(util.colors.yellow('- call \'gulp build-styles-bootstrap-bsk-no-min\' if you just want these styles as well'));
+  util.log(util.colors.yellow('- call \'gulp release\' if want to build all compressed & uncompressed files for distribution'));
+  util.log(util.colors.blue('Note: (Re)Compiled styles ' + util.colors.underline('are not') + ' compressed'));
+});
+
+gulp.task('styles-prod', ['build--styles-bas-style-kit-min'], function() {
+  util.log(util.colors.yellow('Note: \'bootstrap-bsk\' styles ' + util.colors.underline('are not') + ' (re)compiled, either:'))
+  util.log(util.colors.yellow('- call \'gulp build-styles-bootstrap-bsk-min\' if you just want these styles as well'));
+  util.log(util.colors.yellow('- call \'gulp release\' if want to build all compressed & uncompressed files for distribution'));
+  util.log(util.colors.blue('Note: (Re)Compiled styles ' + util.colors.underline('are') + ' compressed'))
+});
+
+gulp.task('clean', [
+  'atomic--clean-dist'
+], function() {});
+
+gulp.task('fonts', [
+  'atomic--copy-webfont-gill-sans',
+  'atomic--copy-webfont-open-sans',
+  'atomic--copy-webfont-font-awesome'
+], function() {});
+
+gulp.task('release', [
+  'build--styles-bas-style-kit-no-min',
+  'build--styles-bas-style-kit-min',
+  'build--styles-bootstrap-bsk-no-min',
+  'build--styles-bootstrap-bsk-min',
+  'fonts'
+], function() {
+  util.log(util.colors.yellow('Note: It is strongly recommended you call \'gulp clean\' ' + util.colors.underline('before') + ' this task'))
+});
