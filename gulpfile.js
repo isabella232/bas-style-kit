@@ -9,6 +9,7 @@ var       path = require('path');
 
 var       gulp = require('gulp'),
           sass = require('gulp-sass'),
+       csscomb = require('gulp-csscomb'),
      styleLint = require('gulp-stylelint'),
   autoprefixer = require('gulp-autoprefixer');
 
@@ -20,7 +21,8 @@ var config = {
     'bootstrap-sass': path.join('.', 'node_modules', 'bootstrap-sass'),
     'gill-sans': path.join('.', 'assets', 'webfonts', 'gill-sans'),
     'open-sans': path.join('.', 'node_modules', 'open-sans-fontface'),
-    'font-awesome': path.join('.', 'node_modules', 'font-awesome')
+    'font-awesome': path.join('.', 'node_modules', 'font-awesome'),
+    'css': path.join('.', 'dist', 'css')
   },
   'destinations': {
     'dist': path.join('.', 'dist'),
@@ -83,6 +85,20 @@ gulp.task('atomic-autoprefix-bas-style-kit', ['atomic--compile-sass-bas-style-ki
 gulp.task('atomic-autoprefix-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], function() {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+// CSS comb
+
+gulp.task('atomic-comb-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], function() {
+  return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
+    .pipe(csscomb())
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic-comb-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], function() {
+  return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(csscomb())
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
