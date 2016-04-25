@@ -5,7 +5,8 @@
 
 // Setup
 
-var       path = require('path');
+var        del = require('del'),
+          path = require('path');
 
 var       gulp = require('gulp'),
           sass = require('gulp-sass'),
@@ -177,5 +178,13 @@ gulp.task('atomic--copy-webfont-font-awesome', function() {
       path.join(config['sources']['font-awesome'], 'fonts', '**/*.woff2')
     ])
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.fonts, 'font-awesome')));
+});
+
+// Cleaning
+
+gulp.task('atomic--clean-dist', function() {
+  return del([
+      path.join(config.destinations.dist)
+  ]);
 });
 

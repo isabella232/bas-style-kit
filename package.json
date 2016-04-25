@@ -24,6 +24,7 @@
     "open-sans-fontface": "^1.4"
   },
   "devDependencies": {
+    "del": "^2.0",
     "gulp": "^3.9",
     "gulp-autoprefixer": "^3.1",
     "gulp-csscomb": "^3.0",
