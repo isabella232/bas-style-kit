@@ -71,11 +71,26 @@ The maintainer of this project is BAS Web & Applications Team, they can be conta
 This uses issue tracking for feedback. The project issue tracker is located at:
 `https://jira.ceh.ac.uk/BSK`
 
+## Acknowledgements
+
+The vast majority of this project is based on the [Bootstrap](http://getbootstrap.com) project.
+
+90% of any credit for this project should go to Boostrap's [authors and contributors](http://getbootstrap.com/about/).
+
+The original Bootstrap licensing statement is shown below,
+see their original `LICENSE-BOOTSTRAP-MIT` further licensing information.
+
+> Code and documentation copyright 2011-2015 Twitter, Inc. Code released under
+[the MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE).
+Docs released under [Creative Commons](https://github.com/twbs/bootstrap/blob/master/docs/LICENSE).
+
+The authors of this project are incredibly grateful for their work.
+
 ## Licence
 
 Copyright 2016 NERC BAS.
 
-Unless stated otherwise, all documentation is licensed under the Open Government License - version 3.
+Unless stated otherwise, all documentation is licensed under the Creative Commons Public License - version 3.
 All code is licensed under the MIT license.
 
 Copies of these licenses are included within this project.
