@@ -13,6 +13,7 @@ var       gulp = require('gulp'),
         rename = require('gulp-rename'),
        csscomb = require('gulp-csscomb'),
      styleLint = require('gulp-stylelint'),
+    sourcemaps = require('gulp-sourcemaps'),
   autoprefixer = require('gulp-autoprefixer');
 
 // Configuration
@@ -117,6 +118,27 @@ gulp.task('atomic-minify-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'],
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+// CSS source-maps
+// As source-maps cannot be created from already minified files, this task technically does two things
+
+gulp.task('atomic-sourcemaps-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], function() {
+  return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
+    .pipe(sourcemaps.init())
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic-sourcemaps-bootstrap-bsk', ['atomic--compile-sass-bas-style-kit'], function() {
+  return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(sourcemaps.init())
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
