@@ -10,6 +10,7 @@ var       path = require('path');
 var       gulp = require('gulp'),
           sass = require('gulp-sass'),
      styleLint = require('gulp-stylelint'),
+  autoprefixer = require('gulp-autoprefixer');
 
 // Configuration
 
@@ -25,18 +26,34 @@ var config = {
     'dist': path.join('.', 'dist'),
     'css': path.join('.', 'css'),
     'fonts': path.join('.', 'fonts')
+  },
+  'modules': {
+    'autoprefixer': {
+      browsers: [
+        "Android 2.3",
+        "Android >= 4",
+        "Chrome >= 20",
+        "Firefox >= 24",
+        "Explorer >= 8",
+        "iOS >= 6",
+        "Opera >= 12",
+        "Safari >= 6"
+      ],
+      cascade: false,
+      remove: true
+    }
   }
 };
 
 // Atomic Tasks
 
-gulp.task('atomic-compile-bas-style-kit', function() {
+gulp.task('atomic--compile-sass-bas-style-kit', function() {
   return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
 });
 
-gulp.task('atomic-compile-bootstrap-bsk', function() {
+gulp.task('atomic--compile-sass-bootstrap-bsk', function() {
   return gulp.src(path.join(config.sources.stylesheets, 'bootstrap-bsk.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
@@ -53,6 +70,20 @@ gulp.task('atomic--lint-sass-bas-style-kit', function() {
         }
       ]
     }));
+});
+
+// Auto-prefixing
+
+gulp.task('atomic-autoprefix-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], function() {
+  return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic-autoprefix-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], function() {
+  return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
 // Web font copying
