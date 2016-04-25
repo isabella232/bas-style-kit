@@ -7,7 +7,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed - BREAKING!
 
-* [Style] Switching from Less to Sass preprocessor - compiled css remains compatible
+* [Style] Compiled CSS is no longer included in this project - download from the BAS CDN if this is needed
+* [Infrastructure] Switching from Less to Sass preprocessor - compiled css remains compatible
 * [Infrastructure] Gulp tasks heavily refactored
 * [Infrastructure] Switching from SassLint to StyleLint
 * [Infrastructure] Refactoring project to use version 0.1.0 of the Base flavour of the BAS Base Project - Pristine

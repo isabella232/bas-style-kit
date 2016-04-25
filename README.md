@@ -14,15 +14,6 @@ See the *BAS Systems Inventory* section for more information.
 
 * ...
 
-## BAS Systems Inventory
-
-This project is tracked in the BAS Systems Inventory as: **£BSI-SYSTEM-ID**.
-
-THe Systems Inventory provides more information on the background of this project,
-its intended users and who is responsible for it.
-
-It also lists the environments (instances) this project is used in and the resources which make up these environments.
-
 ## Setup
 
 To bring up a local development environment:

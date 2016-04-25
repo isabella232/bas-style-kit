@@ -1,9 +1,12 @@
 'use strict';
 /*eslint-env node */
 
+//
 // Gulp task runner configuration
+// --------------------------------------------------
 
 // Setup
+//
 
 var        del = require('del'),
           path = require('path');
@@ -18,7 +21,9 @@ var       gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
   autoprefixer = require('gulp-autoprefixer');
 
+
 // Configuration
+//
 
 var config = {
   'sources': {
@@ -52,7 +57,12 @@ var config = {
   }
 };
 
+
 // Atomic Tasks
+//
+// Do one thing and one thing only
+
+// Sass compilation
 
 gulp.task('atomic--compile-sass-bas-style-kit', function() {
   return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
@@ -64,19 +74,6 @@ gulp.task('atomic--compile-sass-bootstrap-bsk', function() {
   return gulp.src(path.join(config.sources.stylesheets, 'bootstrap-bsk.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
-});
-
-gulp.task('atomic--lint-sass-bas-style-kit', function() {
-  return gulp.src(path.join(config.sources.stylesheets, '**/*.scss'))
-    .pipe(styleLint({
-      syntax: 'scss',
-      reporters: [
-        {
-          formatter: 'string',
-          console: true
-        }
-      ]
-    }));
 });
 
 // Auto-prefixing
@@ -179,6 +176,21 @@ gulp.task('atomic--copy-webfont-font-awesome', function() {
       path.join(config['sources']['font-awesome'], 'fonts', '**/*.woff2')
     ])
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.fonts, 'font-awesome')));
+});
+
+// Linting
+
+gulp.task('atomic--lint-sass-bas-style-kit', function() {
+  return gulp.src(path.join(config.sources.stylesheets, '**/*.scss'))
+    .pipe(styleLint({
+      syntax: 'scss',
+      reporters: [
+        {
+          formatter: 'string',
+          console: true
+        }
+      ]
+    }));
 });
 
 // Cleaning

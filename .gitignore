@@ -3,3 +3,6 @@ provisioning/site-development-local/.vagrant
 
 # Local packages
 node_modules
+
+# Build process outputs
+dist
