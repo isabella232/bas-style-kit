@@ -11,7 +11,8 @@
 var        del = require('del'),
           path = require('path');
 
-var       gulp = require('gulp'),
+var        sri = require('gulp-sri'),
+          gulp = require('gulp'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
           util = require('gulp-util'),
@@ -19,6 +20,7 @@ var       gulp = require('gulp'),
        csscomb = require('gulp-csscomb'),
      styleLint = require('gulp-stylelint'),
     sourcemaps = require('gulp-sourcemaps'),
+   runSequence = require('run-sequence'),
   autoprefixer = require('gulp-autoprefixer');
 
 
@@ -193,6 +195,40 @@ gulp.task('atomic--lint-sass-bas-style-kit', function() {
     }));
 });
 
+// Sub-Resource Integrity (SRI)
+
+gulp.task('atomic--sri-bas-style-kit-css', ['atomic--compile-sass-bas-style-kit'], function() {
+  return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
+    .pipe(sri({
+      'fileName': 'bas-style-kit.css.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic--sri-bootstrap-bsk-css', ['atomic--compile-sass-bootstrap-bsk'], function() {
+  return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(sri({
+      'fileName': 'bootstrap-bsk.css.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic--sri-bas-style-kit-css-min', ['atomic-sourcemaps-bas-style-kit'], function() {
+  return gulp.src(path.join(config.sources.css, 'bas-style-kit.min.css'))
+    .pipe(sri({
+      'fileName': 'bas-style-kit.min.css.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic--sri-bootstrap-bsk-css-min', ['atomic-sourcemaps-bootstrap-bsk'], function() {
+  return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.min.css'))
+    .pipe(sri({
+      'fileName': 'bootstrap-bsk.min.css.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
 // Cleaning
 
 gulp.task('atomic--clean-dist', function() {
@@ -245,6 +281,17 @@ gulp.task('build--styles-bootstrap-bsk-min', function() {
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
 });
 
+// This task assumes the respective CSS files have been created by other tasks
+gulp.task('build--sri-combined', function() {
+    return gulp.src([
+      path.join(config.sources.css, 'bas-style-kit.css'),
+      path.join(config.sources.css, 'bas-style-kit.min.css'),
+      path.join(config.sources.css, 'bootstrap-bsk.css'),
+      path.join(config.sources.css, 'bootstrap-bsk.min.css')
+    ])
+    .pipe(sri())
+    .pipe(gulp.dest(path.join(config.destinations.dist)));
+})
 
 // High Level Tasks
 //
@@ -273,12 +320,16 @@ gulp.task('fonts', [
   'atomic--copy-webfont-font-awesome'
 ], function() {});
 
-gulp.task('release', [
-  'build--styles-bas-style-kit-no-min',
-  'build--styles-bas-style-kit-min',
-  'build--styles-bootstrap-bsk-no-min',
-  'build--styles-bootstrap-bsk-min',
-  'fonts'
-], function() {
-  util.log(util.colors.yellow('Note: It is strongly recommended you call \'gulp clean\' ' + util.colors.underline('before') + ' this task'))
+gulp.task('release', function() {
+  runSequence(
+    'clean',
+    [
+      'build--styles-bas-style-kit-no-min',
+      'build--styles-bas-style-kit-min',
+      'build--styles-bootstrap-bsk-no-min',
+      'build--styles-bootstrap-bsk-min',
+      'fonts'
+    ],
+    'build--sri-combined'
+  );
 });
