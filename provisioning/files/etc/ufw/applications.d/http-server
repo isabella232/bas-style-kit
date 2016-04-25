@@ -1,0 +1,4 @@
+[http-server]
+title=Node HTTP Development Server (Ruby, HTTP/S)
+description=Development web-server for developing node applications
+ports=9000/tcp

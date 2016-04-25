@@ -7,5 +7,11 @@
     global=yes
     state=present
 
+- name: install simple web server globally
+  npm:
+    name=http-server
+    global=yes
+    state=present
+
 - name: install project node modules locally
   npm: path="{{ app_project_directory }}"

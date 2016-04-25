@@ -46,6 +46,15 @@ To deploy changes to a local development environment:
 
 * No action is needed as the project is mounted within the local virtual machine
 
+To view changes to styles using a set of bundled templates within a local development environment:
+
+1. `$ cd site-development-local`
+2. `$ vagrant ssh`
+3. `$ cd /srv/apps/bas-style-kit`
+4. `$ http-server -p 9000`
+
+Visit: [bas-style-kit-dev-node1.v.m](http://bas-style-kit-dev-node1.v.m/http) to see a *kitchen sink* example.
+
 To deploy changes to a production environment:
 
 1. Commit project changes to project repository

@@ -10,3 +10,6 @@
     - bas-ansible-roles-collection.nodejs5
   tasks:
     - include: tasks/app/install-nodejs-modules.yml
+    - include: tasks/app/configure-firewall.yml
+  handlers:
+    - include: roles/bas-ansible-roles-collection.system-firewall/handlers/main.yml
