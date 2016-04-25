@@ -4,14 +4,15 @@
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-// Web Fonts
-@import "bas-style-kit/fonts/gill-sans/gill-sans";
-@import "../../node_modules/open-sans-fontface/sass/open-sans";
-@import "../../node_modules/font-awesome/scss/font-awesome";
-
 // Core variables and mixins
 @import "bas-style-kit/variables";
 @import "bas-style-kit/mixins";
+
+// Web Fonts
+// Note: Must be included after Style Kit variables
+@import "bas-style-kit/fonts/gill-sans/gill-sans";
+@import "../../node_modules/open-sans-fontface/sass/open-sans";
+@import "../../node_modules/font-awesome/scss/font-awesome";
 
 // Reference styles
 // These styles are required by other styles, for example they are the target of an 'extends' call
