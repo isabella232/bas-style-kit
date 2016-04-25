@@ -9,6 +9,8 @@ var       path = require('path');
 
 var       gulp = require('gulp'),
           sass = require('gulp-sass'),
+          nano = require('gulp-cssnano'),
+        rename = require('gulp-rename'),
        csscomb = require('gulp-csscomb'),
      styleLint = require('gulp-stylelint'),
   autoprefixer = require('gulp-autoprefixer');
@@ -99,6 +101,22 @@ gulp.task('atomic-comb-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], f
 gulp.task('atomic-comb-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], function() {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(csscomb())
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+// Minify CSS
+
+gulp.task('atomic-minify-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], function() {
+  return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic-minify-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], function() {
+  return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
