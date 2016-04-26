@@ -1,0 +1,39 @@
+//
+// Responsive: Utility classes
+// --------------------------------------------------
+
+// Visibility utilities
+//
+
+.visible-xl {
+  @media (min-width: $screen-xl-min) {
+    @include responsive-visibility('.visible-xl');
+  }
+}
+
+.visible-xl-block {
+  @media (min-width: $screen-xl-min) {
+    display: block !important;
+  }
+}
+
+.visible-xl-inline {
+  @media (min-width: $screen-xl-min) {
+    display: inline !important;
+  }
+}
+
+.visible-xl-inline-block {
+  @media (min-width: $screen-xl-min) {
+    display: inline-block !important;
+  }
+}
+
+// '-x' suffix is used to prevent clashes with native bootstrap styles
+@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+  @include responsive-invisibility('.hidden-lg-x');
+}
+
+@media (min-width: $screen-xl-min) {
+  @include responsive-invisibility('.hidden-xl');
+}
