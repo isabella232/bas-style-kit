@@ -8,7 +8,7 @@
   $i: 1,
   $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i} .col-xl-#{$i}") {
   @for $i from (1 + 1) through $grid-columns {
-    $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i} .col-xl-#{$i}";
+    $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}, .col-xl-#{$i}";
   }
   #{$list} {
     position:      relative;
