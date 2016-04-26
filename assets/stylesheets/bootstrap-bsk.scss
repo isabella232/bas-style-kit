@@ -6,8 +6,14 @@
 // Annoyingly Sass doesn't allow dynamic importing using a variable :(
 // https://github.com/sass/sass/issues/279
 
-// Core variables and mixins
+// Core bootstrap variables
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+// Core BAS Style Kit variables to override Bootstrap
+// Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
+@import "bas-style-kit/variables";
+
+// Core mixins
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
 // Reset and dependencies
@@ -55,7 +61,3 @@
 // Utility classes
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
-
-// Load BAS Style Kit variables to override Bootstrap
-// Note: This file **MUST** be loaded after Bootstrap
-@import "bas-style-kit/variables";
