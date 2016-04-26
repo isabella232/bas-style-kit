@@ -333,3 +333,7 @@ gulp.task('release', function() {
     'build--sri-combined'
   );
 });
+
+gulp.task('lint', [
+  'atomic--lint-sass-bas-style-kit'
+], function() {});
