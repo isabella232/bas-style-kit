@@ -58,6 +58,7 @@ $link-color:                                  lighten($bsk-blue, 5%);
 
 // Font, line-height, and colour for body text, headings, and more.
 $font-family-sans-serif:                      "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base:                            $font-family-sans-serif;
 
 // Use the BAS logo font for select elements and styles
 $font-family-brand:                           "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
