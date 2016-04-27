@@ -7,7 +7,6 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed - BREAKING!
 
-* [Style] Compiled CSS is no longer included in this project - download from the BAS CDN if this is needed
 * [Infrastructure] Switching from Less to Sass preprocessor - compiled css remains compatible
 * [Infrastructure] Gulp tasks heavily refactored
 * [Infrastructure] Switching from SassLint to StyleLint
@@ -18,6 +17,11 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] IAM users split into staging and production roles with in-line policies, managed by Terraform
 * [Infrastructure] Adopting Semaphore's S3 deployment strategy, removing need to store AWS credentials in this project
 * [Infrastructure] Upgrading to NodeJS 4.2, as required by NPM modules - rebuild development environments to use
+
+### Removed - BREAKING!
+
+* [Style] Compiled CSS is no longer included in this project - download from the BAS CDN if this is needed
+* [Documentation] Style Kit documentation is now maintained in an external project
 
 ### Added
 

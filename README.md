@@ -7,9 +7,6 @@ A collection of HTML, CSS, and JS components for developing web projects consist
 
 **This project uses version 0.1.0 of the Base flavour of the BAS Base Project - Pristine**.
 
-**This project is tracked in the BAS Systems Inventory.**
-See the *BAS Systems Inventory* section for more information.
-
 ## Overview
 
 * ...
@@ -45,6 +42,15 @@ to bring up a production environment
 To deploy changes to a local development environment:
 
 * No action is needed as the project is mounted within the local virtual machine
+
+To run task runner commands within a local development environment:
+
+1. `$ cd site-development-local`
+2. `$ vagrant ssh`
+3. `$ cd /srv/apps/bas-style-kit`
+4. `$ gulp [task]`
+
+Where `[task]` is the task runner command to execute, e.g. `gulp release`.
 
 To view changes to styles using a set of bundled templates within a local development environment:
 
