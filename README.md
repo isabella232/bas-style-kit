@@ -1,5 +1,7 @@
-
 # BAS Style Kit
+
+Master: [![Build Status]()](https://semaphoreci.com/antarctica/bas-style-kit)
+Develop: [![Build Status]()](https://semaphoreci.com/antarctica/bas-style-kit)
 
 [![Node dependencies status](https://david-dm.org/antarctica/bas-style-kit.svg)](https://david-dm.org/antarctica/bas-style-kit)
 
@@ -7,9 +9,11 @@ A collection of HTML, CSS, and JS components for developing web projects consist
 
 **This project uses version 0.1.0 of the Base flavour of the BAS Base Project - Pristine**.
 
+**Note:** Production instances of this project are currently **NOT** supported.
+
 ## Overview
 
-* ...
+...
 
 ## Setup
 
@@ -18,7 +22,7 @@ To bring up a local development environment:
 1. Ensure you meet all the
 [requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h=Environment---local-developmen)
 to bring up a local development environment
-2. Checkout this project locally `$ git clone https://github.com/antarctica/bas-style-kit.git`
+2. Checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
 3. `$ cd bas-style-kit/provisioning/site-development-local`
 4. `$ vagrant up`
 5. `$ cd ..`
@@ -29,7 +33,7 @@ To bring up the production environment:
 1. Ensure you meet all the
 [requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h=Environment---production)
 to bring up a production environment
-2. Checkout this project locally `$ git clone https://github.com/antarctica/bas-style-kit.git`
+2. Checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
 3. `$ cd bas-style-kit/provisioning/site-production`
 4. `$ terraform plan`
 5. `$ terraform apply`
@@ -59,7 +63,7 @@ To view changes to styles using a set of bundled templates within a local develo
 3. `$ cd /srv/apps/bas-style-kit`
 4. `$ http-server -p 9000`
 
-Visit: [bas-style-kit-dev-node1.v.m](http://bas-style-kit-dev-node1.v.m/http) to see a *kitchen sink* example.
+Visit: [bas-style-kit-dev-node1.v.m](http://bas-style-kit-dev-node1.v.m/http) to see a the index of examples.
 
 To deploy changes to a production environment:
 
@@ -71,13 +75,16 @@ To deploy changes to a production environment:
 ### Version control
 
 This project uses version control. The project repository is located at:
-`https://github.com/antarctica/bas-style-kit.git`
+`ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
 
 Write access to this repository is restricted. Contact the project maintainer to request access.
 
+A read-only mirror of this repository is maintained on GitHub, located at:
+`https://github.com/antarctica/bas-style-kit.git`
+
 ### Tests
 
-This project uses manual testing only.
+This project uses manual and automated testing.
 
 ## Feedback
 
