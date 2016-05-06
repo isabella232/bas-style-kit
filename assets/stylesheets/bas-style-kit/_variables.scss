@@ -157,6 +157,22 @@ $table-bg-active:                             $table-bg-hover;
 $table-border-color:                          $bsk-grey-light;
 
 
+//== Forms
+//
+//##
+
+// TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
+//** Default `.form-control` border radius
+// This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+
+$input-border-radius:                         $border-radius-base;
+$input-border-radius-base:                    $border-radius-base;
+//** Large `.form-control` border radius
+$input-border-radius-large:                   $border-radius-large;
+//** Small `.form-control` border radius
+$input-border-radius-small:                   $border-radius-small;
+
+
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border-color.
