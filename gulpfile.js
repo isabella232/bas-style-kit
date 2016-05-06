@@ -162,9 +162,7 @@ gulp.task('atomic--copy-webfont-open-sans', function() {
             path.join(config['sources']['open-sans'], 'fonts', '**/*.eot'),
             path.join(config['sources']['open-sans'], 'fonts', '**/*.ttf'),
             path.join(config['sources']['open-sans'], 'fonts', '**/*.woff'),
-            path.join(config['sources']['open-sans'], 'fonts', '**/*.woff2'),
-      '!' + path.join(config['sources']['open-sans'], 'fonts', 'ExtraBold*/*.*'),
-      '!' + path.join(config['sources']['open-sans'], 'fonts', 'Semibold*/*.*')
+            path.join(config['sources']['open-sans'], 'fonts', '**/*.woff2')
     ])
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.fonts, 'open-sans')));
 });
