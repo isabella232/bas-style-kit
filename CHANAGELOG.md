@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed - BREAKING!
 
+* [Infrastructure] Semaphore Continuous Integration and Continuous Deployment workflows have been refactored
 * [Infrastructure] Switching from Less to Sass preprocessor - compiled css remains compatible
 * [Infrastructure] Gulp tasks heavily refactored
 * [Infrastructure] Switching from SassLint to StyleLint
