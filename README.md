@@ -7,26 +7,42 @@ Develop: [![Build Status](https://semaphoreci.com/api/v1/antarctica/bas-style-ki
 
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
+Documentation for this project is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
+
 **This project uses version 0.1.0 of the Base flavour of the BAS Base Project - Pristine**.
 
 **Note:** Production instances of this project are currently **NOT** supported.
 
 ## Overview
 
-...
+* the BAS Style Kit is a CSS framework, written in Sass, with a number of JavaScript components
+* it is based on Bootstrap 3 and consists of:
+    * a customised version of the Bootstrap framework (using variable overrides)
+    * a series of additional styles which extend Boostrap components with custom variants
+    * a series of additional styles which define entirely new components based on other CSS frameworks or to suit 
+    BAS specific needs
+* the Style Kit implements the BAS brand through the use of specific colour schemes and fonts
+* documentation on how to use this project is maintained in a separate project, 
+[BAS Style Kit Docs](https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit-docs/browse) [1]
+* pre-compiled CSS, JavaScript and WebFont assets are hosted on the BAS CDN for improved availability
+
+[1] If external a read-only mirror of this repository can be found on 
+[GitHub](https://github.com/antarctica/bas-style-kit-docs).
 
 ## Setup
 
 To bring up a local development environment:
 
-1. Ensure you meet all the
+1. ensure you meet all the
 [requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h=Environment---local-developmen)
 to bring up a local development environment
-2. Checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
+2. checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
 3. `$ cd bas-style-kit/provisioning/site-development-local`
 4. `$ vagrant up`
-5. `$ cd ..`
+5. `$ cd ..` (back to *provisioning*)
 6. `$ ansible-playbook site-development-local.yml`
+7. `$ cd ..` (back to *bas-style-kit-docs*)
+
 To bring up the staging environment:
 
 1. ensure you meet all the 
@@ -96,22 +112,22 @@ aws s3 sync $S3_DIRECTORY s3://$S3_BUCKET_NAME/bas-style-kit/$PROJECT_VERSION/ -
 
 To bring up the production environment:
 
-1. Ensure you meet all the
+1. ensure you meet all the
 [requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h=Environment---production)
 to bring up a production environment
-2. Checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
+2. checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
 3. `$ cd bas-style-kit/provisioning/site-production`
 4. `$ terraform plan`
 5. `$ terraform apply`
 6. `$ cd ..`
 7. `$ ansible-playbook site-production.yml`
-8. Commit Terraform state to project repository
+8. commit Terraform state to project repository
 
 ## Usage
 
 To deploy changes to a local development environment:
 
-* No action is needed as the project is mounted within the local virtual machine
+* no action is needed as the project is mounted within the local virtual machine
 
 To run task runner commands within a local development environment:
 
