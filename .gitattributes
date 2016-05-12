@@ -6,3 +6,6 @@
 
 # Don't diff or textually merge source maps
 *.map   binary
+
+# Ignore provisioning files in language statistics
+provisioning/* linguist-vendored

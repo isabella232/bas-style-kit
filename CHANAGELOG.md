@@ -32,6 +32,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Infrastructure] All environments requirements section
 * [Infrastructure] Minor README instruction errors for copying development SSL certificates
+* Language statistics in GitHub
 
 ### Changed
 
