@@ -32,7 +32,9 @@
     "gulp-sri": "^0.3",
     "gulp-stylelint": "^2.0",
     "gulp-util": "^3.0",
+    "gulp-zip": "^3.2",
     "open-sans-fontface": "^1.4",
+    "pkginfo": "^0.4",
     "run-sequence": "^1.1",
     "stylelint-config-standard": "^6.0"
   }

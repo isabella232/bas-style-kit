@@ -102,9 +102,10 @@ npm install -g gulp@^3.9
 npm install
 gulp clean
 gulp release
+aws s3 sync ./dist-archive s3://bas-packages-dev/bas-style-kit/$PROJECT_VERSION/ --acl=public-read --delete
 ```
 
-[5] For the line starting: `aws s3 sync`
+[5] For the line starting: `aws s3 sync $S3_DIRECTORY`
 
 ```shell
 aws s3 sync $S3_DIRECTORY s3://$S3_BUCKET_NAME/bas-style-kit/$PROJECT_VERSION/ --acl=public-read --delete
