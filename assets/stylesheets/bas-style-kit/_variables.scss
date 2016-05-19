@@ -49,6 +49,13 @@ $zindex-bsl-image-purchase-symbol:            900;
 //
 // Settings for some of the most global styles.
 
+//** Background colour for `<body>`.
+$page-background:                             $white !default;
+$body-bg:                                     $page-background;
+//** Global text colour on `<body>`.
+$page-text:                                   $gray-dark !default;
+$text-color:                                  $page-text;
+
 // Global textual link colour.
 $link-color:                                  lighten($bsk-blue, 5%);
 

@@ -27,6 +27,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * [Infrastructure] Tasks to verify documentation build process for Continuous Integration
+* [Style] Page background and text colours are now explicitly listed as variables in this project (values are unchanged)
 
 ### Fixed
 
