@@ -12,12 +12,14 @@ var        del = require('del'),
           path = require('path');
 
 var        sri = require('gulp-sri'),
+           zip = require('gulp-zip'),
           gulp = require('gulp'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
           util = require('gulp-util'),
         rename = require('gulp-rename'),
        csscomb = require('gulp-csscomb'),
+       pkginfo = require('pkginfo')(module, 'version'),
      styleLint = require('gulp-stylelint'),
     sourcemaps = require('gulp-sourcemaps'),
    runSequence = require('run-sequence'),
@@ -34,10 +36,12 @@ var config = {
     'gill-sans': path.join('.', 'assets', 'webfonts', 'gill-sans'),
     'open-sans': path.join('.', 'node_modules', 'open-sans-fontface'),
     'font-awesome': path.join('.', 'node_modules', 'font-awesome'),
+    'dist': path.join('.', 'dist'),
     'css': path.join('.', 'dist', 'css')
   },
   'destinations': {
     'dist': path.join('.', 'dist'),
+    'distArchive': path.join('.', 'dist-archive'),
     'css': path.join('.', 'css'),
     'fonts': path.join('.', 'fonts')
   },
@@ -227,11 +231,25 @@ gulp.task('atomic--sri-bootstrap-bsk-css-min', ['atomic-sourcemaps-bootstrap-bsk
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
+// Archiving
+
+gulp.task('atomic--archive-dist', () => {
+  return gulp.src(path.join(config.sources.dist, '**/*.*'))
+    .pipe(zip('bas-style-kit-' + module.exports.version + '.zip'))
+    .pipe(gulp.dest(path.join(config.destinations.distArchive)))
+});
+
 // Cleaning
 
 gulp.task('atomic--clean-dist', function() {
   return del([
       path.join(config.destinations.dist)
+  ]);
+});
+
+gulp.task('atomic--clean-dist-archive', function() {
+  return del([
+      path.join(config.destinations.distArchive)
   ]);
 });
 
@@ -309,7 +327,8 @@ gulp.task('styles-prod', ['build--styles-bas-style-kit-min'], function() {
 });
 
 gulp.task('clean', [
-  'atomic--clean-dist'
+  'atomic--clean-dist',
+  'atomic--clean-dist-archive',
 ], function() {});
 
 gulp.task('fonts', [
@@ -328,7 +347,8 @@ gulp.task('release', function() {
       'build--styles-bootstrap-bsk-min',
       'fonts'
     ],
-    'build--sri-combined'
+    'build--sri-combined',
+    'atomic--archive-dist'
   );
 });
 
