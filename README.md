@@ -7,36 +7,30 @@ Develop: [![Build Status](https://semaphoreci.com/api/v1/antarctica/bas-style-ki
 
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
-Documentation for this project is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
-
-**This project uses version 0.1.0 of the Base flavour of the BAS Base Project - Pristine**.
+End-user documentation for the BAS Style Kit, documenting what it includes, and how to use it to build websites and
+web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
 
 **Note:** Production instances of this project are currently **NOT** supported.
 
 ## Overview
 
-* the BAS Style Kit is a CSS framework, written in Sass, with a number of JavaScript components
-* it is based on Bootstrap 3 and consists of:
-    * a customised version of the Bootstrap framework (using variable overrides)
-    * a series of additional styles which extend Boostrap components with custom variants
-    * a series of additional styles which define entirely new components based on other CSS frameworks or to suit 
-    BAS specific needs
-* the Style Kit implements the BAS brand through the use of specific colour schemes and fonts
-* documentation on how to use this project is maintained in a separate project, 
-[BAS Style Kit Docs](https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit-docs/browse) [1]
-* pre-compiled CSS, JavaScript and WebFont assets are hosted on the BAS CDN for improved availability
+The BAS Style Kit is a CSS framework, incorportating the BAS brand, to establish a consistent visual design across
+BAS services and websites. It aims to build-in best practice at a technical and accessibility level.
 
-[1] If external a read-only mirror of this repository can be found on 
-[GitHub](https://github.com/antarctica/bas-style-kit-docs).
+The Style Kit is based on the official Sass port of the [Bootstrap 3](http://getbootstrap.com) and consists of:
+
+* BAS colour schemes and fonts
+* customised version of the Bootstrap framework (using Sass variable overrides)
+* custom variants of Bootstrap components
+* additional components inspired by other frameworks or organisations
 
 ## Setup
-
 
 **Note:** This section is outdated and should not be relied upon.
 
 To bring up the staging environment:
 
-1. ensure you meet all the 
+1. ensure you meet all the
 [requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h2=Environment---staging-(static-)
 to bring up a staging environment for static websites [1]
 2. checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
@@ -45,7 +39,7 @@ to bring up a staging environment for static websites [1]
 5. `$ terraform apply`
 6. `$ cd ../..` (back to *provisioning*)
 7. commit Terraform state to project repository
-8. if not already added, create a new project in [SemaphoreCI](https://semaphoreci.com/) using the *develop* branch of 
+8. if not already added, create a new project in [SemaphoreCI](https://semaphoreci.com/) using the *develop* branch of
 the Project Repository and associate with the *antarctica* organisation
 9. if the project already exists, but not this branch, check the settings below are correct and add the *develop* branch
 as a new build branch manually
@@ -56,7 +50,7 @@ as a new build branch manually
 12. for *Thread #1* rename to *Lint* with these commands: [3]
 13. set the Branches settings to:
     * Build new branches: `Never`
-14. Once the initial Continuous Integration build is complete, and is successful, retrieve AWS IAM access credentials 
+14. Once the initial Continuous Integration build is complete, and is successful, retrieve AWS IAM access credentials
 for the `semmaphore-deploy-bas-style-kit-stage-semaphore-cd` user
 15. Add a new deployment server:
     * Kind: AWS S3

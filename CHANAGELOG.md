@@ -7,35 +7,27 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed - BREAKING!
 
-* [Infrastructure] Semaphore Continuous Integration and Continuous Deployment workflows have been refactored
 * [Infrastructure] `gulp-sass` module updated to support Docker
 * [Infrastructure] Switching from Less to Sass preprocessor - compiled css remains compatible
 * [Infrastructure] Gulp tasks heavily refactored
 * [Infrastructure] Switching from SassLint to StyleLint
-* [Infrastructure] Refactoring project to use version 0.1.0 of the Base flavour of the BAS Base Project - Pristine
-* [Infrastructure] Upgrading to Jekyll 3, adding new features such as incremental building, requires Ruby 2.0 or higher
-* [Infrastructure] Upgrading to Ruby 2.2, as required by Jekyll 3 - rebuild development environments to use
-* [Infrastructure] Simplifying Ansible inventory to a single file, which will be used by default
-* [Infrastructure] IAM users split into staging and production roles with in-line policies, managed by Terraform
-* [Infrastructure] Adopting Semaphore's S3 deployment strategy, removing need to store AWS credentials in this project
-* [Infrastructure] Upgrading to NodeJS 4.2, as required by NPM modules - rebuild development environments to use
+* [Infrastructure] Renaming testbed directory from `http` to `html` to better reflect its content
 
 ### Removed - BREAKING!
 
+* [Infrastructure] Ansible provisioning for local development environments removed
+* [Infrastructure] Semaphore CI/CD removed
 * [Style] Compiled CSS is no longer included in this project - download from the BAS CDN if this is needed
 * [Documentation] Style Kit documentation is now maintained in an external project
 
 ### Added
 
-* [Infrastructure] Tasks to verify documentation build process for Continuous Integration
 * [Style] Page background and text colours are now explicitly listed as variables in this project (values are unchanged)
 * [Infrastructure] Docker support using a project image and Docker compose
 * [Infrastructure] Gulp tasks updated to support Docker workflow ('develop' task)
 
 ### Fixed
 
-* [Infrastructure] All environments requirements section
-* [Infrastructure] Minor README instruction errors for copying development SSL certificates
 * Language statistics in GitHub
 
 ### Changed
@@ -43,11 +35,12 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Style] Font Awesome updated to 4.6
 * [Style] Open-Sans web-font is now imported using its bundled Sass styles
 * [Infrastructure] Using CSSNano instead of MinifyCSS to minify CSS styles
-* [Infrastructure] Updating to latest Ansible Prelude role
 * [Infrastructure] README additions, improvements, refactoring and fixes
-* [Infrastructure] Minor refactoring of Terraform configuration
 * [Infrastructure] Updating NPM modules
-* [Documentation] Bootstrap 'bugify' Jekyll plugin, which we never used
+
+### Removed
+
+* [Infrastructure] Rsync related files, as these were never used as is now redundant due to Docker
 
 ## [0.1.0] - 2015-10-27
 

@@ -2,11 +2,12 @@
 /*eslint-env node */
 
 //
-// Gulp task runner configuration
+// BAS Style Kit Gulp task runner configuration
 // --------------------------------------------------
+//
 
 // Setup
-//
+// --------------------------------------------------
 
 var        del = require('del'),
           path = require('path');
@@ -26,9 +27,8 @@ var        sri = require('gulp-sri'),
    runSequence = require('run-sequence'),
   autoprefixer = require('gulp-autoprefixer');
 
-
 // Configuration
-//
+// --------------------------------------------------
 
 var config = {
   'sources': {
@@ -64,10 +64,9 @@ var config = {
   }
 };
 
-
 // Atomic Tasks
-//
 // Do one thing and one thing only
+// --------------------------------------------------
 
 // Sass compilation
 
@@ -254,9 +253,9 @@ gulp.task('atomic--clean-dist-archive', function() {
   ]);
 });
 
-
 // Compound Tasks
-//
+// These tasks DO NOT build upon atomic tasks - i.e. they are duplicates/independent
+// --------------------------------------------------
 
 gulp.task('build--styles-bas-style-kit-no-min', function() {
     return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
@@ -320,6 +319,7 @@ gulp.task('watch--lint-styles-bas-style-kit-no-min', function() {
 });
 
 // High Level Tasks
+// These tasks DO build upon compound and atomic tasks
 //
 
 gulp.task('styles', ['build--styles-bas-style-kit-no-min'], function() {
