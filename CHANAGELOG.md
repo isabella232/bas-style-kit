@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed - BREAKING!
 
 * [Infrastructure] Semaphore Continuous Integration and Continuous Deployment workflows have been refactored
+* [Infrastructure] `gulp-sass` module updated to support Docker
 * [Infrastructure] Switching from Less to Sass preprocessor - compiled css remains compatible
 * [Infrastructure] Gulp tasks heavily refactored
 * [Infrastructure] Switching from SassLint to StyleLint
@@ -28,6 +29,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Infrastructure] Tasks to verify documentation build process for Continuous Integration
 * [Style] Page background and text colours are now explicitly listed as variables in this project (values are unchanged)
+* [Infrastructure] Docker support using a project image and Docker compose
+* [Infrastructure] Gulp tasks updated to support Docker workflow ('develop' task)
 
 ### Fixed
 

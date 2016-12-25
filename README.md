@@ -31,17 +31,8 @@ Documentation for this project is available at: [style-kit.web.bas.ac.uk](https:
 
 ## Setup
 
-To bring up a local development environment:
 
-1. ensure you meet all the
-[requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h=Environment---local-developmen)
-to bring up a local development environment
-2. checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
-3. `$ cd bas-style-kit/provisioning/site-development-local`
-4. `$ vagrant up`
-5. `$ cd ..` (back to *provisioning*)
-6. `$ ansible-playbook site-development-local.yml`
-7. `$ cd ..` (back to *bas-style-kit-docs*)
+**Note:** This section is outdated and should not be relied upon.
 
 To bring up the staging environment:
 
@@ -126,27 +117,7 @@ to bring up a production environment
 
 ## Usage
 
-To deploy changes to a local development environment:
-
-* no action is needed as the project is mounted within the local virtual machine
-
-To run task runner commands within a local development environment:
-
-1. `$ cd site-development-local`
-2. `$ vagrant ssh`
-3. `$ cd /srv/apps/bas-style-kit`
-4. `$ gulp [task]`
-
-Where `[task]` is the task runner command to execute, e.g. `gulp release`.
-
-To view changes to styles using a set of bundled templates within a local development environment:
-
-1. `$ cd site-development-local`
-2. `$ vagrant ssh`
-3. `$ cd /srv/apps/bas-style-kit`
-4. `$ http-server -p 9000`
-
-Visit: [bas-style-kit-dev-node1.v.m](http://bas-style-kit-dev-node1.v.m/http) to see a the index of examples.
+**Note:** This section is outdated and should not be relied upon.
 
 To deploy changes to the staging environment:
 
@@ -161,26 +132,72 @@ To deploy changes to a production environment:
 
 ## Developing
 
-### Version control
+[Git](https://git-scm.com), [Docker](https://www.docker.com/products/docker) [1] and access to the private
+[BAS Docker Registry](https://docker-registry.data.bas.ac.uk) [2] are required to build this project locally.
 
-This project uses version control. The project repository is located at:
-`ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
+```shell
+$ git clone -b develop https://bitbucket.org/antarctica/bas-style-kit.git
+$ cd bas-style-kit
 
-Write access to this repository is restricted. Contact the project maintainer to request access.
+$ docker-compose up
+```
 
-A read-only mirror of this repository is maintained on GitHub, located at:
-`https://github.com/antarctica/bas-style-kit.git`
+This will bring up two docker containers. The first runs the `docker` gulp task automatically when changes are made to
+files within `/assets`. The second hosts the test-bed using Nginx, available at [localhost:9000](http://localhost:9000).
 
-### Tests
+When finished, exit the Docker Compose using `ctrl` + `c`, then run `docker-compose down`.
 
-This project uses manual and automated testing.
+To run another gulp `[Task]`:
+
+```shell
+$ docker-compose run app gulp [Task]
+```
+
+**Note:** This will not start the testbed Nginx container.
+
+[1] To install Git and Docker:
+
+**On macOS**
+
+```shell
+$ brew install git
+$ brew cask install docker
+```
+
+**On Windows**
+
+* Install Docker and Git using their respective installers
+
+[2] The first time you use this registry, you will need to authenticate using:
+
+```shell
+$ docker login docker-registry.data.bas.ac.uk
+```
+
+### Updating dependencies
+
+If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `gulpfile.js` are changed, the project Docker image will need
+to be rebuilt and pushed to the private BAS Docker Repository [1].
+
+```shell
+$ cd bas-style-kit/
+
+$ docker-compose build
+$ docker push docker-registry.data.bas.ac.uk/bsk/bas-style-kit:alpine
+```
+
+[1] The first time you use this registry, you will need to authenticate using:
+
+```shell
+$ docker login docker-registry.data.bas.ac.uk
+```
 
 ## Feedback
 
-The maintainer of this project is BAS Web & Applications Team, they can be contacted at: webapps@bas.ac.uk.
+The maintainer of this project is BAS Web & Applications Team, they can be contacted at:
+[webapps@bas.ac.uk](mailto:webapps@bas.ac.uk).
 
-This uses issue tracking for feedback. The project issue tracker is located at:
-`https://jira.ceh.ac.uk/BSK`
+The issue tracker for this project is available at: https://trello.com/b/0Mhzizpk/bas-style-kit
 
 ## Acknowledgements
 
