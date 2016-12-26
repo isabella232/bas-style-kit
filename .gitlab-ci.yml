@@ -1,0 +1,48 @@
+---
+
+# == Notes ==
+
+# - GitLab automatically passes artifacts from previous stages by default
+# - This configuration file uses some advanced YAML features (namely anchors) which may not be correctly displayed
+#   by syntax highlighting
+# - Set required secret variables at: https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs/variables - see below
+
+# = Secret variables
+# - Variables are grouped by section in KEY: "value" format (e.g. FOO: "bar")
+#   Sensetive values are represented by "[Sensetive]"
+#
+# - AWS IAM id/secret keys for 'bas-gitlab-deploy-bas-style-kit' user
+# > AWS_ACCESS_KEY_ID: "[Sensetive]"
+# > AWS_SECRET_ACCESS_KEY: "[Sensetive]"
+
+# == Global settings ==
+
+stages:
+  - build
+  - lint
+
+image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:alpine-2016-12-26
+
+variables:
+  AWS_DEFAULT_REGION: eu-west-1
+  SNAPSHOT_BUCKET_PATH: zips/apps
+  APP_NAME: bas-style-kit
+
+# == Jobs ==
+
+compile-sass:
+  stage: build
+  before_script: "gulp clean"
+  script:
+    - "gulp build--styles-bas-style-kit-no-min"
+    - "gulp build--styles-bootstrap-bsk-no-min"
+    - "gulp fonts"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist"
+    paths:
+      - site/_site
+    expire_in: 1 day
+
+lint-sass:
+  stage: lint
+  script: gulp lint
