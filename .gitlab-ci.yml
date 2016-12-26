@@ -35,7 +35,7 @@ compile-sass:
   before_script:
     - "gulp clean"
     - "mkdir node_modules"
-    - "cp $NODE_PATH/bootstrap-sass node_modules/"
+    - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
   script:
     - "gulp build--styles-bas-style-kit-no-min"
     - "gulp build--styles-bootstrap-bsk-no-min"
@@ -53,7 +53,7 @@ compile-sass-min:
   before_script:
     - "gulp clean"
     - "mkdir node_modules"
-    - "cp $NODE_PATH/bootstrap-sass node_modules/"
+    - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
   script:
     - "gulp build--styles-bas-style-kit-min"
     - "gulp build--styles-bootstrap-bsk-min"
@@ -70,8 +70,8 @@ copy-fonts:
   stage: build
   before_script:
     - "mkdir node_modules"
-    - "cp $NODE_PATH/open-sans-fontface node_modules/"
-    - "cp $NODE_PATH/font-awesome node_modules/"
+    - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
+    - "cp -R $NODE_PATH/font-awesome node_modules/"
   script:
     - "gulp fonts"
   artifacts:
