@@ -33,7 +33,6 @@ variables:
 compile-sass:
   stage: build
   before_script:
-    - "gulp clean"
     - "mkdir node_modules"
     - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
     - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
@@ -53,7 +52,6 @@ compile-sass-min:
   # only:
   #   - master
   before_script:
-    - "gulp clean"
     - "mkdir node_modules"
     - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
     - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
@@ -66,8 +64,8 @@ compile-sass-min:
     paths:
       - dist/css/bas-style-kit.min.css
       - dist/css/bootstrap-bsk.min.css
-      - dist/maps/bas-style-kit.min.css.map
-      - dist/maps/bootstrap-bsk.min.css.map
+      - dist/css/maps/bas-style-kit.min.css.map
+      - dist/css/maps/bootstrap-bsk.min.css.map
     expire_in: 1 day
 
 copy-fonts:
