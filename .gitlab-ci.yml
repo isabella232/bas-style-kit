@@ -36,6 +36,10 @@ compile-sass:
     - "pwd"
     - "ls -l"
     - "which gulp"
+    - "echo $PATH"
+    - "which npm"
+    - "npm --version"
+    - "gulp --version"
     - "gulp --tasks-simple"
     - "gulp clean"
   script:
