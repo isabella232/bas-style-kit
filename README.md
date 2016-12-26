@@ -7,45 +7,30 @@ Develop: [![Build Status](https://semaphoreci.com/api/v1/antarctica/bas-style-ki
 
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
-Documentation for this project is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
-
-**This project uses version 0.1.0 of the Base flavour of the BAS Base Project - Pristine**.
+End-user documentation for the BAS Style Kit, documenting what it includes, and how to use it to build websites and
+web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
 
 **Note:** Production instances of this project are currently **NOT** supported.
 
 ## Overview
 
-* the BAS Style Kit is a CSS framework, written in Sass, with a number of JavaScript components
-* it is based on Bootstrap 3 and consists of:
-    * a customised version of the Bootstrap framework (using variable overrides)
-    * a series of additional styles which extend Boostrap components with custom variants
-    * a series of additional styles which define entirely new components based on other CSS frameworks or to suit 
-    BAS specific needs
-* the Style Kit implements the BAS brand through the use of specific colour schemes and fonts
-* documentation on how to use this project is maintained in a separate project, 
-[BAS Style Kit Docs](https://stash.ceh.ac.uk/projects/BSK/repos/bas-style-kit-docs/browse) [1]
-* pre-compiled CSS, JavaScript and WebFont assets are hosted on the BAS CDN for improved availability
+The BAS Style Kit is a CSS framework, incorportating the BAS brand, to establish a consistent visual design across
+BAS services and websites. It aims to build-in best practice at a technical and accessibility level.
 
-[1] If external a read-only mirror of this repository can be found on 
-[GitHub](https://github.com/antarctica/bas-style-kit-docs).
+The Style Kit is based on the official Sass port of the [Bootstrap 3](http://getbootstrap.com) and consists of:
+
+* BAS colour schemes and fonts
+* customised version of the Bootstrap framework (using Sass variable overrides)
+* custom variants of Bootstrap components
+* additional components inspired by other frameworks or organisations
 
 ## Setup
 
-To bring up a local development environment:
-
-1. ensure you meet all the
-[requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h=Environment---local-developmen)
-to bring up a local development environment
-2. checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
-3. `$ cd bas-style-kit/provisioning/site-development-local`
-4. `$ vagrant up`
-5. `$ cd ..` (back to *provisioning*)
-6. `$ ansible-playbook site-development-local.yml`
-7. `$ cd ..` (back to *bas-style-kit-docs*)
+**Note:** This section is outdated and should not be relied upon.
 
 To bring up the staging environment:
 
-1. ensure you meet all the 
+1. ensure you meet all the
 [requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h2=Environment---staging-(static-)
 to bring up a staging environment for static websites [1]
 2. checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
@@ -54,7 +39,7 @@ to bring up a staging environment for static websites [1]
 5. `$ terraform apply`
 6. `$ cd ../..` (back to *provisioning*)
 7. commit Terraform state to project repository
-8. if not already added, create a new project in [SemaphoreCI](https://semaphoreci.com/) using the *develop* branch of 
+8. if not already added, create a new project in [SemaphoreCI](https://semaphoreci.com/) using the *develop* branch of
 the Project Repository and associate with the *antarctica* organisation
 9. if the project already exists, but not this branch, check the settings below are correct and add the *develop* branch
 as a new build branch manually
@@ -65,7 +50,7 @@ as a new build branch manually
 12. for *Thread #1* rename to *Lint* with these commands: [3]
 13. set the Branches settings to:
     * Build new branches: `Never`
-14. Once the initial Continuous Integration build is complete, and is successful, retrieve AWS IAM access credentials 
+14. Once the initial Continuous Integration build is complete, and is successful, retrieve AWS IAM access credentials
 for the `semmaphore-deploy-bas-style-kit-stage-semaphore-cd` user
 15. Add a new deployment server:
     * Kind: AWS S3
@@ -126,27 +111,7 @@ to bring up a production environment
 
 ## Usage
 
-To deploy changes to a local development environment:
-
-* no action is needed as the project is mounted within the local virtual machine
-
-To run task runner commands within a local development environment:
-
-1. `$ cd site-development-local`
-2. `$ vagrant ssh`
-3. `$ cd /srv/apps/bas-style-kit`
-4. `$ gulp [task]`
-
-Where `[task]` is the task runner command to execute, e.g. `gulp release`.
-
-To view changes to styles using a set of bundled templates within a local development environment:
-
-1. `$ cd site-development-local`
-2. `$ vagrant ssh`
-3. `$ cd /srv/apps/bas-style-kit`
-4. `$ http-server -p 9000`
-
-Visit: [bas-style-kit-dev-node1.v.m](http://bas-style-kit-dev-node1.v.m/http) to see a the index of examples.
+**Note:** This section is outdated and should not be relied upon.
 
 To deploy changes to the staging environment:
 
@@ -161,26 +126,72 @@ To deploy changes to a production environment:
 
 ## Developing
 
-### Version control
+[Git](https://git-scm.com), [Docker](https://www.docker.com/products/docker) [1] and access to the private
+[BAS Docker Registry](https://docker-registry.data.bas.ac.uk) [2] are required to build this project locally.
 
-This project uses version control. The project repository is located at:
-`ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
+```shell
+$ git clone -b develop https://bitbucket.org/antarctica/bas-style-kit.git
+$ cd bas-style-kit
 
-Write access to this repository is restricted. Contact the project maintainer to request access.
+$ docker-compose up
+```
 
-A read-only mirror of this repository is maintained on GitHub, located at:
-`https://github.com/antarctica/bas-style-kit.git`
+This will bring up two docker containers. The first runs the `docker` gulp task automatically when changes are made to
+files within `/assets`. The second hosts the test-bed using Nginx, available at [localhost:9000](http://localhost:9000).
 
-### Tests
+When finished, exit the Docker Compose using `ctrl` + `c`, then run `docker-compose down`.
 
-This project uses manual and automated testing.
+To run another gulp `[Task]`:
+
+```shell
+$ docker-compose run app gulp [Task]
+```
+
+**Note:** This will not start the testbed Nginx container.
+
+[1] To install Git and Docker:
+
+**On macOS**
+
+```shell
+$ brew install git
+$ brew cask install docker
+```
+
+**On Windows**
+
+* Install Docker and Git using their respective installers
+
+[2] The first time you use this registry, you will need to authenticate using:
+
+```shell
+$ docker login docker-registry.data.bas.ac.uk
+```
+
+### Updating dependencies
+
+If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `gulpfile.js` are changed, the project Docker image will need
+to be rebuilt and pushed to the private BAS Docker Repository [1].
+
+```shell
+$ cd bas-style-kit/
+
+$ docker-compose build
+$ docker push docker-registry.data.bas.ac.uk/bsk/bas-style-kit:alpine
+```
+
+[1] The first time you use this registry, you will need to authenticate using:
+
+```shell
+$ docker login docker-registry.data.bas.ac.uk
+```
 
 ## Feedback
 
-The maintainer of this project is BAS Web & Applications Team, they can be contacted at: webapps@bas.ac.uk.
+The maintainer of this project is BAS Web & Applications Team, they can be contacted at:
+[webapps@bas.ac.uk](mailto:webapps@bas.ac.uk).
 
-This uses issue tracking for feedback. The project issue tracker is located at:
-`https://jira.ceh.ac.uk/BSK`
+The issue tracker for this project is available at: https://trello.com/b/0Mhzizpk/bas-style-kit
 
 ## Acknowledgements
 

@@ -2,11 +2,12 @@
 /*eslint-env node */
 
 //
-// Gulp task runner configuration
+// BAS Style Kit Gulp task runner configuration
 // --------------------------------------------------
+//
 
 // Setup
-//
+// --------------------------------------------------
 
 var        del = require('del'),
           path = require('path');
@@ -17,6 +18,7 @@ var        sri = require('gulp-sri'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
           util = require('gulp-util'),
+         watch = require('gulp-watch'),
         rename = require('gulp-rename'),
        csscomb = require('gulp-csscomb'),
        pkginfo = require('pkginfo')(module, 'version'),
@@ -25,9 +27,8 @@ var        sri = require('gulp-sri'),
    runSequence = require('run-sequence'),
   autoprefixer = require('gulp-autoprefixer');
 
-
 // Configuration
-//
+// --------------------------------------------------
 
 var config = {
   'sources': {
@@ -63,10 +64,9 @@ var config = {
   }
 };
 
-
 // Atomic Tasks
-//
 // Do one thing and one thing only
+// --------------------------------------------------
 
 // Sass compilation
 
@@ -243,7 +243,7 @@ gulp.task('atomic--archive-dist', () => {
 
 gulp.task('atomic--clean-dist', function() {
   return del([
-      path.join(config.destinations.dist)
+      path.join(config.destinations.dist, '**/*')
   ]);
 });
 
@@ -253,9 +253,9 @@ gulp.task('atomic--clean-dist-archive', function() {
   ]);
 });
 
-
 // Compound Tasks
-//
+// These tasks DO NOT build upon atomic tasks - i.e. they are duplicates/independent
+// --------------------------------------------------
 
 gulp.task('build--styles-bas-style-kit-no-min', function() {
     return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
@@ -309,7 +309,17 @@ gulp.task('build--sri-combined', function() {
     .pipe(gulp.dest(path.join(config.destinations.dist)));
 })
 
+gulp.task('watch--lint-styles-bas-style-kit-no-min', function() {
+  return watch(path.join(config.sources.stylesheets, '**/*.scss'), function () {
+    runSequence(
+      'atomic--lint-sass-bas-style-kit',
+      'build--styles-bas-style-kit-no-min'
+    );
+  });
+});
+
 // High Level Tasks
+// These tasks DO build upon compound and atomic tasks
 //
 
 gulp.task('styles', ['build--styles-bas-style-kit-no-min'], function() {
@@ -337,6 +347,24 @@ gulp.task('fonts', [
   'atomic--copy-webfont-font-awesome'
 ], function() {});
 
+gulp.task('lint', [
+  'atomic--lint-sass-bas-style-kit'
+], function() {});
+
+// Even Higher Level Tasks
+// These tasks DO build upon high level, compound and atomic tasks
+//
+
+gulp.task('develop', function() {
+  runSequence(
+    'clean',
+    'build--styles-bas-style-kit-no-min',
+    'build--styles-bootstrap-bsk-no-min',
+    'fonts',
+    'watch--lint-styles-bas-style-kit-no-min'
+  );
+});
+
 gulp.task('release', function() {
   runSequence(
     'clean',
@@ -351,7 +379,3 @@ gulp.task('release', function() {
     'atomic--archive-dist'
   );
 });
-
-gulp.task('lint', [
-  'atomic--lint-sass-bas-style-kit'
-], function() {});
