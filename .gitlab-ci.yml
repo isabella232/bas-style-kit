@@ -33,6 +33,10 @@ variables:
 compile-sass:
   stage: build
   before_script:
+    - "pwd"
+    - "ls -l"
+    - "which gulp"
+    - "gulp --tasks-simple"
     - "gulp clean"
   script:
     - "gulp build--styles-bas-style-kit-no-min"
