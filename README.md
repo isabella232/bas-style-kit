@@ -194,10 +194,13 @@ $ docker login docker-registry.data.bas.ac.uk
 The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs/builds)
 using settings defined in `.gitlab-ci.yml` using these jobs and stages.
 
-| Stage | Job            | Trigger                             | Type      | Notes                                              |
-| ----- | -------------- | ----------------------------------- | --------- | -------------------------------------------------- |
-| Build | `compile-sass` | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
-| Lint  | `lint-sass`    | `compile-sass` passes               | Automatic | See `gulpfile.js` for details of what is performed |
+| Stage   | Job                | Trigger                             | Type      | Notes                                              |
+| ------- | ------------------ | ----------------------------------- | --------- | -------------------------------------------------- |
+| Build   | `compile-sass`     | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
+| Build   | `compile-sass-min` | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
+| Build   | `copy-fonts`       | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
+| Lint    | `lint-sass`        | `compile-sass` passes               | Automatic | See `gulpfile.js` for details of what is performed |
+| Package | `combine-dist`     | `lint-sass` passes                  | Automatic | -                                                  |
 
 **Note:** Ensure you commit changes to the `develop` branch only.
 
