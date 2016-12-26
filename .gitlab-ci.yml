@@ -18,6 +18,7 @@
 # == Global settings ==
 
 stages:
+  - setup
   - build
   - lint
 
@@ -28,7 +29,19 @@ variables:
   SNAPSHOT_BUCKET_PATH: zips/apps
   APP_NAME: bas-style-kit
 
+# This is needed to cache the node modules once installed
+#- this is temporary as node modules defined by the image should be used!
+cache:
+  untracked: true
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/
+
 # == Jobs ==
+
+npm-install:
+  stage: setup
+  script: "npm install"
 
 compile-sass:
   stage: build
