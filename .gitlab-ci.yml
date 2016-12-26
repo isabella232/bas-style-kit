@@ -91,5 +91,5 @@ combine-dist:
   script:
     - "ls dist"
     - "ls dist/css"
-    - "ls dist/maps"
+    - "ls dist/css/maps"
     - "ls dist/fonts"
