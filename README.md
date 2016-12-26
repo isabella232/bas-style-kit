@@ -173,11 +173,14 @@ $ docker login docker-registry.data.bas.ac.uk
 If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `gulpfile.js` are changed, the project Docker image will need
 to be rebuilt and pushed to the private BAS Docker Repository [1].
 
+The current date is used as part of the project Docker image tag to ensure the latest version is used by all developers.
+Before rebuilding this image you **MUST** update this tag value in `docker-compose.yml` and `.gitlab-ci.yml` first.
+
 ```shell
 $ cd bas-style-kit/
 
-$ docker-compose build
-$ docker push docker-registry.data.bas.ac.uk/bsk/bas-style-kit:alpine
+$ docker-compose build app
+$ docker-compose push app
 ```
 
 [1] The first time you use this registry, you will need to authenticate using:
