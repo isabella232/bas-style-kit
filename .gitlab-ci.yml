@@ -32,7 +32,8 @@ variables:
 
 compile-sass:
   stage: build
-  before_script: "gulp clean"
+  before_script:
+    - "gulp clean"
   script:
     - "gulp build--styles-bas-style-kit-no-min"
     - "gulp build--styles-bootstrap-bsk-no-min"
