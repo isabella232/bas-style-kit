@@ -189,6 +189,33 @@ $ docker-compose push app
 $ docker login docker-registry.data.bas.ac.uk
 ```
 
+## Continuous Integration
+
+The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs/builds)
+using settings defined in `.gitlab-ci.yml` using these jobs and stages.
+
+| Stage | Job            | Trigger                             | Type      | Notes                                              |
+| ----- | -------------- | ----------------------------------- | --------- | -------------------------------------------------- |
+| Build | `compile-sass` | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
+| Lint  | `lint-sass`    | `compile-sass` passes               | Automatic | See `gulpfile.js` for details of what is performed |
+
+**Note:** Ensure you commit changes to the `develop` branch only.
+
+[1] To commit to the develop branch, use the BAS GitLab remote [2]:
+
+```shell
+$ git add foo.bar
+$ git commit -m "..."
+$ git push bas-gl
+```
+
+[2] To add the BAS GitLab as a Git remote:
+
+```shell
+$ cd bas-style-kit/
+$ git remote add bas-gl https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
+```
+
 ## Feedback
 
 The maintainer of this project is BAS Web & Applications Team, they can be contacted at:
