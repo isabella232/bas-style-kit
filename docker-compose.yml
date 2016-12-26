@@ -2,13 +2,13 @@
 version: '2'
 
 services:
-  # app:
-  #   build: .
-  #   image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:alpine
-  #   command: gulp develop
-  #   volumes:
-  #     - ./assets:/usr/src/app/assets
-  #     - ./dist:/usr/src/app/dist
+  app:
+    build: .
+    image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:alpine-2016-12-26
+    command: gulp develop
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./dist:/usr/src/app/dist
   web:
     image: nginx:alpine
     volumes:
