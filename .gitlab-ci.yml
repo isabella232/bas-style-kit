@@ -3,8 +3,6 @@
 # == Notes ==
 
 # - GitLab automatically passes artifacts from previous stages by default
-# - This configuration file uses some advanced YAML features (namely anchors) which may not be correctly displayed
-#   by syntax highlighting
 # - Set required secret variables at: https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs/variables - see below
 
 # = Secret variables
@@ -18,9 +16,9 @@
 # == Global settings ==
 
 stages:
-  # - setup
   - build
   - lint
+  - package
 
 image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:alpine-2016-12-26
 
@@ -30,42 +28,56 @@ variables:
   APP_NAME: bas-style-kit
   NODE_PATH: /usr/src/app/node_modules
 
-# This is needed to cache the node modules once installed
-#- this is temporary as node modules defined by the image should be used!
-# cache:
-#   untracked: true
-#   key: "$CI_BUILD_REF_NAME"
-#   paths:
-#     - node_modules/
-
 # == Jobs ==
-
-# npm-install:
-#   stage: setup
-#   script: "npm install"
 
 compile-sass:
   stage: build
   before_script:
-    - "pwd"
-    - "ls -l"
-    - "which gulp"
-    - "echo $PATH"
-    - "which npm"
-    - "npm --version"
-    - "gulp --version"
-    - "gulp --tasks-simple"
     - "gulp clean"
   script:
     - "gulp build--styles-bas-style-kit-no-min"
     - "gulp build--styles-bootstrap-bsk-no-min"
-    - "gulp fonts"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist"
     paths:
-      - site/_site
+      - dist/css/bas-style-kit.css
+      - dist/css/bootstrap-bsk.css
+    expire_in: 1 day
+
+compile-sass-min:
+  stage: build
+  # only:
+  #   - master
+  script:
+    - "gulp build--styles-bas-style-kit-min"
+    - "gulp build--styles-bootstrap-bsk-min"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-min"
+    paths:
+      - dist/css/bas-style-kit.min.css
+      - dist/css/bootstrap-bsk.min.css
+      - dist/maps/bas-style-kit.min.css.map
+      - dist/maps/bootstrap-bsk.min.css.map
+    expire_in: 1 day
+
+copy-fonts:
+  stage: build
+  script:
+    - "gulp fonts"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-fonts"
+    paths:
+      - dist/fonts
     expire_in: 1 day
 
 lint-sass:
   stage: lint
   script: gulp lint
+
+combine-dist:
+  stage: package
+  script:
+    - "ls dist"
+    - "ls dist/css"
+    - "ls dist/maps"
+    - "ls dist/fonts"
