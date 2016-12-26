@@ -18,7 +18,7 @@
 # == Global settings ==
 
 stages:
-  - setup
+  # - setup
   - build
   - lint
 
@@ -28,20 +28,21 @@ variables:
   AWS_DEFAULT_REGION: eu-west-1
   SNAPSHOT_BUCKET_PATH: zips/apps
   APP_NAME: bas-style-kit
+  NODE_PATH: /usr/src/app/node_modules
 
 # This is needed to cache the node modules once installed
 #- this is temporary as node modules defined by the image should be used!
-cache:
-  untracked: true
-  key: "$CI_BUILD_REF_NAME"
-  paths:
-    - node_modules/
+# cache:
+#   untracked: true
+#   key: "$CI_BUILD_REF_NAME"
+#   paths:
+#     - node_modules/
 
 # == Jobs ==
 
-npm-install:
-  stage: setup
-  script: "npm install"
+# npm-install:
+#   stage: setup
+#   script: "npm install"
 
 compile-sass:
   stage: build
