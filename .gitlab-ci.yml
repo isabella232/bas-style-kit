@@ -49,8 +49,8 @@ compile-sass:
 
 compile-sass-min:
   stage: build
-  # only:
-  #   - master
+  only:
+    - master
   before_script:
     - "mkdir node_modules"
     - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
@@ -94,9 +94,6 @@ package-dist:
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
     - "cd dist"
   script: "zip -r ../$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip *"
-  after_script:
-    - "pwd"
-    - "ls"
   artifacts:
     name: "$CI_BUILD_TOKEN-zip"
     paths:
