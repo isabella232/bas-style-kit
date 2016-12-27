@@ -200,7 +200,6 @@ using settings defined in `.gitlab-ci.yml` using these jobs and stages.
 | Build   | `compile-sass-min` | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
 | Build   | `copy-fonts`       | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
 | Lint    | `lint-sass`        | `compile-sass` passes               | Automatic | See `gulpfile.js` for details of what is performed |
-| Package | `combine-dist`     | `lint-sass` passes                  | Automatic | -                                                  |
 
 **Note:** Ensure you commit changes to the `develop` branch only.
 
@@ -219,6 +218,16 @@ $ cd bas-style-kit/
 $ git remote add bas-gl https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
 ```
 
+## Continuous Deployment
+
+The BAS GitLab instance is used for [Continuous Deployment](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
+using settings defined in `.gitlab-ci.yml`, using these jobs and stages.
+
+**Note:** Due to caching, deployed changes may not appear for up to 30 minutes.
+
+| Stage   | Job                      | Trigger                                                     | Type      | Notes                              |
+| ------- | ------------------------ | ----------------------------------------------------------- | --------- | ---------------------------------- |
+| Package | `package-dist`           | `lint-sass` passes                                          | Automatic | -                                  |
 ## Feedback
 
 The maintainer of this project is BAS Web & Applications Team, they can be contacted at:
