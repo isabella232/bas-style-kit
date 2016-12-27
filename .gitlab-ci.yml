@@ -93,7 +93,7 @@ package-dist:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
     - "cd dist"
-  script: "zip -r ../../$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip *"
+  script: "zip -r ../$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip *"
   after_script:
     - "pwd"
     - "ls"
