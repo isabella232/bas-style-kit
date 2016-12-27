@@ -20,7 +20,7 @@ stages:
   - lint
   - package
 
-image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:alpine-2016-12-26
+image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2016-12-26-alpine
 
 variables:
   AWS_DEFAULT_REGION: eu-west-1
@@ -88,7 +88,7 @@ lint-sass:
 
 package-dist:
   stage: package
-  image: antarctica/jekyll-deployment-image:alpine-gitlab-0.1.3
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
