@@ -191,8 +191,8 @@ $ docker login docker-registry.data.bas.ac.uk
 
 ## Continuous Integration
 
-The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs/builds)
-using settings defined in `.gitlab-ci.yml` using these jobs and stages.
+The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
+using settings defined in `.gitlab-ci.yml`, using these jobs and stages.
 
 | Stage   | Job                | Trigger                             | Type      | Notes                                              |
 | ------- | ------------------ | ----------------------------------- | --------- | -------------------------------------------------- |
