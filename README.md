@@ -163,10 +163,7 @@ $ brew cask install docker
 * Install Docker and Git using their respective installers
 
 [2] The first time you use this registry, you will need to authenticate using:
-
-```shell
-$ docker login docker-registry.data.bas.ac.uk
-```
+`docker login docker-registry.data.bas.ac.uk`
 
 ### Updating dependencies
 
@@ -184,10 +181,7 @@ $ docker-compose push app
 ```
 
 [1] The first time you use this registry, you will need to authenticate using:
-
-```shell
-$ docker login docker-registry.data.bas.ac.uk
-```
+`docker login docker-registry.data.bas.ac.uk`
 
 ## Continuous Integration
 
