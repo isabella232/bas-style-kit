@@ -24,6 +24,11 @@
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
   script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$S3_SNAPSHOT_BUCKET/$SNAPSHOT_BUCKET_PATH/$APP_NAME/"
 
+.job_template_s3_sync: &:job_template_s3_sync
+  stage: deploy
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  script: "aws s3 sync --delete dist/ s3://$S3_CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
+
 # == Global settings ==
 
 stages:
@@ -118,3 +123,14 @@ s3-snapshot-dev:
     - develop
   variables:
     S3_SNAPSHOT_BUCKET: bas-packages-dev
+
+s3-cdn-dev:
+  <<: *job_template_s3_sync
+  only:
+    - develop
+  when: manual
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+    - "export CDN_PROJECT_VERSION=$CI_BUILD_REF_SHORT"
+  variables:
+    S3_CDN_BUCKET: bas-cdn-dev

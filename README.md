@@ -221,9 +221,12 @@ using settings defined in `.gitlab-ci.yml`, using these jobs and stages.
 | ------- | ------------------------- | ----------------------------------------------------------- | --------- | ---------------------------------- |
 | Package | `package-dist`            | `lint-sass` passes                                          | Automatic | -                                  |
 | Deploy  | `s3-snapshot-development` | `package-dist` passes with a commit to the `develop` branch | Automatic | [1]                                |
+| Deploy  | `s3-cdn-dev`              | `package-dist` passes with a commit to the `develop` branch | Manual    | [2]                                |
 [1] And then available from the *development* instance of the BAS Packages Service.
 
 ## Provisioning development environment
+[2] And then available from the *development* instance of the BAS CDN
+
 
 [Terraform](https://terrafrom.io) [1] and access to the
 [BAS Packages Service](https://bitbucket.org/antarctica/bas-packages-service) and
