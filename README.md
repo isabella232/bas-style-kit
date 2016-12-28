@@ -219,9 +219,52 @@ using settings defined in `.gitlab-ci.yml`, using these jobs and stages.
 
 **Note:** Due to caching, deployed changes may not appear for up to 30 minutes.
 
-| Stage   | Job                      | Trigger                                                     | Type      | Notes                              |
-| ------- | ------------------------ | ----------------------------------------------------------- | --------- | ---------------------------------- |
-| Package | `package-dist`           | `lint-sass` passes                                          | Automatic | -                                  |
+| Stage   | Job                       | Trigger                                                     | Type      | Notes                              |
+| ------- | ------------------------- | ----------------------------------------------------------- | --------- | ---------------------------------- |
+| Package | `package-dist`            | `lint-sass` passes                                          | Automatic | -                                  |
+| Deploy  | `s3-snapshot-development` | `package-dist` passes with a commit to the `develop` branch | Automatic | [1]                                |
+[1] And then available from the *development* instance of the BAS Packages Service.
+
+## Provisioning development environment
+
+[Terraform](https://terrafrom.io) [1] and access to the
+[BAS Packages Service](https://bitbucket.org/antarctica/bas-packages-service) and
+[BAS CDN](https://bitbucket.org/antarctica/bas-cdn) projects are required to provision resources for this project [2].
+
+Provisioned resources are defined in Terraform configuration files and arranged in multiple environments:
+
+* `provisioning/site-all` - defines resources shared by all environments
+* `provisioning/site-dev` - defines resources used by the development environment
+Each environment is similar, but functions independently, except for the `site-all` environment, which all environments
+depend on. The instructions below show how to configure the development environment, but they apply equally to all.
+
+**Warning!** Take care before running `terraform apply` on the production environment. All substantial changes **MUST**
+be tested in development first.
+
+**Note:** As all environments depend on resources defined in the `site-all` environment, you **MUST** run provisioning
+for this first.
+
+```shell
+$ cd provisioning/site-all
+$ terraform plan
+$ terraform apply
+
+$ cd ../site-dev
+$ terraform plan
+$ terraform apply
+```
+
+During provisioning, an AWS IAM user will be created with least-privilege permissions to enable Continuous Deployment.
+Access credentials for this user will need to generated manually through the AWS Console and set as secret variables.
+
+See the `.gitlab-ci.yml` file for specifics on which user to generate credentials for, and what to name them.
+
+**Note:** Commit all Terraform state files to this repository.
+
+[1] https://www.terraform.io/downloads.html
+
+[2] Contact the [BAS Web & Applications Team](mailto:webapps@bas.ac.uk) if you don't yet have access.
+
 ## Feedback
 
 The maintainer of this project is BAS Web & Applications Team, they can be contacted at:
