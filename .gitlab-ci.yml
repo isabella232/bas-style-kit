@@ -3,7 +3,9 @@
 # == Notes ==
 
 # - GitLab automatically passes artifacts from previous stages by default
-# - Set required secret variables at: https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs/variables - see below
+# - This configuration file uses some advanced YAML features (namely anchors) which may not be correctly displayed
+#   by syntax highlighting
+# - Set required secret variables at: https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/variables - see below
 
 # = Secret variables
 # - Variables are grouped by section in KEY: "value" format (e.g. FOO: "bar")
@@ -13,12 +15,22 @@
 # > AWS_ACCESS_KEY_ID: "[Sensetive]"
 # > AWS_SECRET_ACCESS_KEY: "[Sensetive]"
 
+# == Job Templates ==
+
+.job_template_s3_snapshot: &job_template_s3_snapshot
+  stage: deploy
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$S3_SNAPSHOT_BUCKET/$SNAPSHOT_BUCKET_PATH/$APP_NAME/"
+
 # == Global settings ==
 
 stages:
   - build
   - lint
   - package
+  - deploy
 
 image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2016-12-26-alpine
 
@@ -99,3 +111,10 @@ package-dist:
     paths:
       - "*.zip"
     expire_in: 1 day
+
+s3-snapshot-dev:
+  <<: *job_template_s3_snapshot
+  only:
+    - develop
+  variables:
+    S3_SNAPSHOT_BUCKET: bas-packages-dev
