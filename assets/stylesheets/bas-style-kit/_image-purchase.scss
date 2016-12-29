@@ -101,11 +101,11 @@
   &.thumbnail-bsk-default {
     .caption {
       .image-purchase-symbol {
-
         color: $image-purchase-bsk-in-caption-default-color;
       }
     }
   }
+
   &.thumbnail-bsk-inverse {
     .caption {
       .image-purchase-symbol {
@@ -126,7 +126,6 @@
     .image-purchase-symbol {
       color: $image-purchase-bsk-on-image-color;
       text-shadow: 0 1px 2px $image-purchase-bsk-on-image-text-shadow;
-
       position: absolute;
       z-index: $zindex-bsl-image-purchase-symbol;
       padding: 5px;
@@ -176,6 +175,7 @@
       }
     }
   }
+
   &a.bsk-image-purchase-no-caption {
     .image-purchase-symbol {
       cursor: pointer;

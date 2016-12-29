@@ -19,7 +19,6 @@
   font-family:    $footer-font-family;
   font-weight:    $footer-font-weight;
   font-size:      $footer-font-size;
-
   position:       relative;
   min-height:     $footer-height; // Ensure a footer always shows
   margin-top:     $footer-margin-top;
@@ -91,18 +90,20 @@
       text-align: left;
     }
   }
+
   .ogl-symbol {
     @include center-block();
+
     margin-bottom: $footer-bsk-ogl-symbol-margin-bottom;
 
     @media (min-width: $screen-sm-min) {
-
       margin-left:   0;
       margin-bottom: 0;
       margin-right:  $footer-bsk-ogl-symbol-margin-right;
       width:         $footer-bsk-ogl-symbol-width;
     }
   }
+
   .ogl-text {
     margin-bottom: $footer-bsk-olg-text-margin-bottom;
     line-height:   $footer-bsk-ogl-text-line-height;

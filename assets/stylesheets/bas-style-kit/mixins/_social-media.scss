@@ -18,6 +18,7 @@
   &.#{$service} {
     color: $brand-colour;
   }
+
   &:hover {
     &.#{$service} {
       color: darken($brand-colour, 15%);

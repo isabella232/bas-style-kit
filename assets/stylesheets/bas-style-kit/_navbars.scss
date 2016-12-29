@@ -10,7 +10,6 @@
   font-family:      $navbar-bsk-font-family;
   font-weight:      $navbar-bsk-font-weight;
   font-size:        $navbar-bsk-font-size;
-
   background-color: $navbar-bsk-bg;
   border-color:     $navbar-bsk-color;
   border-radius:    $navbar-bsk-border-radius;
@@ -22,7 +21,6 @@
   .navbar-brand {
     font-family: $navbar-bsk-brand-font-family;
     font-weight: $navbar-bsk-brand-font-weight;
-
     color: $navbar-bsk-brand-color;
   }
 
@@ -36,6 +34,7 @@
         background-color: $navbar-bsk-link-hover-bg;
       }
     }
+
     > .active > a {
       &,
       &:hover,
@@ -44,6 +43,7 @@
         background-color: $navbar-bsk-link-active-bg;
       }
     }
+
     > .disabled > a {
       &,
       &:hover,
@@ -58,10 +58,12 @@
   .navbar-toggle {
     border-color:  $navbar-bsk-toggle-border-color;
     border-radius: $navbar-bsk-border-radius;
+
     &:hover,
     &:focus {
       background-color: $navbar-bsk-toggle-hover-bg;
     }
+
     .icon-bar {
       background-color: $navbar-bsk-toggle-icon-bar-bg;
     }
@@ -78,6 +80,7 @@
           color: $navbar-bsk-link-active-color;
         }
       }
+
       .active > a {
         color:            $navbar-bsk-link-active-color;
         background-color: $navbar-bsk-link-active-bg;
@@ -90,9 +93,11 @@
         > .dropdown-header {
           border-color: $navbar-bsk-border;
         }
+
         .divider {
           background-color: $navbar-bsk-divider-color;
         }
+
         > li > a {
           color: $navbar-bsk-link-color;
 
@@ -102,6 +107,7 @@
             background-color: $navbar-bsk-link-hover-bg;
           }
         }
+
         > .active > a {
           &,
           &:hover,
@@ -110,6 +116,7 @@
             background-color: $navbar-bsk-link-active-bg;
           }
         }
+
         > .disabled > a {
           &,
           &:hover,
@@ -121,14 +128,15 @@
       }
     }
   }
+
   .navbar-nav > .open .dropdown-menu li a {
     font-family: $navbar-bsk-dropdown-font-family;
-
     padding: 10px;
   }
 
   .navbar-link {
     color: $navbar-bsk-link-color;
+
     &:hover {
       color: $navbar-bsk-link-hover-color;
     }
@@ -136,10 +144,12 @@
 
   .btn-link {
     color: $navbar-bsk-link-color;
+
     &:hover,
     &:focus {
       color: $navbar-bsk-link-hover-color;
     }
+
     &[disabled],
     fieldset[disabled] & {
       &:hover,
@@ -158,6 +168,7 @@
     &.navbar-brand-img-fix {
       padding-top: ($navbar-padding-vertical /2);
     }
+
     img {
       width: 150px;
     }
@@ -167,12 +178,12 @@
     .navbar-brand {
       padding-top: $navbar-bsk-lg-padding-vertical;
       padding-bottom: $navbar-bsk-lg-padding-vertical;
-
       line-height: $line-height-computed-x2;
 
       &.navbar-brand-img-fix {
         padding-top: $navbar-padding-vertical;
       }
+
       img {
         width: 300px;
       }
@@ -185,7 +196,6 @@
     .navbar-nav {
       > li > a {
         line-height: $line-height-computed-x2;
-
         padding-top:    $navbar-bsk-lg-padding-vertical;
         padding-bottom: $navbar-bsk-lg-padding-vertical;
       }
@@ -197,11 +207,13 @@
 
     .navbar-btn {
       @include navbar-lg-vertical-align($input-height-base);
+
       font-size: $font-size-large;
 
       &.btn-sm {
         @include navbar-lg-vertical-align($input-height-small);
       }
+
       &.btn-xs {
         @include navbar-lg-vertical-align(22px);
       }
@@ -209,6 +221,7 @@
 
     .navbar-text {
       @include navbar-lg-vertical-align($line-height-computed-x2);
+
       line-height: $line-height-computed-x2;
     }
   }

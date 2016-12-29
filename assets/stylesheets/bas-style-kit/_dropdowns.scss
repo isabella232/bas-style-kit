@@ -9,9 +9,6 @@
 
   // Links within the dropdown menu
   > li > a {
-    padding-top:    $dropdown-menu-bsk-item-padding-vertical;
-    padding-bottom: $dropdown-menu-bsk-item-padding-vertical;
-    padding-left:   $dropdown-menu-bsk-item-padding-horizontal;
-    padding-right:  $dropdown-menu-bsk-item-padding-horizontal;
+    padding: $dropdown-menu-bsk-item-padding-vertical $dropdown-menu-bsk-item-padding-horizontal;
   }
 }

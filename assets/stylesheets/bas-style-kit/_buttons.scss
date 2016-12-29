@@ -54,6 +54,7 @@
       $btn-bsk-border-radius
     );
   }
+
   &.btn-sm {
     // line-height: ensure proper height of button next to small input
     @include button-size(
@@ -64,6 +65,7 @@
       $btn-bsk-border-radius
     );
   }
+
   &.btn-xs {
     @include button-size(
       $padding-xs-vertical,

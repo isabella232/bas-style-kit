@@ -10,6 +10,7 @@
   @for $i from (1 + 1) through $grid-columns {
     $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}, .col-xl-#{$i}";
   }
+
   #{$list} {
     position:      relative;
     // Prevent columns from collapsing when empty
@@ -28,6 +29,7 @@
   @for $i from (1 + 1) through $grid-bsk-columns {
     $list: "#{$list}, .col-bsk-xs-#{$i}, .col-bsk-sm-#{$i}, .col-bsk-md-#{$i}, .col-bsk-lg-#{$i} .col-bsk-xl-#{$i}";
   }
+
   #{$list} {
     position:      relative;
     // Prevent columns from collapsing when empty
@@ -45,6 +47,7 @@
   @for $i from (1 + 1) through $grid-bsk-columns {
     $list: "#{$list}, .col-bsk-#{$class}-#{$i}";
   }
+
   #{$list} {
     float: left;
   }
