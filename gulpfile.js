@@ -361,6 +361,7 @@ gulp.task('develop', function() {
     'build--styles-bas-style-kit-no-min',
     'build--styles-bootstrap-bsk-no-min',
     'fonts',
+    'lint',
     'watch--lint-styles-bas-style-kit-no-min'
   );
 });

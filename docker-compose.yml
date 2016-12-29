@@ -12,6 +12,7 @@ services:
   web:
     image: nginx:alpine
     volumes:
+      - ./html/_index.html:/usr/share/nginx/html/index.html
       - ./html:/usr/share/nginx/html/testbed
       - ./dist:/usr/share/nginx/html/dist
     ports:

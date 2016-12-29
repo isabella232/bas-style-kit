@@ -145,6 +145,12 @@ To run another gulp `[Task]`:
 $ docker-compose run app gulp [Task]
 ```
 
+For example, to run all linting tasks:
+
+```shell
+$ docker-compose run app gulp lint
+```
+
 **Note:** This will not start the testbed Nginx container.
 
 [1] To install Git and Docker:
