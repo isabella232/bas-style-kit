@@ -313,14 +313,14 @@ gulp.task('watch--lint-styles-bas-style-kit-no-min', () => {
 
 gulp.task('styles', ['build--styles-bas-style-kit-no-min'], () => {
   util.log(util.colors.yellow('Note: \'bootstrap-bsk\' styles ' + util.colors.underline('are not') + ' (re)compiled, either:'));
-  util.log(util.colors.yellow('- call \'gulp build-styles-bootstrap-bsk-no-min\' if you just want these styles as well'));
+  util.log(util.colors.yellow('- call \'gulp build--styles-bootstrap-bsk-no-min\' if you just want these styles as well'));
   util.log(util.colors.yellow('- call \'gulp release\' if want to build all compressed & uncompressed files for distribution'));
   util.log(util.colors.blue('Note: (Re)Compiled styles ' + util.colors.underline('are not') + ' compressed'));
 });
 
 gulp.task('styles-prod', ['build--styles-bas-style-kit-min'], () => {
   util.log(util.colors.yellow('Note: \'bootstrap-bsk\' styles ' + util.colors.underline('are not') + ' (re)compiled, either:'))
-  util.log(util.colors.yellow('- call \'gulp build-styles-bootstrap-bsk-min\' if you just want these styles as well'));
+  util.log(util.colors.yellow('- call \'gulp build--styles-bootstrap-bsk-min\' if you just want these styles as well'));
   util.log(util.colors.yellow('- call \'gulp release\' if want to build all compressed & uncompressed files for distribution'));
   util.log(util.colors.blue('Note: (Re)Compiled styles ' + util.colors.underline('are') + ' compressed'))
 });
