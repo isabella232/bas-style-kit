@@ -13,14 +13,14 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN npm install && npm install -g gulp
 
-# Copy configuration files
-COPY .csscomb.json .stylelintrc.yml gulpfile.js /usr/src/app/
+# Run tests
+RUN echo "node version: " && \node --version && \
+    echo "npm version: " && npm --version && \
+    echo "gulp version: " && gulp --version
 
 # Setup runtime
 ENTRYPOINT []
 CMD ["gulp", "--tasks-simple"]
 
-# Run tests
-RUN echo "node version: " && \node --version && \
-    echo "npm version: " && npm --version && \
-    echo "gulp version: " && gulp --version
+# Copy configuration files
+COPY .csscomb.json .stylelintrc.yml gulpfile.js /usr/src/app/
