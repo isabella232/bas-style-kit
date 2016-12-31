@@ -1,0 +1,8 @@
+{% extends "layouts/base.layout.njk" %}
+
+{% block main %}
+{% call main.bsk_tb_section_v1(sample_title, title_prefix=sample_number) %}
+{% block sample %}
+{% endblock %}
+{% endcall %}
+{% endblock %}

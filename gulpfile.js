@@ -1,11 +1,13 @@
 'use strict';
 /*eslint-env node */
 
-var        del = require('del'),
+var         fs = require("fs"),
+           del = require('del'),
           path = require('path');
 
 var        sri = require('gulp-sri'),
            zip = require('gulp-zip'),
+          base = require('gulp-base'),
           gulp = require('gulp'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
@@ -14,6 +16,7 @@ var        sri = require('gulp-sri'),
         rename = require('gulp-rename'),
        csscomb = require('gulp-csscomb'),
        pkginfo = require('pkginfo')(module, 'version'),
+      nunjucks = require('gulp-nunjucks'),
      styleLint = require('gulp-stylelint'),
     sourcemaps = require('gulp-sourcemaps'),
    runSequence = require('run-sequence'),
@@ -27,13 +30,15 @@ const config = {
     'open-sans': path.join('.', 'node_modules', 'open-sans-fontface'),
     'font-awesome': path.join('.', 'node_modules', 'font-awesome'),
     'dist': path.join('.', 'dist'),
-    'css': path.join('.', 'dist', 'css')
+    'css': path.join('.', 'dist', 'css'),
+    'testbed': path.join('.', 'testbed')
   },
   'destinations': {
     'dist': path.join('.', 'dist'),
     'distArchive': path.join('.', 'dist-archive'),
     'css': path.join('.', 'css'),
-    'fonts': path.join('.', 'fonts')
+    'fonts': path.join('.', 'fonts'),
+    'testbed': path.join('.', 'testbed', 'rendered')
   },
   'modules': {
     'autoprefixer': {
@@ -50,6 +55,58 @@ const config = {
       cascade: false,
       remove: true
     }
+  }
+};
+
+// Data generation functions
+// --------------------------------------------------
+
+function getTestbedCollectionsMetadata(collectionsPath, dataStructure) {
+  var collectionFiles = fs.readdirSync(collectionsPath);
+  var collectionsArray = collectionFiles.map((collection) => {
+    // Make [name.ext] into [name]
+    var collectionName = collection.split('.')[0];
+
+    var collection = {
+      'name': collectionName
+    }
+    return collection;
+  });
+
+  if (dataStructure == 'array') {
+    return collectionsArray;
+  } else {
+    return undefined;
+  }
+};
+function getTestbedSamplesMetadata(samplesPath, dataStructure) {
+  var sampleFiles = fs.readdirSync(samplesPath);
+  var samplesById = {};
+  var samplesArray = sampleFiles.map((sample) => {
+    // Split 0000-name.ext into [0000, name.ext]
+    var sampleSplit = sample.split('--');
+    if (sampleSplit.length != 2) {
+      util.log(util.colors.red('Sample file [' + sample + '] could not be processed because it doesn\'t fit the expected name format'));
+      return sample;
+    }
+
+    // Make [name.ext] into [name]
+    sampleSplit[1] = sampleSplit[1].split('.')[0];
+
+    var sample = {
+      'id': sampleSplit[0],
+      'name': sampleSplit[1]
+    }
+    samplesById[sample['id']] = sample;
+    return sample;
+  });
+
+  if (dataStructure == 'array') {
+    return samplesArray;
+  } else if (dataStructure == 'objectById') {
+    return samplesById;
+  } else {
+    return undefined;
   }
 };
 
@@ -171,6 +228,11 @@ gulp.task('atomic--copy-webfont-font-awesome', () => {
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.fonts, 'font-awesome')));
 });
 
+gulp.task('atomic--copy-templates-assets', () => {
+  return gulp.src(path.join(config['sources']['testbed'], 'assets', '**/*.*'))
+    .pipe(gulp.dest(path.join(config.destinations.testbed, 'testbed-assets')));
+});
+
 // Linting
 
 gulp.task('atomic--lint-sass-bas-style-kit', () => {
@@ -236,10 +298,48 @@ gulp.task('atomic--clean-dist', () => {
   ]);
 });
 
+gulp.task('atomic--clean-templates', () => {
+  return del([
+    path.join(config.destinations.testbed, '**/*')
+  ]);
+});
+
 gulp.task('atomic--clean-dist-archive', () => {
   del([
       path.join(config.destinations.distArchive)
   ]);
+});
+
+// Template compilation
+
+gulp.task('atomic--compile-testbed-samples', () => {
+  return gulp.src(path.join(config.sources.testbed, 'samples', '*.njk'))
+    .pipe(base(path.join(config.sources.testbed)))
+    .pipe(nunjucks.compile())
+    .pipe(rename({extname: '.html'}))
+    .pipe(gulp.dest(path.join(config.destinations.testbed)));
+});
+
+gulp.task('atomic--compile-testbed-collections', () => {
+  return gulp.src(path.join(config.sources.testbed, 'collections', '*.njk'))
+    .pipe(base(path.join(config.sources.testbed)))
+    .pipe(nunjucks.compile())
+    .pipe(rename({extname: '.html'}))
+    .pipe(gulp.dest(path.join(config.destinations.testbed)));
+});
+
+gulp.task('atomic--compile-testbed-index', () => {
+  var collections = getTestbedCollectionsMetadata(path.join(config.sources.testbed, 'collections'), 'array');
+  var samples = getTestbedSamplesMetadata(path.join(config.sources.testbed, 'samples'), 'array');
+
+  return gulp.src(path.join(config['sources']['testbed'], 'index.njk'))
+    .pipe(base(path.join(config.sources.testbed)))
+    .pipe(nunjucks.compile({
+      data_collections: collections,
+      data_samples: samples
+    }))
+    .pipe(rename({extname: '.html'}))
+    .pipe(gulp.dest(path.join(config.destinations.testbed)));
 });
 
 // Compound Tasks
@@ -328,6 +428,7 @@ gulp.task('styles-prod', ['build--styles-bas-style-kit-min'], () => {
 gulp.task('clean', [
   'atomic--clean-dist',
   'atomic--clean-dist-archive',
+  'atomic--clean-templates'
 ], () => {});
 
 gulp.task('fonts', [
@@ -338,6 +439,13 @@ gulp.task('fonts', [
 
 gulp.task('lint', [
   'atomic--lint-sass-bas-style-kit'
+], () => {});
+
+gulp.task('testbed', [
+  'atomic--compile-testbed-collections',
+  'atomic--compile-testbed-samples',
+  'atomic--compile-testbed-index',
+  'atomic--copy-templates-assets'
 ], () => {});
 
 // Even Higher Level Tasks
@@ -351,6 +459,7 @@ gulp.task('develop', () => {
     'build--styles-bootstrap-bsk-no-min',
     'fonts',
     'lint',
+    'testbed',
     'watch--lint-styles-bas-style-kit-no-min'
   );
 });

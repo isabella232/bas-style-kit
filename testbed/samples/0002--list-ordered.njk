@@ -1,0 +1,25 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_number = "#0002" %}
+{% set sample_title = "ordered list" %}
+
+{% block sample %}
+<ol>
+  <li>Popcorn</li>
+  <li>Jelly</li>
+  <li>Oat cakes</li>
+  <li>
+    Sesame snaps
+    <ol>
+      <li>Chocolate cake</li>
+      <li>
+        Ice cream
+        <ol>
+          <li>Sherbet</li>
+          <li>Toffee apples</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+{% endblock %}

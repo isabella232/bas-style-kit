@@ -4,16 +4,17 @@ version: '2'
 services:
   app:
     build: .
-    image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2016-12-29-alpine
+    image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2016-12-31-alpine
     command: gulp develop
     volumes:
       - ./assets:/usr/src/app/assets
       - ./dist:/usr/src/app/dist
+      - ./testbed:/usr/src/app/testbed
   web:
     image: nginx:alpine
     volumes:
-      - ./html/_index.html:/usr/share/nginx/html/index.html
-      - ./html:/usr/share/nginx/html/testbed
+      - ./nginx/index.html:/usr/share/nginx/html/index.html
+      - ./testbed/rendered:/usr/share/nginx/html/testbed
       - ./dist:/usr/share/nginx/html/dist
     ports:
       - "9000:80"
