@@ -6,6 +6,14 @@
 {% set sample_markup = "ol" %}
 
 {% block sample %}
+<h4>Regular</h4>
+<ol>
+  <li>Popcorn</li>
+  <li>Jelly</li>
+  <li>Oat cakes</li>
+</ol>
+
+<h4 class="bsk-tb-margin-top">Nested</h4>
 <ol>
   <li>Popcorn</li>
   <li>Jelly</li>
@@ -15,13 +23,31 @@
     <ol>
       <li>Chocolate cake</li>
       <li>
-        Ice cream
         <ol>
           <li>Sherbet</li>
           <li>Toffee apples</li>
         </ol>
       </li>
     </ol>
+  </li>
+</ol>
+
+<h4 class="bsk-tb-margin-top">Nested, ordered/unordered mix</h4>
+<ol>
+  <li>Popcorn</li>
+  <li>Jelly</li>
+  <li>Oat cakes</li>
+  <li>
+    Sesame snaps
+    <ul>
+      <li>Chocolate cake</li>
+      <li>
+        <ol>
+          <li>Sherbet</li>
+          <li>Toffee apples</li>
+        </ol>
+      </li>
+    </ul>
   </li>
 </ol>
 {% endblock %}
