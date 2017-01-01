@@ -18,15 +18,16 @@
   _use_container=true,
   _show_index_link=true,
   _isolated_href=false,
-  _use_isolated_href=false
+  _use_isolated_href=false,
+  _base_path="/"
 ) %}
 <header {% if _use_container %}class="container-fluid"{% endif %}>
   <div class="page-header">
     <h{{ _heading_level }}>
       {% if _title_prefix %}<strong>{{ _title_prefix }}</strong>{% endif %} {{ title }} {% if _title_prefix %}<code>{{ _title_code }}</code>{% endif %}
       {% if _subtitle %}<small>{{ _subtitle }}</small>{% endif %}
-      {% if _show_index_link %}<small><a href="/testbed/">Back to index</a></small>{% endif %}
-      {% if _use_isolated_href %}<small><a href="/testbed/samples/{{ _isolated_href }}">View isolated</a></small>{% endif %}
+      {% if _show_index_link %}<small><a href="{{ _base_path }}testbed/">Back to index</a></small>{% endif %}
+      {% if _use_isolated_href %}<small><a href="{{ _base_path }}testbed/samples/{{ _isolated_href }}">View isolated</a></small>{% endif %}
     </h{{ _heading_level }}>
   </div>
 </header>
@@ -41,7 +42,8 @@
   use_container=true,
   show_index_link=true,
   isolated_href=false,
-  use_isolated_href=false
+  use_isolated_href=false,
+  base_path="/"
 ) %}
 <section>
   {{ _bsk_tb_section_heading_v2(
@@ -53,7 +55,8 @@
     _use_container=use_container,
     _show_index_link=show_index_link,
     _isolated_href=isolated_href,
-    _use_isolated_href=use_isolated_href
+    _use_isolated_href=use_isolated_href,
+    _base_path=base_path
   ) }}
   <main {% if use_container %}class="container-fluid"{% endif %}>
     {{ caller() }}

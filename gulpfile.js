@@ -110,6 +110,14 @@ function getTestbedSamplesMetadata(samplesPath, dataStructure) {
   }
 };
 
+function getBasePath() {
+  if (process.env.CI_BUILD_REF_NAME) {
+    return '/' + process.env.CI_BUILD_REF_NAME + '/';
+  } else {
+    return '/';
+  }
+}
+
 // Atomic Tasks
 // Do one thing and one thing only
 // --------------------------------------------------
@@ -313,17 +321,25 @@ gulp.task('atomic--clean-dist-archive', () => {
 // Template compilation
 
 gulp.task('atomic--compile-testbed-samples', () => {
+  var basePath = getBasePath();
+
   return gulp.src(path.join(config.sources.testbed, 'samples', '*.njk'))
     .pipe(base(path.join(config.sources.testbed)))
-    .pipe(nunjucks.compile())
+    .pipe(nunjucks.compile({
+      data_base_path: basePath
+    }))
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));
 });
 
 gulp.task('atomic--compile-testbed-collections', () => {
+  var basePath = getBasePath();
+
   return gulp.src(path.join(config.sources.testbed, 'collections', '*.njk'))
     .pipe(base(path.join(config.sources.testbed)))
-    .pipe(nunjucks.compile())
+    .pipe(nunjucks.compile({
+      data_base_path: basePath
+    }))
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));
 });
@@ -331,12 +347,14 @@ gulp.task('atomic--compile-testbed-collections', () => {
 gulp.task('atomic--compile-testbed-index', () => {
   var collections = getTestbedCollectionsMetadata(path.join(config.sources.testbed, 'collections'), 'array');
   var samples = getTestbedSamplesMetadata(path.join(config.sources.testbed, 'samples'), 'array');
+  var basePath = getBasePath();
 
   return gulp.src(path.join(config['sources']['testbed'], 'index.njk'))
     .pipe(base(path.join(config.sources.testbed)))
     .pipe(nunjucks.compile({
       data_collections: collections,
-      data_samples: samples
+      data_samples: samples,
+      data_base_path: basePath
     }))
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));

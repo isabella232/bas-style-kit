@@ -6,7 +6,7 @@
 {% call main.bsk_tb_section_v2('Sample collections', heading_level=2, show_index_link=false) %}
 <ul>
   {% for collection in data_collections %}
-  <li><a href="collections/{{ collection.name }}.html">{{ collection.name }}</a></li>
+  <li><a href="{{ main_base_path }}testbed/collections/{{ collection.name }}.html">{{ collection.name }}</a></li>
   {% endfor %}
 </ul>
 {% endcall %}
@@ -15,7 +15,7 @@
 <p class="text-info"><strong>Note</strong> Sample references do not indicate any implied order or grouping to samples.</p>
 <ul>
   {% for sample in data_samples %}
-  <li><a href="samples/{{ sample.id }}--{{ sample.name }}.html"><strong>#{{ sample.id }}</strong>  {{ sample.name }}</a></li>
+  <li><a href="{{ main_base_path }}testbed/samples/{{ sample.id }}--{{ sample.name }}.html"><strong>#{{ sample.id }}</strong>  {{ sample.name }}</a></li>
   {% endfor %}
 </ul>
 {% endcall %}

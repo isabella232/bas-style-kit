@@ -35,14 +35,16 @@ stages:
   - build
   - lint
   - package
+  - review
   - deploy
 
-image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2016-12-31-alpine
+image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2017-01-01-alpine
 
 variables:
   AWS_DEFAULT_REGION: eu-west-1
   SNAPSHOT_BUCKET_PATH: zips/apps
   APP_NAME: bas-style-kit
+  REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
   NODE_PATH: /usr/src/app/node_modules
 
 # == Jobs ==
@@ -85,6 +87,21 @@ compile-sass-min:
       - dist/css/maps/bootstrap-bsk.min.css.map
     expire_in: 1 day
 
+compile-testbed:
+  stage: build
+  only:
+    - branches
+  except:
+    - master
+    - develop
+  script:
+    - "gulp testbed"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-testbed"
+    paths:
+      - testbed/rendered
+    expire_in: 1 day
+
 copy-fonts:
   stage: build
   before_script:
@@ -102,6 +119,32 @@ copy-fonts:
 lint-sass:
   stage: lint
   script: gulp lint
+
+review:
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  only:
+    - branches
+  except:
+    - master
+    - develop
+  script:
+    - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
+    - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    url: http://$REVIEW_APP_DOMAIN/$CI_BUILD_REF_NAME/testbed/index.html
+    on_stop: stop_review
+
+stop_review:
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  script:
+    - aws s3 rm --recursive s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME
+  variables:
+    GIT_STRATEGY: none
+  when: manual
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    action: stop
 
 package-dist:
   stage: package

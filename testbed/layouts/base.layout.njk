@@ -1,5 +1,7 @@
 {% import "macros/main.njk" as main %}
 
+{% set main_base_path = data_base_path | default('/') %}
+
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -10,15 +12,20 @@
     <title>BAS Style Kit Testbed</title>
 
     <!-- Compiled and minified customised Bootstrap CSS for the BAS Style Kit -->
-    <link rel="stylesheet" href="/dist/css/bootstrap-bsk.css">
+    <link rel="stylesheet" href="{{ main_base_path }}dist/css/bootstrap-bsk.css">
     <!-- Compiled and minified BAS Style Kit CSS -->
-    <link rel="stylesheet" href="/dist/css/bas-style-kit.css">
+    <link rel="stylesheet" href="{{ main_base_path }}dist/css/bas-style-kit.css">
     <!-- Local styles -->
-    <link rel="stylesheet" href="/testbed/testbed-assets/css/bsk-testbed-common.css">
+    <link rel="stylesheet" href="{{ main_base_path }}testbed/testbed-assets/css/bsk-testbed-common.css">
   </head>
   <body>
     {% block main %}
     Page content
     {% endblock %}
+
+    <footer class="container-fluid">
+      <hr />
+      <p class="text-danger">Base path: {{ main_base_path }}</p>
+    </footer>
   </body>
 </html>

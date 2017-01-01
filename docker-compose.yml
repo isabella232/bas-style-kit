@@ -4,7 +4,7 @@ version: '2'
 services:
   app:
     build: .
-    image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2016-12-31-alpine
+    image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2017-01-01-alpine
     command: gulp develop
     volumes:
       - ./assets:/usr/src/app/assets

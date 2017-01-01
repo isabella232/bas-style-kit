@@ -192,14 +192,15 @@ $ docker-compose push app
 The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
 using settings defined in `.gitlab-ci.yml`, using these jobs and stages.
 
-| Stage   | Job                | Trigger                             | Type      | Notes                                              |
-| ------- | ------------------ | ----------------------------------- | --------- | -------------------------------------------------- |
-| Build   | `compile-sass`     | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
-| Build   | `compile-sass-min` | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
-| Build   | `copy-fonts`       | Commits to the *develop* branch [1] | Automatic | See `gulpfile.js` for details of what is performed |
-| Lint    | `lint-sass`        | `compile-sass` passes               | Automatic | See `gulpfile.js` for details of what is performed |
+| Stage   | Job                | Trigger                                              | Type      | Notes                                              |
+| ------- | ------------------ | ---------------------------------------------------- | --------- | -------------------------------------------------- |
+| Build   | `compile-sass`     | Commits to the *develop* branch [1]                  | Automatic | See `gulpfile.js` for details of what is performed |
+| Build   | `compile-sass-min` | Commits to the *develop* branch [1]                  | Automatic | See `gulpfile.js` for details of what is performed |
+| Build   | `compile-testbed`  | Commits to branches other than *develop* or *master* | Automatic | See `gulpfile.js` for details of what is performed |
+| Build   | `copy-fonts`       | Commits to the *develop* branch [1]                  | Automatic | See `gulpfile.js` for details of what is performed |
+| Lint    | `lint-sass`        | `compile-sass` passes                                | Automatic | See `gulpfile.js` for details of what is performed |
 
-**Note:** Ensure you commit changes to the `develop` branch only.
+**Note:** Do not commit changes to the `master` branch directly.
 
 [1] To commit to the develop branch, use the BAS GitLab remote [2]:
 
@@ -216,6 +217,23 @@ $ cd bas-style-kit/
 $ git remote add bas-gl https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
 ```
 
+## Review apps
+
+The BAS GitLab instance is used to provide [review apps](https://docs.gitlab.com/ce/ci/review_apps/) for merge requests
+into the *develop* or *master* branches. These review apps are used to approve any changes and ensure regressions are
+not introduced.
+
+**Note:** Review apps are not made for merge requests between *develop* and *master* as this shouldn't happen. Instead,
+the *develop* branch should be forked into a *release* branch, and this merged with *master*.
+
+Review apps are integrated within GitLab, using a set of conventional jobs and stages. GitLab will show links to the
+relevant review app within each merge request. Settings for these jobs are defined in `.gitlab-ci.yml`:
+
+| Stage  | Job           | Trigger                                              | Type      | Notes |
+| ------ | ------------- | ---------------------------------------------------- | --------- | ----- |
+| Review | `review`      | Commits to branches other than *develop* or *master* | Automatic | -     |
+| Review | `stop-review` | Review app is removed                                | Manual    | -     |
+
 ## Continuous Deployment
 
 The BAS GitLab instance is used for [Continuous Deployment](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
@@ -228,11 +246,12 @@ using settings defined in `.gitlab-ci.yml`, using these jobs and stages.
 | Package | `package-dist`            | `lint-sass` passes                                          | Automatic | -                                  |
 | Deploy  | `s3-snapshot-development` | `package-dist` passes with a commit to the `develop` branch | Automatic | [1]                                |
 | Deploy  | `s3-cdn-dev`              | `package-dist` passes with a commit to the `develop` branch | Manual    | [2]                                |
+
 [1] And then available from the *development* instance of the BAS Packages Service.
 
-## Provisioning development environment
 [2] And then available from the *development* instance of the BAS CDN
 
+## Provisioning development and staging environments
 
 [Terraform](https://terrafrom.io) [1] and access to the
 [BAS Packages Service](https://bitbucket.org/antarctica/bas-packages-service) and
@@ -242,6 +261,8 @@ Provisioned resources are defined in Terraform configuration files and arranged 
 
 * `provisioning/site-all` - defines resources shared by all environments
 * `provisioning/site-dev` - defines resources used by the development environment
+* `provisioning/site-stage` - defines resources used by review apps
+
 Each environment is similar, but functions independently, except for the `site-all` environment, which all environments
 depend on. The instructions below show how to configure the development environment, but they apply equally to all.
 
