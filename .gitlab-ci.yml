@@ -133,7 +133,7 @@ review:
     - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
   environment:
     name: review/$CI_BUILD_REF_NAME
-    url: http://$REVIEW_APP_DOMAIN/$CI_BUILD_REF_NAME/testbed/index.html
+    url: http://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html
     on_stop: stop_review
 
 stop_review:
