@@ -9,21 +9,53 @@
 </header>
 {% endmacro %}
 
-{% macro _bsk_tb_section_heading_v1(title, _subtitle=false, _title_prefix=false, _heading_level=2) %}
-<header {% if _heading_level == 2 %}class="container-fluid"{% endif %}>
+{% macro _bsk_tb_section_heading_v2(
+  title,
+  _subtitle=false,
+  _title_prefix=false,
+  _title_code=title_code,
+  _heading_level=2,
+  _use_container=true,
+  _show_index_link=true,
+  _isolated_href=false,
+  _use_isolated_href=false
+) %}
+<header {% if _use_container %}class="container-fluid"{% endif %}>
   <div class="page-header">
     <h{{ _heading_level }}>
-      {% if _title_prefix %}<strong>{{ _title_prefix }}</strong>{% endif %} {{ title }}
+      {% if _title_prefix %}<strong>{{ _title_prefix }}</strong>{% endif %} {{ title }} {% if _title_prefix %}<code>{{ _title_code }}</code>{% endif %}
       {% if _subtitle %}<small>{{ _subtitle }}</small>{% endif %}
+      {% if _show_index_link %}<small><a href="/testbed/">Back to index</a></small>{% endif %}
+      {% if _use_isolated_href %}<small><a href="/testbed/samples/{{ _isolated_href }}">View isolated</a></small>{% endif %}
     </h{{ _heading_level }}>
   </div>
 </header>
 {% endmacro %}
 
-{% macro bsk_tb_section_v1(title, subtitle=false, title_prefix=false, heading_level=3) %}
+{% macro bsk_tb_section_v2(
+  title,
+  subtitle=false,
+  title_prefix=false,
+  title_code=false,
+  heading_level=3,
+  use_container=true,
+  show_index_link=true,
+  isolated_href=false,
+  use_isolated_href=false
+) %}
 <section>
-  {{ _bsk_tb_section_heading_v1(title, _subtitle=subtitle, _title_prefix=title_prefix, _heading_level=heading_level) }}
-  <main {% if heading_level == 2 %}class="container-fluid"{% endif %}>
+  {{ _bsk_tb_section_heading_v2(
+    title,
+    _subtitle=subtitle,
+    _title_prefix=title_prefix,
+    _title_code=title_code,
+    _heading_level=heading_level,
+    _use_container=use_container,
+    _show_index_link=show_index_link,
+    _isolated_href=isolated_href,
+    _use_isolated_href=use_isolated_href
+  ) }}
+  <main {% if use_container %}class="container-fluid"{% endif %}>
     {{ caller() }}
   </main>
 </section>

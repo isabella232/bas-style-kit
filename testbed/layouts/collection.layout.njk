@@ -1,18 +1,13 @@
 {% extends "layouts/base.layout.njk" %}
 
+{% set samples_are_embedded=true %}
+
 {% block main %}
 {{ main.bsk_tb_main_heading_v1(collection_title) }}
 
-{% call main.bsk_tb_section_v1('Collection samples', heading_level=2) %}
+{% call main.bsk_tb_section_v2('Collection samples', heading_level=2) %}
 {% for sample in collection_samples %}
   {% include "samples/" + sample + ".njk" %}
 {% endfor %}
 {% endcall %}
-
-{% call main.bsk_tb_section_v1('Notes', heading_level=2) %}
-{% block notes %}
-None
-{% endblock %}
-{% endcall %}
-
 {% endblock %}
