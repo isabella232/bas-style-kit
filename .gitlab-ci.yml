@@ -130,7 +130,7 @@ review:
     - develop
   script:
     - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
-    - aws s3 sync --delete tested/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
+    - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
   environment:
     name: review/$CI_BUILD_REF_NAME
     url: http://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html
