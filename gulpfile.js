@@ -79,6 +79,7 @@ function getTestbedCollectionsMetadata(collectionsPath, dataStructure) {
     return undefined;
   }
 };
+
 function getTestbedSamplesMetadata(samplesPath, dataStructure) {
   var sampleFiles = fs.readdirSync(samplesPath);
   var samplesById = {};
