@@ -121,6 +121,7 @@ lint-sass:
   script: gulp lint
 
 review:
+  stage: review
   image: antarctica/aws-cli-image:0.1.0-alpine-gl
   only:
     - branches
@@ -136,6 +137,7 @@ review:
     on_stop: stop_review
 
 stop_review:
+  stage: review
   image: antarctica/aws-cli-image:0.1.0-alpine-gl
   script:
     - aws s3 rm --recursive s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME
