@@ -1,0 +1,21 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0006--dl-horizontal.html" %}
+{% set sample_number = "#0006" %}
+{% set sample_title = "horizontal description list" %}
+{% set sample_markup = "dl.dl-horizontal" %}
+
+{% block sample %}
+<dl class="dl-horizontal">
+  <dt>Emperor Penguin</dt>
+  <dd>Aptenodytes forsteri</dd>
+  <dt>King Penguin</dt>
+  <dd>Aptenodytes patagonicus</dd>
+  <dt>Adelie Penguin</dt>
+  <dd>Pygoscelis adeliae</dd>
+  <dt>Chinstrap Penguin</dt>
+  <dd>Pygoscelis antarctica</dd>
+  <dt>Gentoo Penguin</dt>
+  <dd>Pygoscelis papua</dd>
+</dl>
+{% endblock %}
