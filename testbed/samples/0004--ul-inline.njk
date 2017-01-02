@@ -1,12 +1,11 @@
 {% extends "layouts/sample.layout.njk" %}
 
-{% set sample_href = "0004--list-inline.html" %}
+{% set sample_href = "0004--ul-inline.html" %}
 {% set sample_number = "#0004" %}
 {% set sample_title = "inline list" %}
 {% set sample_markup = "ul.list-inline" %}
 
 {% block sample %}
-<h4>Regular</h4>
 <p class="text-info">Class <strong>is not</strong> supported with ordered lists.</p>
 <ul class="list-inline">
   <li>Popcorn</li>
@@ -14,7 +13,7 @@
   <li>Oat cakes</li>
 </ul>
 
-<h4 class="bsk-tb-margin-top">Nested</h4>
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Nested</h4>
 <p class="text-info">Class <strong>is not</strong> supported with nested lists.</p>
 <p class="text-info">Class <strong>not applied</strong> to nested lists.</p>
 <ul class="list-inline">

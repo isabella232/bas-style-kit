@@ -1,19 +1,18 @@
 {% extends "layouts/sample.layout.njk" %}
 
-{% set sample_href = "0002--list-ordered.html" %}
+{% set sample_href = "0002--ol.html" %}
 {% set sample_number = "#0002" %}
 {% set sample_title = "ordered list" %}
 {% set sample_markup = "ol" %}
 
 {% block sample %}
-<h4>Regular</h4>
 <ol>
   <li>Popcorn</li>
   <li>Jelly</li>
   <li>Oat cakes</li>
 </ol>
 
-<h4 class="bsk-tb-margin-top">Nested</h4>
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Nested</h4>
 <ol>
   <li>Popcorn</li>
   <li>Jelly</li>
@@ -32,7 +31,7 @@
   </li>
 </ol>
 
-<h4 class="bsk-tb-margin-top">Nested, ordered/unordered mix</h4>
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Nested, ordered/unordered mix</h4>
 <ol>
   <li>Popcorn</li>
   <li>Jelly</li>

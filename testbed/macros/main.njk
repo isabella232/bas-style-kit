@@ -13,7 +13,7 @@
   title,
   _subtitle=false,
   _title_prefix=false,
-  _title_code=title_code,
+  _title_code=false,
   _heading_level=2,
   _use_container=true,
   _show_index_link=true,
@@ -24,7 +24,7 @@
 <header {% if _use_container %}class="container-fluid"{% endif %}>
   <div class="page-header">
     <h{{ _heading_level }}>
-      {% if _title_prefix %}<strong>{{ _title_prefix }}</strong>{% endif %} {{ title }} {% if _title_prefix %}<code>{{ _title_code }}</code>{% endif %}
+      {% if _title_prefix %}<strong>{{ _title_prefix }}</strong>{% endif %} {{ title }} {% if _title_code %}<code>{{ _title_code }}</code>{% endif %}
       {% if _subtitle %}<small>{{ _subtitle }}</small>{% endif %}
       {% if _show_index_link %}<small><a href="{{ _base_path }}testbed/">Back to index</a></small>{% endif %}
       {% if _use_isolated_href %}<small><a href="{{ _base_path }}testbed/samples/{{ _isolated_href }}">View isolated</a></small>{% endif %}
