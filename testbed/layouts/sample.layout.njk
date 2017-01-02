@@ -2,28 +2,27 @@
 
 {% set sample_is_embedded = samples_are_embedded | default(false) %}
 
-{% if sample_is_embedded %}
-  {% set _show_index_link = false %}
-  {% set _use_container = false %}
-  {% set _use_isolated_href = true %}
-{% else %}
-  {% set _show_index_link = true %}
-  {% set _use_container = true %}
-  {% set _use_isolated_href = false %}
-{% endif %}
-
 {% block main %}
-{% call main.bsk_tb_section_v2(
-  sample_title,
-  title_prefix=sample_number,
-  title_code=sample_markup,
-  show_index_link = _show_index_link,
-  use_container = _use_container,
-  isolated_href = sample_href,
-  use_isolated_href = _use_isolated_href,
-  base_path=main_base_path
-) %}
-{% block sample %}
-{% endblock %}
-{% endcall %}
+  {% if sample_is_embedded %}
+    {{ main.bsk_tb_section_heading_v2(
+      sample_title,
+      _title_prefix=sample_number,
+      _title_code=sample_markup,
+      _show_index_link=false,
+      _use_container=false,
+      _isolated_href=sample_href,
+      _use_isolated_href=true,
+      _base_path=main_base_path
+    ) }}
+  {% else %}
+    {{ main.bsk_tb_main_heading_v2(
+      sample_title,
+      title_prefix=sample_number,
+      title_code=sample_markup
+    ) }}
+  {% endif %}
+  {% if sample_is_embedded == false %}<main class="container-fluid">{% endif %}
+  {% block sample %}
+  {% if sample_is_embedded == false %}</main>{% endif %}
+  {% endblock %}
 {% endblock %}

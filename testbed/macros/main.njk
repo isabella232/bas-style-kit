@@ -1,15 +1,37 @@
-{% macro bsk_tb_main_heading_v1(title, show_index_link=true) %}
+{% macro bsk_tb_main_heading_v2(
+  title,
+  show_index_link=true,
+  title_prefix="BAS Style Kit Testbed",
+  title_code=false
+) %}
 <header class="page-header bsk-tb-page-header">
   <div class="container-fluid">
     <h1>
-      <strong>BAS Style Kit Testbed</strong> {{ title }}
+      {% if title_prefix %}<strong>{{ title_prefix }}</strong>{% endif %}
+      {{ title }}
       {% if show_index_link %}<small><a href="/testbed/">Back to index</a></small>{% endif %}
     </h1>
+    <div class="lead">
+      <span class="hidden-xs text-muted">Extra small</span>
+      <span class="hidden-sm hidden-md hidden-lg hidden-xl visible-xs-inline"><strong>Extra small</strong>strong></span>
+      ·
+      <span class="hidden-sm text-muted">Small</span>
+      <span class="hidden-xs hidden-md hidden-lg hidden-xl visible-sm-inline"><strong>Small</strong></span>
+      ·
+      <span class="hidden-md text-muted">Medium</span>
+      <span class="hidden-xs hidden-sm hidden-lg hidden-xl visible-md-inline"><strong>Medium</strong></span>
+      ·
+      <span class="hidden-lg-x text-muted">Large</span>
+      <span class="hidden-xs hidden-sm hidden-md hidden-xl visible-lg-inline"><strong>Large</strong></span>
+      ·
+      <span class="hidden-xl text-muted">Extra large (custom size)</span>
+      <span class="hidden-xs hidden-sm hidden-md hidden-lg-x visible-xl-inline"><strong>Extra large (custom size)</strong></span>
+    </div>
   </div>
 </header>
 {% endmacro %}
 
-{% macro _bsk_tb_section_heading_v2(
+{% macro bsk_tb_section_heading_v2(
   title,
   _subtitle=false,
   _title_prefix=false,
@@ -46,7 +68,7 @@
   base_path="/"
 ) %}
 <section>
-  {{ _bsk_tb_section_heading_v2(
+  {{ bsk_tb_section_heading_v2(
     title,
     _subtitle=subtitle,
     _title_prefix=title_prefix,
