@@ -1,18 +1,18 @@
-{% macro bsk_tb_grid_equal_width_columns_v1(grid_columns) %}
+{% macro bsk_tb_grid_equal_width_columns_v1(grid_columns, column_grid) %}
 {% for column_size in range(1, grid_columns) %}
   {% if grid_columns % column_size == 0 %}
     {% set column_count = grid_columns / column_size %}
     <p class="text-info">{{ column_count }} x <code>.col-bsk-md-{{ column_size }}</code></p>
     <div class="row">
     {% for column in range(0, column_count) %}
-      <div class="col-bsk-md-{{ column_size }} bsk-tb-visible-col-{{ column + 1 }}"></div>
+      <div class="{{ column_grid }}-{{ column_size }} bsk-tb-visible-col-{{ column + 1 }}"></div>
     {% endfor %}
     </div>
   {% endif %}
 {% endfor %}
-<p class="text-info">1 x <code>.col-bsk-md-{{ grid_columns }}</code></p>
+<p class="text-info">1 x <code>.{{ column_grid }}-{{ grid_columns }}</code></p>
 <div class="row">
-  <div class="col-bsk-md-{{ grid_columns }} bsk-tb-visible-col-1"></div>
+  <div class="{{ column_grid }}-{{ grid_columns }} bsk-tb-visible-col-1"></div>
 </div>
 {% endmacro %}
 
