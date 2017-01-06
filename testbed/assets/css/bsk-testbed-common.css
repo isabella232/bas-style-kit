@@ -167,3 +167,7 @@ background: #85994B;
 .bsk-tb-visible-col-24 {
   background: #2B8CC4;
 }
+
+.bsk-tb-visible-container {
+  border: 2px solid gray;
+}

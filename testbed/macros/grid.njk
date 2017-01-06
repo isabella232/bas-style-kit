@@ -15,3 +15,16 @@
   <div class="col-bsk-md-{{ grid_columns }} bsk-tb-visible-col-1"></div>
 </div>
 {% endmacro %}
+
+{% macro bsk_tb_grid_column_offsets_v1(grid_columns, column_grid) %}
+<div class="row">
+  <p class="text-info"><code>.bsk-md-1</code></p>
+  <div class="{{ column_grid }}-1 bsk-tb-visible-col-1"></div>
+</div>
+{% for column_offset in range(1, grid_columns) %}
+<div class="row">
+  <p class="text-info"><code>.col-md-offset-{{ column_offset }} .bsk-md-1</code></p>
+  <div class="{{ column_grid }}-1 {{ column_grid }}-offset-{{ column_offset }} bsk-tb-visible-col-1"></div>
+</div>
+{% endfor %}
+{% endmacro %}
