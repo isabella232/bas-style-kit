@@ -5,13 +5,12 @@
 {% set sample_href = "0049--grid-standard-basic.html" %}
 {% set sample_number = "#0049" %}
 {% set sample_title = "standard basic grid system" %}
-{% set sample_markup = "col-md-*" %}
+{% set sample_markup = ".col-md-*" %}
 
 {% set grid_columns=12 %}
 {% set column_grid='col-md' %}
 
 {% block sample %}
-<h4 class="bsk-tb-sample-sub-heading">Equal-width columns</h4>
 <div class="container">
   <p class="text-info">Using the medium standard grid, in a fixed-width container.</p>
   {{ grid.bsk_tb_grid_equal_width_columns_v1(grid_columns, column_grid) }}

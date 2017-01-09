@@ -5,13 +5,12 @@
 {% set sample_href = "0052--grid-alt-basic.html" %}
 {% set sample_number = "#0052" %}
 {% set sample_title = "alternative grid system overflows" %}
-{% set sample_markup = "col-bsk-md-offset-*" %}
+{% set sample_markup = ".col-bsk-md-offset-*" %}
 
 {% set grid_columns=24 %}
 {% set column_grid='col-bsk-md' %}
 
 {% block sample %}
-<h4 class="bsk-tb-sample-sub-heading">Column offsets</h4>
 <div class="container bsk-tb-visible-container">
   <p class="text-info">Using the medium alternative grid, in a fixed-width container.</p>
   {{ grid.bsk_tb_grid_column_offsets_v1(grid_columns, column_grid) }}

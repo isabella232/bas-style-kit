@@ -9,6 +9,7 @@
     <h1>
       {% if title_prefix %}<strong>{{ title_prefix }}</strong>{% endif %}
       {{ title }}
+      {% if title_code %}<small><code>{{ title_code }}</code></small>{% endif %}
       {% if show_index_link %}<small><a href="/testbed/">Back to index</a></small>{% endif %}
     </h1>
     <div class="lead">
