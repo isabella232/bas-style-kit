@@ -1,0 +1,13 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0078--table-rows-contextual-danger.html" %}
+{% set sample_number = "#0078" %}
+{% set sample_title = "table row with danger context" %}
+{% set sample_markup = "tr.danger" %}
+
+{% block sample %}
+<table class="table">
+  <tr><td>standard row</td></tr>
+  <tr class="danger"><td>danger row</td></tr>
+</table>
+{% endblock %}
