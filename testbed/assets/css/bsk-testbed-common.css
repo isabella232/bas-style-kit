@@ -171,3 +171,89 @@ background: #85994B;
 .bsk-tb-visible-container {
   border: 2px solid gray;
 }
+
+.bsk-tb-colour-swatch {
+  width: 75px;
+  height: 75px;
+}
+
+.bsk-tb-colour-swatch-EEEEEE {
+  background-color: #EEEEEE;
+}
+
+.bsk-tb-colour-swatch-777777 {
+  background-color: #777777;
+}
+
+.bsk-tb-colour-swatch-555555 {
+  background-color: #555555;
+}
+
+.bsk-tb-colour-swatch-333333 {
+  background-color: #333333;
+}
+
+.bsk-tb-colour-swatch-222222 {
+  background-color: #222222;
+}
+
+.bsk-tb-colour-swatch-EEEEEE {
+  background-color: #EEEEEE;
+}
+
+.bsk-tb-colour-swatch-F4F6F9 {
+  background-color: #F4F6F9;
+}
+
+.bsk-tb-colour-swatch-E7EBF1 {
+  background-color: #E7EBF1;
+}
+
+.bsk-tb-colour-swatch-77CCFF {
+  background-color: #77CCFF;
+}
+
+.bsk-tb-colour-swatch-006AAA {
+  background-color: #006AAA;
+}
+
+.bsk-tb-colour-swatch-003A5D {
+  background-color: #003A5D;
+}
+
+.bsk-tb-colour-swatch-B93E14 {
+  background-color: #B93E14;
+}
+
+.bsk-tb-colour-swatch-0DA59F {
+  background-color: #0DA59F;
+}
+
+.bsk-tb-colour-swatch-C3C3C3 {
+  background-color: #C3C3C3;
+}
+
+.bsk-tb-colour-swatch-8C8C8C {
+  background-color: #8C8C8C;
+}
+
+.bsk-tb-colour-swatch-007AC3 {
+  background-color: #007AC3;
+}
+
+.bsk-tb-colour-swatch-0DA59F {
+  background-color: #0DA59F;
+}
+
+.bsk-tb-colour-swatch-0B8D88 {
+  background-color: #0B8D88;
+}
+
+.bsk-tb-colour-swatch-007AC3 {
+  background-color: #007AC3;
+}
+
+.bsk-tb-colour-swatch-FFFFFF {
+  background-color: #FFFFFF;
+  border: 1px solid #EEEEEE;
+}
