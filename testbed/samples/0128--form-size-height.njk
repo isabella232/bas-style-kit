@@ -1,0 +1,25 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0128--form-size-height.html" %}
+{% set sample_number = "#0128" %}
+{% set sample_title = "Form control width using alternative grid" %}
+{% set sample_markup = '.form-group.form-group-*' %}
+
+{% block sample %}
+<form>
+  <fieldset class="form-group form-group-lg">
+    <label class="control-label">Large text input</label>
+    <input type="text" class="form-control">
+  </fieldset>
+  <fieldset class="form-group">
+    <label class="control-label">Regular text input</label>
+    <input type="text" class="form-control">
+  </fieldset>
+  <fieldset class="form-group form-group-sm">
+    <label class="control-label">Small text input</label>
+    <input type="text" class="form-control">
+  </fieldset>
+</form>
+{% endblock %}

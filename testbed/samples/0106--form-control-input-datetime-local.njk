@@ -1,0 +1,17 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0106--form-control-input-datetime-local.html" %}
+{% set sample_number = "#0106" %}
+{% set sample_title = "Datetime local input form control" %}
+{% set sample_markup = 'input[type="datetime-local"].form-control' %}
+
+{% block sample %}
+{{ form.bsk_tb_form_control_input_v1(type="datetime-local", values=[
+  "1991-12-22T23:20:50.52",
+  "1991-12-22",
+  "23:20:50.52",
+  "23:20:50.52T1991-12-22"
+]) }}
+{% endblock %}
