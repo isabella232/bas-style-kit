@@ -1,0 +1,13 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0213--list-group-item-linked.html" %}
+{% set sample_number = "#0213" %}
+{% set sample_title = "linked list group items" %}
+{% set sample_markup = ".list-group" %}
+
+{% block sample %}
+<div class="list-group">
+  <a href="#" class="list-group-item">List group item</a>
+  <a href="#" class="list-group-item">Another list group item</a>
+</div>
+{% endblock %}
