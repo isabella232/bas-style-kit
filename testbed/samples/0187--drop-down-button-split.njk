@@ -1,0 +1,36 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0187--drop-down-button-split.html" %}
+{% set sample_number = "#0187" %}
+{% set sample_title = "split-button drop-down menu" %}
+{% set sample_markup = ".dropdown .dropdown-menu.dropdown-menu-bsk" %}
+
+{% block sample %}
+<div class="btn-group">
+  <button class="btn btn-bsk btn-bsk-default" type="button">Dropdown</button>
+  <button class="btn btn-bsk btn-bsk-default dropdown-toggle" type="button">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-bsk">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+  </ul>
+</div>
+
+<div class="bsk-tb-margin-top"></div>
+
+<div class="btn-group">
+  <button class="btn btn-bsk btn-bsk-default" type="button">Dropdown</button>
+  <button class="btn btn-bsk btn-bsk-default dropdown-toggle" type="button">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-bsk bsk-tb-simulated-state-open">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+  </ul>
+</div>
+
+<div class="bsk-tb-margin-top-ul"></div>
+{% endblock %}
