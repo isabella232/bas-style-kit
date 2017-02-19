@@ -30,6 +30,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Fixed
 
 * Language statistics in GitHub
+* Names of BAS Package Service buckets
 
 ### Changed
 
