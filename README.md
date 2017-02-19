@@ -189,33 +189,8 @@ $ docker-compose push app
 
 ## Continuous Integration
 
-The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
-using settings defined in `.gitlab-ci.yml`, using these jobs and stages.
-
-| Stage   | Job                | Trigger                                              | Type      | Notes                                              |
-| ------- | ------------------ | ---------------------------------------------------- | --------- | -------------------------------------------------- |
-| Build   | `compile-sass`     | Commits to the *develop* branch [1]                  | Automatic | See `gulpfile.js` for details of what is performed |
-| Build   | `compile-sass-min` | Commits to the *develop* branch [1]                  | Automatic | See `gulpfile.js` for details of what is performed |
-| Build   | `compile-testbed`  | Commits to branches other than *develop* or *master* | Automatic | See `gulpfile.js` for details of what is performed |
-| Build   | `copy-fonts`       | Commits to the *develop* branch [1]                  | Automatic | See `gulpfile.js` for details of what is performed |
-| Lint    | `lint-sass`        | `compile-sass` passes                                | Automatic | See `gulpfile.js` for details of what is performed |
-
-**Note:** Do not commit changes to the `master` branch directly.
-
-[1] To commit to the develop branch, use the BAS GitLab remote [2]:
-
-```shell
-$ git add foo.bar
-$ git commit -m "..."
-$ git push bas-gl
-```
-
-[2] To add the BAS GitLab as a Git remote:
-
-```shell
-$ cd bas-style-kit/
-$ git remote add bas-gl https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
-```
+The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/pipelines)
+using settings defined in `.gitlab-ci.yml`.
 
 ## Review apps
 
@@ -227,29 +202,16 @@ not introduced.
 the *develop* branch should be forked into a *release* branch, and this merged with *master*.
 
 Review apps are integrated within GitLab, using a set of conventional jobs and stages. GitLab will show links to the
-relevant review app within each merge request. Settings for these jobs are defined in `.gitlab-ci.yml`:
-
-| Stage  | Job           | Trigger                                              | Type      | Notes |
-| ------ | ------------- | ---------------------------------------------------- | --------- | ----- |
-| Review | `review`      | Commits to branches other than *develop* or *master* | Automatic | -     |
-| Review | `stop-review` | Review app is removed                                | Manual    | -     |
+relevant review app within each merge request. Settings for these jobs are defined in `.gitlab-ci.yml`.
 
 ## Continuous Deployment
 
 The BAS GitLab instance is used for [Continuous Deployment](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
-using settings defined in `.gitlab-ci.yml`, using these jobs and stages.
+using settings defined in `.gitlab-ci.yml`.
+
+After deployment, the contents of the `dist` directory will be available through the BAS CDN.
 
 **Note:** Due to caching, deployed changes may not appear for up to 30 minutes.
-
-| Stage   | Job                       | Trigger                                                     | Type      | Notes                              |
-| ------- | ------------------------- | ----------------------------------------------------------- | --------- | ---------------------------------- |
-| Package | `package-dist`            | `lint-sass` passes                                          | Automatic | -                                  |
-| Deploy  | `s3-snapshot-development` | `package-dist` passes with a commit to the `develop` branch | Automatic | [1]                                |
-| Deploy  | `s3-cdn-dev`              | `package-dist` passes with a commit to the `develop` branch | Manual    | [2]                                |
-
-[1] And then available from the *development* instance of the BAS Packages Service.
-
-[2] And then available from the *development* instance of the BAS CDN
 
 ## Provisioning development and staging environments
 
