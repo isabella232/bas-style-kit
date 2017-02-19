@@ -1,0 +1,18 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0171--jumbotron-sizes.html" %}
+{% set sample_number = "#0171" %}
+{% set sample_title = "jumbotron sizes" %}
+{% set sample_markup = ".jumbotron.jumbotron-bsk.jumbotron-bsk-default.jumbotron-bsk-*" %}
+
+{% block sample %}
+<div class="jumbotron jumbotron-bsk jumbotron-bsk-default">
+  Regular jumbotron
+</div>
+<div class="jumbotron jumbotron-bsk jumbotron-bsk-default jumbotron-bsk-lg bsk-tb-margin-top">
+  Large jumbotron
+</div>
+<div class="jumbotron jumbotron-bsk jumbotron-bsk-default jumbotron-bsk-xl bsk-tb-margin-top">
+  Extra-large jumbotron
+</div>
+{% endblock %}
