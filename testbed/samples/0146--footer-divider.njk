@@ -1,0 +1,22 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0146--footer-divider.html" %}
+{% set sample_number = "#0146" %}
+{% set sample_title = "footer divder" %}
+{% set sample_markup = ".footer-bsk-divder" %}
+
+{% block sample %}
+<footer class="footer-bsk footer-bsk-default">
+  <div class="container-fluid">
+    <div role="separator" class="footer-bsk-divider"></div>
+  </div>
+</footer>
+
+<footer class="footer-bsk footer-bsk-default">
+  <div class="container-fluid">
+    Footer content above
+    <div role="separator" class="footer-bsk-divider"></div>
+    Footer content below
+  </div>
+</footer>
+{% endblock %}

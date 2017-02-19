@@ -1,0 +1,16 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0144--header-default.html" %}
+{% set sample_number = "#0144" %}
+{% set sample_title = "header" %}
+{% set sample_markup = ".header-bsk.header-bsk-default" %}
+
+{% block sample %}
+<header class="header-bsk header-bsk-default">
+  <div class="header-bsk-container-fluid">
+    <a href="#">
+      <img class="header-bsk-img-logo" alt="British Antarctic Survey Logo" src="{{ main_base_path }}testbed/testbed-assets/img/bas-logo-full-white-transparent.png">
+    </a>
+  </div>
+</header>
+{% endblock %}
