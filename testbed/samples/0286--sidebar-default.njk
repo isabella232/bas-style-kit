@@ -1,0 +1,16 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0286--sidebar-default.html" %}
+{% set sample_number = "#0286" %}
+{% set sample_title = "default sidebar" %}
+{% set sample_markup = ".sidebar-bsk.sidebar-bsk-default" %}
+
+{% block sample %}
+<div class="row">
+  <div class="col-md-offset-9 col-md-3">
+    <aside class="sidebar-bsk sidebar-bsk-default">
+      Sidebar content
+    </aside>
+  </div>
+</div>
+{% endblock %}

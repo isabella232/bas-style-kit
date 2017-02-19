@@ -1,0 +1,24 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0290--sidebar-sizes.html" %}
+{% set sample_number = "#0290" %}
+{% set sample_title = "sidebar sizes" %}
+{% set sample_markup = ".sidebar-bsk-*" %}
+
+{% block sample %}
+<div class="row">
+  <div class="col-md-offset-9 col-md-3">
+    <aside class="sidebar-bsk sidebar-bsk-default">
+      Regular sidebar
+    </aside>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-9 col-md-3">
+    <aside class="sidebar-bsk sidebar-bsk-default sidebar-bsk-lg">
+      Large sidebar
+    </aside>
+  </div>
+</div>
+{% endblock %}
