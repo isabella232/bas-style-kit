@@ -1,0 +1,24 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0165--pager-state-disabled.html" %}
+{% set sample_number = "#0165" %}
+{% set sample_title = "disabled pager state" %}
+{% set sample_markup = ".pager .disabled" %}
+
+{% block sample %}
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">First item disabled</h4>
+<nav>
+  <ul class="pager">
+    <li class="disabled"><a href="#">Previous</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Second item disabled</h4>
+<nav>
+  <ul class="pager">
+    <li><a href="#">Previous</a></li>
+    <li class="disabled"><a href="#">Next</a></li>
+  </ul>
+</nav>
+{% endblock %}

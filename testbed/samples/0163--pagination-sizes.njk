@@ -1,0 +1,37 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/pagination.njk" as pagination %}
+
+{% set sample_href = "0163--pagination-sizes.html" %}
+{% set sample_number = "#0163" %}
+{% set sample_title = "pagination sizes" %}
+{% set sample_markup = ".pagination.pagination-*" %}
+
+{% block sample %}
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Small pagination</h4>
+<nav>
+  <ul class="pagination pagination-sm">
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+  </ul>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Regular pagination</h4>
+<nav>
+  <ul class="pagination">
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+  </ul>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Large pagination</h4>
+<nav>
+  <ul class="pagination pagination-lg">
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+  </ul>
+</nav>
+{% endblock %}
