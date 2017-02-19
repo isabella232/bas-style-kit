@@ -1,0 +1,60 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0252--navbar-component-brand-text-image.html" %}
+{% set sample_number = "#0252" %}
+{% set sample_title = "navbar brand text & image" %}
+{% set sample_markup = ".navbar.navbar-bsk .navbar-brand" %}
+
+{% block sample %}
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">32 pixel image with regular navbar</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand bsk-tb-navbar-brand-image-32">
+        <img src="https://placeholdit.imgix.net/~text?txtsize=15&txt=Logo&w=32&h=32">
+        Site Name
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand bsk-tb-navbar-brand-image-32">
+        <img src="https://placeholdit.imgix.net/~text?txtsize=15&txt=Logo&w=32&h=32">
+        Site Name
+      </div>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">48 pixel image with large navbar</h4>
+<nav class="navbar navbar-bsk navbar-bsk-lg bsk-tb-navbar-lg">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand bsk-tb-navbar-brand-image-48-lg">
+        <img src="https://placeholdit.imgix.net/~text?txtsize=15&txt=Logo&w=48&h=48">
+        Site Name
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk navbar-bsk-lg bsk-tb-navbar-lg">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand bsk-tb-navbar-brand-image-48-lg">
+        <img src="https://placeholdit.imgix.net/~text?txtsize=15&txt=Logo&w=48&h=48">
+        Site Name
+      </div>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0277--navbar-layout-static-top.html" %}
+{% set sample_number = "#0277" %}
+{% set sample_title = "navbar static top" %}
+{% set sample_markup = ".navbar.navbar-bsk.navbar-static-top" %}
+
+{% block sample %}
+<p class="text-info"><strong>Note</strong> this sample may break outside the default page layout.</p>
+
+<nav class="navbar navbar-static-top navbar-bsk">
+  <div class="container-fluid">
+  </div>
+</nav>
+{% endblock %}
