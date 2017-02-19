@@ -25,6 +25,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Style] Page background and text colours are now explicitly listed as variables in this project (values are unchanged)
 * [Infrastructure] Docker support using a project image and Docker compose
 * [Infrastructure] Gulp tasks updated to support Docker workflow ('develop' task)
+* [Infrastructure] Test-bed added, using isolated samples to test style changes using visual comparison tools such as Wraith
 
 ### Fixed
 

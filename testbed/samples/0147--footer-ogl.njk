@@ -1,0 +1,29 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0147--footer-ogl.html" %}
+{% set sample_number = "#0147" %}
+{% set sample_title = "footer Open Government Licence" %}
+{% set sample_markup = ".footer-bsk-ogl" %}
+
+{% block sample %}
+<footer class="footer-bsk footer-bsk-default">
+  <div class="container-fluid">
+    <div class="footer-bsk-ogl">
+      <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="{{ main_base_path }}testbed/testbed-assets/img/ogl-symbol-white.png"></a>
+      <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
+    </div>
+  </div>
+</footer>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With footer divider</h4>
+<footer class="footer-bsk footer-bsk-default">
+  <div class="container-fluid">
+    Footer content above
+    <div role="separator" class="footer-bsk-divider"></div>
+    <div class="footer-bsk-ogl">
+      <a class="ogl-symbol" rel="license" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/"><img alt="Open Government Licence logo" src="{{ main_base_path }}testbed/testbed-assets/img/ogl-symbol-white.png"></a>
+      <div class="ogl-text">All content is licensed under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence v3.0</a>, except where otherwise stated</div>
+    </div>
+  </div>
+</footer>
+{% endblock %}

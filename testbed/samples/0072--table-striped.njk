@@ -1,0 +1,90 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0072--table-striped.html" %}
+{% set sample_number = "#0072" %}
+{% set sample_title = "striped table" %}
+{% set sample_markup = ".table.table-striped" %}
+
+{% block sample %}
+<p class="text-info">Table only</p>
+<table class="table table-striped">
+  <tr>
+    <td>Ny-Ålesund</td>
+    <td>Svalbard, High Arctic</td>
+    <td>150</td>
+  </tr>
+  <tr>
+    <td>Rothera</td>
+    <td>Adelaide Island, Antarctica</td>
+    <td>20 to 100</td>
+  </tr>
+  <tr>
+    <td>Halley VI</td>
+    <td>Brunt Ice Shelf, Antarctica</td>
+    <td>16 to 70</td>
+  </tr>
+</table>
+
+<p class="text-info">Table with a table body and table header</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Personnel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ny-Ålesund</td>
+      <td>Svalbard, High Arctic</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>Rothera</td>
+      <td>Adelaide Island, Antarctica</td>
+      <td>20 to 100</td>
+    </tr>
+    <tr>
+      <td>Halley VI</td>
+      <td>Brunt Ice Shelf, Antarctica</td>
+      <td>16 to 70</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-info">Table with table body, table header and table footer</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Personnel</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td>-</td>
+      <td>-</td>
+      <td>186 to 320</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Ny-Ålesund</td>
+      <td>Svalbard, High Arctic</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>Rothera</td>
+      <td>Adelaide Island, Antarctica</td>
+      <td>20 to 100</td>
+    </tr>
+    <tr>
+      <td>Halley VI</td>
+      <td>Brunt Ice Shelf, Antarctica</td>
+      <td>16 to 70 (total)</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

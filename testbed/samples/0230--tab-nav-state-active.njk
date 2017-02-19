@@ -1,0 +1,16 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0230--tab-nav-state-active.html" %}
+{% set sample_number = "#0230" %}
+{% set sample_title = "tab navigation active state" %}
+{% set sample_markup = ".nav-tabs.nav-tabs-bsk .active" %}
+
+{% block sample %}
+<nav role="navigation">
+  <ul class="nav nav-tabs nav-tabs-bsk">
+    <li role="presentation"><a href="#">Tab 1</a></li>
+    <li role="presentation" class="active"><a href="#">Tab 2</a></li>
+    <li role="presentation"><a href="#">Tab 3</a></li>
+  </ul>
+</nav>
+{% endblock %}

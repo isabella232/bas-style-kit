@@ -1,0 +1,24 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0249--navbar-component-collapse-menu.html" %}
+{% set sample_number = "#0249" %}
+{% set sample_title = "navbar collapsed items menu" %}
+{% set sample_markup = ".navbar.navbar-bsk .navbar-toggle" %}
+
+{% block sample %}
+<p class="text-info"><strong>Note</strong> this sample uses a class that shadows <code>.navbar-toggle</code>,
+but is not affected by it directly.</p>
+
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="bsk-tb-simulated-state-uncollapsed collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+{% endblock %}

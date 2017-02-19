@@ -1,0 +1,30 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0256--navbar-component-button-default.html" %}
+{% set sample_number = "#0256" %}
+{% set sample_title = "navbar primary button" %}
+{% set sample_markup = ".navbar.navbar-bsk .btn.btn-bsk.btn-bsk-primary.navbar-btn" %}
+
+{% block sample %}
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <button class="btn btn-bsk btn-bsk-primary navbar-btn">Primary Action</button>
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <button class="btn btn-bsk btn-bsk-primary navbar-btn">Primary Action</button>
+    <button class="btn btn-bsk btn-default navbar-btn">Action</button>
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+    <button class="btn btn-bsk btn-bsk-primary navbar-btn">Primary Action</button>
+  </div>
+</nav>
+{% endblock %}

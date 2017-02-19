@@ -1,0 +1,12 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0100--form-control-input-email.html" %}
+{% set sample_number = "#0100" %}
+{% set sample_title = "Email input form control" %}
+{% set sample_markup = 'input[type="email"].form-control' %}
+
+{% block sample %}
+{{ form.bsk_tb_form_control_input_v1(type="email", values=["conwat@bas.ac.uk", "conwat@@@bas@ac.uk"]) }}
+{% endblock %}

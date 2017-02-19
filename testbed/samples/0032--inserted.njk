@@ -1,0 +1,16 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0032--inserted.html" %}
+{% set sample_number = "#0032" %}
+{% set sample_title = "inserted" %}
+{% set sample_markup = "ins" %}
+
+{% block sample %}
+<p><ins>There are dozens of us! DOZENS!</ins></p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Mixed single line</h4>
+<p><ins>There are dozens of us! DOZENS!</ins> There are dozens of us! DOZENS!</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Mixed text block (approx 300 characters)</h4>
+<p>Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. <ins>This show was cancelled</ins>. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+{% endblock %}

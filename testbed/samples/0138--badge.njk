@@ -1,0 +1,13 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0138--badge.html" %}
+{% set sample_number = "#0138" %}
+{% set sample_title = "Badge" %}
+{% set sample_markup = '.badge' %}
+
+{% block sample %}
+<p><a href="#"><span class="badge">42</span></a></p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Empty badges automatically hide</h4>
+<p><a href="#">Unread notifications <span class="badge"><!-- Empty badges automatically hide --></span></a></p>
+{% endblock %}

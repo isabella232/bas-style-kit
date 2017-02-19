@@ -1,0 +1,45 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0120--form-control-static.html" %}
+{% set sample_number = "#0120" %}
+{% set sample_title = "Static form control" %}
+{% set sample_markup = 'p.form-control-static' %}
+
+{% block sample %}
+<form>
+  <fieldset class="form-group">
+    <label class="control-label">Textarea</label>
+    <p class="form-control-static">Value</p>
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Validation states</h4>
+<p class="text-info">Static input with the <code>.has-success</code>
+(<strong class="text-success">Success</strong>) validation state statically applied.</p>
+<form>
+  <fieldset class="form-group has-success">
+    <label class="control-label">Textarea</label>
+    <p class="form-control-static">Value</p>
+  </fieldset>
+</form>
+
+<p class="text-info">Textarea with the <code>.has-warning</code>
+(<strong class="text-warning">Warning</strong>) validation state statically applied.</p>
+<form>
+  <fieldset class="form-group has-warning">
+    <label class="control-label">Textarea</label>
+    <p class="form-control-static">Value</p>
+  </fieldset>
+</form>
+
+<p class="text-info">Textarea input with the <code>.has-error</code>
+(<strong class="text-danger">Error</strong>) validation state statically applied.</p>
+<form>
+  <fieldset class="form-group has-error">
+    <label class="control-label">Textarea</label>
+    <p class="form-control-static">Value</p>
+  </fieldset>
+</form>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0205--button-group-sizes.html" %}
+{% set sample_number = "#0205" %}
+{% set sample_title = "button group sizes" %}
+{% set sample_markup = ".btn-group .btn-group-*" %}
+
+{% block sample %}
+<div class="btn-group btn-group-xs">
+  <button type="button" class="btn btn-bsk btn-default">Extra small - one</button>
+  <button type="button" class="btn btn-bsk btn-default">Two</button>
+  <button type="button" class="btn btn-bsk btn-default">Three</button>
+</div>
+
+<div class="bsk-tb-margin-top"></div>
+
+<div class="btn-group btn-group-sm" role="group">
+  <button type="button" class="btn btn-bsk btn-default">Small - one</button>
+  <button type="button" class="btn btn-bsk btn-default">Two</button>
+  <button type="button" class="btn btn-bsk btn-default">Three</button>
+</div>
+
+<div class="bsk-tb-margin-top"></div>
+
+<div class="btn-group" role="group">
+  <button type="button" class="btn btn-bsk btn-default">Regular - one</button>
+  <button type="button" class="btn btn-bsk btn-default">Two</button>
+  <button type="button" class="btn btn-bsk btn-default">Three</button>
+</div>
+
+<div class="bsk-tb-margin-top"></div>
+
+<div class="btn-group btn-group-lg " role="group">
+  <button type="button" class="btn btn-bsk btn-default">Large - one</button>
+  <button type="button" class="btn btn-bsk btn-default">Two</button>
+  <button type="button" class="btn btn-bsk btn-default">Three</button>
+</div>
+{% endblock %}

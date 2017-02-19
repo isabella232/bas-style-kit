@@ -1,0 +1,13 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0077--table-rows-contextual-warning.html" %}
+{% set sample_number = "#0077" %}
+{% set sample_title = "table row with warning context" %}
+{% set sample_markup = "tr.warning" %}
+
+{% block sample %}
+<table class="table">
+  <tr><td>standard row</td></tr>
+  <tr class="warning"><td>warning row</td></tr>
+</table>
+{% endblock %}

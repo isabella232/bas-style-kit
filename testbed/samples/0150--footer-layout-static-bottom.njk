@@ -1,0 +1,15 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0150--footer-layout-static-bottom.html" %}
+{% set sample_number = "#0150" %}
+{% set sample_title = "footer layout - static to bottom" %}
+{% set sample_markup = ".footer-bsk-static-bottom" %}
+
+{% block sample %}
+<p class="text-info"><strong>Note</strong> this sample may break outside the default page layout.</p>
+<footer class="footer-bsk footer-bsk-default footer-bsk-static-bottom">
+  <div class="container-fluid">
+    Footer content
+  </div>
+</footer>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0258--navbar-component-button-contextual-warning.html" %}
+{% set sample_number = "#0258" %}
+{% set sample_title = "navbar warning context button" %}
+{% set sample_markup = ".navbar.navbar-bsk .btn.btn-bsk.btn-warning.navbar-btn" %}
+
+{% block sample %}
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <button class="btn btn-bsk btn-warning navbar-btn">Warning Action</button>
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <button class="btn btn-bsk btn-warning navbar-btn">Warning Action</button>
+    <button class="btn btn-bsk btn-default navbar-btn">Action</button>
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+    <button class="btn btn-bsk btn-warning navbar-btn">Warning Action</button>
+  </div>
+</nav>
+{% endblock %}

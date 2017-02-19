@@ -1,0 +1,22 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0036--address.html" %}
+{% set sample_number = "#0036" %}
+{% set sample_title = "address" %}
+{% set sample_markup = "address" %}
+
+{% block sample %}
+<address>
+  <strong>Connie Watson</strong><br>
+  <a href="mailto:#">contwat@bas.ac.uk</a>
+</address>
+
+<address>
+  <strong>British Antarctic Survey</strong><br>
+  High Cross, Madingley Road<br>
+  CAMBRIDGE<br>
+  CB3 0ET<br>
+  United Kingdom<br>
+  <abbr title="Phone">Tel:</abbr> +44 (0)1223 221400
+</address>
+{% endblock %}

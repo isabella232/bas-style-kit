@@ -1,0 +1,22 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0015--headings-small.html" %}
+{% set sample_number = "#0015" %}
+{% set sample_title = "small headings" %}
+
+{% block sample %}
+<h1>Heading 1 <small>Heading 1 small</small></h1>
+<h2>Heading 2 <small>Heading 2 small</small></h2>
+<h3>Heading 3 <small>Heading 3 small</small></h3>
+<h4>Heading 4 <small>Heading 4 small</small></h4>
+<h5>Heading 5 <small>Heading 5 small</small></h5>
+<h6>Heading 6 <small>Heading 6 small</small></h6>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Small headings only</h4>
+<h1><small>Heading 1 small</small></h1>
+<h2><small>Heading 2 small</small></h2>
+<h3><small>Heading 3 small</small></h3>
+<h4><small>Heading 4 small</small></h4>
+<h5><small>Heading 5 small</small></h5>
+<h6><small>Heading 6 small</small></h6>
+{% endblock %}

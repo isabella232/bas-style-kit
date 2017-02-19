@@ -1,0 +1,12 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0244--progress-bar-conextual-danger.html" %}
+{% set sample_number = "#0244" %}
+{% set sample_title = "danger context progress bar" %}
+{% set sample_markup = ".progress .progress-bar.progress-bar-danger" %}
+
+{% block sample %}
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">50%</h4>
+<div class="progress"><div class="progress-bar progress-bar-danger" role="progressbar" style="width: 50%;"></div></div>
+<div class="progress"><div class="progress-bar progress-bar-danger" role="progressbar" style="width: 50%;">50%</div></div>
+{% endblock %}

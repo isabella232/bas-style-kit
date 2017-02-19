@@ -1,0 +1,12 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0098--form-control-input-text.html" %}
+{% set sample_number = "#0098" %}
+{% set sample_title = "Text input form control" %}
+{% set sample_markup = 'input[type="text"].form-control' %}
+
+{% block sample %}
+{{ form.bsk_tb_form_control_input_v1(type="text") }}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0269--navbar-sizes.html" %}
+{% set sample_number = "#0260" %}
+{% set sample_title = "navbar sizes" %}
+{% set sample_markup = ".navbar.navbar-bsk .navbar-bsk-lg" %}
+
+{% block sample %}
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk navbar-bsk-lg bsk-tb-navbar-lg">
+  <div class="container-fluid">
+  </div>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With item</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk navbar-bsk-lg">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0075--table-rows-contextual-success.html" %}
+{% set sample_number = "#0075" %}
+{% set sample_title = "table row with success context" %}
+{% set sample_markup = "tr.success" %}
+
+{% block sample %}
+<table class="table">
+  <tr><td>standard row</td></tr>
+  <tr class="success"><td>success row</td></tr>
+</table>
+{% endblock %}

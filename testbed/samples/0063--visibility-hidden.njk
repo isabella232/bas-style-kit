@@ -1,0 +1,12 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0063--visibility-hidden.html" %}
+{% set sample_number = "#0063" %}
+{% set sample_title = "hidden visbility" %}
+{% set sample_markup = ".hidden" %}
+
+{% block sample %}
+<div class="bsk-tb-visible-col-1"></div>
+<div class="bsk-tb-visible-col-2 hidden"></div>
+<div class="bsk-tb-visible-col-3"></div>
+{% endblock %}
