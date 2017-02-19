@@ -1,0 +1,12 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0173--responsive-embed-6-9.html" %}
+{% set sample_number = "#0173" %}
+{% set sample_title = "responsive embed 6:9" %}
+{% set sample_markup = ".embed-responsive.embed-responsive-6by9" %}
+
+{% block sample %}
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/32397612" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+{% endblock %}
