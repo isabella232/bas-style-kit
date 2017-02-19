@@ -22,7 +22,7 @@
   image: antarctica/aws-cli-image:0.1.0-alpine-gl
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
-  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$S3_SNAPSHOT_BUCKET/$SNAPSHOT_BUCKET_PATH/$APP_NAME/"
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$SNAPSHOT_BUCKET/$SNAPSHOT_BUCKET_PATH/$APP_NAME/"
 
 .job_template_s3_sync: &job_template_s3_sync
   stage: deploy
@@ -42,6 +42,7 @@ image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2017-01-01-alpine
 
 variables:
   AWS_DEFAULT_REGION: eu-west-1
+  SNAPSHOT_BUCKET: bas-package-service-prod
   SNAPSHOT_BUCKET_PATH: zips/apps
   APP_NAME: bas-style-kit
   REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
@@ -166,8 +167,6 @@ s3-snapshot-dev:
   <<: *job_template_s3_snapshot
   only:
     - develop
-  variables:
-    S3_SNAPSHOT_BUCKET: bas-packages-dev
 
 s3-cdn-dev:
   <<: *job_template_s3_sync
