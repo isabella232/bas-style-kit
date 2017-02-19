@@ -1,0 +1,42 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0278--input-group-input.html" %}
+{% set sample_number = "#0278" %}
+{% set sample_title = "input, input group" %}
+{% set sample_markup = ".input-group" %}
+
+{% block sample %}
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Before input</h4>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label" for="form-input-group-example-1">Amount (sterling)</label>
+    <div class="input-group">
+      <span class="input-group-addon" id="form-input-group-example-1-addon-1">£</span>
+      <input type="number" class="form-control" placeholder="Amount (sterling)" id="form-input-group-example-1" aria-describedby="form-input-group-example-1-addon-1">
+    </div>
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">After input</h4>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label" for="form-input-group-example-2">Amount (thousands)</label>
+    <div class="input-group">
+      <input type="number" class="form-control" placeholder="Amount (thousands)" id="form-input-group-example-2" aria-describedby="form-input-group-example-2-addon-1">
+      <span class="input-group-addon" id="form-input-group-example-2-addon-1">000</span>
+    </div>
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Before and after input</h4>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label" for="form-input-group-example-3">Amount (£, thousands)</label>
+    <div class="input-group">
+      <span class="input-group-addon" id="form-input-group-example-3-addon-1">£</span>
+      <input type="number" class="form-control" placeholder="Amount" id="form-input-group-example-3" aria-describedby="form-input-group-example-3-addon-1" aria-describedby="form-input-group-example-3-addon-2">
+      <span class="input-group-addon" id="form-input-group-example-3-addon-2">000</span>
+    </div>
+  </fieldset>
+</form>
+{% endblock %}
