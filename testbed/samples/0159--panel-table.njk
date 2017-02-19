@@ -1,0 +1,91 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0159--panel-table.html" %}
+{% set sample_number = "#0159" %}
+{% set sample_title = "panel with table" %}
+{% set sample_markup = ".panel.panel-default table.table" %}
+
+{% block sample %}
+<div class="panel panel-default">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ny-Ålesund</td>
+        <td>Svalbard, High Arctic</td>
+      </tr>
+      <tr>
+        <td>Rothera</td>
+        <td>Adelaide Island, Antarctica</td>
+      </tr>
+      <tr>
+        <td>Halley VI</td>
+        <td>Brunt Ice Shelf, Antarctica</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With panel body</h4>
+<div class="panel panel-default">
+  <main class="panel-body">
+    Example panel body
+  </main>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ny-Ålesund</td>
+        <td>Svalbard, High Arctic</td>
+      </tr>
+      <tr>
+        <td>Rothera</td>
+        <td>Adelaide Island, Antarctica</td>
+      </tr>
+      <tr>
+        <td>Halley VI</td>
+        <td>Brunt Ice Shelf, Antarctica</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With panel body and bordered table (not supported)</h4>
+<div class="panel panel-default">
+  <main class="panel-body">
+    Example panel body
+  </main>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ny-Ålesund</td>
+        <td>Svalbard, High Arctic</td>
+      </tr>
+      <tr>
+        <td>Rothera</td>
+        <td>Adelaide Island, Antarctica</td>
+      </tr>
+      <tr>
+        <td>Halley VI</td>
+        <td>Brunt Ice Shelf, Antarctica</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
