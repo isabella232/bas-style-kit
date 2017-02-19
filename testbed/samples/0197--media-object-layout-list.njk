@@ -1,0 +1,38 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0197--media-object-layout-list.html" %}
+{% set sample_number = "#0197" %}
+{% set sample_title = "media object list layout" %}
+{% set sample_markup = ".media-list .media-object" %}
+
+{% block sample %}
+<ul class="media-list">
+  <li class="media">
+    <div class="media-left">
+      <a href="#"><img class="media-object" src="https://placeholdit.imgix.net/~text?txtsize=15&txt=Avatar&w=64&h=64" alt="Avatar"></a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">Media heading</h4>
+      Media body
+    </div>
+  </li>
+  <li class="media">
+    <div class="media-left">
+      <a href="#"><img class="media-object" src="https://placeholdit.imgix.net/~text?txtsize=15&txt=Avatar&w=64&h=64" alt="Avatar"></a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">Media heading</h4>
+      Media body
+    </div>
+  </li>
+  <li class="media">
+    <div class="media-left">
+      <a href="#"><img class="media-object" src="https://placeholdit.imgix.net/~text?txtsize=15&txt=Avatar&w=64&h=64" alt="Avatar"></a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">Media heading</h4>
+      Media body
+    </div>
+  </li>
+</ul>
+{% endblock %}
