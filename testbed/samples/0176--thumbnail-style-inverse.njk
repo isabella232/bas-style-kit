@@ -1,0 +1,36 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0176--thumbnail-style-inverse.html" %}
+{% set sample_number = "#0176" %}
+{% set sample_title = "inverse thumbnail" %}
+{% set sample_markup = ".thumbnail.thumbnail-bsk.thumbnail-bsk-inverse" %}
+
+{% block sample %}
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading"><code>div</code> element</h4>
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail thumbnail-bsk thumbnail-bsk-inverse">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400×250&w=400&h=250" alt="thumbnail">
+    </div>
+  </div>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-inverse"><code>a</code> element</h4>
+<div class="row">
+  <div class="col-md-4">
+    <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-inverse">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400×250&w=400&h=250" alt="thumbnail">
+    </a>
+  </div>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading"><code>a</code> element with caption</h4>
+<div class="row">
+  <div class="col-md-4">
+    <a href="#" class="thumbnail thumbnail-bsk thumbnail-bsk-inverse">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400×250&w=400&h=250" alt="thumbnail">
+      <div class="caption">Thumbnail caption</div>
+    </a>
+  </div>
+</div>
+{% endblock %}
