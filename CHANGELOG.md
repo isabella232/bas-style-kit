@@ -40,6 +40,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Using CSSNano instead of MinifyCSS to minify CSS styles
 * [Infrastructure] README additions, improvements, refactoring and fixes
 * [Infrastructure] Updating NPM modules
+* [Infrastructure] Updating licensing file dates
 
 ### Removed
 
