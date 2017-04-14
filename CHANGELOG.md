@@ -29,8 +29,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
-* Language statistics in GitHub
-* Names of BAS Package Service buckets
+* [Style] Padding on input group buttons to match height of inputs
+* [Infrastructure] Language statistics in GitHub
+* [Infrastructure] Names of BAS Package Service buckets
+* [Infrastructure] Correcting name of `CHANGELOG.md` file
 
 ### Changed
 
@@ -39,6 +41,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Using CSSNano instead of MinifyCSS to minify CSS styles
 * [Infrastructure] README additions, improvements, refactoring and fixes
 * [Infrastructure] Updating NPM modules
+* [Infrastructure] Updating licensing file dates
 
 ### Removed
 
