@@ -32,6 +32,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Language statistics in GitHub
 * Names of BAS Package Service buckets
 * Correcting name of `CHANGELOG.md` file
+* [Style] Padding on input group buttons to match height of inputs
 
 ### Changed
 
