@@ -133,6 +133,8 @@ $dl-bsk-striped-bg:                           $bsk-grey-light;
 // Common, base, default variables for components
 
 $border-radius-base:                          0;
+$border-radius-large:                         $border-radius-base;
+$border-radius-small:                         $border-radius-base;
 
 $line-height-computed-x2:                     ($line-height-computed * 2);
 
