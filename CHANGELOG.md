@@ -29,6 +29,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
+* [Style] Border radius on small/large form group inputs
 * [Style] Padding on input group buttons to match height of inputs
 * [Infrastructure] Language statistics in GitHub
 * [Infrastructure] Names of BAS Package Service buckets
