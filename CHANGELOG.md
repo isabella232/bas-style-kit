@@ -29,6 +29,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
+* [Style] Using brand images and text together were previously incompatible, a fix class address this
 * [Infrastructure] Wrong class name used for default buttons in testbed samples
 * [Style] Border radius on small/large form group inputs
 * [Style] Padding on input group buttons to match height of inputs
