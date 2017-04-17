@@ -31,7 +31,7 @@
   );
 }
 
-&.btn-sm-bsk {
+.btn-sm-bsk {
   // line-height: ensure proper height of button next to small input
   @include button-size(
     $padding-small-vertical,
@@ -42,7 +42,7 @@
   );
 }
 
-&.btn-xs-bsk {
+.btn-xs-bsk {
   @include button-size(
     $padding-xs-vertical,
     $padding-xs-horizontal,
