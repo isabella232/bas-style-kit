@@ -65,6 +65,7 @@ compile-sass-min:
   stage: build
   only:
     - master
+    - tags
   before_script:
     - "mkdir node_modules"
     - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
