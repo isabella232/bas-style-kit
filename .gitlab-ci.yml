@@ -27,6 +27,7 @@
 stages:
   - build
   - lint
+  - process
   - package
   - review
   - deploy
@@ -58,7 +59,7 @@ compile-sass:
     paths:
       - dist/css/bas-style-kit.css
       - dist/css/bootstrap-bsk.css
-    expire_in: 1 day
+    expire_in: 1 week
 
 compile-sass-min:
   stage: build
@@ -79,7 +80,7 @@ compile-sass-min:
       - dist/css/bootstrap-bsk.min.css
       - dist/css/maps/bas-style-kit.min.css.map
       - dist/css/maps/bootstrap-bsk.min.css.map
-    expire_in: 1 day
+    expire_in: 1 week
 
 compile-testbed:
   stage: build
@@ -93,7 +94,7 @@ compile-testbed:
     name: "$CI_BUILD_TOKEN-testbed"
     paths:
       - testbed/rendered
-    expire_in: 1 day
+    expire_in: 1 week
 
 copy-fonts:
   stage: build
@@ -107,11 +108,23 @@ copy-fonts:
     name: "$CI_BUILD_TOKEN-dist-fonts"
     paths:
       - dist/fonts
-    expire_in: 1 day
+    expire_in: 1 week
 
 lint-sass:
   stage: lint
   script: gulp lint
+
+compute-sri:
+  stage: process
+  only:
+    - master
+  script:
+    - "gulp build--sri-combined"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-sri"
+    paths:
+      - dist/sri.json
+    expire_in: 1 week
 
 review:
   stage: review
