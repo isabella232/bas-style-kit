@@ -27,6 +27,7 @@
 stages:
   - build
   - lint
+  - process
   - package
   - review
   - deploy
@@ -109,8 +110,12 @@ copy-fonts:
       - dist/fonts
     expire_in: 1 week
 
+lint-sass:
+  stage: lint
+  script: gulp lint
+
 compute-sri:
-  stage: build
+  stage: process
   script:
     - "gulp build--sri-combined"
   artifacts:
@@ -118,10 +123,6 @@ compute-sri:
     paths:
       - dist/sri.json
     expire_in: 1 week
-
-lint-sass:
-  stage: lint
-  script: gulp lint
 
 review:
   stage: review
