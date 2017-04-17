@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Infrastructure] Significantly improving NPM support
 
+### Changed
+
+* [Infrastructure] Ignoring testbed sources from Git archives
+
 ## [0.2.0] - 2017-04-17
 
 ### Changed - BREAKING!
