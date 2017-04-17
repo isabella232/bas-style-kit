@@ -173,3 +173,13 @@ s3-cdn-dev:
     - "export CDN_PROJECT_VERSION=$CI_BUILD_REF_SHORT"
   variables:
     S3_CDN_BUCKET: bas-cdn-dev
+
+s3-cdn-prod:
+  <<: *job_template_s3_sync
+  only:
+    - tags
+  when: manual
+  before_script:
+    - "export CDN_PROJECT_VERSION=$CI_COMMIT_TAG"
+  variables:
+    S3_CDN_BUCKET: bas-cdn-prod

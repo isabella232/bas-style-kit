@@ -5,8 +5,6 @@ A collection of HTML, CSS, and JS components for developing web projects consist
 End-user documentation for the BAS Style Kit, documenting what it includes, and how to use it to build websites and
 web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
 
-**Note:** Production instances of this project are currently **NOT** supported.
-
 ## Overview
 
 The BAS Style Kit is a CSS framework, incorporating the BAS brand, to establish a consistent visual design across
