@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * [Infrastructure] Significantly improving NPM support
+* [Infrastructure] Documenting GitHub mirror
 
 ### Fixed
 

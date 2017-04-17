@@ -235,6 +235,12 @@ any one time, and **MUST** therefore be rebased on *master* before they are merg
 When required, a release is made using a release branch (see the *Release procedures* section for more information).
 This is also merged with *master* and tagged. This triggers the relevant deployment tasks to release a new version.
 
+### GitHub mirror
+
+A read-only mirror of this project's repository is maintained on GitHub, to allow use by those outside of BAS.
+
+Merge requests **WILL NOT** be accepted on this mirror.
+
 ## Release procedures
 
 1. create a release branch
@@ -247,6 +253,7 @@ This is also merged with *master* and tagged. This triggers the relevant deploym
 5. merge release branch with master and tag with version
 6. copy SRI values into the Style Kit Documentation project
 7. re-publish NPM package
+8. push commits and tags to GitHub mirror
 
 ### Re-publish NPM package
 
