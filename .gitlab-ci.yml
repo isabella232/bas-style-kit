@@ -108,6 +108,15 @@ copy-fonts:
     paths:
       - dist/fonts
     expire_in: 1 day
+compute-sri:
+  stage: build
+  script:
+    - "gulp build--sri-combined"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-sri"
+    paths:
+      - dist/sri.json
+    expire_in: 1 week
 
 lint-sass:
   stage: lint

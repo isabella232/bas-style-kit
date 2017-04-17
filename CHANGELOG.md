@@ -25,6 +25,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Docker support using a project image and Docker compose
 * [Infrastructure] Gulp tasks updated to support Docker workflow ('develop' task)
 * [Infrastructure] Testbed added, using isolated samples to develop and preview styles
+* [Infrastructure] SRI support for generated assets
 
 ### Fixed
 

@@ -56,6 +56,20 @@ $ docker-compose run app gulp lint
 
 **Note:** This will run the NodeJS container only, it will not start the Nginx container.
 
+### SRI
+
+[Sub-Resource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) is a
+security feature that enables browsers to verify that files they fetch (for example, from a CDN) are delivered without
+unexpected manipulation. It works by allowing you to provide a cryptographic hash that a fetched file must match.
+
+A set of Gulp tasks are provided to compute these values for Style Kit assets, saved as a JSON file
+
+During deployment this file will need to be copied into the
+[Documentation project](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs) for users to reference.
+
+This is currently a manual process described in the relevant
+[README](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs/blob/master/README.md).
+
 ### Testbed
 
 To aid developing styles within the Style Kit a 'Testbed' is included. This contains a number of atomic 'samples',
@@ -231,6 +245,7 @@ This is also merged with *master* and tagged. This triggers the relevant deploym
 3. build & push the docker image
 4. close release in `CHANGELOG.md`
 5. merge release branch with master and tag with version
+6. copy SRI values into the Style Kit Documentation project
 
 ### After release
 
