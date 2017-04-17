@@ -31,7 +31,7 @@ stages:
   - review
   - deploy
 
-image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:2017-01-01-alpine
+image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:0.2.0-develop-alpine
 
 variables:
   AWS_DEFAULT_REGION: eu-west-1
