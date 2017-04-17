@@ -7,11 +7,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed - BREAKING!
 
-* [Infrastructure] `gulp-sass` module updated to support Docker
 * [Infrastructure] Switching from Less to Sass preprocessor - compiled css remains compatible
 * [Infrastructure] Gulp tasks heavily refactored
-* [Infrastructure] Switching from SassLint to StyleLint
-* [Infrastructure] Renaming testbed directory from `http` to `html` to better reflect its content
 * [Infrastructure] Switching from 'develop/master' to 'master/tagged-master' branching model
 * [Infrastructure] Semaphore CI/CD removed in favour of GitLab CI/CD
 * [Infrastructure] Terraform environments removed in favour of a single set of configuration files
