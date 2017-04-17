@@ -1,52 +1,44 @@
 {
   "name": "bas-style-kit",
   "description": "A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.",
-  "version": "0.1.0",
-  "homepage": "https://bas-style-kit.web.nerc-bas.ac.uk",
+  "version": "0.1.1-develop",
+  "homepage": "https://style-kit.web.bas.ac.uk",
   "author": "British Antarctic Survey",
-  "style": "dist/css/bas-style-kit.css",
-  "less": "less/bas-style-kit.less",
-  "main": "./dist/js/npm",
+  "contributors": [
+    {
+      "name": "Felix Fennell",
+      "email": "felnne@bas.ac.uk"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:antarctica/bas-style-kit.git"
+    "url": "https://github.com/antarctica/bas-style-kit.git"
   },
   "bugs": {
     "url": "https://jira.ceh.ac.uk/bsk"
   },
   "license": "MIT",
-  "dependencies": {
-    "bootstrap": "3.3.5",
-    "devicons": "^1.8",
-    "font-awesome": "^4.4",
-    "open-sans-fontface": "^1.4"
-  },
   "devDependencies": {
-    "del": "^1.2",
+    "bootstrap-sass": "3.3.6",
+    "del": "^2.0",
+    "font-awesome": "^4.6",
     "gulp": "^3.9",
-    "gulp-autoprefixer": "^2.3",
+    "gulp-autoprefixer": "^3.1",
+    "gulp-base": "^1.1",
     "gulp-csscomb": "^3.0",
-    "gulp-csslint": "^0.1",
-    "gulp-less": "^3.0",
-    "gulp-minify-css": "^1.2",
+    "gulp-cssnano": "^2.0",
+    "gulp-nunjucks": "^2.3",
     "gulp-rename": "^1.2",
-    "gulp-sourcemaps": "^1.5",
+    "gulp-sass": "^3.0",
+    "gulp-sourcemaps": "^1.6",
+    "gulp-sri": "^0.3",
+    "gulp-stylelint": "^3.7",
     "gulp-util": "^3.0",
-    "mkdirp": "^0.5",
-    "run-sequence": "^1.1.1",
-    "yamljs": "^0.2"
-  },
-  "engines": {
-    "node": ">=0.10.1"
-  },
-  "files": [
-    "dist",
-    "fonts",
-    "js/*.js",
-    "less/**/*.less",
-    "gulp.js",
-    "LICENSE",
-    "LICENSE-bootstrap",
-    "README.md"
-  ]
+    "gulp-watch": "^4.3",
+    "gulp-zip": "^3.2",
+    "open-sans-fontface": "^1.4",
+    "pkginfo": "^0.4",
+    "run-sequence": "^1.1",
+    "stylelint-config-standard": "^15.0"
+  }
 }

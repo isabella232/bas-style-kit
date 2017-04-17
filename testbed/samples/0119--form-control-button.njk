@@ -1,0 +1,14 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0119--form-control-button.html" %}
+{% set sample_number = "#0119" %}
+{% set sample_title = "Button form control" %}
+{% set sample_markup = 'button.btn.btn-bsk.btn-default' %}
+
+{% block sample %}
+<form>
+  <button type="submit" class="btn btn-bsk btn-default">Submit</button>
+</form>
+{% endblock %}

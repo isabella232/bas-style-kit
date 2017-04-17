@@ -1,0 +1,30 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0199--media-object-alignment-left.html" %}
+{% set sample_number = "#0199" %}
+{% set sample_title = "left aligned media object" %}
+{% set sample_markup = ".media-object .media-left" %}
+
+{% block sample %}
+<div class="media">
+  <div class="media-left">
+    <a href="#"><img class="media-object" src="https://placeholdit.imgix.net/~text?txtsize=15&txt=Avatar&w=64&h=64" alt="Avatar"></a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">Media heading</h4>
+    Media body
+  </div>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With long description</h4>
+<div class="media">
+  <div class="media-left">
+    <a href="#"><img class="media-object" src="https://placeholdit.imgix.net/~text?txtsize=15&txt=Avatar&w=64&h=64" alt="Avatar"></a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">Media heading</h4>
+    <p>Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+    <p>Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+  </div>
+</div>
+{% endblock %}

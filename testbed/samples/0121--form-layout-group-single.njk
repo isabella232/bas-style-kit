@@ -1,0 +1,26 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0121--form-layout-group-single.html" %}
+{% set sample_number = "#0121" %}
+{% set sample_title = "From group layout" %}
+{% set sample_markup = '.form-group' %}
+
+{% block sample %}
+<p class="text-info">Using a <code>fieldset</code></p>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label">Text input</label>
+    <input type="text" class="form-control">
+  </fieldset>
+</form>
+
+<p class="text-info">Using a <code>div</code></p>
+<form>
+  <div class="form-group">
+    <label class="control-label">Text input</label>
+    <input type="text" class="form-control">
+  </div>
+</form>
+{% endblock %}

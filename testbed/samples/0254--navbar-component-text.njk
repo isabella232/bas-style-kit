@@ -1,0 +1,44 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0254--navbar-component-text.html" %}
+{% set sample_number = "#0254" %}
+{% set sample_title = "navbar text" %}
+{% set sample_markup = ".navbar.navbar-bsk .navbar-text" %}
+
+{% block sample %}
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <div class="navbar-text">Navbar text</div>
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+    <div class="navbar-text">Navbar text</div>
+  </div>
+</nav>
+
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+    <div class="navbar-text">Navbar text</div>
+    <div class="navbar-text">Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</div>
+  </div>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Split text (<code>br</code>)</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+    <div class="navbar-text">Navbar text</div>
+    <div class="navbar-text">Ann certainly has a great deal of Mass. I hate the Wetlands. <br /> They're stupid and wet, and there are bugs everywhere, and I think I maced a crane.</div>
+  </div>
+</nav>
+{% endblock %}

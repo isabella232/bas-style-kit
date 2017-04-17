@@ -1,0 +1,185 @@
+---
+
+# == Notes ==
+
+# - GitLab automatically passes artifacts from previous stages by default
+# - This configuration file uses some advanced YAML features (namely anchors) which may not be correctly displayed
+#   by syntax highlighting
+# - Set required secret variables at: https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/variables - see below
+
+# = Secret variables
+# - Variables are grouped by section in KEY: "value" format (e.g. FOO: "bar")
+#   Sensetive values are represented by "[Sensetive]"
+#
+# - AWS IAM id/secret keys for 'bas-gitlab-deploy-bas-style-kit' user
+# > AWS_ACCESS_KEY_ID: "[Sensetive]"
+# > AWS_SECRET_ACCESS_KEY: "[Sensetive]"
+
+# == Job Templates ==
+
+.job_template_s3_sync: &job_template_s3_sync
+  stage: deploy
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  script: "aws s3 sync --delete dist/ s3://$S3_CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
+
+# == Global settings ==
+
+stages:
+  - build
+  - lint
+  - package
+  - review
+  - deploy
+
+image: docker-registry.data.bas.ac.uk/bsk/bas-style-kit:0.2.0-develop-alpine
+
+variables:
+  AWS_DEFAULT_REGION: eu-west-1
+  SNAPSHOT_BUCKET: bas-package-service-prod
+  SNAPSHOT_BUCKET_PATH: zips/apps
+  APP_NAME: bas-style-kit
+  REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
+  NODE_PATH: /usr/src/app/node_modules
+
+# == Jobs ==
+
+compile-sass:
+  stage: build
+  before_script:
+    - "mkdir node_modules"
+    - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
+    - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
+    - "cp -R $NODE_PATH/font-awesome node_modules/"
+  script:
+    - "gulp build--styles-bas-style-kit-no-min"
+    - "gulp build--styles-bootstrap-bsk-no-min"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist"
+    paths:
+      - dist/css/bas-style-kit.css
+      - dist/css/bootstrap-bsk.css
+    expire_in: 1 day
+
+compile-sass-min:
+  stage: build
+  only:
+    - master
+  before_script:
+    - "mkdir node_modules"
+    - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
+    - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
+    - "cp -R $NODE_PATH/font-awesome node_modules/"
+  script:
+    - "gulp build--styles-bas-style-kit-min"
+    - "gulp build--styles-bootstrap-bsk-min"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-min"
+    paths:
+      - dist/css/bas-style-kit.min.css
+      - dist/css/bootstrap-bsk.min.css
+      - dist/css/maps/bas-style-kit.min.css.map
+      - dist/css/maps/bootstrap-bsk.min.css.map
+    expire_in: 1 day
+
+compile-testbed:
+  stage: build
+  only:
+    - branches
+  except:
+    - master
+  script:
+    - "gulp testbed"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-testbed"
+    paths:
+      - testbed/rendered
+    expire_in: 1 day
+
+copy-fonts:
+  stage: build
+  before_script:
+    - "mkdir node_modules"
+    - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
+    - "cp -R $NODE_PATH/font-awesome node_modules/"
+  script:
+    - "gulp fonts"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-fonts"
+    paths:
+      - dist/fonts
+    expire_in: 1 day
+
+lint-sass:
+  stage: lint
+  script: gulp lint
+
+review:
+  stage: review
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  only:
+    - branches
+  except:
+    - master
+  script:
+    - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
+    - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    url: http://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html
+    on_stop: stop_review
+
+stop_review:
+  stage: review
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  script:
+    - aws s3 rm --recursive s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME
+  variables:
+    GIT_STRATEGY: none
+  when: manual
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    action: stop
+
+package-dist:
+  stage: package
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+    - "export DATETIME_INSTANT=`date --utc -Iseconds`"
+    - "cd dist"
+  script: "zip -r ../$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip *"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-zip"
+    paths:
+      - "*.zip"
+    expire_in: 1 day
+
+s3-snapshot-dev:
+  stage: deploy
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$SNAPSHOT_BUCKET/$SNAPSHOT_BUCKET_PATH/$APP_NAME/"
+  only:
+    - master
+
+s3-cdn-dev:
+  <<: *job_template_s3_sync
+  only:
+    - master
+  when: manual
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+    - "export CDN_PROJECT_VERSION=$CI_BUILD_REF_SHORT"
+  variables:
+    S3_CDN_BUCKET: bas-cdn-dev
+
+s3-cdn-prod:
+  <<: *job_template_s3_sync
+  only:
+    - tags
+  when: manual
+  before_script:
+    - "export CDN_PROJECT_VERSION=$CI_COMMIT_TAG"
+  variables:
+    S3_CDN_BUCKET: bas-cdn-prod

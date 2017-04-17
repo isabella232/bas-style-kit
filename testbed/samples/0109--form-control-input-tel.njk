@@ -1,0 +1,12 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0109--form-control-input-tel.html" %}
+{% set sample_number = "#0109" %}
+{% set sample_title = "Telephone input form control" %}
+{% set sample_markup = 'input[type="tel"].form-control' %}
+
+{% block sample %}
+{{ form.bsk_tb_form_control_input_v1(type="tel", values=["01223211400", "1234", "abc123"]) }}
+{% endblock %}

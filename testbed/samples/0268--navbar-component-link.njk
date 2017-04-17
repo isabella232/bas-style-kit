@@ -1,0 +1,31 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0268--navbar-component-link.html" %}
+{% set sample_number = "#0268" %}
+{% set sample_title = "navbar link" %}
+{% set sample_markup = ".navbar.navbar-bsk .navbar-link" %}
+
+{% block sample %}
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <a href="#" class="navbar-link">Link</a>
+  </div>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With text</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <p class="navbar-text">Some text with a <a href="#" class="navbar-link">link</a></p>
+  </div>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With item</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+    <p class="navbar-text">Some text with a <a href="#" class="navbar-link">link</a></p>
+  </div>
+</nav>
+{% endblock %}

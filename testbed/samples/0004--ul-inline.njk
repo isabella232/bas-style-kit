@@ -1,0 +1,55 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0004--ul-inline.html" %}
+{% set sample_number = "#0004" %}
+{% set sample_title = "inline list" %}
+{% set sample_markup = "ul.list-inline" %}
+
+{% block sample %}
+<p class="text-info">Class <strong>is not</strong> supported with ordered lists.</p>
+<ul class="list-inline">
+  <li>Popcorn</li>
+  <li>Jelly</li>
+  <li>Oat cakes</li>
+</ul>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Nested</h4>
+<p class="text-info">Class <strong>is not</strong> supported with nested lists.</p>
+<p class="text-info">Class <strong>not applied</strong> to nested lists.</p>
+<ul class="list-inline">
+  <li>Popcorn</li>
+  <li>Jelly</li>
+  <li>Oat cakes</li>
+  <li>
+    Sesame snaps
+    <ul>
+      <li>Chocolate cake</li>
+      <li>
+        <ul>
+          <li>Sherbet</li>
+          <li>Toffee apples</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p class="text-info">Class <strong>applied</strong> to nested lists.</p>
+<ul class="list-inline">
+  <li>Popcorn</li>
+  <li>Jelly</li>
+  <li>Oat cakes</li>
+  <li>
+    Sesame snaps
+    <ul class="list-inline">
+      <li>Chocolate cake</li>
+      <li>
+        <ul class="list-inline">
+          <li>Sherbet</li>
+          <li>Toffee apples</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0102--form-control-input-time.html" %}
+{% set sample_number = "#0102" %}
+{% set sample_title = "Time input form control" %}
+{% set sample_markup = 'input[type="time"].form-control' %}
+
+{% block sample %}
+{{ form.bsk_tb_form_control_input_v1(type="time", values=[
+  "23:20:50.52",
+  "1991-12-22T23:20:50.52",
+  "2:00 PM"
+]) }}
+{% endblock %}

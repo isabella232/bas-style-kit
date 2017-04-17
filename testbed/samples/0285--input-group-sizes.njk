@@ -1,0 +1,58 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0285--input-group-sizes.html" %}
+{% set sample_number = "#0285" %}
+{% set sample_title = "input group sizes" %}
+{% set sample_markup = ".input-group" %}
+
+{% block sample %}
+<form>
+  <fieldset class="form-group form-group-sm">
+    <label class="control-label" for="form-input-group-example-10">Small input group</label>
+    <div class="input-group">
+      <span class="input-group-addon" id="form-input-group-example-10-addon-1">Addon before</span>
+      <input type="text" class="form-control" id="form-input-group-example-10" aria-describedby="form-input-group-example-11-addon-1">
+    </div>
+  </fieldset>
+  <fieldset class="form-group form-group-sm">
+    <label class="control-label" for="form-input-group-example-10">Small input group</label>
+    <div class="input-group">
+      <span class="input-group-addon" id="form-input-group-example-10-addon-1">Addon before</span>
+      <input type="text" class="form-control" id="form-input-group-example-10" aria-describedby="form-input-group-example-11-addon-1">
+      <span class="input-group-addon" id="form-input-group-example-10-addon-2">Addon after</span>
+    </div>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label class="control-label" for="form-input-group-example-10">Regular input group</label>
+    <div class="input-group">
+      <span class="input-group-addon" id="form-input-group-example-10-addon-1">Addon before</span>
+      <input type="text" class="form-control" id="form-input-group-example-10" aria-describedby="form-input-group-example-10-addon-1">
+      <span class="input-group-addon" id="form-input-group-example-10-addon-2">Addon after</span>
+    </div>
+  </fieldset>
+  <fieldset class="form-group">
+    <label class="control-label" for="form-input-group-example-10">Regular input group</label>
+    <div class="input-group">
+      <span class="input-group-addon" id="form-input-group-example-10-addon-1">Addon before</span>
+      <input type="text" class="form-control" id="form-input-group-example-10" aria-describedby="form-input-group-example-10-addon-1">
+    </div>
+  </fieldset>
+
+  <fieldset class="form-group form-group-lg">
+    <label class="control-label" for="form-input-group-example-9">Large input group</label>
+    <div class="input-group">
+      <span class="input-group-addon" id="form-input-group-example-9-addon-1">Addon before</span>
+      <input type="text" class="form-control" id="form-input-group-example-9" aria-describedby="form-input-group-example-9-addon-1">
+    </div>
+  </fieldset>
+  <fieldset class="form-group form-group-lg">
+    <label class="control-label" for="form-input-group-example-9">Large input group</label>
+    <div class="input-group">
+      <span class="input-group-addon" id="form-input-group-example-9-addon-1">Addon before</span>
+      <input type="text" class="form-control" id="form-input-group-example-9" aria-describedby="form-input-group-example-9-addon-1">
+      <span class="input-group-addon" id="form-input-group-example-10-addon-2">Addon after</span>
+    </div>
+  </fieldset>
+</form>
+{% endblock %}

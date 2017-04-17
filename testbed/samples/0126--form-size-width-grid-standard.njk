@@ -1,0 +1,36 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0126--form-size-width-grid-standard.html" %}
+{% set sample_number = "#0126" %}
+{% set sample_title = "Form control width using standard grid" %}
+{% set sample_markup = '.form-group.col-md-*' %}
+
+{% set grid_columns=12 %}
+{% set column_grid='col-md' %}
+
+{% block sample %}
+<div class="container bsk-tb-visible-container">
+  <p class="text-info">Using the medium standard grid, in a fixed-width container.</p>
+
+  <form>
+{% for column_size in range(1, grid_columns) %}
+    <p class="text-info"><code>form-group.{{ column_grid }}-{{ column_size }}</code></p>
+    <fieldset class="row">
+      <div class="form-group {{ column_grid }}-{{ column_size }}">
+        <label class="control-label">Text input</label>
+        <input type="text" class="form-control">
+      </div>
+    </fieldset>
+{% endfor %}
+    <p class="text-info"><code>form-group.{{ column_grid }}-{{ grid_columns }}</code></p>
+    <fieldset class="row">
+      <div class="form-group {{ column_grid }}-{{ grid_columns }}">
+        <label class="control-label">Text input</label>
+        <input type="text" class="form-control">
+      </div>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

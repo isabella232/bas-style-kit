@@ -1,0 +1,12 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0105--form-control-input-week.html" %}
+{% set sample_number = "#0105" %}
+{% set sample_title = "Week input form control" %}
+{% set sample_markup = 'input[type="week"].form-control' %}
+
+{% block sample %}
+{{ form.bsk_tb_form_control_input_v1(type="week", values=["1991-W16", 7, "Two"]) }}
+{% endblock %}

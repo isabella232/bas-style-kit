@@ -1,0 +1,50 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0282--input-group-button.html" %}
+{% set sample_number = "#0282" %}
+{% set sample_title = "button input group" %}
+{% set sample_markup = ".input-group-btn" %}
+
+{% block sample %}
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Before input</h4>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label" for="form-input-group-example-1">Input group with button</label>
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button class="btn btn-bsk btn-default">Button</button>
+      </div>
+      <input type="text" class="form-control" placeholder="Text input" id="form-input-group-example-1">
+    </div>
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">After input</h4>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label" for="form-input-group-example-2">Input group with button</label>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Text input" id="form-input-group-example-2">
+      <div class="input-group-btn">
+        <button class="btn btn-bsk btn-default">Button</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Before and after input</h4>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label" for="form-input-group-example-3">Input group with button</label>
+    <div class="input-group">
+      <div class="input-group-btn">
+        <button class="btn btn-bsk btn-default">Button</button>
+      </div>
+      <input type="text" class="form-control" placeholder="Text input" id="form-input-group-example-3">
+      <div class="input-group-btn">
+        <button class="btn btn-bsk btn-default">Button</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+{% endblock %}

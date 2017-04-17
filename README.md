@@ -1,469 +1,254 @@
 # BAS Style Kit
 
-Master: [![Build Status](https://semaphoreci.com/api/v1/projects/0f33c45e-b93f-4491-aa1a-eb4848653351/573094/badge.svg)](https://semaphoreci.com/antarctica/bas-style-kit)
-Develop: [![Build Status](https://semaphoreci.com/api/v1/projects/0f33c45e-b93f-4491-aa1a-eb4848653351/569676/badge.svg)](https://semaphoreci.com/antarctica/bas-style-kit)
-
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
-* More information about this project is available in
-[documentation/project-management](documentation/project-management/index.md)
-* Documentation for end users is stored in `documentation/end-users` and
-[published online](https://style-kit.web.bas.ac.uk)
-* Documentation for developers is available in [documentation/developers](documentation/developers/index.md)
+End-user documentation for the BAS Style Kit, documenting what it includes, and how to use it to build websites and
+web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
 
-This project is based on the BASIS project template (version 2).
+## Overview
 
-## Requirements
+The BAS Style Kit is a CSS framework, incorporating the BAS brand, to establish a consistent visual design across
+BAS services and websites. It aims to build-in best practice at a technical and accessibility level.
 
-You will need to have the following software or resources available depending on the environment you wish to use:
+The Style Kit is based on the official Sass port of the [Bootstrap 3](http://getbootstrap.com) and consists of:
 
-### All environments
-
-* [Mac OS X](https://www.apple.com/uk/osx/)
-* [NMap](http://nmap.org/) `brew cask install nmap` [1]
-* [Git](http://git-scm.com/) `brew install git`
-* [Ansible](http://www.ansible.com) `brew install ansible`
-* You have a [private key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa`
-and [public key](https://help.github.com/articles/generating-ssh-keys/) `id_rsa.pub` in `~/.ssh/`
-
-[1] `nmap` is needed to determine if you access internal resources (such as Stash).
-
-### Development - local
-
-To *setup* and *use* this environment:
-
-* [VMware Fusion](http://vmware.com/fusion) `brew cask install vmware-fusion`
-* [Vagrant](http://vagrantup.com) `brew cask install vagrant`
-* Vagrant plugins:
-    * [Vagrant VMware](http://www.vagrantup.com/vmware) `vagrant plugin install vagrant-vmware-fusion`
-    * [Host manager](https://github.com/smdahlen/vagrant-hostmanager) `vagrant plugin install vagrant-hostmanager`
-    * [Vagrant triggers](https://github.com/emyl/vagrant-triggers) `vagrant plugin install vagrant-triggers`
-* You have an entry like [1] in your `~/.ssh/config`
-* You have a [self signed SSL certificate for local use](https://gist.github.com/felnne/25c220a03f8f39663a5d), with the
-certificate assumed at, `app/provisioning/certificates/v.m/v.m.tls.crt`, and private key, `/etc/ssl/private/v.m.tls.key`
-
-[1] SSH config entry
-
-```shell
-Host *.v.m
-    ForwardAgent yes
-    User app
-    IdentityFile ~/.ssh/id_rsa
-    Port 22
-```
-
-### Staging - remote
-
-To *setup* this environment:
-
-* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
-* An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
-`AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [1]
-* Suitable permissions within AWS to manage S3 buckets and to manage CloudFront distributions
-* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
-organisation [2]
-* Ansible Vault password file [3]
-* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [4]
-
-To *use* this environment:
-
-* Suitable permissions to push to the *develop* branch of the project repository [2]
-* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to view projects under the `antarctica`
-organisation [2]
-
-[1] Specifically for a user account delegated from the BAS AWS account, use the
-[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
-
-[2] Please contact the *Project Maintainer* if you do not have these permissions.
-
-[3] This playbook uses an Ansible vault managed variables file containing the credentials of the AWS user used for
-Continuous Deployment. The password for this vault is contained in `provisioning/.vault_pass.txt` and passed to
-`ansible-playbook` at run time.
-
-For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
-this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
-
-[4] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
-
-### Production - remote
-
-To *setup* this environment:
-
-* [Terraform](terraform.io) `brew cask install terraform` (minimum version: 6.0)
-* An `AWS_ACCESS_KEY_ID` environment variable set to your AWS access key ID, and both `AWS_ACCESS_KEY_SECRET` and
-`AWS_SECRET_ACCESS_KEY` environment variables set to your AWS Access Key [1]
-* Suitable permissions within AWS to manage S3 buckets and CloudFront distributions
-* Suitable permissions to upload to the BAS CDN [2]
-* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to create projects under the `antarctica`
-organisation [3]
-* Ansible Vault password file [4]
-* The `star.web.bas.ac.uk` SSL certificate is available within CloudFront [5]
-
-To *use* this environment:
-
-* Suitable permissions to push to the *master* branch of the project repository [2]
-* Suitable permissions within [SemaphoreCI](https://semaphoreci.com) to view projects under the `antarctica`
-organisation [3]
-
-[1] Specifically for a user account delegated from the BAS AWS account, use the
-[IAM Console](https://console.aws.amazon.com/iam/home?region=eu-west-1) to generate access keys.
-
-[2] See the [BAS CDN Project](https://stash.ceh.ac.uk/projects/WSF/repos/bas-cdn/browse) for more information.
-
-[3] Please contact the *Project Maintainer* if you do not have these permissions.
-
-[4] This playbook uses an Ansible vault managed variables file containing the credentials of the AWS user used for
-Continuous Deployment. The password for this vault is contained in `provisioning/.vault_pass.txt` and passed to
-`ansible-playbook` at run time.
-
-For obvious reasons, this file is **MUST NOT** be checked into source control. Those with suitable access can download
-this file from the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse).
-
-[5] See the [BAS Credential Store](https://stash.ceh.ac.uk/projects/BASWEB/repos/porcupine/browse) for instructions.
-
-## Setup
-
-### All environments
-
-```shell
-$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git
-$ cd bas-style-kit
-```
-
-### Development - local
-
-VMs are powered by VMware, managed using Vagrant and configured by Ansible.
-
-```shell
-$ vagrant up
-```
-
-Vagrant will automatically configure the localhost hosts file for infrastructure it creates on your behalf:
-
-| Name                   | Points To        | FQDN                         | Notes                       |
-| ---------------------- | ---------------- | ---------------------------- | --------------------------- |
-| bas-style-kit-dev-web1 | *computed value* | `bas-style-kit-dev-web1.v.m` | The VM's private IP address |
-
-Note: Vagrant managed VMs also have a second, host-guest only, network for management purposes not documented here.
-
-```shell
-$ mkdir provisioning/certificates/v.m
-$ cp /etc/ssl/certs/v.m.tls.crt /provisioning/certificates/v.m/
-$ cp /etc/ssl/private/v.m.tls.key /provisioning/certificates/v.m/
-
-$ ansible-playbook -i provisioning/development provisioning/site-dev.yml
-```
-
-### Staging - remote
-
-Static website hosting is powered by AWS S3 / AWS CloudFront, managed using terraform / manually, configured by Ansible
-and deployed by SemaphoreCI.
-
-#### Infrastructure
-
-The AWS S3 bucket managed by Terraform:
-
-```shell
-$ terraform get
-$ terraform apply
-```
-
-The CloudFront distribution that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
-
-1. Login to the [BAS AWS Console](https://178449599525.signin.aws.amazon.com/console/)
-2. Within CloudFront, setup a new web distribution with these settings (use defaults for non-specified settings):
-  * Origin domain name: `bas-style-kit-docs-stage.s3-website-eu-west-1.amazonaws.com`
-  * Viewer protocol policy: *Redirect HTTP to HTTPS*
-  * Price class: *Use Only US and Europe*
-  * Alternate domain names: `style-kit-preview.web.bas.ac.uk`
-  * SSL certificate: *Custom SSL Certificate* -> `star-web-bas-ac-uk`
-  * Default root object: `index.html`
-
-To use an alternate domain name, a CNAME DNS record is required, this will need to be created by BAS ICT as below:
-
-| Kind      | Name              | Points To        | FQDN                              | Notes      |
-| --------- | ----------------- | ---------------- | --------------------------------- | ---------- |
-| **CNAME** | style-kit-preview | *computed value* | `style-kit-preview.web.bas.ac.uk` | Vanity URL |
-
-#### Continuous Integration
-
-If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the `develop` branch of the
-Project Repository and associate within the antarctica organisation.
-
-If the project already exists, but not this branch, check the settings below are correct and add the *develop* branch
-as a new build branch manually.
-
-In the settings for this project set the *Build Settings* to:
-
-* Language: `Python`
-* Python version: `2.7`
-
-For the *Setup* thread enter these commands:
-
-```shell
-source provisioning/data/semaphore-ci/set-environment.sh
-declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
-pip install ansible
-```
-
-For *Thread #1* rename to *Build and Test* with these commands:
-
-```shell
-ansible-playbook -i provisioning/local provisioning/test-ci.yml --connection=local
-```
-
-Set the *Branches* settings to:
-
-* Build new branches: `Never`
-
-Set *Configuration Files* as shown in the table below:
-
-| File Path                                    | Content | Encrypt File  |
-| -------------------------------------------- | ------- | ------------- |
-| `bas-style-kit/provisioning/.vault_pass.txt` | [1]     | Yes (checked) |
-
-Copy the build badge for the *develop* branch to this README.
-
-If the project and branch already exists, check the settings above are correct.
-
-#### Continuous Deployment
-
-If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
-
-* Set the deployment strategy to: `Automatic`
-* Set the branch to deploy to: `develop`
-* Set the deploy commands to [2]
-* Skip the deployment SSH key option
-* Set the server name to: `staging-documentation`
-* Set the server URL to: `https://style-kit-preview.web.bas.ac.uk/`
-
-If the deployment already exists check the settings above are correct.
-
-End-user documentation for this project can then be accessed from
-[here](https://style-kit-preview.web.bas.ac.uk/).
-
-[1] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
-information in the *Issue Tracker* section of the Project Management documentation.
-
-[2]
-```shell
-source provisioning/data/semaphore-ci/set-environment.sh
-declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
-pip install ansible
-ansible-playbook -i provisioning/local provisioning/deploy-stage-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
-```
-
-### Production - remote
-
-Static website hosting is powered by AWS S3 / AWS CloudFront, managed using terraform / manually, configured by Ansible
-and deployed by SemaphoreCI.
-
-Distribution assets of each version are stored in the *production* environment of the BAS CDN, deployments to this CDN
-are managed automatically by Semaphore.
-
-#### Infrastructure
-
-The AWS S3 bucket managed by Terraform:
-
-```shell
-$ terraform get
-$ terraform apply
-```
-
-The CloudFront distribution that sits on top of the S3 bucket to provide SSL, requires manual provisioning:
-
-1. Login to the [BAS AWS Console](https://178449599525.signin.aws.amazon.com/console/)
-2. Within CloudFront, setup a new web distribution with these settings (use defaults for non-specified settings):
-  * Origin domain name: `bas-style-kit-docs-prod.s3-website-eu-west-1.amazonaws.com`
-  * Viewer protocol policy: *Redirect HTTP to HTTPS*
-  * Price class: *Use Only US and Europe*
-  * Alternate domain names: `style-kit.web.bas.ac.uk`
-  * SSL certificate: *Custom SSL Certificate* -> `star-web-bas-ac-uk`
-  * Default root object: `index.html`
-
-To use an alternate domain name, a CNAME DNS record is required, this will need to be created by BAS ICT as below:
-
-| Kind      | Name      | Points To        | FQDN                      | Notes      |
-| --------- | --------- | ---------------- | ------------------------- | ---------- |
-| **CNAME** | style-kit | *computed value* | `style-kit.web.bas.ac.uk` | Vanity URL |
-
-#### Continuous Integration
-
-If not added already, create a new project in [SemaphoreCI](https://semaphoreci.com) using the `master` branch of the
-Project Repository and associate within the antarctica organisation.
-
-If the project already exists, but not this branch, check the settings below are correct and add the *master* branch
-as a new build branch manually.
-
-In the settings for this project set the *Build Settings* to:
-
-* Language: `Python`
-* Python version: `2.7`
-
-For the *Setup* thread enter these commands:
-
-```shell
-source provisioning/data/semaphore-ci/set-environment.sh
-declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
-pip install ansible
-```
-
-For *Thread #1* rename to *Build and Test* with these commands:
-
-```shell
-ansible-playbook -i provisioning/local provisioning/site-test-ci.yml --connection=local
-```
-
-Set the *Branches* settings to:
-
-* Build new branches: `Never`
-
-Set *Configuration Files* as shown in the table below:
-
-| File Path                                    | Content | Encrypt File  |
-| -------------------------------------------- | ------- | ------------- |
-| `bas-style-kit/provisioning/.vault_pass.txt` | [1]     | Yes (checked) |
-
-Copy the build badge for the *master* branch to this README.
-
-If the project and branch already exists, check the settings above are correct.
-
-#### Continuous Deployment
-
-##### End-user documentation
-
-If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
-
-* Set the deployment strategy to: `Automatic`
-* Set the branch to deploy to: `master`
-* Set the deploy commands to [1]
-* Skip the deployment SSH key option
-* Set the server name to: `production-documentation`
-* Set the server URL to: `https://style-kit.web.bas.ac.uk/`
-
-If the deployment already exists check the settings above are correct.
-
-End-user documentation for this project can then be accessed from
-[here](https://style-kit.web.bas.ac.uk/).
-
-[1] Set this to the contents of the `.vault_pass.txt` file for this project. Users can request this file using the
-information in the *Issue Tracker* section of the Project Management documentation.
-
-[2]
-```shell
-source provisioning/data/semaphore-ci/set-environment.sh
-declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
-pip install ansible
-ansible-playbook -i provisioning/local provisioning/deploy-docs-prod-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
-```
-
-##### Distribution assets
-
-If not added already, create a deployment in [SemaphoreCI](https://semaphoreci.com) using the Generic Deployment option.
-
-* Set the deployment strategy to: `Automatic`
-* Set the branch to deploy to: `master`
-* Set the deploy commands to [1]
-* Skip the deployment SSH key option
-* Set the server name to: `production-assets-cdn`
-
-If the deployment already exists check the settings above are correct.
-
-[1]
-```shell
-source provisioning/data/semaphore-ci/set-environment.sh
-declare -x JEKYLL_ENV=$PROJECT_ENVIRONMENT
-pip install ansible
-ansible-playbook -i provisioning/local provisioning/deploy-assets-prod-cd.yml --connection=local --vault-password-file provisioning/.vault_pass.txt
-```
+* BAS colour schemes and fonts
+* customised version of the Bootstrap framework (using Sass variable overrides)
+* custom variants of Bootstrap components
+* additional components inspired by other frameworks or organisations
 
 ## Usage
 
-### All environments
+End-user documentation for the BAS Style Kit, documenting what it includes, and how to use it to build websites and
+web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
 
-It is assumed you have setup the environment you wish to use and your working directory is the root of this project.
+### Docker Compose
 
-### Development - local
+1. `docker-compose up`
 
-#### End-user documentation
+This will create two containers:
 
-In the *development* environment documentation is built from within the Project VM, triggered either manually or
-automatically, to ensure new features are correctly documented.
+1. A NodeJS instance running the `docker` gulp task, which generates the Style Kit and the Testbed
+2. A Nginx instance exposing the generated Style Kit and Testbed
 
-The `JEKYLL_ENV` is not set in this environment to use its default value of `development`. This should not be changed
-to ensure the documentation is built in the correct way.
+The Testbed will be exposed on your local machine at: `http://localhost:9000/testbed`
 
-To manually build the documentation:
+See the *Gulp* and *Testbed* sub-sections for more information.
 
-```shell
-$ ssh bas-style-kit-dev-web1.v.m
-$ cd /app
+### Gulp tasks
 
-$ gulp clean
-$ gulp fonts
-$ gulp less
-$ gulp jekyll-data
+[Gulp](http://gulpjs.com/) is a NodeJS task runner, used for tasks such as copying font files, compiling Sass to CSS
+and generating the Testbed.
 
-$ gulp lint
+See `gulpfile.js` for tasks this project supports.
 
-$ jekyll build
-```
-
-To automatically build whenever changes are made to source files:
+To run a gulp task `foo`:
 
 ```shell
-$ ssh bas-style-kit-dev-web1.v.m
-$ cd /app
-
-$ jekyll build --watch --force_polling
+$ docker-compose run app gulp foo
 ```
 
-A local build of the documentation will be available from
-[bas-style-kit-dev-web1.v.m](http://bas-style-kit-dev-web1.v.m).
+For example, to run all linting tasks:
 
-### Staging - remote
+```shell
+$ docker-compose run app gulp lint
+```
 
-#### End-user documentation
+**Note:** This will run the NodeJS container only, it will not start the Nginx container.
 
-Pushing to the `develop` branch will automatically trigger SemaphoreCI, passing builds will then be deployed to the
-preview documentation site, using Semaphore's Continuous Deployment facilities.
+### Testbed
 
-The `JEKYLL_ENV` will be automatically set to `staging` to ensure the documentation is built in the correct way.
+To aid developing styles within the Style Kit a 'Testbed' is included. This contains a number of atomic 'samples',
+written as [Nunjuck](https://mozilla.github.io/nunjucks/) templates, designed to demonstrate individual styles.
 
-The latest version of this preview documentation will be available from
-[style-kit-preview.web.bas.ac.uk](http://style-kit-preview.web.bas.ac.uk/).
+Where a logical grouping of samples exists, a 'collection' is defined containing those samples. For example ordered and
+unordered lists are individual samples, but are both within the *lists* collection.
 
-### Production - remote
+Samples are numbered, but these have no implied ordering, and may not be congruous for a set of related styles.
 
-#### End-user documentation
+E.g. Lists may be samples *0001*, *0003*, *0030* and *0500* with gaps corresponding to unrelated samples, or samples
+which have been removed. Collections are intended as the way to create curated sets of samples.
 
-Pushing to the `master` branch will automatically trigger SemaphoreCI, passing builds will then be deployed to the
-documentation site, using Semaphore's Continuous Deployment facilities.
+A Gulp task, `testbed`, is used to render the Testbed templates to HTML and generate the Style Kit's assets in one
+command.
 
-The `JEKYLL_ENV` will be automatically set to `production` to ensure the documentation is built in the correct way.
+## Developing
 
-The latest, and definitive, version of this documentation will be available from
-[style-kit.web.bas.ac.uk](http://style-kit.web.bas.ac.uk/).
+[Git](https://git-scm.com) and [Docker](https://www.docker.com/products/docker) [1] are required to build this project
+locally.
 
-#### Distribution assets
+To update the Docker image for this project, access to the private
+[BAS Docker Registry](https://docker-registry.data.bas.ac.uk) [2] is also required.
 
-Pushing to the `master` branch will also automatically trigger SemaphoreCI to deploy distribution assets, i.e. the
-`dist` directory, to the *production* environment of the BAS CDN [1]
+```shell
+$ git clone https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
+$ cd bas-style-kit
 
-[1] Note: This service should already exist and is out of the scope of this project. See the BAS CDN Project for more
+$ docker-compose up
+```
+
+**Note:** If you don't have access to the BAS Private Docker Registry, you will need to build the project Docker image
+locally first using `docker-compose build`.
+
+See the *Usage* section for how to use this project.
+
+[1] To install Git and Docker:
+
+**On macOS**
+
+```shell
+$ brew install git
+$ brew cask install docker
+```
+
+**On Windows**
+
+* Install Docker and Git using their respective installers
+
+[2] The first time you use this registry, you will need to authenticate using:
+`docker login docker-registry.data.bas.ac.uk`
+
+### Updating dependencies
+
+If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `gulpfile.js` are changed, the project Docker image will need
+to be rebuilt and pushed to the private BAS Docker Repository [1].
+
+The current project version is used as part of the project Docker image tag to ensure the latest version is used by all
+developers. Before rebuilding this image you **MUST** update this tag value in `docker-compose.yml` and `.gitlab-ci.yml`
+first.
+
+```shell
+$ cd bas-style-kit/
+
+$ docker-compose build app
+$ docker-compose push app
+```
+
+[1] The first time you use this registry, you will need to authenticate using:
+`docker login docker-registry.data.bas.ac.uk`
+
+## Testing
+
+### Integration tests
+
+Integration tests are used for all endpoints in this project, ideally with all their possible failure modes.
+
+To run tests manually run the `lint` Gulp task.
+
+### Continuous Integration
+
+The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/pipelines)
+using settings defined in `.gitlab-ci.yml`.
+
+### Review apps
+
+The BAS GitLab instance is used to provide [review apps](https://docs.gitlab.com/ce/ci/review_apps/) for merge requests
+into the *master* branch. These review apps use the Testbed to approve any changes and ensure regressions are not
+introduced.
+
+Review apps are integrated within GitLab, using a set of conventional jobs and stages. GitLab will show links to the
+relevant review app within each merge request. Settings for these jobs are defined in `.gitlab-ci.yml`.
+
+## Provisioning
+
+[Git](https://git-scm.com) and [Terraform](https://terrafrom.io) [1] are required to provision resources for this
+project.
+
+Access to the [BAS Packages Service](https://bitbucket.org/antarctica/bas-packages-service) and
+[BAS CDN](https://bitbucket.org/antarctica/bas-cdn) projects is also required [2].
+
+```shell
+$ git clone https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
+$ cd bas-style-kit/provisioning/terraform
+
+$ terraform plan
+$ terraform apply
+```
+
+During provisioning, an AWS IAM user will be created with least-privilege permissions to enable access to resources
+used by this project.
+
+Access credentials for this user will need to generated manually through the AWS Console and set as secret variables.
+
+See the `.gitlab-ci.yml` file for specifics on which user to generate credentials for, and what to name them.
+
+**Note:** Commit all Terraform state files to this repository.
+
+[1] To install Git and Terraform:
+
+**On macOS**
+
+```shell
+$ brew install git
+$ brew cask install terraform
+```
+
+**On Windows**
+
+* Install Terraform and Git using their respective installers
+
+[2] Contact the [BAS Web & Applications Team](mailto:webapps@bas.ac.uk) if you don't yet have access.
+
+## Deployment
+
+The BAS GitLab instance is used for [Continuous Deployment](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
+using settings defined in `.gitlab-ci.yml`.
+
+Deployments are currently triggered manually, but are automated once started.
+
+After deployment, the contents of the `dist` directory will be available through:
+
+* the development instance of the BAS CDN for commits to the *master* branch
+* the production instance of the BAS CDN for tagged commits
+
+**Note:** Due to caching, deployed changes may not appear for up to 1 hour.
+
+## Issue tracking
+
+This project uses issue tracking, see the [issue tracker](https://trello.com/b/0Mhzizpk/bas-style-kit) for more
 information.
 
-## Contributing
+**Note:** Write access to this issue tracker is restricted. Contact the project maintainer to request access.
 
-This project welcomes contributions, see `CONTRIBUTING` for our general policy.
+## Branching model
 
-## Releases
+There is only one long-term branch in this repository, *master*, which represents a working, stable, version of the
+project, but is not necessarily the released version.
 
-See the *developer* documentation for instructions on how to create and manage releases.
+All changes are made in other branches and merged into the Master branch when ready. Multiple branches may be active at
+any one time, and **MUST** therefore be rebased on *master* before they are merged.
+
+When required, a release is made using a release branch (see the *Release procedures* section for more information).
+This is also merged with *master* and tagged. This triggers the relevant deployment tasks to release a new version.
+
+## Release procedures
+
+1. create a release branch
+2. remove `-develop` from version string in:
+    * `package.json`
+    * `docker-compose.yml` - `app` Docker image
+    * `.gitlab-ci.yml` - default Docker image
+3. build & push the docker image
+4. close release in `CHANGELOG.md`
+5. merge release branch with master and tag with version
+
+### After release
+
+1. bump version, and add `-develop` prefix to version string in:
+    * `package.json`
+    * `docker-compose.yml` - `app` Docker image
+    * `.gitlab-ci.yml` - default Docker image
+2. build & push the docker image
+
+This is to guard against updating the Docker image for a released version.
+
+## Feedback
+
+The maintainer of this project is the BAS Web & Applications Team, they can be contacted at: webapps@bas.ac.uk.
 
 ## Acknowledgements
 
-The vast majority of this project is based on the amazing [Bootstrap](http://getbootstrap.com) project.
+The vast majority of this project is based on the [Bootstrap](http://getbootstrap.com) project.
 
 90% of any credit for this project should go to Boostrap's [authors and contributors](http://getbootstrap.com/about/).
 
@@ -476,7 +261,11 @@ Docs released under [Creative Commons](https://github.com/twbs/bootstrap/blob/ma
 
 The authors of this project are incredibly grateful for their work.
 
-## License
+## Licence
 
-Copyright 2015 NERC BAS. Except where otherwise stated, Code is licensed under the MIT License, Documentation is
-licensed under the Creative Commons Public License v3.0. See `LICENSE.md` for details.
+Copyright 2017 NERC BAS.
+
+Unless stated otherwise, all documentation is licensed under the Creative Commons Public License - version 3.
+All code is licensed under the MIT license.
+
+Copies of these licenses are included within this project.

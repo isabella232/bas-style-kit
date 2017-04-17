@@ -1,0 +1,16 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0028--underlined.html" %}
+{% set sample_number = "#0028" %}
+{% set sample_title = "underlined" %}
+{% set sample_markup = "u" %}
+
+{% block sample %}
+<p><u>There are dozens of us! DOZENS!</u></p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Mixed single line</h4>
+<p><u>There are dozens of us! DOZENS!</u> There are dozens of us! DOZENS!</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Mixed text block (approx 300 characters)</h4>
+<p>Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. <u>This show was cancelled</u>. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+{% endblock %}

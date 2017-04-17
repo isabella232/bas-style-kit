@@ -1,0 +1,27 @@
+// Social media
+//
+// Generate styles for a social media service based on its brand colour
+
+// For use as a static symbol
+@mixin make-social-media-static(
+  $service,
+  $brand-colour) {
+  &.#{$service} {
+    color: $brand-colour;
+  }
+}
+
+// For use as a linked symbol
+@mixin make-social-media-link(
+  $service,
+  $brand-colour) {
+  &.#{$service} {
+    color: $brand-colour;
+  }
+
+  &:hover {
+    &.#{$service} {
+      color: darken($brand-colour, 15%);
+    }
+  }
+}

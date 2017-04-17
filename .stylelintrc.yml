@@ -1,0 +1,9 @@
+---
+# StyleLint configuration
+
+extends: stylelint-config-standard
+rules:
+  max-empty-lines: 2
+  declaration-colon-space-after: null
+  color-hex-case: upper
+  color-hex-length: long

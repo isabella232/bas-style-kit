@@ -1,0 +1,56 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0274--navbar-alignment-right.html" %}
+{% set sample_number = "#0274" %}
+{% set sample_title = "right aligned navbar items" %}
+{% set sample_markup = ".navbar.navbar-bsk ul.navbar-nav.navbar-right" %}
+
+{% block sample %}
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Item</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With left item list</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="#">Left item</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Right item</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With multiple item lists</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">First item set</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Second item set</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With left item list and multiple item lists</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav navbar-left">
+      <li><a href="#">Left item set</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">First right item set</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Second right item set</a></li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}

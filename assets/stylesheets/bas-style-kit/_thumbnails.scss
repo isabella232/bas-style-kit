@@ -1,0 +1,45 @@
+//
+// Thumbnails
+// --------------------------------------------------
+
+// Base class
+//
+
+.thumbnail-bsk {
+  padding:       $thumbnail-bsk-padding;
+  border-radius: $thumbnail-bsk-border-radius;
+
+  > img {
+    margin-left:  0;
+    margin-right: 0;
+    width:        100%;
+  }
+
+  .caption {
+    padding: $thumbnail-bsk-caption-padding;
+  }
+}
+
+
+// Thumbnail variants
+//
+
+.thumbnail-bsk-default {
+  background-color: $thumbnail-bsk-default-bg;
+}
+
+.thumbnail-bsk-inverse {
+  background-color: $thumbnail-bsk-inverse-bg;
+
+  .caption {
+    color: $thumbnail-bsk-inverse-caption-color;
+
+    a {
+      color: $thumbnail-bsk-inverse-link-color;
+
+      &:hover {
+        color: $thumbnail-bsk-inverse-link-hover-color;
+      }
+    }
+  }
+}

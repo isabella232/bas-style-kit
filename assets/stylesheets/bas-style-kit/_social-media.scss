@@ -1,0 +1,59 @@
+//
+// Social Media
+// --------------------------------------------------
+//
+// Note: No equivalent of this component exists within Bootstrap, these styles are only found in the BAS Style Kit.
+
+// Base class
+//
+
+.social-media-bsk-static {
+  @include make-social-media-static(
+    twitter,
+    $brands-twitter-primary
+  );
+  @include make-social-media-static(
+    facebook,
+    $brands-facebook-primary
+  );
+  @include make-social-media-static(
+    youtube,
+    $brands-youtube-primary
+  );
+  @include make-social-media-static(
+    rss,
+    $brands-rss-primary
+  );
+}
+
+
+// Media link
+//
+// Expects a containing element with a series of links each containing an icon for a different website/service
+
+// Services
+.social-media-bsk-link {
+  @include make-social-media-link(
+    twitter,
+    $brands-twitter-primary
+  );
+  @include make-social-media-link(
+    facebook,
+    $brands-facebook-primary
+  );
+  @include make-social-media-link(
+    youtube,
+    $brands-youtube-primary
+  );
+  @include make-social-media-link(
+    rss,
+    $brands-rss-primary
+  );
+}
+
+// Wrapper
+.social-media-bsk-list {
+  li {
+    padding-right: 0;
+  }
+}

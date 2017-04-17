@@ -1,0 +1,75 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0123--form-layout-horizontal.html" %}
+{% set sample_number = "#0123" %}
+{% set sample_title = "Horizontal form layout" %}
+{% set sample_markup = 'form.form-horizontal' %}
+
+{% block sample %}
+<div class="container">
+  <p class="text-info">Using the medium alternative grid, in a fixed-width container.
+Each <code>.control-label</code> is 2 columns wide, each <code>.form-control</code> is 10 columns wide.</p>
+  <form class="form-horizontal">
+    <fieldset class="form-group">
+      <label class="control-label col-md-2">Text input</label>
+      <div class="col-md-10">
+        <input type="text" class="form-control">
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<div class="container">
+  <p class="text-info">Using the medium alternative grid, in a fixed-width container.
+Each <code>.radio-inline</code> is 10 columns wide, with a two column offset.</p>
+  <form class="form-horizontal">
+    <fieldset class="form-group">
+      <div class="col-md-10 col-md-offset-2">
+        <div class="radio-inline">
+          <label class="control-label">
+            <input type="radio" name="example-1" id="example-1-a" value="A">
+              Option 1 (A)
+          </label>
+        </div>
+        <div class="radio-inline">
+          <label class="control-label">
+            <input type="radio" name="example-1" id="example-1-b" value="B">
+              Option 1 (B)
+          </label>
+        </div>
+        <div class="radio-inline">
+          <label class="control-label">
+            <input type="radio" name="example-1" id="example-1-c" value="C">
+              Option 1 (C)
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<form class="form-horizontal">
+  <div class="container">
+    <p class="text-info">Using the medium alternative grid, in a fixed-width container.
+Each <code>.control-label</code> is 2 columns wide, each <code>.form-control</code> is 10 columns wide.</p>
+<p class="text-info"><code>fieldset</code> with multiple controls, using a <code>legend</code></p>
+    <fieldset>
+      <legend>Fieldset legend</legend>
+      <div class="form-group">
+        <label class="control-label col-md-2">Text input 1</label>
+        <div class="col-md-10">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Text input 2</label>
+        <div class="col-md-10">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</form>
+{% endblock %}

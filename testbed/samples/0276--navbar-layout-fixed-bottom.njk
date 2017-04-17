@@ -1,0 +1,15 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0276--navbar-layout-fixed-bottom.html" %}
+{% set sample_number = "#0276" %}
+{% set sample_title = "navbar fixed to bottom" %}
+{% set sample_markup = ".navbar.navbar-bsk.navbar-fixed-bottom" %}
+
+{% block sample %}
+<p class="text-info"><strong>Note</strong> this sample may break outside the default page layout.</p>
+
+<nav class="navbar navbar-fixed-bottom navbar-bsk">
+  <div class="container-fluid">
+  </div>
+</nav>
+{% endblock %}

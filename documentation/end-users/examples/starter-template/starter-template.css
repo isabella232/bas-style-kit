@@ -1,4 +1,0 @@
-/* Needed so fixed navbar doesn't overlap with page content - as recommended by Bootstrap/BSK */
-body {
-  padding-top: 50px;
-}

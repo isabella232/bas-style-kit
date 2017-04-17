@@ -1,0 +1,71 @@
+//
+// Grid system
+// --------------------------------------------------
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+.container {
+  @media (min-width: $screen-xl-min) {
+    width: $container-xl;
+  }
+}
+
+
+// Columns
+//
+// Common styles for small and large grid columns for both default and custom grids
+
+@include make-grid-columns;
+@include make-bsk-grid-columns;
+
+
+// Extra small grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+@include make-grid(xs);
+@include make-bsk-grid(xs);
+
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: $screen-sm-min) {
+  @include make-grid(sm);
+  @include make-bsk-grid(sm);
+}
+
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: $screen-md-min) {
+  @include make-grid(md);
+  @include make-bsk-grid(md);
+}
+
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: $screen-lg-min) {
+  @include make-grid(lg);
+  @include make-bsk-grid(lg);
+}
+
+
+// Extra large (custom grid size)
+//
+// Columns, offsets, pushes, and pulls for the extra large desktop device range.
+
+@media (min-width: $screen-xl-min) {
+  @include make-grid(xl);
+  @include make-bsk-grid(xl);
+}

@@ -1,0 +1,57 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0208--button-group-layout-justified.html" %}
+{% set sample_number = "#0208" %}
+{% set sample_title = "justified button group" %}
+{% set sample_markup = ".btn-group.btn-group-justified" %}
+
+{% block sample %}
+<div class="btn-group btn-group-justified" role="group">
+  <a href="#" class="btn btn-bsk btn-default">One</a>
+  <a href="#" class="btn btn-bsk btn-default">Two</a>
+  <a href="#" class="btn btn-bsk btn-default">Three</a>
+</div>
+
+<div class="bsk-tb-margin-top"></div>
+
+<div class="btn-group btn-group-justified" role="group">
+  <a href="#" class="btn btn-bsk btn-default">One</a>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-bsk btn-default btn-sm dropdown-toggle">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-bsk">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+    </ul>
+  </div>
+  <a href="#" class="btn btn-bsk btn-default">Three</a>
+</div>
+
+<div class="bsk-tb-margin-top"></div>
+
+<div class="btn-group btn-group-justified" role="group">
+  <a href="#" class="btn btn-bsk btn-default">1 NA NA NA NA NA NA NA NA NA NA NA NA NA NA</a>
+  <a href="#" class="btn btn-bsk btn-default">2 NA NA NA NA NA NA NA NA NA NA NA NA NA NA</a>
+  <a href="#" class="btn btn-bsk btn-default">3 (x3) NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA</button>
+  <a href="#" class="btn btn-bsk btn-default">Batman!</a>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Multiple sizes</h4>
+<div class="btn-group btn-group-justified" role="group">
+  <a href="#" class="btn btn-bsk btn-default">One</a>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-bsk btn-default btn-sm dropdown-toggle">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-bsk">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+    </ul>
+  </div>
+  <a href="#" class="btn btn-bsk btn-default btn-lg">Three</a>
+  <a href="#" class="btn btn-bsk btn-default">Four</a>
+</div>
+{% endblock %}

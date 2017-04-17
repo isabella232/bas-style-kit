@@ -1,0 +1,80 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0114--form-control-file.html" %}
+{% set sample_number = "#0114" %}
+{% set sample_title = "File form control" %}
+{% set sample_markup = 'input[type="file"].form-control' %}
+
+{% block sample %}
+<form>
+  <fieldset class="form-group">
+    <label class="control-label">File input</label>
+    <input type="file" class="form-control">
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Required state</h4>
+<p class="text-info">File input with the <code>required</code> attribute</p>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label">File input</label>
+    <input type="file" class="form-control" required>
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Disabled state</h4>
+<p class="text-info">File input with the <code>disabled</code> attribute</p>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label">File input</label>
+    <input type="file" class="form-control" disabled>
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Readonly state</h4>
+<p class="text-info">File input with the <code>readonly</code> attribute</p>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label">File input</label>
+    <input type="file" class="form-control" readonly>
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Focus state (simulated)</h4>
+<form>
+  <fieldset class="form-group">
+    <label class="control-label">File input</label>
+    <input type="file" class="form-control bsk-tb-simulated-state-focus">
+  </fieldset>
+</form>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Validation states</h4>
+<p class="text-info">File input with the <code>.has-success</code>
+(<strong class="text-success">Success</strong>) validation state statically applied.</p>
+<form>
+  <fieldset class="form-group has-success">
+    <label class="control-label">File input</label>
+    <input type="file" class="form-control" readonly>
+  </fieldset>
+</form>
+
+<p class="text-info">File input with the <code>.has-warning</code>
+(<strong class="text-warning">Warning</strong>) validation state statically applied.</p>
+<form>
+  <fieldset class="form-group has-warning">
+    <label class="control-label">File input</label>
+    <input type="file" class="form-control" readonly>
+  </fieldset>
+</form>
+
+<p class="text-info">File input with the <code>.has-error</code>
+(<strong class="text-danger">Error</strong>) validation state statically applied.</p>
+<form>
+  <fieldset class="form-group has-error">
+    <label class="control-label">File input</label>
+    <input type="file" class="form-control" readonly>
+  </fieldset>
+</form>
+{% endblock %}

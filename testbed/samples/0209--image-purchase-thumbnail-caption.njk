@@ -1,0 +1,15 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0209--image-purchase-thumbnail-caption.html" %}
+{% set sample_number = "#0209" %}
+{% set sample_title = "image purchase using a thumbnail with a caption" %}
+{% set sample_markup = ".thumbnail .bsk-image-purchase" %}
+
+{% block sample %}
+<div class="thumbnail thumbnail-bsk thumbnail-bsk-default bsk-image-purchase">
+  <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=Media%20Item&w=800&h=500" alt="thumbnail">
+  <div class="caption">
+    Thumbnail caption <a href="#" class="image-purchase-symbol"><i class="fa fa-camera"></i></a>
+  </div>
+</div>
+{% endblock %}

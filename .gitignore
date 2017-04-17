@@ -1,7 +1,10 @@
-.vagrant
-.terraform
-terraform.tfvars
+# Provisioning tool directories
+provisioning/site-development-local/.vagrant
+
+# Local packages
 node_modules
 
-site
-provisioning/.vault_pass.txt
+# Build process outputs
+dist
+dist-archive
+testbed/rendered

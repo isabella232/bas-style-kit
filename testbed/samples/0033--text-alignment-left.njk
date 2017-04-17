@@ -1,0 +1,20 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0033--text-alignment-left.html" %}
+{% set sample_number = "#0033" %}
+{% set sample_title = "left text alignment" %}
+{% set sample_markup = ".text-left" %}
+
+{% block sample %}
+<p class="text-info">Left alignment is implied by default.</p>
+
+<p class="text-left">There are dozens of us! DOZENS!</p>
+
+<p class="text-left">Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+
+<div class="row">
+  <div class="col-md-6 text-left">
+    <p class="text-left">Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+  </div>
+</div>
+{% endblock %}

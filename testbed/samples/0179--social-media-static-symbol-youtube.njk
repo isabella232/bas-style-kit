@@ -1,0 +1,14 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/pagination.njk" as pagination %}
+
+{% set sample_href = "0179--social-media-static-symbol-youtube.html" %}
+{% set sample_number = "#0179" %}
+{% set sample_title = "static social media icon - YouTube" %}
+{% set sample_markup = ".social-media-bsk-static.youtube" %}
+
+{% block sample %}
+<div class="social-media-bsk-static youtube">
+  <i class="fa fa-3x fa-youtube-square"></i><span class="sr-only">Subcribe to us on YouTube</span>
+</div>
+{% endblock %}

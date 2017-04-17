@@ -1,0 +1,40 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0267--navbar-component-drop-down.html" %}
+{% set sample_number = "#0267" %}
+{% set sample_title = "navbar drop down items" %}
+{% set sample_markup = ".navbar.navbar-bsk .dropdown" %}
+
+{% block sample %}
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+        Dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu dropdown-menu-bsk">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another item</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With item</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+        Dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu dropdown-menu-bsk">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another item</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}

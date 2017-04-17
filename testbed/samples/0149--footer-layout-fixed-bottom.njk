@@ -1,0 +1,15 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0149--footer-layout-fixed-bottom.html" %}
+{% set sample_number = "#0149" %}
+{% set sample_title = "footer layout - fixed to bottom" %}
+{% set sample_markup = ".footer-bsk-fixed-bottom" %}
+
+{% block sample %}
+<p class="text-info"><strong>Note</strong> this sample may break outside the default page layout.</p>
+<footer class="footer-bsk footer-bsk-default footer-bsk-fixed-bottom">
+  <div class="container-fluid">
+    Footer content
+  </div>
+</footer>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/form.njk" as form %}
+
+{% set sample_href = "0132--img-shape-thumbnail.html" %}
+{% set sample_number = "#0132" %}
+{% set sample_title = "Thumbnail image" %}
+{% set sample_markup = '.img-thumbnail' %}
+
+{% block sample %}
+<img class="img-thumbnail" src="https://placeholdit.imgix.net/~text?txtsize=50&amp;w=140&amp;h=140" alt="Thumbnail image" >
+{% endblock %}

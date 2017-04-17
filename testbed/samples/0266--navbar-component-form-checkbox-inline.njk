@@ -1,0 +1,66 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0266--navbar-component-form-checkbox-inline.html" %}
+{% set sample_number = "#0266" %}
+{% set sample_title = "navbar form inline checkbox options" %}
+{% set sample_markup = ".navbar.navbar-bsk .navbar-form .checkbox-inline" %}
+
+{% block sample %}
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <form class="navbar-form">
+      <fieldset class="form-group">
+        <div class="checkbox-inline">
+          <label class="control-label">
+            <input type="checkbox" name="form-checkbox-example-1" id="form-checkbox-example-1-a" value="A">
+              Option 1 (A)
+          </label>
+        </div>
+        <div class="checkbox-inline">
+          <label class="control-label">
+            <input type="checkbox" name="form-checkbox-example-1" id="form-checkbox-example-1-b" value="B">
+              Option 1 (B)
+          </label>
+        </div>
+        <div class="checkbox-inline">
+          <label class="control-label">
+            <input type="checkbox" name="form-checkbox-example-1" id="form-checkbox-example-1-c" value="C">
+              Option 1 (C)
+          </label>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</nav>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With item</h4>
+<nav class="navbar navbar-bsk">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Item</a></li>
+    </ul>
+    <form class="navbar-form">
+      <fieldset class="form-group">
+        <div class="checkbox-inline">
+          <label class="control-label">
+            <input type="checkbox" name="form-checkbox-example-2" id="form-checkbox-example-2-a" value="A">
+              Option 1 (A)
+          </label>
+        </div>
+        <div class="checkbox-inline">
+          <label class="control-label">
+            <input type="checkbox" name="form-checkbox-example-2" id="form-checkbox-example-2-b" value="B">
+              Option 1 (B)
+          </label>
+        </div>
+        <div class="checkbox-inline">
+          <label class="control-label">
+            <input type="checkbox" name="form-checkbox-example-2" id="form-checkbox-example-2-c" value="C">
+              Option 1 (C)
+          </label>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</nav>
+{% endblock %}

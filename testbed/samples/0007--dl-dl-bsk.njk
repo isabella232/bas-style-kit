@@ -1,0 +1,21 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0007--dl-dl-bsk.html" %}
+{% set sample_number = "#0007" %}
+{% set sample_title = "bas style kit description list" %}
+{% set sample_markup = "dl.dl-bsk" %}
+
+{% block sample %}
+<dl class="dl-bsk">
+  <dt>Emperor Penguin</dt>
+  <dd>Aptenodytes forsteri</dd>
+  <dt>King Penguin</dt>
+  <dd>Aptenodytes patagonicus</dd>
+  <dt>Adelie Penguin</dt>
+  <dd>Pygoscelis adeliae</dd>
+  <dt>Chinstrap Penguin</dt>
+  <dd>Pygoscelis antarctica</dd>
+  <dt>Gentoo Penguin</dt>
+  <dd>Pygoscelis papua</dd>
+</dl>
+{% endblock %}
