@@ -9,7 +9,7 @@ web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.we
 
 ## Overview
 
-The BAS Style Kit is a CSS framework, incorportating the BAS brand, to establish a consistent visual design across
+The BAS Style Kit is a CSS framework, incorporating the BAS brand, to establish a consistent visual design across
 BAS services and websites. It aims to build-in best practice at a technical and accessibility level.
 
 The Style Kit is based on the official Sass port of the [Bootstrap 3](http://getbootstrap.com) and consists of:
@@ -19,77 +19,35 @@ The Style Kit is based on the official Sass port of the [Bootstrap 3](http://get
 * custom variants of Bootstrap components
 * additional components inspired by other frameworks or organisations
 
-
-[3]
-```shell
-gulp lint
-```
-
-[4]
-```shell
-PROJECT_VERSION=$(node -p -e "require('/home/runner/bas-style-kit/package.json').version")
-npm install -g gulp@^3.9
-npm install
-gulp clean
-gulp release
-aws s3 sync ./dist-archive s3://bas-packages-dev/zip/bas-style-kit/$PROJECT_VERSION/ --acl=public-read --delete
-```
-
-[5] For the line starting: `aws s3 sync $S3_DIRECTORY`
-
-```shell
-aws s3 sync $S3_DIRECTORY s3://$S3_BUCKET_NAME/bas-style-kit/$PROJECT_VERSION/ --acl=public-read --delete
-```
-
-To bring up the production environment:
-
-1. ensure you meet all the
-[requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h=Environment---production)
-to bring up a production environment
-2. checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
-3. `$ cd bas-style-kit/provisioning/site-production`
-4. `$ terraform plan`
-5. `$ terraform apply`
-6. `$ cd ..`
-7. `$ ansible-playbook site-production.yml`
-8. commit Terraform state to project repository
-
 ## Usage
 
-**Note:** This section is outdated and should not be relied upon.
+End-user documentation for the BAS Style Kit, documenting what it includes, and how to use it to build websites and
+web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
 
-To deploy changes to the staging environment:
+### Docker Compose
 
-1. commit project changes to project repository
+1. `docker-compose up`
 
-Continuous Deployment will automatically detect these changes and deploy them into staging.
+This will create two containers:
 
-To deploy changes to a production environment:
+1. A NodeJS instance running the `docker` gulp task, which generates the Style Kit and the Testbed
+2. A Nginx instance exposing the generated Style Kit and Testbed
 
-1. commit project changes to project repository
-2. `$ ansible-playbook app-deploy-production.yml`
+The Testbed will be exposed on your local machine at: `http://localhost:9000/testbed`
 
-## Developing
+See the *Gulp* and *Testbed* sub-sections for more information.
 
-[Git](https://git-scm.com), [Docker](https://www.docker.com/products/docker) [1] and access to the private
-[BAS Docker Registry](https://docker-registry.data.bas.ac.uk) [2] are required to build this project locally.
+### Gulp tasks
 
-```shell
-$ git clone -b develop https://bitbucket.org/antarctica/bas-style-kit.git
-$ cd bas-style-kit
+[Gulp](http://gulpjs.com/) is a NodeJS task runner, used for tasks such as copying font files, compiling Sass to CSS
+and generating the Testbed.
 
-$ docker-compose up
-```
+See `gulpfile.js` for tasks this project supports.
 
-This will bring up two docker containers. The first runs the `docker` gulp task automatically when changes are made to
-files within `/assets`. The second hosts the test-bed using Nginx, available at [localhost:9000](http://localhost:9000).
-
-When finished, exit the Docker Compose using `ctrl` + `c`, then run `docker-compose down`.
-
-To run another gulp `[Task]`:
+To run a gulp task `foo`:
 
 ```shell
-$ docker-compose run app gulp [Task]
+$ docker-compose run app gulp foo
 ```
 
 For example, to run all linting tasks:
@@ -98,7 +56,43 @@ For example, to run all linting tasks:
 $ docker-compose run app gulp lint
 ```
 
-**Note:** This will not start the testbed Nginx container.
+**Note:** This will run the NodeJS container only, it will not start the Nginx container.
+
+### Testbed
+
+To aid developing styles within the Style Kit a 'Testbed' is included. This contains a number of atomic 'samples',
+written as [Nunjuck](https://mozilla.github.io/nunjucks/) templates, designed to demonstrate individual styles.
+
+Where a logical grouping of samples exists, a 'collection' is defined containing those samples. For example ordered and
+unordered lists are individual samples, but are both within the *lists* collection.
+
+Samples are numbered, but these have no implied ordering, and may not be congruous for a set of related styles.
+
+E.g. Lists may be samples *0001*, *0003*, *0030* and *0500* with gaps corresponding to unrelated samples, or samples
+which have been removed. Collections are intended as the way to create curated sets of samples.
+
+A Gulp task, `testbed`, is used to render the Testbed templates to HTML and generate the Style Kit's assets in one
+command.
+
+## Developing
+
+[Git](https://git-scm.com) and [Docker](https://www.docker.com/products/docker) [1] are required to build this project
+locally.
+
+To update the Docker image for this project, access to the private
+[BAS Docker Registry](https://docker-registry.data.bas.ac.uk) [2] is also required.
+
+```shell
+$ git clone https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
+$ cd bas-style-kit
+
+$ docker-compose up
+```
+
+**Note:** If you don't have access to the BAS Private Docker Registry, you will need to build the project Docker image
+locally first using `docker-compose build`.
+
+See the *Usage* section for how to use this project.
 
 [1] To install Git and Docker:
 
@@ -121,8 +115,9 @@ $ brew cask install docker
 If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `gulpfile.js` are changed, the project Docker image will need
 to be rebuilt and pushed to the private BAS Docker Repository [1].
 
-The current date is used as part of the project Docker image tag to ensure the latest version is used by all developers.
-Before rebuilding this image you **MUST** update this tag value in `docker-compose.yml` and `.gitlab-ci.yml` first.
+The current project version is used as part of the project Docker image tag to ensure the latest version is used by all
+developers. Before rebuilding this image you **MUST** update this tag value in `docker-compose.yml` and `.gitlab-ci.yml`
+first.
 
 ```shell
 $ cd bas-style-kit/
@@ -134,12 +129,20 @@ $ docker-compose push app
 [1] The first time you use this registry, you will need to authenticate using:
 `docker login docker-registry.data.bas.ac.uk`
 
-## Continuous Integration
+## Testing
+
+### Integration tests
+
+Integration tests are used for all endpoints in this project, ideally with all their possible failure modes.
+
+To run tests manually run the `lint` Gulp task.
+
+### Continuous Integration
 
 The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/pipelines)
 using settings defined in `.gitlab-ci.yml`.
 
-## Review apps
+### Review apps
 
 The BAS GitLab instance is used to provide [review apps](https://docs.gitlab.com/ce/ci/review_apps/) for merge requests
 into the *master* branch. These review apps use the Testbed to approve any changes and ensure regressions are not
@@ -148,7 +151,6 @@ introduced.
 Review apps are integrated within GitLab, using a set of conventional jobs and stages. GitLab will show links to the
 relevant review app within each merge request. Settings for these jobs are defined in `.gitlab-ci.yml`.
 
-## Continuous Deployment
 ## Provisioning
 
 [Git](https://git-scm.com) and [Terraform](https://terrafrom.io) [1] are required to provision resources for this
@@ -189,20 +191,26 @@ $ brew cask install terraform
 
 [2] Contact the [BAS Web & Applications Team](mailto:webapps@bas.ac.uk) if you don't yet have access.
 
+## Deployment
 
 The BAS GitLab instance is used for [Continuous Deployment](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
 using settings defined in `.gitlab-ci.yml`.
 
+Deployments are currently triggered manually, but are automated once started.
 
-**Note:** Due to caching, deployed changes may not appear for up to 30 minutes.
 After deployment, the contents of the `dist` directory will be available through:
 
 * the development instance of the BAS CDN for commits to the *master* branch
 * the production instance of the BAS CDN for tagged commits
 
+**Note:** Due to caching, deployed changes may not appear for up to 1 hour.
 
+## Issue tracking
 
+This project uses issue tracking, see the [issue tracker](https://trello.com/b/0Mhzizpk/bas-style-kit) for more
+information.
 
+**Note:** Write access to this issue tracker is restricted. Contact the project maintainer to request access.
 
 ## Branching model
 
@@ -215,18 +223,30 @@ any one time, and **MUST** therefore be rebased on *master* before they are merg
 When required, a release is made using a release branch (see the *Release procedures* section for more information).
 This is also merged with *master* and tagged. This triggers the relevant deployment tasks to release a new version.
 
+## Release procedures
 
-See the `.gitlab-ci.yml` file for specifics on which user to generate credentials for, and what to name them.
+1. create a release branch
+2. remove `-develop` from version string in:
+    * `package.json`
+    * `docker-compose.yml` - `app` Docker image
+    * `.gitlab-ci.yml` - default Docker image
+3. build & push the docker image
+4. close release in `CHANGELOG.md`
+5. merge release branch with master and tag with version
 
+### After release
 
+1. bump version, and add `-develop` prefix to version string in:
+    * `package.json`
+    * `docker-compose.yml` - `app` Docker image
+    * `.gitlab-ci.yml` - default Docker image
+2. build & push the docker image
 
+This is to guard against updating the Docker image for a released version.
 
 ## Feedback
 
-The maintainer of this project is BAS Web & Applications Team, they can be contacted at:
-[webapps@bas.ac.uk](mailto:webapps@bas.ac.uk).
-
-The issue tracker for this project is available at: https://trello.com/b/0Mhzizpk/bas-style-kit
+The maintainer of this project is the BAS Web & Applications Team, they can be contacted at: webapps@bas.ac.uk.
 
 ## Acknowledgements
 

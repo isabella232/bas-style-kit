@@ -15,7 +15,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Removed - BREAKING!
 
-* [Infrastructure] Ansible provisioning for local development environments removed
+* [Infrastructure] Ansible provisioning removed
 * [Style] Compiled CSS is no longer included in this project - download from the BAS CDN if this is needed
 * [Documentation] Style Kit documentation is now maintained in an external project
 
@@ -24,14 +24,14 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Style] Page background and text colours are now explicitly listed as variables in this project (values are unchanged)
 * [Infrastructure] Docker support using a project image and Docker compose
 * [Infrastructure] Gulp tasks updated to support Docker workflow ('develop' task)
-* [Infrastructure] Test-bed added, using isolated samples to test style changes using visual comparison tools such as Wraith
+* [Infrastructure] Testbed added, using isolated samples to develop and preview styles
 
 ### Fixed
 
 * [Style] Using brand images and text together were previously incompatible, a fix class address this
-* [Infrastructure] Wrong class name used for default buttons in testbed samples
 * [Style] Border radius on small/large form group inputs
 * [Style] Padding on input group buttons to match height of inputs
+* [Infrastructure] Wrong class name used for default buttons in testbed samples
 * [Infrastructure] Language statistics in GitHub
 * [Infrastructure] Names of BAS Package Service buckets
 * [Infrastructure] Correcting name of `CHANGELOG.md` file
