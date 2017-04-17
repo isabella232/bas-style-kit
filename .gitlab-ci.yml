@@ -17,13 +17,6 @@
 
 # == Job Templates ==
 
-.job_template_s3_snapshot: &job_template_s3_snapshot
-  stage: deploy
-  image: antarctica/aws-cli-image:0.1.0-alpine-gl
-  before_script:
-    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
-  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$SNAPSHOT_BUCKET/$SNAPSHOT_BUCKET_PATH/$APP_NAME/"
-
 .job_template_s3_sync: &job_template_s3_sync
   stage: deploy
   image: antarctica/aws-cli-image:0.1.0-alpine-gl
@@ -94,7 +87,6 @@ compile-testbed:
     - branches
   except:
     - master
-    - develop
   script:
     - "gulp testbed"
   artifacts:
@@ -128,7 +120,6 @@ review:
     - branches
   except:
     - master
-    - develop
   script:
     - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
     - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
@@ -164,14 +155,18 @@ package-dist:
     expire_in: 1 day
 
 s3-snapshot-dev:
-  <<: *job_template_s3_snapshot
+  stage: deploy
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$SNAPSHOT_BUCKET/$SNAPSHOT_BUCKET_PATH/$APP_NAME/"
   only:
-    - develop
+    - master
 
 s3-cdn-dev:
   <<: *job_template_s3_sync
   only:
-    - develop
+    - master
   when: manual
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"

@@ -195,11 +195,8 @@ using settings defined in `.gitlab-ci.yml`.
 ## Review apps
 
 The BAS GitLab instance is used to provide [review apps](https://docs.gitlab.com/ce/ci/review_apps/) for merge requests
-into the *develop* or *master* branches. These review apps are used to approve any changes and ensure regressions are
-not introduced.
-
-**Note:** Review apps are not made for merge requests between *develop* and *master* as this shouldn't happen. Instead,
-the *develop* branch should be forked into a *release* branch, and this merged with *master*.
+into the *master* branch. These review apps use the Testbed to approve any changes and ensure regressions are not
+introduced.
 
 Review apps are integrated within GitLab, using a set of conventional jobs and stages. GitLab will show links to the
 relevant review app within each merge request. Settings for these jobs are defined in `.gitlab-ci.yml`.
@@ -209,11 +206,13 @@ relevant review app within each merge request. Settings for these jobs are defin
 The BAS GitLab instance is used for [Continuous Deployment](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
 using settings defined in `.gitlab-ci.yml`.
 
-After deployment, the contents of the `dist` directory will be available through the BAS CDN.
 
 **Note:** Due to caching, deployed changes may not appear for up to 30 minutes.
+After deployment, the contents of the `dist` directory will be available through:
 
 ## Provisioning development and staging environments
+* the development instance of the BAS CDN for commits to the *master* branch
+* the production instance of the BAS CDN for tagged commits
 
 [Terraform](https://terrafrom.io) [1] and access to the
 [BAS Packages Service](https://bitbucket.org/antarctica/bas-packages-service) and
@@ -230,19 +229,26 @@ depend on. The instructions below show how to configure the development environm
 
 **Warning!** Take care before running `terraform apply` on the production environment. All substantial changes **MUST**
 be tested in development first.
+## Branching model
 
 **Note:** As all environments depend on resources defined in the `site-all` environment, you **MUST** run provisioning
 for this first.
+There is only one long-term branch in this repository, *master*, which represents a working, stable, version of the
+project, but is not necessarily the released version.
 
 ```shell
 $ cd provisioning/site-all
 $ terraform plan
 $ terraform apply
+All changes are made in other branches and merged into the Master branch when ready. Multiple branches may be active at
+any one time, and **MUST** therefore be rebased on *master* before they are merged.
 
 $ cd ../site-dev
 $ terraform plan
 $ terraform apply
 ```
+When required, a release is made using a release branch (see the *Release procedures* section for more information).
+This is also merged with *master* and tagged. This triggers the relevant deployment tasks to release a new version.
 
 During provisioning, an AWS IAM user will be created with least-privilege permissions to enable Continuous Deployment.
 Access credentials for this user will need to generated manually through the AWS Console and set as secret variables.
