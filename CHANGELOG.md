@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Added
+
+* [Infrastructure] Significantly improving NPM support
+
 ## [0.2.0] - 2017-04-17
 
 ### Changed - BREAKING!

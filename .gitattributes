@@ -1,6 +1,7 @@
 # Remove files from uses of this project template when using `git archive`
 .gitattributes export-ignore
 .gitignore export-ignore
+.npmignore export-ignore
 .editorconfig export-ignore
 
 # Don't diff or textually merge source maps

@@ -246,6 +246,26 @@ This is also merged with *master* and tagged. This triggers the relevant deploym
 4. close release in `CHANGELOG.md`
 5. merge release branch with master and tag with version
 6. copy SRI values into the Style Kit Documentation project
+7. re-publish NPM package
+
+### Re-publish NPM package
+
+```shell
+$ docker-compose run app ash
+$ gulp release
+$ npm login
+$ npm publish
+```
+
+To preview the contents of the NPM package:
+
+```shell
+$ docker-compose run app ash
+$ gulp release
+$ npm pack
+```
+
+**Note:** This project includes a `.npmignore` file to exclude additional files from NPM packages.
 
 ### After release
 
