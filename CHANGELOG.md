@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Switching from SassLint to StyleLint
 * [Infrastructure] Renaming testbed directory from `http` to `html` to better reflect its content
 * [Infrastructure] Switching from 'develop/master' to 'master/tagged-master' branching model
+* [Infrastructure] Terraform environments removed in favour of a single set of configuration files
 
 ### Removed - BREAKING!
 

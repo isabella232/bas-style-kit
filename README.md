@@ -22,56 +22,6 @@ The Style Kit is based on the official Sass port of the [Bootstrap 3](http://get
 * custom variants of Bootstrap components
 * additional components inspired by other frameworks or organisations
 
-## Setup
-
-**Note:** This section is outdated and should not be relied upon.
-
-To bring up the staging environment:
-
-1. ensure you meet all the
-[requirements](https://paper.dropbox.com/doc/BAS-Base-Project-Pristine-Base-Flavour-Usage-ZdMdHHzf8xB4HjxcNuDXa#:h2=Environment---staging-(static-)
-to bring up a staging environment for static websites [1]
-2. checkout this project locally `$ git clone ssh://git@stash.ceh.ac.uk:7999/bsk/bas-style-kit.git`
-3. `$ cd bas-style-kit/provisioning/site-staging`
-4. `$ terraform plan`
-5. `$ terraform apply`
-6. `$ cd ../..` (back to *provisioning*)
-7. commit Terraform state to project repository
-8. if not already added, create a new project in [SemaphoreCI](https://semaphoreci.com/) using the *develop* branch of
-the Project Repository and associate with the *antarctica* organisation
-9. if the project already exists, but not this branch, check the settings below are correct and add the *develop* branch
-as a new build branch manually
-10. in the settings for this project set the *Build Settings* to:
-    * Language: *JavaScript*
-    * Version: *node.js 5.8.0*
-11. for the *setup* thread enter these commands: [2]
-12. for *Thread #1* rename to *Lint* with these commands: [3]
-13. set the Branches settings to:
-    * Build new branches: `Never`
-14. Once the initial Continuous Integration build is complete, and is successful, retrieve AWS IAM access credentials
-for the `semmaphore-deploy-bas-style-kit-stage-semaphore-cd` user
-15. Add a new deployment server:
-    * Kind: AWS S3
-    * Strategy: Automatic
-    * Branch: Develop
-    * Credentials: [as per retrieved credentials]
-    * Region: Ireland (eu-west-1)
-    * Directory to upload: *dist*
-    * Build commands: [4]
-    * S3 Index Document: *index.html*
-    * S3 Bucket: *bas-cdn-dev*
-    * Server name: Staging
-    * Server URL: Leave blank
-16. Prior to the first deployment, edit the created server to edit the final build command as follows [5]
-
-[1] Note: This project does not use a static website, but the software, services and credentials required are the same.
-
-[2]
-```shell
-npm install -g gulp@^3.9
-npm install
-gulp clean
-```
 
 [3]
 ```shell
@@ -202,6 +152,46 @@ Review apps are integrated within GitLab, using a set of conventional jobs and s
 relevant review app within each merge request. Settings for these jobs are defined in `.gitlab-ci.yml`.
 
 ## Continuous Deployment
+## Provisioning
+
+[Git](https://git-scm.com) and [Terraform](https://terrafrom.io) [1] are required to provision resources for this
+project.
+
+Access to the [BAS Packages Service](https://bitbucket.org/antarctica/bas-packages-service) and
+[BAS CDN](https://bitbucket.org/antarctica/bas-cdn) projects is also required [2].
+
+```shell
+$ git clone https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
+$ cd bas-style-kit/provisioning/terraform
+
+$ terraform plan
+$ terraform apply
+```
+
+During provisioning, an AWS IAM user will be created with least-privilege permissions to enable access to resources
+used by this project.
+
+Access credentials for this user will need to generated manually through the AWS Console and set as secret variables.
+
+See the `.gitlab-ci.yml` file for specifics on which user to generate credentials for, and what to name them.
+
+**Note:** Commit all Terraform state files to this repository.
+
+[1] To install Git and Terraform:
+
+**On macOS**
+
+```shell
+$ brew install git
+$ brew cask install terraform
+```
+
+**On Windows**
+
+* Install Terraform and Git using their respective installers
+
+[2] Contact the [BAS Web & Applications Team](mailto:webapps@bas.ac.uk) if you don't yet have access.
+
 
 The BAS GitLab instance is used for [Continuous Deployment](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
 using settings defined in `.gitlab-ci.yml`.
@@ -210,56 +200,29 @@ using settings defined in `.gitlab-ci.yml`.
 **Note:** Due to caching, deployed changes may not appear for up to 30 minutes.
 After deployment, the contents of the `dist` directory will be available through:
 
-## Provisioning development and staging environments
 * the development instance of the BAS CDN for commits to the *master* branch
 * the production instance of the BAS CDN for tagged commits
 
-[Terraform](https://terrafrom.io) [1] and access to the
-[BAS Packages Service](https://bitbucket.org/antarctica/bas-packages-service) and
-[BAS CDN](https://bitbucket.org/antarctica/bas-cdn) projects are required to provision resources for this project [2].
 
-Provisioned resources are defined in Terraform configuration files and arranged in multiple environments:
 
-* `provisioning/site-all` - defines resources shared by all environments
-* `provisioning/site-dev` - defines resources used by the development environment
-* `provisioning/site-stage` - defines resources used by review apps
 
-Each environment is similar, but functions independently, except for the `site-all` environment, which all environments
-depend on. The instructions below show how to configure the development environment, but they apply equally to all.
 
-**Warning!** Take care before running `terraform apply` on the production environment. All substantial changes **MUST**
-be tested in development first.
 ## Branching model
 
-**Note:** As all environments depend on resources defined in the `site-all` environment, you **MUST** run provisioning
-for this first.
 There is only one long-term branch in this repository, *master*, which represents a working, stable, version of the
 project, but is not necessarily the released version.
 
-```shell
-$ cd provisioning/site-all
-$ terraform plan
-$ terraform apply
 All changes are made in other branches and merged into the Master branch when ready. Multiple branches may be active at
 any one time, and **MUST** therefore be rebased on *master* before they are merged.
 
-$ cd ../site-dev
-$ terraform plan
-$ terraform apply
-```
 When required, a release is made using a release branch (see the *Release procedures* section for more information).
 This is also merged with *master* and tagged. This triggers the relevant deployment tasks to release a new version.
 
-During provisioning, an AWS IAM user will be created with least-privilege permissions to enable Continuous Deployment.
-Access credentials for this user will need to generated manually through the AWS Console and set as secret variables.
 
 See the `.gitlab-ci.yml` file for specifics on which user to generate credentials for, and what to name them.
 
-**Note:** Commit all Terraform state files to this repository.
 
-[1] https://www.terraform.io/downloads.html
 
-[2] Contact the [BAS Web & Applications Team](mailto:webapps@bas.ac.uk) if you don't yet have access.
 
 ## Feedback
 
