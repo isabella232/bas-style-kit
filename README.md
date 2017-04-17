@@ -1,8 +1,5 @@
 # BAS Style Kit
 
-Master: [![Build Status](https://semaphoreci.com/api/v1/antarctica/bas-style-kit/branches/master/badge.svg)](https://semaphoreci.com/antarctica/bas-style-kit)
-Develop: [![build status](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/badges/develop/build.svg)](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/commits/develop)
-
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
 End-user documentation for the BAS Style Kit, documenting what it includes, and how to use it to build websites and
