@@ -62,9 +62,9 @@ $ docker-compose run app gulp lint
 security feature that enables browsers to verify that files they fetch (for example, from a CDN) are delivered without
 unexpected manipulation. It works by allowing you to provide a cryptographic hash that a fetched file must match.
 
-A set of Gulp tasks are provided to compute these values for Style Kit assets, saved as a JSON file
+A set of Gulp tasks are provided to compute these values for Style Kit assets, saved as a JSON file.
 
-During deployment this file will need to be copied into the
+During deployment of tagged releases, this file will need to be copied into the
 [Documentation project](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs) for users to reference.
 
 This is currently a manual process described in the relevant
