@@ -117,7 +117,7 @@ lint-sass:
 compute-sri:
   stage: process
   only:
-    - master
+    - tags
   script:
     - "gulp build--sri-combined"
   artifacts:
