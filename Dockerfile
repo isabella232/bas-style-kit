@@ -24,3 +24,6 @@ CMD ["gulp", "--tasks-simple"]
 
 # Copy configuration files
 COPY .csscomb.json .stylelintrc.yml gulpfile.js /usr/src/app/
+
+# Copy meta files for NPM packages
+COPY .gitattributes .gitignore .npmignore README.md /usr/src/app/

@@ -5,6 +5,19 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Added
+
+* [Infrastructure] Significantly improving NPM support
+
+### Fixed
+
+* [Infrastructure] Preventing review apps for tagged releases during CI
+* [Infrastructure] Removing 'v' from version tags when publishing to the production CDN
+
+### Changed
+
+* [Infrastructure] Ignoring testbed sources from Git archives
+
 ## [0.2.0] - 2017-04-17
 
 ### Changed - BREAKING!
