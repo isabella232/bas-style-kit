@@ -18,6 +18,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed
 
 * [Infrastructure] Ignoring testbed sources from Git archives
+* [Infrastructure] Updating location of spell checking settings due to plugin update
 
 ## [0.2.0] - 2017-04-17
 

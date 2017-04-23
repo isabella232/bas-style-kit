@@ -1,0 +1,11 @@
+{
+    "spellchecker.language": "en_GB",
+    "spellchecker.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "spellchecker.ignoreRegExp": [],
+    "spellchecker.ignoreFileExtensions": [],
+    "spellchecker.checkInterval": 5000
+}
