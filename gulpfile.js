@@ -19,7 +19,7 @@ var        sri = require('gulp-sri'),
       nunjucks = require('gulp-nunjucks'),
      styleLint = require('gulp-stylelint'),
     sourcemaps = require('gulp-sourcemaps'),
-   runSequence = require('run-sequence'),
+   runsequence = require('run-sequence'),
   autoprefixer = require('gulp-autoprefixer');
 
 const config = {
@@ -139,13 +139,13 @@ gulp.task('atomic--compile-sass-bootstrap-bsk', () => {
 
 // Auto-prefixing
 
-gulp.task('atomic-autoprefix-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
+gulp.task('atomic--autoprefix-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
   return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
     .pipe(autoprefixer(config.modules.autoprefixer))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
-gulp.task('atomic-autoprefix-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
+gulp.task('atomic--autoprefix-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(autoprefixer(config.modules.autoprefixer))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
@@ -153,13 +153,13 @@ gulp.task('atomic-autoprefix-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bs
 
 // CSS comb
 
-gulp.task('atomic-comb-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
+gulp.task('atomic--comb-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
   return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
     .pipe(csscomb())
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
-gulp.task('atomic-comb-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
+gulp.task('atomic--comb-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(csscomb())
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
@@ -167,14 +167,14 @@ gulp.task('atomic-comb-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], (
 
 // Minify CSS
 
-gulp.task('atomic-minify-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
+gulp.task('atomic--minify-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
   return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
-gulp.task('atomic-minify-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
+gulp.task('atomic--minify-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
@@ -184,7 +184,7 @@ gulp.task('atomic-minify-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'],
 // CSS source-maps
 // As source-maps cannot be created from already minified files, this task technically does two things
 
-gulp.task('atomic-sourcemaps-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
+gulp.task('atomic--sourcemaps-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
   return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
     .pipe(sourcemaps.init())
     .pipe(nano())
@@ -193,7 +193,7 @@ gulp.task('atomic-sourcemaps-bas-style-kit', ['atomic--compile-sass-bas-style-ki
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
-gulp.task('atomic-sourcemaps-bootstrap-bsk', ['atomic--compile-sass-bas-style-kit'], () => {
+gulp.task('atomic--sourcemaps-bootstrap-bsk', ['atomic--compile-sass-bas-style-kit'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(sourcemaps.init())
     .pipe(nano())
@@ -419,7 +419,7 @@ gulp.task('build--sri-combined', () => {
 
 gulp.task('watch--lint-styles-bas-style-kit-no-min', () => {
   return watch(path.join(config.sources.stylesheets, '**/*.scss'), function () {
-    runSequence(
+    runsequence(
       'atomic--lint-sass-bas-style-kit',
       'build--styles-bas-style-kit-no-min'
     );
@@ -472,7 +472,7 @@ gulp.task('testbed', [
 //
 
 gulp.task('develop', () => {
-  runSequence(
+  runsequence(
     'clean',
     'build--styles-bas-style-kit-no-min',
     'build--styles-bootstrap-bsk-no-min',
@@ -484,7 +484,7 @@ gulp.task('develop', () => {
 });
 
 gulp.task('release', () => {
-  runSequence(
+  runsequence(
     'clean',
     [
       'build--styles-bas-style-kit-no-min',
