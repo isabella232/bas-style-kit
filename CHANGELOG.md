@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Changed - BREAKING!
+
+* [Styles] A common 'bsk-' prefix now applies to all class names, including variants and Bootstrap styles
+
 ### Added
 
 * [Infrastructure] Significantly improving NPM support

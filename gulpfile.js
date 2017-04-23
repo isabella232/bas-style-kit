@@ -19,6 +19,7 @@ var        sri = require('gulp-sri'),
       nunjucks = require('gulp-nunjucks'),
      styleLint = require('gulp-stylelint'),
     sourcemaps = require('gulp-sourcemaps'),
+   cssprefixer = require('gulp-class-prefix'),
    runsequence = require('run-sequence'),
   autoprefixer = require('gulp-autoprefixer');
 
@@ -54,6 +55,9 @@ const config = {
       ],
       cascade: false,
       remove: true
+    },
+    'cssprefixer': {
+      'prefix': 'bsk-'
     }
   }
 };
@@ -148,6 +152,20 @@ gulp.task('atomic--autoprefix-bas-style-kit', ['atomic--compile-sass-bas-style-k
 gulp.task('atomic--autoprefix-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+// CSS prefixing (name-spacing)
+
+gulp.task('atomic--cssprefix-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
+  return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
+    .pipe(cssprefixer(config.modules.cssprefixer.prefix))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic--cssprefix-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
+  return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
@@ -368,6 +386,7 @@ gulp.task('atomic--compile-testbed-index', () => {
 gulp.task('build--styles-bas-style-kit-no-min', () => {
     return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
     .pipe(sass().on('error', sass.logError))
+    .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
     .pipe(csscomb())
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
@@ -376,6 +395,7 @@ gulp.task('build--styles-bas-style-kit-no-min', () => {
 gulp.task('build--styles-bas-style-kit-min', () => {
     return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
     .pipe(sass().on('error', sass.logError))
+    .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
     .pipe(csscomb())
     .pipe(sourcemaps.init())
@@ -388,6 +408,7 @@ gulp.task('build--styles-bas-style-kit-min', () => {
 gulp.task('build--styles-bootstrap-bsk-no-min', () => {
     return gulp.src(path.join(config.sources.stylesheets, 'bootstrap-bsk.scss'))
     .pipe(sass().on('error', sass.logError))
+    .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
     .pipe(csscomb())
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
@@ -396,6 +417,7 @@ gulp.task('build--styles-bootstrap-bsk-no-min', () => {
 gulp.task('build--styles-bootstrap-bsk-min', () => {
     return gulp.src(path.join(config.sources.stylesheets, 'bootstrap-bsk.scss'))
     .pipe(sass().on('error', sass.logError))
+    .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
     .pipe(csscomb())
     .pipe(sourcemaps.init())
