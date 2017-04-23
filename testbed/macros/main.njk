@@ -4,29 +4,29 @@
   title_prefix="BAS Style Kit Testbed",
   title_code=false
 ) %}
-<header class="page-header bsk-tb-page-header">
-  <div class="container-fluid">
+<header class="bsk-page-header bsk-tb-page-header">
+  <div class="bsk-container-fluid">
     <h1>
       {% if title_prefix %}<strong>{{ title_prefix }}</strong>{% endif %}
       {{ title }}
       {% if title_code %}<small><code>{{ title_code }}</code></small>{% endif %}
       {% if show_index_link %}<small><a href="/testbed/">Back to index</a></small>{% endif %}
     </h1>
-    <div class="lead">
-      <span class="hidden-xs text-muted">Extra small</span>
-      <span class="hidden-sm hidden-md hidden-lg hidden-xl visible-xs-inline"><strong>Extra small</strong>strong></span>
+    <div class="bsk-lead">
+      <span class="bsk-hidden-xs bsk-text-muted">Extra small</span>
+      <span class="bsk-hidden-sm bsk-hidden-md bsk-hidden-lg bsk-hidden-xl bsk-visible-xs-inline"><strong>Extra small</strong></span>
       ·
-      <span class="hidden-sm text-muted">Small</span>
-      <span class="hidden-xs hidden-md hidden-lg hidden-xl visible-sm-inline"><strong>Small</strong></span>
+      <span class="bsk-hidden-sm bsk-text-muted">Small</span>
+      <span class="bsk-hidden-xs bsk-hidden-md bsk-hidden-lg bsk-hidden-xl bsk-visible-sm-inline"><strong>Small</strong></span>
       ·
-      <span class="hidden-md text-muted">Medium</span>
-      <span class="hidden-xs hidden-sm hidden-lg hidden-xl visible-md-inline"><strong>Medium</strong></span>
+      <span class="bsk-hidden-md bsk-text-muted">Medium</span>
+      <span class="bsk-hidden-xs bsk-hidden-sm bsk-hidden-lg bsk-hidden-xl bsk-visible-md-inline"><strong>Medium</strong></span>
       ·
-      <span class="hidden-lg-x text-muted">Large</span>
-      <span class="hidden-xs hidden-sm hidden-md hidden-xl visible-lg-inline"><strong>Large</strong></span>
+      <span class="bsk-hidden-lg-x bsk-text-muted">Large</span>
+      <span class="bsk-hidden-xs bsk-hidden-sm bsk-hidden-md bsk-hidden-xl bsk-visible-lg-inline"><strong>Large</strong></span>
       ·
-      <span class="hidden-xl text-muted">Extra large (custom size)</span>
-      <span class="hidden-xs hidden-sm hidden-md hidden-lg-x visible-xl-inline"><strong>Extra large (custom size)</strong></span>
+      <span class="bsk-hidden-xl bsk-text-muted">Extra large (custom size)</span>
+      <span class="bsk-hidden-xs bsk-hidden-sm bsk-hidden-md bsk-hidden-lg-x bsk-visible-xl-inline"><strong>Extra large (custom size)</strong></span>
     </div>
   </div>
 </header>
@@ -44,7 +44,7 @@
   _use_isolated_href=false,
   _base_path="/"
 ) %}
-<header {% if _use_container %}class="container-fluid"{% endif %}>
+<header {% if _use_container %}class="bsk-container-fluid"{% endif %}>
   <div class="page-header">
     <h{{ _heading_level }}>
       {% if _title_prefix %}<strong>{{ _title_prefix }}</strong>{% endif %} {{ title }} {% if _title_code %}<code>{{ _title_code }}</code>{% endif %}
@@ -81,7 +81,7 @@
     _use_isolated_href=use_isolated_href,
     _base_path=base_path
   ) }}
-  <main {% if use_container %}class="container-fluid"{% endif %}>
+  <main {% if use_container %}class="bsk-container-fluid"{% endif %}>
     {{ caller() }}
   </main>
 </section>

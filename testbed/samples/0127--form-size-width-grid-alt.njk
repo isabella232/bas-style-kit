@@ -5,30 +5,30 @@
 {% set sample_href = "0127--form-size-width-grid-alt.html" %}
 {% set sample_number = "#0127" %}
 {% set sample_title = "Form control width using alternative grid" %}
-{% set sample_markup = '.form-group.col-bsk-md-*' %}
+{% set sample_markup = '.bsk-form-group.bsk-col-bsk-md-*' %}
 
 {% set grid_columns=24 %}
-{% set column_grid='col-bsk-md' %}
+{% set column_grid='bsk-col-bsk-md' %}
 
 {% block sample %}
-<div class="container bsk-tb-visible-container">
-  <p class="text-info">Using the medium alternative grid, in a fixed-width container.</p>
+<div class="bsk-container bsk-bsk-tb-visible-container">
+  <p class="bsk-text-info">Using the medium alternative grid, in a fixed-width container.</p>
 
   <form>
 {% for column_size in range(1, grid_columns) %}
-    <p class="text-info"><code>form-group.{{ column_grid }}-{{ column_size }}</code></p>
-    <fieldset class="row">
-      <div class="form-group {{ column_grid }}-{{ column_size }}">
-        <label class="control-label">Text input</label>
-        <input type="text" class="form-control">
+    <p class="bsk-text-info"><code>form-group.{{ column_grid }}-{{ column_size }}</code></p>
+    <fieldset class="bsk-row">
+      <div class="bsk-form-group {{ column_grid }}-{{ column_size }}">
+        <label class="bsk-control-label">Text input</label>
+        <input type="text" class="bsk-form-control">
       </div>
     </fieldset>
 {% endfor %}
-    <p class="text-info"><code>form-group.{{ column_grid }}-{{ grid_columns }}</code></p>
-    <fieldset class="row">
-      <div class="form-group {{ column_grid }}-{{ grid_columns }}">
-        <label class="control-label">Text input</label>
-        <input type="text" class="form-control">
+    <p class="bsk-text-info"><code>form-group.{{ column_grid }}-{{ grid_columns }}</code></p>
+    <fieldset class="bsk-row">
+      <div class="bsk-form-group {{ column_grid }}-{{ grid_columns }}">
+        <label class="bsk-control-label">Text input</label>
+        <input type="text" class="bsk-form-control">
       </div>
     </fieldset>
   </form>

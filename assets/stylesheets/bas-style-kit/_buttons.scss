@@ -5,7 +5,7 @@
 // Base styles
 // -------------------------
 
-.btn-bsk {
+.btn {
   border: $btn-bsk-border;
 
   @include button-size(
@@ -21,7 +21,7 @@
 // Alternate buttons
 // -------------------------
 
-.btn-bsk {
+.btn {
   &.btn-default {
     @include button-variant(
       $btn-default-color,
@@ -31,7 +31,7 @@
   }
 }
 
-.btn-bsk-primary {
+.btn-primary {
   @include button-variant(
     $btn-bsk-primary-color,
     $btn-bsk-primary-bg,
@@ -43,7 +43,7 @@
 // Button Sizes
 // -------------------------
 
-.btn-bsk {
+.btn {
   &.btn-lg {
     // line-height: ensure even-numbered height of button next to large input
     @include button-size(

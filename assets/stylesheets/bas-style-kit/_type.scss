@@ -19,14 +19,14 @@
 // -------------------------
 
 // Description Lists
-.dl-bsk {
+.dl-lg {
   dt,
   dd {
     padding: $dl-bsk-padding;
   }
 }
 
-.dl-bsk-horizontal-lg {
+.dl-horizontal-lg {
   @media (min-width: $grid-float-breakpoint) {
     dt {
       width: ($dl-bsk-horizontal-lg-offset - 20);
@@ -38,7 +38,7 @@
   }
 }
 
-.dl-bsk-striped {
+.dl-striped {
   dt {
     background: $dl-bsk-striped-bg;
   }

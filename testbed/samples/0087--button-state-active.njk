@@ -3,20 +3,20 @@
 {% set sample_href = "0087--button-state-active.html" %}
 {% set sample_number = "#0087" %}
 {% set sample_title = "active state buttons" %}
-{% set sample_markup = ".btn.btn-bsk.btn-*.active" %}
+{% set sample_markup = ".bsk-btn-*.bsk-active" %}
 
 {% block sample %}
-<p class="text-info"><code>button</code></p>
-<p><button class="btn btn-bsk btn-default active">Active default button button</button></p>
-<p><button class="btn btn-bsk btn-primary active">Active primary button button</button></p>
-<p><button class="btn btn-bsk btn-success active">Active successful button button</button></p>
-<p><button class="btn btn-bsk btn-warning active">Active warning button button</button></p>
-<p><button class="btn btn-bsk btn-danger active">Active dangerous button button</button></p>
-<p><button class="btn btn-bsk btn-info active">Active information button button</button></p>
+<p class="bsk-text-info"><code>button</code></p>
+<p><button class="bsk-btn bsk-btn-default bsk-active">Active default button button</button></p>
+<p><button class="bsk-btn bsk-btn-primary bsk-active">Active primary button button</button></p>
+<p><button class="bsk-btn bsk-btn-success bsk-active">Active successful button button</button></p>
+<p><button class="bsk-btn bsk-btn-warning bsk-active">Active warning button button</button></p>
+<p><button class="bsk-btn bsk-btn-danger bsk-active">Active dangerous button button</button></p>
+<p><button class="bsk-btn bsk-btn-info bsk-active">Active information button button</button></p>
 
-<p class="text-info"><code>input</code></p>
-<input class="btn btn-bsk btn-default active" type="button" value="Active input button">
+<p class="bsk-text-info"><code>input</code></p>
+<input class="bsk-btn bsk-btn-default bsk-active" type="button" value="Active input button">
 
-<p class="text-info"><code>a</code></p>
-<a class="btn btn-bsk btn-default active" href="#" role="button">Active link button</a>
+<p class="bsk-text-info"><code>a</code></p>
+<a class="bsk-btn bsk-btn-default bsk-active" href="#" role="button">Active link button</a>
 {% endblock %}

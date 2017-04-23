@@ -5,14 +5,14 @@
 {% set sample_href = "0050--grid-alt-basic.html" %}
 {% set sample_number = "#0050" %}
 {% set sample_title = "alt basic grid system" %}
-{% set sample_markup = ".col-bsk-md-*" %}
+{% set sample_markup = ".bsk-col-bsk-md-*" %}
 
 {% set grid_columns=24 %}
-{% set column_grid='col-bsk-md' %}
+{% set column_grid='bsk-col-bsk-md' %}
 
 {% block sample %}
-<div class="container">
-  <p class="text-info">Using the medium alternative grid, in a fixed-width container.</p>
+<div class="bsk-container">
+  <p class="bsk-text-info">Using the medium alternative grid, in a fixed-width container.</p>
   {{ grid.bsk_tb_grid_equal_width_columns_v1(grid_columns, column_grid) }}
 </div>
 {% endblock %}

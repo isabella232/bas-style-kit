@@ -3,18 +3,18 @@
 {% set sample_href = "0080--button-default.html" %}
 {% set sample_number = "#0080" %}
 {% set sample_title = "default button" %}
-{% set sample_markup = ".btn.btn-bsk.btn-default" %}
+{% set sample_markup = ".bsk-btn.bsk-btn-default" %}
 
 {% block sample %}
-<p class="text-info"><code>button</code> with various contents</p>
-<p><button class="btn btn-bsk btn-default" type="submit"><!-- no value --></button></p>
-<p><button class="btn btn-bsk btn-default" type="submit">Default button button</button></p>
-<p><button class="btn btn-bsk btn-default" type="submit">Da da da da da da da da BATMAN!</button></p>
-<p><button class="btn btn-bsk btn-default" type="submit">Button with a <br /> line break</button></p>
+<p class="bsk-text-info"><code>button</code> with various contents</p>
+<p><button class="bsk-btn bsk-btn-default" type="submit"><!-- no value --></button></p>
+<p><button class="bsk-btn bsk-btn-default" type="submit">Default button button</button></p>
+<p><button class="bsk-btn bsk-btn-default" type="submit">Da da da da da da da da BATMAN!</button></p>
+<p><button class="bsk-btn bsk-btn-default" type="submit">Button with a <br /> line break</button></p>
 
-<p class="text-info"><code>input</code></p>
-<input class="btn btn-bsk btn-default" type="button" value="Default input button">
+<p class="bsk-text-info"><code>input</code></p>
+<input class="bsk-btn bsk-btn-default" type="button" value="Default input button">
 
-<p class="text-info"><code>a</code></p>
-<a class="btn btn-bsk btn-default" href="#" role="button">Default link button</a>
+<p class="bsk-text-info"><code>a</code></p>
+<a class="bsk-btn bsk-btn-default" href="#" role="button">Default link button</a>
 {% endblock %}
