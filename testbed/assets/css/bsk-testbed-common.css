@@ -294,13 +294,13 @@ background: #85994B;
   background-color: #555; }
 .bsk-tb-simulated-state-uncollapsed:focus {
   outline: 0; }
-.bsk-tb-simulated-state-uncollapsed .icon-bar {
+.bsk-tb-simulated-state-uncollapsed .bsk-icon-bar {
   display: block;
   width: 22px;
   height: 2px;
   border-radius: 1px;
   background-color: #fff; }
-.bsk-tb-simulated-state-uncollapsed .icon-bar + .icon-bar {
+.bsk-tb-simulated-state-uncollapsed .bsk-icon-bar + .bsk-icon-bar {
   margin-top: 4px; }
 
 /* No sure why this isn't needed generally */
@@ -309,7 +309,7 @@ background: #85994B;
 }
 
 .bsk-tb-navbar-brand-image-32 {
-  padding-top: 10px;
+  padding-top: 9px;
 }
 .bsk-tb-navbar-brand-image-48,
 .bsk-tb-navbar-brand-image-96 {

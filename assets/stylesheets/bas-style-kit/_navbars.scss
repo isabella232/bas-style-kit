@@ -6,7 +6,7 @@
 // ----------------------
 
 // BSK navbar
-.navbar-bsk {
+.navbar {
   font-family:      $navbar-bsk-font-family;
   font-weight:      $navbar-bsk-font-weight;
   font-size:        $navbar-bsk-font-size;
@@ -161,7 +161,7 @@
 }
 
 // BSK large navbar (i.e a 'thick' version)
-.navbar-bsk-lg {
+.navbar-lg {
   font-size: $font-size-large;
 
   .navbar-brand {

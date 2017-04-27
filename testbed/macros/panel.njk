@@ -5,17 +5,17 @@
   with_footer=false,
   with_title=false
 ) %}
-<div class="panel panel-{{ panel_modifier }}">
+<div class="bsk-panel bsk-panel-{{ panel_modifier }}">
   {% if with_header %}
-  <header class="panel-heading">
-    <h3 class="{% if with_title %}panel-title{% endif %}">{{ panel_modifier | title }} panel header {% if with_title %}with title{% endif %}</h3>
+  <header class="bsk-panel-heading">
+    <h3 class="{% if with_title %}bsk-panel-title{% endif %}">{{ panel_modifier | title }} panel header {% if with_title %}with title{% endif %}</h3>
   </header>
   {% endif %}
-  {% if with_body %}<main class="panel-body">{% endif %}
+  {% if with_body %}<main class="bsk-panel-body">{% endif %}
     {{ panel_modifier | title }} panel content
   {% if with_body %}</main>{% endif %}
   {% if with_footer %}
-  <footer class="panel-footer">
+  <footer class="bsk-panel-footer">
     {{ panel_modifier | title }} panel footer
   </footer>
   {% endif %}

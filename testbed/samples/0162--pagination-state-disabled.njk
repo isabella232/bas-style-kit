@@ -5,19 +5,19 @@
 {% set sample_href = "0162--pagination-state-disabled.html" %}
 {% set sample_number = "#0162" %}
 {% set sample_title = "disabled pagination state" %}
-{% set sample_markup = ".pagination .disabled" %}
+{% set sample_markup = ".bsk-pagination .bsk-disabled" %}
 
 {% block sample %}
 <nav>
-  <ul class="pagination">
-    <li class="disabled"><a href="#">1</a></li>
+  <ul class="bsk-pagination">
+    <li class="bsk-disabled"><a href="#">1</a></li>
   </ul>
 </nav>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">3 items, first disabled</h4>
 <nav>
-  <ul class="pagination">
-    <li class="disabled"><a href="#">1</a></li>
+  <ul class="bsk-pagination">
+    <li class="bsk-disabled"><a href="#">1</a></li>
     <li><a href="#">2</a></li>
     <li><a href="#">3</a></li>
   </ul>
@@ -25,19 +25,19 @@
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">3 items, second disabled</h4>
 <nav>
-  <ul class="pagination">
+  <ul class="bsk-pagination">
     <li><a href="#">1</a></li>
-    <li class="disabled"><a href="#">2</a></li>
+    <li class="bsk-disabled"><a href="#">2</a></li>
     <li><a href="#">3</a></li>
   </ul>
 </nav>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">3 items, third disabled</h4>
 <nav>
-  <ul class="pagination">
+  <ul class="bsk-pagination">
     <li><a href="#">1</a></li>
     <li><a href="#">2</a></li>
-    <li class="disabled"><a href="#">3</a></li>
+    <li class="bsk-disabled"><a href="#">3</a></li>
   </ul>
 </nav>
 {% endblock %}

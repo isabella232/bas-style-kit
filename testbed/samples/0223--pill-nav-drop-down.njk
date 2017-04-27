@@ -3,17 +3,17 @@
 {% set sample_href = "0223--pill-nav-drop-down.html" %}
 {% set sample_number = "#0223" %}
 {% set sample_title = "pill navigation with drop down" %}
-{% set sample_markup = ".nav-pills.nav-pills-bsk" %}
+{% set sample_markup = ".bsk-nav.bsk-nav-pills .bsk-dropdown" %}
 
 {% block sample %}
 <nav role="navigation">
-  <ul class="nav nav-pills nav-pills-bsk">
+  <ul class="bsk-nav bsk-nav-pills">
     <li role="presentation"><a href="#">Pill 1</a></li>
     <li role="presentation"><a href="#">Pill 2</a></li>
-    <li role="presentation" class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-      Dropdown <span class="caret"></span></a>
-      <ul class="dropdown-menu dropdown-menu-bsk">
+    <li role="presentation" class="bsk-dropdown">
+      <a href="#" class="bsk-dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      Dropdown <span class="bsk-caret"></span></a>
+      <ul class="bsk-dropdown-menu">
         <li><a href="#">Action</a></li>
         <li><a href="#">Another item</a></li>
       </ul>

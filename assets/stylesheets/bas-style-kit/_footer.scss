@@ -15,7 +15,7 @@
 // Provide a static footer from which we expand to create full-width, fixed, and
 // other footer variations.
 
-.footer-bsk {
+.footer {
   font-family:    $footer-font-family;
   font-weight:    $footer-font-weight;
   font-size:      $footer-font-size;
@@ -38,8 +38,8 @@
 // bottom of the page.
 
 // Common styles
-.footer-bsk-static-bottom,
-.footer-bsk-fixed-bottom {
+.footer-static-bottom,
+.footer-fixed-bottom {
   border-width: 1px 0 0;
 
   // Undo the rounded corners
@@ -49,12 +49,12 @@
 }
 
 // Static bottom (unfixed, but 100% wide) footer
-.footer-bsk-static-bottom {
+.footer-static-bottom {
   z-index: $zindex-footer;
 }
 
 // Fix the bottom footer when screen real estate supports it
-.footer-bsk-fixed-bottom {
+.footer-fixed-bottom {
   position:      fixed;
   right:         0;
   left:          0;
@@ -68,7 +68,7 @@
 //
 // Used to separate bands of content, spanning the full width of the parent.
 
-.footer-bsk-divider {
+.footer-divider {
   margin-top:    $line-height-computed;
   margin-bottom: $line-height-computed;
   border:        0;
@@ -80,7 +80,7 @@
 //
 // Proper sizing and positioning to give an attractive and usable licensing statement for the Open Government License
 
-.footer-bsk-ogl {
+.footer-ogl {
   .ogl-symbol,
   .ogl-text {
     text-align: center;
@@ -119,7 +119,7 @@
 //
 // Proper positioning for an inline list so that it sits flush with the split line OGL licensing statement
 
-.footer-bsk-policy-links {
+.footer-policy-links {
   text-align: center;
 
   @media (min-width: $screen-sm-min) {
@@ -140,12 +140,12 @@
 // Footer variants
 //
 
-.footer-bsk-default {
+.footer-default {
   color:            $footer-bsk-default-color;
   background-color: $footer-bsk-default-bg;
   border-color:     $footer-bsk-default-border;
 
-  .footer-bsk-divider {
+  .footer-divider {
     border-top-color: $footer-bsk-default-divider;
   }
 

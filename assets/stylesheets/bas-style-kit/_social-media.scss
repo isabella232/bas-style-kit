@@ -7,7 +7,7 @@
 // Base class
 //
 
-.social-media-bsk-static {
+.social-media-static {
   @include make-social-media-static(
     twitter,
     $brands-twitter-primary
@@ -32,7 +32,7 @@
 // Expects a containing element with a series of links each containing an icon for a different website/service
 
 // Services
-.social-media-bsk-link {
+.social-media-link {
   @include make-social-media-link(
     twitter,
     $brands-twitter-primary
@@ -52,7 +52,7 @@
 }
 
 // Wrapper
-.social-media-bsk-list {
+.social-media-list {
   li {
     padding-right: 0;
   }

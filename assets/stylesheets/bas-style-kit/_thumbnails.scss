@@ -5,7 +5,7 @@
 // Base class
 //
 
-.thumbnail-bsk {
+.thumbnail {
   padding:       $thumbnail-bsk-padding;
   border-radius: $thumbnail-bsk-border-radius;
 
@@ -24,11 +24,11 @@
 // Thumbnail variants
 //
 
-.thumbnail-bsk-default {
+.thumbnail-default {
   background-color: $thumbnail-bsk-default-bg;
 }
 
-.thumbnail-bsk-inverse {
+.thumbnail-inverse {
   background-color: $thumbnail-bsk-inverse-bg;
 
   .caption {

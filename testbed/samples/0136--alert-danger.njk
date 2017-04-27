@@ -3,22 +3,22 @@
 {% set sample_href = "0136--alert-danger.html" %}
 {% set sample_number = "#0136" %}
 {% set sample_title = "Dangerous alert" %}
-{% set sample_markup = '.alert.alert-danger' %}
+{% set sample_markup = '.bsk-alert.bsk-alert-danger' %}
 
 {% block sample %}
-<div class="alert alert-danger" role="alert">Danger alert</div>
+<div class="bsk-alert bsk-alert-danger" role="alert">Danger alert</div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With alert link</h4>
-<div class="alert alert-danger" role="alert">Danger alert with a <a href="#">link</a></div>
+<div class="bsk-alert bsk-alert-danger" role="alert">Danger alert with a <a href="#" class="bsk-alert-link">link</a></div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual icon</h4>
-<div class="alert alert-danger" role="alert">
+<div class="bsk-alert bsk-alert-danger" role="alert">
   <i class="fa fa-check text-danger" aria-hidden="true"></i> Danger alert
 </div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual conventional dismiss icons</h4>
-<div class="alert alert-danger" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+<div class="bsk-alert bsk-alert-danger" role="alert">
+  <button type="button" class="bsk-close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
   <i class="fa fa-check text-danger" aria-hidden="true"></i> Danger alert
 </div>
 {% endblock %}

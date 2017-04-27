@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 // Base class
-.jumbotron-bsk {
+.jumbotron {
   margin-bottom:   $jumbotron-bsk-margin-bottom;
   background:      no-repeat center center;
   background-size: cover;
@@ -16,27 +16,27 @@
 }
 
 // Sizes
-.jumbotron-bsk-lg {
+.jumbotron-lg {
   @include make-jumbotron-size($jumbotron-bsk-lg-padding);
 }
 
-.jumbotron-bsk-xl {
+.jumbotron-xl {
   @include make-jumbotron-size($jumbotron-bsk-xl-padding);
 }
 
 // Variants
-.jumbotron-bsk-default {
+.jumbotron-default {
   color:            $jumbotron-bsk-default-color;
   background-color: $jumbotron-bsk-default-bg;
 }
 
-.jumbotron-bsk-inverse {
+.jumbotron-inverse {
   color:            $jumbotron-bsk-inverse-color;
   background-color: $jumbotron-bsk-inverse-bg;
 }
 
 // Sub-components
-.jumbotron-bsk {
+.jumbotron {
   .text-overlay {
     text-shadow:      1px 1px 2px $jumbotron-bsk-inverse-text-overlay-shadow;
     box-shadow:       10px 0 0 $jumbotron-bsk-inverse-text-overlay-bg, -10px 0 0 $jumbotron-bsk-inverse-text-overlay-bg;
