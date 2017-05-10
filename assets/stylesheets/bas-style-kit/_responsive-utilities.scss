@@ -29,9 +29,8 @@
   }
 }
 
-// '-x' suffix is used to prevent clashes with native bootstrap styles
 @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-  @include responsive-invisibility('.hidden-lg-x');
+  @include responsive-invisibility('.hidden-lg');
 }
 
 @media (min-width: $screen-xl-min) {

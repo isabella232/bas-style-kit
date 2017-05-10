@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed - BREAKING!
 
 * [Styles] A common 'bsk-' prefix now applies to all class names, including variants and Bootstrap styles
+* [Styles] Removing override for large media breakpoint visibility classes, use `-lg` rather than `lg-x`
 
 ### Added
 
