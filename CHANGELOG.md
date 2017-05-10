@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Styles] Adding testbed sample for responsive tables
 * [Infrastructure] Significantly improving NPM support
 * [Infrastructure] Documenting GitHub mirror
 
