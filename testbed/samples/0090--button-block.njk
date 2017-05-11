@@ -3,25 +3,25 @@
 {% set sample_href = "0090--button-block.html" %}
 {% set sample_number = "#0090" %}
 {% set sample_title = "block buttons" %}
-{% set sample_markup = ".btn.btn-bsk.btn-default.btn-block" %}
+{% set sample_markup = ".bsk-btn.bsk-btn-default.bsk-btn-block" %}
 
 {% block sample %}
-<div class="container">
-  <p class="text-info">Using the medium standard grid, in a fixed-width container.</p>
-  <div class="row">
-    <div class="col-md-4">
-      <button class="btn btn-bsk btn-default">Button 4 columns</button>
+<div class="bsk-container">
+  <p class="bsk-text-info">Using the medium standard grid, in a fixed-width container.</p>
+  <div class="bsk-row">
+    <div class="bsk-col-md-4">
+      <button class="bsk-btn bsk-btn-default bsk-btn-block">Button 4 columns</button>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4 bsk-tb-visible-col-1"></div>
-    <div class="col-md-4">
-      <button class="btn btn-bsk btn-default">Button 4 columns, 4 offset</button>
+  <div class="bsk-row">
+    <div class="bsk-col-md-4 bsk-tb-visible-col-1"></div>
+    <div class="bsk-col-md-4">
+      <button class="bsk-btn bsk-btn-default bsk-btn-block">4 column span, Button 4 columns</button>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <button class="btn btn-bsk btn-default">Button 4 columns, 4 offset</button>
+  <div class="bsk-row">
+    <div class="bsk-col-md-4 bsk-col-md-offset-4">
+      <button class="bsk-btn bsk-btn-default bsk-btn-block">Button 4 columns, 4 offset</button>
     </div>
   </div>
 </div>

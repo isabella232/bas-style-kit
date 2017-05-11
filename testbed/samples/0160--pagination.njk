@@ -5,19 +5,19 @@
 {% set sample_href = "0160--pagination.html" %}
 {% set sample_number = "#0160" %}
 {% set sample_title = "pagination" %}
-{% set sample_markup = ".pagination" %}
+{% set sample_markup = ".bsk-pagination" %}
 
 {% block sample %}
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">1 <code>a</code> item</h4>
 <nav>
-  <ul class="pagination">
+  <ul class="bsk-pagination">
     <li><a href="#">1</a></li>
   </ul>
 </nav>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">2 <code>a</code> items</h4>
 <nav>
-  <ul class="pagination">
+  <ul class="bsk-pagination">
     <li><a href="#">First</a></li>
     <li><a href="#">Last</a></li>
   </ul>
@@ -25,7 +25,7 @@
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">12 <code>a</code> items</h4>
 <nav>
-  <ul class="pagination">
+  <ul class="bsk-pagination">
     <li><a href="#">First</a></li>
     {{ pagination.bsk_tb_pagination_items_v1(item_count=10) }}
     <li><a href="#">Last</a></li>
@@ -34,7 +34,7 @@
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">222 <code>a</code> items</h4>
 <nav>
-  <ul class="pagination">
+  <ul class="bsk-pagination">
     <li><a href="#">First</a></li>
     {{ pagination.bsk_tb_pagination_items_v1(item_count=220) }}
     <li><a href="#">Last</a></li>

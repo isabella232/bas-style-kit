@@ -5,19 +5,33 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Changed - BREAKING!
+
+* [Styles] A common 'bsk-' prefix now applies to all class names, including variants and Bootstrap styles
+* [Styles] Removing override for large media breakpoint visibility classes, use `-lg` rather than `lg-x`
+* [Styles] Font face declarations are now compiled as a separate `fonts-bsk.css` file to avoid the common namespace
+
 ### Added
 
+* [Styles] Adding testbed sample for responsive tables
 * [Infrastructure] Significantly improving NPM support
 * [Infrastructure] Documenting GitHub mirror
+* [Infrastructure] Gulp tasks for processing new fonts styles file
 
 ### Fixed
 
+* [Styles] Adding support for input groups with input group buttons and dropdowns
+* [Styles] Correcting visibility samples to correctly hide or show elements
 * [Infrastructure] Preventing review apps for tagged releases during CI
 * [Infrastructure] Removing 'v' from version tags when publishing to the production CDN
+* [Infrastructure] Correcting the name of some atomic Gulp tasks to make them consistent
+* [Infrastructure] Correcting the name of the run sequence Gulp plugin to make it consistent
+* [Infrastructure] Correcting dependent task for `atomic--sourcemaps-bootstrap-bsk` Gulp task
 
 ### Changed
 
 * [Infrastructure] Ignoring testbed sources from Git archives
+* [Infrastructure] Updating location of spell checking settings due to plugin update
 
 ## [0.2.0] - 2017-04-17
 

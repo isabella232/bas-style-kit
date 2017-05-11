@@ -13,7 +13,7 @@
 // Base class
 //
 
-.header-bsk {
+.header {
   font-family:    $header-font-family;
   font-weight:    $header-font-weight;
   font-size:      $header-font-size;
@@ -34,7 +34,7 @@
 //
 // Replicates the styles from .container-fluid but ensures everything is self contained
 
-.header-bsk-container-fluid {
+.header-container-fluid {
   padding-right: 15px;
   padding-left:  15px;
   margin-right:  auto;
@@ -46,7 +46,7 @@
 //
 // For padding and shit...
 
-.header-bsk-img-logo {
+.header-img-logo {
   width:   300px;
   padding: ($header-padding-vertical /2) 0;
 }
@@ -55,7 +55,7 @@
 // Header variants
 //
 
-.header-bsk-default {
+.header-default {
   background-color: $header-bsk-default-bg;
   border-color:     $header-bsk-default-border;
 }

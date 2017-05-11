@@ -5,7 +5,7 @@
 // Pills
 // -------------------------
 
-.nav-pills-bsk {
+.nav-pills {
   > li {
     > a {
       border-radius:    $nav-pills-bsk-border-radius;
@@ -31,7 +31,7 @@
 }
 
 // Stacked pills
-.nav-pills-bsk {
+.nav-pills {
   &.nav-stacked {
     > li {
       > a {
@@ -49,7 +49,7 @@
 // Where nav-pills or nav-tabs are used with a tab-pane (i.e. tabbed content) this nav wrapper can be used to apply
 // some suitable spacing between tabs and their tab-panes.
 
-.nav-wrapper-bsk {
+.nav-wrapper {
   .tab-pane {
     margin-top: $nav-wrapper-bsk-tab-pane-margin-top;
   }

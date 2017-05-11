@@ -3,18 +3,18 @@
 {% set sample_href = "0083--button-contextual-warning.html" %}
 {% set sample_number = "#0083" %}
 {% set sample_title = "warning contextual button" %}
-{% set sample_markup = ".btn.btn-bsk.btn-warning" %}
+{% set sample_markup = ".bsk-btn.bsk-btn-warning" %}
 
 {% block sample %}
-<p class="text-info"><code>button</code> with various contents</p>
-<p><button class="btn btn-bsk btn-warning" type="submit"><!-- no value --></button></p>
-<p><button class="btn btn-bsk btn-warning" type="submit">Warning button button</button></p>
-<p><button class="btn btn-bsk btn-warning" type="submit">Da da da da da da da da BATMAN!</button></p>
-<p><button class="btn btn-bsk btn-warning" type="submit">Button with a <br /> line break</button></p>
+<p class="bsk-text-info"><code>button</code> with various contents</p>
+<p><button class="bsk-btn bsk-btn-warning" type="submit"><!-- no value --></button></p>
+<p><button class="bsk-btn bsk-btn-warning" type="submit">Warning button button</button></p>
+<p><button class="bsk-btn bsk-btn-warning" type="submit">Da da da da da da da da BATMAN!</button></p>
+<p><button class="bsk-btn bsk-btn-warning" type="submit">Button with a <br /> line break</button></p>
 
-<p class="text-info"><code>input</code></p>
-<input class="btn btn-bsk btn-warning" type="button" value="Warning input button">
+<p class="bsk-text-info"><code>input</code></p>
+<input class="bsk-btn bsk-btn-warning" type="button" value="Warning input button">
 
-<p class="text-info"><code>a</code></p>
-<a class="btn btn-bsk btn-warning" href="#" role="button">Warning link button</a>
+<p class="bsk-text-info"><code>a</code></p>
+<a class="bsk-btn bsk-btn-warning" href="#" role="button">Warning link button</a>
 {% endblock %}

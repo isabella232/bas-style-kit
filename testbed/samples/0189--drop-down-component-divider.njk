@@ -3,17 +3,17 @@
 {% set sample_href = "0189--drop-down-component-divider.html" %}
 {% set sample_number = "#0189" %}
 {% set sample_title = "button drop-down menu with divider" %}
-{% set sample_markup = ".dropdown .dropdown-menu.dropdown-menu-bsk .divider" %}
+{% set sample_markup = ".bsk-dropdown .bsk-dropdown-menu-bsk .bsk-divider" %}
 
 {% block sample %}
-<div class="dropdown">
-  <button class="btn btn-bsk btn-default dropdown-toggle" type="button">
-    Dropdown <span class="caret"></span>
+<div class="bsk-dropdown">
+  <button class="bsk-btn bsk-btn-default bsk-dropdown-toggle" type="button">
+    Dropdown <span class="bsk-caret"></span>
   </button>
-  <ul class="dropdown-menu dropdown-menu-bsk bsk-tb-simulated-state-open">
+  <ul class="bsk-dropdown-menu bsk-tb-simulated-state-open">
     <li><a href="#">Action</a></li>
     <li><a href="#">Another action</a></li>
-    <li role="separator" class="divider"></li>
+    <li role="separator" class="bsk-divider"></li>
     <li><a href="#">Separated link</a></li>
   </ul>
 </div>

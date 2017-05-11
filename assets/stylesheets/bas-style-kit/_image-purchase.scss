@@ -11,10 +11,10 @@
 // Base class
 //
 
-.bsk-image-purchase {
+.image-purchase {
   // Common styles
-  &.jumbotron-bsk,
-  &.thumbnail-bsk {
+  &.jumbotron,
+  &.thumbnail {
     .caption {
       .image-purchase-symbol {
         opacity: $image-purchase-bsk-base-opacity;
@@ -33,8 +33,8 @@
 // Adapt the base image class based on which element it is contained within
 
 // Styles when used with jumbotrons
-.bsk-image-purchase {
-  &.jumbotron-bsk {
+.image-purchase {
+  &.jumbotron {
     // Adjust the actual jumbotron to allow the purchase symbol to be positioned correctly
     position: relative;
 
@@ -86,10 +86,10 @@
 }
 
 // Styles when used with thumbnails
-.bsk-image-purchase {
+.image-purchase {
 
   // Base styles
-  &.thumbnail-bsk {
+  &.thumbnail {
     .caption {
       .image-purchase-symbol {
         float: right !important;
@@ -98,7 +98,7 @@
   }
 
   // Thumbnail variants
-  &.thumbnail-bsk-default {
+  &.thumbnail-default {
     .caption {
       .image-purchase-symbol {
         color: $image-purchase-bsk-in-caption-default-color;
@@ -106,7 +106,7 @@
     }
   }
 
-  &.thumbnail-bsk-inverse {
+  &.thumbnail-inverse {
     .caption {
       .image-purchase-symbol {
         color: $image-purchase-bsk-in-caption-inverse-color;
@@ -116,7 +116,7 @@
 
   // Where a thumbnail has no caption we overlay the purchase symbol on the actual image, like with a jumbotron
   // This requires the user to tell us this is the case via the class these styles target.
-  &.bsk-image-purchase-no-caption {
+  &.image-purchase-no-caption {
     // Adjust the actual thumbnail to allow the purchase symbol to be positioned correctly
     position: relative;
 
@@ -168,7 +168,7 @@
 
   // Where a thumbnail is a link we can't make the purchase link an actual link so fake it using JS.
   // These styles dress this up so it still looks like a link.
-  &a.thumbnail-bsk {
+  &a.thumbnail {
     .caption {
       .image-purchase-symbol {
         cursor: pointer;
@@ -176,7 +176,7 @@
     }
   }
 
-  &a.bsk-image-purchase-no-caption {
+  &a.image-purchase-no-caption {
     .image-purchase-symbol {
       cursor: pointer;
     }

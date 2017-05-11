@@ -2,28 +2,28 @@
 {% for column_size in range(1, grid_columns) %}
   {% if grid_columns % column_size == 0 %}
     {% set column_count = grid_columns / column_size %}
-    <p class="text-info">{{ column_count }} x <code>.col-bsk-md-{{ column_size }}</code></p>
-    <div class="row">
+    <p class="bsk-text-info">{{ column_count }} x <code>.col-bsk-md-{{ column_size }}</code></p>
+    <div class="bsk-row">
     {% for column in range(0, column_count) %}
       <div class="{{ column_grid }}-{{ column_size }} bsk-tb-visible-col-{{ column + 1 }}"></div>
     {% endfor %}
     </div>
   {% endif %}
 {% endfor %}
-<p class="text-info">1 x <code>.{{ column_grid }}-{{ grid_columns }}</code></p>
-<div class="row">
+<p class="bsk-text-info">1 x <code>.{{ column_grid }}-{{ grid_columns }}</code></p>
+<div class="bsk-row">
   <div class="{{ column_grid }}-{{ grid_columns }} bsk-tb-visible-col-1"></div>
 </div>
 {% endmacro %}
 
 {% macro bsk_tb_grid_column_offsets_v1(grid_columns, column_grid) %}
-<div class="row">
-  <p class="text-info"><code>.bsk-md-1</code></p>
+<div class="bsk-row">
+  <p class="bsk-text-info"><code>.bsk-md-1</code></p>
   <div class="{{ column_grid }}-1 bsk-tb-visible-col-1"></div>
 </div>
 {% for column_offset in range(1, grid_columns) %}
-<div class="row">
-  <p class="text-info"><code>.col-md-offset-{{ column_offset }} .bsk-md-1</code></p>
+<div class="bsk-row">
+  <p class="bsk-text-info"><code>.col-md-offset-{{ column_offset }} .bsk-md-1</code></p>
   <div class="{{ column_grid }}-1 {{ column_grid }}-offset-{{ column_offset }} bsk-tb-visible-col-1"></div>
 </div>
 {% endfor %}
