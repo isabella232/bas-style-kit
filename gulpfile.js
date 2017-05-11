@@ -236,7 +236,7 @@ gulp.task('atomic--sourcemaps-bas-style-kit', ['atomic--compile-sass-bas-style-k
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
-gulp.task('atomic--sourcemaps-bootstrap-bsk', ['atomic--compile-sass-bas-style-kit'], () => {
+gulp.task('atomic--sourcemaps-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(sourcemaps.init())
     .pipe(nano())

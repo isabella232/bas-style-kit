@@ -26,6 +26,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Removing 'v' from version tags when publishing to the production CDN
 * [Infrastructure] Correcting the name of some atomic Gulp tasks to make them consistent
 * [Infrastructure] Correcting the name of the run sequence Gulp plugin to make it consistent
+* [Infrastructure] Correcting dependent task for `atomic--sourcemaps-bootstrap-bsk` Gulp task
 
 ### Changed
 
