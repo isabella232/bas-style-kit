@@ -141,6 +141,12 @@ gulp.task('atomic--compile-sass-bootstrap-bsk', () => {
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
 });
 
+gulp.task('atomic--compile-sass-fonts-bsk', () => {
+  return gulp.src(path.join(config.sources.stylesheets, 'fonts-bsk.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
+});
+
 // Auto-prefixing
 
 gulp.task('atomic--autoprefix-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
@@ -151,6 +157,12 @@ gulp.task('atomic--autoprefix-bas-style-kit', ['atomic--compile-sass-bas-style-k
 
 gulp.task('atomic--autoprefix-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic--autoprefix-fonts-bsk', ['atomic--compile-sass-fonts-bsk'], () => {
+  return gulp.src(path.join(config.sources.css, 'fonts-bsk.css'))
     .pipe(autoprefixer(config.modules.autoprefixer))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
@@ -183,6 +195,12 @@ gulp.task('atomic--comb-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], 
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
+gulp.task('atomic--comb-fonts-bsk', ['atomic--compile-sass-fonts-bsk'], () => {
+  return gulp.src(path.join(config.sources.css, 'fonts-bsk.css'))
+    .pipe(csscomb())
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
 // Minify CSS
 
 gulp.task('atomic--minify-bas-style-kit', ['atomic--compile-sass-bas-style-kit'], () => {
@@ -194,6 +212,13 @@ gulp.task('atomic--minify-bas-style-kit', ['atomic--compile-sass-bas-style-kit']
 
 gulp.task('atomic--minify-bootstrap-bsk', ['atomic--compile-sass-bootstrap-bsk'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic--minify-fonts-bsk', ['atomic--compile-sass-fonts-bsk'], () => {
+  return gulp.src(path.join(config.sources.css, 'fonts-bsk.css'))
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
@@ -213,6 +238,15 @@ gulp.task('atomic--sourcemaps-bas-style-kit', ['atomic--compile-sass-bas-style-k
 
 gulp.task('atomic--sourcemaps-bootstrap-bsk', ['atomic--compile-sass-bas-style-kit'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(sourcemaps.init())
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic--sourcemaps-fonts-bsk', ['atomic--compile-sass-fonts-bsk'], () => {
+  return gulp.src(path.join(config.sources.css, 'fonts-bsk.css'))
     .pipe(sourcemaps.init())
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
@@ -293,6 +327,14 @@ gulp.task('atomic--sri-bootstrap-bsk-css', ['atomic--compile-sass-bootstrap-bsk'
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
+gulp.task('atomic--sri-fonts-bsk-css', ['atomic--compile-sass-fonts-bsk'], () => {
+  return gulp.src(path.join(config.sources.css, 'fonts-bsk.css'))
+    .pipe(sri({
+      'fileName': 'fonts-bsk.css.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
 gulp.task('atomic--sri-bas-style-kit-css-min', ['atomic-sourcemaps-bas-style-kit'], () => {
   return gulp.src(path.join(config.sources.css, 'bas-style-kit.min.css'))
     .pipe(sri({
@@ -305,6 +347,14 @@ gulp.task('atomic--sri-bootstrap-bsk-css-min', ['atomic-sourcemaps-bootstrap-bsk
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.min.css'))
     .pipe(sri({
       'fileName': 'bootstrap-bsk.min.css.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('atomic--sri-fonts-bsk-css-min', ['atomic-sourcemaps-fonts-bsk'], () => {
+  return gulp.src(path.join(config.sources.css, 'fonts-bsk.min.css'))
+    .pipe(sri({
+      'fileName': 'fonts-bsk.min.css.sri.json'
     }))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
@@ -427,13 +477,35 @@ gulp.task('build--styles-bootstrap-bsk-min', () => {
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
 });
 
+gulp.task('build--styles-fonts-bsk-no-min', () => {
+    return gulp.src(path.join(config.sources.stylesheets, 'fonts-bsk.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(csscomb())
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
+});
+
+gulp.task('build--styles-fonts-bsk-min', () => {
+    return gulp.src(path.join(config.sources.stylesheets, 'fonts-bsk.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(csscomb())
+    .pipe(sourcemaps.init())
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
+});
+
 // This task assumes the respective CSS files have been created by other tasks
 gulp.task('build--sri-combined', () => {
     return gulp.src([
       path.join(config.sources.css, 'bas-style-kit.css'),
       path.join(config.sources.css, 'bas-style-kit.min.css'),
       path.join(config.sources.css, 'bootstrap-bsk.css'),
-      path.join(config.sources.css, 'bootstrap-bsk.min.css')
+      path.join(config.sources.css, 'bootstrap-bsk.min.css'),
+      path.join(config.sources.css, 'fonts-bsk.css'),
+      path.join(config.sources.css, 'fonts-bsk.min.css')
     ])
     .pipe(sri())
     .pipe(gulp.dest(path.join(config.destinations.dist)));
@@ -453,15 +525,17 @@ gulp.task('watch--lint-styles-bas-style-kit-no-min', () => {
 //
 
 gulp.task('styles', ['build--styles-bas-style-kit-no-min'], () => {
-  util.log(util.colors.yellow('Note: \'bootstrap-bsk\' styles ' + util.colors.underline('are not') + ' (re)compiled, either:'));
-  util.log(util.colors.yellow('- call \'gulp build--styles-bootstrap-bsk-no-min\' if you just want these styles as well'));
+  util.log(util.colors.yellow('Note: \'bootstrap-bsk\' and \'fonts-bsk\' styles ' + util.colors.underline('are not') + ' (re)compiled, by this task.'));
+  util.log(util.colors.yellow('- call \'gulp build--styles-bootstrap-bsk-no-min\' if you just want \'bootstrap-bsk\' styles as well'));
+  util.log(util.colors.yellow('- call \'gulp build--styles-fonts-bsk-no-min\' if you just want \'fonts-bsk\' styles as well'));
   util.log(util.colors.yellow('- call \'gulp release\' if want to build all compressed & uncompressed files for distribution'));
   util.log(util.colors.blue('Note: (Re)Compiled styles ' + util.colors.underline('are not') + ' compressed'));
 });
 
 gulp.task('styles-prod', ['build--styles-bas-style-kit-min'], () => {
-  util.log(util.colors.yellow('Note: \'bootstrap-bsk\' styles ' + util.colors.underline('are not') + ' (re)compiled, either:'))
-  util.log(util.colors.yellow('- call \'gulp build--styles-bootstrap-bsk-min\' if you just want these styles as well'));
+  util.log(util.colors.yellow('Note: \'bootstrap-bsk\' and \'fonts-bsk\' styles ' + util.colors.underline('are not') + ' (re)compiled, by this task.'));
+  util.log(util.colors.yellow('- call \'gulp build--styles-bootstrap-bsk-no-min\' if you just want \'bootstrap-bsk\' styles as well'));
+  util.log(util.colors.yellow('- call \'gulp build--styles-fonts-bsk-no-min\' if you just want \'fonts-bsk\' styles as well'));
   util.log(util.colors.yellow('- call \'gulp release\' if want to build all compressed & uncompressed files for distribution'));
   util.log(util.colors.blue('Note: (Re)Compiled styles ' + util.colors.underline('are') + ' compressed'))
 });
@@ -498,6 +572,7 @@ gulp.task('develop', () => {
     'clean',
     'build--styles-bas-style-kit-no-min',
     'build--styles-bootstrap-bsk-no-min',
+    'build--styles-fonts-bsk-no-min',
     'fonts',
     'lint',
     'testbed',
@@ -513,6 +588,8 @@ gulp.task('release', () => {
       'build--styles-bas-style-kit-min',
       'build--styles-bootstrap-bsk-no-min',
       'build--styles-bootstrap-bsk-min',
+      'build--styles-fonts-bsk-no-min',
+      'build--styles-fonts-bsk-min',
       'fonts'
     ],
     'build--sri-combined',

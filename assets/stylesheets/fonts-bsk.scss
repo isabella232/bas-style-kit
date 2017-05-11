@@ -1,0 +1,11 @@
+/* Fonts used in the BAS Style Kit */
+
+// Core variables and mixins
+@import "bas-style-kit/variables";
+@import "bas-style-kit/mixins";
+
+// Web Fonts
+// Note: Must be included after Style Kit variables
+@import "fonts/gill-sans/gill-sans";
+@import "../../node_modules/open-sans-fontface/sass/open-sans";
+@import "../../node_modules/font-awesome/scss/font-awesome";

@@ -9,12 +9,14 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] A common 'bsk-' prefix now applies to all class names, including variants and Bootstrap styles
 * [Styles] Removing override for large media breakpoint visibility classes, use `-lg` rather than `lg-x`
+* [Styles] Font face declarations are now compiled as a separate `fonts-bsk.css` file to avoid the common namespace
 
 ### Added
 
 * [Styles] Adding testbed sample for responsive tables
 * [Infrastructure] Significantly improving NPM support
 * [Infrastructure] Documenting GitHub mirror
+* [Infrastructure] Gulp tasks for processing new fonts styles file
 
 ### Fixed
 
