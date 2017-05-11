@@ -130,7 +130,7 @@ compute-sri:
     name: "$CI_BUILD_TOKEN-dist-sri"
     paths:
       - dist/sri.json
-    expire_in: 1 week
+    expire_in: 1 year
 
 review:
   stage: review
