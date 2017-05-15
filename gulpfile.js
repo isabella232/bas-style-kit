@@ -132,7 +132,7 @@ function getBasePath() {
 // Sass compilation
 
 gulp.task('atomic--compile-sass-bas-style-kit', () => {
-  return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
+  return gulp.src(path.join(config.sources.stylesheets, 'styles-bsk.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(rename({basename: 'styles-bsk'}))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
@@ -353,7 +353,7 @@ gulp.task('atomic--concat-bas-style-kit-min', [
 gulp.task('atomic--lint-sass-bas-style-kit', () => {
   return gulp.src([
     path.join(config.sources.stylesheets, 'bas-style-kit', '**/*.scss'),
-    path.join(config.sources.stylesheets, 'bas-style-kit.scss')
+    path.join(config.sources.stylesheets, 'styles-bsk.scss')
   ])
     .pipe(styleLint({
       syntax: 'scss',
@@ -536,7 +536,7 @@ gulp.task('build--styles-bas-style-kit-only-no-min', ['atomic--cssprefix-bas-sty
 });
 
 gulp.task('build--styles-bas-style-kit-only-min', ['atomic--lint-sass-bas-style-kit'], () => {
-  return gulp.src(path.join(config.sources.stylesheets, 'bas-style-kit.scss'))
+  return gulp.src(path.join(config.sources.stylesheets, 'styles-bsk.scss'))
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(cssprefixer(config.modules.cssprefixer.prefix))
