@@ -365,6 +365,12 @@ gulp.task('atomic--lint-sass-bas-style-kit', () => {
       ]
     }));
 });
+
+gulp.task('atomic--lint-sass-fonts-bsk', () => {
+  return gulp.src([
+    path.join(config.sources.stylesheets, 'fonts', '**/*.scss'),
+    path.join(config.sources.stylesheets, 'fonts-bsk.scss')
+  ])
     .pipe(styleLint({
       syntax: 'scss',
       reporters: [
@@ -696,7 +702,8 @@ gulp.task('fonts', [
 ], () => {});
 
 gulp.task('lint', [
-  'atomic--lint-sass-bas-style-kit'
+  'atomic--lint-sass-bas-style-kit',
+  'atomic--lint-sass-fonts-bsk'
 ], () => {});
 
 gulp.task('testbed', [
