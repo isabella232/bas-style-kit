@@ -134,7 +134,6 @@ function getBasePath() {
 gulp.task('atomic--compile-sass-bas-style-kit', () => {
   return gulp.src(path.join(config.sources.stylesheets, 'styles-bsk.scss'))
     .pipe(sass().on('error', sass.logError))
-    .pipe(rename({basename: 'styles-bsk'}))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
 });
 
@@ -546,10 +545,7 @@ gulp.task('build--styles-bas-style-kit-only-min', ['atomic--lint-sass-bas-style-
     }))
     .pipe(csscomb())
     .pipe(nano())
-    .pipe(rename({
-      basename: 'styles-bsk',
-      suffix: '.min'
-    }))
+    .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
