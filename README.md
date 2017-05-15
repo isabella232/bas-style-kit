@@ -122,6 +122,28 @@ $ brew cask install docker
 [2] The first time you use this registry, you will need to authenticate using:
 `docker login docker-registry.data.bas.ac.uk`
 
+### CSS Styles
+
+CSS styles within the Style Kit are written using [Sass](http://sass-lang.com/), a CSS preprocessor offering features
+such as variables, mixins and intutive nesting.
+
+The Style Kit is distributed as a single set of CSS styles, but is made up of multiple layers:
+
+1. `assets/stylesheets/bootstrap-bsk.scss` - customised version of the Bootrstap 3 official Sass port
+2. `assets/stylesheets/fonts-bsk.scss` - custom web-fonts used within the Style Kit
+3. `assets/stylesheets/bas-style-kit.scss` - custom styles, components and variables that make up the Style Kit
+
+Gulp is used to compile Sass styles into regular CSS, additional tasks are used to:
+
+* improve the compatibility of the generated CSS with older browsers, or for newer features requring vendor prefixes
+* add a global prefix, `bsk-` to all CSS classes to act as a namespace - i.e. `.foo` becomes `.bsk-foo`
+* combine separate, layer specific, files into one, removing duplicate or superseded rules
+* ordering properties within rules in a consistent order
+* minifying styles to create compressed and non-compressed versions
+* generating CSS source maps to allow compiled and transformed styles to be traced back to their source files
+
+See the Gulp tasks section for more information.
+
 ### Updating dependencies
 
 If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `gulpfile.js` are changed, the project Docker image will need

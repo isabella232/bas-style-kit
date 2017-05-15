@@ -52,15 +52,17 @@ compile-sass:
     - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
     - "cp -R $NODE_PATH/font-awesome node_modules/"
   script:
+    - "gulp build--styles-bas-style-kit-only-no-min"
     - "gulp build--styles-bas-style-kit-no-min"
     - "gulp build--styles-bootstrap-bsk-no-min"
     - "gulp build--styles-fonts-bsk-no-min"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist"
     paths:
-      - dist/css/bas-style-kit.css
+      - dist/css/styles-bsk.css
       - dist/css/bootstrap-bsk.css
       - dist/css/fonts-bsk.css
+      - dist/css/bas-style-kit.css
     expire_in: 1 week
 
 compile-sass-min:
@@ -74,18 +76,20 @@ compile-sass-min:
     - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
     - "cp -R $NODE_PATH/font-awesome node_modules/"
   script:
+    - "gulp build--styles-bas-style-kit-only-min"
     - "gulp build--styles-bas-style-kit-min"
     - "gulp build--styles-bootstrap-bsk-min"
     - "gulp build--styles-fonts-bsk-min"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-min"
     paths:
-      - dist/css/bas-style-kit.min.css
+      - dist/css/styles-bsk.min.css
       - dist/css/bootstrap-bsk.min.css
       - dist/css/fonts-bsk.min.css
-      - dist/css/maps/bas-style-kit.min.css.map
+      - dist/css/maps/styles-bsk.min.css.map
       - dist/css/maps/bootstrap-bsk.min.css.map
       - dist/css/maps/fonts-bsk.min.css.map
+      - dist/css/maps/bas-style-kit.min.css.map
     expire_in: 1 week
 
 compile-testbed:
@@ -125,11 +129,11 @@ compute-sri:
   only:
     - tags
   script:
-    - "gulp build--sri-combined"
+    - "gulp build--sri-bas-style-kit"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-sri"
     paths:
-      - dist/sri.json
+      - dist/bas-style-kit.sri.json
     expire_in: 1 year
 
 review:
