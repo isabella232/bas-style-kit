@@ -10,9 +10,16 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] A common 'bsk-' prefix now applies to all class names, including variants and Bootstrap styles
 * [Styles] Removing override for large media breakpoint visibility classes, use `-lg` rather than `lg-x`
 * [Styles] Font face declarations are now compiled as a separate `fonts-bsk.css` file to avoid the common namespace
+* [Styles] `bas-style-kit.css` now contains all styles (inc. fonts and Bootstrap) as a single file
+* [Infrastructure] Gulp tasks for processing CSS styles have been refactored and updated
+
+### Deleted - BREAKING!
+
+* [Infrastructure] Gulp watch tasks have been removed
 
 ### Added
 
+* [Styles] A new `styles-bsk.css` contains just those styles that were previously part of the `bas-style-kit.css`
 * [Styles] Adding testbed sample for responsive tables
 * [Infrastructure] Significantly improving NPM support
 * [Infrastructure] Documenting GitHub mirror
@@ -27,11 +34,14 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Correcting the name of some atomic Gulp tasks to make them consistent
 * [Infrastructure] Correcting the name of the run sequence Gulp plugin to make it consistent
 * [Infrastructure] Correcting dependent task for `atomic--sourcemaps-bootstrap-bsk` Gulp task
+* [Infrastructure] Correcting conventional icons in test alert samples
 
 ### Changed
 
 * [Infrastructure] Ignoring testbed sources from Git archives
 * [Infrastructure] Updating location of spell checking settings due to plugin update
+* [Infrastructure] Minor README file updates and clarifications
+* [Infrastructure] Minor testbed layout changes
 
 ## [0.2.0] - 2017-04-17
 
