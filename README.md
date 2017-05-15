@@ -2,7 +2,7 @@
 
 A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.
 
-End-user documentation for the BAS Style Kit, documenting what it includes, and how to use it to build websites and
+End-user documentation for the BAS Style Kit, documenting what it includes and how to use it to build websites and
 web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
 
 ## Overview
@@ -10,7 +10,7 @@ web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.we
 The BAS Style Kit is a CSS framework, incorporating the BAS brand, to establish a consistent visual design across
 BAS services and websites. It aims to build-in best practice at a technical and accessibility level.
 
-The Style Kit is based on the official Sass port of the [Bootstrap 3](http://getbootstrap.com) and consists of:
+The Style Kit is based on the official Sass port of [Bootstrap 3](http://getbootstrap.com) and consists of:
 
 * BAS colour schemes and fonts
 * customised version of the Bootstrap framework (using Sass variable overrides)
@@ -19,7 +19,7 @@ The Style Kit is based on the official Sass port of the [Bootstrap 3](http://get
 
 ## Usage
 
-End-user documentation for the BAS Style Kit, documenting what it includes, and how to use it to build websites and
+End-user documentation for the BAS Style Kit, documenting what it includes and how to use it to build websites and
 web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.web.bas.ac.uk).
 
 ### Docker Compose
@@ -28,16 +28,14 @@ web-applications is available at: [style-kit.web.bas.ac.uk](https://style-kit.we
 
 This will create two containers:
 
-1. A NodeJS instance running the `docker` gulp task, which generates the Style Kit and the Testbed
-2. A Nginx instance exposing the generated Style Kit and Testbed
+1. a NodeJS instance running the `develop` gulp task, which generates the Style Kit and the Testbed
+2. a Nginx instance exposing the Testbed at: `http://localhost:9000/testbed`
 
-The Testbed will be exposed on your local machine at: `http://localhost:9000/testbed`
-
-See the *Gulp* and *Testbed* sub-sections for more information.
+See the *Gulp tasks* and *Testbed* sub-sections for more information.
 
 ### Gulp tasks
 
-[Gulp](http://gulpjs.com/) is a NodeJS task runner, used for tasks such as copying font files, compiling Sass to CSS
+The [Gulp](http://gulpjs.com/) task runner is used for tasks such as copying font files, compiling Sass to CSS
 and generating the Testbed.
 
 See `gulpfile.js` for tasks this project supports.
@@ -257,7 +255,7 @@ any one time, and **MUST** therefore be rebased on *master* before they are merg
 When required, a release is made using a release branch (see the *Release procedures* section for more information).
 This is also merged with *master* and tagged. This triggers the relevant deployment tasks to release a new version.
 
-### GitHub mirror
+## GitHub mirror
 
 A read-only mirror of this project's repository is maintained on GitHub, to allow use by those outside of BAS.
 
@@ -277,7 +275,7 @@ Merge requests **WILL NOT** be accepted on this mirror.
 7. re-publish NPM package
 8. push commits and tags to GitHub mirror
 
-### Re-publish NPM package
+### Publishing NPM package
 
 ```shell
 $ docker-compose run app ash

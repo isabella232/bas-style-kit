@@ -34,11 +34,14 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Correcting the name of some atomic Gulp tasks to make them consistent
 * [Infrastructure] Correcting the name of the run sequence Gulp plugin to make it consistent
 * [Infrastructure] Correcting dependent task for `atomic--sourcemaps-bootstrap-bsk` Gulp task
+* [Infrastructure] Correcting conventional icons in test alert samples
 
 ### Changed
 
 * [Infrastructure] Ignoring testbed sources from Git archives
 * [Infrastructure] Updating location of spell checking settings due to plugin update
+* [Infrastructure] Minor README file updates and clarifications
+* [Infrastructure] Minor testbed layout changes
 
 ## [0.2.0] - 2017-04-17
 
