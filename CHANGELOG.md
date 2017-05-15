@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Removing override for large media breakpoint visibility classes, use `-lg` rather than `lg-x`
 * [Styles] Font face declarations are now compiled as a separate `fonts-bsk.css` file to avoid the common namespace
 * [Styles] `bas-style-kit.css` now contains all styles (inc. fonts and Bootstrap) as a single file
+* [Infrastructure] Gulp tasks for processing CSS styles have been refactored and updated
 
 ### Added
 

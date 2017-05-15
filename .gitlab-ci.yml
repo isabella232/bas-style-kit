@@ -53,9 +53,9 @@ compile-sass:
     - "cp -R $NODE_PATH/font-awesome node_modules/"
   script:
     - "gulp build--styles-bas-style-kit-only-no-min"
+    - "gulp build--styles-bootstrap-bsk-only-no-min"
+    - "gulp build--styles-fonts-bsk-only-no-min"
     - "gulp build--styles-bas-style-kit-no-min"
-    - "gulp build--styles-bootstrap-bsk-no-min"
-    - "gulp build--styles-fonts-bsk-no-min"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist"
     paths:
@@ -77,9 +77,9 @@ compile-sass-min:
     - "cp -R $NODE_PATH/font-awesome node_modules/"
   script:
     - "gulp build--styles-bas-style-kit-only-min"
+    - "gulp build--styles-bootstrap-bsk-only-min"
+    - "gulp build--styles-fonts-bsk-only-min"
     - "gulp build--styles-bas-style-kit-min"
-    - "gulp build--styles-bootstrap-bsk-min"
-    - "gulp build--styles-fonts-bsk-min"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-min"
     paths:

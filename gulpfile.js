@@ -378,6 +378,7 @@ gulp.task('atomic--lint-sass-bas-style-kit', () => {
 });
 
 // Sub-Resource Integrity (SRI)
+// These tasks must operate on the final output of a build process, and therefore rely on combined tasks
 
 gulp.task('atomic--sri-styles-bsk-css', ['build--styles-bas-style-kit-only-no-min'], () => {
   return gulp.src(path.join(config.sources.css, 'styles-bsk.css'))
@@ -548,46 +549,59 @@ gulp.task('build--styles-bas-style-kit-only-min', ['atomic--lint-sass-bas-style-
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
-gulp.task('build--styles-bootstrap-bsk-no-min', () => {
-    return gulp.src(path.join(config.sources.stylesheets, 'bootstrap-bsk.scss'))
+gulp.task('build--styles-bootstrap-bsk-only-no-min', ['atomic--cssprefix-bootstrap-bsk'], () => {
+  return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
+    .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(csso({
+      debug: true
+    }))
+    // Undo minifying
+    .pipe(cssbeautify())
+    .pipe(csscomb())
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('build--styles-bootstrap-bsk-only-min', () => {
+  return gulp.src(path.join(config.sources.stylesheets, 'bootstrap-bsk.scss'))
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(csso({
+      debug: true
+    }))
     .pipe(csscomb())
-    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
+    .pipe(nano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write(path.join('.', 'maps')))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
-gulp.task('build--styles-bootstrap-bsk-min', () => {
-    return gulp.src(path.join(config.sources.stylesheets, 'bootstrap-bsk.scss'))
+gulp.task('build--styles-fonts-bsk-only-no-min', ['atomic--autoprefix-fonts-bsk'], () => {
+  return gulp.src(path.join(config.sources.css, 'fonts-bsk.css'))
+    .pipe(csso({
+      debug: true
+    }))
+    // Undo minifying
+    .pipe(cssbeautify())
+    .pipe(csscomb())
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+gulp.task('build--styles-fonts-bsk-only-min', () => {
+  return gulp.src(path.join(config.sources.stylesheets, 'fonts-bsk.scss'))
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
+    .pipe(csso({
+      debug: true
+    }))
     .pipe(csscomb())
-    .pipe(sourcemaps.init())
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
-    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
-});
-
-gulp.task('build--styles-fonts-bsk-no-min', () => {
-    return gulp.src(path.join(config.sources.stylesheets, 'fonts-bsk.scss'))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer(config.modules.autoprefixer))
-    .pipe(csscomb())
-    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
-});
-
-gulp.task('build--styles-fonts-bsk-min', () => {
-    return gulp.src(path.join(config.sources.stylesheets, 'fonts-bsk.scss'))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer(config.modules.autoprefixer))
-    .pipe(csscomb())
-    .pipe(sourcemaps.init())
-    .pipe(nano())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(sourcemaps.write(path.join('.', 'maps')))
-    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)));
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
 // Combined
