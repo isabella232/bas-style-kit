@@ -13,6 +13,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] `bas-style-kit.css` now contains all styles (inc. fonts and Bootstrap) as a single file
 * [Infrastructure] Gulp tasks for processing CSS styles have been refactored and updated
 
+### Deleted - BREAKING!
+
+* [Infrastructure] Gulp watch tasks have been removed
+
 ### Added
 
 * [Styles] A new `styles-bsk.css` contains just those styles that were previously part of the `bas-style-kit.css`

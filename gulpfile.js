@@ -13,7 +13,6 @@ var        sri = require('gulp-sri'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
           util = require('gulp-util'),
-         watch = require('gulp-watch'),
         concat = require('gulp-concat'),
         rename = require('gulp-rename'),
        csscomb = require('gulp-csscomb'),
@@ -660,13 +659,6 @@ gulp.task('build--sri-bas-style-kit', () => {
       path.join(config.sources.css, 'bas-style-kit.css'),
       path.join(config.sources.css, 'bas-style-kit.min.css')
     ])
-gulp.task('watch--lint-styles-bas-style-kit-no-min', () => {
-  return watch(path.join(config.sources.stylesheets, '**/*.scss'), function () {
-    runsequence(
-      'atomic--lint-sass-bas-style-kit',
-      'build--styles-bas-style-kit-no-min'
-    );
-  });
     .pipe(sri({
       'fileName': 'bas-style-kit.sri.json'
     }))
@@ -725,7 +717,6 @@ gulp.task('develop', () => {
     'styles-prod',
     'build--sri-bas-style-kit',
     'lint',
-    'watch--lint-styles-bas-style-kit-no-min'
     'fonts',
     'testbed'
   );

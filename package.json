@@ -38,7 +38,6 @@
     "gulp-sri": "^0.3",
     "gulp-stylelint": "^3.7",
     "gulp-util": "^3.0",
-    "gulp-watch": "^4.3",
     "gulp-zip": "^3.2",
     "open-sans-fontface": "^1.4",
     "pkginfo": "^0.4",
