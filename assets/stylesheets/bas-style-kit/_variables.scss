@@ -49,10 +49,11 @@ $zindex-image-purchase-symbol:                900;
 //
 // Settings for some of the most global styles.
 
-//** Background colour for `<body>`.
+// Background colour for `<body>`.
 $page-background:                             $white !default;
 $body-bg:                                     $page-background;
-//** Global text colour on `<body>`.
+
+// Global text colour on `<body>`.
 $page-text:                                   $gray-dark !default;
 $text-color:                                  $page-text;
 
@@ -154,11 +155,13 @@ $component-inverse-link-hover-color:          darken($component-inverse-link-col
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
 
-//** Default background color used for all tables
+// Default background color used for all tables
 $table-bg:                                    transparent;
-//** Background color used for `.table-striped`
+
+// Background color used for `.table-striped`
 $table-bg-accent:                             $bsk-grey-lighter;
-//** Background color used for `.table-hover`
+
+// Background color used for `.table-hover`
 $table-bg-hover:                              $bsk-grey-light;
 $table-bg-active:                             $table-bg-hover;
 
@@ -168,23 +171,27 @@ $table-border-color:                          $bsk-grey-light;
 
 //== Forms
 //
-//##
-
-// TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
-//** Default `.form-control` border radius
+// Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+//
+// TODO: Rename `$input-border-radius` to `$input-border-radius-base` in Bootstrap v4
 
 $input-border-radius:                         $border-radius-base;
 $input-border-radius-base:                    $border-radius-base;
-//** Large `.form-control` border radius
+
+// Large `.form-control` border radius
 $input-border-radius-large:                   $border-radius-large;
-//** Small `.form-control` border radius
+
+// Small `.form-control` border radius
 $input-border-radius-small:                   $border-radius-small;
 
 
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border-color.
+//
+// TODO: Rename `$btn-border-radius` to `$input-border-radius-base` in Bootstrap v4
+
 $btn-border-radius:                           $border-radius-base;
 $btn-border-radius-base:                      $border-radius-base;
 
@@ -212,8 +219,8 @@ $dropdown-menu-item-padding-horizontal:       ($padding-small-horizontal * 2);
 
 // Navbar
 //
-
 // BSK navbar - Like an inverted navbar but a bit different
+
 $navbar-border-radius:                        $border-radius-base;
 $navbar-font-family:                          $font-family-brand;
 $navbar-font-weight:                          200;
@@ -308,6 +315,7 @@ $thumbnail-inverse-caption-color:             $component-inverse-color;
 
 // Footers
 //
+// Custom component
 
 $footer-font-family:                          $font-family-brand;
 $footer-font-weight:                          100;
