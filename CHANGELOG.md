@@ -31,6 +31,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Adding support for input groups with input group buttons and dropdowns
 * [Styles] Correcting visibility samples to correctly hide or show elements
+* [Styles] Navbar styles for forms with buttons no longer sit lower than form elements
 * [Infrastructure] Preventing review apps for tagged releases during CI
 * [Infrastructure] Removing 'v' from version tags when publishing to the production CDN
 * [Infrastructure] Correcting the name of some atomic Gulp tasks to make them consistent

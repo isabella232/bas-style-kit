@@ -160,6 +160,12 @@
   }
 }
 
+.navbar-form {
+  .navbar-btn {
+    margin-top: 0;
+  }
+}
+
 // BSK large navbar (i.e a 'thick' version)
 .navbar-lg {
   font-size: $font-size-large;
@@ -202,20 +208,6 @@
     }
 
     .navbar-form {
-    }
-
-    .navbar-btn {
-      @include navbar-lg-vertical-align($input-height-base);
-
-      font-size: $font-size-large;
-
-      &.btn-sm {
-        @include navbar-lg-vertical-align($input-height-small);
-      }
-
-      &.btn-xs {
-        @include navbar-lg-vertical-align(22px);
-      }
       padding: 25px $navbar-lg-padding-horizontal;
     }
 
