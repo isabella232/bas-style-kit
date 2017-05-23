@@ -8,9 +8,9 @@
 .nav-pills {
   > li {
     > a {
-      border-radius:    $nav-pills-bsk-border-radius;
-      background-color: $nav-pills-bsk-link-bg;
-      margin-right:     $nav-pills-bsk-link-margin-right;
+      border-radius:    $nav-pills-border-radius;
+      background-color: $nav-pills-link-bg;
+      margin-right:     $nav-pills-link-margin-right;
     }
 
     // Active state
@@ -19,13 +19,13 @@
       &:hover,
       &:focus {
         color:            $component-active-color;
-        background-color: $nav-pills-bsk-active-link-hover-bg;
+        background-color: $nav-pills-active-link-hover-bg;
       }
     }
 
     // Disabled state
     &.disabled > a {
-      background-color: $nav-pills-bsk-disabled-link-bg;
+      background-color: $nav-pills-disabled-link-bg;
     }
   }
 }
@@ -37,7 +37,7 @@
       > a {
         // Adjust the spacing placed between pills to be vertical instead of horizontal
         margin-right:  0;
-        margin-bottom: $nav-pills-bsk-link-margin-right;
+        margin-bottom: $nav-pills-link-margin-right;
       }
     }
   }
@@ -51,6 +51,6 @@
 
 .nav-wrapper {
   .tab-pane {
-    margin-top: $nav-wrapper-bsk-tab-pane-margin-top;
+    margin-top: $nav-wrapper-tab-pane-margin-top;
   }
 }

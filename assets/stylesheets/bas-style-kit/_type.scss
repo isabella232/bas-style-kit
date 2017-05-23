@@ -2,19 +2,6 @@
 // Typography
 // --------------------------------------------------
 
-// Emphasis & misc
-// -------------------------
-
-.light {
-  font-weight: lighter;
-}
-
-// Colour
-.text-inverse {
-  color: $bsk-component-inverse-color;
-}
-
-
 // Lists
 // -------------------------
 
@@ -22,24 +9,24 @@
 .dl-lg {
   dt,
   dd {
-    padding: $dl-bsk-padding;
+    padding: $dl-padding;
   }
 }
 
 .dl-horizontal-lg {
   @media (min-width: $grid-float-breakpoint) {
     dt {
-      width: ($dl-bsk-horizontal-lg-offset - 20);
+      width: ($dl-horizontal-lg-offset - 20);
     }
 
     dd {
-      margin-left: $dl-bsk-horizontal-lg-offset;
+      margin-left: $dl-horizontal-lg-offset;
     }
   }
 }
 
 .dl-striped {
   dt {
-    background: $dl-bsk-striped-bg;
+    background: $dl-striped-bg;
   }
 }

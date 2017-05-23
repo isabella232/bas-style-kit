@@ -8,15 +8,10 @@
 @import "bas-style-kit/variables";
 @import "bas-style-kit/mixins";
 
-// Reference styles
-// These styles are required by other styles, for example they are the target of an 'extends' call
-// Note: Must be included after Style Kit variables
-@import "bas-style-kit/reference/buttons";
 
 // Core CSS
 @import "bas-style-kit/type";
 @import "bas-style-kit/grid";
-@import "bas-style-kit/buttons";
 
 // Utility classes
 @import "bas-style-kit/responsive-utilities";
