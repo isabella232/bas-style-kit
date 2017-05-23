@@ -60,4 +60,9 @@
 
 // Utility classes
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+// Overriden classes
+// These classes are overriden in 'styles-bsk.scss'
+// This is considered a bug: https://trello.com/c/YRhYrux6/128-remove-the-need-for-bootstrap-overrides
+//
+// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";

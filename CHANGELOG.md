@@ -22,6 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] A new `styles-bsk.css` contains just those styles that were previously part of the `bas-style-kit.css`
 * [Styles] Adding testbed sample for responsive tables
+* [Styles] Override styles for responsive utilities - this is considered a bug
 * [Infrastructure] Significantly improving NPM support
 * [Infrastructure] Documenting GitHub mirror
 * [Infrastructure] Gulp tasks for processing new fonts styles file

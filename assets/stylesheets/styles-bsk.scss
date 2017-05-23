@@ -8,6 +8,9 @@
 @import "bas-style-kit/variables";
 @import "bas-style-kit/mixins";
 
+// Bootstrap overrides
+// This is considered a bug: https://trello.com/c/YRhYrux6/128-remove-the-need-for-bootstrap-overrides
+@import "bootstrap-overrides/responsive-utilities";
 
 // Core CSS
 @import "bas-style-kit/type";
