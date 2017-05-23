@@ -8,9 +8,9 @@
 //
 
 .sidebar {
-  padding: $sidebar-bsk-base-padding;
-  margin-bottom: $sidebar-bsk-base-bottom-margin;
-  border-radius: $sidebar-bsk-border-radius;
+  padding: $sidebar-base-padding;
+  margin-bottom: $sidebar-base-bottom-margin;
+  border-radius: $sidebar-border-radius;
   overflow: hidden;
 
   h2:first-child,
@@ -35,7 +35,7 @@
 // If a sidebar doesn't start with a heading (h2 - h6) add this class to make the top edge of the sidebar box meet the
 // top of the main content heading by adding top padding.
 .sidebar-no-heading {
-  margin-top: $sidebar-bsk-base-padding;
+  margin-top: $sidebar-base-padding;
 }
 
 
@@ -43,7 +43,7 @@
 //
 
 .sidebar-lg {
-  padding: $sidebar-bsk-lg-padding;
+  padding: $sidebar-lg-padding;
 
   h2:first-child,
   h3:first-child,
@@ -61,10 +61,10 @@
 //
 
 .sidebar-default {
-  background-color: $sidebar-bsk-default-bg;
+  background-color: $sidebar-default-bg;
 
   .dl-striped dt {
-    color: $sidebar-bsk-default-bg;
+    color: $sidebar-default-bg;
     background-color: $gray-light;
   }
 
@@ -74,10 +74,10 @@
 }
 
 .sidebar-inverse {
-  color: $sidebar-bsk-inverse-colour;
-  background-color: $sidebar-bsk-inverse-bg;
+  color: $sidebar-inverse-colour;
+  background-color: $sidebar-inverse-bg;
 
   .dl-striped dt {
-    color: $sidebar-bsk-inverse-bg;
+    color: $sidebar-inverse-bg;
   }
 }

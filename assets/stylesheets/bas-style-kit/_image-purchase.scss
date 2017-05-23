@@ -17,11 +17,11 @@
   &.thumbnail {
     .caption {
       .image-purchase-symbol {
-        opacity: $image-purchase-bsk-base-opacity;
+        opacity: $image-purchase-base-opacity;
 
         &:hover,
         &:active {
-          opacity: $image-purchase-bsk-hover-opacity;
+          opacity: $image-purchase-hover-opacity;
         }
       }
     }
@@ -39,13 +39,13 @@
     position: relative;
 
     .image-purchase-symbol {
-      color: $image-purchase-bsk-on-image-color;
-      text-shadow: 0 1px 2px $image-purchase-bsk-on-image-text-shadow;
+      color: $image-purchase-on-image-color;
+      text-shadow: 0 1px 2px $image-purchase-on-image-text-shadow;
 
       // Position the purchase symbol to the bottom right of the image, this is adjusted at each media breakpoint
 
       position: absolute;
-      z-index: $zindex-bsl-image-purchase-symbol;
+      z-index: $zindex-image-purchase-symbol;
       padding: 5px;
 
       // Applies to extra-small breakpoint
@@ -101,7 +101,7 @@
   &.thumbnail-default {
     .caption {
       .image-purchase-symbol {
-        color: $image-purchase-bsk-in-caption-default-color;
+        color: $image-purchase-in-caption-default-color;
       }
     }
   }
@@ -109,7 +109,7 @@
   &.thumbnail-inverse {
     .caption {
       .image-purchase-symbol {
-        color: $image-purchase-bsk-in-caption-inverse-color;
+        color: $image-purchase-in-caption-inverse-color;
       }
     }
   }
@@ -124,10 +124,10 @@
 
 
     .image-purchase-symbol {
-      color: $image-purchase-bsk-on-image-color;
-      text-shadow: 0 1px 2px $image-purchase-bsk-on-image-text-shadow;
+      color: $image-purchase-on-image-color;
+      text-shadow: 0 1px 2px $image-purchase-on-image-text-shadow;
       position: absolute;
-      z-index: $zindex-bsl-image-purchase-symbol;
+      z-index: $zindex-image-purchase-symbol;
       padding: 5px;
 
       // Applies to extra-large breakpoint

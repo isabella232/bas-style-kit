@@ -142,6 +142,17 @@ Gulp is used to compile Sass styles into regular CSS, additional tasks are used 
 
 See the Gulp tasks section for more information.
 
+#### Bootstrap overrides
+
+In rare cases, core Bootstrap styles need to be overridden within the context of the BAS Style Kit. This only done where
+the relevant Bootstrap styles cannot be overriden any other way, usually as a result of how rules take presidence.
+
+Overriding a Bootstrap style requires taking a copy of the Bootstrap styles and changing them directly. Where changes
+are made to these styles in Bootstrap, they will need to be *back-ported* to this copy.
+
+Note: This practice is considered a bug, see
+[this Trello card](https://trello.com/c/YRhYrux6/128-remove-the-need-for-bootstrap-overrides) for more information.
+
 ### Updating dependencies
 
 If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `gulpfile.js` are changed, the project Docker image will need

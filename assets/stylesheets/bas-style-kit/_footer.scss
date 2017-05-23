@@ -94,22 +94,22 @@
   .ogl-symbol {
     @include center-block();
 
-    margin-bottom: $footer-bsk-ogl-symbol-margin-bottom;
+    margin-bottom: $footer-ogl-symbol-margin-bottom;
 
     @media (min-width: $screen-sm-min) {
       margin-left:   0;
       margin-bottom: 0;
-      margin-right:  $footer-bsk-ogl-symbol-margin-right;
-      width:         $footer-bsk-ogl-symbol-width;
+      margin-right:  $footer-ogl-symbol-margin-right;
+      width:         $footer-ogl-symbol-width;
     }
   }
 
   .ogl-text {
-    margin-bottom: $footer-bsk-olg-text-margin-bottom;
-    line-height:   $footer-bsk-ogl-text-line-height;
+    margin-bottom: $footer-olg-text-margin-bottom;
+    line-height:   $footer-ogl-text-line-height;
 
     @media (min-width: $screen-sm-min) {
-      max-width: $footer-bsk-ogl-text-max-height;
+      max-width: $footer-ogl-text-max-height;
     }
   }
 }
@@ -141,19 +141,19 @@
 //
 
 .footer-default {
-  color:            $footer-bsk-default-color;
-  background-color: $footer-bsk-default-bg;
-  border-color:     $footer-bsk-default-border;
+  color:            $footer-default-color;
+  background-color: $footer-default-bg;
+  border-color:     $footer-default-border;
 
   .footer-divider {
-    border-top-color: $footer-bsk-default-divider;
+    border-top-color: $footer-default-divider;
   }
 
   a {
-    color: $footer-bsk-default-link-color;
+    color: $footer-default-link-color;
 
     &:hover {
-      color: $footer-bsk-default-link-hover-color;
+      color: $footer-default-link-hover-color;
     }
   }
 }

@@ -22,6 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] A new `styles-bsk.css` contains just those styles that were previously part of the `bas-style-kit.css`
 * [Styles] Adding testbed sample for responsive tables
+* [Styles] Override styles for responsive utilities - this is considered a bug
 * [Infrastructure] Significantly improving NPM support
 * [Infrastructure] Documenting GitHub mirror
 * [Infrastructure] Gulp tasks for processing new fonts styles file
@@ -30,6 +31,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Adding support for input groups with input group buttons and dropdowns
 * [Styles] Correcting visibility samples to correctly hide or show elements
+* [Styles] Navbar styles for forms with buttons no longer sit lower than form elements
 * [Infrastructure] Preventing review apps for tagged releases during CI
 * [Infrastructure] Removing 'v' from version tags when publishing to the production CDN
 * [Infrastructure] Correcting the name of some atomic Gulp tasks to make them consistent
@@ -43,6 +45,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Updating location of spell checking settings due to plugin update
 * [Infrastructure] Minor README file updates and clarifications
 * [Infrastructure] Minor testbed layout changes
+* [Infrastructure] Minor testbed content changes
 
 ## [0.2.0] - 2017-04-17
 

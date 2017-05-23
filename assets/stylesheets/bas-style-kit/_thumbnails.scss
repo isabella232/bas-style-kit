@@ -6,17 +6,10 @@
 //
 
 .thumbnail {
-  padding:       $thumbnail-bsk-padding;
-  border-radius: $thumbnail-bsk-border-radius;
-
   > img {
     margin-left:  0;
     margin-right: 0;
     width:        100%;
-  }
-
-  .caption {
-    padding: $thumbnail-bsk-caption-padding;
   }
 }
 
@@ -25,20 +18,20 @@
 //
 
 .thumbnail-default {
-  background-color: $thumbnail-bsk-default-bg;
+  background-color: $thumbnail-default-bg;
 }
 
 .thumbnail-inverse {
-  background-color: $thumbnail-bsk-inverse-bg;
+  background-color: $thumbnail-inverse-bg;
 
   .caption {
-    color: $thumbnail-bsk-inverse-caption-color;
+    color: $thumbnail-inverse-caption-color;
 
     a {
-      color: $thumbnail-bsk-inverse-link-color;
+      color: $thumbnail-inverse-link-color;
 
       &:hover {
-        color: $thumbnail-bsk-inverse-link-hover-color;
+        color: $thumbnail-inverse-link-hover-color;
       }
     }
   }

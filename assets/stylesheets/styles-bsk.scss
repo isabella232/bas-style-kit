@@ -8,15 +8,13 @@
 @import "bas-style-kit/variables";
 @import "bas-style-kit/mixins";
 
-// Reference styles
-// These styles are required by other styles, for example they are the target of an 'extends' call
-// Note: Must be included after Style Kit variables
-@import "bas-style-kit/reference/buttons";
+// Bootstrap overrides
+// This is considered a bug: https://trello.com/c/YRhYrux6/128-remove-the-need-for-bootstrap-overrides
+@import "bootstrap-overrides/responsive-utilities";
 
 // Core CSS
 @import "bas-style-kit/type";
 @import "bas-style-kit/grid";
-@import "bas-style-kit/buttons";
 
 // Utility classes
 @import "bas-style-kit/responsive-utilities";

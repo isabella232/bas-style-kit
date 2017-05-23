@@ -42,17 +42,18 @@ $brands-rss-primary:                          #F26522;  // as defined by convent
 
 $zindex-footer:                               1000;
 $zindex-footer-fixed:                         1030;
-$zindex-bsl-image-purchase-symbol:            900;
+$zindex-image-purchase-symbol:                900;
 
 
 // Scaffolding
 //
 // Settings for some of the most global styles.
 
-//** Background colour for `<body>`.
+// Background colour for `<body>`.
 $page-background:                             $white !default;
 $body-bg:                                     $page-background;
-//** Global text colour on `<body>`.
+
+// Global text colour on `<body>`.
 $page-text:                                   $gray-dark !default;
 $text-color:                                  $page-text;
 
@@ -122,10 +123,10 @@ $grid-bsk-columns:                            24;
 //
 // For each of Bootstrap's buttons, define text, background and border color.
 
-$dl-bsk-padding:                              $padding-large-vertical;
-$dl-bsk-horizontal-lg-offset:                 ($dl-horizontal-offset * 1.5);
+$dl-padding:                                  $padding-large-vertical;
+$dl-horizontal-lg-offset:                     ($dl-horizontal-offset * 1.5);
 
-$dl-bsk-striped-bg:                           $bsk-grey-light;
+$dl-striped-bg:                               $bsk-grey-light;
 
 
 // Components
@@ -138,27 +139,29 @@ $border-radius-small:                         $border-radius-base;
 
 $line-height-computed-x2:                     ($line-height-computed * 2);
 
-$bsk-component-default-color:                 $gray-dark;
-$bsk-component-default-bg:                    $gray-lighter;
+$component-default-color:                     $gray-dark;
+$component-default-bg:                        $gray-lighter;
 
-$bsk-component-inverse-color:                 #F8F8F8;  // TODO: Use lighten/darken functions to generate colour
-$bsk-component-inverse-bg:                    $gray;
+$component-inverse-color:                     #F8F8F8;  // TODO: Use lighten/darken functions to generate colour
+$component-inverse-bg:                        $gray;
 
-$bsk-component-active-bg:                     $bsk-blue;
+$component-active-bg:                         $bsk-blue;
 
-$bsk-component-inverse-link-color:            $bsk-blue-light;
-$bsk-component-inverse-link-hover-color:      darken($bsk-component-inverse-link-color, 15%);
+$component-inverse-link-color:                $bsk-blue-light;
+$component-inverse-link-hover-color:          darken($component-inverse-link-color, 15%);
 
 
 // Tables
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
 
-//** Default background color used for all tables
+// Default background color used for all tables
 $table-bg:                                    transparent;
-//** Background color used for `.table-striped`
+
+// Background color used for `.table-striped`
 $table-bg-accent:                             $bsk-grey-lighter;
-//** Background color used for `.table-hover`
+
+// Background color used for `.table-hover`
 $table-bg-hover:                              $bsk-grey-light;
 $table-bg-active:                             $table-bg-hover;
 
@@ -168,80 +171,88 @@ $table-border-color:                          $bsk-grey-light;
 
 //== Forms
 //
-//##
-
-// TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
-//** Default `.form-control` border radius
+// Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+//
+// TODO: Rename `$input-border-radius` to `$input-border-radius-base` in Bootstrap v4
 
 $input-border-radius:                         $border-radius-base;
 $input-border-radius-base:                    $border-radius-base;
-//** Large `.form-control` border radius
+
+// Large `.form-control` border radius
 $input-border-radius-large:                   $border-radius-large;
-//** Small `.form-control` border radius
+
+// Small `.form-control` border radius
 $input-border-radius-small:                   $border-radius-small;
 
 
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border-color.
+//
+// TODO: Rename `$btn-border-radius` to `$input-border-radius-base` in Bootstrap v4
 
-$btn-bsk-border:                              none;
-$btn-bsk-border-radius:                       $border-radius-base;
-$btn-bsk-default-bg:                          $bsk-component-default-bg;
+$btn-border-radius:                           $border-radius-base;
+$btn-border-radius-base:                      $border-radius-base;
 
-$btn-bsk-primary-color:                       $white;
-$btn-bsk-primary-bg:                          $bsk-turquoise;
-$btn-bsk-primary-border:                      darken($bsk-turquoise, 5%);
+$btn-default-color:                           $component-default-color;
+$btn-default-bg:                              $component-default-bg;
+$btn-default-border:                          $component-default-bg;
 
+$btn-primary-color:                           $white;
+$btn-primary-bg:                              $bsk-turquoise;
+$btn-primary-border:                          $bsk-turquoise;
+
+$btn-border-radius-large:                     $btn-border-radius-base;
+$btn-border-radius-small:                     $btn-border-radius-base;
 
 // Dropdowns
 //
 // Dropdown menu container and contents.
 
-$dropdown-menu-bsk-border-radius:             $border-radius-base;
-$dropdown-menu-bsk-padding-vertical:          0;
+$dropdown-menu-border-radius:                 $border-radius-base;
+$dropdown-menu-padding-vertical:              0;
 
-$dropdown-menu-bsk-item-padding-vertical:     $padding-base-vertical;
-$dropdown-menu-bsk-item-padding-horizontal:   ($padding-small-horizontal * 2);
+$dropdown-menu-item-padding-vertical:         $padding-base-vertical;
+$dropdown-menu-item-padding-horizontal:       ($padding-small-horizontal * 2);
 
 
 // Navbar
 //
-
 // BSK navbar - Like an inverted navbar but a bit different
-$navbar-bsk-border-radius:                    $border-radius-base;
-$navbar-bsk-font-family:                      $font-family-brand;
-$navbar-bsk-font-weight:                      200;
-$navbar-bsk-font-size:                        ($font-size-base + 1px);
 
-$navbar-bsk-color:                            lighten($gray-light, 15%);
-$navbar-bsk-bg:                               $gray-darker;
-$navbar-bsk-border:                           $navbar-bsk-bg;
-$navbar-bsk-divider-color:                    darken($navbar-bsk-bg, 10%);
+$navbar-border-radius:                        $border-radius-base;
+$navbar-font-family:                          $font-family-brand;
+$navbar-font-weight:                          200;
+$navbar-font-size:                            ($font-size-base + 1px);
 
-$navbar-bsk-brand-font-family:                $font-family-sans-serif;
-$navbar-bsk-brand-font-weight:                bold;
-$navbar-bsk-brand-color:                      $white;
+$navbar-color:                                lighten($gray-light, 15%);
+$navbar-bg:                                   $gray-darker;
+$navbar-border:                               $navbar-bg;
+$navbar-divider-color:                        darken($navbar-bg, 10%);
 
-$navbar-bsk-link-color:                       $bsk-component-inverse-color;
-$navbar-bsk-link-hover-color:                 lighten($bsk-component-inverse-color, 10%);
-$navbar-bsk-link-hover-bg:                    $bsk-component-inverse-bg;
-$navbar-bsk-link-active-color:                $white;
-$navbar-bsk-link-active-bg:                   darken($navbar-bsk-link-hover-bg, 10%);
-$navbar-bsk-link-disabled-color:              $bsk-component-inverse-bg;
-$navbar-bsk-link-disabled-bg:                 transparent;
+$navbar-brand-font-family:                    $font-family-sans-serif;
+$navbar-brand-font-weight:                    bold;
+$navbar-brand-color:                          $white;
 
-$navbar-bsk-toggle-hover-bg:                  $bsk-component-inverse-bg;
-$navbar-bsk-toggle-icon-bar-bg:               $white;
-$navbar-bsk-toggle-border-color:              $navbar-bsk-bg;
+$navbar-link-color:                           $component-inverse-color;
+$navbar-link-hover-color:                     lighten($component-inverse-color, 10%);
+$navbar-link-hover-bg:                        $component-inverse-bg;
+$navbar-link-active-color:                    $white;
+$navbar-link-active-bg:                       darken($navbar-link-hover-bg, 10%);
+$navbar-link-disabled-color:                  $component-inverse-bg;
+$navbar-link-disabled-bg:                     transparent;
 
-$navbar-bsk-dropdown-font-family:             $font-family-sans-serif;
+$navbar-toggle-hover-bg:                      $component-inverse-bg;
+$navbar-toggle-icon-bar-bg:                   $white;
+$navbar-toggle-border-color:                  $navbar-bg;
+
+$navbar-dropdown-font-family:                 $font-family-sans-serif;
 
 // BSK large navbar - The same as a regular BSK navbar but thicker
-$navbar-bsk-lg-height:                        ($navbar-height * 2);
-$navbar-bsk-lg-padding-horizontal:            floor(($grid-gutter-width / 2));
-$navbar-bsk-lg-padding-vertical:              (($navbar-bsk-lg-height - $line-height-computed-x2) / 2);
+$navbar-lg-height:                            ($navbar-height * 2);
+$navbar-lg-padding-horizontal:                floor(($grid-gutter-width / 2));
+$navbar-lg-padding-vertical:                  (($navbar-lg-height - $line-height-computed-x2) / 2);
 
 
 // Navs
@@ -251,59 +262,60 @@ $navbar-bsk-lg-padding-vertical:              (($navbar-bsk-lg-height - $line-he
 $nav-link-padding:                            15px 15px;
 
 // Pills
-$nav-pills-bsk-border-radius:                 $border-radius-base;
-$nav-pills-bsk-link-bg:                       $bsk-component-default-bg;
-$nav-pills-bsk-link-margin-right:             $padding-xs-horizontal;
+$nav-pills-border-radius:                     $border-radius-base;
+$nav-pills-link-bg:                           $component-default-bg;
+$nav-pills-link-margin-right:                 $padding-xs-horizontal;
 
-$nav-pills-bsk-active-link-hover-bg:          $bsk-component-active-bg;
-$nav-pills-bsk-disabled-link-bg:              $white;
+$nav-pills-active-link-hover-bg:              $component-active-bg;
+$nav-pills-disabled-link-bg:                  $white;
 
 // Wrappers
-$nav-wrapper-bsk-tab-pane-margin-top:         ($padding-large-vertical * 2);
+$nav-wrapper-tab-pane-margin-top:             ($padding-large-vertical * 2);
 
 
 // Jumbotron
 //
 
-$jumbotron-bsk-border-radius:                 $border-radius-base;
-$jumbotron-bsk-margin-bottom:                 0;
+$jumbotron-border-radius:                     $border-radius-base;
+$jumbotron-margin-bottom:                     0;
 
-$jumbotron-bsk-lg-padding:                    ($jumbotron-padding * 2);
-$jumbotron-bsk-xl-padding:                    ($jumbotron-padding * 3);
+$jumbotron-lg-padding:                        ($jumbotron-padding * 2);
+$jumbotron-xl-padding:                        ($jumbotron-padding * 3);
 
-$jumbotron-bsk-default-color:                 $bsk-component-default-color;
-$jumbotron-bsk-default-bg:                    $bsk-component-default-bg;
+$jumbotron-default-color:                     $component-default-color;
+$jumbotron-default-bg:                        $component-default-bg;
 
-$jumbotron-bsk-inverse-color:                 $white;
-$jumbotron-bsk-inverse-bg:                    $gray;
+$jumbotron-inverse-color:                     $white;
+$jumbotron-inverse-bg:                        $gray;
 // Read 'fb' as 'fall back', for older browsers that can't use RGBA
-$jumbotron-bsk-inverse-text-overlay-bg-fb:    #000000;
-$jumbotron-bsk-inverse-text-overlay-bg:       rgba(0, 0, 0, 0.7);
-$jumbotron-bsk-inverse-text-overlay-shadow:   rgba(0, 0, 0, 0.9);
+$jumbotron-inverse-text-overlay-bg-fb:        #000000;
+$jumbotron-inverse-text-overlay-bg:           rgba(0, 0, 0, 0.7);
+$jumbotron-inverse-text-overlay-shadow:       rgba(0, 0, 0, 0.9);
 
 
 // Thumbnails
 //
 
 // BSK thumbnail - Like a normal thumbnail but with straight edges and virtually no border
-$thumbnail-bsk-padding:                       0;
-$thumbnail-bsk-border-radius:                 $border-radius-base;
+$thumbnail-padding:                           0;
+$thumbnail-border-radius:                     $border-radius-base;
 
-$thumbnail-bsk-caption-padding:               $padding-large-vertical;
+$thumbnail-caption-padding:                   $padding-large-vertical;
 
 // BSK default thumbnail
-$thumbnail-bsk-default-bg:                    $bsk-component-default-bg;
+$thumbnail-default-bg:                        $component-default-bg;
 
 // BSK inverted thumbnail
-$thumbnail-bsk-inverse-bg:                    $bsk-component-inverse-bg;
-$thumbnail-bsk-inverse-link-color:            $bsk-component-inverse-link-color;
-$thumbnail-bsk-inverse-link-hover-color:      $bsk-component-inverse-link-hover-color;
+$thumbnail-inverse-bg:                        $component-inverse-bg;
+$thumbnail-inverse-link-color:                $component-inverse-link-color;
+$thumbnail-inverse-link-hover-color:          $component-inverse-link-hover-color;
 
-$thumbnail-bsk-inverse-caption-color:         $bsk-component-inverse-color;
+$thumbnail-inverse-caption-color:             $component-inverse-color;
 
 
 // Footers
 //
+// Custom component
 
 $footer-font-family:                          $font-family-brand;
 $footer-font-weight:                          100;
@@ -315,20 +327,20 @@ $footer-padding-top:                          $footer-margin-top;
 $footer-padding-bottom:                       ($footer-padding-top - 10px);
 $footer-border-radius:                        $border-radius-base;
 
-$footer-bsk-default-color:                    $bsk-component-inverse-color;
-$footer-bsk-default-bg:                       $gray-dark;
-$footer-bsk-default-border:                   $footer-bsk-default-bg;
+$footer-default-color:                        $component-inverse-color;
+$footer-default-bg:                           $gray-dark;
+$footer-default-border:                       $footer-default-bg;
 
-$footer-bsk-default-divider:                  $gray-light;
-$footer-bsk-default-link-color:               $bsk-component-inverse-link-color;
-$footer-bsk-default-link-hover-color:         $bsk-component-inverse-link-hover-color;
+$footer-default-divider:                      $gray-light;
+$footer-default-link-color:                   $component-inverse-link-color;
+$footer-default-link-hover-color:             $component-inverse-link-hover-color;
 
-$footer-bsk-ogl-symbol-margin-right:          ($padding-large-horizontal * 2);
-$footer-bsk-ogl-symbol-margin-bottom:         ($padding-large-vertical);
-$footer-bsk-ogl-symbol-width:                 67px;  // As recommended by the National Archives see [1] for details
-$footer-bsk-ogl-text-max-height:              420px;
-$footer-bsk-ogl-text-line-height:             17px;
-$footer-bsk-olg-text-margin-bottom:           ($padding-large-vertical * 2);
+$footer-ogl-symbol-margin-right:              ($padding-large-horizontal * 2);
+$footer-ogl-symbol-margin-bottom:             ($padding-large-vertical);
+$footer-ogl-symbol-width:                     67px;  // As recommended by the National Archives see [1] for details
+$footer-ogl-text-max-height:                  420px;
+$footer-ogl-text-line-height:                 17px;
+$footer-olg-text-margin-bottom:               ($padding-large-vertical * 2);
 
 // [1] http://www.nationalarchives.gov.uk/documents/information-management/ogl-symbol-guidelines-v1.pdf [PDF!]
 
@@ -337,57 +349,57 @@ $footer-bsk-olg-text-margin-bottom:           ($padding-large-vertical * 2);
 //
 // Custom component - designed to replicate the visual appearance of a navbar with minimal markup
 
-$header-font-family:                          $navbar-bsk-font-family;
-$header-font-weight:                          $navbar-bsk-font-weight;
-$header-font-size:                            $navbar-bsk-font-size;
+$header-font-family:                          $navbar-font-family;
+$header-font-weight:                          $navbar-font-weight;
+$header-font-size:                            $navbar-font-size;
 
 $header-height:                               $navbar-height;
 $header-margin-bottom:                        $navbar-margin-bottom;
-$header-border-radius:                        $navbar-bsk-border-radius;
+$header-border-radius:                        $navbar-border-radius;
 $header-padding-vertical:                     $navbar-padding-vertical;
 
-$header-bsk-default-bg:                       $navbar-bsk-bg;
-$header-bsk-default-border:                   $header-bsk-default-bg;
+$header-default-bg:                           $navbar-bg;
+$header-default-border:                       $header-default-bg;
 
 
 // Sidebars
 //
 // Custom component - based loosely on the well component
 
-$sidebar-bsk-base-padding:                    ($padding-large-vertical * 2);
-$sidebar-bsk-base-bottom-margin:              $sidebar-bsk-base-padding;
-$sidebar-bsk-border-radius:                   $border-radius-base;
+$sidebar-base-padding:                        ($padding-large-vertical * 2);
+$sidebar-base-bottom-margin:                  $sidebar-base-padding;
+$sidebar-border-radius:                       $border-radius-base;
 
-$sidebar-bsk-lg-padding:                      ($sidebar-bsk-base-padding * 1.5);
+$sidebar-lg-padding:                          ($sidebar-base-padding * 1.5);
 
-$sidebar-bsk-default-bg:                      $bsk-grey-light;
+$sidebar-default-bg:                          $bsk-grey-light;
 
-$sidebar-bsk-inverse-colour:                  $bsk-component-inverse-color;
-$sidebar-bsk-inverse-bg:                      $bsk-component-inverse-bg;
+$sidebar-inverse-colour:                      $component-inverse-color;
+$sidebar-inverse-bg:                          $component-inverse-bg;
 
 
 // Bands
 //
 // Custom component - based loosely on the well component
 
-$band-bsk-padding-vertical:                   ($padding-large-vertical * 4);
+$band-padding-vertical:                       ($padding-large-vertical * 4);
 
-$band-bsk-md-padding-vertical:                ($padding-large-vertical * 3);
-$band-bsk-sm-padding-vertical:                $padding-large-vertical;
+$band-md-padding-vertical:                    ($padding-large-vertical * 3);
+$band-sm-padding-vertical:                    $padding-large-vertical;
 
-$band-bsk-default-bg:                         $white;
-$band-bsk-inverse-bg:                         $bsk-component-inverse-bg;
+$band-default-bg:                             $white;
+$band-inverse-bg:                             $component-inverse-bg;
 
 
 // Image purchase
 //
 // Custom component
 
-$image-purchase-bsk-base-opacity:             0.8;
-$image-purchase-bsk-hover-opacity:            1;
+$image-purchase-base-opacity:                 0.8;
+$image-purchase-hover-opacity:                1;
 
-$image-purchase-bsk-on-image-color:           $white;
-$image-purchase-bsk-on-image-text-shadow:     $jumbotron-bsk-inverse-text-overlay-shadow;
+$image-purchase-on-image-color:               $white;
+$image-purchase-on-image-text-shadow:         $jumbotron-inverse-text-overlay-shadow;
 
-$image-purchase-bsk-in-caption-default-color: $bsk-component-inverse-bg;
-$image-purchase-bsk-in-caption-inverse-color: $white;
+$image-purchase-in-caption-default-color:     $component-inverse-bg;
+$image-purchase-in-caption-inverse-color:     $white;

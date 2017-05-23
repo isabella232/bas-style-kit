@@ -613,9 +613,9 @@ gulp.task('build--styles-bas-style-kit-no-min', [
     'atomic--compile-sass-fonts-bsk'
   ], () => {
   return gulp.src([
-      path.join(config.sources.css, 'styles-bsk.css'),
       path.join(config.sources.css, 'bootstrap-bsk.css'),
-      path.join(config.sources.css, 'fonts-bsk.css')
+      path.join(config.sources.css, 'fonts-bsk.css'),
+      path.join(config.sources.css, 'styles-bsk.css')
     ])
     .pipe(concat('bas-style-kit.css'))
     .pipe(csso({
@@ -628,9 +628,9 @@ gulp.task('build--styles-bas-style-kit-no-min', [
 });
 
 gulp.task('build--styles-bas-style-kit-min', [
-    'atomic--cssprefix-bas-style-kit',
     'atomic--cssprefix-bootstrap-bsk',
     'atomic--compile-sass-fonts-bsk',
+    'atomic--cssprefix-bas-style-kit'
   ], () => {
   return gulp.src([
       path.join(config.sources.css, 'styles-bsk.css'),

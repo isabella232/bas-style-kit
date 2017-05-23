@@ -2,6 +2,8 @@
 // Button groups
 // --------------------------------------------------
 
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
 // Sizing
 //
 // Remix the default button sizing classes into new ones for easier manipulation.
@@ -9,14 +11,3 @@
 .btn-group-xs > .btn { @extend .btn-xs; }
 .btn-group-sm > .btn { @extend .btn-sm; }
 .btn-group-lg > .btn { @extend .btn-lg; }
-
-
-// Vertical button groups
-// ----------------------
-
-.btn-group-vertical > .btn {
-  &:first-child:not(:last-child),
-  &:last-child:not(:first-child) {
-    border-radius: $btn-bsk-border-radius;
-  }
-}

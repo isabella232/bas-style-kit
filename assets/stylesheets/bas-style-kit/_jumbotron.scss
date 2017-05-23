@@ -4,43 +4,43 @@
 
 // Base class
 .jumbotron {
-  margin-bottom:   $jumbotron-bsk-margin-bottom;
+  margin-bottom:   $jumbotron-margin-bottom;
   background:      no-repeat center center;
   background-size: cover;
 
   .container &,
   .container-fluid & {
     // Only round corners at higher resolutions if contained in a container
-    border-radius: $jumbotron-bsk-border-radius;
+    border-radius: $jumbotron-border-radius;
   }
 }
 
 // Sizes
 .jumbotron-lg {
-  @include make-jumbotron-size($jumbotron-bsk-lg-padding);
+  @include make-jumbotron-size($jumbotron-lg-padding);
 }
 
 .jumbotron-xl {
-  @include make-jumbotron-size($jumbotron-bsk-xl-padding);
+  @include make-jumbotron-size($jumbotron-xl-padding);
 }
 
 // Variants
 .jumbotron-default {
-  color:            $jumbotron-bsk-default-color;
-  background-color: $jumbotron-bsk-default-bg;
+  color:            $jumbotron-default-color;
+  background-color: $jumbotron-default-bg;
 }
 
 .jumbotron-inverse {
-  color:            $jumbotron-bsk-inverse-color;
-  background-color: $jumbotron-bsk-inverse-bg;
+  color:            $jumbotron-inverse-color;
+  background-color: $jumbotron-inverse-bg;
 }
 
 // Sub-components
 .jumbotron {
   .text-overlay {
-    text-shadow:      1px 1px 2px $jumbotron-bsk-inverse-text-overlay-shadow;
-    box-shadow:       10px 0 0 $jumbotron-bsk-inverse-text-overlay-bg, -10px 0 0 $jumbotron-bsk-inverse-text-overlay-bg;
-    background-color: $jumbotron-bsk-inverse-text-overlay-bg-fb;
-    background-color: $jumbotron-bsk-inverse-text-overlay-bg;
+    text-shadow:      1px 1px 2px $jumbotron-inverse-text-overlay-shadow;
+    box-shadow:       10px 0 0 $jumbotron-inverse-text-overlay-bg, -10px 0 0 $jumbotron-inverse-text-overlay-bg;
+    background-color: $jumbotron-inverse-text-overlay-bg-fb;
+    background-color: $jumbotron-inverse-text-overlay-bg;
   }
 }

@@ -4,11 +4,10 @@
 
 // The dropdown menu (ul)
 .dropdown-menu {
-  padding:       $dropdown-menu-bsk-padding-vertical;
-  border-radius: $dropdown-menu-bsk-border-radius;
+  padding: $dropdown-menu-padding-vertical;
 
   // Links within the dropdown menu
   > li > a {
-    padding: $dropdown-menu-bsk-item-padding-vertical $dropdown-menu-bsk-item-padding-horizontal;
+    padding: $dropdown-menu-item-padding-vertical $dropdown-menu-item-padding-horizontal;
   }
 }
