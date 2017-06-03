@@ -46,6 +46,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Minor README file updates and clarifications
 * [Infrastructure] Minor testbed layout changes
 * [Infrastructure] Minor testbed content changes
+* [Infrastructure] Upgrading to NodeJS 8 and NPM 5
 
 ## [0.2.0] - 2017-04-17
 
