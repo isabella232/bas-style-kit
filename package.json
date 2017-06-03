@@ -19,7 +19,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "bootstrap-sass": "3.3.6",
+    "bootstrap-sass": "3.3.7",
     "del": "^2.0",
     "font-awesome": "4.7",
     "gulp": "^3.9",
