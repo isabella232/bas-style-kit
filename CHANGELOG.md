@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] `bas-style-kit.css` now contains all styles (inc. fonts and Bootstrap) as a single file
 * [Styles] `bas-style-kit.scss` renamed to `styles-bsk.scss` to fit with other files
 * [Infrastructure] Gulp tasks for processing CSS styles have been refactored and updated
+* [Styles] Minimum supported browser versions changed - I.E. 8 and 9 are no longer officially supported
 
 ### Deleted - BREAKING!
 
