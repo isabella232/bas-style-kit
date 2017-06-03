@@ -114,9 +114,10 @@ $container-xl:                                $container-extra-large-desktop;
 
 // Grid system
 //
-// Define custom responsive grid.
+// Define responsive grid columns
 
-$grid-bsk-columns:                            24;
+$grid-12-columns:                            12;
+$grid-24-columns:                            24;
 
 
 // Description lists

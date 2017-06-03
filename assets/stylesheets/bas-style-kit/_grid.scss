@@ -17,27 +17,25 @@
 //
 // Common styles for small and large grid columns for both default and custom grids
 
-@include make-grid-columns;
-@include make-bsk-grid-columns;
+@include make-12-grid-columns;
+@include make-24-grid-columns;
 
 
 // Extra small grid
 //
-// Columns, offsets, pushes, and pulls for extra small devices like
-// smartphones.
+// Columns, offsets, pushes, and pulls for extra small devices like smartphones.
 
-@include make-grid(xs);
-@include make-bsk-grid(xs);
+@include make-12-grid(xs);
+@include make-24-grid(xs);
 
 
 // Small grid
 //
-// Columns, offsets, pushes, and pulls for the small device range, from phones
-// to tablets.
+// Columns, offsets, pushes, and pulls for the small device range, from phones to tablets.
 
 @media (min-width: $screen-sm-min) {
-  @include make-grid(sm);
-  @include make-bsk-grid(sm);
+  @include make-12-grid(sm);
+  @include make-24-grid(sm);
 }
 
 
@@ -46,8 +44,8 @@
 // Columns, offsets, pushes, and pulls for the desktop device range.
 
 @media (min-width: $screen-md-min) {
-  @include make-grid(md);
-  @include make-bsk-grid(md);
+  @include make-12-grid(md);
+  @include make-24-grid(md);
 }
 
 
@@ -56,8 +54,8 @@
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 
 @media (min-width: $screen-lg-min) {
-  @include make-grid(lg);
-  @include make-bsk-grid(lg);
+  @include make-12-grid(lg);
+  @include make-24-grid(lg);
 }
 
 
@@ -66,6 +64,6 @@
 // Columns, offsets, pushes, and pulls for the extra large desktop device range.
 
 @media (min-width: $screen-xl-min) {
-  @include make-grid(xl);
-  @include make-bsk-grid(xl);
+  @include make-12-grid(xl);
+  @include make-24-grid(xl);
 }
