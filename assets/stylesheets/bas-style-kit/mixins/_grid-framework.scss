@@ -4,11 +4,11 @@
 
 // 'Standard' bootstrap 12-column grid, but with an additional 'xl' size
 
-@mixin make-grid-columns(
+@mixin make-12-grid-columns(
   $i: 1,
-  $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i} .col-xl-#{$i}") {
-  @for $i from (1 + 1) through $grid-columns {
-    $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}, .col-xl-#{$i}";
+  $list: ".col-12-xs-#{$i}, .col-12-sm-#{$i}, .col-12-md-#{$i}, .col-12-lg-#{$i} .col-12-xl-#{$i}") {
+  @for $i from (1 + 1) through $grid-12-columns {
+    $list: "#{$list}, .col-12-xs-#{$i}, .col-12-sm-#{$i}, .col-12-md-#{$i}, .col-12-lg-#{$i}, .col-12-xl-#{$i}";
   }
 
   #{$list} {
@@ -21,31 +21,12 @@
   }
 }
 
-// 'Custom' Style kit 24-column grid, with all standard and the additional 'xl' size
-
-@mixin make-bsk-grid-columns(
-  $i: 1,
-  $list: ".col-bsk-xs-#{$i}, .col-bsk-sm-#{$i}, .col-bsk-md-#{$i}, .col-bsk-lg-#{$i} .col-bsk-xl-#{$i}") {
-  @for $i from (1 + 1) through $grid-bsk-columns {
-    $list: "#{$list}, .col-bsk-xs-#{$i}, .col-bsk-sm-#{$i}, .col-bsk-md-#{$i}, .col-bsk-lg-#{$i} .col-bsk-xl-#{$i}";
-  }
-
-  #{$list} {
-    position:      relative;
-    // Prevent columns from collapsing when empty
-    min-height:    1px;
-    // Inner gutter via padding
-    padding-left:  ceil(($grid-gutter-width / 2));
-    padding-right: floor(($grid-gutter-width / 2));
-  }
-}
-
-@mixin float-bsk-grid-columns(
+@mixin float-12-grid-columns(
   $class,
   $i: 1,
-  $list: ".col-bsk-#{$class}-#{$i}") {
-  @for $i from (1 + 1) through $grid-bsk-columns {
-    $list: "#{$list}, .col-bsk-#{$class}-#{$i}";
+  $list: ".col-12-#{$class}-#{$i}") {
+  @for $i from (1 + 1) through $grid-12-columns {
+    $list: "#{$list}, .col-12-#{$class}-#{$i}";
   }
 
   #{$list} {
@@ -53,61 +34,152 @@
   }
 }
 
-@mixin calc-bsk-grid-column(
+@mixin calc-12-grid-column(
   $index,
   $class,
   $type) {
   @if ($type == width) and ($index > 0) {
-    .col-bsk-#{$class}-#{$index} {
-      width: percentage(($index / $grid-bsk-columns));
+    .col-12-#{$class}-#{$index} {
+      width: percentage(($index / $grid-12-columns));
     }
   }
 
   @if ($type == push) and ($index > 0) {
-    .col-bsk-#{$class}-push-#{$index} {
-      left: percentage(($index / $grid-bsk-columns));
+    .col-12-#{$class}-push-#{$index} {
+      left: percentage(($index / $grid-12-columns));
     }
   }
 
   @if ($type == push) and ($index == 0) {
-    .col-bsk-#{$class}-push-0 {
+    .col-12-#{$class}-push-0 {
       left: auto;
     }
   }
 
   @if ($type == pull) and ($index > 0) {
-    .col-bsk-#{$class}-pull-#{$index} {
-      right: percentage(($index / $grid-bsk-columns));
+    .col-12-#{$class}-pull-#{$index} {
+      right: percentage(($index / $grid-12-columns));
     }
   }
 
   @if ($type == pull) and ($index == 0) {
-    .col-bsk-#{$class}-pull-0 {
+    .col-12-#{$class}-pull-0 {
       right: auto;
     }
   }
 
   @if ($type == offset) {
-    .col-bsk-#{$class}-offset-#{$index} {
-      margin-left: percentage(($index / $grid-bsk-columns));
+    .col-12-#{$class}-offset-#{$index} {
+      margin-left: percentage(($index / $grid-12-columns));
     }
   }
 }
 
-@mixin loop-bsk-grid-columns(
+@mixin loop-12-grid-columns(
   $columns,
   $class,
   $type) {
   @for $i from 0 through $columns {
-    @include calc-bsk-grid-column($i, $class, $type);
+    @include calc-12-grid-column($i, $class, $type);
   }
 }
 
 // Create grid for specific class
-@mixin make-bsk-grid($class) {
-  @include float-bsk-grid-columns($class);
-  @include loop-bsk-grid-columns($grid-bsk-columns, $class, width);
-  @include loop-bsk-grid-columns($grid-bsk-columns, $class, pull);
-  @include loop-bsk-grid-columns($grid-bsk-columns, $class, push);
-  @include loop-bsk-grid-columns($grid-bsk-columns, $class, offset);
+@mixin make-12-grid($class) {
+  @include float-12-grid-columns($class);
+  @include loop-12-grid-columns($grid-24-columns, $class, width);
+  @include loop-12-grid-columns($grid-24-columns, $class, pull);
+  @include loop-12-grid-columns($grid-24-columns, $class, push);
+  @include loop-12-grid-columns($grid-24-columns, $class, offset);
+}
+
+// 'Custom' Style kit 24-column grid, with all standard and the additional 'xl' size
+
+@mixin make-24-grid-columns(
+  $i: 1,
+  $list: ".col-24-xs-#{$i}, .col-24-sm-#{$i}, .col-24-md-#{$i}, .col-24-lg-#{$i} .col-24-xl-#{$i}") {
+  @for $i from (1 + 1) through $grid-24-columns {
+    $list: "#{$list}, .col-24-xs-#{$i}, .col-24-sm-#{$i}, .col-24-md-#{$i}, .col-24-lg-#{$i} .col-24-xl-#{$i}";
+  }
+
+  #{$list} {
+    position:      relative;
+    // Prevent columns from collapsing when empty
+    min-height:    1px;
+    // Inner gutter via padding
+    padding-left:  ceil(($grid-gutter-width / 2));
+    padding-right: floor(($grid-gutter-width / 2));
+  }
+}
+
+@mixin float-24-grid-columns(
+  $class,
+  $i: 1,
+  $list: ".col-24-#{$class}-#{$i}") {
+  @for $i from (1 + 1) through $grid-24-columns {
+    $list: "#{$list}, .col-24-#{$class}-#{$i}";
+  }
+
+  #{$list} {
+    float: left;
+  }
+}
+
+@mixin calc-24-grid-column(
+  $index,
+  $class,
+  $type) {
+  @if ($type == width) and ($index > 0) {
+    .col-24-#{$class}-#{$index} {
+      width: percentage(($index / $grid-24-columns));
+    }
+  }
+
+  @if ($type == push) and ($index > 0) {
+    .col-24-#{$class}-push-#{$index} {
+      left: percentage(($index / $grid-24-columns));
+    }
+  }
+
+  @if ($type == push) and ($index == 0) {
+    .col-24-#{$class}-push-0 {
+      left: auto;
+    }
+  }
+
+  @if ($type == pull) and ($index > 0) {
+    .col-24-#{$class}-pull-#{$index} {
+      right: percentage(($index / $grid-24-columns));
+    }
+  }
+
+  @if ($type == pull) and ($index == 0) {
+    .col-24-#{$class}-pull-0 {
+      right: auto;
+    }
+  }
+
+  @if ($type == offset) {
+    .col-24-#{$class}-offset-#{$index} {
+      margin-left: percentage(($index / $grid-24-columns));
+    }
+  }
+}
+
+@mixin loop-24-grid-columns(
+  $columns,
+  $class,
+  $type) {
+  @for $i from 0 through $columns {
+    @include calc-24-grid-column($i, $class, $type);
+  }
+}
+
+// Create grid for specific class
+@mixin make-24-grid($class) {
+  @include float-24-grid-columns($class);
+  @include loop-24-grid-columns($grid-24-columns, $class, width);
+  @include loop-24-grid-columns($grid-24-columns, $class, pull);
+  @include loop-24-grid-columns($grid-24-columns, $class, push);
+  @include loop-24-grid-columns($grid-24-columns, $class, offset);
 }

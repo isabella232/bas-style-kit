@@ -2,17 +2,17 @@
 
 {% import "macros/grid.njk" as grid %}
 
-{% set sample_href = "0051--grid-standard-basic.html" %}
+{% set sample_href = "0051--grid-12-offset.html" %}
 {% set sample_number = "#0051" %}
-{% set sample_title = "standard grid system overflows" %}
-{% set sample_markup = ".bsk-col-md-offset-*" %}
+{% set sample_title = "12 column grid system offsets" %}
+{% set sample_markup = ".bsk-col-12-md-offset-*" %}
 
 {% set grid_columns=12 %}
-{% set column_grid='bsk-col-md' %}
+{% set column_grid='bsk-col-12-md' %}
 
 {% block sample %}
 <div class="bsk-container bsk-tb-visible-container">
-  <p class="bsk-text-info">Using the medium standard grid, in a fixed-width container.</p>
+  <p class="bsk-text-info">Using the medium 12 column grid, in a fixed-width container.</p>
   {{ grid.bsk_tb_grid_column_offsets_v1(grid_columns, column_grid) }}
 </div>
 {% endblock %}

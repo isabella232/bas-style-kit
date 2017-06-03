@@ -14,6 +14,9 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] `bas-style-kit.scss` renamed to `styles-bsk.scss` to fit with other files
 * [Infrastructure] Gulp tasks for processing CSS styles have been refactored and updated
 * [Styles] Minimum supported browser versions changed - I.E. 8 and 9 are no longer officially supported
+* [Styles] Classes for the standard grid are now styled `bsk-col-12-{breakpoint}-{width}`
+* [Styles] Classes for the alternative grid are now styled `bsk-col-24-{breakpoint}-{width}`
+* [Styles] The terms 'standard' and 'alternative' grid are now deprecated and should no longer be used
 
 ### Deleted - BREAKING!
 
@@ -39,6 +42,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Correcting the name of the run sequence Gulp plugin to make it consistent
 * [Infrastructure] Correcting dependent task for `atomic--sourcemaps-bootstrap-bsk` Gulp task
 * [Infrastructure] Correcting conventional icons in test alert samples
+* [Infrastructure] Making grid macros suitable for both grid sizes
 
 ### Changed
 

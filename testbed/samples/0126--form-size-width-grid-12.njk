@@ -2,17 +2,17 @@
 
 {% import "macros/form.njk" as form %}
 
-{% set sample_href = "0127--form-size-width-grid-alt.html" %}
-{% set sample_number = "#0127" %}
-{% set sample_title = "Form control width using alternative grid" %}
-{% set sample_markup = '.bsk-form-group.bsk-col-bsk-md-*' %}
+{% set sample_href = "0126--form-size-width-grid-12.html" %}
+{% set sample_number = "#0126" %}
+{% set sample_title = "Form control width using 12 grid" %}
+{% set sample_markup = '.bsk-form-group.bsk-col-12-md-*' %}
 
-{% set grid_columns=24 %}
-{% set column_grid='bsk-col-bsk-md' %}
+{% set grid_columns=12 %}
+{% set column_grid='bsk-col-12-md' %}
 
 {% block sample %}
-<div class="bsk-container bsk-bsk-tb-visible-container">
-  <p class="bsk-text-info">Using the medium alternative grid, in a fixed-width container.</p>
+<div class="bsk-container bsk-tb-visible-container">
+  <p class="bsk-text-info">Using the medium 12 column grid, in a fixed-width container.</p>
 
   <form>
 {% for column_size in range(1, grid_columns) %}
