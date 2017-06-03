@@ -230,9 +230,9 @@ gulp.task('atomic--minify-fonts-bsk', ['atomic--compile-sass-fonts-bsk'], () => 
 
 gulp.task('atomic--restructure-bas-style-kit-no-min', ['atomic--concat-bas-style-kit-no-min'], () => {
   return gulp.src(path.join(config.sources.css, 'bas-style-kit.css'))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     // Undo minifying
     .pipe(cssbeautify())
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
@@ -240,9 +240,9 @@ gulp.task('atomic--restructure-bas-style-kit-no-min', ['atomic--concat-bas-style
 
 gulp.task('atomic--restructure-bas-style-kit-min', ['atomic--concat-bas-style-kit-min'], () => {
   return gulp.src(path.join(config.sources.css, 'bas-style-kit.min.css'))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
@@ -525,9 +525,9 @@ gulp.task('atomic--compile-testbed-index', () => {
 gulp.task('build--styles-bas-style-kit-only-no-min', ['atomic--cssprefix-bas-style-kit'], () => {
   return gulp.src(path.join(config.sources.css, 'styles-bsk.css'))
     .pipe(autoprefixer(config.modules.autoprefixer))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     // Undo minifying
     .pipe(cssbeautify())
     .pipe(csscomb())
@@ -540,9 +540,9 @@ gulp.task('build--styles-bas-style-kit-only-min', ['atomic--lint-sass-bas-style-
     .pipe(sass().on('error', sass.logError))
     .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     .pipe(csscomb())
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
@@ -553,9 +553,9 @@ gulp.task('build--styles-bas-style-kit-only-min', ['atomic--lint-sass-bas-style-
 gulp.task('build--styles-bootstrap-bsk-only-no-min', ['atomic--cssprefix-bootstrap-bsk'], () => {
   return gulp.src(path.join(config.sources.css, 'bootstrap-bsk.css'))
     .pipe(autoprefixer(config.modules.autoprefixer))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     // Undo minifying
     .pipe(cssbeautify())
     .pipe(csscomb())
@@ -568,9 +568,9 @@ gulp.task('build--styles-bootstrap-bsk-only-min', () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     .pipe(csscomb())
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
@@ -580,9 +580,9 @@ gulp.task('build--styles-bootstrap-bsk-only-min', () => {
 
 gulp.task('build--styles-fonts-bsk-only-no-min', ['atomic--autoprefix-fonts-bsk'], () => {
   return gulp.src(path.join(config.sources.css, 'fonts-bsk.css'))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     // Undo minifying
     .pipe(cssbeautify())
     .pipe(csscomb())
@@ -595,9 +595,9 @@ gulp.task('build--styles-fonts-bsk-only-min', () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     .pipe(csscomb())
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
@@ -618,9 +618,9 @@ gulp.task('build--styles-bas-style-kit-no-min', [
       path.join(config.sources.css, 'styles-bsk.css')
     ])
     .pipe(concat('bas-style-kit.css'))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     // Undo minifying
     .pipe(cssbeautify())
     .pipe(csscomb())
@@ -640,9 +640,9 @@ gulp.task('build--styles-bas-style-kit-min', [
     .pipe(sourcemaps.init())
     .pipe(concat('bas-style-kit.min.css'))
     .pipe(autoprefixer(config.modules.autoprefixer))
-    .pipe(csso({
-      debug: true
-    }))
+    // .pipe(csso({
+    //   debug: true
+    // }))
     .pipe(csscomb())
     .pipe(nano())
     .pipe(sourcemaps.write(path.join('.', 'maps')))
