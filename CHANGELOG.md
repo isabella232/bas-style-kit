@@ -42,6 +42,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Correcting the name of the run sequence Gulp plugin to make it consistent
 * [Infrastructure] Correcting dependent task for `atomic--sourcemaps-bootstrap-bsk` Gulp task
 * [Infrastructure] Correcting conventional icons in test alert samples
+* [Infrastructure] Making grid macros suitable for both grid sizes
 
 ### Changed
 
