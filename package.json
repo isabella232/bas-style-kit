@@ -19,11 +19,11 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "bootstrap-sass": "3.3.6",
+    "bootstrap-sass": "3.3.7",
     "del": "^2.0",
-    "font-awesome": "^4.6",
+    "font-awesome": "4.7",
     "gulp": "^3.9",
-    "gulp-autoprefixer": "^3.1",
+    "gulp-autoprefixer": "^4.0",
     "gulp-base": "^1.1",
     "gulp-class-prefix": "^1.0.1",
     "gulp-concat": "^2.6.1",
@@ -31,17 +31,17 @@
     "gulp-csscomb": "^3.0",
     "gulp-cssnano": "^2.0",
     "gulp-csso": "^3.0",
-    "gulp-nunjucks": "^2.3",
+    "gulp-nunjucks": "^3.0",
     "gulp-rename": "^1.2",
     "gulp-sass": "^3.0",
-    "gulp-sourcemaps": "^1.6",
+    "gulp-sourcemaps": "^2.6",
     "gulp-sri": "^0.3",
     "gulp-stylelint": "^3.7",
     "gulp-util": "^3.0",
-    "gulp-zip": "^3.2",
+    "gulp-zip": "^4.0",
     "open-sans-fontface": "^1.4",
     "pkginfo": "^0.4",
     "run-sequence": "^1.1",
-    "stylelint-config-standard": "^15.0"
+    "stylelint-config-standard": "^16.0"
   }
 }

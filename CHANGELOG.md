@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] `bas-style-kit.css` now contains all styles (inc. fonts and Bootstrap) as a single file
 * [Styles] `bas-style-kit.scss` renamed to `styles-bsk.scss` to fit with other files
 * [Infrastructure] Gulp tasks for processing CSS styles have been refactored and updated
+* [Styles] Minimum supported browser versions changed - I.E. 8 and 9 are no longer officially supported
 
 ### Deleted - BREAKING!
 
@@ -46,6 +47,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Minor README file updates and clarifications
 * [Infrastructure] Minor testbed layout changes
 * [Infrastructure] Minor testbed content changes
+* [Infrastructure] Upgrading to NodeJS 8 and NPM 5
+* [Infrastructure] Pinning 'Font Awesome' package to a specific version
+* [Infrastructure] Upgrading NPM package dependencies
+* [Styles] Upgrading to Bootstrap SASS 3.3.7
 
 ## [0.2.0] - 2017-04-17
 
