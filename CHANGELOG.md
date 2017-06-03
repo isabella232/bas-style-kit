@@ -48,6 +48,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Minor testbed content changes
 * [Infrastructure] Upgrading to NodeJS 8 and NPM 5
 * [Infrastructure] Pinning 'Font Awesome' package to a specific version
+* [Infrastructure] Upgrading NPM package dependencies
 
 ## [0.2.0] - 2017-04-17
 
