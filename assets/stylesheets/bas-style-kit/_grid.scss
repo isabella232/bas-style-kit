@@ -10,6 +10,10 @@
   @media (min-width: $screen-xl-min) {
     width: $container-xl;
   }
+
+  @media (min-width: $screen-fhd-min) {
+    width: $container-fhd;
+  }
 }
 
 
@@ -66,4 +70,14 @@
 @media (min-width: $screen-xl-min) {
   @include make-12-grid(xl);
   @include make-24-grid(xl);
+}
+
+
+// Full HD (1080p) (custom grid size)
+//
+// Columns, offsets, pushes, and pulls for the full HD television device range.
+
+@media (min-width: $screen-fhd-min) {
+  @include make-12-grid(fhd);
+  @include make-24-grid(fhd);
 }

@@ -1,14 +1,14 @@
 // Framework grid generation
 //
-// Used only by Bootstrap to generate the correct number of grid classes given any value of `$grid-columns`.
+// Used to generate the correct number of grid classes for each grid system
 
-// 'Standard' bootstrap 12-column grid, but with an additional 'xl' size
+// 'Standard' bootstrap 12-column grid, but withaddi tional 'xl' and 'fhd' sizes
 
 @mixin make-12-grid-columns(
   $i: 1,
-  $list: ".col-12-xs-#{$i}, .col-12-sm-#{$i}, .col-12-md-#{$i}, .col-12-lg-#{$i} .col-12-xl-#{$i}") {
+  $list: ".col-12-xs-#{$i}, .col-12-sm-#{$i}, .col-12-md-#{$i}, .col-12-lg-#{$i} .col-12-xl-#{$i} .col-12-fhd-#{$i}") {
   @for $i from (1 + 1) through $grid-12-columns {
-    $list: "#{$list}, .col-12-xs-#{$i}, .col-12-sm-#{$i}, .col-12-md-#{$i}, .col-12-lg-#{$i}, .col-12-xl-#{$i}";
+    $list: "#{$list}, .col-12-xs-#{$i}, .col-12-sm-#{$i}, .col-12-md-#{$i}, .col-12-lg-#{$i}, .col-12-xl-#{$i} .col-12-fhd-#{$i}";
   }
 
   #{$list} {
@@ -97,9 +97,9 @@
 
 @mixin make-24-grid-columns(
   $i: 1,
-  $list: ".col-24-xs-#{$i}, .col-24-sm-#{$i}, .col-24-md-#{$i}, .col-24-lg-#{$i} .col-24-xl-#{$i}") {
+  $list: ".col-24-xs-#{$i}, .col-24-sm-#{$i}, .col-24-md-#{$i}, .col-24-lg-#{$i} .col-24-xl-#{$i} .col-24-fhd-#{$i}") {
   @for $i from (1 + 1) through $grid-24-columns {
-    $list: "#{$list}, .col-24-xs-#{$i}, .col-24-sm-#{$i}, .col-24-md-#{$i}, .col-24-lg-#{$i} .col-24-xl-#{$i}";
+    $list: "#{$list}, .col-24-xs-#{$i}, .col-24-sm-#{$i}, .col-24-md-#{$i}, .col-24-lg-#{$i} .col-24-xl-#{$i} .col-24-fhd-#{$i}";
   }
 
   #{$list} {
