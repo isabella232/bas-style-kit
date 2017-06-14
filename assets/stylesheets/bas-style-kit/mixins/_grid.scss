@@ -2,7 +2,7 @@
 //
 // Generate semantic grid columns with these mixins.
 
-// 'Standard' bootstrap 12-column grid, but with an additional 'xl' size
+// 'Standard' bootstrap 12-column grid, but with additional 'xl' and 'fhd' sizes
 
 // Generate the extra large columns
 @mixin make-xl-column(
@@ -37,7 +37,40 @@
   }
 }
 
-// 'Custom' Style kit 24-column grid, with all standard and the additional 'xl' size
+// Generate the full HD (1080p) columns
+@mixin make-fhd-column(
+  $columns,
+  $gutter: $grid-gutter-width) {
+  position:      relative;
+  min-height:    1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-fhd-min) {
+    float: left;
+    width: percentage(($columns / $grid-12-columns));
+  }
+}
+
+@mixin make-fhd-column-offset($columns) {
+  @media (min-width: $screen-fhd-min) {
+    margin-left: percentage(($columns / $grid-12-columns));
+  }
+}
+
+@mixin make-fhd-column-push($columns) {
+  @media (min-width: $screen-fhd-min) {
+    left: percentage(($columns / $grid-12-columns));
+  }
+}
+
+@mixin make-fhd-column-pull($columns) {
+  @media (min-width: $screen-fhd-min) {
+    right: percentage(($columns / $grid-12-columns));
+  }
+}
+
+// 'Custom' Style kit 24-column grid, with all the 'standard' sizes and addititional 'xl' and fhd' sizes
 
 // Generate the extra small columns
 @mixin make-24-xs-column(
@@ -191,6 +224,39 @@
 
 @mixin make-24-xl-column-pull($columns) {
   @media (min-width: $screen-xl-min) {
+    right: percentage(($columns / $grid-24-columns));
+  }
+}
+
+// Generate the full HD (1080p) columns
+@mixin make-fhd-column(
+  $columns,
+  $gutter: $grid-gutter-width) {
+  position:      relative;
+  min-height:    1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-fhd-min) {
+    float: left;
+    width: percentage(($columns / $grid-24-columns));
+  }
+}
+
+@mixin make-fhd-column-offset($columns) {
+  @media (min-width: $screen-fhd-min) {
+    margin-left: percentage(($columns / $grid-24-columns));
+  }
+}
+
+@mixin make-fhd-column-push($columns) {
+  @media (min-width: $screen-fhd-min) {
+    left: percentage(($columns / $grid-24-columns));
+  }
+}
+
+@mixin make-fhd-column-pull($columns) {
+  @media (min-width: $screen-fhd-min) {
     right: percentage(($columns / $grid-24-columns));
   }
 }

@@ -29,6 +29,34 @@
   }
 }
 
-@media (min-width: $screen-xl-min) {
+@media (min-width: $screen-xl-min) and (max-width: $screen-xl-max) {
   @include responsive-invisibility('.hidden-xl');
+}
+
+.visible-fhd {
+  @media (min-width: $screen-fhd-min) {
+    @include responsive-visibility('.visible-xl');
+  }
+}
+
+.visible-fhd-block {
+  @media (min-width: $screen-fhd-min) {
+    display: block !important;
+  }
+}
+
+.visible-fhd-inline {
+  @media (min-width: $screen-fhd-min) {
+    display: inline !important;
+  }
+}
+
+.visible-fhd-inline-block {
+  @media (min-width: $screen-fhd-min) {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: $screen-fhd-min) {
+  @include responsive-invisibility('.hidden-fhd');
 }
