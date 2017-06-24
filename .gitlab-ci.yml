@@ -96,6 +96,9 @@ compile-testbed:
   stage: build
   only:
     - branches
+  before_script:
+    - "mkdir node_modules"
+    - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
   script:
     - "gulp testbed"
   artifacts:
