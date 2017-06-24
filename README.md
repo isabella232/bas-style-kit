@@ -84,6 +84,9 @@ which have been removed. Collections are intended as the way to create curated s
 A Gulp task, `testbed`, is used to render the Testbed templates to HTML and generate the Style Kit's assets in one
 command.
 
+A hosted instance of the testbed for the *master* branch is available at:
+[https://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/master/testbed/index.html](https://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/master/testbed/index.html).
+
 ## Developing
 
 [Git](https://git-scm.com) and [Docker](https://www.docker.com/products/docker) [1] are required to build this project
