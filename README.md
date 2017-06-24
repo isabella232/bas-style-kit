@@ -179,7 +179,8 @@ $ docker-compose push app
 
 ### Integration tests
 
-Integration tests are used for all endpoints in this project, ideally with all their possible failure modes.
+Linting is used to ensure Sass styles follow a set of standard conventions. They will be executed automatically through
+Continuous Integration.
 
 To run tests manually run the `lint` Gulp task.
 
