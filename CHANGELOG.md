@@ -19,6 +19,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] The terms 'standard' and 'alternative' grid are now deprecated and should no longer be used
 * [Styles] Base font size increased from `14px` to `16px`
 * [Infrastructure] Testbed styles are now compiled with other Style Kit styles with reference to variables etc.
+* [Styles] Correctly using a border-colour for primary buttons
 
 ### Deleted - BREAKING!
 

@@ -224,7 +224,7 @@ $btn-default-border:                          $component-default-bg;
 
 $btn-primary-color:                           $white;
 $btn-primary-bg:                              $bsk-turquoise;
-$btn-primary-border:                          $bsk-turquoise;
+$btn-primary-border:                          darken($bsk-turquoise, 5%);  // #0B8D88
 
 $btn-border-radius-large:                     $btn-border-radius-base;
 $btn-border-radius-small:                     $btn-border-radius-base;
