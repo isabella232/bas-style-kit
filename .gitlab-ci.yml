@@ -96,8 +96,6 @@ compile-testbed:
   stage: build
   only:
     - branches
-  except:
-    - master
   script:
     - "gulp testbed"
   artifacts:
