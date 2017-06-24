@@ -104,6 +104,7 @@ compile-testbed:
   artifacts:
     name: "$CI_BUILD_TOKEN-testbed"
     paths:
+      - dist/css/testbed-bsk.css
       - testbed/rendered
     expire_in: 1 week
 
