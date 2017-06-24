@@ -641,7 +641,6 @@ gulp.task('build--styles-fonts-bsk-only-min', () => {
   return gulp.src(path.join(config.sources.stylesheets, 'fonts-bsk.scss'))
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(cssprefixer(config.modules.cssprefixer.prefix))
     .pipe(autoprefixer(config.modules.autoprefixer))
     // .pipe(csso({
     //   debug: true
