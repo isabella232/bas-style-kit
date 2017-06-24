@@ -18,6 +18,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Classes for the alternative grid are now styled `bsk-col-24-{breakpoint}-{width}`
 * [Styles] The terms 'standard' and 'alternative' grid are now deprecated and should no longer be used
 * [Styles] Base font size increased from `14px` to `16px`
+* [Infrastructure] Testbed styles are now compiled with other Style Kit styles with reference to variables etc.
+* [Styles] Correctly using a border-colour for primary buttons
 
 ### Deleted - BREAKING!
 
@@ -45,6 +47,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Correcting dependent task for `atomic--sourcemaps-bootstrap-bsk` Gulp task
 * [Infrastructure] Correcting conventional icons in test alert samples
 * [Infrastructure] Making grid macros suitable for both grid sizes
+* [Infrastructure] The 'greyscale' colours in Bootstrap use 'gray' not 'grey', this was incorrect in the Testbed
 
 ### Changed
 

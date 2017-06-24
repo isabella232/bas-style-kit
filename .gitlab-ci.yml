@@ -96,11 +96,15 @@ compile-testbed:
   stage: build
   only:
     - branches
+  before_script:
+    - "mkdir node_modules"
+    - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
   script:
     - "gulp testbed"
   artifacts:
     name: "$CI_BUILD_TOKEN-testbed"
     paths:
+      - dist/css/testbed-bsk.css
       - testbed/rendered
     expire_in: 1 week
 
@@ -217,5 +221,5 @@ s3-testbed:
     - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
     - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
   environment:
-    name: testbed
-    url: https://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html
+    name: testbed-master
+    url: http://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html

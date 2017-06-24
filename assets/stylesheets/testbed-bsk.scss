@@ -1,0 +1,369 @@
+/* BAS Style Kit - Testbed Styles */
+
+// These are additional styles needed for the testbed, built using vriables and styles from the main Style Kit styles.
+
+// Core bootstrap variables
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+// Core BAS Style Kit variables to override Bootstrap
+// Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
+@import "bas-style-kit/variables";
+
+
+// Layout - General
+
+.tb-margin-top {
+  margin-top: 20px;
+}
+
+.tb-margin-top-ul {
+  margin-top: 80px;
+}
+
+.tb-margin-top-sl {
+  margin-top: 120px;
+}
+
+// Layout - Container visibility classes
+
+.tb-visible-container {
+  border: 2px solid gray;
+}
+
+// Layout - Grid visibility classes
+
+.tb-visible-col-1,
+.tb-visible-col-2,
+.tb-visible-col-3,
+.tb-visible-col-4,
+.tb-visible-col-5,
+.tb-visible-col-6,
+.tb-visible-col-7,
+.tb-visible-col-8,
+.tb-visible-col-9,
+.tb-visible-col-10,
+.tb-visible-col-11,
+.tb-visible-col-12,
+.tb-visible-col-13,
+.tb-visible-col-14,
+.tb-visible-col-15,
+.tb-visible-col-16,
+.tb-visible-col-17,
+.tb-visible-col-18,
+.tb-visible-col-19,
+.tb-visible-col-20,
+.tb-visible-col-21,
+.tb-visible-col-22,
+.tb-visible-col-23,
+.tb-visible-col-24 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.tb-visible-col-1 {
+  background: #2E358B;
+}
+
+.tb-visible-col-2 {
+  background: #D53880;
+}
+
+.tb-visible-col-3 {
+  background: #B10E1E;
+}
+
+.tb-visible-col-4 {
+  background: #F47738;
+}
+
+.tb-visible-col-5 {
+  background: #006435;
+}
+
+.tb-visible-col-6 {
+  background: #005EA5;
+}
+
+.tb-visible-col-7 {
+background: #6F72AF;
+}
+
+.tb-visible-col-8 {
+background: #F499BE;
+}
+
+.tb-visible-col-9 {
+background: #DF3034;
+}
+
+.tb-visible-col-10 {
+background: #FFBF47;
+}
+
+.tb-visible-col-11 {
+background: #85994B;
+}
+
+.tb-visible-col-12 {
+  background: #2B8CC4;
+}
+
+.tb-visible-col-13 {
+  background: #2E358B;
+}
+
+.tb-visible-col-14 {
+  background: #D53880;
+}
+
+.tb-visible-col-15 {
+  background: #B10E1E;
+}
+
+.tb-visible-col-16 {
+  background: #F47738;
+}
+
+.tb-visible-col-17 {
+  background: #006435;
+}
+
+.tb-visible-col-18 {
+  background: #005EA5;
+}
+
+.tb-visible-col-19 {
+background: #6F72AF;
+}
+
+.tb-visible-col-20 {
+background: #F499BE;
+}
+
+.tb-visible-col-21 {
+background: #DF3034;
+}
+
+.tb-visible-col-22 {
+background: #FFBF47;
+}
+
+.tb-visible-col-23 {
+background: #85994B;
+}
+
+.tb-visible-col-24 {
+  background: #2B8CC4;
+}
+
+// Typography - Headings
+
+.tb-page-header {
+  margin-top: 0;
+}
+
+.tb-sample-sub-heading {
+  color: $bsk-turquoise;
+}
+
+// Typography - Font-face samples
+
+.tb-ff-open-sans-light {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+.tb-ff-open-sans-regular {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
+.tb-ff-open-sans-bold {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.tb-ff-gill-sans-light {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+
+.tb-ff-gill-sans-book  {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+}
+
+.tb-ff-gill-sans-roman {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+.tb-ff-menlo-regular {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+// Core - Colour swatches
+
+.tb-colour-swatch {
+  width: 75px;
+  height: 75px;
+}
+
+.tb-colour-swatch-EEEEEE {
+  background-color: $gray-lighter;
+}
+
+.tb-colour-swatch-777777 {
+  background-color: $gray-light;
+}
+
+.tb-colour-swatch-555555 {
+  background-color: $gray;
+}
+
+.tb-colour-swatch-333333 {
+  background-color: $gray-dark;
+}
+
+.tb-colour-swatch-222222 {
+  background-color: $gray-darker;
+}
+
+.tb-colour-swatch-F4F6F9 {
+  background-color: $bsk-grey-lighter;
+}
+
+.tb-colour-swatch-E7EBF1 {
+  background-color: $bsk-grey-light;
+}
+
+.tb-colour-swatch-77CCFF {
+  background-color: $bsk-blue-light;
+}
+
+.tb-colour-swatch-006AAA {
+  background-color: $bsk-blue;
+}
+
+.tb-colour-swatch-003A5D {
+  background-color: $bsk-blue-dark;
+}
+
+.tb-colour-swatch-B93E14 {
+  background-color: $bsk-red;
+}
+
+.tb-colour-swatch-0DA59F {
+  background-color: $bsk-turquoise;
+}
+
+.tb-colour-swatch-C3C3C3 {
+  background-color: $btn-default-bg;
+}
+
+.tb-colour-swatch-8C8C8C {
+  background-color: $btn-default-border;
+}
+
+.tb-colour-swatch-007AC3 {
+  background-color: $link-color;
+}
+
+.tb-colour-swatch-0B8D88 {
+  background-color: $btn-primary-border;
+}
+
+.tb-colour-swatch-FFFFFF {
+  background-color: $white;
+  border: 1px solid $gray-lighter;
+}
+
+// Core - Forms
+
+.tb-simulated-state-focus {
+  border-color: #ccc;
+  border-color: rgba(82, 168, 236, .8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: 0 0 8px rgba(82, 168, 236, .6);
+  box-shadow: 0 0 8px rgba(82, 168, 236, .6)
+}
+
+// Component - Drop-downs
+
+.tb-simulated-state-open {
+  display: block;
+}
+
+// Component - Navbars
+
+.tb-navbar-lg {
+  min-height: 100px;
+}
+
+.tb-navbar-brand-image-32 {
+  padding-top: 9px;
+}
+
+.tb-navbar-brand-image-48,
+.tb-navbar-brand-image-96 {
+  padding-top: 1px !important;
+}
+
+.tb-navbar-brand-image-48-lg {
+  padding-top: 25px !important;
+}
+
+.tb-navbar-brand-image-64 {
+  padding-top: 17px !important;
+}
+
+.tb-navbar-brand-image-48 img,
+.tb-navbar-brand-image-48-lg img {
+  max-width: 48px;
+}
+
+.tb-navbar-brand-image-64 img {
+  max-width: 64px;
+}
+
+.tb-navbar-brand-image-96 img {
+  max-width: 96px;
+}
+
+.tb-navbar-brand-image-128 img {
+  max-width: 128px;
+}
+
+.tb-simulated-state-uncollapsed {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border-color: #222;
+  border: 1px solid transparent;
+  border-radius: 0;
+
+  &:hover, &:focus {
+    background-color: #555;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #fff;
+  }
+}
+
+.tb-simulated-state-uncollapsed .icon-bar + .icon-bar {
+  margin-top: 4px; }
