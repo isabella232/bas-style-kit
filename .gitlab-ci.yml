@@ -208,3 +208,16 @@ s3-cdn-prod:
     - "export CDN_PROJECT_VERSION=$CI_BUILD_TAG_SHORT"
   variables:
     S3_CDN_BUCKET: bas-cdn-prod
+
+s3-testbed:
+  stage: deploy
+  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  only:
+    - master
+    - tags
+  script:
+    - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
+    - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
+  environment:
+    name: testbed
+    url: https://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html
