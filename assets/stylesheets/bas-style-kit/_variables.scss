@@ -17,13 +17,13 @@ $bsk-bas-brand:                               #003A5D;
 
 // Grey-scale colour scheme
 $bsk-grey-light:                              #E7EBF1;
-$bsk-grey-lighter:                            lighten($bsk-grey-light, 4%);
+$bsk-grey-lighter:                            lighten($bsk-grey-light, 4%);  // #F4F6F9
 
 
 // 'colour' colour scheme
 // All shades of blue should be based off of the BAS brand colour
-$bsk-blue-light:                              lighten($bsk-bas-brand, 55%);
-$bsk-blue:                                    lighten($bsk-bas-brand, 15%);
+$bsk-blue-light:                              lighten($bsk-bas-brand, 55%);  // #77CCFF
+$bsk-blue:                                    lighten($bsk-bas-brand, 15%);  // #006AAA
 $bsk-blue-dark:                               $bsk-bas-brand;
 $bsk-red:                                     #B93E14;
 $bsk-turquoise:                               #0DA59F;
@@ -58,7 +58,7 @@ $page-text:                                   $gray-dark !default;
 $text-color:                                  $page-text;
 
 // Global textual link colour.
-$link-color:                                  lighten($bsk-blue, 5%);
+$link-color:                                  lighten($bsk-blue, 5%);  // #007AC3
 
 
 //== Typography
