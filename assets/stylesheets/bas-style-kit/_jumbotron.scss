@@ -37,10 +37,8 @@
 
 // Sub-components
 .jumbotron {
-  .text-overlay {
-    text-shadow:      1px 1px 2px $jumbotron-inverse-text-overlay-shadow;
-    box-shadow:       10px 0 0 $jumbotron-inverse-text-overlay-bg, -10px 0 0 $jumbotron-inverse-text-overlay-bg;
-    background-color: $jumbotron-inverse-text-overlay-bg-fb;
-    background-color: $jumbotron-inverse-text-overlay-bg;
+  .jumbotron-overlay {
+    color:            $jumbotron-overlay-color;
+    background-color: $jumbotron-overlay-bg;
   }
 }

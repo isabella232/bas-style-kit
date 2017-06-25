@@ -315,10 +315,9 @@ $jumbotron-default-bg:                        $component-default-bg;
 
 $jumbotron-inverse-color:                     $white;
 $jumbotron-inverse-bg:                        $gray;
-// Read 'fb' as 'fall back', for older browsers that can't use RGBA
-$jumbotron-inverse-text-overlay-bg-fb:        #000000;
-$jumbotron-inverse-text-overlay-bg:           rgba(0, 0, 0, 0.7);
-$jumbotron-inverse-text-overlay-shadow:       rgba(0, 0, 0, 0.9);
+
+$jumbotron-overlay-color:                     $component-overlay-color;
+$jumbotron-overlay-bg:                $component-overlay-bg;
 
 
 // Thumbnails

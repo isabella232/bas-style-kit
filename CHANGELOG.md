@@ -21,6 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Testbed styles are now compiled with other Style Kit styles with reference to variables etc.
 * [Styles] Correctly using a border-colour for primary buttons
 * [Styles] Image Purchase component replaced by new Image Copyright component
+* [Styles] Jumbotron text overlay class generalised to an overlay class (`bsk-jumbotron-overlay`)
 
 ### Deleted - BREAKING!
 
