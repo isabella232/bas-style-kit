@@ -1,0 +1,12 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0297--jumbotron-image-overlay-text.html" %}
+{% set sample_number = "#0297" %}
+{% set sample_title = "default jumbotron with image as background and overlay text" %}
+{% set sample_markup = ".bsk-jumbotron.bsk-jumbotron-default .jumbotron-overlay" %}
+
+{% block sample %}
+<div class="bsk-jumbotron bsk-jumbotron-default bsk-tb-jumbotron-background-image">
+  <span class="bsk-jumbotron-overlay">Jumbotron content</span>
+</div>
+{% endblock %}

@@ -367,3 +367,10 @@ background: #85994B;
 
 .tb-simulated-state-uncollapsed .icon-bar + .icon-bar {
   margin-top: 4px; }
+
+// Component - Jumbotrons
+
+.tb-jumbotron-background-image {
+  background-image: url('/testbed/testbed-assets/img/responsive-image.jpg');
+  background-repeat: no-repeat;
+}

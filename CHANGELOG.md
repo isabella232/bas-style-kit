@@ -36,6 +36,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Documenting GitHub mirror
 * [Infrastructure] Gulp tasks for processing new fonts styles file
 * [Infrastructure] Adding a permentant instance of the testbed through the testbed S3 bucket using the master branch
+* [Infrastructure] Improve coverage of Jumbotron within the Testbed with additional samples
 
 ### Fixed
 
