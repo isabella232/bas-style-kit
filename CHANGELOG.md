@@ -50,6 +50,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Correcting conventional icons in test alert samples
 * [Infrastructure] Making grid macros suitable for both grid sizes
 * [Infrastructure] The 'greyscale' colours in Bootstrap use 'gray' not 'grey', this was incorrect in the Testbed
+* [Styles] Colours for the inverse jumbotron now use standard inverse component variables
 
 ### Changed
 
