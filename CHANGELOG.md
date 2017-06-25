@@ -23,9 +23,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Image Purchase component replaced by new Image Copyright component
 * [Styles] Jumbotron text overlay class generalised to an overlay class (`bsk-jumbotron-overlay`)
 
-### Deleted - BREAKING!
+### Removed - BREAKING!
 
 * [Infrastructure] Gulp watch tasks have been removed
+* [Styles] 'navbar-brand-img-fix' class removed as it appears to be redundent
 
 ### Added
 
@@ -37,6 +38,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Gulp tasks for processing new fonts styles file
 * [Infrastructure] Adding a permentant instance of the testbed through the testbed S3 bucket using the master branch
 * [Infrastructure] Improve coverage of Jumbotron within the Testbed with additional samples
+* [Infrastructure] Adding experiment heading class to Testbed classes
 
 ### Fixed
 

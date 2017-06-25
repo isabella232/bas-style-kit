@@ -171,10 +171,6 @@
   font-size: $font-size-large;
 
   .navbar-brand {
-    &.navbar-brand-img-fix {
-      padding-top: ($navbar-padding-vertical /2);
-    }
-
     img {
       width: 150px;
     }
@@ -185,10 +181,6 @@
       padding-top:    $navbar-lg-padding-vertical;
       padding-bottom: $navbar-lg-padding-vertical;
       line-height:    $line-height-computed-x2;
-
-      &.navbar-brand-img-fix {
-        padding-top: $navbar-padding-vertical;
-      }
 
       img {
         width: 300px;
