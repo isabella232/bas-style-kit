@@ -1,0 +1,13 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0293--image-copyright.html" %}
+{% set sample_number = "#0293" %}
+{% set sample_title = "image copyright" %}
+{% set sample_markup = ".bsk-image-copyright" %}
+
+{% block sample %}
+<div class="bsk-image-copyright">
+  <img class="bsk-image-copyright-image" src="https://placeholdit.imgix.net/~text?txtsize=38&txt=Media%20Item&w=800&h=500" alt="thumbnail">
+  <div class="bsk-image-copyright-attribution"><i class="fa fa-camera"></i> Copyright holder</div>
+</div>
+{% endblock %}

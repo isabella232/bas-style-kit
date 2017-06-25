@@ -42,7 +42,7 @@ $brands-rss-primary:                          #F26522;  // as defined by convent
 
 $zindex-footer:                               1000;
 $zindex-footer-fixed:                         1030;
-$zindex-image-purchase-symbol:                900;
+$zindex-image-copyright:                      900;
 
 
 // Scaffolding
@@ -160,6 +160,8 @@ $border-radius-base:                          0;
 $border-radius-large:                         $border-radius-base;
 $border-radius-small:                         $border-radius-base;
 
+$component-font-size-small:                   14px;
+
 $line-height-computed-x2:                     ($line-height-computed * 2);
 
 $component-default-color:                     $gray-dark;
@@ -167,6 +169,9 @@ $component-default-bg:                        $gray-lighter;
 
 $component-inverse-color:                     #F8F8F8;  // TODO: Use lighten/darken functions to generate colour
 $component-inverse-bg:                        $gray;
+
+$component-overlay-color:                     $white;
+$component-overlay-bg:                        $gray-dark;
 
 $component-active-bg:                         $bsk-blue;
 
@@ -414,15 +419,11 @@ $band-default-bg:                             $white;
 $band-inverse-bg:                             $component-inverse-bg;
 
 
-// Image purchase
+// Image Copyright
 //
 // Custom component
 
-$image-purchase-base-opacity:                 0.8;
-$image-purchase-hover-opacity:                1;
+$image-copyright-base-padding:                3px 8px 1px;
 
-$image-purchase-on-image-color:               $white;
-$image-purchase-on-image-text-shadow:         $jumbotron-inverse-text-overlay-shadow;
-
-$image-purchase-in-caption-default-color:     $component-inverse-bg;
-$image-purchase-in-caption-inverse-color:     $white;
+$image-copyright-base-color:                  $component-overlay-color;
+$image-copyright-base-background:             $component-overlay-bg;
