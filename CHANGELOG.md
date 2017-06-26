@@ -39,6 +39,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Adding a permentant instance of the testbed through the testbed S3 bucket using the master branch
 * [Infrastructure] Improve coverage of Jumbotron within the Testbed with additional samples
 * [Infrastructure] Adding experiment heading class to Testbed classes
+* [Styles] Adding GDS colour pallets
 
 ### Fixed
 
