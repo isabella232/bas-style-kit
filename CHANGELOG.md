@@ -56,6 +56,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] The 'greyscale' colours in Bootstrap use 'gray' not 'grey', this was incorrect in the Testbed
 * [Styles] Colours for the inverse jumbotron now use standard inverse component variables
 * [Styles] Rounded images are now correctly rounded
+* [Infrastructure] Invalid class attribute in BAS Style Kit 'colour' colour scheme
 
 ### Changed
 
