@@ -5,12 +5,29 @@
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 
+// Internal mixins
+//
+
+@mixin mix-colour-variants($name, $base-colour) {
+
+}
+
 // Colours
 //
 // Brand and background colours for use across the BAS Style Kit.
 
 // Generic colours
-$white:                                       #FFFFFF;
+$bsk-colour-gn-white:                         #FFFFFF;
+$bsk-colour-gn-black:                         #000000;
+
+// Standard colours- Greyscale (generated as white mixed with black)
+$bsk-colour-std-white:                        mix($bsk-colour-gn-black, $bsk-colour-gn-white, 0%);     // #FFFFFF (GDS: $white)
+$bsk-colour-std-grey-lighter:                 mix($bsk-colour-gn-black, $bsk-colour-gn-white, 6.5%);   // #EEEEEE (Bootstrap: $gray-lighter)
+$bsk-colour-std-grey-light:                   mix($bsk-colour-gn-black, $bsk-colour-gn-white, 40.1%);  // #999999
+$bsk-colour-std-grey:                         mix($bsk-colour-gn-black, $bsk-colour-gn-white, 53.3%);  // #777777 (Bootstrap: $gray-light)
+$bsk-colour-std-grey-dark:                    mix($bsk-colour-gn-black, $bsk-colour-gn-white, 66.5%);  // #555555 (Bootstrap: $gray)
+$bsk-colour-std-grey-darker:                  mix($bsk-colour-gn-black, $bsk-colour-gn-white, 80%);    // #333333 (Bootstrap: $gray-dark)
+$bsk-colour-std-black:                        mix($bsk-colour-gn-black, $bsk-colour-gn-white, 100%);   // #00000
 
 // Brand colour scheme
 $bsk-bas-brand:                               #003A5D;
