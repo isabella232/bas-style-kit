@@ -9,6 +9,10 @@
 //
 // Brand and background colours for use across the BAS Style Kit.
 
+// Control variables
+$bsk-colour-x-mix-1st-fundermental: 33%;
+$bsk-colour-x-mix-2rd-fundermental: 66%;
+
 // Generic colours
 $bsk-colour-gn-white:                         #FFFFFF;
 $bsk-colour-gn-black:                         #000000;
@@ -51,75 +55,75 @@ $bsk-colour-std-grey-light:                   mix($bsk-colour-gn-black, $bsk-col
 $bsk-colour-std-grey-dark:                    mix($bsk-colour-gn-black, $bsk-colour-gn-white, 66.5%);  // #555555 (Bootstrap: $gray)
 $bsk-colour-std-grey-darker:                  mix($bsk-colour-gn-black, $bsk-colour-gn-white, 80%);    // #333333 (Bootstrap: $gray-dark)
 
-$bsk-colour-std-yellow-lighter:               mix($bsk-colour-gn-white, $bsk-colour-std-yellow-base, 50%);  // #FFDFA3
-$bsk-colour-std-yellow-light:                 mix($bsk-colour-gn-white, $bsk-colour-std-yellow-base, 25%);  // #FFCF75
-$bsk-colour-std-yellow-dark:                  mix($bsk-colour-gn-black, $bsk-colour-std-yellow-base, 25%);  // #BF8F35
-$bsk-colour-std-yellow-darker:                mix($bsk-colour-gn-black, $bsk-colour-std-yellow-base, 50%);  // #806024
+$bsk-colour-std-yellow-lighter:               mix($bsk-colour-gn-white, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-2rd-fundermental);  // #
+$bsk-colour-std-yellow-light:                 mix($bsk-colour-gn-white, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-1st-fundermental);  // #
+$bsk-colour-std-yellow-dark:                  mix($bsk-colour-gn-black, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-1st-fundermental);  // #
+$bsk-colour-std-yellow-darker:                mix($bsk-colour-gn-black, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-2rd-fundermental);  // #
 
-$bsk-colour-std-orange-lighter:              mix($bsk-colour-gn-white, $bsk-colour-std-orange-base, 50%);
-$bsk-colour-std-orange-light:                mix($bsk-colour-gn-white, $bsk-colour-std-orange-base, 25%);
-$bsk-colour-std-orange-dark:                 mix($bsk-colour-gn-black, $bsk-colour-std-orange-base, 25%);
-$bsk-colour-std-orange-darker:               mix($bsk-colour-gn-black, $bsk-colour-std-orange-base, 50%);
+$bsk-colour-std-orange-lighter:              mix($bsk-colour-gn-white, $bsk-colour-std-orange-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-orange-light:                mix($bsk-colour-gn-white, $bsk-colour-std-orange-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-orange-dark:                 mix($bsk-colour-gn-black, $bsk-colour-std-orange-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-orange-darker:               mix($bsk-colour-gn-black, $bsk-colour-std-orange-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-aircraft-red-lighter:         mix($bsk-colour-gn-white, $bsk-colour-std-aircraft-red-base, 50%);
-$bsk-colour-std-aircraft-red-light:           mix($bsk-colour-gn-white, $bsk-colour-std-aircraft-red-base, 25%);
-$bsk-colour-std-aircraft-red-dark:            mix($bsk-colour-gn-black, $bsk-colour-std-aircraft-red-base, 25%);
-$bsk-colour-std-aircraft-red-darker:          mix($bsk-colour-gn-black, $bsk-colour-std-aircraft-red-base, 50%);
+$bsk-colour-std-aircraft-red-lighter:         mix($bsk-colour-gn-white, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-aircraft-red-light:           mix($bsk-colour-gn-white, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-aircraft-red-dark:            mix($bsk-colour-gn-black, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-aircraft-red-darker:          mix($bsk-colour-gn-black, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-red-lighter:                  mix($bsk-colour-gn-white, $bsk-colour-std-red-base, 50%);
-$bsk-colour-std-red-light:                    mix($bsk-colour-gn-white, $bsk-colour-std-red-base, 25%);
-$bsk-colour-std-red-dark:                     mix($bsk-colour-gn-black, $bsk-colour-std-red-base, 25%);
-$bsk-colour-std-red-darker:                   mix($bsk-colour-gn-black, $bsk-colour-std-red-base, 50%);
+$bsk-colour-std-red-lighter:                  mix($bsk-colour-gn-white, $bsk-colour-std-red-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-red-light:                    mix($bsk-colour-gn-white, $bsk-colour-std-red-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-red-dark:                     mix($bsk-colour-gn-black, $bsk-colour-std-red-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-red-darker:                   mix($bsk-colour-gn-black, $bsk-colour-std-red-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-baby-pink-lighter:            mix($bsk-colour-gn-white, $bsk-colour-std-baby-pink-base, 50%);
-$bsk-colour-std-baby-pink-light:              mix($bsk-colour-gn-white, $bsk-colour-std-baby-pink-base, 25%);
-$bsk-colour-std-baby-pink-dark:               mix($bsk-colour-gn-black, $bsk-colour-std-baby-pink-base, 25%);
-$bsk-colour-std-baby-pink-darker:             mix($bsk-colour-gn-black, $bsk-colour-std-baby-pink-base, 50%);
+$bsk-colour-std-baby-pink-lighter:            mix($bsk-colour-gn-white, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-baby-pink-light:              mix($bsk-colour-gn-white, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-baby-pink-dark:               mix($bsk-colour-gn-black, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-baby-pink-darker:             mix($bsk-colour-gn-black, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-pink-lighter:                 mix($bsk-colour-gn-white, $bsk-colour-std-pink-base, 50%);
-$bsk-colour-std-pink-light:                   mix($bsk-colour-gn-white, $bsk-colour-std-pink-base, 25%);
-$bsk-colour-std-pink-dark:                    mix($bsk-colour-gn-black, $bsk-colour-std-pink-base, 25%);
-$bsk-colour-std-pink-darker:                  mix($bsk-colour-gn-black, $bsk-colour-std-pink-base, 50%);
+$bsk-colour-std-pink-lighter:                 mix($bsk-colour-gn-white, $bsk-colour-std-pink-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-pink-light:                   mix($bsk-colour-gn-white, $bsk-colour-std-pink-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-pink-dark:                    mix($bsk-colour-gn-black, $bsk-colour-std-pink-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-pink-darker:                  mix($bsk-colour-gn-black, $bsk-colour-std-pink-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-fuschia-lighter:              mix($bsk-colour-gn-white, $bsk-colour-std-fuschia-base, 50%);
-$bsk-colour-std-fuschia-light:                mix($bsk-colour-gn-white, $bsk-colour-std-fuschia-base, 25%);
-$bsk-colour-std-fuschia-dark:                 mix($bsk-colour-gn-black, $bsk-colour-std-fuschia-base, 25%);
-$bsk-colour-std-fuschia-darker:               mix($bsk-colour-gn-black, $bsk-colour-std-fuschia-base, 50%);
+$bsk-colour-std-fuschia-lighter:              mix($bsk-colour-gn-white, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-fuschia-light:                mix($bsk-colour-gn-white, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-fuschia-dark:                 mix($bsk-colour-gn-black, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-fuschia-darker:               mix($bsk-colour-gn-black, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-mauve-lighter:                mix($bsk-colour-gn-white, $bsk-colour-std-mauve-base, 50%);
-$bsk-colour-std-mauve-light:                  mix($bsk-colour-gn-white, $bsk-colour-std-mauve-base, 25%);
-$bsk-colour-std-mauve-dark:                   mix($bsk-colour-gn-black, $bsk-colour-std-mauve-base, 25%);
-$bsk-colour-std-mauve-darker:                 mix($bsk-colour-gn-black, $bsk-colour-std-mauve-base, 50%);
+$bsk-colour-std-mauve-lighter:                mix($bsk-colour-gn-white, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-mauve-light:                  mix($bsk-colour-gn-white, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-mauve-dark:                   mix($bsk-colour-gn-black, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-mauve-darker:                 mix($bsk-colour-gn-black, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-sky-blue-lighter:             mix($bsk-colour-gn-white, $bsk-colour-std-sky-blue-base, 50%);
-$bsk-colour-std-sky-blue-light:               mix($bsk-colour-gn-white, $bsk-colour-std-sky-blue-base, 25%);
-$bsk-colour-std-sky-blue-dark:                mix($bsk-colour-gn-black, $bsk-colour-std-sky-blue-base, 25%);
-$bsk-colour-std-sky-blue-darker:              mix($bsk-colour-gn-black, $bsk-colour-std-sky-blue-base, 50%);
+$bsk-colour-std-sky-blue-lighter:             mix($bsk-colour-gn-white, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-sky-blue-light:               mix($bsk-colour-gn-white, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-sky-blue-dark:                mix($bsk-colour-gn-black, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-sky-blue-darker:              mix($bsk-colour-gn-black, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-blue-lighter:                 mix($bsk-colour-gn-white, $bsk-colour-std-blue-base, 50%);
-$bsk-colour-std-blue-light:                   mix($bsk-colour-gn-white, $bsk-colour-std-blue-base, 25%);
-$bsk-colour-std-blue-dark:                    mix($bsk-colour-gn-black, $bsk-colour-std-blue-base, 25%);
-$bsk-colour-std-blue-darker:                  mix($bsk-colour-gn-black, $bsk-colour-std-blue-base, 50%);
+$bsk-colour-std-blue-lighter:                 mix($bsk-colour-gn-white, $bsk-colour-std-blue-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-blue-light:                   mix($bsk-colour-gn-white, $bsk-colour-std-blue-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-blue-dark:                    mix($bsk-colour-gn-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-blue-darker:                  mix($bsk-colour-gn-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-turquoise-lighter:             mix($bsk-colour-gn-white, $bsk-colour-std-turquoise-base, 50%);
-$bsk-colour-std-turquoise-light:               mix($bsk-colour-gn-white, $bsk-colour-std-turquoise-base, 25%);
-$bsk-colour-std-turquoise-dark:                mix($bsk-colour-gn-black, $bsk-colour-std-turquoise-base, 25%);
-$bsk-colour-std-turquoise-darker:              mix($bsk-colour-gn-black, $bsk-colour-std-turquoise-base, 50%);
+$bsk-colour-std-turquoise-lighter:             mix($bsk-colour-gn-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-turquoise-light:               mix($bsk-colour-gn-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-turquoise-dark:                mix($bsk-colour-gn-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-turquoise-darker:              mix($bsk-colour-gn-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-green-lighter:                mix($bsk-colour-gn-white, $bsk-colour-std-green-base, 50%);
-$bsk-colour-std-green-light:                  mix($bsk-colour-gn-white, $bsk-colour-std-green-base, 25%);
-$bsk-colour-std-green-dark:                   mix($bsk-colour-gn-black, $bsk-colour-std-green-base, 25%);
-$bsk-colour-std-green-darker:                 mix($bsk-colour-gn-black, $bsk-colour-std-green-base, 50%);
+$bsk-colour-std-green-lighter:                mix($bsk-colour-gn-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-green-light:                  mix($bsk-colour-gn-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-green-dark:                   mix($bsk-colour-gn-black, $bsk-colour-std-green-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-green-darker:                 mix($bsk-colour-gn-black, $bsk-colour-std-green-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-nerc-green-lighter:           mix($bsk-colour-gn-white, $bsk-colour-std-nerc-green-base, 50%);
-$bsk-colour-std-nerc-green-light:             mix($bsk-colour-gn-white, $bsk-colour-std-nerc-green-base, 25%);
-$bsk-colour-std-nerc-green-dark:              mix($bsk-colour-gn-black, $bsk-colour-std-nerc-green-base, 25%);
-$bsk-colour-std-nerc-green-darker:            mix($bsk-colour-gn-black, $bsk-colour-std-nerc-green-base, 50%);
+$bsk-colour-std-nerc-green-lighter:           mix($bsk-colour-gn-white, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-nerc-green-light:             mix($bsk-colour-gn-white, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-nerc-green-dark:              mix($bsk-colour-gn-black, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-nerc-green-darker:            mix($bsk-colour-gn-black, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-2rd-fundermental);
 
-$bsk-colour-std-brown-lighter:                mix($bsk-colour-gn-white, $bsk-colour-std-brown-base, 50%);
-$bsk-colour-std-brown-light:                  mix($bsk-colour-gn-white, $bsk-colour-std-brown-base, 25%);
-$bsk-colour-std-brown-dark:                   mix($bsk-colour-gn-black, $bsk-colour-std-brown-base, 25%);
-$bsk-colour-std-brown-darker:                 mix($bsk-colour-gn-black, $bsk-colour-std-brown-base, 50%);
+$bsk-colour-std-brown-lighter:                mix($bsk-colour-gn-white, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);
+$bsk-colour-std-brown-light:                  mix($bsk-colour-gn-white, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-brown-dark:                   mix($bsk-colour-gn-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);
+$bsk-colour-std-brown-darker:                 mix($bsk-colour-gn-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);
 
 // Z-index master list
 //
