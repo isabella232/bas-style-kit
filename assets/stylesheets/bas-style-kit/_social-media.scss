@@ -10,19 +10,19 @@
 .social-media-static {
   @include make-social-media-static(
     twitter,
-    $brands-twitter-primary
+    $bsk-colour-sp-twitter-base
   );
   @include make-social-media-static(
     facebook,
-    $brands-facebook-primary
+    $bsk-colour-sp-facebook-base
   );
   @include make-social-media-static(
     youtube,
-    $brands-youtube-primary
+    $bsk-colour-sp-youtube-base
   );
   @include make-social-media-static(
     rss,
-    $brands-rss-primary
+    $bsk-colour-sp-rss-base
   );
 }
 
@@ -35,19 +35,19 @@
 .social-media-link {
   @include make-social-media-link(
     twitter,
-    $brands-twitter-primary
+    $bsk-colour-sp-twitter-base
   );
   @include make-social-media-link(
     facebook,
-    $brands-facebook-primary
+    $bsk-colour-sp-facebook-base
   );
   @include make-social-media-link(
     youtube,
-    $brands-youtube-primary
+    $bsk-colour-sp-youtube-base
   );
   @include make-social-media-link(
     rss,
-    $brands-rss-primary
+    $bsk-colour-sp-rss-base
   );
 }
 
