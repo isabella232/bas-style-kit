@@ -5,13 +5,6 @@
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 
-// Internal mixins
-//
-
-@mixin mix-colour-variants($name, $base-colour) {
-
-}
-
 // Colours
 //
 // Brand and background colours for use across the BAS Style Kit.
@@ -30,6 +23,7 @@ $bsk-colour-sp-facebook-base:                 #3B5998;  // as defined by brand
 $bsk-colour-sp-youtube-base:                  #CD201F;  // as defined by brand
 $bsk-colour-sp-rss-base:                      #F26522;  // as defined by convention
 
+$bsk-colour-sp-link-base:                     #007AC3;
 
 // Standard colours - base colours
 $bsk-colour-std-white:                        mix($bsk-colour-gn-black, $bsk-colour-gn-white, 0%);     // #FFFFFF (GDS: $white)
@@ -50,6 +44,7 @@ $bsk-colour-std-turquoise-base:               #28A197;  // (GDS: Turquoise)
 $bsk-colour-std-green-base:                   #379245;  // (BAS: Picked Colour)
 $bsk-colour-std-nerc-green-base:              $bsk-colour-sp-nerc-green;  // (BAS: NERC Brand Colour)
 $bsk-colour-std-brown-base:                   #B58840;  // (GDS: Brown)
+
 // Standard colours - base variants (mixes of base colours with white and black to produce lighter and darker variants)
 $bsk-colour-std-grey-lighter:                 mix($bsk-colour-gn-black, $bsk-colour-gn-white, 6.5%);   // #EEEEEE (Bootstrap: $gray-lighter)
 $bsk-colour-std-grey-light:                   mix($bsk-colour-gn-black, $bsk-colour-gn-white, 40.1%);  // #999999
