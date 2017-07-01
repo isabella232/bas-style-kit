@@ -14,116 +14,115 @@ $bsk-colour-x-mix-1st-fundermental: 33%;
 $bsk-colour-x-mix-2rd-fundermental: 66%;
 
 // Generic colours
-$bsk-colour-gn-white:                         #FFFFFF;
-$bsk-colour-gn-black:                         #000000;
+$bsk-colour-gen-white:                         #FFFFFF;
+$bsk-colour-gen-black:                         #000000;
 
 // Special colours
-$bsk-colour-sp-bas-blue:                      #003A5D;
-$bsk-colour-sp-nerc-green:                    #AAB437;
-$bsk-colour-sp-bas-aircraft-red:              #CC0033;
+$bsk-colour-spc-bas-blue:                      #003A5D;
+$bsk-colour-spc-nerc-green:                    #AAB437;
+$bsk-colour-spc-bas-aircraft-red:              #CC0033;
 
-$bsk-colour-sp-twitter-base:                  #55ACEE;  // as defined by brand
-$bsk-colour-sp-facebook-base:                 #3B5998;  // as defined by brand
-$bsk-colour-sp-youtube-base:                  #CD201F;  // as defined by brand
-$bsk-colour-sp-rss-base:                      #F26522;  // as defined by convention
-
-$bsk-colour-sp-link-base:                     #007AC3;
+$bsk-colour-spc-twitter-base:                  #55ACEE;  // as defined by brand
+$bsk-colour-spc-facebook-base:                 #3B5998;  // as defined by brand
+$bsk-colour-spc-youtube-base:                  #CD201F;  // as defined by brand
+$bsk-colour-spc-rss-base:                      #F26522;  // as defined by convention
 
 // Standard colours - base colours
-$bsk-colour-std-white:                        mix($bsk-colour-gn-black, $bsk-colour-gn-white, 0%);     // #FFFFFF (GDS: $white)
-$bsk-colour-std-grey-base:                    mix($bsk-colour-gn-black, $bsk-colour-gn-white, 53.3%);  // #777777 (Bootstrap: $gray-light)
-$bsk-colour-std-black:                        mix($bsk-colour-gn-black, $bsk-colour-gn-white, 100%);   // #00000
+$bsk-colour-std-white:                        mix($bsk-colour-gen-black, $bsk-colour-gen-white, 0%);     // #FFFFFF (GDS: $white)
+$bsk-colour-std-grey-base:                    mix($bsk-colour-gen-black, $bsk-colour-gen-white, 53.3%);  // #777777 (Bootstrap: $gray-light)
+$bsk-colour-std-black:                        mix($bsk-colour-gen-black, $bsk-colour-gen-white, 100%);   // #00000
 
 $bsk-colour-std-yellow-base:                  #FFBF47;  // (GDS: Yellow, Bootstrap: Warning)
 $bsk-colour-std-orange-base:                  #F47738;  // (GDS: Orange)
-$bsk-colour-std-aircraft-red-base:            $bsk-colour-sp-bas-aircraft-red;  // (BAS: Aircraft Red, Bootstrap: Danger)
+$bsk-colour-std-aircraft-red-base:            $bsk-colour-spc-bas-aircraft-red;  // (BAS: Aircraft Red, Bootstrap: Danger)
 $bsk-colour-std-red-base:                     #B10E1E;  // (GDS: Red)
 $bsk-colour-std-baby-pink-base:               #F499BE;  // (GDS: Baby Pink)
 $bsk-colour-std-pink-base:                    #D53880;  // (GDS: Pink)
 $bsk-colour-std-fuschia-base:                 #912B88;  // (GDS: Fuschia)
 $bsk-colour-std-mauve-base:                   #6F72AF;  // (GDS: Mauve)
 $bsk-colour-std-sky-blue-base:                #2B8CC4;  // (GDS: Light Blue, Bootstrap: Info)
-$bsk-colour-std-blue-base:                    $bsk-colour-sp-bas-blue;  // (BAS: BAS Brand Colour)
+$bsk-colour-std-blue-base:                    $bsk-colour-spc-bas-blue;  // (BAS: BAS Brand Colour)
 $bsk-colour-std-turquoise-base:               #28A197;  // (GDS: Turquoise)
 $bsk-colour-std-green-base:                   #379245;  // (BAS: Picked Colour)
-$bsk-colour-std-nerc-green-base:              $bsk-colour-sp-nerc-green;  // (BAS: NERC Brand Colour)
+$bsk-colour-std-nerc-green-base:              $bsk-colour-spc-nerc-green;  // (BAS: NERC Brand Colour)
 $bsk-colour-std-brown-base:                   #B58840;  // (GDS: Brown)
 
 // Standard colours - base variants (mixes of base colours with white and black to produce lighter and darker variants)
-$bsk-colour-std-grey-lighter:                 mix($bsk-colour-gn-black, $bsk-colour-gn-white, 6.5%);   // #EEEEEE (Bootstrap: $gray-lighter)
-$bsk-colour-std-grey-light:                   mix($bsk-colour-gn-black, $bsk-colour-gn-white, 40.1%);  // #999999
-$bsk-colour-std-grey-dark:                    mix($bsk-colour-gn-black, $bsk-colour-gn-white, 66.5%);  // #555555 (Bootstrap: $gray)
-$bsk-colour-std-grey-darker:                  mix($bsk-colour-gn-black, $bsk-colour-gn-white, 80%);    // #333333 (Bootstrap: $gray-dark)
+$bsk-colour-std-grey-lighter:                 mix($bsk-colour-gen-black, $bsk-colour-gen-white, 6.5%);   // #EEEEEE (Bootstrap: $gray-lighter)
+$bsk-colour-std-grey-light:                   mix($bsk-colour-gen-black, $bsk-colour-gen-white, 40.1%);  // #999999
+$bsk-colour-std-grey-dark:                    mix($bsk-colour-gen-black, $bsk-colour-gen-white, 66.5%);  // #555555 (Bootstrap: $gray)
+$bsk-colour-std-grey-darker:                  mix($bsk-colour-gen-black, $bsk-colour-gen-white, 80%);    // #333333 (Bootstrap: $gray-dark)
 
-$bsk-colour-std-yellow-lighter:               mix($bsk-colour-gn-white, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-2rd-fundermental);  // #FFE9C0
-$bsk-colour-std-yellow-light:                 mix($bsk-colour-gn-white, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-1st-fundermental);  // #FFD484
-$bsk-colour-std-yellow-dark:                  mix($bsk-colour-gn-black, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-1st-fundermental);  // #AB8030
-$bsk-colour-std-yellow-darker:                mix($bsk-colour-gn-black, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-2rd-fundermental);  // #574118
+$bsk-colour-std-yellow-lighter:               mix($bsk-colour-gen-white, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-2rd-fundermental);  // #FFE9C0
+$bsk-colour-std-yellow-light:                 mix($bsk-colour-gen-white, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-1st-fundermental);  // #FFD484
+$bsk-colour-std-yellow-dark:                  mix($bsk-colour-gen-black, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-1st-fundermental);  // #AB8030
+$bsk-colour-std-yellow-darker:                mix($bsk-colour-gen-black, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-2rd-fundermental);  // #574118
 
-$bsk-colour-std-orange-lighter:              mix($bsk-colour-gn-white, $bsk-colour-std-orange-base, $bsk-colour-x-mix-2rd-fundermental);  // #FBD1BB
-$bsk-colour-std-orange-light:                mix($bsk-colour-gn-white, $bsk-colour-std-orange-base, $bsk-colour-x-mix-1st-fundermental);  // #F8A47A
-$bsk-colour-std-orange-dark:                 mix($bsk-colour-gn-black, $bsk-colour-std-orange-base, $bsk-colour-x-mix-1st-fundermental);  // #A35026
-$bsk-colour-std-orange-darker:               mix($bsk-colour-gn-black, $bsk-colour-std-orange-base, $bsk-colour-x-mix-2rd-fundermental);  // #532813
+$bsk-colour-std-orange-lighter:              mix($bsk-colour-gen-white, $bsk-colour-std-orange-base, $bsk-colour-x-mix-2rd-fundermental);  // #FBD1BB
+$bsk-colour-std-orange-light:                mix($bsk-colour-gen-white, $bsk-colour-std-orange-base, $bsk-colour-x-mix-1st-fundermental);  // #F8A47A
+$bsk-colour-std-orange-dark:                 mix($bsk-colour-gen-black, $bsk-colour-std-orange-base, $bsk-colour-x-mix-1st-fundermental);  // #A35026
+$bsk-colour-std-orange-darker:               mix($bsk-colour-gen-black, $bsk-colour-std-orange-base, $bsk-colour-x-mix-2rd-fundermental);  // #532813
 
-$bsk-colour-std-aircraft-red-lighter:         mix($bsk-colour-gn-white, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #EEA8BA
-$bsk-colour-std-aircraft-red-light:           mix($bsk-colour-gn-white, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-1st-fundermental);  // #DD5476
-$bsk-colour-std-aircraft-red-dark:            mix($bsk-colour-gn-black, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-1st-fundermental);  // #890022
-$bsk-colour-std-aircraft-red-darker:          mix($bsk-colour-gn-black, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #450011
+$bsk-colour-std-aircraft-red-lighter:         mix($bsk-colour-gen-white, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #EEA8BA
+$bsk-colour-std-aircraft-red-light:           mix($bsk-colour-gen-white, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-1st-fundermental);  // #DD5476
+$bsk-colour-std-aircraft-red-dark:            mix($bsk-colour-gen-black, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-1st-fundermental);  // #890022
+$bsk-colour-std-aircraft-red-darker:          mix($bsk-colour-gen-black, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #450011
 
-$bsk-colour-std-red-lighter:                  mix($bsk-colour-gn-white, $bsk-colour-std-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #E4ADB3
-$bsk-colour-std-red-light:                    mix($bsk-colour-gn-white, $bsk-colour-std-red-base, $bsk-colour-x-mix-1st-fundermental);  // #CB5E68
-$bsk-colour-std-red-dark:                     mix($bsk-colour-gn-black, $bsk-colour-std-red-base, $bsk-colour-x-mix-1st-fundermental);  // #770914
-$bsk-colour-std-red-darker:                   mix($bsk-colour-gn-black, $bsk-colour-std-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #3C050A
+$bsk-colour-std-red-lighter:                  mix($bsk-colour-gen-white, $bsk-colour-std-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #E4ADB3
+$bsk-colour-std-red-light:                    mix($bsk-colour-gen-white, $bsk-colour-std-red-base, $bsk-colour-x-mix-1st-fundermental);  // #CB5E68
+$bsk-colour-std-red-dark:                     mix($bsk-colour-gen-black, $bsk-colour-std-red-base, $bsk-colour-x-mix-1st-fundermental);  // #770914
+$bsk-colour-std-red-darker:                   mix($bsk-colour-gen-black, $bsk-colour-std-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #3C050A
 
-$bsk-colour-std-baby-pink-lighter:            mix($bsk-colour-gn-white, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #FBDCE9
-$bsk-colour-std-baby-pink-light:              mix($bsk-colour-gn-white, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #F8BBD3
-$bsk-colour-std-baby-pink-dark:               mix($bsk-colour-gn-black, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #A3677F
-$bsk-colour-std-baby-pink-darker:             mix($bsk-colour-gn-black, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #533441
+$bsk-colour-std-baby-pink-lighter:            mix($bsk-colour-gen-white, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #FBDCE9
+$bsk-colour-std-baby-pink-light:              mix($bsk-colour-gen-white, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #F8BBD3
+$bsk-colour-std-baby-pink-dark:               mix($bsk-colour-gen-black, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #A3677F
+$bsk-colour-std-baby-pink-darker:             mix($bsk-colour-gen-black, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #533441
 
-$bsk-colour-std-pink-lighter:                 mix($bsk-colour-gn-white, $bsk-colour-std-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #F1BBD4
-$bsk-colour-std-pink-light:                   mix($bsk-colour-gn-white, $bsk-colour-std-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #E37AAA
-$bsk-colour-std-pink-dark:                    mix($bsk-colour-gn-black, $bsk-colour-std-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #8F2656
-$bsk-colour-std-pink-darker:                  mix($bsk-colour-gn-black, $bsk-colour-std-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #48132C
+$bsk-colour-std-pink-lighter:                 mix($bsk-colour-gen-white, $bsk-colour-std-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #F1BBD4
+$bsk-colour-std-pink-light:                   mix($bsk-colour-gen-white, $bsk-colour-std-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #E37AAA
+$bsk-colour-std-pink-dark:                    mix($bsk-colour-gen-black, $bsk-colour-std-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #8F2656
+$bsk-colour-std-pink-darker:                  mix($bsk-colour-gen-black, $bsk-colour-std-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #48132C
 
-$bsk-colour-std-fuschia-lighter:              mix($bsk-colour-gn-white, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-2rd-fundermental);  // #DAB7D7
-$bsk-colour-std-fuschia-light:                mix($bsk-colour-gn-white, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-1st-fundermental);  // #B571AF
-$bsk-colour-std-fuschia-dark:                 mix($bsk-colour-gn-black, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-1st-fundermental);  // #611D5B
-$bsk-colour-std-fuschia-darker:               mix($bsk-colour-gn-black, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-2rd-fundermental);  // #310F2E
+$bsk-colour-std-fuschia-lighter:              mix($bsk-colour-gen-white, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-2rd-fundermental);  // #DAB7D7
+$bsk-colour-std-fuschia-light:                mix($bsk-colour-gen-white, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-1st-fundermental);  // #B571AF
+$bsk-colour-std-fuschia-dark:                 mix($bsk-colour-gen-black, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-1st-fundermental);  // #611D5B
+$bsk-colour-std-fuschia-darker:               mix($bsk-colour-gen-black, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-2rd-fundermental);  // #310F2E
 
-$bsk-colour-std-mauve-lighter:                mix($bsk-colour-gn-white, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-2rd-fundermental);  // #CECFE4
-$bsk-colour-std-mauve-light:                  mix($bsk-colour-gn-white, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-1st-fundermental);  // #9FA1C9
-$bsk-colour-std-mauve-dark:                   mix($bsk-colour-gn-black, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-1st-fundermental);  // #4A4C75
-$bsk-colour-std-mauve-darker:                 mix($bsk-colour-gn-black, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-2rd-fundermental);  // #26273C
+$bsk-colour-std-mauve-lighter:                mix($bsk-colour-gen-white, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-2rd-fundermental);  // #CECFE4
+$bsk-colour-std-mauve-light:                  mix($bsk-colour-gen-white, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-1st-fundermental);  // #9FA1C9
+$bsk-colour-std-mauve-dark:                   mix($bsk-colour-gen-black, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-1st-fundermental);  // #4A4C75
+$bsk-colour-std-mauve-darker:                 mix($bsk-colour-gen-black, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-2rd-fundermental);  // #26273C
 
-$bsk-colour-std-sky-blue-lighter:             mix($bsk-colour-gn-white, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #B7D8EB
-$bsk-colour-std-sky-blue-light:               mix($bsk-colour-gn-white, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #71B2D7
-$bsk-colour-std-sky-blue-dark:                mix($bsk-colour-gn-black, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #1D5E83
-$bsk-colour-std-sky-blue-darker:              mix($bsk-colour-gn-black, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #0F3043
+$bsk-colour-std-sky-blue-lighter:             mix($bsk-colour-gen-white, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #B7D8EB
+$bsk-colour-std-sky-blue-light:               mix($bsk-colour-gen-white, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #71B2D7
+$bsk-colour-std-sky-blue-dark:                mix($bsk-colour-gen-black, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #1D5E83
+$bsk-colour-std-sky-blue-darker:              mix($bsk-colour-gen-black, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #0F3043
 
-$bsk-colour-std-blue-lighter:                 mix($bsk-colour-gn-white, $bsk-colour-std-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #A8BCC8
-$bsk-colour-std-blue-light:                   mix($bsk-colour-gn-white, $bsk-colour-std-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #547B92
-$bsk-colour-std-blue-dark:                    mix($bsk-colour-gn-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #00273E
-$bsk-colour-std-blue-darker:                  mix($bsk-colour-gn-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #001420
+$bsk-colour-std-blue-lighter:                 mix($bsk-colour-gen-white, $bsk-colour-std-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #A8BCC8
+$bsk-colour-std-blue-light:                   mix($bsk-colour-gen-white, $bsk-colour-std-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #547B92
+$bsk-colour-std-blue-dark:                    mix($bsk-colour-gen-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #00273E
+$bsk-colour-std-blue-darker:                  mix($bsk-colour-gen-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #001420
 
-$bsk-colour-std-turquoise-lighter:             mix($bsk-colour-gn-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #B6DFDC
-$bsk-colour-std-turquoise-light:               mix($bsk-colour-gn-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #6FC0B9
-$bsk-colour-std-turquoise-dark:                mix($bsk-colour-gn-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #1B6C65
-$bsk-colour-std-turquoise-darker:              mix($bsk-colour-gn-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #0E3733
+$bsk-colour-std-turquoise-lighter:             mix($bsk-colour-gen-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #B6DFDC
+$bsk-colour-std-turquoise-light:               mix($bsk-colour-gen-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #6FC0B9
+$bsk-colour-std-turquoise-dark:                mix($bsk-colour-gen-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #1B6C65
+$bsk-colour-std-turquoise-darker:              mix($bsk-colour-gen-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #0E3733
 
-$bsk-colour-std-green-lighter:                mix($bsk-colour-gn-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #BBDAC0
-$bsk-colour-std-green-light:                  mix($bsk-colour-gn-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-1st-fundermental);  // #79B682
-$bsk-colour-std-green-dark:                   mix($bsk-colour-gn-black, $bsk-colour-std-green-base, $bsk-colour-x-mix-1st-fundermental);  // #25622E
-$bsk-colour-std-green-darker:                 mix($bsk-colour-gn-black, $bsk-colour-std-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #133217
+$bsk-colour-std-green-lighter:                mix($bsk-colour-gen-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #BBDAC0
+$bsk-colour-std-green-light:                  mix($bsk-colour-gen-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-1st-fundermental);  // #79B682
+$bsk-colour-std-green-dark:                   mix($bsk-colour-gen-black, $bsk-colour-std-green-base, $bsk-colour-x-mix-1st-fundermental);  // #25622E
+$bsk-colour-std-green-darker:                 mix($bsk-colour-gen-black, $bsk-colour-std-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #133217
 
-$bsk-colour-std-nerc-green-lighter:           mix($bsk-colour-gn-white, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #E2E6BB
-$bsk-colour-std-nerc-green-light:             mix($bsk-colour-gn-white, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-1st-fundermental);  // #C6CD79
-$bsk-colour-std-nerc-green-dark:              mix($bsk-colour-gn-black, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-1st-fundermental);  // #727925
-$bsk-colour-std-nerc-green-darker:            mix($bsk-colour-gn-black, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #3A3D13
+$bsk-colour-std-nerc-green-lighter:           mix($bsk-colour-gen-white, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #E2E6BB
+$bsk-colour-std-nerc-green-light:             mix($bsk-colour-gen-white, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-1st-fundermental);  // #C6CD79
+$bsk-colour-std-nerc-green-dark:              mix($bsk-colour-gen-black, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-1st-fundermental);  // #727925
+$bsk-colour-std-nerc-green-darker:            mix($bsk-colour-gen-black, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #3A3D13
 
-$bsk-colour-std-brown-lighter:                mix($bsk-colour-gn-white, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);  // #E6D7BE
-$bsk-colour-std-brown-light:                  mix($bsk-colour-gn-white, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);  // #CDAF7F
-$bsk-colour-std-brown-dark:                   mix($bsk-colour-gn-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);  // #795B2B
-$bsk-colour-std-brown-darker:                 mix($bsk-colour-gn-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);  // #3E2E16
+$bsk-colour-std-brown-lighter:                mix($bsk-colour-gen-white, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);  // #E6D7BE
+$bsk-colour-std-brown-light:                  mix($bsk-colour-gen-white, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);  // #CDAF7F
+$bsk-colour-std-brown-dark:                   mix($bsk-colour-gen-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);  // #795B2B
+$bsk-colour-std-brown-darker:                 mix($bsk-colour-gen-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);  // #3E2E16
+
 
 // Bootstrap colour overrides
 $brand-primary:                               $bsk-colour-std-turquoise-base;
