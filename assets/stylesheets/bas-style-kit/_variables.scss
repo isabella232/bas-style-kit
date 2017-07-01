@@ -134,6 +134,13 @@ $brand-info:                                  $bsk-colour-std-sky-blue-base;
 $brand-warning:                               $bsk-colour-std-yellow-base;
 $brand-danger:                                $bsk-colour-std-red-base;
 
+// GDS agile development phases
+$development-phase-discovery:                 $bsk-colour-std-fuschia-base;
+$development-phase-alpha:                     $bsk-colour-std-pink-base;
+$development-phase-beta:                      $bsk-colour-std-orange-base;
+$development-phase-live:                      $bsk-colour-std-nerc-green-base;
+$development-phase-retired:                   $bsk-colour-std-grey-dark;
+
 // Z-index master list
 //
 // Warning: Avoid customizing these values. They're used for a bird's eye view
@@ -462,6 +469,28 @@ $jumbotron-inverse-bg:                        $component-inverse-bg;
 $jumbotron-overlay-color:                     $component-overlay-color;
 $jumbotron-overlay-bg:                        $component-overlay-bg;
 
+
+//== Labels
+//
+//##
+
+$label-color:                                 $bsk-colour-std-white;
+$label-border-radius:                         $border-radius-base;
+
+$label-default-bg:                            $bsk-colour-std-grey-base;
+$label-primary-bg:                            $brand-primary;
+$label-success-bg:                            $brand-success;
+$label-info-bg:                               $brand-info;
+$label-danger-bg:                             $brand-danger;
+
+$label-warning-color:                         $bsk-colour-std-grey-darker;
+$label-warning-bg:                            $brand-warning;
+
+$label-phase-discovery-bg:                    $development-phase-discovery;
+$label-phase-alpha-bg:                        $development-phase-alpha;
+$label-phase-beta-bg:                         $development-phase-beta;
+$label-phase-live-bg:                         $development-phase-live;
+$label-phase-retired-bg:                      $development-phase-retired;
 
 //== Alerts
 //
