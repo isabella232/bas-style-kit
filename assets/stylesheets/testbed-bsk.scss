@@ -27,7 +27,7 @@
 // Layout - Container visibility classes
 
 .tb-visible-container {
-  border: 2px solid gray;
+  border: 2px solid $bsk-colour-std-grey-base;
 }
 
 // Layout - Grid visibility classes
@@ -163,11 +163,18 @@ background: #85994B;
 }
 
 .tb-sample-sub-heading {
-  color: $bsk-turquoise;
+  color: $bsk-colour-std-turquoise-base;
 }
 
 .tb-sample-sub-heading-experiment {
-  color: $bsk-red;
+  color: $bsk-colour-std-red-base;
+}
+
+.tb-experimental-sample-intro-message {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  color: $bsk-colour-std-white;
+  background-color: $bsk-colour-std-red-base;
 }
 
 // Typography - Font-face samples
@@ -213,73 +220,328 @@ background: #85994B;
   height: 75px;
 }
 
-.tb-colour-swatch-EEEEEE {
-  background-color: $gray-lighter;
+.tb-colour-swatch-bsk-colour-std-white {
+  background-color: $bsk-colour-std-white;
+  border: 1px solid $bsk-colour-std-grey-lighter;
 }
 
-.tb-colour-swatch-777777 {
-  background-color: $gray-light;
+.tb-colour-swatch-bsk-colour-std-grey-lighter {
+  background-color: $bsk-colour-std-grey-lighter;
 }
 
-.tb-colour-swatch-555555 {
-  background-color: $gray;
+.tb-colour-swatch-bsk-colour-std-grey-light {
+  background-color: $bsk-colour-std-grey-light;
 }
 
-.tb-colour-swatch-333333 {
-  background-color: $gray-dark;
+.tb-colour-swatch-bsk-colour-std-grey-base {
+  background-color: $bsk-colour-std-grey-base;
 }
 
-.tb-colour-swatch-222222 {
-  background-color: $gray-darker;
+.tb-colour-swatch-bsk-colour-std-grey-dark {
+  background-color: $bsk-colour-std-grey-dark;
+}
+.tb-colour-swatch-bsk-colour-std-grey-darker {
+  background-color: $bsk-colour-std-grey-darker;
 }
 
-.tb-colour-swatch-F4F6F9 {
-  background-color: $bsk-grey-lighter;
+.tb-colour-swatch-bsk-colour-std-black {
+  background-color: $bsk-colour-std-black;
 }
 
-.tb-colour-swatch-E7EBF1 {
-  background-color: $bsk-grey-light;
+.tb-colour-swatch-bsk-colour-std-yellow-lighter {
+  background-color: $bsk-colour-std-yellow-lighter;
 }
 
-.tb-colour-swatch-77CCFF {
-  background-color: $bsk-blue-light;
+.tb-colour-swatch-bsk-colour-std-yellow-light {
+  background-color: $bsk-colour-std-yellow-light;
 }
 
-.tb-colour-swatch-006AAA {
-  background-color: $bsk-blue;
+.tb-colour-swatch-bsk-colour-std-yellow-base {
+  background-color: $bsk-colour-std-yellow-base;
 }
 
-.tb-colour-swatch-003A5D {
-  background-color: $bsk-blue-dark;
+.tb-colour-swatch-bsk-colour-std-yellow-dark {
+  background-color: $bsk-colour-std-yellow-dark;
 }
 
-.tb-colour-swatch-B93E14 {
-  background-color: $bsk-red;
+.tb-colour-swatch-bsk-colour-std-yellow-darker {
+  background-color: $bsk-colour-std-yellow-darker;
 }
 
-.tb-colour-swatch-0DA59F {
-  background-color: $bsk-turquoise;
+.tb-colour-swatch-bsk-colour-std-orange-lighter {
+  background-color: $bsk-colour-std-orange-lighter;
 }
 
-.tb-colour-swatch-C3C3C3 {
+.tb-colour-swatch-bsk-colour-std-orange-light {
+  background-color: $bsk-colour-std-orange-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-orange-base {
+  background-color: $bsk-colour-std-orange-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-orange-dark {
+  background-color: $bsk-colour-std-orange-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-orange-darker {
+  background-color: $bsk-colour-std-orange-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-aircraft-red-lighter {
+  background-color: $bsk-colour-std-aircraft-red-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-aircraft-red-light {
+  background-color: $bsk-colour-std-aircraft-red-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-aircraft-red-base {
+  background-color: $bsk-colour-std-aircraft-red-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-aircraft-red-dark {
+  background-color: $bsk-colour-std-aircraft-red-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-aircraft-red-darker {
+  background-color: $bsk-colour-std-aircraft-red-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-red-lighter {
+  background-color: $bsk-colour-std-red-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-red-light {
+  background-color: $bsk-colour-std-red-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-red-base {
+  background-color: $bsk-colour-std-red-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-red-dark {
+  background-color: $bsk-colour-std-red-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-red-darker {
+  background-color: $bsk-colour-std-red-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-baby-pink-lighter {
+  background-color: $bsk-colour-std-baby-pink-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-baby-pink-light {
+  background-color: $bsk-colour-std-baby-pink-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-baby-pink-base {
+  background-color: $bsk-colour-std-baby-pink-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-baby-pink-dark {
+  background-color: $bsk-colour-std-baby-pink-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-baby-pink-darker {
+  background-color: $bsk-colour-std-baby-pink-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-pink-lighter {
+  background-color: $bsk-colour-std-pink-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-pink-light {
+  background-color: $bsk-colour-std-pink-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-pink-base {
+  background-color: $bsk-colour-std-pink-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-pink-dark {
+  background-color: $bsk-colour-std-pink-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-pink-darker {
+  background-color: $bsk-colour-std-pink-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-fuschia-lighter {
+  background-color: $bsk-colour-std-fuschia-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-fuschia-light {
+  background-color: $bsk-colour-std-fuschia-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-fuschia-base {
+  background-color: $bsk-colour-std-fuschia-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-fuschia-dark {
+  background-color: $bsk-colour-std-fuschia-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-fuschia-darker {
+  background-color: $bsk-colour-std-fuschia-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-mauve-lighter {
+  background-color: $bsk-colour-std-mauve-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-mauve-light {
+  background-color: $bsk-colour-std-mauve-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-mauve-base {
+  background-color: $bsk-colour-std-mauve-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-mauve-dark {
+  background-color: $bsk-colour-std-mauve-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-mauve-darker {
+  background-color: $bsk-colour-std-mauve-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-sky-blue-lighter {
+  background-color: $bsk-colour-std-sky-blue-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-sky-blue-light {
+  background-color: $bsk-colour-std-sky-blue-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-sky-blue-base {
+  background-color: $bsk-colour-std-sky-blue-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-sky-blue-dark {
+  background-color: $bsk-colour-std-sky-blue-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-sky-blue-darker {
+  background-color: $bsk-colour-std-sky-blue-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-blue-lighter {
+  background-color: $bsk-colour-std-blue-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-blue-light {
+  background-color: $bsk-colour-std-blue-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-blue-base {
+  background-color: $bsk-colour-std-blue-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-blue-dark {
+  background-color: $bsk-colour-std-blue-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-blue-darker {
+  background-color: $bsk-colour-std-blue-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-turquoise-lighter {
+  background-color: $bsk-colour-std-turquoise-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-turquoise-light {
+  background-color: $bsk-colour-std-turquoise-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-turquoise-base {
+  background-color: $bsk-colour-std-turquoise-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-turquoise-dark {
+  background-color: $bsk-colour-std-turquoise-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-turquoise-darker {
+  background-color: $bsk-colour-std-turquoise-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-green-lighter {
+  background-color: $bsk-colour-std-green-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-green-light {
+  background-color: $bsk-colour-std-green-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-green-base {
+  background-color: $bsk-colour-std-green-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-green-dark {
+  background-color: $bsk-colour-std-green-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-green-darker {
+  background-color: $bsk-colour-std-green-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-nerc-green-lighter {
+  background-color: $bsk-colour-std-nerc-green-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-nerc-green-light {
+  background-color: $bsk-colour-std-nerc-green-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-nerc-green-base {
+  background-color: $bsk-colour-std-nerc-green-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-nerc-green-dark {
+  background-color: $bsk-colour-std-nerc-green-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-nerc-green-darker {
+  background-color: $bsk-colour-std-nerc-green-darker;
+}
+
+.tb-colour-swatch-bsk-colour-std-brown-lighter {
+  background-color: $bsk-colour-std-brown-lighter;
+}
+
+.tb-colour-swatch-bsk-colour-std-brown-light {
+  background-color: $bsk-colour-std-brown-light;
+}
+
+.tb-colour-swatch-bsk-colour-std-brown-base {
+  background-color: $bsk-colour-std-brown-base;
+}
+
+.tb-colour-swatch-bsk-colour-std-brown-dark {
+  background-color: $bsk-colour-std-brown-dark;
+}
+
+.tb-colour-swatch-bsk-colour-std-brown-darker {
+  background-color: $bsk-colour-std-brown-darker;
+}
+
+.tb-colour-swatch-btn-default-bg {
   background-color: $btn-default-bg;
 }
 
-.tb-colour-swatch-8C8C8C {
+.tb-colour-swatch-btn-default-border {
   background-color: $btn-default-border;
 }
 
-.tb-colour-swatch-007AC3 {
-  background-color: $link-color;
-}
-
-.tb-colour-swatch-0B8D88 {
+.tb-colour-swatch-btn-primary-border {
   background-color: $btn-primary-border;
 }
 
-.tb-colour-swatch-FFFFFF {
-  background-color: $white;
-  border: 1px solid $gray-lighter;
+.tb-colour-swatch-link-colour {
+  background-color: $link-color;
 }
 
 // Core - Forms

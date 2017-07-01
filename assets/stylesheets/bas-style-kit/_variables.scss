@@ -9,31 +9,130 @@
 //
 // Brand and background colours for use across the BAS Style Kit.
 
+// Control variables
+$bsk-colour-x-mix-1st-fundermental: 33%;
+$bsk-colour-x-mix-2rd-fundermental: 66%;
+
 // Generic colours
-$white:                                       #FFFFFF;
+$bsk-colour-gen-white:                         #FFFFFF;
+$bsk-colour-gen-black:                         #000000;
 
-// Brand colour scheme
-$bsk-bas-brand:                               #003A5D;
+// Special colours
+$bsk-colour-spc-bas-blue:                      #003A5D;
+$bsk-colour-spc-nerc-green:                    #AAB437;
+$bsk-colour-spc-bas-aircraft-red:              #CC0033;
 
-// Grey-scale colour scheme
-$bsk-grey-light:                              #E7EBF1;
-$bsk-grey-lighter:                            lighten($bsk-grey-light, 4%);  // #F4F6F9
+$bsk-colour-spc-twitter-base:                  #55ACEE;  // as defined by brand
+$bsk-colour-spc-facebook-base:                 #3B5998;  // as defined by brand
+$bsk-colour-spc-youtube-base:                  #CD201F;  // as defined by brand
+$bsk-colour-spc-rss-base:                      #F26522;  // as defined by convention
 
+// Standard colours - base colours
+$bsk-colour-std-white:                        mix($bsk-colour-gen-black, $bsk-colour-gen-white, 0%);     // #FFFFFF (GDS: $white)
+$bsk-colour-std-grey-base:                    mix($bsk-colour-gen-black, $bsk-colour-gen-white, 53.3%);  // #777777 (Bootstrap: $gray-light)
+$bsk-colour-std-black:                        mix($bsk-colour-gen-black, $bsk-colour-gen-white, 100%);   // #00000
 
-// 'colour' colour scheme
-// All shades of blue should be based off of the BAS brand colour
-$bsk-blue-light:                              lighten($bsk-bas-brand, 55%);  // #77CCFF
-$bsk-blue:                                    lighten($bsk-bas-brand, 15%);  // #006AAA
-$bsk-blue-dark:                               $bsk-bas-brand;
-$bsk-red:                                     #B93E14;
-$bsk-turquoise:                               #0DA59F;
+$bsk-colour-std-yellow-base:                  #FFBF47;  // (GDS: Yellow, Bootstrap: Warning)
+$bsk-colour-std-orange-base:                  #F47738;  // (GDS: Orange)
+$bsk-colour-std-aircraft-red-base:            $bsk-colour-spc-bas-aircraft-red;  // (BAS: Aircraft Red, Bootstrap: Danger)
+$bsk-colour-std-red-base:                     #B10E1E;  // (GDS: Red)
+$bsk-colour-std-baby-pink-base:               #F499BE;  // (GDS: Baby Pink)
+$bsk-colour-std-pink-base:                    #D53880;  // (GDS: Pink)
+$bsk-colour-std-fuschia-base:                 #912B88;  // (GDS: Fuschia)
+$bsk-colour-std-mauve-base:                   #6F72AF;  // (GDS: Mauve)
+$bsk-colour-std-sky-blue-base:                #2B8CC4;  // (GDS: Light Blue, Bootstrap: Info)
+$bsk-colour-std-blue-base:                    $bsk-colour-spc-bas-blue;  // (BAS: BAS Brand Colour)
+$bsk-colour-std-turquoise-base:               #28A197;  // (GDS: Turquoise)
+$bsk-colour-std-green-base:                   #379245;  // (BAS: Picked Colour)
+$bsk-colour-std-nerc-green-base:              $bsk-colour-spc-nerc-green;  // (BAS: NERC Brand Colour)
+$bsk-colour-std-brown-base:                   #B58840;  // (GDS: Brown)
 
-// Brands
-$brands-twitter-primary:                      #55ACEE;  // as defined by brand
-$brands-facebook-primary:                     #3B5998;  // as defined by brand
-$brands-youtube-primary:                      #CD201F;  // as defined by brand
-$brands-rss-primary:                          #F26522;  // as defined by convention
+// Standard colours - base variants (mixes of base colours with white and black to produce lighter and darker variants)
+$bsk-colour-std-grey-lighter:                 mix($bsk-colour-gen-black, $bsk-colour-gen-white, 6.5%);   // #EEEEEE (Bootstrap: $gray-lighter)
+$bsk-colour-std-grey-light:                   mix($bsk-colour-gen-black, $bsk-colour-gen-white, 40.1%);  // #999999
+$bsk-colour-std-grey-dark:                    mix($bsk-colour-gen-black, $bsk-colour-gen-white, 66.5%);  // #555555 (Bootstrap: $gray)
+$bsk-colour-std-grey-darker:                  mix($bsk-colour-gen-black, $bsk-colour-gen-white, 80%);    // #333333 (Bootstrap: $gray-dark)
 
+$bsk-colour-std-yellow-lighter:               mix($bsk-colour-gen-white, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-2rd-fundermental);  // #FFE9C0
+$bsk-colour-std-yellow-light:                 mix($bsk-colour-gen-white, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-1st-fundermental);  // #FFD484
+$bsk-colour-std-yellow-dark:                  mix($bsk-colour-gen-black, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-1st-fundermental);  // #AB8030
+$bsk-colour-std-yellow-darker:                mix($bsk-colour-gen-black, $bsk-colour-std-yellow-base, $bsk-colour-x-mix-2rd-fundermental);  // #574118
+
+$bsk-colour-std-orange-lighter:              mix($bsk-colour-gen-white, $bsk-colour-std-orange-base, $bsk-colour-x-mix-2rd-fundermental);  // #FBD1BB
+$bsk-colour-std-orange-light:                mix($bsk-colour-gen-white, $bsk-colour-std-orange-base, $bsk-colour-x-mix-1st-fundermental);  // #F8A47A
+$bsk-colour-std-orange-dark:                 mix($bsk-colour-gen-black, $bsk-colour-std-orange-base, $bsk-colour-x-mix-1st-fundermental);  // #A35026
+$bsk-colour-std-orange-darker:               mix($bsk-colour-gen-black, $bsk-colour-std-orange-base, $bsk-colour-x-mix-2rd-fundermental);  // #532813
+
+$bsk-colour-std-aircraft-red-lighter:         mix($bsk-colour-gen-white, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #EEA8BA
+$bsk-colour-std-aircraft-red-light:           mix($bsk-colour-gen-white, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-1st-fundermental);  // #DD5476
+$bsk-colour-std-aircraft-red-dark:            mix($bsk-colour-gen-black, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-1st-fundermental);  // #890022
+$bsk-colour-std-aircraft-red-darker:          mix($bsk-colour-gen-black, $bsk-colour-std-aircraft-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #450011
+
+$bsk-colour-std-red-lighter:                  mix($bsk-colour-gen-white, $bsk-colour-std-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #E4ADB3
+$bsk-colour-std-red-light:                    mix($bsk-colour-gen-white, $bsk-colour-std-red-base, $bsk-colour-x-mix-1st-fundermental);  // #CB5E68
+$bsk-colour-std-red-dark:                     mix($bsk-colour-gen-black, $bsk-colour-std-red-base, $bsk-colour-x-mix-1st-fundermental);  // #770914
+$bsk-colour-std-red-darker:                   mix($bsk-colour-gen-black, $bsk-colour-std-red-base, $bsk-colour-x-mix-2rd-fundermental);  // #3C050A
+
+$bsk-colour-std-baby-pink-lighter:            mix($bsk-colour-gen-white, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #FBDCE9
+$bsk-colour-std-baby-pink-light:              mix($bsk-colour-gen-white, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #F8BBD3
+$bsk-colour-std-baby-pink-dark:               mix($bsk-colour-gen-black, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #A3677F
+$bsk-colour-std-baby-pink-darker:             mix($bsk-colour-gen-black, $bsk-colour-std-baby-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #533441
+
+$bsk-colour-std-pink-lighter:                 mix($bsk-colour-gen-white, $bsk-colour-std-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #F1BBD4
+$bsk-colour-std-pink-light:                   mix($bsk-colour-gen-white, $bsk-colour-std-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #E37AAA
+$bsk-colour-std-pink-dark:                    mix($bsk-colour-gen-black, $bsk-colour-std-pink-base, $bsk-colour-x-mix-1st-fundermental);  // #8F2656
+$bsk-colour-std-pink-darker:                  mix($bsk-colour-gen-black, $bsk-colour-std-pink-base, $bsk-colour-x-mix-2rd-fundermental);  // #48132C
+
+$bsk-colour-std-fuschia-lighter:              mix($bsk-colour-gen-white, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-2rd-fundermental);  // #DAB7D7
+$bsk-colour-std-fuschia-light:                mix($bsk-colour-gen-white, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-1st-fundermental);  // #B571AF
+$bsk-colour-std-fuschia-dark:                 mix($bsk-colour-gen-black, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-1st-fundermental);  // #611D5B
+$bsk-colour-std-fuschia-darker:               mix($bsk-colour-gen-black, $bsk-colour-std-fuschia-base, $bsk-colour-x-mix-2rd-fundermental);  // #310F2E
+
+$bsk-colour-std-mauve-lighter:                mix($bsk-colour-gen-white, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-2rd-fundermental);  // #CECFE4
+$bsk-colour-std-mauve-light:                  mix($bsk-colour-gen-white, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-1st-fundermental);  // #9FA1C9
+$bsk-colour-std-mauve-dark:                   mix($bsk-colour-gen-black, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-1st-fundermental);  // #4A4C75
+$bsk-colour-std-mauve-darker:                 mix($bsk-colour-gen-black, $bsk-colour-std-mauve-base, $bsk-colour-x-mix-2rd-fundermental);  // #26273C
+
+$bsk-colour-std-sky-blue-lighter:             mix($bsk-colour-gen-white, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #B7D8EB
+$bsk-colour-std-sky-blue-light:               mix($bsk-colour-gen-white, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #71B2D7
+$bsk-colour-std-sky-blue-dark:                mix($bsk-colour-gen-black, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #1D5E83
+$bsk-colour-std-sky-blue-darker:              mix($bsk-colour-gen-black, $bsk-colour-std-sky-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #0F3043
+
+$bsk-colour-std-blue-lighter:                 mix($bsk-colour-gen-white, $bsk-colour-std-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #A8BCC8
+$bsk-colour-std-blue-light:                   mix($bsk-colour-gen-white, $bsk-colour-std-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #547B92
+$bsk-colour-std-blue-dark:                    mix($bsk-colour-gen-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #00273E
+$bsk-colour-std-blue-darker:                  mix($bsk-colour-gen-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #001420
+
+$bsk-colour-std-turquoise-lighter:             mix($bsk-colour-gen-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #B6DFDC
+$bsk-colour-std-turquoise-light:               mix($bsk-colour-gen-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #6FC0B9
+$bsk-colour-std-turquoise-dark:                mix($bsk-colour-gen-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #1B6C65
+$bsk-colour-std-turquoise-darker:              mix($bsk-colour-gen-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #0E3733
+
+$bsk-colour-std-green-lighter:                mix($bsk-colour-gen-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #BBDAC0
+$bsk-colour-std-green-light:                  mix($bsk-colour-gen-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-1st-fundermental);  // #79B682
+$bsk-colour-std-green-dark:                   mix($bsk-colour-gen-black, $bsk-colour-std-green-base, $bsk-colour-x-mix-1st-fundermental);  // #25622E
+$bsk-colour-std-green-darker:                 mix($bsk-colour-gen-black, $bsk-colour-std-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #133217
+
+$bsk-colour-std-nerc-green-lighter:           mix($bsk-colour-gen-white, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #E2E6BB
+$bsk-colour-std-nerc-green-light:             mix($bsk-colour-gen-white, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-1st-fundermental);  // #C6CD79
+$bsk-colour-std-nerc-green-dark:              mix($bsk-colour-gen-black, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-1st-fundermental);  // #727925
+$bsk-colour-std-nerc-green-darker:            mix($bsk-colour-gen-black, $bsk-colour-std-nerc-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #3A3D13
+
+$bsk-colour-std-brown-lighter:                mix($bsk-colour-gen-white, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);  // #E6D7BE
+$bsk-colour-std-brown-light:                  mix($bsk-colour-gen-white, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);  // #CDAF7F
+$bsk-colour-std-brown-dark:                   mix($bsk-colour-gen-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);  // #795B2B
+$bsk-colour-std-brown-darker:                 mix($bsk-colour-gen-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);  // #3E2E16
+
+// Test colours (non-standard)
+$bsk-colour-tst-grey-lighter-light:           mix($bsk-colour-gen-black, $bsk-colour-gen-white, 3.25%);  // #F7F7F7
+$bsk-colour-tst-grey-darker-dark:             mix($bsk-colour-gen-black, $bsk-colour-gen-white, 86.75);  // #222222
+
+// Bootstrap colour overrides
+$brand-primary:                               $bsk-colour-std-turquoise-base;
+$brand-success:                               $bsk-colour-std-green-base;
+$brand-info:                                  $bsk-colour-std-sky-blue-base;
+$brand-warning:                               $bsk-colour-std-yellow-base;
+$brand-danger:                                $bsk-colour-std-red-base;
 
 // Z-index master list
 //
@@ -50,15 +149,15 @@ $zindex-image-copyright:                      900;
 // Settings for some of the most global styles.
 
 // Background colour for `<body>`.
-$page-background:                             $white !default;
+$page-background:                             $bsk-colour-std-white !default;
 $body-bg:                                     $page-background;
 
 // Global text colour on `<body>`.
-$page-text:                                   $gray-dark !default;
+$page-text:                                   $bsk-colour-std-grey-darker !default;
 $text-color:                                  $page-text;
 
 // Global textual link colour.
-$link-color:                                  lighten($bsk-blue, 5%);  // #007AC3
+$link-color:                                  $bsk-colour-std-sky-blue-base;
 
 
 //== Typography
@@ -149,7 +248,7 @@ $grid-24-columns:                            24;
 $dl-padding:                                  $padding-large-vertical;
 $dl-horizontal-lg-offset:                     ($dl-horizontal-offset * 1.5);
 
-$dl-striped-bg:                               $bsk-grey-light;
+$dl-striped-bg:                               $bsk-colour-std-grey-lighter;
 
 
 // Components
@@ -165,19 +264,40 @@ $component-font-size-small:                   14px;
 
 $line-height-computed-x2:                     ($line-height-computed * 2);
 
-$component-default-color:                     $gray-dark;
-$component-default-bg:                        $gray-lighter;
+$component-default-color:                     $bsk-colour-std-grey-darker;
+$component-default-bg:                        $bsk-colour-std-grey-lighter;
 
-$component-inverse-color:                     #F8F8F8;  // TODO: Use lighten/darken functions to generate colour
-$component-inverse-bg:                        $gray;
+$component-inverse-color:                     $bsk-colour-std-grey-lighter;
+$component-inverse-bg:                        $bsk-colour-std-grey-dark;
 
-$component-overlay-color:                     $white;
-$component-overlay-bg:                        $gray-dark;
+$component-overlay-color:                     $bsk-colour-std-white;
+$component-overlay-bg:                        $bsk-colour-std-grey-darker;
 
-$component-active-bg:                         $bsk-blue;
+$component-active-bg:                         $bsk-colour-std-sky-blue-base;
 
-$component-inverse-link-color:                $bsk-blue-light;
+$component-inverse-link-color:                $bsk-colour-std-sky-blue-light;
 $component-inverse-link-hover-color:          darken($component-inverse-link-color, 15%);
+
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:                          $bsk-colour-std-green-dark;
+$state-success-bg:                            $bsk-colour-std-green-lighter;
+$state-success-border:                        darken(adjust-hue($state-success-bg, -10), 5%) !default;
+
+$state-info-text:                             $bsk-colour-std-sky-blue-dark;
+$state-info-bg:                               $bsk-colour-std-sky-blue-lighter;
+$state-info-border:                           darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+$state-warning-text:                          $bsk-colour-std-yellow-dark;
+$state-warning-bg:                            $bsk-colour-std-yellow-lighter;
+$state-warning-border:                        darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+
+$state-danger-text:                           $bsk-colour-std-red-dark;
+$state-danger-bg:                             $bsk-colour-std-red-lighter;
+$state-danger-border:                         darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
 
 // Tables
@@ -188,15 +308,14 @@ $component-inverse-link-hover-color:          darken($component-inverse-link-col
 $table-bg:                                    transparent;
 
 // Background color used for `.table-striped`
-$table-bg-accent:                             $bsk-grey-lighter;
+$table-bg-accent:                             $bsk-colour-std-grey-lighter;
 
 // Background color used for `.table-hover`
-$table-bg-hover:                              $bsk-grey-light;
+$table-bg-hover:                              $bsk-colour-tst-grey-lighter-light;
 $table-bg-active:                             $table-bg-hover;
 
 //** Border color for table and cell borders
-$table-border-color:                          $bsk-grey-light;
-
+$table-border-color:                          $bsk-colour-std-grey-light;
 
 //== Forms
 //
@@ -228,9 +347,25 @@ $btn-default-color:                           $component-default-color;
 $btn-default-bg:                              $component-default-bg;
 $btn-default-border:                          $component-default-bg;
 
-$btn-primary-color:                           $white;
-$btn-primary-bg:                              $bsk-turquoise;
-$btn-primary-border:                          darken($bsk-turquoise, 5%);  // #0B8D88
+$btn-primary-color:                           $bsk-colour-std-white;
+$btn-primary-bg:                              $brand-primary;
+$btn-primary-border:                          $btn-primary-bg;
+
+$btn-success-color:                           $bsk-colour-std-white;
+$btn-success-bg:                              $brand-success;
+$btn-success-border:                          $btn-success-bg;
+
+$btn-info-color:                              $bsk-colour-std-white;
+$btn-info-bg:                                 $brand-info;
+$btn-info-border:                             $btn-info-bg;
+
+$btn-warning-color:                           $bsk-colour-std-white;
+$btn-warning-bg:                              $brand-warning;
+$btn-warning-border:                          $btn-warning-bg;
+
+$btn-danger-color:                            $bsk-colour-std-white;
+$btn-danger-bg:                               $brand-danger;
+$btn-danger-border:                           $btn-danger-bg;
 
 $btn-border-radius-large:                     $btn-border-radius-base;
 $btn-border-radius-small:                     $btn-border-radius-base;
@@ -255,25 +390,32 @@ $navbar-font-family:                          $font-family-brand;
 $navbar-font-weight:                          200;
 $navbar-font-size:                            ($font-size-base + 1px);
 
-$navbar-color:                                lighten($gray-light, 15%);
-$navbar-bg:                                   $gray-darker;
+// This colour does not use a $component to give a distinction between links and text (see sample #0254)
+// & to give a distinction active and inactive navbar items
+$navbar-color:                                $bsk-colour-std-grey-light;  // colour-check-10
+// This colour does not use a $component to give a distinction between footer and header/navbar
+// & to give distiction between hover and non-hover items (otherwise either no difference or much lighter navbar/header)
+$navbar-bg:                                   $bsk-colour-tst-grey-darker-dark;
 $navbar-border:                               $navbar-bg;
-$navbar-divider-color:                        darken($navbar-bg, 10%);
+$navbar-divider-color:                        $bsk-colour-std-grey-lighter;
+$navbar-link-color:                           $component-inverse-color;
 
 $navbar-brand-font-family:                    $font-family-sans-serif;
 $navbar-brand-font-weight:                    bold;
-$navbar-brand-color:                          $white;
+$navbar-brand-color:                          $bsk-colour-std-white;
 
-$navbar-link-color:                           $component-inverse-color;
-$navbar-link-hover-color:                     lighten($component-inverse-color, 10%);
-$navbar-link-hover-bg:                        $component-inverse-bg;
-$navbar-link-active-color:                    $white;
-$navbar-link-active-bg:                       darken($navbar-link-hover-bg, 10%);
-$navbar-link-disabled-color:                  $component-inverse-bg;
+$navbar-link-hover-color:                     $bsk-colour-std-white;
+$navbar-link-hover-bg:                        $bsk-colour-std-grey-base;
+
+$navbar-link-active-color:                    $bsk-colour-std-white;
+$navbar-link-active-bg:                       $bsk-colour-std-grey-dark;
+
+$navbar-link-disabled-color:                  $bsk-colour-std-grey-dark;
 $navbar-link-disabled-bg:                     transparent;
 
 $navbar-toggle-hover-bg:                      $component-inverse-bg;
-$navbar-toggle-icon-bar-bg:                   $white;
+// This colour does not use a $component to give (colour) symmetry with brand text
+$navbar-toggle-icon-bar-bg:                   $navbar-brand-color;
 $navbar-toggle-border-color:                  $navbar-bg;
 
 $navbar-dropdown-font-family:                 $font-family-sans-serif;
@@ -296,7 +438,7 @@ $nav-pills-link-bg:                           $component-default-bg;
 $nav-pills-link-margin-right:                 $padding-xs-horizontal;
 
 $nav-pills-active-link-hover-bg:              $component-active-bg;
-$nav-pills-disabled-link-bg:                  $white;
+$nav-pills-disabled-link-bg:                  $bsk-colour-std-white;
 
 // Wrappers
 $nav-wrapper-tab-pane-margin-top:             ($padding-large-vertical * 2);
@@ -318,7 +460,28 @@ $jumbotron-inverse-color:                     $component-inverse-color;
 $jumbotron-inverse-bg:                        $component-inverse-bg;
 
 $jumbotron-overlay-color:                     $component-overlay-color;
-$jumbotron-overlay-bg:                $component-overlay-bg;
+$jumbotron-overlay-bg:                        $component-overlay-bg;
+
+
+//== Alerts
+//
+//## Define alert colors, border radius, and padding.
+
+$alert-success-bg:                            $state-success-bg;
+$alert-success-text:                          $state-success-text;
+$alert-success-border:                        $state-success-border;
+
+$alert-info-bg:                               $state-info-bg;
+$alert-info-text:                             $state-info-text;
+$alert-info-border:                           $state-info-border;
+
+$alert-warning-bg:                            $state-warning-bg;
+$alert-warning-text:                          $state-warning-text;
+$alert-warning-border:                        $state-warning-border;
+
+$alert-danger-bg:                             $state-danger-bg;
+$alert-danger-text:                           $state-danger-text;
+$alert-danger-border:                         $state-danger-border;
 
 
 // Thumbnails
@@ -356,10 +519,10 @@ $footer-padding-bottom:                       ($footer-padding-top - 10px);
 $footer-border-radius:                        $border-radius-base;
 
 $footer-default-color:                        $component-inverse-color;
-$footer-default-bg:                           $gray-dark;
+$footer-default-bg:                           $bsk-colour-std-grey-darker;
 $footer-default-border:                       $footer-default-bg;
 
-$footer-default-divider:                      $gray-light;
+$footer-default-divider:                      $bsk-colour-std-grey-light;
 $footer-default-link-color:                   $component-inverse-link-color;
 $footer-default-link-hover-color:             $component-inverse-link-hover-color;
 
@@ -400,7 +563,7 @@ $sidebar-border-radius:                       $border-radius-base;
 
 $sidebar-lg-padding:                          ($sidebar-base-padding * 1.5);
 
-$sidebar-default-bg:                          $bsk-grey-light;
+$sidebar-default-bg:                          $bsk-colour-std-grey-lighter;
 
 $sidebar-inverse-colour:                      $component-inverse-color;
 $sidebar-inverse-bg:                          $component-inverse-bg;
@@ -415,7 +578,7 @@ $band-padding-vertical:                       ($padding-large-vertical * 4);
 $band-md-padding-vertical:                    ($padding-large-vertical * 3);
 $band-sm-padding-vertical:                    $padding-large-vertical;
 
-$band-default-bg:                             $white;
+$band-default-bg:                             $bsk-colour-std-white;
 $band-inverse-bg:                             $component-inverse-bg;
 
 

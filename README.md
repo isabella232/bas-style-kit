@@ -175,6 +175,10 @@ $ docker-compose push app
 [1] The first time you use this registry, you will need to authenticate using:
 `docker login docker-registry.data.bas.ac.uk`
 
+### Design resources
+
+Some extra resources, such as colour charts, used to help design the Style Kit are included in `/resources`.
+
 ## Testing
 
 ### Integration tests

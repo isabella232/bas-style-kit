@@ -2,6 +2,12 @@
 
 {% set main_base_path = data_base_path | default('/') %}
 
+{% if sample_title %}
+{% set main_title = sample_title %}
+{% elif collection_title %}
+{% set main_title = collection_title %}
+{% endif %}
+
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -9,11 +15,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head -->
-    <title>BAS Style Kit Testbed</title>
+    <title>{{ main_title | title }} - BAS Style Kit Testbed</title>
     <!-- BAS Style Kit -->
     <link rel="stylesheet" href="{{ main_base_path }}dist/css/bas-style-kit.css">
     <!-- BAS Style Kit testbed styles -->
     <link rel="stylesheet" href="{{ main_base_path }}dist/css/testbed-bsk.css">
+    <!-- Disables favicon requests -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   </head>
   <body>
     {% block main %}

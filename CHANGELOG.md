@@ -19,9 +19,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] The terms 'standard' and 'alternative' grid are now deprecated and should no longer be used
 * [Styles] Base font size increased from `14px` to `16px`
 * [Infrastructure] Testbed styles are now compiled with other Style Kit styles with reference to variables etc.
-* [Styles] Correctly using a border-colour for primary buttons
 * [Styles] Image Purchase component replaced by new Image Copyright component
 * [Styles] Jumbotron text overlay class generalised to an overlay class (`bsk-jumbotron-overlay`)
+* [Styles] Refactoring all colour schemes (greyscale and colour) into a standard colour scheme (including
+greyscale) based on colours from BAS/NERC, the GDS and Bootstrap - includes all contextual colours
 
 ### Removed - BREAKING!
 
@@ -39,6 +40,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Adding a permentant instance of the testbed through the testbed S3 bucket using the master branch
 * [Infrastructure] Improve coverage of Jumbotron within the Testbed with additional samples
 * [Infrastructure] Adding experiment heading class to Testbed classes
+* [Styles] Adding GDS colour pallets
 
 ### Fixed
 
@@ -55,6 +57,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] The 'greyscale' colours in Bootstrap use 'gray' not 'grey', this was incorrect in the Testbed
 * [Styles] Colours for the inverse jumbotron now use standard inverse component variables
 * [Styles] Rounded images are now correctly rounded
+* [Infrastructure] Invalid class attribute in BAS Style Kit 'colour' colour scheme
+* [Infrastructure] Adding fake favicon for testbed to remove browser warnings
+* [Infrastructure] Setting testbed sample/collection titles as page/HTML title
+* [Styles] Navbar border variable set to the correct value, previously used '$navbar-color' incorrectly
 
 ### Changed
 

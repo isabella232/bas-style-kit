@@ -1,0 +1,34 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0301--link.html" %}
+{% set sample_number = "#0301" %}
+{% set sample_title = "links" %}
+{% set sample_markup = "a" %}
+
+{% block sample %}
+<p><a href="#">link</a></p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">link within text</h4>
+<p>Ann certainly has a <a href="#">great deal</a> of Mass</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">link within bold text</h4>
+<p>They're stupid and wet, <strong>and there <a href="#">are bugs</a> everywhere</strong>, and I think I maced a crane</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">link within marked text</h4>
+<p>They're stupid and wet, <mark>and there <a href="#">are bugs</a> everywhere</mark>, and I think I maced a crane</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">link within success text</h4>
+<p>They're stupid and wet, <span class="bsk-text-success">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">link within warning text</h4>
+<p>They're stupid and wet, <span class="bsk-text-warning">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">link within danger text</h4>
+<p>They're stupid and wet, <span class="bsk-text-danger">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">link within info text</h4>
+<p>They're stupid and wet, <span class="bsk-text-info">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">link within muted text</h4>
+<p>They're stupid and wet, <span class="bsk-text-muted">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>
+{% endblock %}
