@@ -266,6 +266,7 @@ $component-default-color:                     $bsk-colour-std-grey-darker;
 $component-default-bg:                        $bsk-colour-std-grey-lighter;
 
 $component-inverse-color:                     $bsk-colour-std-grey-lighter;  // colour-check-2
+
 $component-inverse-bg:                        $bsk-colour-std-grey-dark;
 
 $component-overlay-color:                     $bsk-colour-std-white;
@@ -275,6 +276,27 @@ $component-active-bg:                         $bsk-colour-std-sky-blue-base; // 
 
 $component-inverse-link-color:                $bsk-colour-std-sky-blue-base;
 $component-inverse-link-hover-color:          darken($component-inverse-link-color, 15%);
+
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:                          $bsk-colour-std-green-dark;
+$state-success-bg:                            $bsk-colour-std-green-lighter;
+$state-success-border:                        darken(adjust-hue($state-success-bg, -10), 5%) !default;
+
+$state-info-text:                             $bsk-colour-std-sky-blue-dark;
+$state-info-bg:                               $bsk-colour-std-sky-blue-lighter;
+$state-info-border:                           darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+$state-warning-text:                          $bsk-colour-std-yellow-dark;
+$state-warning-bg:                            $bsk-colour-std-yellow-lighter;
+$state-warning-border:                        darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+
+$state-danger-text:                           $bsk-colour-std-red-dark;
+$state-danger-bg:                             $bsk-colour-std-red-lighter;
+$state-danger-border:                         darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
 
 // Tables
@@ -433,46 +455,26 @@ $jumbotron-inverse-bg:                        $component-inverse-bg;
 $jumbotron-overlay-color:                     $component-overlay-color;
 $jumbotron-overlay-bg:                        $component-overlay-bg;
 
-//== Form states and alerts
-//
-//## Define colors for form feedback states and, by default, alerts.
-
-$state-success-text:             $bsk-colour-std-green-dark;
-$state-success-bg:               $bsk-colour-std-green-lighter;
-$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
-
-$state-info-text:                $bsk-colour-std-sky-blue-lighter;
-$state-info-bg:                  $bsk-colour-std-sky-blue-lighter;
-$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
-
-$state-warning-text:             $bsk-colour-std-yellow-dark;
-$state-warning-bg:               $bsk-colour-std-yellow-lighter;
-$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
-
-$state-danger-text:              $bsk-colour-std-red-dark;
-$state-danger-bg:                $bsk-colour-std-red-lighter;
-$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
-
 
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
 
-$alert-success-bg:            $state-success-bg !default;
-$alert-success-text:          $state-success-text !default;
-$alert-success-border:        $state-success-border !default;
+$alert-success-bg:                            $state-success-bg;
+$alert-success-text:                          $state-success-text;
+$alert-success-border:                        $state-success-border;
 
-$alert-info-bg:               $state-info-bg !default;
-$alert-info-text:             $state-info-text !default;
-$alert-info-border:           $state-info-border !default;
+$alert-info-bg:                               $state-info-bg;
+$alert-info-text:                             $state-info-text;
+$alert-info-border:                           $state-info-border;
 
-$alert-warning-bg:            $state-warning-bg !default;
-$alert-warning-text:          $state-warning-text !default;
-$alert-warning-border:        $state-warning-border !default;
+$alert-warning-bg:                            $state-warning-bg;
+$alert-warning-text:                          $state-warning-text;
+$alert-warning-border:                        $state-warning-border;
 
-$alert-danger-bg:             $state-danger-bg !default;
-$alert-danger-text:           $state-danger-text !default;
-$alert-danger-border:         $state-danger-border !default;
+$alert-danger-bg:                             $state-danger-bg;
+$alert-danger-text:                           $state-danger-text;
+$alert-danger-border:                         $state-danger-border;
 
 
 // Thumbnails
