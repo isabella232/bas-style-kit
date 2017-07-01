@@ -463,6 +463,22 @@ $jumbotron-overlay-color:                     $component-overlay-color;
 $jumbotron-overlay-bg:                        $component-overlay-bg;
 
 
+//== Labels
+//
+//##
+
+$label-color:                                 $bsk-colour-std-white;
+$label-border-radius:                         $border-radius-base;
+
+$label-default-bg:                            $bsk-colour-std-grey-base;
+$label-primary-bg:                            $brand-primary;
+$label-success-bg:                            $brand-success;
+$label-info-bg:                               $brand-info;
+$label-danger-bg:                             $brand-danger;
+
+$label-warning-color:                         $bsk-colour-std-grey-darker;
+$label-warning-bg:                            $brand-warning;
+
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
