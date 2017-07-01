@@ -57,6 +57,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Colours for the inverse jumbotron now use standard inverse component variables
 * [Styles] Rounded images are now correctly rounded
 * [Infrastructure] Invalid class attribute in BAS Style Kit 'colour' colour scheme
+* [Infrastructure] Adding fake favicon for testbed to remove browser warnings
+* [Infrastructure] Setting testbed sample/collection titles as page/HTML title
 
 ### Changed
 
