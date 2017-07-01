@@ -42,6 +42,7 @@ greyscale) based on colours from BAS/NERC, the GDS and Bootstrap - includes all 
 * [Infrastructure] Adding experiment heading class to Testbed classes
 * [Styles] Adding GDS colour pallets
 * [Styles] Styles for labels
+* [Styles] Colours for GDS agile development phases (alpha, beta, etc.)
 
 ### Fixed
 

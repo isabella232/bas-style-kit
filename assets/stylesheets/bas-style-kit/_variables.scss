@@ -134,6 +134,13 @@ $brand-info:                                  $bsk-colour-std-sky-blue-base;
 $brand-warning:                               $bsk-colour-std-yellow-base;
 $brand-danger:                                $bsk-colour-std-red-base;
 
+// GDS agile development phases
+$development-phase-discovery:                 $bsk-colour-std-fuschia-base;
+$development-phase-alpha:                     $bsk-colour-std-pink-base;
+$development-phase-beta:                      $bsk-colour-std-orange-base;
+$development-phase-live:                      $bsk-colour-std-nerc-green-base;
+$development-phase-retired:                   $bsk-colour-std-grey-dark;
+
 // Z-index master list
 //
 // Warning: Avoid customizing these values. They're used for a bird's eye view
