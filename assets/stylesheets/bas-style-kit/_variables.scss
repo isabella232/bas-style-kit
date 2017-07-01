@@ -154,7 +154,7 @@ $page-text:                                   $bsk-colour-std-grey-darker !defau
 $text-color:                                  $page-text;
 
 // Global textual link colour.
-$link-color:                                  $bsk-colour-sp-link-base;  // check-5
+$link-color:                                  $bsk-colour-std-sky-blue-base;
 
 
 //== Typography
@@ -245,7 +245,7 @@ $grid-24-columns:                            24;
 $dl-padding:                                  $padding-large-vertical;
 $dl-horizontal-lg-offset:                     ($dl-horizontal-offset * 1.5);
 
-$dl-striped-bg:                               $bsk-colour-std-grey-lighter;  // colour-check-1
+$dl-striped-bg:                               $bsk-colour-std-grey-lighter;
 
 
 // Components
@@ -264,16 +264,15 @@ $line-height-computed-x2:                     ($line-height-computed * 2);
 $component-default-color:                     $bsk-colour-std-grey-darker;
 $component-default-bg:                        $bsk-colour-std-grey-lighter;
 
-$component-inverse-color:                     $bsk-colour-std-grey-lighter;  // colour-check-2
-
+$component-inverse-color:                     $bsk-colour-std-grey-lighter;
 $component-inverse-bg:                        $bsk-colour-std-grey-dark;
 
 $component-overlay-color:                     $bsk-colour-std-white;
 $component-overlay-bg:                        $bsk-colour-std-grey-darker;
 
-$component-active-bg:                         $bsk-colour-std-sky-blue-base; // colour-check-3
+$component-active-bg:                         $bsk-colour-std-sky-blue-base;
 
-$component-inverse-link-color:                $bsk-colour-std-sky-blue-base;
+$component-inverse-link-color:                $bsk-colour-std-sky-blue-light;
 $component-inverse-link-hover-color:          darken($component-inverse-link-color, 15%);
 
 
@@ -306,15 +305,14 @@ $state-danger-border:                         darken(adjust-hue($state-danger-bg
 $table-bg:                                    transparent;
 
 // Background color used for `.table-striped`
-$table-bg-accent:                             $bsk-colour-std-grey-lighter;  // colour-check-6
+$table-bg-accent:                             $bsk-colour-std-grey-lighter;
 
 // Background color used for `.table-hover`
 $table-bg-hover:                              $bsk-colour-std-grey-light;  // colour-check-7
 $table-bg-active:                             $table-bg-hover;
 
 //** Border color for table and cell borders
-$table-border-color:                          $bsk-colour-std-grey-light;  // colour-check-8
-
+$table-border-color:                          $bsk-colour-std-grey-light;
 
 //== Forms
 //
@@ -348,23 +346,23 @@ $btn-default-border:                          $component-default-bg;
 
 $btn-primary-color:                           $bsk-colour-std-white;
 $btn-primary-bg:                              $brand-primary;
-$btn-primary-border:                          darken($brand-primary, 5%);  // colour-check-9
+$btn-primary-border:                          $btn-primary-bg;
 
 $btn-success-color:                           $bsk-colour-std-white;
 $btn-success-bg:                              $brand-success;
-$btn-success-border:                          darken($btn-success-bg, 5%);  // colour-check-9
+$btn-success-border:                          $btn-success-bg;
 
 $btn-info-color:                              $bsk-colour-std-white;
 $btn-info-bg:                                 $brand-info;
-$btn-info-border:                             darken($btn-info-bg, 5%);  // colour-check-9
+$btn-info-border:                             $btn-info-bg;
 
 $btn-warning-color:                           $bsk-colour-std-white;
 $btn-warning-bg:                              $brand-warning;
-$btn-warning-border:                          darken($btn-warning-bg, 5%);  // colour-check-9
+$btn-warning-border:                          $btn-warning-bg;
 
 $btn-danger-color:                            $bsk-colour-std-white;
 $btn-danger-bg:                               $brand-danger;
-$btn-danger-border:                           darken($btn-danger-bg, 5%);  // colour-check-9
+$btn-danger-border:                           $btn-danger-bg;
 
 $btn-border-radius-large:                     $btn-border-radius-base;
 $btn-border-radius-small:                     $btn-border-radius-base;
@@ -389,25 +387,30 @@ $navbar-font-family:                          $font-family-brand;
 $navbar-font-weight:                          200;
 $navbar-font-size:                            ($font-size-base + 1px);
 
-$navbar-color:                                lighten($bsk-colour-std-grey-base, 15%);  // colour-check-10
 $navbar-bg:                                   #222222;  // colour-check-11
-$navbar-border:                               $navbar-bg;  // colour-check-11
-$navbar-divider-color:                        darken($navbar-bg, 10%);  // colour-check-12
+// This colour does not use a $component to give a distinction between links and text (see sample #0254)
+// & to give a distinction active and inactive navbar items
+$navbar-color:                                $bsk-colour-std-grey-light;  // colour-check-10
+$navbar-border:                               $navbar-bg;
+$navbar-divider-color:                        $bsk-colour-std-grey-lighter;
+$navbar-link-color:                           $component-inverse-color;
 
 $navbar-brand-font-family:                    $font-family-sans-serif;
 $navbar-brand-font-weight:                    bold;
 $navbar-brand-color:                          $bsk-colour-std-white;
 
-$navbar-link-color:                           $component-inverse-color;
-$navbar-link-hover-color:                     lighten($component-inverse-color, 10%);
-$navbar-link-hover-bg:                        $component-inverse-bg;
+$navbar-link-hover-color:                     $bsk-colour-std-white;
+$navbar-link-hover-bg:                        $bsk-colour-std-grey-base;
+
 $navbar-link-active-color:                    $bsk-colour-std-white;
-$navbar-link-active-bg:                       darken($navbar-link-hover-bg, 10%);
-$navbar-link-disabled-color:                  $component-inverse-bg;
+$navbar-link-active-bg:                       $bsk-colour-std-grey-dark;
+
+$navbar-link-disabled-color:                  $bsk-colour-std-grey-dark;
 $navbar-link-disabled-bg:                     transparent;
 
 $navbar-toggle-hover-bg:                      $component-inverse-bg;
-$navbar-toggle-icon-bar-bg:                   $bsk-colour-std-white;
+// This colour does not use a $component to give (colour) symmetry with brand text
+$navbar-toggle-icon-bar-bg:                   $navbar-brand-color;
 $navbar-toggle-border-color:                  $navbar-bg;
 
 $navbar-dropdown-font-family:                 $font-family-sans-serif;
@@ -514,7 +517,7 @@ $footer-default-color:                        $component-inverse-color;
 $footer-default-bg:                           $bsk-colour-std-grey-darker;
 $footer-default-border:                       $footer-default-bg;
 
-$footer-default-divider:                      $bsk-colour-std-grey-light;  // check-13
+$footer-default-divider:                      $bsk-colour-std-grey-light;
 $footer-default-link-color:                   $component-inverse-link-color;
 $footer-default-link-hover-color:             $component-inverse-link-hover-color;
 

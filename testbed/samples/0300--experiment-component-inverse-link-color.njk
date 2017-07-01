@@ -1,0 +1,58 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0299-experiment-component-inverse-link-color.html" %}
+{% set sample_number = "#0299" %}
+{% set sample_title = "GDS extended colour scheme" %}
+{% set sample_type_experiment = true %}
+
+{% block sample %}
+<style>
+.bsk-tb-colour-swatch-B7D8EB {
+  color: #B7D8EB !important;
+}
+.bsk-tb-colour-swatch-71B2D7 {
+  color: #71B2D7 !important;
+}
+</style>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading"><code>$bsk-colour-std-sky-blue-light</code></h4>
+
+<div class="bsk-row">
+  <div class="bsk-col-12-md-4">
+    <div href="#" class="bsk-thumbnail bsk-thumbnail-inverse">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400×250&w=400&h=250" alt="thumbnail">
+      <div class="bsk-caption">Thumbnail caption <a href="#" class="bsk-tb-colour-swatch-71B2D7">with link</a></div>
+    </div>
+  </div>
+</div>
+
+<footer class="bsk-footer bsk-footer-default">
+  <div class="bsk-container-fluid">
+    Footer content <a href="#" class="bsk-tb-colour-swatch-71B2D7">with link</a></div>
+  </div>
+</footer>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading"><code>$bsk-colour-std-sky-blue-lighter</code></h4>
+
+<div class="bsk-row">
+  <div class="bsk-col-12-md-4">
+    <div href="#" class="bsk-thumbnail bsk-thumbnail-inverse">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=38&txt=400×250&w=400&h=250" alt="thumbnail">
+      <div class="bsk-caption">Thumbnail caption <a href="#" class="bsk-tb-colour-swatch-B7D8EB">with link</a></div>
+    </div>
+  </div>
+</div>
+
+<footer class="bsk-footer bsk-footer-default">
+  <div class="bsk-container-fluid">
+    Footer content <a href="#" class="bsk-tb-colour-swatch-B7D8EB">with link</a></div>
+  </div>
+</footer>
+
+<hr />
+<h4>Notes</h4>
+<ul>
+  <li>This experiment was used to determine which variant of sky-blue should be used for links in inverse components</li>
+  <li>It was used when the GDS colour scheme was integrated into the Style Kit and the standard colour scheme was developed</li>
+</ul>
+{% endblock %}
