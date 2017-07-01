@@ -34,3 +34,25 @@
 .label-danger {
   @include label-variant($label-danger-bg);
 }
+
+// Development phase variations (linked labels get darker on :hover)
+
+.label-phase-discovery {
+  @include label-variant($label-phase-discovery-bg);
+}
+
+.label-phase-alpha {
+  @include label-variant($label-phase-alpha-bg);
+}
+
+.label-phase-beta {
+  @include label-variant($label-phase-beta-bg);
+}
+
+.label-phase-live {
+  @include label-variant($label-phase-live-bg);
+}
+
+.label-phase-retired {
+  @include label-variant($label-phase-retired-bg);
+}

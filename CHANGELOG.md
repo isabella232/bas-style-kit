@@ -43,6 +43,7 @@ greyscale) based on colours from BAS/NERC, the GDS and Bootstrap - includes all 
 * [Styles] Adding GDS colour pallets
 * [Styles] Styles for labels
 * [Styles] Colours for GDS agile development phases (alpha, beta, etc.)
+* [Styles] Label variants for the GDS agile development phases
 
 ### Fixed
 
