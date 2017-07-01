@@ -123,6 +123,9 @@ $bsk-colour-std-brown-light:                  mix($bsk-colour-gen-white, $bsk-co
 $bsk-colour-std-brown-dark:                   mix($bsk-colour-gen-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);  // #795B2B
 $bsk-colour-std-brown-darker:                 mix($bsk-colour-gen-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);  // #3E2E16
 
+// Test colours (non-standard)
+$bsk-colour-tst-grey-lighter-light:           mix($bsk-colour-gen-black, $bsk-colour-gen-white, 3.25%);  // #F7F7F7
+$bsk-colour-tst-grey-darker-dark:             mix($bsk-colour-gen-black, $bsk-colour-gen-white, 86.75);  // #222222
 
 // Bootstrap colour overrides
 $brand-primary:                               $bsk-colour-std-turquoise-base;
@@ -308,7 +311,7 @@ $table-bg:                                    transparent;
 $table-bg-accent:                             $bsk-colour-std-grey-lighter;
 
 // Background color used for `.table-hover`
-$table-bg-hover:                              $bsk-colour-std-grey-light;  // colour-check-7
+$table-bg-hover:                              $bsk-colour-tst-grey-lighter-light;
 $table-bg-active:                             $table-bg-hover;
 
 //** Border color for table and cell borders
@@ -387,10 +390,12 @@ $navbar-font-family:                          $font-family-brand;
 $navbar-font-weight:                          200;
 $navbar-font-size:                            ($font-size-base + 1px);
 
-$navbar-bg:                                   #222222;  // colour-check-11
 // This colour does not use a $component to give a distinction between links and text (see sample #0254)
 // & to give a distinction active and inactive navbar items
 $navbar-color:                                $bsk-colour-std-grey-light;  // colour-check-10
+// This colour does not use a $component to give a distinction between footer and header/navbar
+// & to give distiction between hover and non-hover items (otherwise either no difference or much lighter navbar/header)
+$navbar-bg:                                   $bsk-colour-tst-grey-darker-dark;
 $navbar-border:                               $navbar-bg;
 $navbar-divider-color:                        $bsk-colour-std-grey-lighter;
 $navbar-link-color:                           $component-inverse-color;
