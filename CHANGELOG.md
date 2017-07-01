@@ -59,6 +59,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Invalid class attribute in BAS Style Kit 'colour' colour scheme
 * [Infrastructure] Adding fake favicon for testbed to remove browser warnings
 * [Infrastructure] Setting testbed sample/collection titles as page/HTML title
+* [Styles] Navbar border variable set to the correct value, previously used '$navbar-color' incorrectly
 
 ### Changed
 
