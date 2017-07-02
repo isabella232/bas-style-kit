@@ -4,9 +4,12 @@
 // Utilities
 @import "mixins/labels";
 
-// Layout
-@import "mixins/grid-framework";
-@import "mixins/grid";
-@import "mixins/nav-lg-vertical-align";
+// Components
+@import "mixins/alerts";
 @import "mixins/jumbotron";
 @import "mixins/social-media";
+
+// Layout
+@import "mixins/nav-lg-vertical-align";
+@import "mixins/grid-framework";
+@import "mixins/grid";

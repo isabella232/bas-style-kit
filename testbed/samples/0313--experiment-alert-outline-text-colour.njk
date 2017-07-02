@@ -1,0 +1,189 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0313-experiment-alert-outline-text-colour.html" %}
+{% set sample_number = "#0313" %}
+{% set sample_title = "Outline alert text colour" %}
+{% set sample_type_experiment = true %}
+
+{% block sample %}
+<style>
+.bsk-tb-exp-override-alert-outline-info {
+  border: 5px solid #2B8CC4;
+}
+.bsk-tb-exp-override-alert-outline-warning {
+  border: 5px solid #FFBF47;
+}
+.bsk-tb-exp-override-alert-outline-danger {
+  border: 5px solid #B10E1E;
+}
+
+.bsk-tb-exp-text-grey-dark {
+  color: #555;
+}
+.bsk-tb-exp-text-grey-darker {
+  color: #333;
+}
+.bsk-tb-exp-text-sky-blue-dark {
+  color: #1D5E83;
+}
+.bsk-tb-exp-text-sky-blue-darker {
+  color: #0F3043;
+}
+.bsk-tb-exp-text-yellow-dark {
+  color: #AB8030;
+}
+.bsk-tb-exp-text-yellow-darker {
+  color: #574118;
+}
+.bsk-tb-exp-text-red-dark {
+  color: #770914;
+}
+.bsk-tb-exp-text-red-darker {
+  color: #3C050A;
+}
+</style>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual colours</h4>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-info" role="alert">
+  <span class="bsk-tb-exp-text-sky-blue-dark"><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> Information alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text</span>
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-warning" role="alert">
+  <span class="bsk-tb-exp-text-yellow-dark"><i class="fa fa-exclamation-triangle bsk-alert-icon" aria-hidden="true"></i> Warning alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text</span>
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-danger" role="alert">
+  <span class="bsk-tb-exp-text-red-dark"><i class="fa fa-exclamation-circle bsk-alert-icon" aria-hidden="true"></i> Warning alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text</span>
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With no colours</h4>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-info" role="alert">
+  <i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> Information alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-warning" role="alert">
+  <i class="fa fa-exclamation-triangle bsk-alert-icon" aria-hidden="true"></i> Warning alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-danger" role="alert">
+  <i class="fa fa-exclamation-circle bsk-alert-icon" aria-hidden="true"></i> Warning alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual coloured icons but normal text</h4>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-info" role="alert">
+  <span class="bsk-tb-exp-text-sky-blue-dark"><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i></span> Information alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-warning" role="alert">
+  <span class="bsk-tb-exp-text-yellow-dark"><i class="fa fa-exclamation-triangle bsk-alert-icon" aria-hidden="true"></i></span> Warning alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-danger" role="alert">
+  <span class="bsk-tb-exp-text-red-dark"><i class="fa fa-exclamation-circle bsk-alert-icon" aria-hidden="true"></i></span> Warning alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual coloured icons and links but normal text</h4>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-info" role="alert">
+  <span class="bsk-tb-exp-text-sky-blue-dark"><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i></span> Information alert - with a <a href="#" class="bsk-alert-link bsk-tb-exp-text-sky-blue-dark">link</a> and some more text
+</div>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-warning" role="alert">
+  <span class="bsk-tb-exp-text-yellow-dark"><i class="fa fa-exclamation-triangle bsk-alert-icon" aria-hidden="true"></i></span> Warning alert - with a <a href="#" class="bsk-alert-link bsk-tb-exp-text-yellow-dark">link</a> and some more text
+</div>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-danger" role="alert">
+  <span class="bsk-tb-exp-text-red-dark"><i class="fa fa-exclamation-circle bsk-alert-icon" aria-hidden="true"></i></span> Warning alert - with a <a href="#" class="bsk-alert-link bsk-tb-exp-text-red-dark">link</a> and some more text
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual colours and darker contextual links</h4>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-info" role="alert">
+  <span class="bsk-tb-exp-text-sky-blue-dark"><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> Information alert - with a <a href="#" class="bsk-alert-link bsk-tb-exp-text-sky-blue-darker">link</a> and some more text</span>
+</div>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-warning" role="alert">
+  <span class="bsk-tb-exp-text-yellow-dark"><i class="fa fa-exclamation-triangle bsk-alert-icon" aria-hidden="true"></i> Warning alert - with a <a href="#" class="bsk-alert-link bsk-tb-exp-text-yellow-darker">link</a> and some more text</span>
+</div>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-danger" role="alert">
+  <span class="bsk-tb-exp-text-red-dark"><i class="fa fa-exclamation-circle bsk-alert-icon" aria-hidden="true"></i> Warning alert - with a <a href="#" class="bsk-alert-link bsk-tb-exp-text-red-darker">link</a> and some more text</span>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With lighter text colour</h4>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-info" role="alert">
+  <span class="bsk-tb-exp-text-grey-dark"><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> Information alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text</span>
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-warning" role="alert">
+  <span class="bsk-tb-exp-text-grey-dark"><i class="fa fa-exclamation-triangle bsk-alert-icon" aria-hidden="true"></i> Warning alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text</span>
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<div class="bsk-alert bsk-tb-exp-override-alert-outline-danger" role="alert">
+  <span class="bsk-tb-exp-text-grey-dark"><i class="fa fa-exclamation-circle bsk-alert-icon" aria-hidden="true"></i> Warning alert - with a <a href="#" class="bsk-alert-link">link</a> and some more text</span>
+</div>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<p>Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+    and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+<hr />
+<h4>Notes</h4>
+<ul>
+  <li>This experiment was used to how text within outline alerts should be styled, i.e. should it be a frame around normal text, or styled</li>
+  <li>It was used when alerts were updated to fit more with the Style Kit, such as using standardised colours</li>
+</ul>
+{% endblock %}
