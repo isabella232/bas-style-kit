@@ -290,18 +290,22 @@ $component-inverse-link-hover-color:          darken($component-inverse-link-col
 //
 //## Define colors for form feedback states and, by default, alerts.
 
+$state-success-base:                          $bsk-colour-std-green-base;
 $state-success-text:                          $bsk-colour-std-green-dark;
 $state-success-bg:                            $bsk-colour-std-green-lighter;
 $state-success-border:                        darken(adjust-hue($state-success-bg, -10), 5%) !default;
 
+$state-info-base:                             $bsk-colour-std-sky-blue-base;
 $state-info-text:                             $bsk-colour-std-sky-blue-dark;
 $state-info-bg:                               $bsk-colour-std-sky-blue-lighter;
 $state-info-border:                           darken(adjust-hue($state-info-bg, -10), 7%) !default;
 
+$state-warning-base:                          $bsk-colour-std-yellow-base;
 $state-warning-text:                          $bsk-colour-std-yellow-dark;
 $state-warning-bg:                            $bsk-colour-std-yellow-lighter;
 $state-warning-border:                        darken(adjust-hue($state-warning-bg, -10), 5%) !default;
 
+$state-danger-base:                           $bsk-colour-std-red-base;
 $state-danger-text:                           $bsk-colour-std-red-dark;
 $state-danger-bg:                             $bsk-colour-std-red-lighter;
 $state-danger-border:                         darken(adjust-hue($state-danger-bg, -10), 5%) !default;
@@ -496,21 +500,23 @@ $label-phase-retired-bg:                      $development-phase-retired;
 //
 //## Define alert colors, border radius, and padding.
 
-$alert-success-bg:                            $state-success-bg;
-$alert-success-text:                          $state-success-text;
-$alert-success-border:                        $state-success-border;
+$alert-border-radius:                         $border-radius-base;
 
-$alert-info-bg:                               $state-info-bg;
-$alert-info-text:                             $state-info-text;
-$alert-info-border:                           $state-info-border;
+$alert-solid-text-color:                      $bsk-colour-std-white;
+$alert-solid-close-color:                     $alert-solid-text-color;
 
-$alert-warning-bg:                            $state-warning-bg;
-$alert-warning-text:                          $state-warning-text;
-$alert-warning-border:                        $state-warning-border;
+$alert-success-base:                          $state-success-base;
+$alert-success-highlight:                     $state-success-text;
 
-$alert-danger-bg:                             $state-danger-bg;
-$alert-danger-text:                           $state-danger-text;
-$alert-danger-border:                         $state-danger-border;
+$alert-warning-base:                          $state-warning-base;
+$alert-warning-highlight:                     $state-warning-text;
+$alert-warning-solid-text:                    $bsk-colour-std-grey-darker;
+
+$alert-danger-base:                           $state-danger-base;
+$alert-danger-highlight:                      $state-danger-text;
+
+$alert-info-base:                             $state-info-base;
+$alert-info-highlight:                        $state-info-text;
 
 
 // Thumbnails

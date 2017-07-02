@@ -1,0 +1,48 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base class
+//
+.alert {
+  font-size: 120%;
+
+  // Improve alignment and spacing of inner content
+  > ol,
+  > ul {
+    margin-left: -20px;
+    margin-bottom: 0;
+  }
+}
+
+
+// Contextual icons
+//
+// Expand the right padding to better position the icon for an alert
+
+.alert-icon {
+  padding-right: 15px;
+}
+
+
+// Block alerts
+//
+// For displaying larger amounts of content
+
+.alert-block {
+  font-size: 100%;
+
+  .alert-heading {
+    padding-bottom: 15px;
+  }
+}
+
+// Alternate styles
+//
+// Generate classes for each alert type and each context
+
+@include make-alert('success', $alert-success-base, $alert-success-highlight);
+@include make-alert('warning', $alert-warning-base, $alert-warning-highlight, $alert-warning-solid-text);
+@include make-alert('danger', $alert-danger-base, $alert-danger-highlight);
+@include make-alert('info', $alert-info-base, $alert-info-highlight);
