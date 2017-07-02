@@ -8,6 +8,18 @@
 .alert {
   font-size: 120%;
 
+  // Headings for larger alerts
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    // To prevent conflicts of changing $headings-color
+    color: inherit;
+  }
+
   // Improve alignment and spacing of inner content
   > ol,
   > ul {
@@ -38,7 +50,6 @@
   }
 }
 
-// Alternate styles
 
 // Layouts
 //
@@ -51,6 +62,7 @@
 }
 
 
+// Variants
 //
 // Generate classes for each alert type and each context
 
