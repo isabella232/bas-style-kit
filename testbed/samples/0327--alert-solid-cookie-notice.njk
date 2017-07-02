@@ -1,0 +1,23 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0327--alert-solid-cookie-notice.html" %}
+{% set sample_number = "#0327" %}
+{% set sample_title = "Solid cookie banner alert" %}
+{% set sample_markup = '.bsk-alert.bsk-alert-solid-cookie-banner' %}
+
+{% block sample %}
+<div class="bsk-alert bsk-alert-static-top bsk-alert-dismissible bsk-alert-solid-cookie-notice" role="alert">
+  <button type="button" class="bsk-close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+  This website uses cookies to help us make it better - <a href="#" class="bsk-alert-link">find out more</a>.
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With navbar</h4>
+<div class="bsk-alert bsk-alert-static-top bsk-alert-dismissible bsk-alert-solid-cookie-notice" role="alert">
+  <button type="button" class="bsk-close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+  This website uses cookies to help us make it better - <a href="#" class="bsk-alert-link">find out more</a>.
+</div>
+<nav class="bsk-navbar bsk-navbar-static-top">
+  <div class="bsk-container-fluid">
+  </div>
+</nav>
+{% endblock %}
