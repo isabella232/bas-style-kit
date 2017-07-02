@@ -1,0 +1,25 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0323--alert-solid-primary.html" %}
+{% set sample_number = "#0323" %}
+{% set sample_title = "Solid primary alert" %}
+{% set sample_markup = '.bsk-alert.bsk-alert-solid-primary' %}
+
+{% block sample %}
+<div class="bsk-alert bsk-alert-solid-primary" role="alert">Primary alert</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With alert link</h4>
+<div class="bsk-alert bsk-alert-solid-primary" role="alert">Primary alert with a <a href="#" class="bsk-alert-link">link</a></div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With lots of text</h4>
+<div class="bsk-alert bsk-alert-solid-primary" role="alert">
+  Primary alert - I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane.
+  I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane.
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With conventional dismiss icons</h4>
+<div class="bsk-alert bsk-alert-solid-primary" role="alert">
+  <button type="button" class="bsk-close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+  Primary alert
+</div>
+{% endblock %}

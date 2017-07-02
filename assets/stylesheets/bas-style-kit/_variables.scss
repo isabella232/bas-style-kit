@@ -290,6 +290,11 @@ $component-inverse-link-hover-color:          darken($component-inverse-link-col
 //
 //## Define colors for form feedback states and, by default, alerts.
 
+$state-primary-base:                          $bsk-colour-std-turquoise-base;
+$state-primary-text:                          $bsk-colour-std-turquoise-dark;
+$state-primary-bg:                            $bsk-colour-std-turquoise-lighter;
+$state-primary-border:                        darken(adjust-hue($state-primary-bg, -10), 5%) !default;
+
 $state-success-base:                          $bsk-colour-std-green-base;
 $state-success-text:                          $bsk-colour-std-green-dark;
 $state-success-bg:                            $bsk-colour-std-green-lighter;
@@ -504,6 +509,9 @@ $alert-border-radius:                         $border-radius-base;
 
 $alert-solid-text-color:                      $bsk-colour-std-white;
 $alert-solid-close-color:                     $alert-solid-text-color;
+
+$alert-primary-base:                          $state-primary-base;
+$alert-primary-highlight:                     $state-primary-text;
 
 $alert-success-base:                          $state-success-base;
 $alert-success-highlight:                     $state-success-text;
