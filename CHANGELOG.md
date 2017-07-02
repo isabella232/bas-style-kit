@@ -40,6 +40,7 @@ greyscale) based on colours from BAS/NERC, the GDS and Bootstrap - includes all 
 * [Infrastructure] Adding a permentant instance of the testbed through the testbed S3 bucket using the master branch
 * [Infrastructure] Improve coverage of Jumbotron within the Testbed with additional samples
 * [Infrastructure] Adding experiment heading class to Testbed classes
+* [Infrastructure] Adding javascript heading class to Testbed classes
 * [Styles] Adding GDS colour pallets
 * [Styles] Styles for labels
 * [Styles] Colours for GDS agile development phases (alpha, beta, etc.)

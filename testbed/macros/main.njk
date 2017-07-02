@@ -3,13 +3,15 @@
   show_index_link=true,
   title_prefix="BAS Style Kit Testbed",
   title_code=false,
-  title_experimental=false
+  title_experimental=false,
+  title_javascript=false
 ) %}
 <header class="bsk-page-header bsk-tb-page-header">
   <div class="bsk-container-fluid">
     <h1>
       {% if title_prefix %}<strong>{{ title_prefix }}</strong>{% endif %}
       {% if title_experimental %}<span class="bsk-tb-sample-sub-heading-experiment">(Experiment)</span>{% endif %}
+      {% if title_javascript %}<span class="bsk-tb-sample-sub-heading-javascript">(JavaScript)</span>{% endif %}
       {{ title }}
       {% if title_code %}<small><code>{{ title_code }}</code></small>{% endif %}
       {% if show_index_link %}<small><a href="/testbed/">Back to index</a></small>{% endif %}
@@ -43,6 +45,7 @@
   _title_prefix=false,
   _title_code=false,
   _title_experimental=false,
+  _title_javascript=false,
   _heading_level=2,
   _use_container=true,
   _show_index_link=true,
@@ -53,7 +56,7 @@
 <header {% if _use_container %}class="bsk-container-fluid"{% endif %}>
   <div class="page-header">
     <h{{ _heading_level }}>
-      {% if _title_prefix %}<strong>{{ _title_prefix }}</strong>{% endif %} {% if _title_experimental %}<span class="bsk-tb-sample-sub-heading-experiment">(Experiment)</span>{% endif %} {{ title }} {% if _title_code %}<code>{{ _title_code }}</code>{% endif %}
+      {% if _title_prefix %}<strong>{{ _title_prefix }}</strong>{% endif %} {% if _title_experimental %}<span class="bsk-tb-sample-sub-heading-experiment">(Experiment)</span>{% endif %} {% if _title_javascript %}<span class="bsk-tb-sample-sub-heading-javascript">(JavaScript)</span>{% endif %} {{ title }} {% if _title_code %}<code>{{ _title_code }}</code>{% endif %}
       {% if _subtitle %}<small>{{ _subtitle }}</small>{% endif %}
       {% if _show_index_link %}<small><a href="{{ _base_path }}testbed/">Back to index</a></small>{% endif %}
       {% if _use_isolated_href %}<small><a href="{{ _base_path }}testbed/samples/{{ _isolated_href }}">View isolated</a></small>{% endif %}
@@ -68,6 +71,7 @@
   title_prefix=false,
   title_code=false,
   title_experimental=false,
+  title_javascript=false,
   heading_level=3,
   use_container=true,
   show_index_link=true,
@@ -82,6 +86,7 @@
     _title_prefix=title_prefix,
     _title_code=title_code,
     _title_experimental=title_experimental,
+    _title_javascript=title_javascript,
     _heading_level=heading_level,
     _use_container=use_container,
     _show_index_link=show_index_link,
@@ -103,6 +108,16 @@
   <p>Such samples likely won't be useful beyond their original purpose, and will degrade over time
   as the Style Kit evolves. <br/> Experimental samples are given a permenant sample number and kept in case they are useful
   to others in the future.</p>
+</div>
+<hr />
+{% endmacro %}
+
+{% macro bsk_tb_javascript_sample_intro_message_v1() %}
+<div class="bsk-alert bsk-alert-block bsk-alert-solid-info" role="alert">
+  <header class="bsk-alert-heading">
+    <h4><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> This sample contains JavaScript</h4>
+  </header>
+  <p>See the notes for this experiment for details of the libraries and scripts needed for this experiment.</p>
 </div>
 <hr />
 {% endmacro %}
