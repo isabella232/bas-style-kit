@@ -39,6 +39,18 @@
 }
 
 // Alternate styles
+
+// Layouts
+//
+// Adjusts positioning of alerts for use as banners
+
+.alert-static-top {
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+
 //
 // Generate classes for each alert type and each context
 

@@ -44,8 +44,8 @@ greyscale) based on colours from BAS/NERC, the GDS and Bootstrap - includes all 
 * [Styles] Styles for labels
 * [Styles] Colours for GDS agile development phases (alpha, beta, etc.)
 * [Styles] Label variants for the GDS agile development phases
-* [Styles] Styles for alerts, consisting of three variants (solid, outline and highlight) with two
-layouts (standard and block) for each contextual colour
+* [Styles] Styles for alerts, consisting of three variants (solid, outline and highlight) with three
+layouts (standard, block, static-top) for each contextual colour
 
 ### Fixed
 
