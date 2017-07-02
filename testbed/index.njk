@@ -3,31 +3,36 @@
 {% block main %}
 {{ main.bsk_tb_main_heading_v2('Main index', show_index_link=false) }}
 
-{% call main.bsk_tb_section_v2('Notes', heading_level=2, show_index_link=false) %}
-<ul>
-  <li class="bsk-text-info">sample references do not indicate any implied order or grouping to samples</li>
-  <li class="bsk-text-info">samples should not necessarily work - some are intentionally invalid or extream and are expected to fail</li>
-  <li class="bsk-text-info">this test bed does not constitute end-user documentation, it is used for development purposes only</li>
-  <li class="bsk-text-info">
-    see <strong><a href="https://style-kit.web.bas.ac.uk">style-kit.web.bas.ac.uk</a></strong> or
-    <strong><a href="https://style-kit-testing.web.bas.ac.uk">style-kit-testing.web.bas.ac.uk</a></strong> for end-user documentation
-  </li>
-</ul>
-{% endcall %}
+<div class="bsk-container-fluid">
+  <div class="bsk-alert bsk-alert-block bsk-alert-outline-info" role="alert">
+    <header class="bsk-alert-heading">
+      <h2><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> Notes</h2>
+    </header>
+    <ul>
+      <li>sample references do not indicate any implied order or grouping to samples</li>
+      <li>samples should not necessarily work - some are intentionally invalid or extream and are expected to fail</li>
+      <li>this test bed does not constitute end-user documentation, it is used for development purposes only</li>
+      <li>
+        see <a class="bsk-alert-link" href="https://style-kit.web.bas.ac.uk">style-kit.web.bas.ac.uk</a> or
+        <a class="bsk-alert-link" href="https://style-kit-testing.web.bas.ac.uk">style-kit-testing.web.bas.ac.uk</a> for end-user documentation
+      </li>
+    </ul>
+  </div>
 
-{% call main.bsk_tb_section_v2('Sample collections', heading_level=2, show_index_link=false) %}
-<ul>
-  {% for collection in data_collections %}
-  <li><a href="{{ main_base_path }}testbed/collections/{{ collection.name }}.html">{{ collection.name }}</a></li>
-  {% endfor %}
-</ul>
-{% endcall %}
+  {% call main.bsk_tb_section_v2('Sample collections', heading_level=2, show_index_link=false) %}
+  <ul>
+    {% for collection in data_collections %}
+    <li><a href="{{ main_base_path }}testbed/collections/{{ collection.name }}.html">{{ collection.name }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endcall %}
 
-{% call main.bsk_tb_section_v2('Samples', heading_level=2, show_index_link=false) %}
-<ul>
-  {% for sample in data_samples %}
-  <li><a href="{{ main_base_path }}testbed/samples/{{ sample.id }}--{{ sample.name }}.html"><strong>#{{ sample.id }}</strong>  {{ sample.name }}</a></li>
-  {% endfor %}
-</ul>
-{% endcall %}
+  {% call main.bsk_tb_section_v2('Samples', heading_level=2, show_index_link=false) %}
+  <ul>
+    {% for sample in data_samples %}
+    <li><a href="{{ main_base_path }}testbed/samples/{{ sample.id }}--{{ sample.name }}.html"><strong>#{{ sample.id }}</strong>  {{ sample.name }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endcall %}
+</div>
 {% endblock %}
