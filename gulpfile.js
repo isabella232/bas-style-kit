@@ -13,6 +13,7 @@ var        sri = require('gulp-sri'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
           util = require('gulp-util'),
+        eslint = require('gulp-eslint'),
         concat = require('gulp-concat'),
         rename = require('gulp-rename'),
        csscomb = require('gulp-csscomb'),
@@ -405,6 +406,15 @@ gulp.task('atomic--lint-sass-bas-style-kit', () => {
         }
       ]
     }));
+});
+
+gulp.task('atomic--lint-js-bas-style-kit', () => {
+  return gulp.src([
+    path.join(config.sources['bas-style-kit-js'])
+  ])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
 });
 
 gulp.task('atomic--lint-sass-fonts-bsk', () => {
@@ -811,6 +821,7 @@ gulp.task('clean', [
 
 gulp.task('scripts', [
     'build--scripts-bas-style-kit-no-min',
+    'atomic--lint-js-bas-style-kit',
     'atomic--sri-testbed-bsk-css'
   ], () => {});
 
@@ -822,7 +833,8 @@ gulp.task('fonts', [
 
 gulp.task('lint', [
   'atomic--lint-sass-bas-style-kit',
-  'atomic--lint-sass-fonts-bsk'
+  'atomic--lint-sass-fonts-bsk',
+  'atomic--lint-js-bas-style-kit'
 ], () => {});
 
 gulp.task('testbed', [
