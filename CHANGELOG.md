@@ -48,6 +48,8 @@ greyscale) based on colours from BAS/NERC, the GDS and Bootstrap - includes all 
 * [Styles] Styles for alerts, consisting of three variants (solid, outline and highlight) with three
 layouts (standard, block, static-top) for each contextual colour and a new primary alert
 * [Infrastructure] Adding Gulp tasks for processing JavaScript files (linting)
+* [Scripts] Adding bootstrap-override for the Alerts plugin
+* [Scripts] Adding CookieNotice plugin
 
 ### Fixed
 
