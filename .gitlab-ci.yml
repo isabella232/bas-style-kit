@@ -57,7 +57,7 @@ compile-sass:
     - "gulp build--styles-fonts-bsk-only-no-min"
     - "gulp build--styles-bas-style-kit-no-min"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist"
+    name: "$CI_BUILD_TOKEN-dist-styles"
     paths:
       - dist/css/styles-bsk.css
       - dist/css/bootstrap-bsk.css
@@ -81,7 +81,7 @@ compile-sass-min:
     - "gulp build--styles-fonts-bsk-only-min"
     - "gulp build--styles-bas-style-kit-min"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-min"
+    name: "$CI_BUILD_TOKEN-dist-styles-min"
     paths:
       - dist/css/styles-bsk.min.css
       - dist/css/bootstrap-bsk.min.css
@@ -90,6 +90,37 @@ compile-sass-min:
       - dist/css/maps/bootstrap-bsk.min.css.map
       - dist/css/maps/fonts-bsk.min.css.map
       - dist/css/maps/bas-style-kit.min.css.map
+    expire_in: 1 week
+
+compile-js:
+  stage: build
+  script:
+    - "gulp build--scripts-bsk-no-min"
+    - "gulp build--bootstrap-bsk-js-no-min"
+    - "gulp build--scripts-bas-style-kit-no-min"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-scripts"
+    paths:
+      - dist/js/scripts-bsk.js
+      - dist/js/boostrap-bsk.js
+      - dist/js/bas-style-kit.js
+    expire_in: 1 week
+
+compile-js-min:
+  stage: build
+  only:
+    - master
+    - tags
+  script:
+    - "gulp build--scripts-bsk-min"
+    - "gulp build--bootstrap-bsk-js-min"
+    - "gulp build--scripts-bas-style-kit-min"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-scripts-min"
+    paths:
+      - dist/js/scripts-bsk.min.js
+      - dist/js/boostrap-bsk.min.js
+      - dist/js/bas-style-kit.min.js
     expire_in: 1 week
 
 compile-testbed:
@@ -122,7 +153,7 @@ copy-fonts:
       - dist/fonts
     expire_in: 1 week
 
-lint-sass:
+lint:
   stage: lint
   script: gulp lint
 

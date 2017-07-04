@@ -71,3 +71,7 @@
 @include make-alert('warning', $alert-warning-base, $alert-warning-highlight, $alert-warning-solid-text);
 @include make-alert('danger', $alert-danger-base, $alert-danger-highlight);
 @include make-alert('info', $alert-info-base, $alert-info-highlight);
+
+.alert-solid-cookie-notice {
+  @include alert-solid-variant($alert-cookie-notice-base, $alert-solid-text-color, 100%);
+}

@@ -2,6 +2,7 @@
 
 {% set sample_is_embedded = samples_are_embedded | default(false) %}
 {% set sample_is_experiment = sample_type_experiment | default(false) %}
+{% set sample_is_javascript = sample_type_javascript | default(false) %}
 
 {% block main %}
   {% if sample_is_embedded %}
@@ -9,6 +10,7 @@
       sample_title,
       _title_prefix=sample_number,
       _title_experimental=sample_is_experiment,
+      _title_javascript=sample_is_javascript,
       _title_code=sample_markup,
       _show_index_link=false,
       _use_container=false,
@@ -21,12 +23,16 @@
       sample_title,
       title_prefix=sample_number,
       title_experimental=sample_is_experiment,
+      title_javascript=sample_is_javascript,
       title_code=sample_markup
     ) }}
   {% endif %}
   {% if sample_is_embedded == false %}<main class="bsk-container-fluid">{% endif %}
   {% if sample_is_experiment %}
     {{ main.bsk_tb_experimental_sample_intro_message_v1() }}
+  {% endif %}
+  {% if sample_is_javascript %}
+    {{ main.bsk_tb_javascript_sample_intro_message_v1() }}
   {% endif %}
   {% block sample %}
   {% if sample_is_embedded == false %}</main>{% endif %}
