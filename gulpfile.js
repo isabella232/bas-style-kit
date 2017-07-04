@@ -12,10 +12,12 @@ var        sri = require('gulp-sri'),
           gulp = require('gulp'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
+          pump = require('pump'),
           util = require('gulp-util'),
         eslint = require('gulp-eslint'),
         concat = require('gulp-concat'),
         rename = require('gulp-rename'),
+        uglify = require('gulp-uglify'),
        csscomb = require('gulp-csscomb'),
        pkginfo = require('pkginfo')(module, 'version'),
       nunjucks = require('gulp-nunjucks'),
@@ -255,6 +257,25 @@ gulp.task('atomic--minify-fonts-bsk', ['atomic--compile-sass-fonts-bsk'], () => 
     .pipe(nano())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
+});
+
+// Minify JS
+gulp.task('atomic--minify-scripts-bsk', ['atomic--concat-scripts-bsk'], () => {
+  return pump([
+    gulp.src(path.join(config.sources.js, 'scripts-bsk.js')),
+    uglify(),
+    rename({suffix: '.min'}),
+    gulp.dest(path.join(config.destinations.js))
+  ])
+});
+
+gulp.task('atomic--minify-bootstrap-bsk-js', ['atomic--concat-bootstrap-bsk-js'], () => {
+  return pump([
+    gulp.src(path.join(config.sources.js, 'bootstrap-bsk.js')),
+    uglify(),
+    rename({suffix: '.min'}),
+    gulp.dest(path.join(config.destinations.js))
+  ])
 });
 
 // CSS restructing (merging)
@@ -523,6 +544,22 @@ gulp.task('atomic--sri-testbed-bsk-css', ['build--styles-testbed-bsk-only-no-min
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))
 });
 
+gulp.task('atomic--sri-scripts-bsk', ['build--scripts-bsk-no-min'], () => {
+  return gulp.src(path.join(config.sources.js, 'scripts-bsk.js'))
+    .pipe(sri({
+      'fileName': 'scripts-bsk.js.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
+});
+
+gulp.task('atomic--sri-scripts-bsk-min', ['build--scripts-bsk-min'], () => {
+  return gulp.src(path.join(config.sources.js, 'scripts-bsk.min.js'))
+    .pipe(sri({
+      'fileName': 'scripts-bsk.min.js.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
+});
+
 gulp.task('atomic--sri-bootstrap-bsk-js', ['build--bootstrap-bsk-js-no-min'], () => {
   return gulp.src(path.join(config.sources.js, 'bootstrap-bsk.js'))
     .pipe(sri({
@@ -531,13 +568,30 @@ gulp.task('atomic--sri-bootstrap-bsk-js', ['build--bootstrap-bsk-js-no-min'], ()
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
 });
 
-gulp.task('atomic--sri-scripts-bsk', ['build--scripts-bsk-no-min'], () => {
-  return gulp.src(path.join(config.sources.js, 'scripts-bsk.js'))
+gulp.task('atomic--sri-bootstrap-bsk-js-min', ['build--bootstrap-bsk-js-min'], () => {
+  return gulp.src(path.join(config.sources.js, 'bootstrap-bsk.min.js'))
     .pipe(sri({
-      'fileName': 'scripts-bsk.js.sri.json'
+      'fileName': 'bootstrap-bsk.min.js.sri.json'
     }))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
 });
+
+gulp.task('atomic--sri-bas-style-kit-js', ['build--scripts-bas-style-kit-no-min'], () => {
+  return gulp.src(path.join(config.sources.js, 'bas-style-kit.js'))
+    .pipe(sri({
+      'fileName': 'bas-style-kit.js.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
+});
+
+gulp.task('atomic--sri-bas-style-kit-js-min', ['build--scripts-bas-style-kit-min'], () => {
+  return gulp.src(path.join(config.sources.js, 'bas-style-kit.min.js'))
+    .pipe(sri({
+      'fileName': 'bas-style-kit.min.js.sri.json'
+    }))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
+});
+
 
 // Archiving
 
@@ -710,9 +764,25 @@ gulp.task('build--scripts-bsk-no-min', () => {
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
 });
 
+gulp.task('build--scripts-bsk-min', () => {
+  return gulp.src(path.join(config.sources.javascripts, config.sources['bas-style-kit-js']))
+    .pipe(concat('scripts-bsk.js'))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
+});
+
 gulp.task('build--bootstrap-bsk-js-no-min', () => {
   return gulp.src(path.join(config.sources.javascripts, config.sources['bootstrap-overrides-js']))
     .pipe(concat('bootstrap-bsk.js'))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
+});
+
+gulp.task('build--bootstrap-bsk-js-min', () => {
+  return gulp.src(path.join(config.sources.javascripts, config.sources['bootstrap-overrides-js']))
+    .pipe(concat('bootstrap-bsk.js'))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
 });
 
@@ -772,7 +842,21 @@ gulp.task('build--scripts-bas-style-kit-no-min', [
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
 });
 
-// This task assumes the relevant CSS tasks have already been run
+gulp.task('build--scripts-bas-style-kit-min', [
+    'atomic--concat-scripts-bsk',
+    'atomic--concat-bootstrap-bsk-js'
+  ], () => {
+  return gulp.src([
+      path.join(config.sources.js, 'bootstrap-bsk.js'),
+      path.join(config.sources.js, 'scripts-bsk.js')
+    ])
+    .pipe(concat('bas-style-kit.js'))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.js)))
+});
+
+// This task assumes the relevant CSS/JS tasks have already been run
 gulp.task('build--sri-bas-style-kit', () => {
   return gulp.src([
       path.join(config.sources.css, 'styles-bsk.css'),
@@ -784,8 +868,11 @@ gulp.task('build--sri-bas-style-kit', () => {
       path.join(config.sources.css, 'bas-style-kit.css'),
       path.join(config.sources.css, 'bas-style-kit.min.css'),
       path.join(config.sources.js, 'scripts-bsk.js'),
+      path.join(config.sources.js, 'scripts-bsk.min.js'),
       path.join(config.sources.js, 'bootstrap-bsk.js'),
-      path.join(config.sources.js, 'bas-style-kit.js')
+      path.join(config.sources.js, 'bootstrap-bsk.min.js'),
+      path.join(config.sources.js, 'bas-style-kit.js'),
+      path.join(config.sources.js, 'bas-style-kit.min.js')
     ])
     .pipe(sri({
       'fileName': 'bas-style-kit.sri.json'
@@ -821,8 +908,8 @@ gulp.task('clean', [
 
 gulp.task('scripts', [
     'build--scripts-bas-style-kit-no-min',
-    'atomic--lint-js-bas-style-kit',
-    'atomic--sri-testbed-bsk-css'
+    'build--scripts-bas-style-kit-min',
+    'atomic--lint-js-bas-style-kit'
   ], () => {});
 
 gulp.task('fonts', [
@@ -855,11 +942,12 @@ gulp.task('develop', () => {
     'clean',
     'styles',
     'styles-prod',
-    'build--sri-bas-style-kit',
-    'lint',
     'fonts',
     'scripts',
-    'testbed'
+    'lint',
+    'build--sri-bas-style-kit',
+    'atomic--sri-bas-style-kit-js',
+    'testbed',
   );
 });
 
@@ -869,7 +957,8 @@ gulp.task('release', () => {
     [
       'styles',
       'styles-prod',
-      'scripts'
+      'scripts',
+      'build--sri-bas-style-kit',
     ],
     'atomic--archive-dist'
   );
