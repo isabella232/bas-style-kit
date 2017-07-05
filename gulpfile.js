@@ -656,6 +656,9 @@ gulp.task('atomic--compile-testbed-samples', () => {
 gulp.task('atomic--compile-testbed-collections', () => {
   var basePath = getBasePath();
 
+  util.log(util.colors.blue('process.env.CI_BUILD_REF_NAME = ' + process.env.CI_BUILD_REF_NAME));
+  util.log(util.colors.magenta('getBasePath() = ' + basePath));
+
   return gulp.src(path.join(config.sources.testbed, 'collections', '*.njk'))
     .pipe(base(path.join(config.sources.testbed)))
     .pipe(nunjucks.compile({
