@@ -153,6 +153,17 @@ copy-fonts:
       - dist/fonts
     expire_in: 1 week
 
+copy-images:
+  stage: build
+  script:
+    - "gulp images"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-imgs"
+    paths:
+      - dist/img
+    expire_in: 1 week
+
+
 lint:
   stage: lint
   script: gulp lint

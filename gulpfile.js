@@ -42,6 +42,7 @@ const config = {
     'bootstrap-overrides-js': path.join('.', 'bootstrap-overrides', '**/*.js'),
     'bas-style-kit-js': path.join('.', 'bas-style-kit', '**/*.js'),
     'js': path.join('.', 'dist', 'js'),
+    'images': path.join('.', 'assets', 'images')
   },
   'destinations': {
     'dist': path.join('.', 'dist'),
@@ -49,7 +50,8 @@ const config = {
     'css': path.join('.', 'css'),
     'fonts': path.join('.', 'fonts'),
     'testbed': path.join('.', 'testbed', 'rendered'),
-    'js': path.join('.', 'js')
+    'js': path.join('.', 'js'),
+    'img': path.join('.', 'img')
   },
   'modules': {
     'autoprefixer': {
@@ -361,6 +363,22 @@ gulp.task('atomic--copy-webfont-font-awesome', () => {
       path.join(config['sources']['font-awesome'], 'fonts', '**/*.woff2')
     ])
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.fonts, 'font-awesome')));
+});
+
+gulp.task('atomic--copy-images-bas-logo', () => {
+  return gulp.src(
+    [
+      path.join(config.sources.images, 'bas-logo', '*.png')
+    ])
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols')));
+});
+
+gulp.task('atomic--copy-images-bas-roundel', () => {
+  return gulp.src(
+    [
+      path.join(config.sources.images, 'bas-roundel', '*.png')
+    ])
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols')));
 });
 
 gulp.task('atomic--copy-templates-assets', () => {
@@ -918,6 +936,11 @@ gulp.task('fonts', [
   'atomic--copy-webfont-font-awesome'
 ], () => {});
 
+gulp.task('images', [
+  'atomic--copy-images-bas-logo',
+  'atomic--copy-images-bas-roundel'
+], () => {});
+
 gulp.task('lint', [
   'atomic--lint-sass-bas-style-kit',
   'atomic--lint-sass-fonts-bsk',
@@ -943,6 +966,7 @@ gulp.task('develop', () => {
     'styles',
     'styles-prod',
     'fonts',
+    'images',
     'scripts',
     'lint',
     'build--sri-bas-style-kit',
@@ -958,6 +982,8 @@ gulp.task('release', () => {
       'styles',
       'styles-prod',
       'scripts',
+      'images',
+      'fonts',
       'build--sri-bas-style-kit',
     ],
     'atomic--archive-dist'

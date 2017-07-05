@@ -50,6 +50,7 @@ layouts (standard, block, static-top) for each contextual colour and a new prima
 * [Infrastructure] Adding Gulp tasks for processing JavaScript files (linting)
 * [Scripts] Adding bootstrap-override for the Alerts plugin
 * [Scripts] Adding CookieNotice plugin
+* [Images] First set of images for the BAS Logo and BAS Roundel to provide a canonical/stable place to reference from
 
 ### Fixed
 
