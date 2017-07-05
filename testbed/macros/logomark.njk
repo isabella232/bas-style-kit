@@ -3,8 +3,8 @@
 {% macro bsk_tb_logomark_standard_sizes_v1(img_path, img_file_base, img_file_ext, background_class) %}
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading"><code>{{ image_file_base }}*.{{ img_file_ext }}</code> at standard image sizes (classes applied: <code>{{ background_class }}</code>)</h4>
 
-<p class="bsk-alert bsk-alert-outline-info"><code>main_base_path</code> = {{ set main_base_path }}</p>
-<p class="bsk-alert bsk-alert-outline-info"><code>data_base_path</code> = {{ set data_base_path }}</p>
+<p class="bsk-alert bsk-alert-outline-info"><code>main_base_path</code> = {{ main_base_path }}</p>
+<p class="bsk-alert bsk-alert-outline-info"><code>data_base_path</code> = {{ data_base_path }}</p>
 
 {% for img_size in [512, 256, 128, 64, 32, 16] %}
 <div class="bsk-tb-logomark-wrapper">
@@ -15,5 +15,3 @@
 </div>
 {% endfor %}
 {% endmacro %}
-
-
