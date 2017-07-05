@@ -647,9 +647,10 @@ gulp.task('atomic--compile-testbed-samples', () => {
 
   return gulp.src(path.join(config.sources.testbed, 'samples', '*.njk'))
     .pipe(base(path.join(config.sources.testbed)))
-    .pipe(nunjucks.compile({
+    .pipe(data(() => ({
       data_base_path: basePath
-    }))
+    })))
+    .pipe(nunjucks.compile())
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));
 });
@@ -659,7 +660,9 @@ gulp.task('atomic--compile-testbed-collections', () => {
 
   return gulp.src(path.join(config.sources.testbed, 'collections', '*.njk'))
     .pipe(base(path.join(config.sources.testbed)))
-    .pipe(data(() => ({data_base_path: basePath})))
+    .pipe(data(() => ({
+      data_base_path: basePath
+    })))
     .pipe(nunjucks.compile())
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));
@@ -672,11 +675,12 @@ gulp.task('atomic--compile-testbed-index', () => {
 
   return gulp.src(path.join(config['sources']['testbed'], 'index.njk'))
     .pipe(base(path.join(config.sources.testbed)))
-    .pipe(nunjucks.compile({
+    .pipe(data(() => ({
       data_collections: collections,
       data_samples: samples,
       data_base_path: basePath
-    }))
+    })))
+    .pipe(nunjucks.compile())
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));
 });
