@@ -9,6 +9,7 @@ var        sri = require('gulp-sri'),
            zip = require('gulp-zip'),
           base = require('gulp-base'),
           csso = require('gulp-csso'),
+          data = require('gulp-data'),
           gulp = require('gulp'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
@@ -656,14 +657,10 @@ gulp.task('atomic--compile-testbed-samples', () => {
 gulp.task('atomic--compile-testbed-collections', () => {
   var basePath = getBasePath();
 
-  util.log(util.colors.blue('process.env.CI_BUILD_REF_NAME = ' + process.env.CI_BUILD_REF_NAME));
-  util.log(util.colors.magenta('getBasePath() = ' + basePath));
-
   return gulp.src(path.join(config.sources.testbed, 'collections', '*.njk'))
     .pipe(base(path.join(config.sources.testbed)))
-    .pipe(nunjucks.compile({
-      data_base_path: basePath
-    }))
+    .pipe(data(() => ({data_base_path: basePath})))
+    .pipe(nunjucks.compile())
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));
 });
