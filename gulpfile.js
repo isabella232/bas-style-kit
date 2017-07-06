@@ -382,6 +382,14 @@ gulp.task('atomic--copy-images-bas-roundel', () => {
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols')));
 });
 
+gulp.task('atomic--copy-images-ogl-symbol', () => {
+  return gulp.src(
+    [
+      path.join(config.sources.images, 'ogl-symbol', '*.png')
+    ])
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols')));
+});
+
 gulp.task('atomic--copy-templates-assets', () => {
   return gulp.src(path.join(config['sources']['testbed'], 'assets', '**/*.*'))
     .pipe(gulp.dest(path.join(config.destinations.testbed, 'testbed-assets')));
@@ -942,7 +950,8 @@ gulp.task('fonts', [
 
 gulp.task('images', [
   'atomic--copy-images-bas-logo',
-  'atomic--copy-images-bas-roundel'
+  'atomic--copy-images-bas-roundel',
+  'atomic--copy-images-ogl-symbol'
 ], () => {});
 
 gulp.task('lint', [
