@@ -258,7 +258,6 @@ s3-testbed:
   image: antarctica/aws-cli-image:0.1.0-alpine-gl
   only:
     - master
-    - tags
   script:
     - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
     - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
