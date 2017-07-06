@@ -50,6 +50,8 @@ layouts (standard, block, static-top) for each contextual colour and a new prima
 * [Infrastructure] Adding Gulp tasks for processing JavaScript files (linting)
 * [Scripts] Adding bootstrap-override for the Alerts plugin
 * [Scripts] Adding CookieNotice plugin
+* [Images] First set of images for the BAS Logo and BAS Roundel to provide a canonical/stable place to reference from
+* [Images] Including OGL Symbol to provide a canonical/stable place to reference from
 
 ### Fixed
 
@@ -70,6 +72,8 @@ layouts (standard, block, static-top) for each contextual colour and a new prima
 * [Infrastructure] Adding fake favicon for testbed to remove browser warnings
 * [Infrastructure] Setting testbed sample/collection titles as page/HTML title
 * [Styles] Navbar border variable set to the correct value, previously used '$navbar-color' incorrectly
+* [Infrastructure] `$footer-ogl-text-max-height` corrected to `$footer-ogl-text-max-width`
+* [Styles] Minimum height of the header component was half of its correct value
 
 ### Changed
 
@@ -82,6 +86,7 @@ layouts (standard, block, static-top) for each contextual colour and a new prima
 * [Infrastructure] Pinning 'Font Awesome' package to a specific version
 * [Infrastructure] Upgrading NPM package dependencies
 * [Styles] Upgrading to Bootstrap SASS 3.3.7
+* [Styles] Updating OGL Symbol styles to use usage guidlines
 
 ## [0.2.0] - 2017-04-17
 

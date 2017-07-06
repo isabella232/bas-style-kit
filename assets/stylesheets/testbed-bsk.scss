@@ -637,3 +637,27 @@ background: #85994B;
   background-image: url('/testbed/testbed-assets/img/responsive-image.jpg');
   background-repeat: no-repeat;
 }
+
+// Logomark backrgrounds
+
+.tb-logomark-wrapper {
+  margin-bottom: 10px;
+}
+
+.tb-logomark-instance {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.tb-logomark-bg-white {
+  background-color: $bsk-colour-std-white;
+  border: 1px solid $bsk-colour-std-grey-lighter;
+}
+
+.tb-logomark-bg-grey {
+  background-color: $bsk-colour-std-grey-light;
+}
+
+.tb-logomark-bg-black {
+  background-color: $bsk-colour-std-black;
+}

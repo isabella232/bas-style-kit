@@ -580,8 +580,8 @@ $footer-default-link-hover-color:             $component-inverse-link-hover-colo
 $footer-ogl-symbol-margin-right:              ($padding-large-horizontal * 2);
 $footer-ogl-symbol-margin-bottom:             ($padding-large-vertical);
 $footer-ogl-symbol-width:                     67px;  // As recommended by the National Archives see [1] for details
-$footer-ogl-text-max-height:                  420px;
-$footer-ogl-text-line-height:                 17px;
+$footer-ogl-text-max-width:                   450px;
+$footer-ogl-text-line-height:                 20px;  // As recommended by the National Archives see [1] for details
 $footer-olg-text-margin-bottom:               ($padding-large-vertical * 2);
 
 // [1] http://www.nationalarchives.gov.uk/documents/information-management/ogl-symbol-guidelines-v1.pdf [PDF!]
@@ -595,7 +595,7 @@ $header-font-family:                          $navbar-font-family;
 $header-font-weight:                          $navbar-font-weight;
 $header-font-size:                            $navbar-font-size;
 
-$header-height:                               $navbar-height;
+$header-height:                               $navbar-lg-height;
 $header-margin-bottom:                        $navbar-margin-bottom;
 $header-border-radius:                        $navbar-border-radius;
 $header-padding-vertical:                     $navbar-padding-vertical;

@@ -9,6 +9,7 @@ var        sri = require('gulp-sri'),
            zip = require('gulp-zip'),
           base = require('gulp-base'),
           csso = require('gulp-csso'),
+          data = require('gulp-data'),
           gulp = require('gulp'),
           sass = require('gulp-sass'),
           nano = require('gulp-cssnano'),
@@ -42,6 +43,7 @@ const config = {
     'bootstrap-overrides-js': path.join('.', 'bootstrap-overrides', '**/*.js'),
     'bas-style-kit-js': path.join('.', 'bas-style-kit', '**/*.js'),
     'js': path.join('.', 'dist', 'js'),
+    'images': path.join('.', 'assets', 'images')
   },
   'destinations': {
     'dist': path.join('.', 'dist'),
@@ -49,7 +51,8 @@ const config = {
     'css': path.join('.', 'css'),
     'fonts': path.join('.', 'fonts'),
     'testbed': path.join('.', 'testbed', 'rendered'),
-    'js': path.join('.', 'js')
+    'js': path.join('.', 'js'),
+    'img': path.join('.', 'img')
   },
   'modules': {
     'autoprefixer': {
@@ -363,6 +366,30 @@ gulp.task('atomic--copy-webfont-font-awesome', () => {
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.fonts, 'font-awesome')));
 });
 
+gulp.task('atomic--copy-images-bas-logo', () => {
+  return gulp.src(
+    [
+      path.join(config.sources.images, 'bas-logo', '*.png')
+    ])
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols')));
+});
+
+gulp.task('atomic--copy-images-bas-roundel', () => {
+  return gulp.src(
+    [
+      path.join(config.sources.images, 'bas-roundel', '*.png')
+    ])
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols')));
+});
+
+gulp.task('atomic--copy-images-ogl-symbol', () => {
+  return gulp.src(
+    [
+      path.join(config.sources.images, 'ogl-symbol', '*.png')
+    ])
+    .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols')));
+});
+
 gulp.task('atomic--copy-templates-assets', () => {
   return gulp.src(path.join(config['sources']['testbed'], 'assets', '**/*.*'))
     .pipe(gulp.dest(path.join(config.destinations.testbed, 'testbed-assets')));
@@ -628,9 +655,10 @@ gulp.task('atomic--compile-testbed-samples', () => {
 
   return gulp.src(path.join(config.sources.testbed, 'samples', '*.njk'))
     .pipe(base(path.join(config.sources.testbed)))
-    .pipe(nunjucks.compile({
+    .pipe(data(() => ({
       data_base_path: basePath
-    }))
+    })))
+    .pipe(nunjucks.compile())
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));
 });
@@ -640,9 +668,10 @@ gulp.task('atomic--compile-testbed-collections', () => {
 
   return gulp.src(path.join(config.sources.testbed, 'collections', '*.njk'))
     .pipe(base(path.join(config.sources.testbed)))
-    .pipe(nunjucks.compile({
+    .pipe(data(() => ({
       data_base_path: basePath
-    }))
+    })))
+    .pipe(nunjucks.compile())
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));
 });
@@ -654,11 +683,12 @@ gulp.task('atomic--compile-testbed-index', () => {
 
   return gulp.src(path.join(config['sources']['testbed'], 'index.njk'))
     .pipe(base(path.join(config.sources.testbed)))
-    .pipe(nunjucks.compile({
+    .pipe(data(() => ({
       data_collections: collections,
       data_samples: samples,
       data_base_path: basePath
-    }))
+    })))
+    .pipe(nunjucks.compile())
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(path.join(config.destinations.testbed)));
 });
@@ -918,6 +948,12 @@ gulp.task('fonts', [
   'atomic--copy-webfont-font-awesome'
 ], () => {});
 
+gulp.task('images', [
+  'atomic--copy-images-bas-logo',
+  'atomic--copy-images-bas-roundel',
+  'atomic--copy-images-ogl-symbol'
+], () => {});
+
 gulp.task('lint', [
   'atomic--lint-sass-bas-style-kit',
   'atomic--lint-sass-fonts-bsk',
@@ -943,6 +979,7 @@ gulp.task('develop', () => {
     'styles',
     'styles-prod',
     'fonts',
+    'images',
     'scripts',
     'lint',
     'build--sri-bas-style-kit',
@@ -958,6 +995,8 @@ gulp.task('release', () => {
       'styles',
       'styles-prod',
       'scripts',
+      'images',
+      'fonts',
       'build--sri-bas-style-kit',
     ],
     'atomic--archive-dist'

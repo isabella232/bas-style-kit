@@ -1,0 +1,21 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% import "macros/logomark.njk" as logomark %}
+
+{% set sample_href = "0334--logomark-ogl-symbol-default.html" %}
+{% set sample_number = "#0334" %}
+{% set sample_title = "Logomark OGL default symbol (black)" %}
+{% set sample_markup = 'img' %}
+
+{% set img_path = 'dist/img/logos-symbols' %}
+{% set img_file_base = 'ogl-symbol-default-transparent-' %}
+{% set img_file_ext = 'png' %}
+
+{% block sample %}
+{{ logomark.bsk_tb_logomark_standard_sizes_v1(main_base_path, img_path, img_file_base, img_file_ext, 'bsk-tb-logomark-bg-white') }}
+
+{{ logomark.bsk_tb_logomark_standard_sizes_v1(main_base_path, img_path, img_file_base, img_file_ext, 'bsk-tb-logomark-bg-grey') }}
+
+{{ logomark.bsk_tb_logomark_standard_sizes_v1(main_base_path, img_path, img_file_base, img_file_ext, 'bsk-tb-logomark-bg-black') }}
+
+{% endblock %}
