@@ -97,6 +97,8 @@
     margin-bottom: $footer-ogl-symbol-margin-bottom;
 
     @media (min-width: $screen-sm-min) {
+      position: relative;
+      top: 5px;
       margin-left:   0;
       margin-bottom: 0;
       margin-right:  $footer-ogl-symbol-margin-right;
