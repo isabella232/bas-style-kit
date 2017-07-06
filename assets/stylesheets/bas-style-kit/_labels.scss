@@ -56,3 +56,9 @@
 .label-phase-retired {
   @include label-variant($label-phase-retired-bg);
 }
+
+// Experimental style (linked labels get darker on :hover)
+
+.label-experimental {
+  @include label-variant($label-experimental-bg);
+}

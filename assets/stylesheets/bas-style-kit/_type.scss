@@ -2,6 +2,19 @@
 // Typography
 // --------------------------------------------------
 
+
+// Emphasis & misc
+// -------------------------
+
+@include text-emphasis-variant('.text-experimental', $brand-experimental);
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+
+@include bg-variant('.bg-experimental', $state-experimental-bg);
+
+
 // Lists
 // -------------------------
 
