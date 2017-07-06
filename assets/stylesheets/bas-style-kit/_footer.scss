@@ -109,7 +109,7 @@
     line-height:   $footer-ogl-text-line-height;
 
     @media (min-width: $screen-sm-min) {
-      max-width: $footer-ogl-text-max-height;
+      max-width: $footer-ogl-text-max-width;
     }
   }
 }
