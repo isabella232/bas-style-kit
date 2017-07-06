@@ -5,9 +5,14 @@
 {% set sample_title = "button drop-down menu" %}
 {% set sample_markup = ".bsk-dropdown .bsk-dropdown-menu" %}
 
+{% set sample_type_javascript = true %}
+
 {% block sample %}
+<script src="https://cdn.web.bas.ac.uk/js-libs/jquery-3.1.1.min.js"></script>
+<script src="{{ main_base_path }}dist/js/bas-style-kit.js"></script>
+
 <div class="bsk-dropdown">
-  <button class="bsk-btn bsk-btn-default bsk-dropdown-toggle" type="button">
+  <button class="bsk-btn bsk-btn-default bsk-dropdown-toggle" data-toggle="dropdown" type="button">
     Dropdown <span class="bsk-caret"></span>
   </button>
   <ul class="bsk-dropdown-menu">
@@ -16,6 +21,7 @@
   </ul>
 </div>
 
+<div class="bsk-tb-margin-top-ul"></div>
 <div class="bsk-dropdown">
   <button class="bsk-btn bsk-btn-default bsk-dropdown-toggle" type="button">
     Dropdown <span class="bsk-caret"></span>
@@ -27,4 +33,10 @@
 </div>
 
 <div class="bsk-tb-margin-top-ul"></div>
+<h4>Notes</h4>
+<ul>
+  <li>This sample loads the <code>jQuery</code> library from the BAS CDN</li>
+  <li>This sample loads the <code>dropdown</code> (bootstrap-override) plugin from the BAS CDN (Dev)</code></li>
+  <li>The first example in this sample is configured to use the drop-down plugin</li>
+</ul>
 {% endblock %}
