@@ -5,90 +5,92 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.3.0-alpha] - 2017-07-06
+
 ### Changed - BREAKING!
 
 * [Styles] A common 'bsk-' prefix now applies to all class names, including variants and Bootstrap styles
-* [Styles] Removing override for large media breakpoint visibility classes, use `-lg` rather than `lg-x`
-* [Styles] Font face declarations are now compiled as a separate `fonts-bsk.css` file to avoid the common namespace
 * [Styles] `bas-style-kit.css` now contains all styles (inc. fonts and Bootstrap) as a single file
-* [Styles] `bas-style-kit.scss` renamed to `styles-bsk.scss` to fit with other files
-* [Infrastructure] Gulp tasks for processing CSS styles have been refactored and updated
-* [Styles] Minimum supported browser versions changed - I.E. 8 and 9 are no longer officially supported
 * [Styles] Classes for the standard grid are now styled `bsk-col-12-{breakpoint}-{width}`
 * [Styles] Classes for the alternative grid are now styled `bsk-col-24-{breakpoint}-{width}`
 * [Styles] The terms 'standard' and 'alternative' grid are now deprecated and should no longer be used
-* [Styles] Base font size increased from `14px` to `16px`
-* [Infrastructure] Testbed styles are now compiled with other Style Kit styles with reference to variables etc.
-* [Styles] Image Purchase component replaced by new Image Copyright component
-* [Styles] Jumbotron text overlay class generalised to an overlay class (`bsk-jumbotron-overlay`)
 * [Styles] Refactoring all colour schemes (greyscale and colour) into a standard colour scheme (including
 greyscale) based on colours from BAS/NERC, the GDS and Bootstrap - includes all contextual colours
+* [Styles] Base font size increased from `14px` to `16px`
+* [Styles] Image Purchase component replaced by new Image Copyright component
+* [Styles] Removing override for large media breakpoint visibility classes, use `-lg` rather than `lg-x`
+* [Styles] Minimum supported browser versions changed - I.E. 8 and 9 are no longer officially supported
+* [Styles] Jumbotron text overlay class generalised to an overlay class (`bsk-jumbotron-overlay`)
+* [Infrastructure] Gulp tasks for processing CSS styles have been refactored and updated
+* [Infrastructure] Testbed styles are now compiled with other Style Kit styles with reference to variables etc.
+* [Infrastructure] Font face declarations are now compiled as a separate `fonts-bsk.scss` file to avoid the common namespace
+* [Infrastructure] `bas-style-kit.scss` renamed to `styles-bsk.scss` to fit with other files
 
 ### Removed - BREAKING!
 
+* [Styles] `.navbar-brand-img-fix` class removed as it appears to be redundent
 * [Infrastructure] Gulp watch tasks have been removed
-* [Styles] 'navbar-brand-img-fix' class removed as it appears to be redundent
 
 ### Added
 
-* [Styles] A new `styles-bsk.css` contains just those styles that were previously part of the `bas-style-kit.css`
+* [Styles] Adding GDS colour pallets
+* [Styles] Colours for GDS agile development phases (alpha, beta, etc.)
+* [Styles] Styles for alerts, consisting of three variants (solid, outline and highlight) with three
+* [Styles] Styles for labels
+* [Styles] Label variants for the GDS agile development phases
+* [Styles] Adding formal experimental style for labels, alerts, buttons, text-colour and background-colour
 * [Styles] Adding testbed sample for responsive tables
 * [Styles] Override styles for responsive utilities - this is considered a bug
-* [Infrastructure] Significantly improving NPM support
-* [Infrastructure] Documenting GitHub mirror
-* [Infrastructure] Gulp tasks for processing new fonts styles file
-* [Infrastructure] Adding a permentant instance of the testbed through the testbed S3 bucket using the master branch
-* [Infrastructure] Improve coverage of Jumbotron within the Testbed with additional samples
-* [Infrastructure] Adding experiment heading class to Testbed classes
-* [Infrastructure] Adding javascript heading class to Testbed classes
-* [Styles] Adding GDS colour pallets
-* [Styles] Styles for labels
-* [Styles] Colours for GDS agile development phases (alpha, beta, etc.)
-* [Styles] Label variants for the GDS agile development phases
-* [Styles] Styles for alerts, consisting of three variants (solid, outline and highlight) with three
-layouts (standard, block, static-top) for each contextual colour and a new primary alert
-* [Infrastructure] Adding Gulp tasks for processing JavaScript files (linting)
+
+* [Scripts] Adding bootstrap-override for the DropDown plugin
 * [Scripts] Adding bootstrap-override for the Alerts plugin
 * [Scripts] Adding CookieNotice plugin
 * [Images] First set of images for the BAS Logo and BAS Roundel to provide a canonical/stable place to reference from
 * [Images] Including OGL Symbol to provide a canonical/stable place to reference from
-* [Styles] Adding formal experimental style for labels, alerts, buttons, text-colour and background-colour
-* [Scripts] Adding bootstrap-override for the DropDown plugin
+layouts (standard, block, static-top) for each contextual colour and a new primary alert
+* [Infrastructure] Adding a permentant instance of the testbed through the testbed S3 bucket using the master branch
+* [Infrastructure] Adding Gulp tasks for processing JavaScript files (linting)
+* [Infrastructure] Gulp tasks for processing new fonts styles file
+* [Infrastructure] Improve coverage of Jumbotron within the Testbed with additional samples
+* [Infrastructure] Adding experiment heading class to Testbed classes
+* [Infrastructure] Adding javascript heading class to Testbed classes
+* [Infrastructure] Significantly improving NPM support
+* [Infrastructure] Documenting GitHub mirror
 
 ### Fixed
 
-* [Styles] Adding support for input groups with input group buttons and dropdowns
-* [Styles] Correcting visibility samples to correctly hide or show elements
+* [Styles] Adding better support for input groups with input group buttons and dropdowns
 * [Styles] Navbar styles for forms with buttons no longer sit lower than form elements
+* [Styles] Rounded images are now correctly rounded
+* [Styles] Correcting visibility samples to correctly hide or show elements
+* [Styles] Navbar border variable set to the correct value, previously used '$navbar-color' incorrectly
+* [Styles] Minimum height of the header component was half of its correct value
+* [Styles] `$footer-ogl-text-max-height` corrected to `$footer-ogl-text-max-width`
+* [Styles] Colours for the inverse jumbotron now use standard inverse component variables
+* [Infrastructure] Correcting conventional icons in test alert samples
 * [Infrastructure] Preventing review apps for tagged releases during CI
 * [Infrastructure] Removing 'v' from version tags when publishing to the production CDN
 * [Infrastructure] Correcting the name of some atomic Gulp tasks to make them consistent
 * [Infrastructure] Correcting the name of the run sequence Gulp plugin to make it consistent
 * [Infrastructure] Correcting dependent task for `atomic--sourcemaps-bootstrap-bsk` Gulp task
-* [Infrastructure] Correcting conventional icons in test alert samples
 * [Infrastructure] Making grid macros suitable for both grid sizes
 * [Infrastructure] The 'greyscale' colours in Bootstrap use 'gray' not 'grey', this was incorrect in the Testbed
-* [Styles] Colours for the inverse jumbotron now use standard inverse component variables
-* [Styles] Rounded images are now correctly rounded
 * [Infrastructure] Invalid class attribute in BAS Style Kit 'colour' colour scheme
-* [Infrastructure] Adding fake favicon for testbed to remove browser warnings
 * [Infrastructure] Setting testbed sample/collection titles as page/HTML title
-* [Styles] Navbar border variable set to the correct value, previously used '$navbar-color' incorrectly
-* [Infrastructure] `$footer-ogl-text-max-height` corrected to `$footer-ogl-text-max-width`
-* [Styles] Minimum height of the header component was half of its correct value
+* [Infrastructure] Adding fake favicon for testbed to remove browser warnings
 
 ### Changed
 
+* [Styles] Upgrading to Bootstrap SASS 3.3.7
+* [Styles] Updating OGL Symbol styles to use usage guidlines
+* [Infrastructure] Upgrading to NodeJS 8 and NPM 5
+* [Infrastructure] Pinning 'Font Awesome' package to a specific version
+* [Infrastructure] Upgrading NPM package dependencies
 * [Infrastructure] Ignoring testbed sources from Git archives
 * [Infrastructure] Updating location of spell checking settings due to plugin update
 * [Infrastructure] Minor README file updates and clarifications
 * [Infrastructure] Minor testbed layout changes
 * [Infrastructure] Minor testbed content changes
-* [Infrastructure] Upgrading to NodeJS 8 and NPM 5
-* [Infrastructure] Pinning 'Font Awesome' package to a specific version
-* [Infrastructure] Upgrading NPM package dependencies
-* [Styles] Upgrading to Bootstrap SASS 3.3.7
-* [Styles] Updating OGL Symbol styles to use usage guidlines
 
 ## [0.2.0] - 2017-04-17
 
