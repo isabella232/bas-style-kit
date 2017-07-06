@@ -73,6 +73,7 @@ layouts (standard, block, static-top) for each contextual colour and a new prima
 * [Infrastructure] Setting testbed sample/collection titles as page/HTML title
 * [Styles] Navbar border variable set to the correct value, previously used '$navbar-color' incorrectly
 * [Infrastructure] `$footer-ogl-text-max-height` corrected to `$footer-ogl-text-max-width`
+* [Styles] Minimum height of the header component was half of its correct value
 
 ### Changed
 
