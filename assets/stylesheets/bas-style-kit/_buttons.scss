@@ -1,0 +1,11 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn-experimental {
+  @include button-variant($btn-experimental-color, $btn-experimental-bg, $btn-experimental-border);
+}

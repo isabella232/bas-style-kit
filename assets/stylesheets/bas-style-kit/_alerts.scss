@@ -75,3 +75,5 @@
 .alert-solid-cookie-notice {
   @include alert-solid-variant($alert-cookie-notice-base, $alert-solid-text-color, 100%);
 }
+
+@include make-alert('experimental', $alert-experimental-base, $alert-experimental-highlight);
