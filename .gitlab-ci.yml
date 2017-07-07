@@ -86,6 +86,7 @@ compile-sass-min:
       - dist/css/styles-bsk.min.css
       - dist/css/bootstrap-bsk.min.css
       - dist/css/fonts-bsk.min.css
+      - dist/css/bas-style-kit.min.css
       - dist/css/maps/styles-bsk.min.css.map
       - dist/css/maps/bootstrap-bsk.min.css.map
       - dist/css/maps/fonts-bsk.min.css.map
