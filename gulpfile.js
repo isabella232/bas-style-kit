@@ -773,7 +773,10 @@ gulp.task('build--styles-fonts-bsk-only-min', () => {
     //   debug: true
     // }))
     .pipe(csscomb())
-    .pipe(nano())
+    .pipe(nano({
+      minifyFontValues: false,
+      discardUnused: false
+    }))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write(path.join('.', 'maps')))
     .pipe(gulp.dest(path.join(config.destinations.dist, config.destinations.css)))

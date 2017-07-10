@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head -->
+    <title>Font Styles Non-minified - BAS Style Kit Testbed</title>
+    <!-- BAS Style Kit -->
+    <link rel="stylesheet" href="/dist/css/fonts-bsk.min.css">
+    <!-- Disables favicon requests -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  </head>
+  <body>
+    <header class="bsk-page-header bsk-tb-page-header">
+      <div class="bsk-container-fluid">
+        <h1>
+          <strong>#0343</strong>
+          <span class="bsk-tb-sample-sub-heading-experiment">(Experiment)</span>
+          Font styles minified
+          <small><a href="/testbed/">Back to index</a></small>
+        </h1>
+      </div>
+    </header>
+
+    <main class="bsk-container-fluid">
+      <div class="bsk-alert bsk-alert-block bsk-alert-solid-info" role="alert">
+        <header class="bsk-alert-heading">
+          <h4><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> This sample relates to an experiment at a specific point in time</h4>
+        </header>
+        <p>Such samples likely won't be useful beyond their original purpose, and will degrade over time
+        as the Style Kit evolves. <br/> Experimental samples are given a permenant sample number and kept in case they are useful
+        to others in the future.</p>
+      </div>
+      <hr />
+
+      <style>
+        .bsk-tb-ff-open-sans-regular {
+          font-family: "Open Sans";
+          font-weight: normal;
+        }
+        .bsk-tb-ff-gill-sans-book  {
+          font-family: "Gill Sans";
+          font-weight: 200;
+        }
+        .bsk-tb-ff-menlo-regular {
+          font-family: Menlo;
+        }
+        .bsk-tb-ff-helvetica-neue-regular {
+          font-family: "Helvetica Neue";
+        }
+      </style>
+
+      <h2 class="bsk-tb-ff-helvetica-neue-regular">Heading 2 - Helvetica Neue (local font)</h2>
+      <h2 class="bsk-tb-ff-open-sans-regular">Heading 2 - Open Sans (remote font-face [by us])</h2>
+      <h2 class="bsk-tb-ff-gill-sans-book">Heading 2 - Gill Sans (remote font-face [not by us])</h2>
+      <h2 class="bsk-tb-ff-menlo-regular">Heading 2 - Menlo (local font)</h2>
+
+      <hr />
+      <h4>Notes</h4>
+      <ul>
+        <li>This experiment was used to check the minified and non-minified version of the <code>bsk-fonts.css</code> file work</li>
+        <li>It was used when the minified version of these styles failed to work correctly (the font was not loaded)</li>
+        <li>This sample tests the <strong>Minified</strong> version</li>
+        <li>Where this test is working the 'Heading 2 - Helvetica Neue' and 'Heading 2 - Open Sans' will appear different</li>
+        <li>This test overrides all testbed layouts to load a non-standard style-sheet combination</li>
+        <li>Most typical styles are not applied in this sample, except for testing fonts</li>
+      </ul>
+  </body>
+</html>

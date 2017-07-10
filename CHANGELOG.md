@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Fixed
+
+* Font-faces were incorrectly stripped from minified styles
+* Testbed font test styles incorrectly falled fallback fonts, potentially giving the impression they were working when
+they weren't
+
 ## [0.3.0-alpha] - 2017-07-06
 
 ### Changed - BREAKING!

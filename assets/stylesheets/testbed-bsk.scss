@@ -177,37 +177,41 @@ background: #85994B;
 // Typography - Font-face samples
 
 .tb-ff-open-sans-light {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans";
   font-weight: 300;
 }
 
 .tb-ff-open-sans-regular {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans";
   font-weight: normal;
 }
 
 .tb-ff-open-sans-bold {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans";
   font-weight: bold;
 }
 
 .tb-ff-gill-sans-light {
-  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Gill Sans";
   font-weight: 100;
 }
 
 .tb-ff-gill-sans-book  {
-  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Gill Sans";
   font-weight: 200;
 }
 
 .tb-ff-gill-sans-roman {
-  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Gill Sans";
   font-weight: 300;
 }
 
 .tb-ff-menlo-regular {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: Menlo;
+}
+
+.tb-ff-helvetica-neue-regular {
+  font-family: "Helvetica Neue";
 }
 
 // Core - Colour swatches
