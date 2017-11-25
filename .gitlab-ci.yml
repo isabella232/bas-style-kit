@@ -19,7 +19,9 @@
 
 .job_template_s3_sync: &job_template_s3_sync
   stage: deploy
-  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  image:
+    name: governmentpaas/awscli:latest
+    entrypoint: [""]
   script: "aws s3 sync --delete dist/ s3://$S3_CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
 
 # == Global settings ==
@@ -185,7 +187,9 @@ compute-sri:
 
 review:
   stage: review
-  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  image:
+    name: governmentpaas/awscli:latest
+    entrypoint: [""]
   only:
     - branches
   except:
@@ -202,6 +206,9 @@ review:
 stop_review:
   stage: review
   image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  image:
+    name: governmentpaas/awscli:latest
+    entrypoint: [""]
   script:
     - aws s3 rm --recursive s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME
   variables:
@@ -227,7 +234,9 @@ package-dist:
 
 s3-snapshot-dev:
   stage: deploy
-  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  image:
+    name: governmentpaas/awscli:latest
+    entrypoint: [""]
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
   script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$SNAPSHOT_BUCKET/$SNAPSHOT_BUCKET_PATH/$APP_NAME/"
@@ -258,7 +267,9 @@ s3-cdn-prod:
 
 s3-testbed:
   stage: deploy
-  image: antarctica/aws-cli-image:0.1.0-alpine-gl
+  image:
+    name: governmentpaas/awscli:latest
+    entrypoint: [""]
   only:
     - master
   script:
