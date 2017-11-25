@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Testbed font test styles incorrectly falled fallback fonts, potentially giving the impression they were working when
 they weren't
 * Minified styles were concatenated in the wrong order, placing Bootstrap styles after the Style Kit's
+* [Styles] The maximum width of a container at the Full HD breakpoint was too large, causing an overflow
 
 ## [0.3.0-alpha] - 2017-07-06
 

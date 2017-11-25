@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head -->
+    <title>Fhd Breakpoint - BAS Style Kit Testbed</title>
+    <!-- BAS Style Kit -->
+    <link rel="stylesheet" href="/dist/css/bas-style-kit.css">
+    <!-- BAS Style Kit testbed styles -->
+    <link rel="stylesheet" href="/dist/css/testbed-bsk.css">
+    <!-- Disables favicon requests -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  </head>
+  <body>
+    <header class="bsk-page-header bsk-tb-page-header">
+      <div class="bsk-container-fluid">
+        <h1>
+          <strong>#0344</strong>
+          <span class="bsk-tb-sample-sub-heading-experiment">(Experiment)</span> FHD breakpoint <small><a href="/testbed/">Back to index</a></small>
+        </h1>
+        <div class="bsk-lead">
+          <span class="bsk-hidden-xs bsk-text-muted">Extra small</span>
+          <span class="bsk-hidden-sm bsk-hidden-md bsk-hidden-lg bsk-hidden-xl bsk-hidden-fhd bsk-visible-xs-inline"><strong>Extra small</strong></span>
+          ·
+          <span class="bsk-hidden-sm bsk-text-muted">Small</span>
+          <span class="bsk-hidden-xs bsk-hidden-md bsk-hidden-lg bsk-hidden-xl bsk-hidden-fhd bsk-visible-sm-inline"><strong>Small</strong></span>
+          ·
+          <span class="bsk-hidden-md bsk-text-muted">Medium</span>
+          <span class="bsk-hidden-xs bsk-hidden-sm bsk-hidden-lg bsk-hidden-xl bsk-hidden-fhd bsk-visible-md-inline"><strong>Medium</strong></span>
+          ·
+          <span class="bsk-hidden-lg bsk-text-muted">Large</span>
+          <span class="bsk-hidden-xs bsk-hidden-sm bsk-hidden-md bsk-hidden-xl bsk-hidden-fhd bsk-visible-lg-inline"><strong>Large</strong></span>
+          ·
+          <span class="bsk-hidden-xl bsk-text-muted">Extra large (custom size)</span>
+          <span class="bsk-hidden-xs bsk-hidden-sm bsk-hidden-md bsk-hidden-lg bsk-hidden-fhd bsk-visible-xl-inline"><strong>Extra large (custom size)</strong></span>
+          ·
+          <span class="bsk-hidden-fhd bsk-text-muted">Full HD (custom size)</span>
+          <span class="bsk-hidden-xs bsk-hidden-sm bsk-hidden-md bsk-hidden-lg bsk-hidden-xl bsk-visible-fhd-inline"><strong>Full HD (custom size)</strong></span>
+        </div>
+      </div>
+    </header>
+
+    <div class="bsk-container-fluid">
+      <div class="bsk-alert bsk-alert-block bsk-alert-solid-info" role="alert">
+        <header class="bsk-alert-heading">
+          <h4><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> This sample relates to an experiment at a specific point in time</h4>
+        </header>
+        <p>Such samples likely won't be useful beyond their original purpose, and will degrade over time
+        as the Style Kit evolves. <br/> Experimental samples are given a permenant sample number and kept in case they are useful
+        to others in the future.</p>
+      </div>
+      <hr />
+      <p class="bsk-text-info"><strong>Note</strong> this sample may break outside the default page layout.</p>
+    </div>
+
+    <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With container (fixed)</h4>
+    <div class="bsk-container">
+      <div class="bsk-tb-visible-col-1"></div>
+    </div>
+
+    <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With container (fluid)</h4>
+    <div class="bsk-container-fluid">
+      <div class="bsk-tb-visible-col-2"></div>
+    </div>
+
+    <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With no container</h4>
+    <div class="bsk-tb-visible-col-3"></div>
+
+    <div class="bsk-container-fluid">
+      <hr />
+
+      <h4>Notes</h4>
+      <ul>
+        <li>This experiment was used to check the Full HD breakpoint had the correct width set to give suitable left/right margins</li>
+        <li>This sample will only work when viewed at the Full HD breakpoint, which begins at <code>1920</code> pixels exactly (this can be faked using responsive mode in Dev Tools)</li>
+        <li>If working, there will be a difference in the left/right margin between the two container examples</li>
+        <li>If working, there should be visible left/right margins around the two container examples, to different degrees, similar in proportion to other breakpoint sizes</li>
+        <li>The no container example will always be full width, with no left/right margin, to act as a baseline</li>
+        <li>A screenshot of this not working <a href="https://www.evernote.com/l/ACf7-Ggc9dlN0aIECgBJiiWHqPqrtmIOwKg">link</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
