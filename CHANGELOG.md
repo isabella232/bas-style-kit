@@ -61,7 +61,6 @@ greyscale) based on colours from BAS/NERC, the GDS and Bootstrap - includes all 
 * [Styles] Adding formal experimental style for labels, alerts, buttons, text-colour and background-colour
 * [Styles] Adding testbed sample for responsive tables
 * [Styles] Override styles for responsive utilities - this is considered a bug
-
 * [Scripts] Adding bootstrap-override for the DropDown plugin
 * [Scripts] Adding bootstrap-override for the Alerts plugin
 * [Scripts] Adding CookieNotice plugin
