@@ -7,13 +7,13 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
-* Font-faces were incorrectly stripped from minified styles
-* Testbed font test styles incorrectly falled fallback fonts, potentially giving the impression they were working when
-they weren't
-* Minified styles were concatenated in the wrong order, placing Bootstrap styles after the Style Kit's
 * [Styles] The maximum width of a container at the Full HD breakpoint was too large, causing an overflow
 * [Infrastructure] Correcting path to project Docker image caused by change in repository URL
 * [Infrastructure] Correcting other links referencing the old repository URL
+* [Infrastructure] Font-faces were incorrectly stripped from minified styles
+* [Infrastructure] Testbed font test styles incorrectly falled fallback fonts, potentially giving the impression they
+were working when they weren't
+* [Infrastructure] Minified styles were concatenated in the wrong order, placing Bootstrap styles after the Style Kit's
 
 ## [0.3.0-alpha] - 2017-07-06
 
