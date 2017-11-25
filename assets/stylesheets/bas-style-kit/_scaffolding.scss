@@ -3,6 +3,14 @@
 // --------------------------------------------------
 
 
+// Body reset
+
+body {
+  [tabindex]:focus {
+    outline: none;
+  }
+}
+
 // Images
 
 // Rounded corners
