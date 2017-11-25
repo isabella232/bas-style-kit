@@ -13,6 +13,7 @@ they weren't
 * Minified styles were concatenated in the wrong order, placing Bootstrap styles after the Style Kit's
 * [Styles] The maximum width of a container at the Full HD breakpoint was too large, causing an overflow
 * [Infrastructure] Correcting path to project Docker image caused by change in repository URL
+* [Infrastructure] Correcting other links referencing the old repository URL
 
 ## [0.3.0-alpha] - 2017-07-06
 

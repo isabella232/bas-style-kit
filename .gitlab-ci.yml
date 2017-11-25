@@ -5,7 +5,7 @@
 # - GitLab automatically passes artifacts from previous stages by default
 # - This configuration file uses some advanced YAML features (namely anchors) which may not be correctly displayed
 #   by syntax highlighting
-# - Set required secret variables at: https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/variables - see below
+# - Set required secret variables at: https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit/settings/ci_cd
 
 # = Secret variables
 # - Variables are grouped by section in KEY: "value" format (e.g. FOO: "bar")
