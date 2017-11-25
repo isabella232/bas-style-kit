@@ -63,10 +63,10 @@ unexpected manipulation. It works by allowing you to provide a cryptographic has
 A set of Gulp tasks are provided to compute these values for Style Kit assets, saved as a JSON file.
 
 During deployment of tagged releases, this file will need to be copied into the
-[Documentation project](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs) for users to reference.
+[Documentation project](https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-docs) for users to reference.
 
 This is currently a manual process described in the relevant
-[README](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit-docs/blob/master/README.md).
+[README](https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-docs/README.md).
 
 ### Testbed
 
@@ -96,7 +96,7 @@ To update the Docker image for this project, access to the private
 [BAS Docker Registry](https://docker-registry.data.bas.ac.uk) [2] is also required.
 
 ```shell
-$ git clone https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
+$ git clone https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit.git
 $ cd bas-style-kit
 
 $ docker-compose up
@@ -190,8 +190,9 @@ To run tests manually run the `lint` Gulp task.
 
 ### Continuous Integration
 
-The BAS GitLab instance is used for [Continuous Integration](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/pipelines)
-using settings defined in `.gitlab-ci.yml`.
+The BAS GitLab instance is used for
+[Continuous Integration](https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit/pipelines) using settings defined in
+`.gitlab-ci.yml`.
 
 ### Review apps
 
@@ -211,7 +212,7 @@ Access to the [BAS Packages Service](https://bitbucket.org/antarctica/bas-packag
 [BAS CDN](https://bitbucket.org/antarctica/bas-cdn) projects is also required [2].
 
 ```shell
-$ git clone https://gitlab.data.bas.ac.uk/BSK/bas-style-kit.git
+$ git clone https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit.git
 $ cd bas-style-kit/provisioning/terraform
 
 $ terraform plan
@@ -244,8 +245,9 @@ $ brew cask install terraform
 
 ## Deployment
 
-The BAS GitLab instance is used for [Continuous Deployment](https://gitlab.data.bas.ac.uk/BSK/bas-style-kit/builds)
-using settings defined in `.gitlab-ci.yml`.
+The BAS GitLab instance is used for
+[Continuous Deployment](https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit/pipelines) using settings defined in
+`.gitlab-ci.yml`.
 
 Deployments are currently triggered manually, but are automated once started.
 
