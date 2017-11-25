@@ -16,6 +16,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 were working when they weren't
 * [Infrastructure] Minified styles were concatenated in the wrong order, placing Bootstrap styles after the Style Kit's
 
+### Changed
+
+* [Infrastructure] Switching to GDS AWS-CLI image from our own version, should be no difference in functionality
+
 ## [0.3.0-alpha] - 2017-07-06
 
 ### Changed - BREAKING!
