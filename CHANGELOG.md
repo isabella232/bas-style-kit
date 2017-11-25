@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Added
+
+* [Scripts] Adding bootstrap-override for the Collapse plugin
+
 ### Fixed
 
 * [Styles] The maximum width of a container at the Full HD breakpoint was too large, causing an overflow
