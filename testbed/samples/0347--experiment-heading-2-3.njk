@@ -1,0 +1,385 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0347-experiment-heading-2-3.html" %}
+{% set sample_number = "#0347" %}
+{% set sample_title = "Heading 2/3 size differences" %}
+{% set sample_type_experiment = true %}
+
+{% block sample %}
+<style>
+.bsk-tb-exp-override-prev-h1 {
+  font-size: 40px;
+}
+.bsk-tb-exp-override-prev-h2 {
+  font-size: 32px;
+}
+.bsk-tb-exp-override-prev-h3 {
+  font-size: 28px;
+}
+.bsk-tb-exp-override-gds-h1 {
+  font-size: 48px;
+}
+.bsk-tb-exp-override-gds-h2 {
+  font-size: 36px;
+}
+.bsk-tb-exp-override-gds-h3 {
+  font-size: 24px;
+}
+.bsk-tb-exp-override-gds-h4 {
+  font-size: 19px;
+}
+.bsk-tb-exp-override-new-h1 {
+  font-size: 50px;
+}
+.bsk-tb-exp-override-new-h2 {
+  font-size: 37px;
+}
+.bsk-tb-exp-override-new-h3 {
+  font-size: 28px;
+}
+.bsk-tb-exp-override-new-h4 {
+  font-size: 21px;
+}
+.bsk-tb-exp-override-new-h5 {
+  font-size: 12px;
+}
+.bsk-tb-exp-override-new-h6 {
+  font-size: 6px;
+}
+</style>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Standalone (previous font sizes)</h4>
+<h2 class="bsk-tb-exp-override-prev-h2">Heading X</h2>
+<h3 class="bsk-tb-exp-override-prev-h3">Heading X</h3>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With content the same size between each heading (previous font sizes)</h4>
+<h2 class="bsk-tb-exp-override-prev-h2">Providing context</h2>
+<ul class="bsk-list-inline">
+  <li>
+    <a href="#"> Back to top</a>
+  </li>
+  <li>
+    <a href="#">Link to this section</a>
+  </li>
+</ul>
+
+<h3 class="bsk-tb-exp-override-prev-h3">Conveying context without colours or icons</h3>
+<ul class="bsk-list-inline">
+  <li>
+    <a href="#"> Back to top</a>
+  </li>
+  <li>
+    <a href="#">Link to this section</a>
+  </li>
+</ul>
+<p>Relying on colour or icons alone to indicate the meaning or context of an action or notice is bad practice. This information cannot is inaccessible to colour-blind users for example, or those using assistive technologies – such as screen readers.</p>
+<p>Instead, efforts should be made to ensure that the context is either obvious from the content itself, or is included in an alternative form, such as with the .bsk-sr-only class.</p>
+<p>Ideally contextual colours and icons should only be needed for reinforcing meaning that is already present in text or other markup.</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Standalone (GDS font sizes)</h4>
+<h2 class="bsk-tb-exp-override-gds-h2">Heading X</h2>
+<h3 class="bsk-tb-exp-override-gds-h3">Heading X</h3>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With content the same size between each heading (GDS font sizes)</h4>
+<h2 class="bsk-tb-exp-override-gds-h2">Providing context</h2>
+<ul class="bsk-list-inline">
+  <li>
+    <a href="#"> Back to top</a>
+  </li>
+  <li>
+    <a href="#">Link to this section</a>
+  </li>
+</ul>
+
+<h3 class="bsk-tb-exp-override-gds-h3">Conveying context without colours or icons</h3>
+<ul class="bsk-list-inline">
+  <li>
+    <a href="#"> Back to top</a>
+  </li>
+  <li>
+    <a href="#">Link to this section</a>
+  </li>
+</ul>
+<p>Relying on colour or icons alone to indicate the meaning or context of an action or notice is bad practice. This information cannot is inaccessible to colour-blind users for example, or those using assistive technologies – such as screen readers.</p>
+<p>Instead, efforts should be made to ensure that the context is either obvious from the content itself, or is included in an alternative form, such as with the .bsk-sr-only class.</p>
+<p>Ideally contextual colours and icons should only be needed for reinforcing meaning that is already present in text or other markup.</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Standalone (New font sizes)</h4>
+<h2 class="bsk-tb-exp-override-new-h2">Heading X</h2>
+<h3 class="bsk-tb-exp-override-new-h3">Heading X</h3>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With content the same size between each heading (New font sizes)</h4>
+<h2 class="bsk-tb-exp-override-new-h2">Providing context</h2>
+<ul class="bsk-list-inline">
+  <li>
+    <a href="#"> Back to top</a>
+  </li>
+  <li>
+    <a href="#">Link to this section</a>
+  </li>
+</ul>
+
+<h3 class="bsk-tb-exp-override-new-h3">Conveying context without colours or icons</h3>
+<ul class="bsk-list-inline">
+  <li>
+    <a href="#"> Back to top</a>
+  </li>
+  <li>
+    <a href="#">Link to this section</a>
+  </li>
+</ul>
+<p>Relying on colour or icons alone to indicate the meaning or context of an action or notice is bad practice. This information cannot is inaccessible to colour-blind users for example, or those using assistive technologies – such as screen readers.</p>
+<p>Instead, efforts should be made to ensure that the context is either obvious from the content itself, or is included in an alternative form, such as with the .bsk-sr-only class.</p>
+<p>Ideally contextual colours and icons should only be needed for reinforcing meaning that is already present in text or other markup.</p>
+
+<div class="bsk-row">
+  <div class="bsk-col-12-md-3">
+    <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Previous font sizes</h4>
+    <h1 class="bsk-tb-exp-override-prev-h1">Heading 1</h1>
+    <h2 class="bsk-tb-exp-override-prev-h2">Heading 2</h2>
+    <h3 class="bsk-tb-exp-override-prev-h3">Heading 3</h3>
+    <h4 class="bsk-tb-exp-override-prev-h4">Heading 4</h4>
+    <h5 class="bsk-tb-exp-override-prev-h5">Heading 5</h5>
+    <h6 class="bsk-tb-exp-override-prev-h6">Heading 6</h6>
+  </div>
+  <div class="bsk-col-12-md-3">
+    <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">GDS font sizes</h4>
+    <h1 class="bsk-tb-exp-override-gds-h1">Heading 1</h1>
+    <h2 class="bsk-tb-exp-override-gds-h2">Heading 2</h2>
+    <h3 class="bsk-tb-exp-override-gds-h3">Heading 3</h3>
+    <h4 class="bsk-tb-exp-override-gds-h4">Heading 4</h4>
+    <h5 class="bsk-tb-exp-override-gds-h5">Heading 5</h5>
+    <h6 class="bsk-tb-exp-override-gds-h6">Heading 6</h6>
+  </div>
+  <div class="bsk-col-12-md-3">
+    <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">New font sizes</h4>
+    <h1 class="bsk-tb-exp-override-new-h1">Heading 1</h1>
+    <h2 class="bsk-tb-exp-override-new-h2">Heading 2</h2>
+    <h3 class="bsk-tb-exp-override-new-h3">Heading 3</h3>
+    <h4 class="bsk-tb-exp-override-new-h4">Heading 4</h4>
+    <h5 class="bsk-tb-exp-override-new-h5">Heading 5</h5>
+    <h6 class="bsk-tb-exp-override-new-h6">Heading 6</h6>
+  </div>
+</div>
+<div class="bsk-row">
+  <div class="bsk-col-12-md-3">
+    <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Previous font sizes (with spacer)</h4>
+    <h1 class="bsk-tb-exp-override-prev-h1">Heading 1</h1>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h2 class="bsk-tb-exp-override-prev-h2">Heading 2</h2>
+        <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h3 class="bsk-tb-exp-override-prev-h3">Heading 3</h3>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h4 class="bsk-tb-exp-override-prev-h4">Heading 4</h4>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h5 class="bsk-tb-exp-override-prev-h5">Heading 5</h5>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h6 class="bsk-tb-exp-override-prev-h6">Heading 6</h6>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+  </div>
+  <div class="bsk-col-12-md-3">
+    <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">GDS font sizes (with spacer)</h4>
+    <h1 class="bsk-tb-exp-override-gds-h1">Heading 1</h1>
+        <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h2 class="bsk-tb-exp-override-gds-h2">Heading 2</h2>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h3 class="bsk-tb-exp-override-gds-h3">Heading 3</h3>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h4 class="bsk-tb-exp-override-gds-h4">Heading 4</h4>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h5 class="bsk-tb-exp-override-gds-h5">Heading 5</h5>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h6 class="bsk-tb-exp-override-gds-h6">Heading 6</h6>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+  </div>
+  <div class="bsk-col-12-md-3">
+    <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">New font sizes (with spacer)</h4>
+    <h1 class="bsk-tb-exp-override-new-h1">Heading 1</h1>
+        <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h2 class="bsk-tb-exp-override-new-h2">Heading 2</h2>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h3 class="bsk-tb-exp-override-new-h3">Heading 3</h3>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h4 class="bsk-tb-exp-override-new-h4">Heading 4</h4>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h5 class="bsk-tb-exp-override-new-h5">Heading 5</h5>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+    <h6 class="bsk-tb-exp-override-new-h6">Heading 6</h6>
+    <ul class="bsk-list-inline">
+      <li>
+        <a href="#"> Back to top</a>
+      </li>
+      <li>
+        <a href="#">Link to this section</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<hr />
+<h4>Notes</h4>
+<ul>
+  <li>This experiment was used to how the size of heading 2 and 3 elements appeared to be sutble, and if there's a way to address this</li>
+  <li>The previous font sizes were those used in BSK version 0.3.0-alpha</li>
+  <li>The GDS font sizes are included as a comparison</li>
+  <li>The new/proposed font sizes were created using a 1.333 scale (perfect fourth) from a 16px pixel base</li>
+</ul>
+<table class="bsk-table">
+  <thead>
+    <tr>
+      <th>Series</th>
+      <th>H1 (px)</th>
+      <th>H2 (px)</th>
+      <th>H3 (px)</th>
+      <th>H4 (px)</th>
+      <th>H2/H3 Difference (px)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Previous font sizes</td>
+      <td>40</td>
+      <td>32</td>
+      <td>28</td>
+      <td>24</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>GDS font sizes</td>
+      <td>48</td>
+      <td>36</td>
+      <td>24</td>
+      <td>19</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Proposed font sizes</td>
+      <td>50</td>
+      <td>37</td>
+      <td>28</td>
+      <td>21</td>
+      <td>12</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
