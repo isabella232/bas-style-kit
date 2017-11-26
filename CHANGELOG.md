@@ -12,6 +12,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Fixed
 
 * [Styles] The maximum width of a container at the Full HD breakpoint was too large, causing an overflow
+* [Styles] Setting HTML background colour to that used by the footer background, to ensure a consistent design
 * [Styles] Removing focus outline around non-interactive elements
 * [Styles] Icons, headings and contents of alert blocks now align correctly
 * [Styles] Some testbed samples weren't using global prefix

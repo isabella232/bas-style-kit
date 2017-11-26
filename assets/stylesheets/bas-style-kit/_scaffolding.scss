@@ -5,6 +5,10 @@
 
 // Body reset
 
+html {
+  background-color: $html-bg;
+}
+
 body {
   [tabindex]:focus {
     outline: none;
