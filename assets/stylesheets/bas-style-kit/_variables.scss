@@ -158,8 +158,8 @@ $zindex-image-copyright:                      900;
 // Settings for some of the most global styles.
 
 // Background colour for `<body>`.
-$page-background:                             $bsk-colour-std-white !default;
-$body-bg:                                     $page-background;
+$html-bg:                                     $bsk-colour-std-grey-darker;
+$body-bg:                                     $bsk-colour-std-white !default;
 
 // Global text colour on `<body>`.
 $page-text:                                   $bsk-colour-std-grey-darker !default;

@@ -10,6 +10,13 @@
 @import "bas-style-kit/variables";
 
 
+// Design - General
+
+html {
+  // Overrides Style Kit default
+  background-color: #fff;
+}
+
 // Layout - General
 
 .tb-margin-top {
