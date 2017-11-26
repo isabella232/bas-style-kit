@@ -1,8 +1,8 @@
 // Alerts
 
-@mixin make-alert($variant, $base-color, $highlight-color, $solid-variant-text-color: $alert-solid-text-color, $solid-variant-text-size: 120%) {
+@mixin make-alert($variant, $base-color, $highlight-color, $solid-variant-text-color: $alert-solid-text-color) {
   .alert-solid-#{$variant} {
-    @include alert-solid-variant($base-color, $solid-variant-text-color, $solid-variant-text-size);
+    @include alert-solid-variant($base-color, $solid-variant-text-color);
   }
 
   .alert-outline-#{$variant} {
@@ -14,8 +14,7 @@
   }
 }
 
-@mixin alert-solid-variant($background-color, $text-color, $text-size) {
-  font-size: $text-size;
+@mixin alert-solid-variant($background-color, $text-color) {
   background-color: $background-color;
   color: $text-color;
 

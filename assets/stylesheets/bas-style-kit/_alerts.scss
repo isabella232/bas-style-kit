@@ -19,22 +19,21 @@
     // To prevent conflicts of changing $headings-color
     color: inherit;
   }
-
-  // Improve alignment and spacing of inner content
-  > ol,
-  > ul {
-    margin-left: -20px;
-    margin-bottom: 0;
-  }
 }
 
 
 // Contextual icons
 //
 // Expand the right padding to better position the icon for an alert
+//
+// This uses a double definition so that '.bsk-alert-icon' can be placed on the alert container to act as a
+// marker/trigger for other styles - i.e. '.bsk-alert-body' does something different if an icon is used in the
+// same alert. The inner '.bsk-alert-icon' holds the styles we want to apply to the actual icon.
 
 .alert-icon {
-  padding-right: 15px;
+  .alert-icon {
+    padding-right: $alert-block-icon-padding-right;
+  }
 }
 
 
@@ -47,6 +46,21 @@
 
   .alert-heading {
     padding-bottom: 15px;
+  }
+
+  .alert-body {
+    // Improve alignment and spacing of inner content
+    > ol,
+    > ul {
+      margin-left: -25px;
+      margin-bottom: 0;
+    }
+  }
+
+  &.alert-icon {
+    .alert-body {
+      padding-left: $alert-block-icon-body-padding-left;
+    }
   }
 }
 
@@ -67,13 +81,13 @@
 // Generate classes for each alert type and each context
 
 @include make-alert('primary', $alert-primary-base, $alert-primary-highlight);
+@include make-alert('experimental', $alert-experimental-base, $alert-experimental-highlight);
 @include make-alert('success', $alert-success-base, $alert-success-highlight);
 @include make-alert('warning', $alert-warning-base, $alert-warning-highlight, $alert-warning-solid-text);
 @include make-alert('danger', $alert-danger-base, $alert-danger-highlight);
 @include make-alert('info', $alert-info-base, $alert-info-highlight);
 
 .alert-solid-cookie-notice {
-  @include alert-solid-variant($alert-cookie-notice-base, $alert-solid-text-color, 100%);
+  @include alert-solid-variant($alert-cookie-notice-base, $alert-solid-text-color);
 }
 
-@include make-alert('experimental', $alert-experimental-base, $alert-experimental-highlight);

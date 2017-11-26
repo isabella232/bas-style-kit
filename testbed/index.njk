@@ -7,21 +7,24 @@
 {{ main.bsk_tb_main_heading_v2('Main index', show_index_link=false) }}
 
 <div class="bsk-container-fluid">
-  <div class="bsk-alert bsk-alert-block bsk-alert-outline-info" role="alert">
+  <div class="bsk-alert bsk-alert-block bsk-alert-icon bsk-alert-outline-info" role="alert">
     <header class="bsk-alert-heading">
-      <h2><i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> Notes</h2>
+      <h4><i class="fa fa-fw fa-info bsk-alert-icon" aria-hidden="true"></i> Notes</h4>
     </header>
-    <ul>
-      <li>sample references do not indicate any implied order or grouping to samples</li>
-      <li>samples should not necessarily work - some are intentionally invalid or extream and are expected to fail</li>
-      <li>Some samples are experiments - they will likely break once they are not actively needed, but are kept in the Testbed</li>
-      <li>this test bed does not constitute end-user documentation, it is used for development purposes only</li>
-      <li>
-        see <a class="bsk-alert-link" href="https://style-kit.web.bas.ac.uk">style-kit.web.bas.ac.uk</a> or
-        <a class="bsk-alert-link" href="https://style-kit-testing.web.bas.ac.uk">style-kit-testing.web.bas.ac.uk</a> for end-user documentation
-      </li>
-    </ul>
+    <div class="bsk-alert-body">
+      <ul>
+        <li>sample references do not indicate any implied order or grouping to samples</li>
+        <li>samples should not necessarily work - some are intentionally invalid or extream and are expected to fail</li>
+        <li>Some samples are experiments - they will likely break once they are not actively needed, but are kept in the Testbed</li>
+        <li>this test bed does not constitute end-user documentation, it is used for development purposes only</li>
+        <li>
+          see <a class="bsk-alert-link" href="https://style-kit.web.bas.ac.uk">style-kit.web.bas.ac.uk</a> or
+          <a class="bsk-alert-link" href="https://style-kit-testing.web.bas.ac.uk">style-kit-testing.web.bas.ac.uk</a> for end-user documentation
+        </li>
+      </ul>
+    </div>
   </div>
+</div>
 
   {% call main.bsk_tb_section_v2('Sample collections', heading_level=2, show_index_link=false) %}
   <ul>
