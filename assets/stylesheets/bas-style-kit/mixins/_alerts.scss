@@ -1,55 +1,35 @@
 // Alerts
 
-@mixin make-alert($variant, $base-color, $highlight-color, $solid-variant-text-color: $alert-solid-text-color) {
-  .alert-solid-#{$variant} {
-    @include alert-solid-variant($base-color, $solid-variant-text-color);
-  }
+@mixin make-alert($variant, $base-color, $highlight-color, $solid-variant-text-color) {
+  .alert-solid.alert-#{$variant} {
+    background-color: $base-color;
+    color: $solid-variant-text-color;
 
-  .alert-outline-#{$variant} {
-    @include alert-outline-variant($base-color, $highlight-color);
-  }
+    .alert-icon {
+      color: $solid-variant-text-color;
+    }
 
-  .alert-highlight-#{$variant} {
-    @include alert-highlight-variant($base-color, $highlight-color);
-  }
-}
+    .alert-link {
+      color: $solid-variant-text-color;
+    }
 
-@mixin alert-solid-variant($background-color, $text-color) {
-  background-color: $background-color;
-  color: $text-color;
-
-  .alert-link {
-    color: $text-color;
-  }
-
-  // Dismissible alerts
-  &.alert-dismissible {
-    .close {
-      color: $alert-solid-close-color;
+    // Dismissible alerts
+    &.alert-dismissible {
+      .close {
+        color: $alert-solid-close-color;
+      }
     }
   }
-}
 
-@mixin alert-outline-variant($border-color, $highlight-color) {
-  border: 5px solid $border-color;
+  .alert-#{$variant} {
+    border-color: $base-color;
 
-  .alert-icon {
-    color: $highlight-color;
-  }
+    .alert-icon {
+      color: $highlight-color;
+    }
 
-  .alert-link {
-    color: $highlight-color;
-  }
-}
-
-@mixin alert-highlight-variant($border-color, $highlight-color) {
-  border-left: 5px solid $border-color;
-
-  .alert-icon {
-    color: $highlight-color;
-  }
-
-  .alert-link {
-    color: $highlight-color;
+    .alert-link {
+      color: $highlight-color;
+    }
   }
 }

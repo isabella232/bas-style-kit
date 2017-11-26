@@ -25,6 +25,7 @@ were working when they weren't
 
 ### Changed
 
+* [Styles] The style and variant of an alert are now expressed as separate sets of classes
 * [Styles] The base and block alert classes have been more clearly separated to make basic alerts simpler
 * [Infrastructure] Switching to GDS AWS-CLI image from our own version, should be no difference in functionality
 

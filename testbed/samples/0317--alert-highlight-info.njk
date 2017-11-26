@@ -3,28 +3,35 @@
 {% set sample_href = "0317--alert-highlight-info.html" %}
 {% set sample_number = "#0317" %}
 {% set sample_title = "highlight information alert" %}
-{% set sample_markup = '.bsk-alert.bsk-alert-highlight-info' %}
+{% set sample_markup = '.bsk-alert.bsk-alert-highlight.bsk-alert-info' %}
 
 {% block sample %}
-<div class="bsk-alert bsk-alert-highlight-info" role="alert">Information alert</div>
+<div class="bsk-alert bsk-alert-highlight bsk-alert-info" role="alert">
+  Info alert
+</div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With alert link</h4>
-<div class="bsk-alert bsk-alert-highlight-info" role="alert">Information alert with a <a href="#" class="bsk-alert-link">link</a></div>
+<div class="bsk-alert bsk-alert-highlight bsk-alert-info" role="alert">
+  Info alert with a <a href="#" class="bsk-alert-link">link</a>
+</div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual icon</h4>
-<div class="bsk-alert bsk-alert-highlight-info" role="alert">
-  <i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> Information alert
+<div class="bsk-alert bsk-alert-highlight bsk-alert-info" role="alert">
+  <i class="fa fa-fw fa-info bsk-alert-icon" aria-hidden="true"></i> Info alert
 </div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual icon and lots of text</h4>
-<div class="bsk-alert bsk-alert-highlight-info" role="alert">
-  <i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> Information alert - I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane.
-  I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane.
+<div class="bsk-alert bsk-alert-highlight bsk-alert-info" role="alert">
+  <i class="fa fa-fw fa-info bsk-alert-icon" aria-hidden="true"></i>
+  Info alert - I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a
+  crane. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane.
 </div>
 
-<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual conventional dismiss icons</h4>
-<div class="bsk-alert bsk-alert-highlight-info" role="alert">
-  <button type="button" class="bsk-close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-  <i class="fa fa-info bsk-alert-icon" aria-hidden="true"></i> Information alert
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With contextual and conventional dismiss icons</h4>
+<div class="bsk-alert bsk-alert-highlight bsk-alert-info bsk-alert-dismissible" role="alert">
+  <button type="button" class="bsk-close" data-dismiss="alert" aria-label="Close">
+    <i class="fa fa-fw fa-times-circle" aria-hidden="true"></i>
+  </button>
+  <i class="fa fa-fw fa-info bsk-alert-icon" aria-hidden="true"></i> Info alert
 </div>
 {% endblock %}
