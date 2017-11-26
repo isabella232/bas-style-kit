@@ -6,11 +6,14 @@
 {% set sample_markup = '.bsk-alert.bsk-alert-block.bsk-alert-*-primary' %}
 
 {% block sample %}
+
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">(solid)</h4>
 <div class="bsk-alert bsk-alert-block bsk-alert-solid-primary" role="alert">
-  <p>Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
+  <div class="bsk-alert-body">
+    Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
     and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
-    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.
+  </div>
 </div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With heading (solid)</h4>
@@ -18,42 +21,112 @@
   <header class="bsk-alert-heading">
     <h4>Primary alert header</h4>
   </header>
-  <p>Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
+  <div class="bsk-alert-body">
+    Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
     and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
-    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.
+  </div>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With heading and list (solid)</h4>
+<div class="bsk-alert bsk-alert-block bsk-alert-solid-primary" role="alert">
+  <header class="bsk-alert-heading">
+    <h4>Primary alert header</h4>
+  </header>
+  <div class="bsk-alert-body">
+    A list
+    <ul>
+      <li>List item</li>
+      <li>
+        List item
+        <ul>
+          <li>List item</li>
+          <li>List item</li>
+        </ul>
+      </li>
+      <li>List item</li>
+  </div>
 </div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">(outline)</h4>
 <div class="bsk-alert bsk-alert-block bsk-alert-outline-primary" role="alert">
-  <p>Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
+  <div class="bsk-alert-body">
+    Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
     and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
-    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.
+  </div>
 </div>
 
-<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With heading and conventional icon (outline)</h4>
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With heading (outline)</h4>
 <div class="bsk-alert bsk-alert-block bsk-alert-outline-primary" role="alert">
   <header class="bsk-alert-heading">
     <h4>Primary alert header</h4>
   </header>
-  <p>Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
+  <div class="bsk-alert-body">
+    Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
     and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
-    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.
+  </div>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With heading and list (outline)</h4>
+<div class="bsk-alert bsk-alert-block bsk-alert-outline-primary" role="alert">
+  <header class="bsk-alert-heading">
+    <h4>Primary alert header</h4>
+  </header>
+  <div class="bsk-alert-body">
+    A list
+    <ul>
+      <li>List item</li>
+      <li>
+        List item
+        <ul>
+          <li>List item</li>
+          <li>List item</li>
+        </ul>
+      </li>
+      <li>List item</li>
+  </div>
 </div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">(highlight)</h4>
 <div class="bsk-alert bsk-alert-block bsk-alert-highlight-primary" role="alert">
-  <p>Primary alert text - Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+  <div class="bsk-alert-body">
+    Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
     and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
-    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.
+  </div>
 </div>
 
-<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With heading and conventional icon (highlight)</h4>
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With heading (highlight)</h4>
 <div class="bsk-alert bsk-alert-block bsk-alert-highlight-primary" role="alert">
   <header class="bsk-alert-heading">
     <h4>Primary alert header</h4>
   </header>
-  <p>Primary alert text - Ann certainly has a great deal of Mass.</span> I hate the Wetlands. They're stupid and wet,
+  <div class="bsk-alert-body">
+    Primary alert text - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet,
     and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
-    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+    I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.
+  </div>
+</div>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With heading and list (highlight)</h4>
+<div class="bsk-alert bsk-alert-block bsk-alert-highlight-primary" role="alert">
+  <header class="bsk-alert-heading">
+    <h4>Primary alert header</h4>
+  </header>
+  <div class="bsk-alert-body">
+    A list
+    <ul>
+      <li>List item</li>
+      <li>
+        List item
+        <ul>
+          <li>List item</li>
+          <li>List item</li>
+        </ul>
+      </li>
+      <li>List item</li>
+  </div>
 </div>
 {% endblock %}

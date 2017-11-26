@@ -519,6 +519,9 @@ $label-experimental-bg:                       $brand-experimental;
 
 $alert-border-radius:                         $border-radius-base;
 
+$alert-block-icon-padding-right:              15px;
+$alert-block-icon-body-padding-left:          25px + $alert-block-icon-padding-right;
+
 $alert-solid-text-color:                      $bsk-colour-std-white;
 $alert-solid-close-color:                     $alert-solid-text-color;
 
