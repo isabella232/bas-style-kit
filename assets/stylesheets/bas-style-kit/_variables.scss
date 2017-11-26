@@ -518,6 +518,7 @@ $label-experimental-bg:                       $brand-experimental;
 //## Define alert colors, border radius, and padding.
 
 $alert-border-radius:                         $border-radius-base;
+$alert-border-width:                          5px;
 
 $alert-block-icon-padding-right:              15px;
 $alert-block-icon-body-padding-left:          25px + $alert-block-icon-padding-right;
@@ -542,6 +543,7 @@ $alert-info-base:                             $state-info-base;
 $alert-info-highlight:                        $state-info-text;
 
 $alert-cookie-notice-base:                    $bsk-colour-std-blue-base;
+$alert-cookie-notice-highlight:               $bsk-colour-std-blue-base;
 
 $alert-experimental-base:                     $state-experimental-base;
 $alert-experimental-highlight:                $state-experimental-text;

@@ -73,17 +73,29 @@
 }
 
 
-// Variants
+// Styles
 //
-// Generate classes for each alert type and each context
+// Note there is no class for the 'solid' variant as it simply sets a background colour
 
-@include make-alert('primary', $alert-primary-base, $alert-primary-highlight);
-@include make-alert('experimental', $alert-experimental-base, $alert-experimental-highlight);
-@include make-alert('success', $alert-success-base, $alert-success-highlight);
-@include make-alert('warning', $alert-warning-base, $alert-warning-highlight, $alert-warning-solid-text);
-@include make-alert('danger', $alert-danger-base, $alert-danger-highlight);
-@include make-alert('info', $alert-info-base, $alert-info-highlight);
-
-.alert-solid-cookie-notice {
-  @include alert-solid-variant($alert-cookie-notice-base, $alert-solid-text-color);
+.alert-outline {
+  border-width: $alert-border-width;
+  border-style: solid;
+  background-color: transparent;
 }
+
+.alert-highlight {
+  border: none;
+  border-left-width: $alert-border-width;
+  border-left-style: solid;
+  background-color: transparent;
+}
+
+// Variants
+
+@include make-alert('primary', $alert-primary-base, $alert-primary-highlight, $alert-solid-text-color);
+@include make-alert('experimental', $alert-experimental-base, $alert-experimental-highlight, $alert-solid-text-color);
+@include make-alert('cookie-notice', $alert-cookie-notice-base, $alert-cookie-notice-highlight, $alert-solid-text-color);
+@include make-alert('success', $alert-success-base, $alert-success-highlight, $alert-solid-text-color);
+@include make-alert('warning', $alert-warning-base, $alert-warning-highlight, $alert-warning-solid-text);
+@include make-alert('danger', $alert-danger-base, $alert-danger-highlight, $alert-solid-text-color);
+@include make-alert('info', $alert-info-base, $alert-info-highlight, $alert-solid-text-color);

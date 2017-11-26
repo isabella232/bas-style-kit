@@ -3,23 +3,27 @@
 {% set sample_href = "0324--alert-outline-primary.html" %}
 {% set sample_number = "#0324" %}
 {% set sample_title = "Solid outline alert" %}
-{% set sample_markup = '.bsk-alert.bsk-alert-outline-primary' %}
+{% set sample_markup = '.bsk-alert.bsk-alert-outline.bsk-alert-primary' %}
 
 {% block sample %}
-<div class="bsk-alert bsk-alert-outline-primary" role="alert">Primary alert</div>
+<div class="bsk-alert bsk-alert-outline bsk-alert-primary" role="alert">Primary alert</div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With alert link</h4>
-<div class="bsk-alert bsk-alert-outline-primary" role="alert">Primary alert with a <a href="#" class="bsk-alert-link">link</a></div>
+<div class="bsk-alert bsk-alert-outline bsk-alert-primary" role="alert">
+  Primary alert with a <a href="#" class="bsk-alert-link">link</a>
+</div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With lots of text</h4>
-<div class="bsk-alert bsk-alert-outline-primary" role="alert">
+<div class="bsk-alert bsk-alert-outline bsk-alert-primary" role="alert">
   Primary alert - I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane.
   I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane.
 </div>
 
 <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">With conventional dismiss icons</h4>
-<div class="bsk-alert bsk-alert-outline-primary" role="alert">
-  <button type="button" class="bsk-close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+<div class="bsk-alert bsk-alert-outline bsk-alert-primary" role="alert">
+  <button type="button" class="bsk-close" data-dismiss="alert" aria-label="Close">
+    <i class="fa fa-times-circle" aria-hidden="true"></i>
+  </button>
   Primary alert
 </div>
 {% endblock %}
