@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] The maximum width of a container at the Full HD breakpoint was too large, causing an overflow
 * [Styles] Setting HTML background colour to that used by the footer background, to ensure a consistent design
 * [Styles] Experimental button hover font colour was too dark
+* [Styles] Warning buttons font colour now matches alert warning variant (grey-darker)
 * [Styles] Removing focus outline around non-interactive elements
 * [Styles] Icons, headings and contents of alert blocks now align correctly
 * [Styles] Inline labels used in forms in navbars now use a light font colour
