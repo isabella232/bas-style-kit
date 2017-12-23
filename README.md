@@ -145,6 +145,21 @@ Gulp is used to compile Sass styles into regular CSS, additional tasks are used 
 
 See the Gulp tasks section for more information.
 
+#### Fix classes
+
+In some cases workarounds are needed to cater for certain use-cases, for example when using a brand image and brand
+text together in a navbar.
+
+These classes are termed 'fix' classes within the Style Kit and use a conventional `fix-` prefix (`bsk-fix` with the
+global prefix) for consistency. This convention **MUST** be used for all fix classes.
+
+E.g. a class `.navbar-brand-img-txt` becomes `fix-navbar-brand-img-txt` or `bsk-fix-navbar-brand-img-txt` with the
+Global Prefix applied.
+
+**Note:** Fix classes are not considered bugs, as they are usually used for situations where there is no optimal
+solution without either causing large amounts of duplication, or restricting users in how other classes/features can be
+used.
+
 #### Bootstrap overrides
 
 In rare cases, core Bootstrap styles need to be overridden within the context of the BAS Style Kit. This only done where
