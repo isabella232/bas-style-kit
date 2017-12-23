@@ -1,0 +1,13 @@
+//
+// Close icons
+// --------------------------------------------------
+
+
+.close {
+  @include opacity(0.7);
+
+  &:hover,
+  &:focus {
+    @include opacity(1);
+  }
+}
