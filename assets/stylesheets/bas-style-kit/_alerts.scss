@@ -3,13 +3,6 @@
 // --------------------------------------------------
 
 
-// Base class
-//
-.alert {
-  font-size: 120%;
-}
-
-
 // Alert components
 //
 
@@ -56,6 +49,14 @@
 @include make-alert('warning', $alert-warning-base, $alert-warning-highlight, $alert-warning-solid-text);
 @include make-alert('danger', $alert-danger-base, $alert-danger-highlight, $alert-solid-text-color);
 @include make-alert('info', $alert-info-base, $alert-info-highlight, $alert-solid-text-color);
+
+
+// Alert sizes
+//
+
+.alert-lg {
+  font-size: $alert-lg-font-size;
+}
 
 
 // Alert layouts
