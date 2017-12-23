@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * [Scripts] Adding bootstrap-override for the Collapse plugin
+* [Styles] Guidance on the use of fix classes
 
 ### Fixed
 
