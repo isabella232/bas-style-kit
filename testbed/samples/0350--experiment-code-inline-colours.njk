@@ -1,0 +1,72 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0350-experiment-code-inline-colours.html" %}
+{% set sample_number = "#0350" %}
+{% set sample_title = "Inline code colours" %}
+{% set sample_type_experiment = true %}
+
+{% block sample %}
+<style>
+.bsk-tb-exp-original {
+  background-color: #f9f2f4;
+  color: #c7254e;
+}
+.bsk-tb-exp-sky-blue {
+  background-color: #e6f1f8;
+  color: #1D5E83;
+}
+.bsk-tb-exp-aircraft-red {
+  background-color: #EEA8BA;
+  color: #890022;
+}
+.bsk-tb-exp-red {
+  background-color: #E4ADB3;
+  color: #770914;
+}
+.bsk-tb-exp-baby-pink {
+  background-color: #FBDCE9;
+  color: #A3677F;
+}
+.bsk-tb-exp-pink {
+  background-color: #F1BBD4;
+  color: #8F2656;
+}
+</style>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">
+  Original
+</h4>
+<code class="bsk-tb-exp-original">Inline code</code>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">
+  Alternative 1 (sky blue)
+</h4>
+<code class="bsk-tb-exp-sky-blue">Inline code</code>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">
+  Alternative 2 (aircraft red)
+</h4>
+<code class="bsk-tb-exp-aircraft-red">Inline code</code>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">
+  Alternative 3 (red)
+</h4>
+<code class="bsk-tb-exp-red">Inline code</code>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">
+  Alternative 4 (baby pink)
+</h4>
+<code class="bsk-tb-exp-baby-pink">Inline code</code>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">
+  Alternative 5 (pink)
+</h4>
+<code class="bsk-tb-exp-pink">Inline code</code>
+
+
+<hr />
+<h4>Notes</h4>
+<ul>
+  <li>This experiment was used to try different colour options for inline code snippets</li>
+</ul>
+{% endblock %}
