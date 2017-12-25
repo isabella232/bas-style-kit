@@ -323,6 +323,7 @@ $state-experimental-text:                     $bsk-colour-std-mauve-dark;
 $state-experimental-bg:                       $bsk-colour-std-mauve-lighter;
 $state-experimental-border:                   darken(adjust-hue($state-experimental-bg, -10), 5%) !default;
 
+
 // Tables
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
@@ -339,6 +340,7 @@ $table-bg-active:                             $table-bg-hover;
 
 //** Border color for table and cell borders
 $table-border-color:                          $bsk-colour-std-grey-light;
+
 
 //== Forms
 //
@@ -396,6 +398,7 @@ $btn-experimental-border:                     $btn-experimental-bg;
 
 $btn-border-radius-large:                     $btn-border-radius-base;
 $btn-border-radius-small:                     $btn-border-radius-base;
+
 
 // Dropdowns
 //
@@ -513,6 +516,7 @@ $label-phase-live-bg:                         $development-phase-live;
 $label-phase-retired-bg:                      $development-phase-retired;
 
 $label-experimental-bg:                       $brand-experimental;
+
 
 //== Alerts
 //
