@@ -20,6 +20,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Icons, headings and contents of alert blocks now align correctly
 * [Styles] Inline labels used in forms in navbars now use a light font colour
 * [Styles] Progress bars now use colours from the standard colour pallet
+* [Styles] Inline code blocks now use colours from the standard colour pallet
 * [Styles] Some testbed samples weren't using global prefix
 * [Infrastructure] Correcting path to project Docker image caused by change in repository URL
 * [Infrastructure] Correcting other links referencing the old repository URL
