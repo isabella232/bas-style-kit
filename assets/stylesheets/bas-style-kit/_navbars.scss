@@ -172,6 +172,7 @@
 
 // BSK large navbar (i.e a 'thick' version)
 .navbar-lg {
+  min-height: $navbar-lg-height;
   font-size: $font-size-large;
 
   .navbar-brand {
