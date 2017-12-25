@@ -1,0 +1,19 @@
+{% extends "layouts/sample.layout.njk" %}
+
+{% set sample_href = "0352--text-contextual-warning.html" %}
+{% set sample_number = "#0352" %}
+{% set sample_title = "warning contextual text" %}
+{% set sample_markup = "bsk-text-warning" %}
+
+{% block sample %}
+<p class="bsk-text-warning">There are dozens of us! DOZENS!</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Text block (approx 300 characters)</h4>
+<p class="bsk-text-warning">Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</mark></p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Mixed single line</h4>
+<p><span class="bsk-text-warning">There are dozens of us! DOZENS!</span> There are dozens of us! DOZENS!</p>
+
+<h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Mixed text block (approx 300 characters)</h4>
+<p>Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. <span class="bsk-text-warning">This show was cancelled</span>. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.</p>
+{% endblock %}

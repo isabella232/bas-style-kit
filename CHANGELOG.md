@@ -9,15 +9,19 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Scripts] Adding bootstrap-override for the Collapse plugin
 * [Styles] Guidance on the use of fix classes
+* [Styles] Testbed samples for contextual text classes
 
 ### Fixed
 
 * [Styles] The maximum width of a container at the Full HD breakpoint was too large, causing an overflow
 * [Styles] Setting HTML background colour to that used by the footer background, to ensure a consistent design
 * [Styles] Experimental button hover font colour was too dark
+* [Styles] Warning buttons font colour now matches alert warning variant (grey-darker)
 * [Styles] Removing focus outline around non-interactive elements
 * [Styles] Icons, headings and contents of alert blocks now align correctly
 * [Styles] Inline labels used in forms in navbars now use a light font colour
+* [Styles] Progress bars now use colours from the standard colour pallet
+* [Styles] Inline code blocks now use colours from the standard colour pallet
 * [Styles] Some testbed samples weren't using global prefix
 * [Infrastructure] Correcting path to project Docker image caused by change in repository URL
 * [Infrastructure] Correcting other links referencing the old repository URL
