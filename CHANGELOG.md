@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Scripts] Adding bootstrap-override for the Collapse plugin
 * [Styles] Minimum height for large navbars
+* [Styles] Default padding for Jumbotron overlay text
 * [Styles] Guidance on the use of fix classes
 * [Styles] Testbed samples for contextual text classes
 
