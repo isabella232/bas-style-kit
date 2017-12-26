@@ -127,6 +127,7 @@ $bsk-colour-std-brown-darker:                 mix($bsk-colour-gen-black, $bsk-co
 $bsk-colour-tst-grey-lighter-light:           mix($bsk-colour-gen-black, $bsk-colour-gen-white, 3.25%);  // #F7F7F7
 $bsk-colour-tst-grey-darker-dark:             mix($bsk-colour-gen-black, $bsk-colour-gen-white, 86.75);  // #222222
 $bsk-colour-tst-sky-blue-lighter-light:       mix($bsk-colour-gen-white, $bsk-colour-std-sky-blue-base, 88%);  // #e6f1f8
+$bsk-colour-tst-purple-base:                  #2E358B;
 
 // Bootstrap colour overrides
 $brand-primary:                               $bsk-colour-std-turquoise-base;
@@ -138,6 +139,7 @@ $brand-danger:                                $bsk-colour-std-red-base;
 $brand-experimental:                          $bsk-colour-std-mauve-base;
 
 // GDS agile development phases
+$development-phase-backlog:                   $bsk-colour-tst-purple-base;
 $development-phase-discovery:                 $bsk-colour-std-fuschia-base;
 $development-phase-alpha:                     $bsk-colour-std-pink-base;
 $development-phase-beta:                      $bsk-colour-std-orange-base;
@@ -510,6 +512,7 @@ $label-danger-bg:                             $brand-danger;
 $label-warning-color:                         $bsk-colour-std-grey-darker;
 $label-warning-bg:                            $brand-warning;
 
+$label-phase-backlog-bg:                      $development-phase-backlog;
 $label-phase-discovery-bg:                    $development-phase-discovery;
 $label-phase-alpha-bg:                        $development-phase-alpha;
 $label-phase-beta-bg:                         $development-phase-beta;
