@@ -257,6 +257,13 @@ s3-cdn-prod:
   when: manual
   script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
 
+s3-packages-prod:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - tags
+  when: manual
+  script: "aws s3 sync --delete CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
 
 s3-testbed:
   <<: *job_template_s3_sync
