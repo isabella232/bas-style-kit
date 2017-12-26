@@ -17,6 +17,7 @@ html {
   background-color: #fff;
 }
 
+
 // Layout - General
 
 .tb-margin-top {
@@ -31,11 +32,13 @@ html {
   margin-top: 120px;
 }
 
+
 // Layout - Container visibility classes
 
 .tb-visible-container {
   border: 2px solid $bsk-colour-std-grey-base;
 }
+
 
 // Layout - Grid visibility classes
 
@@ -163,6 +166,7 @@ background: #85994B;
   background: #2B8CC4;
 }
 
+
 // Typography - Headings
 
 .tb-page-header {
@@ -180,6 +184,7 @@ background: #85994B;
 .tb-sample-sub-heading-javascript {
   color: $bsk-colour-std-orange-base;
 }
+
 
 // Typography - Font-face samples
 
@@ -220,6 +225,7 @@ background: #85994B;
 .tb-ff-helvetica-neue-regular {
   font-family: "Helvetica Neue";
 }
+
 
 // Core - Colour swatches
 
@@ -552,6 +558,7 @@ background: #85994B;
   background-color: $link-color;
 }
 
+
 // Core - Forms
 
 .tb-simulated-state-focus {
@@ -562,6 +569,7 @@ background: #85994B;
   -webkit-box-shadow: 0 0 8px rgba(82, 168, 236, .6);
   box-shadow: 0 0 8px rgba(82, 168, 236, .6)
 }
+
 
 // Component - Drop-downs
 
@@ -604,6 +612,7 @@ background: #85994B;
 .tb-navbar-brand-image-128 img {
   max-width: 128px;
 }
+// Component - Navbars
 
 .tb-simulated-state-uncollapsed {
   position: relative;
@@ -638,12 +647,14 @@ background: #85994B;
 .tb-simulated-state-uncollapsed .icon-bar + .icon-bar {
   margin-top: 4px; }
 
+
 // Component - Jumbotrons
 
 .tb-jumbotron-background-image {
   background-image: url('/testbed/testbed-assets/img/responsive-image.jpg');
   background-repeat: no-repeat;
 }
+
 
 // Logomark backrgrounds
 

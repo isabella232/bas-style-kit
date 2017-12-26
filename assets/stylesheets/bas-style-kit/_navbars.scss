@@ -2,7 +2,8 @@
 // Navbars
 // --------------------------------------------------
 
-// Alternate navbars
+
+// Base class and components
 // ----------------------
 
 // BSK navbar
@@ -170,7 +171,11 @@
   }
 }
 
-// BSK large navbar (i.e a 'thick' version)
+
+// Navbar sizes
+// ----------------------
+
+// Large navbar (i.e a 'thick' version)
 .navbar-lg {
   min-height: $navbar-lg-height;
   font-size: $font-size-large;
@@ -215,6 +220,7 @@
     }
   }
 }
+
 
 // Fixes
 // ----------------------
