@@ -3,11 +3,11 @@
 {% set sample_href = "0294--image-copyright-a.html" %}
 {% set sample_number = "#0294" %}
 {% set sample_title = "image copyright with linked attribution" %}
-{% set sample_markup = ".bsk-image-copyright a.bsk-image-copyright-attribution" %}
+{% set sample_markup = ".bsk-image-copyright .bsk-image-copyright-attribution a" %}
 
 {% block sample %}
-<div class="bsk-image-copyright">
+<figure class="bsk-image-copyright">
   <img class="bsk-image-copyright-image" src="https://placeholdit.imgix.net/~text?txtsize=38&txt=Media%20Item&w=800&h=500" alt="thumbnail">
-  <a href="#" class="bsk-image-copyright-attribution"><i class="fa fa-camera"></i> Copyright holder</a>
-</div>
+  <figcaption class="bsk-image-copyright-attribution"><a href="#">Copyright holder</a></figcaption>
+</figure>
 {% endblock %}
