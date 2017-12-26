@@ -23,6 +23,40 @@
     font-family: $navbar-brand-font-family;
     font-weight: $navbar-brand-font-weight;
     color:       $navbar-brand-color;
+
+    &.navbar-brand-image-32 {
+      padding-top: 9px;
+    }
+
+    &.navbar-brand-image-48 {
+      padding-top: 1px !important;
+
+      img {
+        max-width: 48px;
+      }
+    }
+
+    &.navbar-brand-image-64 {
+      padding-top: 17px !important;
+
+      img {
+        max-width: 64px;
+      }
+    }
+
+    &.navbar-brand-image-96 {
+      padding-top: 1px !important;
+
+      img {
+        max-width: 96px;
+      }
+    }
+
+    &.navbar-brand-image-128 {
+      img {
+        max-width: 128px;
+      }
+    }
   }
 
   .navbar-nav {
@@ -183,6 +217,10 @@
   .navbar-brand {
     img {
       width: 150px;
+    }
+
+    &.navbar-brand-image-48 {
+      padding-top: 25px !important;
     }
   }
 
