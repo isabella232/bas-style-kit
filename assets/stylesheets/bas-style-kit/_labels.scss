@@ -36,6 +36,9 @@
 }
 
 // Development phase variations (linked labels get darker on :hover)
+.label-phase-backlog {
+  @include label-variant($label-phase-backlog-bg);
+}
 
 .label-phase-discovery {
   @include label-variant($label-phase-discovery-bg);
