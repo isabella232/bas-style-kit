@@ -215,10 +215,6 @@
   font-size: $font-size-large;
 
   .navbar-brand {
-    img {
-      width: 150px;
-    }
-
     &.navbar-brand-image-48 {
       padding-top: 25px !important;
     }
@@ -229,10 +225,6 @@
       padding-top:    $navbar-lg-padding-vertical;
       padding-bottom: $navbar-lg-padding-vertical;
       line-height:    $line-height-computed-x2;
-
-      img {
-        width: 300px;
-      }
     }
 
     .navbar-toggle {
