@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Scripts] Adding bootstrap-override for the Collapse plugin
 * [Styles] Formalised navbar brand image classes for padding, extracted from Testbed styles
+* [Styles] Conventional icon for back to top links
 * [Styles] Minimum height for large navbars
 * [Styles] Default padding for Jumbotron overlay text
 * [Styles] Guidance on the use of fix classes
