@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * [Scripts] Adding bootstrap-override for the Collapse plugin
+* [Styles] Adding an extended colour scheme, currently made up of testing and special schemes but likely to be merged
 * [Styles] Formalised navbar brand image classes for padding, extracted from Testbed styles
 * [Styles] Conventional icon for back to top links
 * [Styles] Minimum height for large navbars
