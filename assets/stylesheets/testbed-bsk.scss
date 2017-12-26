@@ -10,15 +10,16 @@
 @import "bas-style-kit/variables";
 
 
-// Design - General
+// Design
+//
 
 html {
   // Overrides Style Kit default
   background-color: #fff;
 }
 
-
-// Layout - General
+// Layout
+//
 
 .tb-margin-top {
   margin-top: 20px;
@@ -32,15 +33,13 @@ html {
   margin-top: 120px;
 }
 
-
-// Layout - Container visibility classes
+// Container visibility classes
 
 .tb-visible-container {
   border: 2px solid $bsk-colour-std-grey-base;
 }
 
-
-// Layout - Grid visibility classes
+// Grid visibility classes
 
 .tb-visible-col-1,
 .tb-visible-col-2,
@@ -167,7 +166,10 @@ background: #85994B;
 }
 
 
-// Typography - Headings
+// Typography
+//
+
+// Headings
 
 .tb-page-header {
   margin-top: 0;
@@ -185,8 +187,7 @@ background: #85994B;
   color: $bsk-colour-std-orange-base;
 }
 
-
-// Typography - Font-face samples
+// Font-face samples
 
 .tb-ff-open-sans-light {
   font-family: "Open Sans";
@@ -228,11 +229,14 @@ background: #85994B;
 
 
 // Core - Colour swatches
+//
 
 .tb-colour-swatch {
   width: 75px;
   height: 75px;
 }
+
+// Standard colour scheme
 
 .tb-colour-swatch-bsk-colour-std-white {
   background-color: $bsk-colour-std-white;
@@ -541,6 +545,42 @@ background: #85994B;
 .tb-colour-swatch-bsk-colour-std-brown-darker {
   background-color: $bsk-colour-std-brown-darker;
 }
+
+// Extended colour scheme (currently made up of 'special (spc)' and 'testing (tst)' schemes
+
+.tb-colour-swatch-bsk-colour-tst-grey-lighter-light {
+  background-color: #F7F7F7;
+}
+
+.tb-colour-swatch-bsk-colour-tst-grey-darker-dark {
+  background-color: #222222;
+}
+
+.tb-colour-swatch-bsk-colour-tst-sky-blue-lighter-light {
+  background-color: #e6f1f8;
+}
+
+.tb-colour-swatch-bsk-colour-tst-purple-base {
+  background-color: #2E358B;
+}
+
+.tb-colour-swatch-bsk-colour-spc-twitter-base {
+  background-color: #55ACEE;
+}
+
+.tb-colour-swatch-bsk-colour-spc-facebook-base {
+  background-color: #3B5998;
+}
+
+.tb-colour-swatch-bsk-colour-spc-youtube-base {
+  background-color: #CD201F;
+}
+
+.tb-colour-swatch-bsk-colour-spc-rss-base {
+  background-color: #F26522;
+}
+
+// Component colours (made using colours in the standard or extended colour schemes)
 
 .tb-colour-swatch-btn-default-bg {
   background-color: $btn-default-bg;
