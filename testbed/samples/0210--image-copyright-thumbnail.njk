@@ -6,8 +6,10 @@
 {% set sample_markup = ".bsk-thumbail.bsk-image-copyright" %}
 
 {% block sample %}
-<div class="bsk-thumbnail bsk-thumbnail-default bsk-image-copyright">
+<figure class="bsk-thumbnail bsk-thumbnail-default bsk-image-copyright">
   <img class="bsk-image-copyright-image" src="https://placeholdit.imgix.net/~text?txtsize=38&txt=Media%20Item&w=800&h=500" alt="thumbnail">
-  <a href="#" class="bsk-image-copyright-attribution">Copyright holder</a>
-</div>
+  <figcaption class="bsk-image-copyright-attribution">
+    Thumbnail caption <a href="#" class="bsk-image-copyright-attribution bsk-pull-right">Copyright holder</a>
+  </figcaption>
+</figure>
 {% endblock %}
