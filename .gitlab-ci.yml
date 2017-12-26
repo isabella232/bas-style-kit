@@ -263,7 +263,7 @@ s3-packages-prod:
   only:
     - tags
   when: manual
-  script: "aws s3 sync --delete $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
 
 s3-testbed:
   <<: *job_template_s3_sync
