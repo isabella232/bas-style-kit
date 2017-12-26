@@ -18,11 +18,13 @@
 # == Job Templates ==
 
 .job_template_s3_sync: &job_template_s3_sync
-  stage: deploy
   image:
     name: governmentpaas/awscli:latest
     entrypoint: [""]
-  script: "aws s3 sync --delete dist/ s3://$S3_CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+    - "export CI_BUILD_TAG_SHORT=`echo $CI_COMMIT_TAG | cut -c 2-`"
+    - "export CDN_PROJECT_VERSION=$CI_BUILD_TAG_SHORT"
 
 # == Global settings ==
 
@@ -40,8 +42,9 @@ image:
 
 variables:
   AWS_DEFAULT_REGION: eu-west-1
-  SNAPSHOT_BUCKET: bas-package-service-prod
-  SNAPSHOT_BUCKET_PATH: zips/apps
+  CDN_BUCKET: bas-cdn-prod
+  PACKAGES_BUCKET: bas-package-service-prod
+  PACKAGES_BUCKET_PATH: zips/apps
   APP_NAME: bas-style-kit
   REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
   NODE_PATH: /usr/src/app/node_modules
@@ -168,7 +171,6 @@ copy-images:
       - dist/img
     expire_in: 1 week
 
-
 lint:
   stage: lint
   script: gulp lint
@@ -233,43 +235,39 @@ package-dist:
     expire_in: 1 day
 
 s3-snapshot-dev:
+  <<: *job_template_s3_sync
   stage: deploy
-  image:
-    name: governmentpaas/awscli:latest
-    entrypoint: [""]
-  before_script:
-    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
-  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$SNAPSHOT_BUCKET/$SNAPSHOT_BUCKET_PATH/$APP_NAME/"
   only:
     - master
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
 
 s3-cdn-dev:
   <<: *job_template_s3_sync
+  stage: deploy
   only:
     - master
   when: manual
-  before_script:
-    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
-    - "export CDN_PROJECT_VERSION=$CI_BUILD_REF_SHORT"
-  variables:
-    S3_CDN_BUCKET: bas-cdn-dev
+  script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
 
 s3-cdn-prod:
   <<: *job_template_s3_sync
+  stage: deploy
   only:
     - tags
   when: manual
-  before_script:
-    - "export CI_BUILD_TAG_SHORT=`echo $CI_COMMIT_TAG | cut -c 2-`"
-    - "export CDN_PROJECT_VERSION=$CI_BUILD_TAG_SHORT"
-  variables:
-    S3_CDN_BUCKET: bas-cdn-prod
+  script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
+
+s3-packages-prod:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - tags
+  when: manual
+  script: "aws s3 sync --delete CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
 
 s3-testbed:
+  <<: *job_template_s3_sync
   stage: deploy
-  image:
-    name: governmentpaas/awscli:latest
-    entrypoint: [""]
   only:
     - master
   script:

@@ -21,7 +21,7 @@ jQuery(function($){
   if (typeof BSKCookieNoticeCookieValue !== 'undefined') {
     if (BSKCookieNoticeCookieValue == BSKCookieNoticeCookieAcknowledgedValue) {
 
-      // Supress cookie message
+      // Suppress cookie message
       jQuery(BSKCookieNoticeSelector).remove();
     }
   }
