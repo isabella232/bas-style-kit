@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Added
+
+* [Styles] Fix class for using a cookie notice alert with a navbar in a fixed width container
+
 ## [0.3.0-beta] - 2017-12-23
 
 ### Added

@@ -70,12 +70,7 @@
   .alert-heading {
     padding-bottom: 15px;
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h4 {
       margin-top: 0;
       color: inherit;  // To prevent conflicts of changing $headings-color
     }
@@ -102,4 +97,24 @@
   margin-top: 0;
   margin-bottom: 0;
   border: none;
+}
+
+
+// Fixes
+// ----------------------
+
+// Adjusts padding of alerts when aligned with navbars as part of a site header in a fixed width container
+.fix-alert-static-top-fixed-container-wrapper {
+  background-color: $alert-cookie-notice-base;
+
+  .container {
+    .alert-cookie-notice {
+      padding-left: 0;
+      padding-right: 0;
+
+      .close {
+        right: 15px;
+      }
+    }
+  }
 }
