@@ -126,7 +126,7 @@ $bsk-colour-std-brown-darker:                 mix($bsk-colour-gen-black, $bsk-co
 // Test colours (non-standard)
 $bsk-colour-tst-grey-lighter-light:           mix($bsk-colour-gen-black, $bsk-colour-gen-white, 3.25%);  // #F7F7F7
 $bsk-colour-tst-grey-darker-dark:             mix($bsk-colour-gen-black, $bsk-colour-gen-white, 86.75);  // #222222
-$bsk-colour-tst-sky-blue-lighter-light:       mix($bsk-colour-gen-white, $bsk-colour-std-sky-blue-base, 88%);  // #e6f1f8
+$bsk-colour-tst-sky-blue-lighter-light:       mix($bsk-colour-gen-white, $bsk-colour-std-sky-blue-base, 88%);  // #E6F1F8
 $bsk-colour-tst-purple-base:                  #2E358B;
 
 // Bootstrap colour overrides
