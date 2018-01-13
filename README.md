@@ -188,6 +188,10 @@ Gulp is used to combine these scripts into one file. Additional tasks are used t
 jQuery is a dependency of all JavaScript plugins. Some plugins depend on other external scripts for specific
 functionality, such as managing cookies or auto-complete inputs.
 
+**Note:** This project uses [Yarn](https://yarnpkg.com/lang/en/) instead of
+[NPM](https://docs.npmjs.com/getting-started/what-is-npm) for installing dependencies within the `app` Docker image.
+This still uses the NPM package registry.
+
 ### Design resources
 
 Some extra resources, such as colour charts, used to help design the Style Kit are included in `/resources`.
