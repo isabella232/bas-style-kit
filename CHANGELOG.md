@@ -7,9 +7,14 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed [BREAKING!]
 
+* [Infrastructure] All Gulp tasks rewritten and refactored to be simpler, giving significantly reduced file sizes
 * [Infrastructure] Updating Node dependencies to latest versions
 * [Infrastructure] Gulp is no longer a global package and must be called from within `node_modules`
 * [Infrastructure] Replacing `gulp-util` package with `fancy-log` for logging in Gulp tasks
+
+### Removed [BREAKING!]
+
+* [Infrastructure] Source map support
 
 ### Added
 

@@ -144,7 +144,6 @@ Gulp is used to compile these styles into regular CSS, in one file. Additional t
 * combine separate, layer specific, files into one, removing duplicate or superseded rules
 * ordering properties within rules in a consistent order
 * minifying styles to give compressed and non-compressed versions
-* generating CSS source maps to allow compiled and transformed styles to be traced back to their source files
 * copy fonts to the location in `dist/` expected by `fonts-bsk.scss`
 
 Bootstrap and any fonts required are expressed as dependencies in `package.json` for when the Style Kit is used as a
@@ -261,7 +260,7 @@ $ docker-compose run app
 # mv yarn.lock ./assets/
 # exit
 $ docker-compose down
-$ mv assets/yarn.lock ../
+$ mv assets/yarn.lock ./
 ```
 
 ## Testing
