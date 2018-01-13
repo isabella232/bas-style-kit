@@ -191,6 +191,8 @@ Gulp is used to copy these images into `dist/`.
 
 By convention, all images should use the PNG format and extension (`.png`).
 
+significantly smaller (~70%) than full-RGB.
+
 ### JavaScript
 
 The Style Kit is distributed as a single JS file, but is made up of multiple parts:
