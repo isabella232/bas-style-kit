@@ -35,6 +35,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Adding Yarn package manager to replace NPM
 * [Infrastructure] Reclassifying Bootstrap and web-fonts as dependencies rather than dev-dependencies in NPM package
 * [Infrastructure] Rewriting CI tasks to install node modules before build tasks
+* [Infrastructure] Updating to latest StyleLint configuration preset
 * [Infrastructure] Tidying up Docker file
 * [Infrastructure] Tidying up Node package file
 

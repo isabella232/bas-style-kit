@@ -7,8 +7,10 @@
 //
 // Note: No equivalent of this component exists within Bootstrap, these styles are only found in the BAS Style Kit.
 
-// Base class
 .image-copyright {
+
+  // Base class
+
   position: relative;
 
   .image-copyright-image {
@@ -26,12 +28,12 @@
     font-size: $component-font-size-small;
     text-transform: uppercase;
   }
-}
 
-// Element modifiers
-//
-// Adapt the base class based the element it is contained within
-.image-copyright {
+
+  // Element modifiers
+  //
+  // Adapt the base class based the element it is contained within
+
   &.thumbnail {
     .caption {
       .image-copyright-attribution {
