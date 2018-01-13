@@ -240,6 +240,8 @@ During each *alpha* release dependencies should be updated to their latest versi
 * JavaScript dependencies should be updated to their latest versions (using `package.json`) [2]
 * this includes Bootstrap and any web-fonts used (i.e. Font Awesome)
 
+**Note:** When referencing dependencies ensure the full `major.minor.path` version is specified (e.g. `1.3.2`).
+
 **Note:** The Yarn lock file (`yarn.lock`) should be committed to this project.
 
 Dependencies listed in `package.json` can be checked using tools such as
