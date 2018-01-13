@@ -54,7 +54,7 @@ node-dependencies:
   stage: setup
   script:
     - "rm -rf node_modules"
-    - "yarn install --frozen-lockfile"
+    - "yarn install --frozen-lockfile --verbose"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-styles"
     paths:
