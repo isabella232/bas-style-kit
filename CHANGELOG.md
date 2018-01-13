@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed [BREAKING!]
 
 * [Infrastructure] Updating Node dependencies to latest versions
+* [Infrastructure] Gulp is no longer a global package and must be called from within `node_modules`
 * [Infrastructure] Replacing `gulp-util` package with `fancy-log` for logging in Gulp tasks
 
 ### Added

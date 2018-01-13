@@ -87,13 +87,13 @@ See `gulpfile.js` for tasks this project supports.
 To run a gulp task `foo`:
 
 ```shell
-$ docker-compose run app gulp foo
+$ docker-compose run app ./node_modules/gulp/bin/gulp.js foo
 ```
 
 For example, to run all linting tasks:
 
 ```shell
-$ docker-compose run app gulp lint
+$ docker-compose run app ./node_modules/gulp/bin/gulp.js lint
 ```
 
 **Note:** This will run the *app* container only, it will not start the *web* container.

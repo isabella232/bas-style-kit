@@ -9,17 +9,16 @@ WORKDIR /usr/src/app
 # Setup project dependencies
 COPY package.json /usr/src/app/
 RUN npm install --global yarn && yarn install
-RUN npm install --global gulp
 
 # Run tests
 RUN echo "node version: " && \node --version && \
     echo "npm version: " && npm --version && \
-    echo "gulp version: " && gulp --version
     echo "yarn version: " && yarn --version && \
+    echo "gulp version: " && ./node_modules/gulp/bin/gulp.js --version
 
 # Setup runtime
 ENTRYPOINT []
-CMD ["gulp", "--tasks-simple"]
+CMD ["./node_modules/gulp/bin/gulp.js", "--tasks-simple"]
 
 # Copy configuration files
 COPY .csscomb.json .stylelintrc.yml gulpfile.js /usr/src/app/
