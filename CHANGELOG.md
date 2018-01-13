@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Admin] Project documentation on images
 * [Infrastructure] jQuery and js-cookie as dependencies of the Style Kit's JS plugins
 * [Infrastructure] StyleLint as an explicit dependency to remove Yarn dependency resolution warning
+* [Infrastructure] Yarn lock file to ensure the same dependencies are used in CI
 
 ### Fixed
 
@@ -27,6 +28,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Switching docker file to Node 8 LTS (Carbon)
 * [Infrastructure] Adding Yarn package manager to replace NPM
 * [Infrastructure] Reclassifying Bootstrap and web-fonts as dependencies rather than dev-dependencies in NPM package
+* [Infrastructure] Rewriting CI tasks to install node modules before build tasks
 * [Infrastructure] Tidying up Docker file
 * [Infrastructure] Tidying up Node package file
 
