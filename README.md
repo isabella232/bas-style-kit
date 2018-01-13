@@ -177,6 +177,20 @@ are made to these styles in Bootstrap, they will need to be 'back-ported' to our
 **Note:** This practice is considered a bug, see this
 [issue](https://trello.com/c/YRhYrux6/128-remove-the-need-for-bootstrap-overrides) for more information.
 
+### Images
+
+The Style Kit includes images for:
+
+* `assets/images/bas-logo` - the full BAS logo (roundel and text)
+* `assets/images/bas-roundel` - the BAS roundel
+* `assets/images/ogl-symbol` - the Open Government License (OGL) symbol
+
+Gulp is used to copy these images into `dist/`.
+
+#### Image formats
+
+By convention, all images should use the PNG format and extension (`.png`).
+
 ### JavaScript
 
 The Style Kit is distributed as a single JS file, but is made up of multiple parts:
