@@ -29,8 +29,8 @@
 # == Global settings ==
 
 stages:
-  - pass
-  # - build
+  - setup
+  - build
   # - lint
   # - process
   # - package
@@ -42,20 +42,29 @@ image:
   entrypoint: [""]
 
 variables:
-  AWS_DEFAULT_REGION: eu-west-1
   CDN_BUCKET: bas-cdn-prod
   PACKAGES_BUCKET: bas-package-service-prod
   PACKAGES_BUCKET_PATH: zips/apps
   APP_NAME: bas-style-kit
   REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
-  NODE_PATH: /usr/src/app/node_modules
 
 # == Jobs ==
 
-pass-job:
-  stage: pass
+node-dependencies:
+  stage: setup
   script:
-    - "true"
+    - "rm -rf node_modules"
+    - "yarn install --frozen-lockfile"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-styles"
+    paths:
+      - node_modules
+    expire_in: 1 hour
+
+gulp-test:
+  stage: build
+  script:
+    - "./node_modules/gulp/bin/gulp.js --tasks-simple"
 
 # compile-sass:
 #   stage: build

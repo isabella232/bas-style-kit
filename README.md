@@ -191,6 +191,8 @@ Gulp is used to copy these images into `dist/`.
 
 By convention, all images should use the PNG format and extension (`.png`).
 
+significantly smaller (~70%) than full-RGB.
+
 ### JavaScript
 
 The Style Kit is distributed as a single JS file, but is made up of multiple parts:
@@ -207,7 +209,7 @@ Gulp is used to combine these scripts into one file. Additional tasks are used t
 jQuery is a dependency of all JavaScript plugins. Some plugins depend on other external scripts for specific
 functionality, such as managing cookies or auto-complete inputs.
 
-These dependencies are expressed in `package.json` for when the Style Kit is used as a Node package, and the
+These dependencies are expressed in `package.json` for when the Style Kit is used as a Node package, and loaded from the
 [BAS CDN](https://gitlab.data.bas.ac.uk/WSF/bas-cdn) when used directly in a browser.
 
 **Note:** This project uses [Yarn](https://yarnpkg.com/lang/en/) instead of
@@ -237,14 +239,30 @@ $ docker-compose push app
 During each *alpha* release dependencies should be updated to their latest versions and conflicts resolved.
 
 * the `app` Docker image should use the latest Node LTS release (as don't rely on cutting edge Node features)
-* JavaScript dependencies should be updated to their latest versions (using `package.json`)
+* JavaScript dependencies should be updated to their latest versions (using `package.json`) [2]
 * this includes Bootstrap and any web-fonts used (i.e. Font Awesome)
+
+**Note:** When referencing dependencies ensure the full `major.minor.path` version is specified (e.g. `1.3.2`).
+
+**Note:** The Yarn lock file (`yarn.lock`) should be committed to this project.
 
 Dependencies listed in `package.json` can be checked using tools such as
 [Daivd-DM](https://david-dm.org/antarctica/bas-style-kit?type=dev) to identify outdated versions.
 
 [1] The first time you use this registry, you will need to authenticate using:
 `docker login docker-registry.data.bas.ac.uk`
+
+[2] To update dependencies:
+
+```
+$ rm yarn.lock
+$ docker-compose build app
+$ docker-compose run app
+# mv yarn.lock ./assets/
+# exit
+$ docker-compose down
+$ mv assets/yarn.lock ../
+```
 
 ## Testing
 
