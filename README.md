@@ -87,13 +87,13 @@ See `gulpfile.js` for tasks this project supports.
 To run a gulp task `foo`:
 
 ```shell
-$ docker-compose run app gulp foo
+$ docker-compose run app ./node_modules/gulp/bin/gulp.js foo
 ```
 
 For example, to run all linting tasks:
 
 ```shell
-$ docker-compose run app gulp lint
+$ docker-compose run app ./node_modules/gulp/bin/gulp.js lint
 ```
 
 **Note:** This will run the *app* container only, it will not start the *web* container.
@@ -145,6 +145,11 @@ Gulp is used to compile these styles into regular CSS, in one file. Additional t
 * ordering properties within rules in a consistent order
 * minifying styles to give compressed and non-compressed versions
 * generating CSS source maps to allow compiled and transformed styles to be traced back to their source files
+* copy fonts to the location in `dist/` expected by `fonts-bsk.scss`
+
+Bootstrap and any fonts required are expressed as dependencies in `package.json` for when the Style Kit is used as a
+Node package. The [BAS CDN](https://gitlab.data.bas.ac.uk/WSF/bas-cdn) hosts fonts and combined styles for use in the
+browser.
 
 #### Fix classes
 
@@ -172,6 +177,20 @@ are made to these styles in Bootstrap, they will need to be 'back-ported' to our
 **Note:** This practice is considered a bug, see this
 [issue](https://trello.com/c/YRhYrux6/128-remove-the-need-for-bootstrap-overrides) for more information.
 
+### Images
+
+The Style Kit includes images for:
+
+* `assets/images/bas-logo` - the full BAS logo (roundel and text)
+* `assets/images/bas-roundel` - the BAS roundel
+* `assets/images/ogl-symbol` - the Open Government License (OGL) symbol
+
+Gulp is used to copy these images into `dist/`.
+
+#### Image formats
+
+By convention, all images should use the PNG format and extension (`.png`).
+
 ### JavaScript
 
 The Style Kit is distributed as a single JS file, but is made up of multiple parts:
@@ -188,9 +207,16 @@ Gulp is used to combine these scripts into one file. Additional tasks are used t
 jQuery is a dependency of all JavaScript plugins. Some plugins depend on other external scripts for specific
 functionality, such as managing cookies or auto-complete inputs.
 
+These dependencies are expressed in `package.json` for when the Style Kit is used as a Node package, and the
+[BAS CDN](https://gitlab.data.bas.ac.uk/WSF/bas-cdn) when used directly in a browser.
+
+**Note:** This project uses [Yarn](https://yarnpkg.com/lang/en/) instead of
+[NPM](https://docs.npmjs.com/getting-started/what-is-npm) for installing dependencies within the `app` Docker image.
+This still uses the NPM package registry.
+
 ### Design resources
 
-Some extra resources, such as colour charts, used to help design the Style Kit are included in `/resources`.
+Some extra resources, such as colour charts, used to help design the Style Kit are included in `resources/`.
 
 To edit these resources you will need to install these fonts locally:
 
@@ -208,11 +234,14 @@ $ docker-compose build app
 $ docker-compose push app
 ```
 
-Out-of-date dependencies can be checked using tools such as
-[Daivd-DM](https://david-dm.org/antarctica/bas-style-kit?type=dev).
+During each *alpha* release dependencies should be updated to their latest versions and conflicts resolved.
 
-**Note:** The Style Kit only has `dev-dependencies`, as opposed to actual `dependencies`. Many dependency checking tools
-won't check these development dependencies and so report this project doesn't have any (dependencies).
+* the `app` Docker image should use the latest Node LTS release (as don't rely on cutting edge Node features)
+* JavaScript dependencies should be updated to their latest versions (using `package.json`)
+* this includes Bootstrap and any web-fonts used (i.e. Font Awesome)
+
+Dependencies listed in `package.json` can be checked using tools such as
+[Daivd-DM](https://david-dm.org/antarctica/bas-style-kit?type=dev) to identify outdated versions.
 
 [1] The first time you use this registry, you will need to authenticate using:
 `docker login docker-registry.data.bas.ac.uk`

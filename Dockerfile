@@ -1,26 +1,24 @@
-FROM node:8-alpine
+FROM node:carbon-alpine
 
-MAINTAINER Felix Fennell <felnne@bas.ac.uk>
+LABEL maintainer="Felix Fennell <felnne@bas.ac.uk>"
 
 # Setup project
 RUN mkdir -p /usr/src/app
-VOLUME /usr/src/app/assets
-VOLUME /usr/src/app/dist
-VOLUME /usr/src/app/testbed
 WORKDIR /usr/src/app
 
 # Setup project dependencies
 COPY package.json /usr/src/app/
-RUN npm install && npm install -g gulp
+RUN npm install --global yarn && yarn install
 
 # Run tests
-RUN echo "node version: " && \node --version && \
+RUN echo "node version: " && node --version && \
     echo "npm version: " && npm --version && \
-    echo "gulp version: " && gulp --version
+    echo "yarn version: " && yarn --version && \
+    echo "gulp version: " && ./node_modules/gulp/bin/gulp.js --version
 
 # Setup runtime
 ENTRYPOINT []
-CMD ["gulp", "--tasks-simple"]
+CMD ["./node_modules/gulp/bin/gulp.js", "--tasks-simple"]
 
 # Copy configuration files
 COPY .csscomb.json .stylelintrc.yml gulpfile.js /usr/src/app/

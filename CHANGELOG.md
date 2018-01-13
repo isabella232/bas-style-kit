@@ -5,13 +5,30 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Changed [BREAKING!]
+
+* [Infrastructure] Updating Node dependencies to latest versions
+* [Infrastructure] Gulp is no longer a global package and must be called from within `node_modules`
+* [Infrastructure] Replacing `gulp-util` package with `fancy-log` for logging in Gulp tasks
+
+### Added
+
+* [Admin] Project documentation on images
+* [Infrastructure] jQuery and js-cookie as dependencies of the Style Kit's JS plugins
+* [Infrastructure] StyleLint as an explicit dependency to remove Yarn dependency resolution warning
+
 ### Fixed
 
-* Correcting version specified in colour charts
+* [Resources] Correcting version specified in colour charts
 
 ### Changed
 
-* Updating project documentation
+* [Admin] Updating project documentation
+* [Infrastructure] Switching docker file to Node 8 LTS (Carbon)
+* [Infrastructure] Adding Yarn package manager to replace NPM
+* [Infrastructure] Reclassifying Bootstrap and web-fonts as dependencies rather than dev-dependencies in NPM package
+* [Infrastructure] Tidying up Docker file
+* [Infrastructure] Tidying up Node package file
 
 ## [0.3.0] - 2018-01-09
 
