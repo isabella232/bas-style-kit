@@ -215,8 +215,8 @@ $ docker-compose push app
 Out-of-date dependencies can be checked using tools such as
 [Daivd-DM](https://david-dm.org/antarctica/bas-style-kit?type=dev).
 
-**Note:** The Style Kit only has `dev-dependencies`, as opposed to actual `dependencies`. Many dependency checking tools
-won't check these development dependencies and so report this project doesn't have any (dependencies).
+Dependencies listed in `package.json` can be checked using tools such as
+[Daivd-DM](https://david-dm.org/antarctica/bas-style-kit?type=dev) to identify outdated versions.
 
 [1] The first time you use this registry, you will need to authenticate using:
 `docker login docker-registry.data.bas.ac.uk`
