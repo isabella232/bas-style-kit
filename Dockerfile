@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:carbon-alpine
 
 MAINTAINER Felix Fennell <felnne@bas.ac.uk>
 

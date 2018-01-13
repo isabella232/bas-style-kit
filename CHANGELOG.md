@@ -12,6 +12,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed
 
 * Updating project documentation
+* [Infrastructure] Switching docker file to Node 8 LTS (Carbon)
 
 ## [0.3.0] - 2018-01-09
 
