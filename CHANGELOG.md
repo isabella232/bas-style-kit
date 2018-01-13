@@ -13,8 +13,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
-* StyleLint as an explicit dependency to remove Yarn dependency resolution warning
 * [Infrastructure] jQuery and js-cookie as dependencies of the Style Kit's JS plugins
+* [Infrastructure] StyleLint as an explicit dependency to remove Yarn dependency resolution warning
 
 ### Fixed
 

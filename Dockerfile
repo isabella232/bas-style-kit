@@ -11,7 +11,7 @@ COPY package.json /usr/src/app/
 RUN npm install --global yarn && yarn install
 
 # Run tests
-RUN echo "node version: " && \node --version && \
+RUN echo "node version: " && node --version && \
     echo "npm version: " && npm --version && \
     echo "yarn version: " && yarn --version && \
     echo "gulp version: " && ./node_modules/gulp/bin/gulp.js --version
