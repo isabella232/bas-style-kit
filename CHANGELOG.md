@@ -10,6 +10,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Updating Node dependencies to latest versions
 * [Infrastructure] Replacing `gulp-util` package with `fancy-log` for logging in Gulp tasks
 
+### Added
+
+* StyleLint as an explicit dependency to remove Yarn dependency resolution warning
+
 ### Fixed
 
 * [Resources] Correcting version specified in colour charts
