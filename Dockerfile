@@ -1,12 +1,9 @@
 FROM node:carbon-alpine
 
-MAINTAINER Felix Fennell <felnne@bas.ac.uk>
+LABEL maintainer="Felix Fennell <felnne@bas.ac.uk>"
 
 # Setup project
 RUN mkdir -p /usr/src/app
-VOLUME /usr/src/app/assets
-VOLUME /usr/src/app/dist
-VOLUME /usr/src/app/testbed
 WORKDIR /usr/src/app
 
 # Setup project dependencies
