@@ -47,15 +47,14 @@ const config = {
   'modules': {
     'autoprefixer': {
       browsers: [
-        "Android 2.3",
-        "Android >= 4",
-        "Chrome >= 35",
+        "Android >= 4.4",
+        "Chrome >= 45",
         "Firefox >= 38",
-        "Explorer >= 10",
+        "Explorer >= 11",
         'Edge >= 12',
-        "iOS >= 8",
-        "Opera >= 12",
-        "Safari >= 8"
+        "iOS >= 9",
+        "Opera >= 30",
+        "Safari >= 9"
       ],
       cascade: false,
       remove: true
