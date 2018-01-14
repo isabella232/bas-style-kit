@@ -40,6 +40,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Tidying up Docker file
 * [Infrastructure] Tidying up Node package file
 
+### Removed
+
+* [Infrastructure] Unused node dependencies
+
 ## [0.3.0] - 2018-01-09
 
 ### Added
