@@ -33,7 +33,7 @@ stages:
   - build
   - lint
   - process
-  # - package
+  - package
   # - review
   # - deploy
 
@@ -177,19 +177,19 @@ compute-sri:
 #     name: review/$CI_BUILD_REF_NAME
 #     action: stop
 
-# package-dist:
-#   stage: package
-#   image: antarctica/aws-cli-image:0.1.0-alpine-gl
-#   before_script:
-#     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
-#     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
-#     - "cd dist"
-#   script: "zip -r ../$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip *"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-zip"
-#     paths:
-#       - "*.zip"
-#     expire_in: 1 day
+package-dist:
+  stage: package
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+    - "export DATETIME_INSTANT=`date --utc -Iseconds`"
+    script:
+    - "./node_modules/gulp/bin/gulp.js archive--dist"
+    - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-zip"
+    paths:
+      - "*.zip"
+    expire_in: 1 week
 
 # s3-snapshot-dev:
 #   <<: *job_template_s3_sync

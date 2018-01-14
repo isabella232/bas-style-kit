@@ -9,6 +9,7 @@ var gulp         = require('gulp'),
     pump         = require('pump'),
     log          = require('fancy-log'),
     sri          = require('gulp-sri'),
+    zip          = require('gulp-zip'),
     sass         = require('gulp-sass'),
     comb         = require('gulp-csscomb'),
     nano         = require('gulp-cssnano'),
@@ -36,8 +37,8 @@ const config = {
     'js': path.join('js'),
   },
   'destinations': {
+    'root': path.join('.'),
     'dist': path.join('.', 'dist'),
-    'distArchive': path.join('.', 'dist-archive'),
     'css': path.join('css'),
     'fonts': path.join('fonts'),
     'js': path.join('js'),
@@ -74,6 +75,7 @@ gulp.task('clean--css', cleanCss);
 gulp.task('clean--js', cleanJs);
 gulp.task('clean--fonts', cleanFonts);
 gulp.task('clean--img', cleanImg);
+gulp.task('clean--dist-archive', cleanDistArchive);
 
 gulp.task('build--css-style-kit', buildCssStyleKit);
 gulp.task('build--css-bootstrap', buildCssBootstrap);
@@ -97,6 +99,8 @@ gulp.task('lint--sass', lintSass);
 gulp.task('lint--js', lintJs);
 
 gulp.task('sri', sriAll);
+
+gulp.task('archive--dist', archiveDist);
 
 gulp.task('build--css', gulp.series(
   gulp.parallel(
@@ -126,7 +130,8 @@ gulp.task('clean', gulp.parallel(
   'clean--css',
   'clean--js',
   'clean--fonts',
-  'clean--img'
+  'clean--img',
+  'clean--dist-archive'
 ));
 gulp.task('build', gulp.parallel(
   'build--css',
@@ -139,6 +144,9 @@ gulp.task('copy', gulp.parallel(
 gulp.task('lint', gulp.parallel(
   'lint--sass',
   'lint--js'
+));
+gulp.task('archive', gulp.parallel(
+  'archive--dist'
 ));
 
 
@@ -168,6 +176,13 @@ function cleanFonts(done) {
 function cleanImg(done) {
   del([
       path.join(config.destinations.dist, config.destinations.img)
+  ]);
+  done();
+}
+
+function cleanDistArchive(done) {
+  del([
+    path.join(config.destinations.root, 'bas-style-kit.zip')
   ]);
   done();
 }
@@ -412,6 +427,19 @@ function sriAll(done) {
       sri({
         'fileName': 'bas-style-kit.sri.json'
       })
+    ],
+    done
+  );
+}
+
+function archiveDist(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.dist, '**/*.*')
+      ]),
+      zip('bas-style-kit.zip'),
+      gulp.dest(path.join(config.destinations.root))
     ],
     done
   );
