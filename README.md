@@ -190,6 +190,11 @@ Gulp is used to copy these images into `dist/`.
 
 By convention, all images should use the PNG format and extension (`.png`).
 
+#### Image optimisation
+
+New images should be optimised before being adding to the Style Kit.
+
+Tools such as [Optimizilla](http://optimizilla.com) can be used for this, producing indexed-RBG images which are
 significantly smaller (~70%) than full-RGB.
 
 ### JavaScript
@@ -243,7 +248,7 @@ During each *alpha* release dependencies should be updated to their latest versi
 
 **Note:** When referencing dependencies ensure the full `major.minor.path` version is specified (e.g. `1.3.2`).
 
-**Note:** The Yarn lock file (`yarn.lock`) should be committed to this project.
+**Note:** Commit the Yarn lock file (`yarn.lock`) this repository.
 
 Dependencies listed in `package.json` can be checked using tools such as
 [Daivd-DM](https://david-dm.org/antarctica/bas-style-kit?type=dev) to identify outdated versions.
