@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Infrastructure] All Gulp tasks rewritten and refactored to be simpler, giving significantly reduced file sizes
 * [Infrastructure] Splitting 'app' Docker image into an 'app' and 'testbed' images
+* [Infrastructure] Nginx moved into the testbed
 * [Infrastructure] Updating Node dependencies to latest versions
 * [Infrastructure] Updating support browser versions, IE 10 and Android 2.3 dropped
 * [Infrastructure] Gulp is no longer a global package and must be called from within `node_modules`

@@ -1,7 +1,8 @@
 # Local packages
 node_modules
+testbed/node_modules
 
 # Build process outputs
 dist
 dist-archive
-testbed/rendered
+testbed/public
