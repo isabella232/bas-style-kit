@@ -5,7 +5,6 @@ services:
   app:
     build: .
     image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit:0.4.0-develop-alpine
-    command: gulp develop
     volumes:
       - ./gulpfile.js:/usr/src/app/gulpfile.js
       - ./assets:/usr/src/app/assets
