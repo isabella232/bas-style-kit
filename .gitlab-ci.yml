@@ -35,7 +35,7 @@ stages:
   - process
   - package
   # - review
-  # - deploy
+  - deploy
 
 image:
   name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit:0.4.0-develop-alpine
@@ -182,7 +182,7 @@ package-dist:
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
-    script:
+  script:
     - "./node_modules/gulp/bin/gulp.js archive--dist"
     - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip"
   artifacts:
@@ -191,36 +191,28 @@ package-dist:
       - "*.zip"
     expire_in: 1 week
 
-# s3-snapshot-dev:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - master
-#   script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
+s3-packages-snapshot:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - master
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
 
-# s3-cdn-dev:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - master
-#   when: manual
-#   script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
+s3-packages-release:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - tags
+  when: manual
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
 
-# s3-cdn-prod:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - tags
-#   when: manual
-#   script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
-
-# s3-packages-prod:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - tags
-#   when: manual
-#   script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
+s3-cdn:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - master
+  when: manual
+  script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
 
 # s3-testbed:
 #   <<: *job_template_s3_sync
