@@ -7,9 +7,15 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed [BREAKING!]
 
+* [Infrastructure] All Gulp tasks rewritten and refactored to be simpler, giving significantly reduced file sizes
 * [Infrastructure] Updating Node dependencies to latest versions
 * [Infrastructure] Gulp is no longer a global package and must be called from within `node_modules`
 * [Infrastructure] Replacing `gulp-util` package with `fancy-log` for logging in Gulp tasks
+* [Infrastructure] `gulpfile.js` is now loaded at runtime within the app Docker image
+
+### Removed [BREAKING!]
+
+* [Infrastructure] Source map support
 
 ### Added
 
@@ -27,8 +33,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Admin] Updating project documentation
 * [Infrastructure] Switching docker file to Node 8 LTS (Carbon)
 * [Infrastructure] Adding Yarn package manager to replace NPM
+* [Infrastructure] No longer dependent on deprecated 'bas-aws' Docker image in CI/CD
 * [Infrastructure] Reclassifying Bootstrap and web-fonts as dependencies rather than dev-dependencies in NPM package
 * [Infrastructure] Rewriting CI tasks to install node modules before build tasks
+* [Infrastructure] Updating to latest StyleLint configuration preset
 * [Infrastructure] Tidying up Docker file
 * [Infrastructure] Tidying up Node package file
 

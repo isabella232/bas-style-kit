@@ -31,11 +31,11 @@
 stages:
   - setup
   - build
-  # - lint
-  # - process
-  # - package
+  - lint
+  - process
+  - package
   # - review
-  # - deploy
+  - deploy
 
 image:
   name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit:0.4.0-develop-alpine
@@ -61,90 +61,30 @@ node-dependencies:
       - node_modules
     expire_in: 1 hour
 
-gulp-test:
+compile-sass:
   stage: build
   script:
-    - "./node_modules/gulp/bin/gulp.js --tasks-simple"
+      - "./node_modules/gulp/bin/gulp.js build--css"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-styles"
+    paths:
+      - dist/css/styles-bsk.css
+      - dist/css/bootstrap-bsk.css
+      - dist/css/fonts-bsk.css
+      - dist/css/bas-style-kit.css
+      - dist/css/bas-style-kit.min.css
+    expire_in: 1 week
 
-# compile-sass:
-#   stage: build
-#   before_script:
-#     - "mkdir node_modules"
-#     - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
-#     - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
-#     - "cp -R $NODE_PATH/font-awesome node_modules/"
-#   script:
-#     - "gulp build--styles-bas-style-kit-only-no-min"
-#     - "gulp build--styles-bootstrap-bsk-only-no-min"
-#     - "gulp build--styles-fonts-bsk-only-no-min"
-#     - "gulp build--styles-bas-style-kit-no-min"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-dist-styles"
-#     paths:
-#       - dist/css/styles-bsk.css
-#       - dist/css/bootstrap-bsk.css
-#       - dist/css/fonts-bsk.css
-#       - dist/css/bas-style-kit.css
-#     expire_in: 1 week
-
-# compile-sass-min:
-#   stage: build
-#   only:
-#     - master
-#     - tags
-#   before_script:
-#     - "mkdir node_modules"
-#     - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
-#     - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
-#     - "cp -R $NODE_PATH/font-awesome node_modules/"
-#   script:
-#     - "gulp build--styles-bas-style-kit-only-min"
-#     - "gulp build--styles-bootstrap-bsk-only-min"
-#     - "gulp build--styles-fonts-bsk-only-min"
-#     - "gulp build--styles-bas-style-kit-min"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-dist-styles-min"
-#     paths:
-#       - dist/css/styles-bsk.min.css
-#       - dist/css/bootstrap-bsk.min.css
-#       - dist/css/fonts-bsk.min.css
-#       - dist/css/bas-style-kit.min.css
-#       - dist/css/maps/styles-bsk.min.css.map
-#       - dist/css/maps/bootstrap-bsk.min.css.map
-#       - dist/css/maps/fonts-bsk.min.css.map
-#       - dist/css/maps/bas-style-kit.min.css.map
-#     expire_in: 1 week
-
-# compile-js:
-#   stage: build
-#   script:
-#     - "gulp build--scripts-bsk-no-min"
-#     - "gulp build--bootstrap-bsk-js-no-min"
-#     - "gulp build--scripts-bas-style-kit-no-min"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-dist-scripts"
-#     paths:
-#       - dist/js/scripts-bsk.js
-#       - dist/js/boostrap-bsk.js
-#       - dist/js/bas-style-kit.js
-#     expire_in: 1 week
-
-# compile-js-min:
-#   stage: build
-#   only:
-#     - master
-#     - tags
-#   script:
-#     - "gulp build--scripts-bsk-min"
-#     - "gulp build--bootstrap-bsk-js-min"
-#     - "gulp build--scripts-bas-style-kit-min"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-dist-scripts-min"
-#     paths:
-#       - dist/js/scripts-bsk.min.js
-#       - dist/js/boostrap-bsk.min.js
-#       - dist/js/bas-style-kit.min.js
-#     expire_in: 1 week
+compile-js:
+  stage: build
+  script:
+      - "./node_modules/gulp/bin/gulp.js build--js"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-scripts"
+    paths:
+      - dist/js/bas-style-kit.js
+      - dist/js/bas-style-kit.min.js
+    expire_in: 1 week
 
 # compile-testbed:
 #   stage: build
@@ -162,45 +102,47 @@ gulp-test:
 #       - testbed/rendered
 #     expire_in: 1 week
 
-# copy-fonts:
-#   stage: build
-#   before_script:
-#     - "mkdir node_modules"
-#     - "cp -R $NODE_PATH/open-sans-fontface node_modules/"
-#     - "cp -R $NODE_PATH/font-awesome node_modules/"
-#   script:
-#     - "gulp fonts"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-dist-fonts"
-#     paths:
-#       - dist/fonts
-#     expire_in: 1 week
+copy-fonts:
+  stage: build
+  script:
+    - "./node_modules/gulp/bin/gulp.js copy--fonts"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-fonts"
+    paths:
+      - dist/fonts
+    expire_in: 1 week
 
-# copy-images:
-#   stage: build
-#   script:
-#     - "gulp images"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-dist-imgs"
-#     paths:
-#       - dist/img
-#     expire_in: 1 week
+copy-images:
+  stage: build
+  script:
+    - "./node_modules/gulp/bin/gulp.js copy--img"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-imgs"
+    paths:
+      - dist/img
+    expire_in: 1 week
 
-# lint:
-#   stage: lint
-#   script: gulp lint
+lint-sass:
+  stage: lint
+  script:
+    - "./node_modules/gulp/bin/gulp.js lint--sass"
 
-# compute-sri:
-#   stage: process
-#   only:
-#     - tags
-#   script:
-#     - "gulp build--sri-bas-style-kit"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-dist-sri"
-#     paths:
-#       - dist/bas-style-kit.sri.json
-#     expire_in: 1 year
+lint-js:
+  stage: lint
+  script:
+    - "./node_modules/gulp/bin/gulp.js lint--js"
+
+compute-sri:
+  stage: process
+  only:
+    - tags
+  script:
+    - "./node_modules/gulp/bin/gulp.js sri"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-sri"
+    paths:
+      - dist/bas-style-kit.sri.json
+    expire_in: 1 week
 
 # review:
 #   stage: review
@@ -235,50 +177,42 @@ gulp-test:
 #     name: review/$CI_BUILD_REF_NAME
 #     action: stop
 
-# package-dist:
-#   stage: package
-#   image: antarctica/aws-cli-image:0.1.0-alpine-gl
-#   before_script:
-#     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
-#     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
-#     - "cd dist"
-#   script: "zip -r ../$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip *"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-zip"
-#     paths:
-#       - "*.zip"
-#     expire_in: 1 day
+package-dist:
+  stage: package
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+    - "export DATETIME_INSTANT=`date --utc -Iseconds`"
+  script:
+    - "./node_modules/gulp/bin/gulp.js archive--dist"
+    - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-zip"
+    paths:
+      - "*.zip"
+    expire_in: 1 week
 
-# s3-snapshot-dev:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - master
-#   script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
+s3-packages-snapshot:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - master
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
 
-# s3-cdn-dev:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - master
-#   when: manual
-#   script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
+s3-packages-release:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - tags
+  when: manual
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
 
-# s3-cdn-prod:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - tags
-#   when: manual
-#   script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
-
-# s3-packages-prod:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - tags
-#   when: manual
-#   script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
+s3-cdn:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - master
+  when: manual
+  script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
 
 # s3-testbed:
 #   <<: *job_template_s3_sync

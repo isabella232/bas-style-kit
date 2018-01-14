@@ -21,7 +21,7 @@ ENTRYPOINT []
 CMD ["./node_modules/gulp/bin/gulp.js", "--tasks-simple"]
 
 # Copy configuration files
-COPY .csscomb.json .stylelintrc.yml gulpfile.js /usr/src/app/
+COPY .csscomb.json .stylelintrc.yml /usr/src/app/
 
 # Copy meta files for NPM packages
 COPY .gitattributes .gitignore .npmignore README.md /usr/src/app/

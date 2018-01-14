@@ -28,10 +28,9 @@
       background-color: $nav-pills-disabled-link-bg;
     }
   }
-}
 
-// Stacked pills
-.nav-pills {
+  // Stacked pills
+
   &.nav-stacked {
     > li {
       > a {

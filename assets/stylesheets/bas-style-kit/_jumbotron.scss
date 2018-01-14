@@ -2,8 +2,11 @@
 // Jumbotron
 // --------------------------------------------------
 
-// Base class
+
 .jumbotron {
+
+  // Base class
+
   margin-bottom:   $jumbotron-margin-bottom;
   background:      no-repeat center center;
   background-size: cover;
@@ -13,9 +16,20 @@
     // Only round corners at higher resolutions if contained in a container
     border-radius: $jumbotron-border-radius;
   }
+
+  // Sub-components
+  .jumbotron {
+    .jumbotron-overlay {
+      padding:          $jumbotron-overlay-padding;
+      color:            $jumbotron-overlay-color;
+      background-color: $jumbotron-overlay-bg;
+    }
+  }
 }
 
+
 // Sizes
+
 .jumbotron-lg {
   @include make-jumbotron-size($jumbotron-lg-padding);
 }
@@ -24,7 +38,9 @@
   @include make-jumbotron-size($jumbotron-xl-padding);
 }
 
+
 // Variants
+
 .jumbotron-default {
   color:            $jumbotron-default-color;
   background-color: $jumbotron-default-bg;
@@ -33,13 +49,4 @@
 .jumbotron-inverse {
   color:            $jumbotron-inverse-color;
   background-color: $jumbotron-inverse-bg;
-}
-
-// Sub-components
-.jumbotron {
-  .jumbotron-overlay {
-    padding:          $jumbotron-overlay-padding;
-    color:            $jumbotron-overlay-color;
-    background-color: $jumbotron-overlay-bg;
-  }
 }

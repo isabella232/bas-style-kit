@@ -87,25 +87,9 @@
         background-color: $navbar-link-disabled-bg;
       }
     }
-  }
 
-  // Darken the responsive nav toggle
-  .navbar-toggle {
-    border-color:  $navbar-toggle-border-color;
-    border-radius: $navbar-border-radius;
+    // Drop-downs
 
-    &:hover,
-    &:focus {
-      background-color: $navbar-toggle-hover-bg;
-    }
-
-    .icon-bar {
-      background-color: $navbar-toggle-icon-bar-bg;
-    }
-  }
-
-  // Dropdowns
-  .navbar-nav {
     > .open {
       > a {
         &,
@@ -161,6 +145,21 @@
           }
         }
       }
+    }
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border-color:  $navbar-toggle-border-color;
+    border-radius: $navbar-border-radius;
+
+    &:hover,
+    &:focus {
+      background-color: $navbar-toggle-hover-bg;
+    }
+
+    .icon-bar {
+      background-color: $navbar-toggle-icon-bar-bg;
     }
   }
 

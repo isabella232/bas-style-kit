@@ -3,7 +3,12 @@
 
 extends: stylelint-config-standard
 rules:
-  max-empty-lines: 2
+  at-rule-no-unknown: [
+    true,
+    ignoreAtRules: ['include', 'extend', 'mixin', 'for', 'if']
+  ]
   declaration-colon-space-after: null
   color-hex-case: upper
   color-hex-length: long
+  max-empty-lines: 2
+  no-descending-specificity: null
