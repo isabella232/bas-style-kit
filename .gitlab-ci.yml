@@ -124,10 +124,12 @@ copy-images:
 
 lint-sass:
   stage: lint
+  script:
     - "./node_modules/gulp/bin/gulp.js lint--scss"
 
 lint-js:
   stage: lint
+  script:
     - "./node_modules/gulp/bin/gulp.js lint--js"
 
 compute-sri:
