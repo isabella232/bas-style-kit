@@ -31,6 +31,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed
 
 * [Admin] Updating project documentation
+* [Infrastructure] Images compressed using external tool giving ~70% size reductions using indexed rather full RGB
 * [Infrastructure] Switching docker file to Node 8 LTS (Carbon)
 * [Infrastructure] Adding Yarn package manager to replace NPM
 * [Infrastructure] No longer dependent on deprecated 'bas-aws' Docker image in CI/CD

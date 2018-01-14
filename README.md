@@ -190,6 +190,11 @@ Gulp is used to copy these images into `dist/`.
 
 By convention, all images should use the PNG format and extension (`.png`).
 
+#### Image optimisation
+
+New images should be optimised before being adding to the Style Kit.
+
+Tools such as [Optimizilla](http://optimizilla.com) can be used for this, producing indexed-RBG images which are
 significantly smaller (~70%) than full-RGB.
 
 ### JavaScript
