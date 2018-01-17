@@ -1,0 +1,17 @@
+doctype html
+html
+  head(lang="en-GB")
+  body
+    h1 BAS Style Kit Testbed
+    h2 Samples
+    ul
+      each sample in samples
+        li #{sample.title}
+    h2 Collections
+      each collection_samples, collection_name in collections
+        p #{ collection_name }
+        ul
+          each sample in collection_samples
+            li #{ sample.title }
+      else
+        p no

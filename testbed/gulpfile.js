@@ -9,19 +9,23 @@ var gulp         = require('gulp'),
     pump         = require('pump'),
     log          = require('fancy-log'),
     map          = require('map-stream'),
+    pug          = require('gulp-pug'),
     sass         = require('gulp-sass'),
     data         = require('gulp-data'),
+    rename       = require('gulp-rename'),
     cssprefixer  = require('gulp-class-prefix'),
-    frontmatter  = require('front-matter'),
+    frontmatter  = require('front-matter-pug'),
     autoprefixer = require('gulp-autoprefixer');
 
 const config = {
   'sources': {
+    'source': path.join('.', 'src'),
     'stylesheets': path.join('.', 'src', 'assets', 'stylesheets'),
     'images': path.join('.', 'src', 'assets', 'images'),
     'samples': path.join('.', 'src', 'samples')
   },
   'destinations': {
+    'public': path.join('.', 'public'),
     'assets': path.join('.', 'public', 'assets'),
     'css': path.join('css'),
     'img': path.join('img'),
@@ -49,7 +53,8 @@ const config = {
 };
 
 var runtime = {
-  'samples': []
+  'samples': [],
+  'collections': {}
 }
 
 // Task definitions
@@ -58,12 +63,13 @@ var runtime = {
 
 gulp.task('clean--css', cleanCss);
 gulp.task('clean--img', cleanImg);
+gulp.task('clean--samples', cleanSamples);
 
 gulp.task('build--css-testbed', buildCssTestbed);
+gulp.task('build--samples', buildSamples);
+gulp.task('build--samples-index', buildSampleIndex);
 
 gulp.task('copy--img-testbed', copyImagesTestbed);
-
-gulp.task('index--samples', indexSamples);
 
 gulp.task('build--css', gulp.parallel(
   'build--css-testbed'
@@ -75,9 +81,14 @@ gulp.task('copy--img', gulp.parallel(
 gulp.task('clean', gulp.parallel(
   'clean--css',
   'clean--img',
+  'clean--samples'
 ));
 gulp.task('build', gulp.parallel(
-  'build--css'
+  'build--css',
+  gulp.series(
+    'build--samples',
+    'build--samples-index'
+  )
 ));
 gulp.task('copy', gulp.parallel(
   'copy--img'
@@ -100,6 +111,13 @@ function cleanImg(done) {
   done();
 }
 
+function cleanSamples(done) {
+  del([
+      path.join(config.destinations.samples)
+  ]);
+  done();
+}
+
 function buildCssTestbed(done) {
   pump(
     [
@@ -110,6 +128,58 @@ function buildCssTestbed(done) {
       cssprefixer(config.modules.cssprefixer.prefix),
       autoprefixer(config.modules.autoprefixer),
       gulp.dest(path.join(config.destinations.assets, config.destinations.css))
+    ],
+    done
+  );
+}
+
+function buildSamples(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.samples, '*.pug')
+      ]),
+      data(function(file) {
+        var content = frontmatter(String(file.contents));
+        file.contents = new Buffer(content.body);
+
+        // Add sample number from file name as custom attribute
+        var fileName = file.basename.split('--');
+        if (fileName.length != 2) {
+          throw new Error('Sample file [' + fileName + '] does not fit the expected name format [123--sample-name]');
+        }
+        if (!("sample" in content.attributes)) {
+          content.attributes.sample = {}
+        }
+        content.attributes.sample.sample_number = fileName[0]
+
+        return content.attributes;
+      }),
+      map(indexer),
+      rename({extname: '.html'}),
+      pug(),
+      gulp.dest(path.join(config.destinations.samples))
+    ],
+    done
+  );
+}
+
+function buildSampleIndex(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.source, 'index.pug')
+      ]),
+      data(function(file) {
+
+        return {
+          'samples': runtime.samples,
+          'collections': runtime.collections
+        };
+      }),
+      rename({extname: '.html'}),
+      pug(),
+      gulp.dest(path.join(config.destinations.public))
     ],
     done
   );
@@ -127,41 +197,26 @@ function copyImagesTestbed(done) {
   );
 }
 
-function indexSamples(done) {
-  pump(
-    [
-      gulp.src([
-        path.join(config.sources.samples, '*.pug')
-      ]),
-      data(function(file) {
-        var content = frontmatter(String(file.contents));
-        file.contents = new Buffer(content.body);
 
-        // Get sample number as custom attribute
-        var fileName = file.basename.split('--');
-        if (fileName.length != 2) {
-          throw new Error('Sample file [' + fileName + '] does not fit the expected name format');
-        }
-        content.attributes['sample_number'] = fileName[0]
-
-        return content.attributes;
-      }),
-      map(indexer)
-    ],
-    done
-  );
-}
-
-
-// Custom functions for processing samples
+// Sample processing functions
 
 var indexer = function indexer(file, cb) {
-  runtime.samples.push(file.data);
+  if (!('sample' in file.data)) {
+    throw new Error('Sample file [' + file.basename + '] does not have sample attribute and cannot be indexed');
+  }
 
-  // Debug
-  // console.log(file.path);
-  // console.log(file.data);
-  console.log(runtime.samples);
+  // Index each sample's metadata
+  runtime.samples.push(file.data.sample);
+
+  // Add each sample to any collections it should belong too (specified by the sample)
+  if ('collections' in file.data) {
+    file.data.collections.forEach(function(collection) {
+        if (!(collection in runtime.collections)) {
+          runtime.collections[collection] = []
+        }
+        runtime.collections[collection].push(file.data.sample);
+    });
+  }
 
   cb(null, file);
 }

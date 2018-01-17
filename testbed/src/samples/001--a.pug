@@ -1,5 +1,12 @@
----
-title: Link
----
-
-| Links
+//-
+  sample:
+    title: Link
+  collections:
+    - text
+    - jenny
+  ---
+doctype html
+html
+  head(lang="en-GB")
+  body
+    p #{ sample.title } (a) - I am sample ##{ sample.sample_number }
