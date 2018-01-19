@@ -1,17 +1,18 @@
-doctype html
-html
-  head(lang="en-GB")
-  body
-    h1 BAS Style Kit Testbed
-    h2 Samples
-    ul
-      each sample in samples
-        li #{sample.title}
-    h2 Collections
-      each collection_samples, collection_name in collections
-        p #{ collection_name }
+extends ./layouts/bas-style-kit/bsk--standard.pug
+
+block page
+  div.bsk-container
+    h1.bsk-page-header BAS Style Kit Testbed
+    div.bsk-row
+      div.bsk-col-12-md-6
+        h2 Index of Samples
         ul
-          each sample in collection_samples
-            li #{ sample.title }
-      else
-        p no
+          each sample in samples
+            li: a(href='/s/' + sample.sample_number) #[strong #{sample.sample_number}] #{sample.title}
+      div.bsk-col-12-md-6
+        h2 Collections
+        each collection_samples, collection_name in collections
+          h3.bsk-text-capitalize #{ collection_name }
+          ul
+            each sample in collection_samples
+              li: a(href='/s/' + sample.sample_number) #[strong #{sample.sample_number}] #{sample.title}
