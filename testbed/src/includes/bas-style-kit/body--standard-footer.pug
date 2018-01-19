@@ -1,0 +1,21 @@
+footer.site-footer.bsk-footer.bsk-footer-default
+  div.bsk-container
+    div.bsk-row
+      div.bsk-col-12-md-6
+        | Testbed generated at #[i #{(new Date()).toISOString()}]
+      div.bsk-col-12-md-6
+        div.bsk-text-right
+          a.bsk-back-to-top(href='#site-top')
+            i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+            | Back to top
+    div.bsk-footer-divider(role='separator')
+    div.bsk-footer-ogl
+      a.bsk-ogl-symbol(rel='license' href='http://www.nationalarchives.gov.uk/doc/open-government-licence')
+        img(alt='Open Government Licence logo' src='https://cdn.web.bas.ac.uk/bas-style-kit/0.3.0/img/logos-symbols/ogl-symbol-inverse-transparent-32.png')
+      div.bsk-ogl-text This website is licensed under the #[a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence') Open Government Licence v3.0], except where otherwise stated
+    div.bsk-footer-policy-links
+      | © #{(new Date()).getFullYear()} NERC BAS
+      ul.bsk-list-inline
+        li: a(href='#') Cookies
+        li: a(href='#') Copyright
+        li: a(href='#') Privacy

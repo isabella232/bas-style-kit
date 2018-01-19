@@ -1,0 +1,20 @@
+extends ./html.pug
+
+block head
+  include ../../includes/bas-style-kit/head--core-meta.pug
+  include ../../includes/bas-style-kit/head--seo-meta.pug
+
+  block styles
+    include ../../includes/bas-style-kit/head--core-styles.pug
+    //- Use 'append styles' in templates inheriting from this layout to include other styles
+
+block body
+  include ../../includes/bas-style-kit/body--back-to-top.pug
+  block pre_page
+  div(#site-content)
+    block page
+
+  block post_page
+  block scripts
+    include ../../includes/bas-style-kit/body--core-scripts.pug
+    //- Use 'append scripts' in templates inheriting from this layout to include other scripts

@@ -1,0 +1,21 @@
+nav.bsk-navbar.bsk-docs-main-navigation
+  div.bsk-container
+      div.bsk-navbar-header
+        button.bsk-navbar-toggle.bsk-collapsed(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-expanded='false')
+          span.bsk-sr-only Toggle navigation
+          span.bsk-icon-bar
+          span.bsk-icon-bar
+          span.bsk-icon-bar
+
+        a.bsk-navbar-brand(href='/') BAS Style Kit Testbed
+
+      div.bsk-collapse.bsk-navbar-collapse#navbar-collapse
+        ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+          li.bsk-dropdown
+            a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+              | Part of British Antarctic Survey #[span.bsk-caret]
+            ul.bsk-dropdown-menu
+              li: a(href='https://www.bas.ac.uk') BAS Home
+              li: a(href='https://style-kit.web.bas.ac.uk') BAS Style Kit Docs
+              li: a(href='https://style-kit-testing.web.bas.ac.uk') BAS Style Kit Docs (Testing)
+              li: a(href='https://data.bas.ac.uk') Discover BAS Data
