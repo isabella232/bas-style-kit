@@ -1,0 +1,53 @@
+//-
+  sample:
+    title: Inline list
+    code: ul.bsk-list-inline
+  collections:
+    - core--lists
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    p.bsk-text-info Class is #[strong not] supported with ordered lists.
+
+    ul.bsk-list-inline
+      li Popcorn
+      li Jelly
+      li Oat cakes
+
+  section.app-sample-section
+    header Nested (not applied)
+    p.bsk-text-info Class is #[strong not] supported with nested lists.
+    p.bsk-text-info Class is #[strong not] applied to nested lists.
+
+    ul.bsk-list-inline
+      li Popcorn
+      li Jelly
+      li Oat cakes
+      li Sesame snaps
+        ul
+          li Chocolate cake
+          li
+            ul
+              li Sherbet
+              li Toffee apples
+
+  section.app-sample-section
+    header Nested (applied)
+    p.bsk-text-info Class is #[strong not] supported with nested lists.
+    p.bsk-text-info Class #[strong is] applied to nested lists.
+
+    ul.bsk-list-inline
+      li Popcorn
+      li Jelly
+      li Oat cakes
+      li Sesame snaps
+        ul.bsk-list-inline
+          li Chocolate cake
+          li
+            ul.bsk-list-inline
+              li Sherbet
+              li Toffee apples

@@ -1,0 +1,37 @@
+//-
+  sample:
+    title: Raw text
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    | There are dozens of us! DOZENS!
+
+  section.app-sample-section
+    header Split line (#[code br] separated)
+
+    | That coat costs more than your house! #[br] There are dozens of us! DOZENS!
+
+  section.app-sample-section
+    header Text block (approx 300 characters)
+
+    | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+    | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+    | I'm on my hog and have to go into a controlled slide.
+
+  section.app-sample-section
+    header Multiple text-blocks (#[code br] separated)
+
+    | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+    | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+    | I'm on my hog and have to go into a controlled slide.
+    | #[br]
+    | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+    | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+    | I'm on my hog and have to go into a controlled slide.

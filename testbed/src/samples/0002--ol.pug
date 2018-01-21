@@ -1,7 +1,7 @@
 //-
   sample:
-    title: Unordered list
-    code: ul
+    title: Ordered list
+    code: ol
   collections:
     - core--lists
   ---
@@ -11,8 +11,7 @@ extends ../layouts/app-sample.pug
 block sample
   section.app-sample-section
     header Standard
-
-    ul
+    ol
       li Popcorn
       li Jelly
       li Oat cakes
@@ -20,7 +19,22 @@ block sample
   section.app-sample-section
     header Nested
 
-    ul
+    ol
+      li Popcorn
+      li Jelly
+      li Oat cakes
+      li Sesame snaps
+        ol
+          li Chocolate cake
+          li
+            ol
+              li Sherbet
+              li Toffee apples
+
+  section.app-sample-section
+    header Nested, ordered/unordered mix
+
+    ol
       li Popcorn
       li Jelly
       li Oat cakes
@@ -28,6 +42,6 @@ block sample
         ul
           li Chocolate cake
           li
-            ul
+            ol
               li Sherbet
               li Toffee apples

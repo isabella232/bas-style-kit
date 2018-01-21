@@ -1,0 +1,68 @@
+//-
+  sample:
+    title: Unstyled list
+    code: ul.bsk-list-unstyled
+  collections:
+    - core--lists
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    p.bsk-text-info Class is #[strong not] supported with ordered list.
+
+    ul.bsk-list-unstyled
+      li Popcorn
+      li Jelly
+      li Oat cakes
+
+  section.app-sample-section
+    header Nested (not applied)
+    p.bsk-text-info Class #[strong is] supported with nested unordered lists but will appear flattened.
+    p.bsk-text-info Class is #[strong not] applied to nested lists.
+
+    ul.bsk-list-unstyled
+      li Popcorn
+      li Jelly
+      li Oat cakes
+      li Sesame snaps
+        ul
+          li Chocolate cake
+          li
+            ul
+              li Sherbet
+              li Toffee apples
+
+  section.app-sample-section
+    header Nested (applied)
+    p.bsk-text-info Class is #[strong not] supported with nested lists.
+    p.bsk-text-info Class #[strong applied] to nested lists.
+
+    ul.bsk-list-unstyled
+      li Popcorn
+      li Jelly
+      li Oat cakes
+      li Sesame snaps
+        ul.bsk-list-unstyled
+          li Chocolate cake
+          li
+            ul.bsk-list-unstyled
+              li Sherbet
+              li Toffee apples
+
+  section.app-sample-section
+    header Nested (unstyled/ordered/unordered mix)
+
+    ul.bsk-list-unstyled
+      li Popcorn
+      li Jelly
+      li Oat cakes
+      li Sesame snaps
+        ol
+          li Chocolate cake
+          li
+            ul
+              li Sherbet
+              li Toffee apples
