@@ -2,6 +2,7 @@ extends ./html.pug
 
 block append vars
   - var bsk_attributes = {};
+  - bsk_attributes.container_class = 'bsk-container';
   - bsk_attributes.css_url = 'https://cdn.web.bas.ac.uk/bas-style-kit/0.3.0/css/bas-style-kit.min.css';
   - bsk_attributes.js_url = 'https://cdn.web.bas.ac.uk/bas-style-kit/0.3.0/js/bas-style-kit.min.js';
   - bsk_attributes.back_to_top_target_href = '#site-top';
@@ -17,8 +18,8 @@ block head
 block body
   include ../../includes/bas-style-kit/body--back-to-top.pug
   block pre_page
-    block page
   div#site-content
+    block page_base
 
   block post_page
   block scripts
