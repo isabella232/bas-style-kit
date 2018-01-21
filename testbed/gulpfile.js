@@ -156,12 +156,12 @@ function buildSamples(done) {
         // Add sample number from file name as custom attribute
         var fileName = file.basename.split('--');
         if (fileName.length != 2) {
-          throw new Error('Sample file [' + fileName + '] does not fit the expected name format [123--sample-name]');
+          throw new Error('Sample file [' + fileName + '] does not fit the expected name format [1234--sample-name]');
         }
         if (!("sample" in content.attributes)) {
           content.attributes.sample = {}
         }
-        content.attributes.sample.sample_number = fileName[0]
+        content.attributes.sample.sample_number = fileName[0];
 
         return content.attributes;
       }),
@@ -192,7 +192,7 @@ function buildSampleRedirects(done) {
         // Add sample number from sample file name to name sample redirect file
         var fileName = file.basename.split('--');
         if (fileName.length != 2) {
-          throw new Error('Sample file [' + fileName + '] does not fit the expected name format [123--sample-name]');
+          throw new Error('Sample file [' + fileName + '] does not fit the expected name format [1234--sample-name]');
         }
         attributes.sample_number = fileName[0];
 

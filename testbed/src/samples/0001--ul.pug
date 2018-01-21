@@ -1,0 +1,31 @@
+//-
+  sample:
+    title: Unordered list
+    code: ul
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    ul
+      li Popcorn
+      li Jelly
+      li Oat cakes
+
+  section.app-sample-section
+    header Nested
+
+    ul
+      li Popcorn
+      li Jelly
+      li Oat cakes
+      li Sesame snaps
+        ul
+          li Chocolate cake
+          li
+            ul
+              li Sherbet
+              li Toffee apples

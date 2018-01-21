@@ -1,0 +1,13 @@
+extends ./bas-style-kit/bsk--base.pug
+
+block append vars
+  - bsk_attributes.container_class = 'bsk-container-fluid';
+
+block page_base
+  main(class=bsk_attributes.container_class)
+    include ../includes/app/sample--header.pug
+    block sample
+
+block append styles
+  // Testbed (application) sample specific styles
+  link(rel='stylesheet' href='/' + testbed_version + '/assets/css/testbed-samples.css')
