@@ -47,7 +47,7 @@ block page
           h3.bsk-text-capitalize #{ collection_name }
           ul
             each sample in collection_samples
-              li: a(href='/' + testbed_version + '/s/' + sample.sample_number) #[strong #{sample.sample_number}] #{sample.title}
+              li: a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html') #[strong #{sample.sample_number}] #{sample.title}
   section#site-feedback
     h2 Feedback
 
