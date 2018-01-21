@@ -1,5 +1,19 @@
 extends ./bsk--base.pug
 
+block append vars
+  - bsk_attributes.site_nav_brand_text = 'site name';
+  - bsk_attributes.site_nav_brand_href = '/';
+  - bsk_attributes.site_nav_launcher_extras = [];
+  - bsk_attributes.site_development_phase = 'alpha';
+  - bsk_attributes.site_feedback_href = '#';
+  - bsk_attributes.site_footer_ogl_symbol_a_href = 'http://www.nationalarchives.gov.uk/doc/open-government-licence';
+  - bsk_attributes.site_footer_ogl_symbol_img_href = 'https://cdn.web.bas.ac.uk/bas-style-kit/0.3.0/img/logos-symbols/ogl-symbol-inverse-transparent-32.png';
+  - bsk_attributes.site_footer_ogl_text_href = 'http://www.nationalarchives.gov.uk/doc/open-government-licence';
+  - bsk_attributes.site_footer_ogl_text_version = 'v3.0';
+  - bsk_attributes.site_footer_policies_cookies_href = '#';
+  - bsk_attributes.site_footer_policies_copyright_href = '#';
+  - bsk_attributes.site_footer_policies_privacy_href = '#';
+
 block pre_page
   include ../../includes/bas-style-kit/body--standard-header.pug
 

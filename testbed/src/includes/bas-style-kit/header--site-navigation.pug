@@ -7,7 +7,7 @@ nav.bsk-navbar.bsk-docs-main-navigation
           span.bsk-icon-bar
           span.bsk-icon-bar
 
-        a.bsk-navbar-brand(href='/') BAS Style Kit Testbed
+        a.bsk-navbar-brand(href=bsk_attributes.site_nav_brand_href) #{ bsk_attributes.site_nav_brand_text }
 
       div.bsk-collapse.bsk-navbar-collapse#navbar-collapse
         ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
@@ -16,6 +16,6 @@ nav.bsk-navbar.bsk-docs-main-navigation
               | Part of British Antarctic Survey #[span.bsk-caret]
             ul.bsk-dropdown-menu
               li: a(href='https://www.bas.ac.uk') BAS Home
-              li: a(href='https://style-kit.web.bas.ac.uk') BAS Style Kit Docs
-              li: a(href='https://style-kit-testing.web.bas.ac.uk') BAS Style Kit Docs (Testing)
+              each link in bsk_attributes.site_nav_launcher_extras
+                li: a(href=link.href) #{ link.name }
               li: a(href='https://data.bas.ac.uk') Discover BAS Data
