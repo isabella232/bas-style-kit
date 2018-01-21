@@ -1,7 +1,39 @@
 extends ./layouts/app.pug
 
 block page
-  h1.bsk-page-header BAS Style Kit Testbed
+  header
+    h1.bsk-page-header BAS Style Kit Testbed
+    p.bsk-lead This website is used by developers to test and develop parts of the BAS Style Kit
+    p
+      | Each part of the Style Kit is represented as one or more #[em samples], each of which may contain multiple
+      | examples to test a class in a range of different scenarios.
+    p
+      | Most samples focus on a single CSS class (such as a single button variant), however some test how multiple
+      | classes interact together (such as ensuring the cookie notice lines up with navbars).
+    p
+      | The testbed uses the latest, unpublished development build of the Style Kit (either locally compilled CSS/JS or
+      | compiled versions of files in the #[em master] branch of the project repositry for hosted versions).
+    p
+      | The testbed is designed to be used locally to ensure a short feedback loop when iterating on fixes or new
+      | features. Hosted versions are used temporarily for merge requests (testbed per branch) and permanently for the
+      | #[em master] branch of the project repository for reference.
+
+    div.bsk-alert.bsk-alert-block.bsk-alert-warning.bsk-alert-solid
+      ul
+        li #[strong this website is not designed to show how to use the Style Kit], use the published end-user documentation
+
+    div.bsk-alert.bsk-alert-block.bsk-alert-warning.bsk-alert-outline
+      ul
+        li sample numbers have no implied order or grouping and may not be continuous, they will be unique
+        li samples may not necessarily work - some are intentionally invalid and expected to fail, others may not be updated
+        li Some samples are experiments - these are very likely to break when no longer needed, but kept for future reference
+
+    div.bsk-alert.bsk-alert-block.bsk-alert-info.bsk-alert-outline
+      p End-user documentation for the Style Kit, explaining how published versions can be used, is available at:
+      ul.app-spacing-top
+        li #[a.bsk-alert-link(href='style-kit.web.bas.ac.uk') style-kit.web.bas.ac.uk] for the latest stable version
+        li #[a.bsk-alert-link(href='style-kit-testing.web.bas.ac.uk') style-kit-testing.web.bas.ac.uk] for the latest pre-release but largely stable version
+
   section
     div.bsk-row
       div.bsk-col-12-md-6
