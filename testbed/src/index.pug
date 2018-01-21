@@ -26,23 +26,26 @@ block page
       ul
         li sample numbers have no implied order or grouping and may not be continuous, they will be unique
         li samples may not necessarily work - some are intentionally invalid and expected to fail, others may not be updated
-        li Some samples are experiments - these are very likely to break when no longer needed, but kept for future reference
+        li Some samples are experiments - these are very likely to break when no longer needed, but are kept for future reference
 
     div.bsk-alert.bsk-alert-block.bsk-alert-info.bsk-alert-outline
-      p End-user documentation for the Style Kit, explaining how published versions can be used, is available at:
-      ul.app-spacing-top
-        li #[a.bsk-alert-link(href='style-kit.web.bas.ac.uk') style-kit.web.bas.ac.uk] for the latest stable version
-        li #[a.bsk-alert-link(href='style-kit-testing.web.bas.ac.uk') style-kit-testing.web.bas.ac.uk] for the latest pre-release but largely stable version
+      ul
+        li samples may be listed in multiple sample collections
+        li samples may not be listed in any sample collections
+        li End-user documentation for the Style Kit, explaining how published versions can be used, is available at:
+          ul
+            li #[a.bsk-alert-link(href='style-kit.web.bas.ac.uk') style-kit.web.bas.ac.uk] for the latest stable version
+            li #[a.bsk-alert-link(href='style-kit-testing.web.bas.ac.uk') style-kit-testing.web.bas.ac.uk] for the latest pre-release but largely stable version
 
   section
     div.bsk-row
       div.bsk-col-12-md-6
-        h2 Index of Samples
+        h2 Samples by sample number
         ul
           each sample in samples
             li: a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html') #[strong #{sample.sample_number}] #{sample.title}
       div.bsk-col-12-md-6
-        h2 Collections
+        h2 Samples by collection
         each collection_samples, collection_name in collections
           h3.bsk-text-capitalize #{ collection_name }
           ul
