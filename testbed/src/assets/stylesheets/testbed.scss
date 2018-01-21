@@ -1,0 +1,17 @@
+/* BAS Style Kit - Testbed Styles */
+
+// These are additional styles needed for the testbed,
+// built using variables and styles from the main Style Kit styles.
+
+// Style Kit imports
+//
+
+// Core bootstrap variables
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+// Core BAS Style Kit variables to override Bootstrap
+// Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
+@import "../../../../assets/stylesheets/bas-style-kit/variables";
+
+// Core CSS
+@import "testbed/_scaffolding";

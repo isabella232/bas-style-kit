@@ -47,7 +47,7 @@ const config = {
       remove: true
     },
     'cssprefixer': {
-      'prefix': 'bsk-tb-'
+      'prefix': 'app-'
     }
   }
 };
@@ -122,7 +122,7 @@ function buildCssTestbed(done) {
   pump(
     [
       gulp.src([
-        path.join(config.sources.stylesheets, 'testbed-bsk.scss')
+        path.join(config.sources.stylesheets, 'testbed.scss'),
       ]),
       sass().on('error', sass.logError),
       cssprefixer(config.modules.cssprefixer.prefix),
