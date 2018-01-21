@@ -1,0 +1,92 @@
+extends ../layouts/app.pug
+
+block page
+  h1.bsk-page-header Cookie policy
+
+  p This website puts small files, known as cookies, onto your computer to collect information about how you browse the site.
+
+  p Cookies are used to:
+  ul
+    li measure how you use the website - so it can be updated and improved based on your needs
+    li remember notifications you have hidden - so we don’t show them to you again (for example the ‘we use cookies’ banner)
+
+  p #[strong These cookies are not used to identify you personally].
+
+  p
+    | You will normally see a message on the site before we store a cookie on your computer.
+    | You can hide this message for 30 days, after which you will need to hide it again.
+
+  p Find out more about how to manage cookies here: #[a(href='www.aboutcookies.org') www.aboutcookies.org].
+
+  h2 How this website uses cookies
+
+  h3 Measuring website usage (Google Analytics)
+  p
+    | We use Google Analytics #[a(href='www.google.co.uk/analytics') www.google.co.uk/analytics] to collect information
+    | about how you use this website. We do this to make sure the site is meeting the needs of its users and to help us
+    | make improvements.
+
+  p Google Analytics stores information about:
+  ul
+    li the pages you visit on this website
+    li how long you spend on each page in this website
+    li how you came to this site (e.g. from a search engine or the main BAS website)
+    li what you click on while you are visiting the site (for example, whether you click links from the main navigation or within pages)
+    li No personal information is collected or sent to this service (such as your name or email address).
+
+  p Google Analytics sets the following cookies:
+  table.bsk-table
+    thead
+      tr
+        th Name
+        th Purpose
+        th Expires
+    tbody
+      tr
+        td #[code _ga]
+        td This helps count how many people visit this website by tracking if you have visited before
+        td 2 years
+      tr
+        td #[code _gat]
+        td Used to manage the rate at which page view requests are made
+        td 10 minutes
+      tr
+        td #[code _utma]
+        td Like _ga, this lets us know if you have visited before, so we can count how many of our visitors are new or returning to a certain page
+        td 2 years
+      tr
+        td #[code _utmb]
+        td This works with _utmc to calculate the average length of time you spend on this website
+        td 30 minutes
+      tr
+        td #[code _utmc]
+        td This works with _utmb to calculate when you close your browser
+        td When you close your browser
+      tr
+        td #[code _utmz]
+        td This tells us how you reached this website (e.g. from another website or a search engine)
+        td 6 months
+
+  h3 Cookie banner
+  p If you close the banner highlighting that this website uses cookies, a cookie will be left on your computer to hide the banner for the next 30 days.
+
+  p Our cookie banner sets the following cookies:
+  table.bsk-table
+    thead
+      tr
+        th Name
+        th Purpose
+        th Expires
+    tbody
+      tr
+        td #[code bsk_cookie_notice_seen]
+        td Saves the fact you’ve chosen to hide our cookie banner
+        td 30 days
+
+  hr
+
+  h2 Changes to this policy
+
+  h3 16th June 2016
+  ul
+    li initial policy

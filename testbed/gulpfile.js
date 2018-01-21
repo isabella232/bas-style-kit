@@ -68,6 +68,7 @@ gulp.task('clean--samples', cleanSamples);
 gulp.task('build--css-testbed', buildCssTestbed);
 gulp.task('build--samples', buildSamples);
 gulp.task('build--samples-index', buildSampleIndex);
+gulp.task('build--legal-pages', buildLegalPages);
 
 gulp.task('copy--img-testbed', copyImagesTestbed);
 
@@ -87,7 +88,8 @@ gulp.task('build', gulp.parallel(
   'build--css',
   gulp.series(
     'build--samples',
-    'build--samples-index'
+    'build--samples-index',
+    'build--legal-pages'
   )
 ));
 gulp.task('copy', gulp.parallel(
@@ -179,6 +181,20 @@ function buildSampleIndex(done) {
       rename({extname: '.html'}),
       pug(),
       gulp.dest(path.join(config.destinations.public))
+    ],
+    done
+  );
+}
+
+function buildLegalPages(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.source, 'legal', '*.pug')
+      ]),
+      rename({extname: '.html'}),
+      pug(),
+      gulp.dest(path.join(config.destinations.public, 'legal'))
     ],
     done
   );
