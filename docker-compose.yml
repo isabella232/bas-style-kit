@@ -24,6 +24,6 @@ services:
     volumes:
       - ./testbed/nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./testbed/public:/usr/share/nginx/html/public
-      - ./dist:/usr/share/nginx/html/dist
+      - ./dist:/usr/share/nginx/html/public/dist
     ports:
       - "9000:9000"
