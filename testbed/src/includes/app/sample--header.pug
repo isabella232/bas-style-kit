@@ -1,21 +1,4 @@
 header.bsk-page-header.app-sample-header
   h1 #[strong ##{ sample.sample_number }] #{ sample.title } #[small #[code #{ sample.code }]] #[small #[a(href='/' + testbed_version + '/') Back to index]]
 
-  div.bsk-lead
-    span.bsk-hidden-xs.bsk-text-muted Extra small
-    span.bsk-hidden-sm.bsk-hidden-md.bsk-hidden-lg.bsk-hidden-xl.bsk-hidden-fhd.bsk-visible-xs-inline: strong Extra small
-    | &nbsp;·&nbsp;
-    span.bsk-hidden-sm.bsk-text-muted Small
-    span.bsk-hidden-xs.bsk-hidden-md.bsk-hidden-lg.bsk-hidden-xl.bsk-hidden-fhd.bsk-visible-sm-inline: strong Small
-    | &nbsp;·&nbsp;
-    span.bsk-hidden-md.bsk-text-muted Medium
-    span.bsk-hidden-xs.bsk-hidden-sm.bsk-hidden-lg.bsk-hidden-xl.bsk-hidden-fhd.bsk-visible-md-inline: strong Medium
-    | &nbsp;·&nbsp;
-    span.bsk-hidden-lg.bsk-text-muted Large
-    span.bsk-hidden-xs.bsk-hidden-sm.bsk-hidden-md.bsk-hidden-xl.bsk-hidden-fhd.bsk-visible-lg-inline: strong Large
-    | &nbsp;·&nbsp;
-    span.bsk-hidden-xl.bsk-text-muted Extra large (custom size)
-    span.bsk-hidden-xs.bsk-hidden-sm.bsk-hidden-md.bsk-hidden-lg.bsk-hidden-fhd.bsk-visible-xl-inline: strong Extra large (custom size)
-    | &nbsp;·&nbsp;
-    span.bsk-hidden-fhd.bsk-text-muted Full HD (custom size)
-    span.bsk-hidden-xs.bsk-hidden-sm.bsk-hidden-md.bsk-hidden-lg.bsk-hidden-xl.bsk-visible-fhd-inline: strong Full HD (custom size)
+  include ./header--breakpoint.pug
