@@ -13,6 +13,7 @@ var gulp         = require('gulp'),
     sass         = require('gulp-sass'),
     data         = require('gulp-data'),
     rename       = require('gulp-rename'),
+    through      = require('through2'),
     cssprefixer  = require('gulp-class-prefix'),
     frontmatter  = require('front-matter-pug'),
     autoprefixer = require('gulp-autoprefixer');
@@ -68,6 +69,7 @@ gulp.task('clean--samples', cleanSamples);
 
 gulp.task('build--css-testbed', buildCssTestbed);
 gulp.task('build--samples', buildSamples);
+gulp.task('build--sample-redirects', buildSampleRedirects);
 gulp.task('build--samples-index', buildSampleIndex);
 gulp.task('build--legal-pages', buildLegalPages);
 
@@ -89,6 +91,7 @@ gulp.task('build', gulp.parallel(
   'build--css',
   gulp.series(
     'build--samples',
+    'build--sample-redirects',
     'build--samples-index',
     'build--legal-pages'
   )
@@ -165,6 +168,61 @@ function buildSamples(done) {
       map(indexer),
       rename({extname: '.html'}),
       pug(),
+      gulp.dest(path.join(config.destinations.samples))
+    ],
+    done
+  );
+}
+
+function buildSampleRedirects(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.samples, '*.pug')
+      ]),
+      data(function(file) {
+        var attributes = {};
+
+        // Add testbed version as custom attribute
+        attributes.testbed_version = runtime.version;
+
+        // Add sample file name without an extension as custom attribute for target in sample redirect file
+        attributes.sample_file_name = file.basename.split('.')[0];
+
+        // Add sample number from sample file name to name sample redirect file
+        var fileName = file.basename.split('--');
+        if (fileName.length != 2) {
+          throw new Error('Sample file [' + fileName + '] does not fit the expected name format [123--sample-name]');
+        }
+        attributes.sample_number = fileName[0];
+
+        file.contents = new Buffer(`
+          <!DOCTYPE html>
+          <html lang="en-GB">
+            <head>
+              <meta charset="utf-8">
+              <title>Redirecting&hellip;</title>
+              <link rel="canonical" href="./${attributes.sample_file_name}.html">
+              <meta http-equiv="refresh" content="0; url=./${attributes.sample_file_name}.html">
+              <meta name="robots" content="noindex">
+            </head>
+            <body>
+              <h1>Redirecting&hellip;</h1>
+              <a href="./${attributes.sample_file_name}.html">Click here if you are not redirected.</a>
+              <script>location="./${attributes.sample_file_name}.html"</script>
+            </body>
+          </html>`);
+
+        return attributes;
+      }),
+      through.obj(function(file, enc, cb) {
+        // Gulp rename doesn't allow accessing dynamic properties (i.e. from gulp-data) so we have to
+        // manually manipulate the file object to rename it.
+        //
+        // source: https://github.com/hparra/gulp-rename/issues/54#issuecomment-131412099
+        file.basename = file.data.sample_number + '.html';
+        cb(null, file);
+      }),
       gulp.dest(path.join(config.destinations.samples))
     ],
     done

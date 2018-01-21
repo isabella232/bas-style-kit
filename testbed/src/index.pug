@@ -8,7 +8,7 @@ block page
         h2 Index of Samples
         ul
           each sample in samples
-            li: a(href='/' + testbed_version + '/s/' + sample.sample_number) #[strong #{sample.sample_number}] #{sample.title}
+            li: a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html') #[strong #{sample.sample_number}] #{sample.title}
       div.bsk-col-12-md-6
         h2 Collections
         each collection_samples, collection_name in collections
