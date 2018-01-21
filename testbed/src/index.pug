@@ -16,3 +16,20 @@ block page
           ul
             each sample in collection_samples
               li: a(href='/s/' + sample.sample_number) #[strong #{sample.sample_number}] #{sample.title}
+  section#site-feedback
+    h2 Feedback
+
+    p.app-spacing-top
+      | The BAS Style Kit uses #[a(href='https://trello.com') Trello] to manage development and collecting feedback for
+      | all Style Kit components (including this Testbed) whether positive and negative.
+
+    p
+      | As a public open-source project, feedback is welcome from anyone, whether reporting bugs/issues or suggestions
+      | for additions/improvements. This project is inheriently related to branding websites as part of the British
+      | Antarctic Survey, and therefore some choices are beyond our control.
+
+    p
+      | As the testbed is a resource targetting developers, it is expected that feedback generated from this website
+      | will be technical in nature., ideally referencing one or more samples (except where suggesting new features).
+
+    p: a.bsk-btn.bsk-btn-primary.bsk-btn-lg.app-spacing-top(href='https://trello.com/b/0Mhzizpk') View Trello Board
