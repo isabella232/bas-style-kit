@@ -54,7 +54,8 @@ const config = {
 
 var runtime = {
   'samples': [],
-  'collections': {}
+  'collections': {},
+  'version': process.env.TESTBED_VERSION
 }
 
 // Task definitions
@@ -125,6 +126,7 @@ function buildCssTestbed(done) {
     [
       gulp.src([
         path.join(config.sources.stylesheets, 'testbed.scss'),
+        path.join(config.sources.stylesheets, 'testbed-samples.scss')
       ]),
       sass().on('error', sass.logError),
       cssprefixer(config.modules.cssprefixer.prefix),
@@ -144,6 +146,9 @@ function buildSamples(done) {
       data(function(file) {
         var content = frontmatter(String(file.contents));
         file.contents = new Buffer(content.body);
+
+        // Add testbed version as custom attribute
+        content.attributes.testbed_version = runtime.version;
 
         // Add sample number from file name as custom attribute
         var fileName = file.basename.split('--');
@@ -175,7 +180,8 @@ function buildSampleIndex(done) {
       data(function(file) {
         return {
           'samples': runtime.samples,
-          'collections': runtime.collections
+          'collections': runtime.collections,
+          'testbed_version': runtime.version
         };
       }),
       rename({extname: '.html'}),
@@ -192,6 +198,11 @@ function buildLegalPages(done) {
       gulp.src([
         path.join(config.sources.source, 'legal', '*.pug')
       ]),
+      data(function(file) {
+        return {
+          'testbed_version': runtime.version
+        };
+      }),
       rename({extname: '.html'}),
       pug(),
       gulp.dest(path.join(config.destinations.public, 'legal'))

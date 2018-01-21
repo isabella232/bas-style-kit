@@ -8,14 +8,14 @@ block page
         h2 Index of Samples
         ul
           each sample in samples
-            li: a(href='/s/' + sample.sample_number) #[strong #{sample.sample_number}] #{sample.title}
+            li: a(href='/' + testbed_version + '/s/' + sample.sample_number) #[strong #{sample.sample_number}] #{sample.title}
       div.bsk-col-12-md-6
         h2 Collections
         each collection_samples, collection_name in collections
           h3.bsk-text-capitalize #{ collection_name }
           ul
             each sample in collection_samples
-              li: a(href='/s/' + sample.sample_number) #[strong #{sample.sample_number}] #{sample.title}
+              li: a(href='/' + testbed_version + '/s/' + sample.sample_number) #[strong #{sample.sample_number}] #{sample.title}
   section#site-feedback
     h2 Feedback
 
