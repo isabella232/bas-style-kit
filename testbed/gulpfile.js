@@ -171,7 +171,6 @@ function buildSampleIndex(done) {
         path.join(config.sources.source, 'index.pug')
       ]),
       data(function(file) {
-
         return {
           'samples': runtime.samples,
           'collections': runtime.collections
