@@ -1,0 +1,45 @@
+//-
+  sample:
+    title: Font face comparisons
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Heading 1
+
+    +font-face-element('h1', 'Heading 1')
+
+  section.app-sample-section
+    header Heading 2
+
+    +font-face-element('h2', 'Heading 2')
+
+  section.app-sample-section
+    header Heading 3
+
+    +font-face-element('h3', 'Heading 3')
+
+  section.app-sample-section
+    header Heading 4
+
+    +font-face-element('h4', 'Heading 4')
+
+  section.app-sample-section
+    header Heading 5
+
+    +font-face-element('h5', 'Heading 5')
+
+  section.app-sample-section
+    header Heading 6
+
+    +font-face-element('h6', 'Heading 6')
+
+  section.app-sample-section
+    header Paragraph
+
+    +font-face-element('p', 'Paragraph')

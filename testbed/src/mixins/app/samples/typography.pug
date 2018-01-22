@@ -1,12 +1,24 @@
 mixin p--standard
   p(class!=attributes.class) There are dozens of us! DOZENS!
 
+mixin p--mixed-single-line
+  p #[span(class!=attributes.class) There are dozens of us! DOZENS!] There are dozens of us! DOZENS!
+
 mixin p--split-line
   p(class!=attributes.class) That coat costs more than your house! #[br] There are dozens of us! DOZENS!
+
+mixin p--mixed-split-line
+  p #[span(class!=attributes.class) That coat costs more than your house!] #[br] There are dozens of us! DOZENS!
 
 mixin p--text-block
   p(class!=attributes.class)
     | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+    | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+    | I'm on my hog and have to go into a controlled slide.
+
+mixin p--mixed-text-block
+  p
+    | #[span(class!=attributes.class) Ann certainly has a great deal of Mass.] I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
     | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
     | I'm on my hog and have to go into a controlled slide.
 
@@ -21,3 +33,68 @@ mixin p--text-block-multiple
     | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
     | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
     | I'm on my hog and have to go into a controlled slide.
+
+mixin p--mixed-text-block-multiple
+  p(class!=attributes.class)
+    | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+    | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+    | I'm on my hog and have to go into a controlled slide.
+  p
+    | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+    | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+    | I'm on my hog and have to go into a controlled slide.
+
+
+mixin headings--list
+  each val in [1, 2, 3, 4, 5, 6]
+    #{ 'h' + val } Heading #{ val }
+
+mixin headings--paragraphs
+  each val in [1, 2, 3, 4, 5, 6]
+    p
+      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs
+      | everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket
+      | for when I'm on my hog and have to go into a controlled slide.
+
+    #{ 'h' + val } Heading #{ val }
+
+    p
+      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs
+      | everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket
+      | for when I'm on my hog and have to go into a controlled slide.
+
+mixin headings-small--list
+  each val in [1, 2, 3, 4, 5, 6]
+    #{ 'h' + val } Heading #{ val } #[small Heading #{ val } small]
+
+mixin headings-small--paragraphs
+  each val in [1, 2, 3, 4, 5, 6]
+    p
+      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs
+      | everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket
+      | for when I'm on my hog and have to go into a controlled slide.
+
+    #{ 'h' + val } Heading #{ val } #[small Heading #{ val } small]
+
+    p
+      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs
+      | everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket
+      | for when I'm on my hog and have to go into a controlled slide.
+
+mixin font-face-element(element, element_label)
+  each font in ['app-ff-open-sans-light', 'app-ff-open-sans-regular', 'app-ff-open-sans-bold', 'app-ff-gill-sans-light', 'app-ff-gill-sans-book', 'app-ff-gill-sans-roman', 'app-ff-menlo-regular']
+    #{ element }(class=font) #{ element_label }
+
+mixin font-face-sample
+  each val in [1, 2, 3, 4, 5, 6]
+    #{ 'h' + val }(class!=attributes.class) Heading #{ val }
+
+  p(class!=attributes.class) Paragraph text
+  p(class!=attributes.class)
+    | Paragraph block - Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there
+    | are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather
+    | jacket for when I'm on my hog and have to go into a controlled slide.
+
+  p(class!=attributes.class)
+    | 0 1 2 3 4 5 6 7 8 9
+    | A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z
