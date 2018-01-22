@@ -1,0 +1,23 @@
+mixin p--standard
+  p(class!=attributes.class) There are dozens of us! DOZENS!
+
+mixin p--split-line
+  p(class!=attributes.class) That coat costs more than your house! #[br] There are dozens of us! DOZENS!
+
+mixin p--text-block
+  p(class!=attributes.class)
+    | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+    | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+    | I'm on my hog and have to go into a controlled slide.
+
+mixin p--text-block-multiple
+  p(class!=attributes.class)
+      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+      | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+      | I'm on my hog and have to go into a controlled slide.
+  br
+
+  p(class!=attributes.class)
+    | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+    | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+    | I'm on my hog and have to go into a controlled slide.

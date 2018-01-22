@@ -1,0 +1,57 @@
+mixin ul-ol(element)
+  #{ element }(class!=attributes.class)
+    li Popcorn
+    li Jelly
+    li Oat cakes
+
+mixin ul-ol--nested(element)
+  #{ element }(class!=attributes.class)
+    li Popcorn
+    li Jelly
+    li Oat cakes
+    li Sesame snaps
+      #{ element }
+        li Chocolate cake
+        li
+          #{ element }
+            li Sherbet
+            li Toffee apples
+
+mixin ul-ol--nested-class(element)
+  #{ element }(class!=attributes.class)
+    li Popcorn
+    li Jelly
+    li Oat cakes
+    li Sesame snaps
+      #{ element }(class!=attributes.class)
+        li Chocolate cake
+        li
+          #{ element }(class!=attributes.class)
+            li Sherbet
+            li Toffee apples
+
+mixin ul-ol--nested--mixed(element1, element2)
+  #{ element1 }
+    li Popcorn
+    li Jelly
+    li Oat cakes
+    li Sesame snaps
+      #{ element2 }
+        li Chocolate cake
+        li
+          #{ element1 }
+            li Sherbet
+            li Toffee apples
+
+mixin dl(element)
+  dl(class!=attributes.class)
+      dt Emperor Penguin
+      dd Aptenodytes forsteri
+      dt King Penguin
+      dd Aptenodytes patagonicus
+      dt Adelie Penguin
+      dd Pygoscelis adeliae
+      dt Chinstrap Penguin
+      dd Pygoscelis antarctica
+      dt Gentoo Penguin
+      dd Pygoscelis papua

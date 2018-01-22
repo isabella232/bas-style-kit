@@ -7,41 +7,21 @@
   ---
 
 extends ../layouts/app-sample.pug
+include ../mixins/app/samples/lists.pug
 
 block sample
   section.app-sample-section
     header Standard
-    ol
-      li Popcorn
-      li Jelly
-      li Oat cakes
+
+    +ul-ol('ol')
 
   section.app-sample-section
     header Nested
 
-    ol
-      li Popcorn
-      li Jelly
-      li Oat cakes
-      li Sesame snaps
-        ol
-          li Chocolate cake
-          li
-            ol
-              li Sherbet
-              li Toffee apples
+    +ul-ol--nested('ol')
+
 
   section.app-sample-section
     header Nested, ordered/unordered mix
 
-    ol
-      li Popcorn
-      li Jelly
-      li Oat cakes
-      li Sesame snaps
-        ul
-          li Chocolate cake
-          li
-            ol
-              li Sherbet
-              li Toffee apples
+    +ul-ol--nested--mixed('ol', 'ul')

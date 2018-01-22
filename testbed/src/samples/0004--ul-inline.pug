@@ -7,47 +7,31 @@
   ---
 
 extends ../layouts/app-sample.pug
+include ../mixins/app/samples/lists.pug
+include ../mixins/app/samples/alerts.pug
 
 block sample
   section.app-sample-section
     header Standard
-    p.bsk-text-info Class is #[strong not] supported with ordered lists.
+    +alert('info', 'highlight', 'yes')
+      | Class is #[strong not] supported with ordered list.
 
-    ul.bsk-list-inline
-      li Popcorn
-      li Jelly
-      li Oat cakes
+    +ul-ol('ul')(class='bsk-list-inline')
 
   section.app-sample-section
     header Nested (not applied)
-    p.bsk-text-info Class is #[strong not] supported with nested lists.
-    p.bsk-text-info Class is #[strong not] applied to nested lists.
+    +alert('info', 'highlight', 'yes')
+      ul
+        li Class #[strong is] supported with nested unordered lists but will appear flattened.
+        li Class is #[strong not] applied to nested lists.
 
-    ul.bsk-list-inline
-      li Popcorn
-      li Jelly
-      li Oat cakes
-      li Sesame snaps
-        ul
-          li Chocolate cake
-          li
-            ul
-              li Sherbet
-              li Toffee apples
+    +ul-ol--nested('ul')(class='bsk-list-inline')
 
   section.app-sample-section
     header Nested (applied)
-    p.bsk-text-info Class is #[strong not] supported with nested lists.
-    p.bsk-text-info Class #[strong is] applied to nested lists.
+    +alert('info', 'highlight', 'yes')
+      ul
+        li Class is #[strong not] supported with nested lists.
+        li Class #[strong applied] to nested lists.
 
-    ul.bsk-list-inline
-      li Popcorn
-      li Jelly
-      li Oat cakes
-      li Sesame snaps
-        ul.bsk-list-inline
-          li Chocolate cake
-          li
-            ul.bsk-list-inline
-              li Sherbet
-              li Toffee apples
+    +ul-ol--nested-class('ul')(class='bsk-list-inline')

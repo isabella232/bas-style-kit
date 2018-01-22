@@ -7,37 +7,25 @@
   ---
 
 extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
 
 block sample
   section.app-sample-section
     header Standard
 
-    p There are dozens of us! DOZENS!
+    +p--standard
 
   section.app-sample-section
     header Split line (#[code br] separated)
 
-    p That coat costs more than your house! #[br] There are dozens of us! DOZENS!
+    +p--split-line
 
   section.app-sample-section
     header Text block (approx 300 characters)
 
-    p
-      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
-      | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
-      | I'm on my hog and have to go into a controlled slide.
+    +p--text-block
 
   section.app-sample-section
     header Multiple text-blocks (#[code br] separated)
 
-    p
-      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
-      | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
-      | I'm on my hog and have to go into a controlled slide.
-
-    br
-
-    p
-      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
-      | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
-      | I'm on my hog and have to go into a controlled slide.
+    +p--text-block-multiple
