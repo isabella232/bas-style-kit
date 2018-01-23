@@ -2,6 +2,8 @@ extends ./bas-style-kit/bsk--base.pug
 
 block append vars
   - bsk_attributes.container_class = 'bsk-container-fluid';
+  - bsk_attributes.site_title = sample.title + ' | BAS Style Kit Testbed';
+  - bsk_attributes.site_description = 'A website used by developers to test and develop parts of the BAS Style Kit';
 
 block page_base
   main(class=bsk_attributes.container_class)
