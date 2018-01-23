@@ -1,0 +1,51 @@
+//-
+  sample:
+    title: Underlined text
+    code: u
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +p--standard('u')
+
+  section.app-sample-section
+    header Mixed single line
+
+    +p--mixed-single-line('u')
+
+  section.app-sample-section
+    header Split line (#[code br] separated)
+
+    +p--split-line('u')
+
+  section.app-sample-section
+    header Mixed split line (#[code br] separated)
+
+    +p--mixed-split-line('u')
+
+  section.app-sample-section
+    header Text block (approx 300 characters)
+
+    +p--text-block('u')
+
+  section.app-sample-section
+    header Mixed text-block (approx 300 characters)
+
+    +p--mixed-text-block('u')
+
+  section.app-sample-section
+    header Multiple text-blocks (#[code br] separated)
+
+    +p--text-block-multiple('u')
+
+  section.app-sample-section
+    header Multiple mixed text-blocks (#[code br] separated)
+
+    +p--mixed-text-block-multiple('u')

@@ -1,0 +1,27 @@
+//-
+  sample:
+    title: Blockquote
+    code: blockquote
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    blockquote Ann certainly has a great deal of Mass.
+
+  section.app-sample-section
+    header Reserved #[code bsk-blockquote-reverse]
+
+    blockquote.bsk-blockquote-reverse Ann certainly has a great deal of Mass.
+
+  section.app-sample-section
+    header With citation (#[code cite] in a #[code footer])
+
+    blockquote
+      | Ann certainly has a great deal of Mass.
+      footer Michael Bluth in #[cite(title="Source Title") Arrested Development]

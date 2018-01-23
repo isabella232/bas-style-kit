@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Uppercase text
+    code: .bsk-text-uppercase
+  collections:
+    - core--typography-utilities
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +p--standard(class='bsk-text-uppercase')

@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Capitalised text
+    code: .bsk-text-capitalize
+  collections:
+    - core--typography-utilities
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +p--standard(class='bsk-text-capitalize')

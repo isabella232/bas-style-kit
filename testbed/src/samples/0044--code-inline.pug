@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Inline code
+    code: code
+  collections:
+    - code
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +p--mixed-single-line('code')

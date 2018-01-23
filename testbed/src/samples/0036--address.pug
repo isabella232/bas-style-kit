@@ -1,0 +1,28 @@
+//-
+  sample:
+    title: Address
+    code: address
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Electronic
+
+    address
+      strong Connie Watson #[br]
+      a(href='mailto:#') contwat@bas.ac.uk
+
+  section.app-sample-section
+    header Postal
+
+    address
+      strong British Antarctic Survey #[br]
+      | High Cross, Madingley Road #[br]
+      | CAMBRIDGE #[br]
+      | CB3 0ET #[br]
+      | United Kingdom #[br]
+      | #[abbr(title='Phone') Tel:] +44 (0)1223 221400

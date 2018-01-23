@@ -1,0 +1,25 @@
+//-
+  sample:
+    title: 12 column grid
+    code: .bsk-col-12-*-*
+  collections:
+    - grid
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+include ../mixins/app/samples/grid.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  +alert('warning', 'outline', 'yes')
+    div.bsk-text-center This sample doesn't use a container and may look strange
+
+  section.app-sample-section
+    div.bsk-container
+      +alert('info', 'highlight', 'yes')
+        | Using the medium size 12 column grid, in a fixed-width container.
+
+      +grid--columns(12)

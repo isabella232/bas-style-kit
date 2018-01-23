@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Abbrevation
+    code: abbr
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +p--mixed-single-line('abbr')(title='abbrevation title')
