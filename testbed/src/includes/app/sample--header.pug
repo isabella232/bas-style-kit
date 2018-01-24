@@ -1,7 +1,10 @@
-header.bsk-page-header.app-sample-header
-  if sample.code
-    h1 #[strong ##{ sample.sample_number }] #{ sample.title } #[small #[code #{ sample.code }]] #[small #[a(href='/' + testbed_version + '/') Back to index]]
-  else
-    h1 #[strong ##{ sample.sample_number }] #{ sample.title } #[small #[a(href='/' + testbed_version + '/') Back to index]]
+if bsk_attributes.container_class == ''
+  div.bsk-container-fluid
+    header.bsk-page-header.app-sample-header
+      include ./header--basic.pug
+      include ./header--breakpoint.pug
 
-  include ./header--breakpoint.pug
+else
+  header.bsk-page-header.app-sample-header
+    include ./header--basic.pug
+    include ./header--breakpoint.pug
