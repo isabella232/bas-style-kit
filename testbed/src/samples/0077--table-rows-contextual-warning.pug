@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Contextual table row - warning
+    code: .bsk-table.bsk-warning
+  collections:
+    - core--tables
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/tables.pug
+
+block sample
+  section.app-sample-section
+    header Table only
+
+    +table--contextual-row('warning')(class='bsk-warning')

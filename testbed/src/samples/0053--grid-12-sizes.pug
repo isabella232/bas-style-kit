@@ -1,0 +1,38 @@
+//-
+  sample:
+    title: 12 column grid sizes
+    code: .bsk-col-12-*-*
+  collections:
+    - grid
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+include ../mixins/app/samples/grid.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  div.bsk-container-fluid
+    +alert('warning', 'outline', 'yes')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+    +alert('info', 'highlight', 'yes')
+      | 6 columns at multiple grid sizes:
+      ul.bsk-list-unstyled
+        li @ #[code xs] each item is #[em 12] columns wide
+        li @ #[code sm] each item is #[em 6] columns wide
+        li @ #[code md] each item is #[em 4] columns wide
+        li @ #[code lg] each item is #[em 3] columns wide
+        li @ #[code xl] each item is #[em 2] columns wide
+        li @ #[code fhd] each item is #[em 1] column wide
+
+  section.app-sample-section
+    div.bsk-container.app-visible-container.app-spacing-bottom
+      div.bsk-row
+        div.bsk-col-12-fhd-1.bsk-col-12-xl-2.bsk-col-12-lg-3.bsk-col-12-md-4.bsk-col-12-sm-6.bsk-col-12-xs-12.app-visible-col-1
+        div.bsk-col-12-fhd-1.bsk-col-12-xl-2.bsk-col-12-lg-3.bsk-col-12-md-4.bsk-col-12-sm-6.bsk-col-12-xs-12.app-visible-col-2
+        div.bsk-col-12-fhd-1.bsk-col-12-xl-2.bsk-col-12-lg-3.bsk-col-12-md-4.bsk-col-12-sm-6.bsk-col-12-xs-12.app-visible-col-3
+        div.bsk-col-12-fhd-1.bsk-col-12-xl-2.bsk-col-12-lg-3.bsk-col-12-md-4.bsk-col-12-sm-6.bsk-col-12-xs-12.app-visible-col-4
+        div.bsk-col-12-fhd-1.bsk-col-12-xl-2.bsk-col-12-lg-3.bsk-col-12-md-4.bsk-col-12-sm-6.bsk-col-12-xs-12.app-visible-col-5
+        div.bsk-col-12-fhd-1.bsk-col-12-xl-2.bsk-col-12-lg-3.bsk-col-12-md-4.bsk-col-12-sm-6.bsk-col-12-xs-12.app-visible-col-6

@@ -14,12 +14,12 @@ block append vars
   - bsk_attributes.container_class = '';
 
 block sample
-  +alert('warning', 'outline', 'yes')
-    div.bsk-text-center This sample doesn't use a container and may look strange
-
-  section.app-sample-section
-    div.bsk-container
-      +alert('info', 'highlight', 'yes')
+  div.bsk-container-fluid
+    +alert('warning', 'outline', 'yes')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+    +alert('info', 'highlight', 'yes')
         | Using the medium size 24 column grid, in a fixed-width container.
 
+  section.app-sample-section
+    div.bsk-container.app-visible-container.app-spacing-bottom
       +grid--columns(24)

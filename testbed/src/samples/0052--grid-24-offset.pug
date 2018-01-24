@@ -1,7 +1,7 @@
 //-
   sample:
-    title: 12 column grid
-    code: .bsk-col-12-*-*
+    title: 24 column grid offsets
+    code: .bsk-col-24-*-offset-*
   collections:
     - grid
   ---
@@ -17,10 +17,9 @@ block sample
   div.bsk-container-fluid
     +alert('warning', 'outline', 'yes')
       div.bsk-text-center This sample isn't inside a container and may look strange.
-
     +alert('info', 'highlight', 'yes')
-      | Using the medium size 12 column grid, in a fixed-width container.
+      | Using the medium size 24 column grid, in a fixed-width container.
 
   section.app-sample-section
     div.bsk-container.app-visible-container.app-spacing-bottom
-      +grid--columns(12)
+      +grid--columns-offset(24)
