@@ -1,0 +1,17 @@
+//-
+  sample:
+    title: Button sizes
+    code: .bsk-btn.bsk-btn-*.bsk-btn-*
+  collections:
+    - core--buttons
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    +button--size('extra small')(class='bsk-btn bsk-btn-default bsk-btn-xs')
+    +button--size('small')(class='bsk-btn bsk-btn-default bsk-btn-sm')
+    +button--size('regular')(class='bsk-btn bsk-btn-default')
+    +button--size('large')(class='bsk-btn bsk-btn-default bsk-btn-lg')

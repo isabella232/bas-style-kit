@@ -1,0 +1,26 @@
+//-
+  sample:
+    title: Disabled button state
+    code: .bsk-btn.bsk-btn-*.bsk-disabled
+  collections:
+    - core--buttons
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header: code button
+
+    +button--disabled
+
+  section.app-sample-section
+    header: code input
+
+    p: input(class='bsk-btn bsk-btn-default' type='button' value='default (disabled)' disabled)
+
+  section.app-sample-section
+    header Link #[code a]
+
+    +button--a('default (disabled)')(class='bsk-btn bsk-btn-default bsk-disabled')

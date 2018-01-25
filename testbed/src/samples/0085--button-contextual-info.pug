@@ -1,0 +1,26 @@
+//-
+  sample:
+    title: Contextual button - info
+    code: .bsk-btn.bsk-btn-info
+  collections:
+    - core--buttons
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header: code button
+
+    +button--button('info')(class='bsk-btn bsk-btn-info')
+
+  section.app-sample-section
+    header: code input
+
+    +button--input('info')(class='bsk-btn bsk-btn-info')
+
+  section.app-sample-section
+    header Link #[code a]
+
+    +button--a('info')(class='bsk-btn bsk-btn-info')
