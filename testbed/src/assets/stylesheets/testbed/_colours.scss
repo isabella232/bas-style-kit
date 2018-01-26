@@ -1,0 +1,350 @@
+//
+// Colours
+// --------------------------------------------------
+
+.colour-swatch {
+  width: 75px;
+  height: 75px;
+}
+
+// Standard colour scheme
+//
+
+// Greyscale
+
+.colour-bsk-colour-std-white {
+  background-color: $bsk-colour-std-white;
+  border: 1px solid $bsk-colour-std-grey-lighter;
+}
+
+.colour-bsk-colour-std-grey-lighter {
+  background-color: $bsk-colour-std-grey-lighter;
+}
+
+.colour-bsk-colour-std-grey-light {
+  background-color: $bsk-colour-std-grey-light;
+}
+
+.colour-bsk-colour-std-grey-base {
+  background-color: $bsk-colour-std-grey-base;
+}
+
+.colour-bsk-colour-std-grey-dark {
+  background-color: $bsk-colour-std-grey-dark;
+}
+
+.colour-bsk-colour-std-grey-darker {
+  background-color: $bsk-colour-std-grey-darker;
+}
+
+.colour-bsk-colour-std-black {
+  background-color: $bsk-colour-std-black;
+}
+
+// Yellow
+
+.colour-bsk-colour-std-yellow-lighter {
+  background-color: $bsk-colour-std-yellow-lighter;
+}
+
+.colour-bsk-colour-std-yellow-light {
+  background-color: $bsk-colour-std-yellow-light;
+}
+
+.colour-bsk-colour-std-yellow-base {
+  background-color: $bsk-colour-std-yellow-base;
+}
+
+.colour-bsk-colour-std-yellow-dark {
+  background-color: $bsk-colour-std-yellow-dark;
+}
+
+.colour-bsk-colour-std-yellow-darker {
+  background-color: $bsk-colour-std-yellow-darker;
+}
+
+// Orange
+
+.colour-bsk-colour-std-orange-lighter {
+  background-color: $bsk-colour-std-orange-lighter;
+}
+
+.colour-bsk-colour-std-orange-light {
+  background-color: $bsk-colour-std-orange-light;
+}
+
+.colour-bsk-colour-std-orange-base {
+  background-color: $bsk-colour-std-orange-base;
+}
+
+.colour-bsk-colour-std-orange-dark {
+  background-color: $bsk-colour-std-orange-dark;
+}
+
+.colour-bsk-colour-std-orange-darker {
+  background-color: $bsk-colour-std-orange-darker;
+}
+
+// Aircraft red
+
+.colour-bsk-colour-std-aircraft-red-lighter {
+  background-color: $bsk-colour-std-aircraft-red-lighter;
+}
+
+.colour-bsk-colour-std-aircraft-red-light {
+  background-color: $bsk-colour-std-aircraft-red-light;
+}
+
+.colour-bsk-colour-std-aircraft-red-base {
+  background-color: $bsk-colour-std-aircraft-red-base;
+}
+
+.colour-bsk-colour-std-aircraft-red-dark {
+  background-color: $bsk-colour-std-aircraft-red-dark;
+}
+
+.colour-bsk-colour-std-aircraft-red-darker {
+  background-color: $bsk-colour-std-aircraft-red-darker;
+}
+
+// Red
+
+.colour-bsk-colour-std-red-lighter {
+  background-color: $bsk-colour-std-red-lighter;
+}
+
+.colour-bsk-colour-std-red-light {
+  background-color: $bsk-colour-std-red-light;
+}
+
+.colour-bsk-colour-std-red-base {
+  background-color: $bsk-colour-std-red-base;
+}
+
+.colour-bsk-colour-std-red-dark {
+  background-color: $bsk-colour-std-red-dark;
+}
+
+.colour-bsk-colour-std-red-darker {
+  background-color: $bsk-colour-std-red-darker;
+}
+
+// Baby pink
+
+.colour-bsk-colour-std-baby-pink-lighter {
+  background-color: $bsk-colour-std-baby-pink-lighter;
+}
+
+.colour-bsk-colour-std-baby-pink-light {
+  background-color: $bsk-colour-std-baby-pink-light;
+}
+
+.colour-bsk-colour-std-baby-pink-base {
+  background-color: $bsk-colour-std-baby-pink-base;
+}
+
+.colour-bsk-colour-std-baby-pink-dark {
+  background-color: $bsk-colour-std-baby-pink-dark;
+}
+
+.colour-bsk-colour-std-baby-pink-darker {
+  background-color: $bsk-colour-std-baby-pink-darker;
+}
+
+// Pink
+
+.colour-bsk-colour-std-pink-lighter {
+  background-color: $bsk-colour-std-pink-lighter;
+}
+
+.colour-bsk-colour-std-pink-light {
+  background-color: $bsk-colour-std-pink-light;
+}
+
+.colour-bsk-colour-std-pink-base {
+  background-color: $bsk-colour-std-pink-base;
+}
+
+.colour-bsk-colour-std-pink-dark {
+  background-color: $bsk-colour-std-pink-dark;
+}
+
+.colour-bsk-colour-std-pink-darker {
+  background-color: $bsk-colour-std-pink-darker;
+}
+
+// Fuschia
+
+.colour-bsk-colour-std-fuschia-lighter {
+  background-color: $bsk-colour-std-fuschia-lighter;
+}
+
+.colour-bsk-colour-std-fuschia-light {
+  background-color: $bsk-colour-std-fuschia-light;
+}
+
+.colour-bsk-colour-std-fuschia-base {
+  background-color: $bsk-colour-std-fuschia-base;
+}
+
+.colour-bsk-colour-std-fuschia-dark {
+  background-color: $bsk-colour-std-fuschia-dark;
+}
+
+.colour-bsk-colour-std-fuschia-darker {
+  background-color: $bsk-colour-std-fuschia-darker;
+}
+
+// Mauve
+
+.colour-bsk-colour-std-mauve-lighter {
+  background-color: $bsk-colour-std-mauve-lighter;
+}
+
+.colour-bsk-colour-std-mauve-light {
+  background-color: $bsk-colour-std-mauve-light;
+}
+
+.colour-bsk-colour-std-mauve-base {
+  background-color: $bsk-colour-std-mauve-base;
+}
+
+.colour-bsk-colour-std-mauve-dark {
+  background-color: $bsk-colour-std-mauve-dark;
+}
+
+.colour-bsk-colour-std-mauve-darker {
+  background-color: $bsk-colour-std-mauve-darker;
+}
+
+// Sky blue
+
+.colour-bsk-colour-std-sky-blue-lighter {
+  background-color: $bsk-colour-std-sky-blue-lighter;
+}
+
+.colour-bsk-colour-std-sky-blue-light {
+  background-color: $bsk-colour-std-sky-blue-light;
+}
+
+.colour-bsk-colour-std-sky-blue-base {
+  background-color: $bsk-colour-std-sky-blue-base;
+}
+
+.colour-bsk-colour-std-sky-blue-dark {
+  background-color: $bsk-colour-std-sky-blue-dark;
+}
+
+.colour-bsk-colour-std-sky-blue-darker {
+  background-color: $bsk-colour-std-sky-blue-darker;
+}
+
+// Blue
+
+.colour-bsk-colour-std-blue-lighter {
+  background-color: $bsk-colour-std-blue-lighter;
+}
+
+.colour-bsk-colour-std-blue-light {
+  background-color: $bsk-colour-std-blue-light;
+}
+
+.colour-bsk-colour-std-blue-base {
+  background-color: $bsk-colour-std-blue-base;
+}
+
+.colour-bsk-colour-std-blue-dark {
+  background-color: $bsk-colour-std-blue-dark;
+}
+
+.colour-bsk-colour-std-blue-darker {
+  background-color: $bsk-colour-std-blue-darker;
+}
+
+// Turquoise
+
+.colour-bsk-colour-std-turquoise-lighter {
+  background-color: $bsk-colour-std-turquoise-lighter;
+}
+
+.colour-bsk-colour-std-turquoise-light {
+  background-color: $bsk-colour-std-turquoise-light;
+}
+
+.colour-bsk-colour-std-turquoise-base {
+  background-color: $bsk-colour-std-turquoise-base;
+}
+
+.colour-bsk-colour-std-turquoise-dark {
+  background-color: $bsk-colour-std-turquoise-dark;
+}
+
+.colour-bsk-colour-std-turquoise-darker {
+  background-color: $bsk-colour-std-turquoise-darker;
+}
+
+// Green
+
+.colour-bsk-colour-std-green-lighter {
+  background-color: $bsk-colour-std-green-lighter;
+}
+
+.colour-bsk-colour-std-green-light {
+  background-color: $bsk-colour-std-green-light;
+}
+
+.colour-bsk-colour-std-green-base {
+  background-color: $bsk-colour-std-green-base;
+}
+
+.colour-bsk-colour-std-green-dark {
+  background-color: $bsk-colour-std-green-dark;
+}
+
+.colour-bsk-colour-std-green-darker {
+  background-color: $bsk-colour-std-green-darker;
+}
+
+// NERC green
+
+.colour-bsk-colour-std-nerc-green-lighter {
+  background-color: $bsk-colour-std-nerc-green-lighter;
+}
+
+.colour-bsk-colour-std-nerc-green-light {
+  background-color: $bsk-colour-std-nerc-green-light;
+}
+
+.colour-bsk-colour-std-nerc-green-base {
+  background-color: $bsk-colour-std-nerc-green-base;
+}
+
+.colour-bsk-colour-std-nerc-green-dark {
+  background-color: $bsk-colour-std-nerc-green-dark;
+}
+
+.colour-bsk-colour-std-nerc-green-darker {
+  background-color: $bsk-colour-std-nerc-green-darker;
+}
+
+// Brown
+
+.colour-bsk-colour-std-brown-lighter {
+  background-color: $bsk-colour-std-brown-lighter;
+}
+
+.colour-bsk-colour-std-brown-light {
+  background-color: $bsk-colour-std-brown-light;
+}
+
+.colour-bsk-colour-std-brown-base {
+  background-color: $bsk-colour-std-brown-base;
+}
+
+.colour-bsk-colour-std-brown-dark {
+  background-color: $bsk-colour-std-brown-dark;
+}
+
+.colour-bsk-colour-std-brown-darker {
+  background-color: $bsk-colour-std-brown-darker;
+}
