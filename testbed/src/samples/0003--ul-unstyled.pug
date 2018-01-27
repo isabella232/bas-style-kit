@@ -13,14 +13,14 @@ include ../mixins/app/samples/alerts.pug
 block sample
   section.app-sample-section
     header Standard
-    +alert('info', 'highlight', 'yes')
+    +alert('info', 'highlight')
       | Class is #[strong not] supported with ordered list.
 
     +ul-ol('ul')(class="bsk-list-unstyled")
 
   section.app-sample-section
     header Nested (not applied)
-    +alert('info', 'highlight', 'yes')
+    +alert('info', 'highlight')
       ul
         li Class #[strong is] supported with nested unordered lists but will appear flattened.
         li Class is #[strong not] applied to nested lists.
@@ -29,7 +29,7 @@ block sample
 
   section.app-sample-section
     header Nested (applied)
-    +alert('info', 'highlight', 'yes')
+    +alert('info', 'highlight')
       ul
         li Class is #[strong not] supported with nested lists.
         li Class #[strong applied] to nested lists.
