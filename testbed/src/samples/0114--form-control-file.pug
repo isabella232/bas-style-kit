@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Forms - file input
+    code: input[type=file"]
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  +form-input--collection(type='file')

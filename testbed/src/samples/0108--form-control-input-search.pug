@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Forms - search input
+    code: input[type="search"]
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  +form-input--collection(type='search')

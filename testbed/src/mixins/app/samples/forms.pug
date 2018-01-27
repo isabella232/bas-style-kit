@@ -1,0 +1,195 @@
+mixin form-input--collection()
+  +form-input--basic(attributes.type)
+  +form-input--form-group(attributes.type)
+  +form-input--form-group-value(attributes.type)
+  +form-input--form-group-placeholder(attributes.type)
+  +form-input--form-group-value-placeholder(attributes.type)
+  +form-input--form-group-attribute(attributes.type, 'required', {'required': 'required'})
+  +form-input--form-group-attribute(attributes.type, 'readonly', {'readonly': 'readonly'})
+  +form-input--form-group-attribute(attributes.type, 'disabled', {'disabled': 'disabled'})
+  +form-input--form-group-placeholder-disabled(attributes.type)
+  +form-input--form-group-state-focus(attributes.type)
+  +form-input--form-group-validation-state(attributes.type, 'success')
+  +form-input--form-group-validation-state(attributes.type, 'warning')
+  +form-input--form-group-validation-state(attributes.type, 'error')
+
+mixin form-input--basic(type)
+  section.app-sample-section
+    header Input only
+    input(type=type)
+
+mixin form-input--form-group(type)
+  section.app-sample-section
+    header Form group
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label #{ type } input
+        input.bsk-form-control(type='#{ type }')
+
+mixin form-input--form-group-value(type)
+  section.app-sample-section
+    header Form group with #[code value] attribute value of #[samp example-value]
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label #{ type } input with value attribute
+        input.bsk-form-control(type='#{ type }' value='example-value')
+
+mixin form-input--form-group-placeholder(type)
+  section.app-sample-section
+    header Form group with #[code placeholder] attribute value of #[samp example]
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label #{ type } input with placeholder attribute
+        input.bsk-form-control(type='#{ type }' placeholder='example-placeholder')
+
+mixin form-input--form-group-value-placeholder(type)
+  section.app-sample-section
+    header Form group with #[code placeholder] attribute value of #[samp example-placeholder] and #[code value] attribute value of #[samp example-value]
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label #{ type } input with placeholder and value attributes
+        input.bsk-form-control(type='#{ type }' value='example-value' placeholder='example-placeholder')
+
+mixin form-input--form-group-attribute(type, attribute, input_attributes)
+  section.app-sample-section
+    header Form group with #[code #{ attribute }] attribute
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label #{ type } input with #{ attribute } attribute
+        input.bsk-form-control(type='#{ type }')&attributes(input_attributes)
+
+mixin form-input--form-group-placeholder-disabled(type)
+  section.app-sample-section
+    header Form group with #[code placeholder] attribute value of #[samp example-placeholder] and #[code disabled] attribute
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label #{ type } input with placeholder and disabled attributes
+        input.bsk-form-control(type='#{ type }' placeholder='example-placeholder' disabled)
+
+mixin form-input--form-group-state-focus(type)
+  section.app-sample-section
+    header Form group with a simulated focus state
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label #{ type } input with simulated focus state
+        input.bsk-form-control.app-simulated-state-focus(type='#{ type }')
+
+mixin form-input--form-group-validation-state(type, validation_state)
+  section.app-sample-section
+    header Form group with a #[em #{ validation_state }] validation state
+    form
+      fieldset.bsk-form-group(class='bsk-has-#{ validation_state }')
+        label.bsk-control-label #{ type } input with #{ validation_state } validation
+        input.bsk-form-control(type='#{ type }')
+
+mixin form-input-radio-checkbox--collection(type, type_class)
+  +form-input-radio-checkbox--basic(type, type_class)
+  +form-input-radio-checkbox--form-group(type, type_class)
+  +form-input-radio-checkbox--form-group-value(type, type_class)
+  +form-input-radio-checkbox--form-group-attribute(type, type_class, 'required', {'required': 'required'}, 3)
+  +form-input-radio-checkbox--form-group-attribute(type, type_class, 'readonly', {'readonly': 'readonly'}, 4)
+  +form-input-radio-checkbox--form-group-attribute(type, type_class, 'disabled', {'disabled': 'disabled'}, 5)
+  +form-input-radio-checkbox--form-group-state-focus(type, type_class)
+  +form-input-radio-checkbox--form-group-validation-state(type, type_class, 'success', 7)
+  +form-input-radio-checkbox--form-group-validation-state(type, type_class, 'warning', 8)
+  +form-input-radio-checkbox--form-group-validation-state(type, type_class, 'error', 9)
+
+mixin form-input-radio-checkbox--basic(type, type_class)
+  section.app-sample-section
+    header Input only
+    input(type=type)
+
+mixin form-input-radio-checkbox--form-group(input_type, type_class)
+  section.app-sample-section
+    header Form group
+
+    form
+      fieldset.bsk-form-group
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-1' id='example-1-a' value='A')
+            | Option 1 (A)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-1' id='example-1-b' value='B')
+            | Option 1 (B)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-1' id='example-1-c' value='C')
+            | Option 1 (C)
+
+mixin form-input-radio-checkbox--form-group-value(input_type, type_class)
+  section.app-sample-section
+    header Form group with selected value
+
+    form
+      fieldset.bsk-form-group
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-2' id='example-2-a' value='A')
+            | Option 2 (A)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-2' id='example-2-b' value='B' checked)
+            | Option 2 (B)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-2' id='example-2-c' value='C')
+            | Option 2 (C)
+
+mixin form-input-radio-checkbox--form-group-attribute(input_type, type_class, attribute, input_attributes, count)
+  section.app-sample-section
+    header Form group with #[code #{attribute}] attribute
+
+    form
+      fieldset.bsk-form-group
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-#{ count }' id='example-#{ count }-a' value='A')&attributes(input_attributes)
+            | Option #{ count } (A)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-#{ count }' id='example-#{ count }-b' value='B')&attributes(input_attributes)
+            | Option #{ count } (B)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-#{ count }' id='example-#{ count }-c' value='C')&attributes(input_attributes)
+            | Option #{ count } (C)
+
+mixin form-input-radio-checkbox--form-group-state-focus(input_type, type_class)
+  section.app-sample-section
+    header Form group with simulated focus state
+
+    form
+      fieldset.bsk-form-group.app-simulated-state-focus
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-6' id='example-6-a' value='A')
+            | Option 6 (A)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example62' id='example62-b' value='B')
+            | Option 6 (B)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-6' id='example-6-c' value='C')
+            | Option 6 (C)
+
+mixin form-input-radio-checkbox--form-group-validation-state(input_type, type_class, validation_state, count)
+  section.app-sample-section
+    header Form group with #[em #{ validation_state }] validation state
+
+    form
+      fieldset.bsk-form-group(class='bsk-has-' + validation_state)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-#{ count }' id='example-#{ count }-a' value='A')
+            | Option #{ count } (A)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-#{ count }' id='example-#{ count }-b' value='B')
+            | Option #{ count } (B)
+        div(class=type_class)
+          label.bsk-control-label
+            input(type=input_type name='example-#{ count }' id='example-#{ count }-c' value='C')
+            | Option #{ count } (C)
