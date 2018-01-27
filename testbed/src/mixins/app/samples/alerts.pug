@@ -1,3 +1,69 @@
-mixin alert(variant, style)
-  div(class='bsk-alert bsk-alert-' + variant + ' bsk-alert-' + style)
-    block
+mixin alert(variant, style, icon, dismissible)
+  if dismissible == 'yes'
+    div(class='bsk-alert bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible')
+      button.bsk-close(type='button' data-dismiss='alert' aria-label='close')
+        i.fa.fa-fw.fa-times(aria-hidden='true')
+      if icon == 'yes'
+        if variant == 'success'
+          i.fa.fa-fw.fa-check.bsk-alert-icon(aria-hidden='true')
+        if variant == 'warning'
+          i.fa.fa-fw.fa-exclamation-triangle.bsk-alert-icon(aria-hidden='true')
+        if variant == 'danger'
+          i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
+        if variant == 'info'
+          i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+      block
+  else
+    div(class='bsk-alert bsk-alert-' + variant + ' bsk-alert-' + style)
+      if icon == 'yes'
+        if variant == 'success'
+          i.fa.fa-fw.fa-check.bsk-alert-icon(aria-hidden='true')
+        if variant == 'warning'
+          i.fa.fa-fw.fa-exclamation-triangle.bsk-alert-icon(aria-hidden='true')
+        if variant == 'danger'
+          i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
+        if variant == 'info'
+          i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+      block
+
+mixin alert--collection(variant, style)
+  section.app-sample-section
+    header Standard
+    +alert(variant, style)
+      | #{ variant } alert
+
+  section.app-sample-section
+    header Alert link
+    +alert(variant, style)
+      | #{ variant } alert with a #[a.bsk-alert-link(href='#') link]
+
+  section.app-sample-section
+    header Alert with contextual icon
+    +alert(variant, style, 'yes')
+      | #{ variant } alert with a #[a.bsk-alert-link(href='#') link]
+
+  section.app-sample-section
+    header Alert with lots of text (approx 300 characters)
+    +alert(variant, style)
+      | #{ variant } alert
+      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+      | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+      | I'm on my hog and have to go into a controlled slide.
+
+  section.app-sample-section
+    header Alert with conventional icon and lots of text (approx 300 characters)
+    +alert(variant, style, 'yes')
+      | #{ variant } alert
+      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+      | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+      | I'm on my hog and have to go into a controlled slide.
+
+  section.app-sample-section
+    header Alert with dismiss icon
+    +alert(variant, style, 'no', 'yes')
+      | #{ variant } alert
+
+  section.app-sample-section
+    header Alert with dismiss and conventional icons
+    +alert(variant, style, 'yes', 'yes')
+      | #{ variant } alert

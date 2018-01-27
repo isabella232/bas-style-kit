@@ -1,0 +1,21 @@
+//-
+  sample:
+    title: Fixed bottom footer
+    code: .bsk-footer.bsk-footer-fixed-bottom
+  collections:
+    - components--footers
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+include ../mixins/app/samples/footers.pug
+
+block sample
+  +alert('warning', 'outline')
+    div.bsk-text-center This sample uses absolute position and may look strange.
+
+  section.app-sample-section
+    header Standard
+
+    +footer--default(class='bsk-footer-fixed-bottom')
+      | Footer content

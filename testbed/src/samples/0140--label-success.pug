@@ -1,0 +1,15 @@
+//-
+  sample:
+    title: Label - success
+    code: .bsk-label.bsk-label-success
+  collections:
+    - components--labels
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/labels.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +label('success')

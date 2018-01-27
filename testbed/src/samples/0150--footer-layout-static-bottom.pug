@@ -1,0 +1,28 @@
+//-
+  sample:
+    title: Static bottom footer
+    code: .bsk-footer.bsk-footer-static-bottom
+  collections:
+    - components--footers
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+include ../mixins/app/samples/footers.pug
+
+block sample
+  style.
+    html {
+      background-color: #333;
+    }
+
+  +alert('warning', 'outline')
+    div.bsk-text-center This sample uses fixed position and may look strange.
+  +alert('info', 'outline')
+    div.bsk-text-center This sample restores the default HTML background colour.
+
+  section.app-sample-section
+    header Standard
+
+    +footer--default(class='bsk-footer-static-bottom')
+      | Footer content

@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Alert - solid - info
+    code: .bsk-alert.bsk-alert-solid.bsk-alert-info
+  collections:
+    - components--alerts
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block sample
+  +alert--collection('info', 'solid')
