@@ -1,6 +1,6 @@
 mixin form-input--collection()
   +form-input--basic(attributes.type)
-  +form-input--form-group(attributes.type)
+  +form-input--form-group('fieldset', attributes.type, 'yes', 'yes')
   +form-input--form-group-value(attributes.type)
   +form-input--form-group-placeholder(attributes.type)
   +form-input--form-group-value-placeholder(attributes.type)
@@ -18,13 +18,24 @@ mixin form-input--basic(type)
     header Input only
     input(type=type)
 
-mixin form-input--form-group(type)
-  section.app-sample-section
-    header Form group
-    form
-      fieldset.bsk-form-group
-        label.bsk-control-label #{ type } input
-        input.bsk-form-control(type='#{ type }')
+mixin form-input--form-group(element_type, type, use_section, use_form)
+  if use_section == 'yes'
+    section.app-sample-section
+      header Form group
+      form
+        #{ element_type }.bsk-form-group
+          label.bsk-control-label #{ type } input
+          input.bsk-form-control(type='#{ type }')
+  else
+    if use_form == 'yes'
+      form
+        #{ element_type }.bsk-form-group
+          label.bsk-control-label #{ type } input
+          input.bsk-form-control(type='#{ type }')
+    else
+        #{ element_type }.bsk-form-group
+          label.bsk-control-label #{ type } input
+          input.bsk-form-control(type='#{ type }')
 
 mixin form-input--form-group-value(type)
   section.app-sample-section
@@ -193,3 +204,56 @@ mixin form-input-radio-checkbox--form-group-validation-state(input_type, type_cl
           label.bsk-control-label
             input(type=input_type name='example-#{ count }' id='example-#{ count }-c' value='C')
             | Option #{ count } (C)
+
+mixin form-input-inline--collection()
+  +form-input-inline--form-group(attributes.class)
+  +form-input-inline--form-group-multiple(attributes.class)
+
+mixin form-input-inline--form-group(classes)
+  section.app-sample-section
+    header Single input
+
+    form.bsk-form-inline
+      fieldset.bsk-form-group
+        label(class!=classes) Text input
+        input.bsk-form-control(type='text')
+
+mixin form-input-inline--form-group-multiple(classes)
+  section.app-sample-section
+    header Multiple inputs
+
+    form.bsk-form-inline
+      fieldset
+        div.bsk-form-group
+          label(class!=classes) Text input 1
+          input.bsk-form-control(type='text')
+        div.bsk-form-group
+          label(class!=classes) Text input 2
+          input.bsk-form-control(type='text')
+        div.bsk-form-group
+          div.bsk-checkbox
+            label.bsk-control-label
+              input(type='checkbox')
+              | Checkbox input
+
+mixin form-grid--columns(number_of_columns)
+  form
+    each grid_col in [...Array(number_of_columns - 1).keys()]
+      div.app-spacing-top
+        p.bsk-text-info: code bsk-col-#{ number_of_columns }-md-#{ grid_col + 1 }
+        fieldset.bsk-row
+          div.bsk-form-group(class='bsk-col-' + number_of_columns + '-md-' + (grid_col + 1))
+            label.bsk-control-label Text input
+            input.bsk-form-control(type='text')
+    div.app-spacing-top
+      p.bsk-text-info: code bsk-col-#{ number_of_columns }-md-#{ number_of_columns }
+      fieldset.bsk-row
+        div.bsk-form-group(class='bsk-col-' + number_of_columns + '-md-' + number_of_columns)
+          label.bsk-control-label Text input
+          input.bsk-form-control(type='text')
+
+mixin form-size(size)
+  form
+    fieldset(class!=attributes.class)
+      label.bsk-control-label #{ size } text input
+      input.bsk-form-control(type='text')

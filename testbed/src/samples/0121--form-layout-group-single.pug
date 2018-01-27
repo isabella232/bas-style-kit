@@ -1,0 +1,21 @@
+//-
+  sample:
+    title: Form group - single
+    code: .bsk-form-group
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    header: code feildset
+
+    +form-input--form-group('fieldset', 'text', 'no', 'yes')
+
+  section.app-sample-section
+    header: code div
+
+    +form-input--form-group('div', 'text', 'no', 'yes')

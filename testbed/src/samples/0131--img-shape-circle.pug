@@ -1,0 +1,14 @@
+//-
+  sample:
+    title: Image - circular
+    code: .bsk-img-circle
+  collections:
+    - core--images
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    img.bsk-img-circle(src='/' + testbed_version + '/assets/img/placeholder.png' alt='Circular image')
