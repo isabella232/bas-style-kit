@@ -1,5 +1,7 @@
 extends ./layouts/app.pug
 
+include ./mixins/app/samples/labels.pug
+
 block page
   header
     h1.bsk-page-header BAS Style Kit Testbed
@@ -43,7 +45,15 @@ block page
         h2 Samples by sample number
         ul
           each sample in samples
-            li: a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html') #[strong #{sample.sample_number}] #{sample.title}
+            li
+              a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html') #[strong #{sample.sample_number}]
+              | &nbsp;
+              if sample.type == 'removed'
+                +label('danger')
+                  | Removed
+                | &nbsp;
+              a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html') #{sample.title}
+
       div.bsk-col-12-md-6
         h2 Samples by collection
         each collection_samples, collection_name in collections

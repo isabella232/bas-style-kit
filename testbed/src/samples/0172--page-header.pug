@@ -1,0 +1,19 @@
+//-
+  sample:
+    title: Page header
+    code: .bsk-page-header
+  collections:
+    - components--page-headers
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/page-headers.pug
+
+block sample
+  +page-header('h1')
+  +page-header('h2')
+  +page-header('h3')
+  +page-header('h4')
+  +page-header('h5')
+  +page-header('h6')
+  +page-header('p')

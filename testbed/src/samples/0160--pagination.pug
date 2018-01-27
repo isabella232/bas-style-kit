@@ -1,0 +1,28 @@
+//-
+  sample:
+    title: Pagination
+    code: .bsk-pagination
+  collections:
+    - components--pagination
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/pagination.pug
+
+block sample
+  section.app-sample-section
+    header Single item
+    +pagination(1)
+
+  section.app-sample-section
+    header Two items
+    +pagination(2)
+
+  section.app-sample-section
+    header 12 items
+    +pagination(12)
+
+  section.app-sample-section
+    header 222 items
+    +pagination(222)
+

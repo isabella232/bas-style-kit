@@ -1,0 +1,23 @@
+//-
+  sample:
+    title: Pager
+    code: .bsk-pager
+  collections:
+    - components--pagination
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/pagination.pug
+
+block sample
+  section.app-sample-section
+    header Single item (next)
+    +pager('no', 'yes', 'no', 'no')
+
+  section.app-sample-section
+    header Single item (previous)
+    +pager('yes', 'no', 'no', 'no')
+
+  section.app-sample-section
+    header Both items
+    +pager('yes', 'yes', 'no', 'no')

@@ -1,0 +1,23 @@
+//-
+  sample:
+    title: Pagination sizes
+    code: .bsk-pagination.bsk-pagination-*
+  collections:
+    - components--pagination
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/pagination.pug
+
+block sample
+  section.app-sample-section
+    header Small pagination
+    +pagination(3)(class='bsk-pagination-sm')
+
+  section.app-sample-section
+    header Regular pagination
+    +pagination(3)
+
+  section.app-sample-section
+    header Large pagination
+    +pagination(3)(class='bsk-pagination-lg')

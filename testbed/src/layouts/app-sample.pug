@@ -1,5 +1,7 @@
 extends ./bas-style-kit/bsk--base.pug
 
+include ../mixins/app/samples/alerts.pug
+
 block append vars
   - bsk_attributes.container_class = 'bsk-container-fluid';
   - bsk_attributes.site_title = sample.title + ' | BAS Style Kit Testbed';
@@ -8,6 +10,13 @@ block append vars
 block page_base
   main(class=bsk_attributes.container_class)
     include ../includes/app/sample--header.pug
+
+    if sample.type == 'removed'
+      +alert--block('danger', 'solid')
+        header.bsk-alert-heading
+          h4 This sample has been removed
+        | The styles used in this sample have been removed from the Style kit, breaking this sample. It will not be recreated.
+
     block sample
 
 block append styles
