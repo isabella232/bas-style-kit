@@ -14,6 +14,7 @@ var gulp         = require('gulp'),
     data         = require('gulp-data'),
     rename       = require('gulp-rename'),
     through      = require('through2'),
+    sassvars     = require('gulp-sass-variables'),
     cssprefixer  = require('gulp-class-prefix'),
     frontmatter  = require('front-matter-pug'),
     autoprefixer = require('gulp-autoprefixer');
@@ -131,6 +132,9 @@ function buildCssTestbed(done) {
         path.join(config.sources.stylesheets, 'testbed.scss'),
         path.join(config.sources.stylesheets, 'testbed-samples.scss')
       ]),
+      sassvars({
+        '$testbed_version': runtime.version
+      }),
       sass().on('error', sass.logError),
       cssprefixer(config.modules.cssprefixer.prefix),
       autoprefixer(config.modules.autoprefixer),
