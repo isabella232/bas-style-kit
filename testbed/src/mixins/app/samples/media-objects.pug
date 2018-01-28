@@ -1,0 +1,73 @@
+mixin media-object(element, img_size)
+  #{ element }.bsk-media
+    div.bsk-media-left
+      a(href='#'): img.bsk-media-object(src='/' + testbed_version + '/assets/img/placeholder-' + img_size + '.png' alt='Avatar')
+    div.bsk-media-body
+      block
+
+mixin media-object--headings
+  each heading in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+    section.app-sample-section
+      header: code #{ heading }
+      +media-object('div', 64)
+        #{ heading }.bsk-media-heading Media heading
+        | Media body
+        | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+        | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+        | I'm on my hog and have to go into a controlled slide.
+
+mixin media-object--image-size(size)
+  +media-object('div', size)
+    h4.bsk-media-heading Media heading
+    | Media body
+
+  +media-object('div', size)
+    h4.bsk-media-heading Media heading
+    | Media body
+    | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+    | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+    | I'm on my hog and have to go into a controlled slide.
+
+mixin media-object--alignment(alignment)
+  if alignment == 'left'
+    section.app-sample-section
+      header Standard
+      div.bsk-media
+        div(class!=attributes.class)
+          a(href='#'): img.bsk-media-object(src='/' + testbed_version + '/assets/img/placeholder-64.png' alt='Avatar')
+        div.bsk-media-body
+          h4.bsk-media-heading Media heading
+          | Media body
+
+    section.app-sample-section
+      header Text block (approx 300 characters)
+      div.bsk-media
+        div(class!=attributes.class)
+          a(href='#'): img.bsk-media-object(src='/' + testbed_version + '/assets/img/placeholder-64.png' alt='Avatar')
+        div.bsk-media-body
+          h4.bsk-media-heading Media heading
+          | Media body
+          | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+          | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+          | I'm on my hog and have to go into a controlled slide.
+  else if alignment == 'right'
+    section.app-sample-section
+      header Standard
+      div.bsk-media
+        div.bsk-media-body
+          h4.bsk-media-heading Media heading
+          | Media body
+        div(class!=attributes.class)
+          a(href='#'): img.bsk-media-object(src='/' + testbed_version + '/assets/img/placeholder-64.png' alt='Avatar')
+
+    section.app-sample-section
+      header Text block (approx 300 characters)
+      div.bsk-media
+        div.bsk-media-body
+          h4.bsk-media-heading Media heading
+          | Media body
+          | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+          | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+          | I'm on my hog and have to go into a controlled slide.
+        div(class!=attributes.class)
+          a(href='#'): img.bsk-media-object(src='/' + testbed_version + '/assets/img/placeholder-64.png' alt='Avatar')

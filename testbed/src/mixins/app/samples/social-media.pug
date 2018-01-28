@@ -1,0 +1,7 @@
+mixin social-media--static(icon_classes)
+  div.bsk-social-media-static(class!=attributes.class)
+    i.fa.fa-3x(class=icon_classes)
+
+mixin social-media--linked(icon_classes)
+  a.bsk-social-media-link(href='#' class!=attributes.class)
+    i.fa.fa-3x(class=icon_classes)

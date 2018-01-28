@@ -52,6 +52,9 @@ block page
                 +label('danger')
                   | Removed
                 | &nbsp;
+              if sample.type == 'javascript'
+                span.bsk-label.app-label-sample-type-javascript JavaScript
+                | &nbsp;
               a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html') #{sample.title}
 
       div.bsk-col-12-md-6

@@ -1,0 +1,19 @@
+//-
+  sample:
+    title: Split button drop down menu
+    code: .bsk-dropdown .bsk-dropdown-menu
+  collections:
+    - components--drop-downs
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/drop-downs.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +dropdown--split-button
+
+  section.app-sample-section
+    header Simulated open menu
+    +dropdown--split-button()(class='app-simulated-state-open')

@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: RSS static social media icon
+    code: .bsk-social-media-static.bsk-rss
+  collections:
+    - components--social-media
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/social-media.pug
+
+block sample
+  +social-media--static('fa-rss-square')(class='bsk-rss')

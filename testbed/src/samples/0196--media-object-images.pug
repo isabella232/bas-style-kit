@@ -1,0 +1,24 @@
+//-
+  sample:
+    title: Media object image sizes
+    code: .bsk-media .bsk-media-object
+  collections:
+    - components--media-objects
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/media-objects.pug
+
+block sample
+  section.app-sample-section
+    header Small image
+    +media-object--image-size(32)
+
+  section.app-sample-section
+    header Regular image
+    +media-object--image-size(64)
+
+
+  section.app-sample-section
+    header Large image
+    +media-object--image-size(256)

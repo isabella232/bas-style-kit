@@ -1,0 +1,26 @@
+//-
+  sample:
+    title: Media object
+    code: .bsk-media
+  collections:
+    - components--media-objects
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/media-objects.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +media-object('div', 64)
+      h4.bsk-media-heading Media heading
+      | Media body
+
+  section.app-sample-section
+    header Text block (approx 300 characters)
+    +media-object('div', 64)
+      h4.bsk-media-heading Media heading
+      | Media body
+      | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there are bugs everywhere,
+      | and I think I maced a crane. This show was cancelled. I mean, COME ON. I could use a leather jacket for when
+      | I'm on my hog and have to go into a controlled slide.

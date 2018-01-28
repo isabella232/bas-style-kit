@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Facebook static social media icon
+    code: .bsk-social-media-static.bsk-facebook
+  collections:
+    - components--social-media
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/social-media.pug
+
+block sample
+  +social-media--static('fa-facebook-square')(class='bsk-facebook')

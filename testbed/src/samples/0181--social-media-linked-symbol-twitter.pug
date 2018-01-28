@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Twitter linked social media icon
+    code: .bsk-social-media-link.bsk-twitter
+  collections:
+    - components--social-media
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/social-media.pug
+
+block sample
+  +social-media--linked('fa-twitter-square')(class='bsk-twitter')

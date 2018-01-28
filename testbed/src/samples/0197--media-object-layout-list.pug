@@ -1,0 +1,25 @@
+//-
+  sample:
+    title: Media object list layout
+    code: .bsk-media-list .bsk-media
+  collections:
+    - components--media-objects
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/media-objects.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    ul.bsk-media-list
+      +media-object('li', 64)
+        h4.bsk-media-heading Media heading
+        | Media body
+      +media-object('li', 64)
+        h4.bsk-media-heading Media heading
+        | Media body
+      +media-object('li', 64)
+        h4.bsk-media-heading Media heading
+        | Media body

@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Media object aligned left
+    code: .bsk-media .bsk-media-left
+  collections:
+    - components--media-objects
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/media-objects.pug
+
+block sample
+  +media-object--alignment('left')(class='bsk-media-left')
