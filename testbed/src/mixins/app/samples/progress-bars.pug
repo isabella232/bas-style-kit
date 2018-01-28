@@ -1,0 +1,8 @@
+mixin progress-bar--sizes(labelled)
+  each progress_point in [0, 25, 50, 75, 100, 110]
+    section.app-sample-section.app-spacing-top
+      header #{ progress_point }%
+      if labelled == 'yes'
+        div.bsk-progress: div.bsk-progress-bar(class!=attributes.class role='progressbar' style='width: ' + progress_point + '%') #{ progress_point }%
+      else
+        div.bsk-progress: div.bsk-progress-bar(class!=attributes.class role='progressbar' style='width: ' + progress_point + '%')

@@ -1,14 +1,14 @@
 //-
   sample:
-    title: Fixed bottom footer
-    code: .bsk-footer.bsk-footer-fixed-bottom
+    title: Fixed bottom navbar
+    code: .bsk-navbar.bsk-navbar-fixed-bottom
   collections:
-    - components--footers
+    - components--navbars
   ---
 
 extends ../layouts/app-sample.pug
 include ../mixins/app/samples/alerts.pug
-include ../mixins/app/samples/footers.pug
+include ../mixins/app/samples/navbars.pug
 
 block sample
   +alert('warning', 'outline')
@@ -17,5 +17,5 @@ block sample
   section.app-sample-section
     header Standard
 
-    +footer--default(class='bsk-footer-fixed-bottom')
-      | Footer content
+    +navbar--default(class='bsk-navbar-fixed-bottom')
+      div.bsk-navbar-text Fixed bottom navbar

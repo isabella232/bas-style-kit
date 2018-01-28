@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Stacked pill navigation
+    code: .bsk-nav.bsk-nav-stacked.bsk-nav-pills
+  collections:
+    - components--navs
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navs.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +navs--basic(class='bsk-nav-stacked bsk-nav-pills')
+    +navs--drop-down(class='bsk-nav-stacked bsk-nav-pills')

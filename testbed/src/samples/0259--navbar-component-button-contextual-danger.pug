@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Navbar - danger button
+    code: .bsk-navbar .bsk-btn.bsk-navbar-btn.bsk-btn-danger
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  +navbar--buttons(class='bsk-btn-danger')

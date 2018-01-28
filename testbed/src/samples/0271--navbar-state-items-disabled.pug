@@ -1,0 +1,14 @@
+//-
+  sample:
+    title: Navbar - disabled item
+    code: .bsk-navbar ul.bsk-navbar-nav .bsk-disabled
+    type: javascript
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  +navbar--item-variant('disabled')

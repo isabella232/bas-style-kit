@@ -1,0 +1,15 @@
+//-
+  sample:
+    title: List group
+    code: .bsk-list-group
+  collections:
+    - components--list-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/list-groups.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +list-group

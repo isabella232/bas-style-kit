@@ -1,0 +1,36 @@
+//-
+  sample:
+    title: Navbar - brand text
+    code: .bsk-navbar .bsk-navbar-header .bsk-navbar-brand
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +navbar--header
+      span.bsk-navbar-brand Site Name
+
+    +navbar--header
+      span.bsk-navbar-brand
+        | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+        | NA NA NA NA NA NA NA NA NA NA NA NA NA, NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+        | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA, BATMAN!
+
+  section.app-sample-section
+    header Split line
+
+    +navbar--header
+      div.bsk-navbar-brand
+        | NA NA NA NA NA #[br] NA NA NA NA NA NA NA NA NA NA
+
+  section.app-sample-section
+    header Link
+
+    +navbar--header
+      a.bsk-navbar-brand(href='#') Site Name

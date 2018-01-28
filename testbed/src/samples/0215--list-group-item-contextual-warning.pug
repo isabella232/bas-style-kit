@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: List group - warning item
+    code: .bsk-list-group .bsk-list-group-item-warning
+  collections:
+    - components--list-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/list-groups.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +list-group
+      li.bsk-list-group-item.bsk-list-group-item-warning Warning context group item

@@ -1,0 +1,36 @@
+//-
+  sample:
+    title: Navbar - forms - text input
+    code: .bsk-navbar form.bsk-navbar-form input.bsk-form-control
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +navbar--default
+      form.bsk-navbar-form
+        +navbar--form-input
+
+  section.app-sample-section
+    header With item
+
+    +navbar--default
+      ul.bsk-nav.bsk-navbar-nav
+        li: a(href="#") Item
+      form.bsk-navbar-form
+        +navbar--form-input
+
+  section.app-sample-section
+    header With brand text
+
+    +navbar--default
+      div.bsk-navbar-header
+        a.bsk-navbar-brand(href='#') Site Name
+      form.bsk-navbar-form
+        +navbar--form-input
