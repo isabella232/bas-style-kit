@@ -1,0 +1,21 @@
+//-
+  sample:
+    title: Button group sizes
+    code: .bsk-btn-group.bsk-btn-group-*
+  collections:
+    - components--button-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    div
+      +button-group--size('Extra small')(class='bsk-btn-group-xs')
+    div
+      +button-group--size('Small')(class='bsk-btn-group-sm')
+    div
+      +button-group--size('Regular')
+    div
+      +button-group--size('Large')(class='bsk-btn-group-lg')

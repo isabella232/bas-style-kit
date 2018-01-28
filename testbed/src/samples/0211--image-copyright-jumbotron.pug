@@ -1,0 +1,18 @@
+//-
+  sample:
+    title: Image copyright jumbotron
+    code: .bsk-jumbotron.bsk-image-copyright
+  collections:
+    - components--image-copyright
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    div.bsk-jumbotron.bsk-jumbotron-default.bsk-image-copyright.app-jumbotron-background-image
+      h1: span.bsk-jumbotron-overlay Jumbotron title
+      a.bsk-image-copyright-attribution(href='#') Copyright holder

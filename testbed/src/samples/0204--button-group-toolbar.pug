@@ -1,0 +1,36 @@
+//-
+  sample:
+    title: Button toolbar
+    code: .bsk-btn-toolbar .bsk-btn-group
+  collections:
+    - components--button-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    div.bsk-btn-toolbar(role='toolbar')
+      div.bsk-btn-group(role='group')
+        +button(class='bsk-btn bsk-btn-default')
+          | one
+        +button(class='bsk-btn bsk-btn-default')
+          | two
+        +button(class='bsk-btn bsk-btn-default')
+          | three
+
+      div.bsk-btn-group(role='group')
+        +button(class='bsk-btn bsk-btn-default')
+          | four
+
+      div.bsk-btn-group(role='group')
+        +button(class='bsk-btn bsk-btn-default')
+          | five
+        +button(class='bsk-btn bsk-btn-default')
+          | six
+        +button(class='bsk-btn bsk-btn-default')
+          | seven
+

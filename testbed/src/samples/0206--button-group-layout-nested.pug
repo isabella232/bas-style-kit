@@ -1,0 +1,28 @@
+//-
+  sample:
+    title: Nested button group
+    code: .bsk-btn-group .bsk-btn-group
+    type: javascript
+  collections:
+    - components--button-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header Interactive
+
+    div.bsk-btn-group(role='group')
+      +button(class='bsk-btn bsk-btn-default')
+        | one
+      +button(class='bsk-btn bsk-btn-default')
+        | two
+      div.bsk-btn-group(role='group')
+        button.bsk-btn.bsk-btn-default.bsk-dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | dropdown
+          span.bsk-caret
+        ul.bsk-dropdown-menu
+          li: a(href='#') Action
+          li: a(href='#') Another action

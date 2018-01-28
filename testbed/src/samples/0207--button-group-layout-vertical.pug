@@ -1,0 +1,66 @@
+//-
+  sample:
+    title: Vertical button group
+    code: .bsk-btn-group-vertical
+  collections:
+    - components--button-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    div.app-spacing-bottom
+      div.bsk-btn-group-vertical(role='group')
+        +button(class='bsk-btn bsk-btn-default')
+          | one
+        +button(class='bsk-btn bsk-btn-default')
+          | two
+        +button(class='bsk-btn bsk-btn-default')
+          | three
+
+    div.app-spacing-bottom
+      div.bsk-btn-group-vertical(role='group')
+        +button(class='bsk-btn bsk-btn-default')
+          | one
+        +button(class='bsk-btn bsk-btn-default')
+          | two
+        div.bsk-btn-group(role='group')
+          button.bsk-btn.bsk-btn-default.bsk-dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            | Dropdown
+            span.bsk-caret
+          ul.bsk-dropdown-menu
+            li: a(href='#') Action
+            li: a(href='#') Another action
+        +button(class='bsk-btn bsk-btn-default')
+          | three
+
+    div
+      div.bsk-btn-group-vertical(role='group')
+        +button(class='bsk-btn bsk-btn-default')
+          | 1 NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+        +button(class='bsk-btn bsk-btn-default')
+          | 2 NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+        +button(class='bsk-btn bsk-btn-default')
+          | 3 (x3) NA NA NA NA NA NA NA NA NA NA NA NA NA
+          | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+          | NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+        +button(class='bsk-btn bsk-btn-default')
+          | Batman!
+
+  section.app-sample-section
+    header Multiple sizes
+
+    div.app-spacing-bottom
+      div.bsk-btn-group-vertical(role='group')
+        +button(class='bsk-btn bsk-btn-default')
+          | one
+        +button(class='bsk-btn bsk-btn-default bsk-btn-sm')
+          | two
+        +button(class='bsk-btn bsk-btn-default bsk-btn-lg')
+          | three
+        +button(class='bsk-btn bsk-btn-default')
+          | four
