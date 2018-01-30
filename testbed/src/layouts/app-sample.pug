@@ -25,6 +25,14 @@ block page_base
           h4 This sample uses JavaScript
           | The Style Kit's scripts are loaded in all samples but are specfically used in this one.
 
+    if sample.type == 'experiment'
+      +alert--block('info', 'solid')
+        header.bsk-alert-heading
+          h4 This sample is an experiment
+          | These samples are permanent, but designed for a specific point in time. They likely won't be useful beyond
+          | their original purpose and will degrade over time as the Style Kit evolves. They are kept in case they are
+          | useful to others in the future.
+
     block sample
 
 block append styles
