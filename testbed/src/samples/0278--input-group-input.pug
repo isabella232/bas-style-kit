@@ -1,0 +1,30 @@
+//-
+  sample:
+    title: Input group - input
+    code: .bsk-form-group .bsk-input-group input
+  collections:
+    - components--input-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    header Before control
+    +form-input-group
+      span.bsk-input-group-addon £
+      input.bsk-form-control(type='number' placeholder='Amount (sterling)')
+
+  section.app-sample-section
+    header After control
+    +form-input-group
+      input.bsk-form-control(type='number' placeholder='Amount (thousands)')
+      span.bsk-input-group-addon 000
+
+  section.app-sample-section
+    header Before and after control
+    +form-input-group
+      span.bsk-input-group-addon £
+      input.bsk-form-control(type='number' placeholder='Amount (£, thousands)')
+      span.bsk-input-group-addon 000

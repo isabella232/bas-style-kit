@@ -1,0 +1,39 @@
+//-
+  sample:
+    title: Input group - select
+    code: .bsk-form-group .bsk-input-group select
+  collections:
+    - components--input-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    header Before control
+    +form-input-group
+      span.bsk-input-group-addon £
+      select.bsk-form-control
+        option(value='option-1') Option 1
+        option(value='option-2') Option 2
+        option(value='option-3') Option 3
+
+  section.app-sample-section
+    header After control
+    +form-input-group
+      select.bsk-form-control
+        option(value='option-1') Option 1
+        option(value='option-2') Option 2
+        option(value='option-3') Option 3
+      span.bsk-input-group-addon 000
+
+  section.app-sample-section
+    header Before and after control
+    +form-input-group
+      span.bsk-input-group-addon £
+      select.bsk-form-control
+        option(value='option-1') Option 1
+        option(value='option-2') Option 2
+        option(value='option-3') Option 3
+      span.bsk-input-group-addon 000

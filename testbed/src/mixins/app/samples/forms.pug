@@ -257,3 +257,19 @@ mixin form-size(size)
     fieldset(class!=attributes.class)
       label.bsk-control-label #{ size } text input
       input.bsk-form-control(type='text')
+
+mixin form-input-group()
+  form
+    fieldset.bsk-form-group
+      label.bsk-control-label control label
+      div.bsk-input-group
+        block
+
+mixin form-input-group--size(size)
+  form
+    fieldset.bsk-form-group(class!=attributes.class)
+      label.bsk-control-label #{size} form group
+      div.bsk-input-group
+        span.bsk-input-group-addon £
+        input.bsk-form-control(type='number' placeholder='Amount (£, thousands)')
+        span.bsk-input-group-addon 000

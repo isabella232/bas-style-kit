@@ -1,0 +1,62 @@
+//-
+  sample:
+    title: Input group - drop down split button
+    code: .bsk-form-group .bsk-input-group .bsk-input-group-btn button.bsk-btn .bsk-dropdown-menu
+  collections:
+    - components--input-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    header Before control
+    +form-input-group
+      div.bsk-input-group-btn
+        div.bsk-dropdown
+          button.bsk-btn.bsk-btn-default(type='button') Dropdown
+          button.bsk-btn.bsk-btn-default.bsk-dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            span.bsk-caret
+            span.bsk-sr-only Toggle Dropdown
+          ul.bsk-dropdown-menu
+            li: a(href='#') Action
+            li: a(href='#') Another action
+      input.bsk-form-control(type='number' placeholder='Text input')
+
+  section.app-sample-section
+    header After control
+    +form-input-group
+      input.bsk-form-control(type='number' placeholder='Text input')
+      div.bsk-input-group-btn
+        div.bsk-dropdown
+          button.bsk-btn.bsk-btn-default(type='button') Dropdown
+          button.bsk-btn.bsk-btn-default.bsk-dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            span.bsk-caret
+            span.bsk-sr-only Toggle Dropdown
+          ul.bsk-dropdown-menu
+            li: a(href='#') Action
+            li: a(href='#') Another action
+
+  section.app-sample-section
+    header Before and after control
+    +form-input-group
+      div.bsk-input-group-btn
+        div.bsk-dropdown
+          button.bsk-btn.bsk-btn-default(type='button') Dropdown
+          button.bsk-btn.bsk-btn-default.bsk-dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            span.bsk-caret
+            span.bsk-sr-only Toggle Dropdown
+          ul.bsk-dropdown-menu
+            li: a(href='#') Action
+            li: a(href='#') Another action
+      input.bsk-form-control(type='number' placeholder='Text input')
+      div.bsk-input-group-btn
+        div.bsk-dropdown
+          button.bsk-btn.bsk-btn-default(type='button') Dropdown
+          button.bsk-btn.bsk-btn-default.bsk-dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            span.bsk-caret
+            span.bsk-sr-only Toggle Dropdown
+          ul.bsk-dropdown-menu
+            li: a(href='#') Action
+            li: a(href='#') Another action

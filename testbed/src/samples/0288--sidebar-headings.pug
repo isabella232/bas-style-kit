@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Sidebar heading
+    code: .bsk-sidebar.bsk-sidebar-default h*
+  collections:
+    - components--sidebars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/sidebars.pug
+
+block sample
+  +sidebar--headings

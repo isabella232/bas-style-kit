@@ -1,0 +1,19 @@
+//-
+  sample:
+    title: Sidebar sizes
+    code: .bsk-sidebar.bsk-sidebar-*
+  collections:
+    - components--sidebars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/sidebars.pug
+
+block sample
+  section.app-sample-section
+    div.bsk-row
+      +sidebar(class='bsk-sidebar-default')
+        | Regular sidebar content
+    div.bsk-row
+      +sidebar(class='bsk-sidebar-default bsk-sidebar-lg')
+        | Large sidebar content

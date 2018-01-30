@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Input group sizes
+    code: .bsk-form-group.bsk-form-group-* .bsk-input-group
+  collections:
+    - components--input-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    +form-input-group--size('small')(class='bsk-form-group-sm')
+    +form-input-group--size('regular')
+    +form-input-group--size('large')(class='bsk-form-group-lg')
