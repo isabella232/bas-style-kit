@@ -1,0 +1,17 @@
+//-
+  sample:
+    title: Label - retired development phase
+    code: .bsk-label.bsk-label-phase-retired
+  collections:
+    - components--labels
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/labels.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    div
+      +label('phase-retired')
+        | Label

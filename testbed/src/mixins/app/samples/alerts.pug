@@ -95,3 +95,54 @@ mixin alert--collection(variant, style)
     header Alert with dismiss and conventional icons
     +alert(variant, style, 'yes', 'yes')
       | #{ variant } alert
+
+mixin alert-block--collection(style, icon)
+  +alert-block--collection-variant('solid', style, icon)
+  +alert-block--collection-variant('outline', style, icon)
+  +alert-block--collection-variant('highlight', style, icon)
+
+mixin alert-block--collection-variant(variant, style, icon)
+  +alert-block--collection-variant-alert(variant, style, icon, '')
+    div.bsk-alert-body
+      | #{ style } alert text - Ann certainly has a great deal of Mass. I hate the Wetlands.
+      | They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show
+      | was cancelled. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to
+      | go into a controlled slide.
+
+  +alert-block--collection-variant-alert(variant, style, icon, 'with heading')
+    header.bsk-alert-heading
+      h4 #{ style } alert header
+    div.bsk-alert-body
+      | #{ style } alert text - Ann certainly has a great deal of Mass. I hate the Wetlands.
+      | They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show
+      | was cancelled. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to
+      | go into a controlled slide.
+
+  +alert-block--collection-variant-alert(variant, style, icon, 'with heading and icon')
+    header.bsk-alert-heading
+      h4 #[i.fa.fa-fw.bsk-alert-icon(class=icon aria-hidden='true')] #{ style } alert header
+    div.bsk-alert-body
+      | #{ style } alert text - Ann certainly has a great deal of Mass. I hate the Wetlands.
+      | They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show
+      | was cancelled. I mean, COME ON. I could use a leather jacket for when I'm on my hog and have to
+      | go into a controlled slide.
+
+  +alert-block--collection-variant-alert(variant, style, icon, 'with heading, icon and list')
+    header.bsk-alert-heading
+      h4 #[i.fa.fa-fw.bsk-alert-icon(class=icon aria-hidden='true')] #{ style } alert header
+    div.bsk-alert-body
+      | A list
+      ul
+        li List item
+        li List item
+          ul
+            li List item
+            li List item
+        li List item
+
+mixin alert-block--collection-variant-alert(variant, style, icon, title)
+  section.app-sample-section
+    header #{ variant } #{ title }
+
+    div.bsk-alert.bsk-alert-block(class='bsk-alert-' + variant + ' bsk-alert-' + style role='alert')
+      block
