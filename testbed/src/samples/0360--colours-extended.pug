@@ -1,0 +1,39 @@
+//-
+  sample:
+    title: Extended colours
+  collections:
+    - core--colours
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/colours.pug
+
+block sample
+  section.app-sample-section
+    div.bsk-row
+      div.bsk-col-12-md-2
+        +colour--swatch('Grey lighter light', '$bsk-colour-tst-grey-lighter-light', '#F7F7F7')(class='app-colour-bsk-colour-tst-grey-lighter-light')
+        p.bsk-text-info Required for contrast within tables
+      div.bsk-col-12-md-2
+        +colour--swatch('Grey darker dark', '$bsk-colour-tst-grey-darker-dark', '#222222')(class='app-colour-bsk-colour-tst-grey-darker-dark')
+        p.bsk-text-info Required for contrast within navbars
+      div.bsk-col-12-md-2
+        +colour--swatch('Sky blue lighter light', '$bsk-colour-tst-sky-blue-lighter-light', '#E6F1F8')(class='app-colour-bsk-colour-tst-sky-blue-lighter-light')
+        p.bsk-text-info Required for contrast within inline code element
+    div.bsk-row
+      div.bsk-col-12-md-2
+        +colour--swatch('Twitter base', '$bsk-colour-spc-twitter-base', '#55ACEE')(class='app-colour-bsk-colour-spc-twitter-base')
+        p.bsk-text-info Required to comply with third party branding guidelines
+      div.bsk-col-12-md-2
+        +colour--swatch('Facebook base', '$bsk-colour-spc-facebook-base', '#3B5998')(class='app-colour-bsk-colour-spc-facebook-base')
+        p.bsk-text-info Required to comply with third party branding guidelines
+      div.bsk-col-12-md-2
+        +colour--swatch('YouTube base', '$bsk-colour-spc-youtube-base', '#CD201F')(class='app-colour-bsk-colour-spc-youtube-base')
+        p.bsk-text-info Required to comply with third party branding guidelines
+      div.bsk-col-12-md-2
+        +colour--swatch('RSS base', '$bsk-colour-spc-rss-base', '#F26522')(class='app-colour-bsk-colour-spc-rss-base')
+        p.bsk-text-info Required to comply with conventions around using RSS
+    div.bsk-row
+      div.bsk-col-12-md-2
+        +colour--swatch('Purple base', '$bsk-colour-tst-purple-base', '#2E358B')(class='app-colour-bsk-colour-tst-purple-base')
+        p.bsk-text-info Required for an additional development stage in the GDS lifecycle
