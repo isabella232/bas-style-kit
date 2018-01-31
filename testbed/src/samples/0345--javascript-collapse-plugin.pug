@@ -1,0 +1,46 @@
+//-
+  sample:
+    title: Navbar collapse plugin
+    type: javascript
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  nav.bsk-navbar
+    div.bsk-container-fluid
+      <!-- Site name and toggle get grouped for better mobile display -->
+      div.bsk-navbar-header
+        button.bsk-navbar-toggle.bsk-collapsed(type='button' data-toggle='collapse' data-target='#bsk-example-navbar-collapse-1' aria-expanded='false')
+          span.bsk-sr-only Toggle navigation
+          span.bsk-icon-bar
+          span.bsk-icon-bar
+          span.bsk-icon-bar
+        a.bsk-navbar-brand(href='#') Site Name
+
+      <!-- Collect navigation links, forms, and other items for hiding at smaller screen sizes -->
+      div.bsk-collapse.bsk-navbar-collapse#bsk-example-navbar-collapse-1
+        ul.bsk-nav.bsk-navbar-nav
+          li.bsk-active: a(href='#') Home #[span.bsk-sr-only (current)]
+          li: a(href='#') About
+          li.bsk-dropdown
+            a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+              | Dropdown #[span.bsk-caret]
+            ul.bsk-dropdown-menu
+              li: a(href='#') Action
+              li: a(href='#') Another action
+              li: a(href='#') Something else here
+              li.bsk-divider(role='separator')
+              li: a(href='#') Separated link
+              li.bsk-divider(role='separator')
+              li: a(href='#') One more separated link
+
+          ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+            li.bsk-dropdown
+              a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                | Part of British Antarctic Survey #[span.bsk-caret]
+              ul.bsk-dropdown-menu
+                li: a(href='https://www.bas.ac.uk') BAS Home
+                li: a(href='#') Another link
+                li: a(href='https://data.bas.ac.uk') Discover BAS data
+            li: a(href='#') Feedback

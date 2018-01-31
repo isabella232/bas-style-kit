@@ -8,10 +8,12 @@ block append vars
   - bsk_attributes.back_to_top_target_href = '#site-top';
   - bsk_attributes.site_title = 'title';
   - bsk_attributes.site_description = 'description';
+  - bsk_attributes.favicon_url = 'data:;base64,iVBORw0KGgo='
 
 block head
   include ../../includes/bas-style-kit/head--core-meta.pug
   include ../../includes/bas-style-kit/head--seo-meta.pug
+  include ../../includes/bas-style-kit/head--favicon.pug
 
   block styles
     include ../../includes/bas-style-kit/head--core-styles.pug
