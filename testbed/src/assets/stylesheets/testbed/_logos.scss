@@ -1,0 +1,19 @@
+//
+// Logos
+// --------------------------------------------------
+
+// Backgrounds
+//
+
+.logomark-bg-white {
+  background-color: $bsk-colour-std-white;
+  border: 1px solid $bsk-colour-std-grey-lighter;
+}
+
+.logomark-bg-black {
+  background-color: $bsk-colour-std-black;
+}
+
+.logomark-bg-transparent {
+  background: #FFFFFF url('/#{ $testbed_version }/assets/img/transparent-grid.png') repeat;
+}

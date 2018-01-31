@@ -12,6 +12,8 @@ mixin alert(variant, style, icon, dismissible)
           i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
         if variant == 'info'
           i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+        if variant == 'experimental'
+          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
       block
   else
     div(class='bsk-alert bsk-alert-' + variant + ' bsk-alert-' + style)
@@ -24,6 +26,8 @@ mixin alert(variant, style, icon, dismissible)
           i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
         if variant == 'info'
           i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+        if variant == 'experimental'
+          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
       block
 
 mixin alert--block(variant, style, icon, dismissible)
@@ -40,6 +44,8 @@ mixin alert--block(variant, style, icon, dismissible)
           i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
         if variant == 'info'
           i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+        if variant == 'experimental'
+          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
       block
   else
     div(class='bsk-alert bsk-alert-block bsk-alert-' + variant + ' bsk-alert-' + style)
@@ -52,6 +58,8 @@ mixin alert--block(variant, style, icon, dismissible)
           i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
         if variant == 'info'
           i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+        if variant == 'experimental'
+          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
       block
 
 mixin alert--collection(variant, style)
