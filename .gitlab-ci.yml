@@ -92,6 +92,8 @@ compile-sass-app:
 compile-sass-testbed:
   stage: build
   image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  before_script:
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
     - "cd testbed"
     - "./node_modules/gulp/bin/gulp.js build--css"
@@ -116,6 +118,8 @@ compile-js-app:
 compile-pug-testbed:
   stage: build
   image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  before_script:
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
     - "cd testbed"
     - "./node_modules/gulp/bin/gulp.js build--samples"
@@ -153,6 +157,8 @@ copy-images-app:
 copy-images-testbed:
   stage: build
   image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  before_script:
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
     - "cd testbed"
     - "./node_modules/gulp/bin/gulp.js copy--img"
