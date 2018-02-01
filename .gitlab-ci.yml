@@ -61,6 +61,19 @@ node-dependencies-app:
       - node_modules
     expire_in: 1 hour
 
+node-dependencies-testbed:
+  stage: setup
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  script:
+    - "cd testbed"
+    - "rm -rf node_modules"
+    - "yarn install --frozen-lockfile"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-node-dependencies-testbed"
+    paths:
+      - testbed/node_modules
+    expire_in: 1 hour
+
 compile-sass-app:
   stage: build
   script:
@@ -75,6 +88,19 @@ compile-sass-app:
       - dist/css/bas-style-kit.min.css
     expire_in: 1 week
 
+compile-sass-testbed:
+  stage: build
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  script:
+    - "cd testbed"
+    - "./node_modules/gulp/bin/gulp.js build--css"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-styles-testbed"
+    paths:
+      - testbed/public/assets/css/testbed.css
+      - testbed/public/assets/css/testbed-samples.css
+    expire_in: 1 week
+
 compile-js-app:
   stage: build
   script:
@@ -86,21 +112,22 @@ compile-js-app:
       - dist/js/bas-style-kit.min.js
     expire_in: 1 week
 
-# compile-testbed:
-#   stage: build
-#   only:
-#     - branches
-#   before_script:
-#     - "mkdir node_modules"
-#     - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
-#   script:
-#     - "gulp testbed"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-testbed"
-#     paths:
-#       - dist/css/testbed-bsk.css
-#       - testbed/rendered
-#     expire_in: 1 week
+compile-pug-testbed:
+  stage: build
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  script:
+    - "cd testbed"
+    - "./node_modules/gulp/bin/gulp.js build--samples"
+    - "./node_modules/gulp/bin/gulp.js build--sample-redirects"
+    - "./node_modules/gulp/bin/gulp.js build--samples-index"
+    - "./node_modules/gulp/bin/gulp.js build--legal-pages"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-templates-app"
+    paths:
+      - testbed/public/s
+      - testbed/public/legal
+      - testbed/public/index.html
+    expire_in: 1 week
 
 copy-fonts-app:
   stage: build
@@ -118,6 +145,18 @@ copy-images-app:
     - "./node_modules/gulp/bin/gulp.js copy--img"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-imgs-app"
+    paths:
+      - dist/img
+    expire_in: 1 week
+
+copy-images-testbed:
+  stage: build
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  script:
+    - "cd testbed"
+    - "./node_modules/gulp/bin/gulp.js copy--img"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-imgs-testbed"
     paths:
       - dist/img
     expire_in: 1 week
