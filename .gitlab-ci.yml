@@ -237,7 +237,7 @@ package-testbed:
   script:
     - "cd testbed"
     - "./node_modules/gulp/bin/gulp.js archive--public"
-    - "mv ./testbed/bas-style-kit-testbed.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-testbed.zip"
+    - "mv ./bas-style-kit-testbed.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-testbed.zip"
   artifacts:
     name: "$CI_BUILD_TOKEN-zip-testbed"
     paths:
