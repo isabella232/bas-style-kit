@@ -1,10 +1,10 @@
-    div.bsk-row
-      div.bsk-col-12-md-6
-      div.bsk-col-12-md-6
 footer.site-footer
   div.bsk-footer.bsk-footer-default
     div(class=bsk_attributes.container_class)
-      | Testbed generated at #[i #{(new Date()).toISOString()}]
+      div.bsk-row
+        div.bsk-col-12-md-6
+          | Testbed generated at #[i #{(new Date()).toISOString()}]
+        div.bsk-col-12-md-6
           a.bsk-back-to-top(href=bsk_attributes.back_to_top_target_href)
             i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
             | Back to top
