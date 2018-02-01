@@ -113,11 +113,11 @@ copy-fonts-app:
     expire_in: 1 week
 
 copy-images-app:
-    name: "$CI_BUILD_TOKEN-dist-imgs-app"
   stage: build
   script:
     - "./node_modules/gulp/bin/gulp.js copy--img"
   artifacts:
+    name: "$CI_BUILD_TOKEN-dist-imgs-app"
     paths:
       - dist/img
     expire_in: 1 week
