@@ -50,23 +50,23 @@ variables:
 
 # == Jobs ==
 
-node-dependencies:
+node-dependencies-app:
   stage: setup
   script:
     - "rm -rf node_modules"
     - "yarn install --frozen-lockfile"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-styles"
+    name: "$CI_BUILD_TOKEN-node-dependencies-app"
     paths:
       - node_modules
     expire_in: 1 hour
 
-compile-sass:
+compile-sass-app:
   stage: build
   script:
-      - "./node_modules/gulp/bin/gulp.js build--css"
+    - "./node_modules/gulp/bin/gulp.js build--css"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-styles"
+    name: "$CI_BUILD_TOKEN-dist-styles-app"
     paths:
       - dist/css/styles-bsk.css
       - dist/css/bootstrap-bsk.css
@@ -75,12 +75,12 @@ compile-sass:
       - dist/css/bas-style-kit.min.css
     expire_in: 1 week
 
-compile-js:
+compile-js-app:
   stage: build
   script:
       - "./node_modules/gulp/bin/gulp.js build--js"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-scripts"
+    name: "$CI_BUILD_TOKEN-dist-scripts-app"
     paths:
       - dist/js/bas-style-kit.js
       - dist/js/bas-style-kit.min.js
@@ -102,37 +102,37 @@ compile-js:
 #       - testbed/rendered
 #     expire_in: 1 week
 
-copy-fonts:
+copy-fonts-app:
   stage: build
   script:
     - "./node_modules/gulp/bin/gulp.js copy--fonts"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-fonts"
+    name: "$CI_BUILD_TOKEN-dist-fonts-app"
     paths:
       - dist/fonts
     expire_in: 1 week
 
-copy-images:
+copy-images-app:
+    name: "$CI_BUILD_TOKEN-dist-imgs-app"
   stage: build
   script:
     - "./node_modules/gulp/bin/gulp.js copy--img"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-imgs"
     paths:
       - dist/img
     expire_in: 1 week
 
-lint-sass:
+lint-sass-app:
   stage: lint
   script:
     - "./node_modules/gulp/bin/gulp.js lint--sass"
 
-lint-js:
+lint-js-app:
   stage: lint
   script:
     - "./node_modules/gulp/bin/gulp.js lint--js"
 
-compute-sri:
+compute-sri-app:
   stage: process
   script:
     - "./node_modules/gulp/bin/gulp.js sri"
@@ -175,7 +175,7 @@ compute-sri:
 #     name: review/$CI_BUILD_REF_NAME
 #     action: stop
 
-package-dist:
+package-dist-app:
   stage: package
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
@@ -184,19 +184,19 @@ package-dist:
     - "./node_modules/gulp/bin/gulp.js archive--dist"
     - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip"
   artifacts:
-    name: "$CI_BUILD_TOKEN-zip"
+    name: "$CI_BUILD_TOKEN-zip-app"
     paths:
       - "*.zip"
     expire_in: 1 week
 
-s3-packages-snapshot:
+s3-packages-snapshot-app:
   <<: *job_template_s3_sync
   stage: deploy
   only:
     - master
-  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
 
-s3-packages-release:
+s3-packages-release-app:
   <<: *job_template_s3_sync
   stage: deploy
   only:
@@ -204,7 +204,7 @@ s3-packages-release:
   when: manual
   script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
 
-s3-cdn:
+s3-cdn-app:
   <<: *job_template_s3_sync
   stage: deploy
   only:
