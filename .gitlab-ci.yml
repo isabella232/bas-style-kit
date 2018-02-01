@@ -45,6 +45,7 @@ variables:
   CDN_BUCKET: bas-cdn-prod
   PACKAGES_BUCKET: bas-package-service-prod
   PACKAGES_BUCKET_PATH: zips/apps
+  TESTBED_BUCKET: style-kit-testbed.web.bas.ac.uk
   APP_NAME: bas-style-kit
   REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
 
@@ -181,38 +182,33 @@ compute-sri-app:
       - dist/bas-style-kit.sri.json
     expire_in: 1 week
 
-# review:
-#   stage: review
-#   image:
-#     name: governmentpaas/awscli:latest
-#     entrypoint: [""]
-#   only:
-#     - branches
-#   except:
-#     - master
-#     - tags
-#   script:
-#     - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
-#     - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
-#   environment:
-#     name: review/$CI_BUILD_REF_NAME
-#     url: http://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html
-#     on_stop: stop_review
+review:
+  <<: *job_template_s3_sync
+  stage: review
+  only:
+    - branches
+  except:
+    - master
+    - tags
+  script:
+    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
+    - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    url: https://style-kit-testbed.web.bas.ac.uk/$CI_BUILD_REF_NAME/
+    on_stop: stop_review
 
-# stop_review:
-#   stage: review
-#   image: antarctica/aws-cli-image:0.1.0-alpine-gl
-#   image:
-#     name: governmentpaas/awscli:latest
-#     entrypoint: [""]
-#   script:
-#     - aws s3 rm --recursive s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME
-#   variables:
-#     GIT_STRATEGY: none
-#   when: manual
-#   environment:
-#     name: review/$CI_BUILD_REF_NAME
-#     action: stop
+stop_review:
+  <<: *job_template_s3_sync
+  stage: review
+  script:
+    - aws s3 rm --recursive s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME
+  variables:
+    GIT_STRATEGY: none
+  when: manual
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    action: stop
 
 package-app:
   stage: package
