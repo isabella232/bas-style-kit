@@ -34,7 +34,7 @@ stages:
   - lint
   - process
   - package
-  # - review
+  - review
   - deploy
 
 image:
