@@ -214,18 +214,34 @@ compute-sri-app:
 #     name: review/$CI_BUILD_REF_NAME
 #     action: stop
 
-package-dist-app:
+package-app:
   stage: package
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
   script:
     - "./node_modules/gulp/bin/gulp.js archive--dist"
-    - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip"
+    - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-app.zip"
   artifacts:
     name: "$CI_BUILD_TOKEN-zip-app"
     paths:
       - "*.zip"
+    expire_in: 1 week
+
+package-testbed:
+  stage: package
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+    - "export DATETIME_INSTANT=`date --utc -Iseconds`"
+  script:
+    - "cd testbed"
+    - "./node_modules/gulp/bin/gulp.js archive--public"
+    - "mv ./testbed/bas-style-kit-testbed.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-testbed.zip"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-zip-testbed"
+    paths:
+      - "testbed/*.zip"
     expire_in: 1 week
 
 s3-packages-snapshot-app:
@@ -234,6 +250,13 @@ s3-packages-snapshot-app:
   only:
     - master
   script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
+
+s3-packages-snapshot-testbed:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - master
+  script: "aws s3 cp testbed/$CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
 
 s3-packages-release-app:
   <<: *job_template_s3_sync

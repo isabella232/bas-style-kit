@@ -10,6 +10,7 @@ var gulp         = require('gulp'),
     log          = require('fancy-log'),
     map          = require('map-stream'),
     pug          = require('gulp-pug'),
+    zip          = require('gulp-zip'),
     sass         = require('gulp-sass'),
     data         = require('gulp-data'),
     rename       = require('gulp-rename'),
@@ -24,9 +25,11 @@ const config = {
     'source': path.join('.', 'src'),
     'stylesheets': path.join('.', 'src', 'assets', 'stylesheets'),
     'images': path.join('.', 'src', 'assets', 'images'),
-    'samples': path.join('.', 'src', 'samples')
+    'samples': path.join('.', 'src', 'samples'),
+    'public': path.join('.', 'public')
   },
   'destinations': {
+    'root': path.join('.'),
     'public': path.join('.', 'public'),
     'assets': path.join('.', 'public', 'assets'),
     'css': path.join('css'),
@@ -67,6 +70,7 @@ var runtime = {
 gulp.task('clean--css', cleanCss);
 gulp.task('clean--img', cleanImg);
 gulp.task('clean--samples', cleanSamples);
+gulp.task('clean--public-archive', cleanPublicArchive);
 
 gulp.task('build--css-testbed', buildCssTestbed);
 gulp.task('build--samples', buildSamples);
@@ -83,10 +87,13 @@ gulp.task('copy--img', gulp.parallel(
   'copy--img-testbed'
 ));
 
+gulp.task('archive--public', archivePublic);
+
 gulp.task('clean', gulp.parallel(
   'clean--css',
   'clean--img',
-  'clean--samples'
+  'clean--samples',
+  'clean--public-archive'
 ));
 gulp.task('build', gulp.parallel(
   'build--css',
@@ -100,7 +107,9 @@ gulp.task('build', gulp.parallel(
 gulp.task('copy', gulp.parallel(
   'copy--img'
 ));
-
+gulp.task('archive', gulp.parallel(
+  'archive--public'
+));
 
 // Tasks
 
@@ -121,6 +130,13 @@ function cleanImg(done) {
 function cleanSamples(done) {
   del([
       path.join(config.destinations.samples)
+  ]);
+  done();
+}
+
+function cleanPublicArchive(done) {
+  del([
+    path.join(config.destinations.root, 'bas-style-kit-testbed.zip')
   ]);
   done();
 }
@@ -281,6 +297,19 @@ function copyImagesTestbed(done) {
         path.join(config.sources.images, '*.png')
       ]),
       gulp.dest(path.join(config.destinations.assets, config.destinations.img))
+    ],
+    done
+  );
+}
+
+function archivePublic(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.public, '**/*.*')
+      ]),
+      zip('bas-style-kit-testbed.zip'),
+      gulp.dest(path.join(config.destinations.root))
     ],
     done
   );
