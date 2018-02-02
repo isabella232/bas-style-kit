@@ -100,8 +100,7 @@ compile-sass-testbed:
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-styles-testbed"
     paths:
-      - testbed/public/assets/css/testbed.css
-      - testbed/public/assets/css/testbed-samples.css
+      - testbed/public/assets/css/
     expire_in: 1 week
 
 compile-js-app:
@@ -163,7 +162,7 @@ copy-images-testbed:
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-imgs-testbed"
     paths:
-      - dist/img
+      - tested/public/img
     expire_in: 1 week
 
 lint-sass-app:
