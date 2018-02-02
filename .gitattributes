@@ -4,12 +4,7 @@
 .npmignore export-ignore
 .editorconfig export-ignore
 
-testbed/assets export-ignore
-testbed/collections export-ignore
-testbed/layouts export-ignore
-testbed/macros export-ignore
-testbed/samples export-ignore
-testbed/index.njk export-ignore
+testbed export-ignore
 
 # Don't diff or textually merge source maps
 *.map   binary
