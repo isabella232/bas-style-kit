@@ -24,6 +24,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * [Admin] Project documentation on images
+* [Styles] * [Styles] Fix class for using a cookie notice alert with a navbar in a fluid width container
 * [Infrastructure] jQuery and js-cookie as dependencies of the Style Kit's JS plugins
 * [Infrastructure] StyleLint as an explicit dependency to remove Yarn dependency resolution warning
 * [Infrastructure] Yarn lock file to ensure the same dependencies are used in CI

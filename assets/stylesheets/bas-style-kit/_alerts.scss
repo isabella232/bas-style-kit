@@ -118,3 +118,14 @@
     }
   }
 }
+
+// Adjusts padding of alerts when aligned with navbars as part of a site header in a fluid width container
+.fix-alert-static-top-fluid-container-wrapper {
+  background-color: $alert-cookie-notice-base;
+
+  .container-fluid {
+    .alert-cookie-notice {
+      padding-left: 0;
+    }
+  }
+}
