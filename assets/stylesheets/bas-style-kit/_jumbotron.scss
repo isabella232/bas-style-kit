@@ -18,12 +18,10 @@
   }
 
   // Sub-components
-  .jumbotron {
-    .jumbotron-overlay {
-      padding:          $jumbotron-overlay-padding;
-      color:            $jumbotron-overlay-color;
-      background-color: $jumbotron-overlay-bg;
-    }
+  .jumbotron-overlay {
+    padding:          $jumbotron-overlay-padding;
+    color:            $jumbotron-overlay-color;
+    background-color: $jumbotron-overlay-bg;
   }
 }
 

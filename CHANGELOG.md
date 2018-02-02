@@ -31,6 +31,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
+* [Styles] Correcting colour of dismiss icon in solid warning alerts
+* [Styles] Repeating class name in jumbotron overlay styles
 * [Resources] Correcting version specified in colour charts
 
 ### Changed
