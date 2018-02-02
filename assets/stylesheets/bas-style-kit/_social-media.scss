@@ -35,7 +35,7 @@
 .social-media-link {
   @include make-social-media-link(
     twitter,
-    $bsk-coloexttwitter-base
+    $bsk-colour-ext-twitter-base
   );
   @include make-social-media-link(
     facebook,
