@@ -273,14 +273,14 @@ s3-cdn-app:
   when: manual
   script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
 
-# s3-testbed:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - master
-#   script:
-#     - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
-#     - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
-#   environment:
-#     name: testbed-master
-#     url: http://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html
+s3-testbed:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - master
+  script:
+    - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/
+    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
+  environment:
+    name: testbed
+    url: https://style-kit-testbed.web.bas.ac.uk/$CI_BUILD_REF_NAME/testbed/
