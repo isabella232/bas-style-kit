@@ -22,11 +22,6 @@ $bsk-colour-spc-bas-blue:                      #003A5D;
 $bsk-colour-spc-nerc-green:                    #AAB437;
 $bsk-colour-spc-bas-aircraft-red:              #CC0033;
 
-$bsk-colour-spc-twitter-base:                  #55ACEE;  // as defined by brand
-$bsk-colour-spc-facebook-base:                 #3B5998;  // as defined by brand
-$bsk-colour-spc-youtube-base:                  #CD201F;  // as defined by brand
-$bsk-colour-spc-rss-base:                      #F26522;  // as defined by convention
-
 // Standard colours - base colours
 $bsk-colour-std-white:                        mix($bsk-colour-gen-black, $bsk-colour-gen-white, 0%);     // #FFFFFF (GDS: $white)
 $bsk-colour-std-grey-base:                    mix($bsk-colour-gen-black, $bsk-colour-gen-white, 53.3%);  // #777777 (Bootstrap: $gray-light)
@@ -123,11 +118,19 @@ $bsk-colour-std-brown-light:                  mix($bsk-colour-gen-white, $bsk-co
 $bsk-colour-std-brown-dark:                   mix($bsk-colour-gen-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-1st-fundermental);  // #795B2B
 $bsk-colour-std-brown-darker:                 mix($bsk-colour-gen-black, $bsk-colour-std-brown-base, $bsk-colour-x-mix-2rd-fundermental);  // #3E2E16
 
-// Test colours (non-standard)
-$bsk-colour-tst-grey-lighter-light:           mix($bsk-colour-gen-black, $bsk-colour-gen-white, 3.25%);  // #F7F7F7
-$bsk-colour-tst-grey-darker-dark:             mix($bsk-colour-gen-black, $bsk-colour-gen-white, 86.75);  // #222222
-$bsk-colour-tst-sky-blue-lighter-light:       mix($bsk-colour-gen-white, $bsk-colour-std-sky-blue-base, 88%);  // #E6F1F8
-$bsk-colour-tst-purple-base:                  #2E358B;
+// Extended colours - contrast
+$bsk-colour-ext-grey-lighter-light:           mix($bsk-colour-gen-black, $bsk-colour-gen-white, 3.25%);  // #F7F7F7
+$bsk-colour-ext-grey-darker-dark:             mix($bsk-colour-gen-black, $bsk-colour-gen-white, 86.75);  // #222222
+$bsk-colour-ext-sky-blue-lighter-light:       mix($bsk-colour-gen-white, $bsk-colour-std-sky-blue-base, 88%);  // #E6F1F8
+
+// Extended colours - development phases
+$bsk-colour-ext-purple-base:                  #2E358B;
+
+// Extended colours - brand colours
+$bsk-colour-ext-twitter-base:                  #55ACEE;  // as defined by brand
+$bsk-colour-ext-facebook-base:                 #3B5998;  // as defined by brand
+$bsk-colour-ext-youtube-base:                  #CD201F;  // as defined by brand
+$bsk-colour-ext-rss-base:                      #F26522;  // as defined by convention
 
 // Bootstrap colour overrides
 $brand-primary:                               $bsk-colour-std-turquoise-base;
@@ -139,7 +142,7 @@ $brand-danger:                                $bsk-colour-std-red-base;
 $brand-experimental:                          $bsk-colour-std-mauve-base;
 
 // GDS agile development phases
-$development-phase-backlog:                   $bsk-colour-tst-purple-base;
+$development-phase-backlog:                   $bsk-colour-ext-purple-base;
 $development-phase-discovery:                 $bsk-colour-std-fuschia-base;
 $development-phase-alpha:                     $bsk-colour-std-pink-base;
 $development-phase-beta:                      $bsk-colour-std-orange-base;
@@ -337,7 +340,7 @@ $table-bg:                                    transparent;
 $table-bg-accent:                             $bsk-colour-std-grey-lighter;
 
 // Background color used for `.table-hover`
-$table-bg-hover:                              $bsk-colour-tst-grey-lighter-light;
+$table-bg-hover:                              $bsk-colour-ext-grey-lighter-light;
 $table-bg-active:                             $table-bg-hover;
 
 //** Border color for table and cell borders
@@ -427,7 +430,7 @@ $navbar-font-size:                            ($font-size-base + 1px);
 $navbar-color:                                $bsk-colour-std-grey-light;  // colour-check-10
 // This colour does not use a $component to give a distinction between footer and header/navbar
 // & to give distiction between hover and non-hover items (otherwise either no difference or much lighter navbar/header)
-$navbar-bg:                                   $bsk-colour-tst-grey-darker-dark;
+$navbar-bg:                                   $bsk-colour-ext-grey-darker-dark;
 $navbar-border:                               $navbar-bg;
 $navbar-divider-color:                        $bsk-colour-std-grey-lighter;
 $navbar-link-color:                           $component-inverse-color;
@@ -605,7 +608,7 @@ $close-text-shadow:                           none;
 //##
 
 $code-color:                                $bsk-colour-std-sky-blue-dark;
-$code-bg:                                   $bsk-colour-tst-sky-blue-lighter-light;
+$code-bg:                                   $bsk-colour-ext-sky-blue-lighter-light;
 
 
 // Footers
