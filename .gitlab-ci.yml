@@ -162,7 +162,7 @@ copy-images-testbed:
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-imgs-testbed"
     paths:
-      - tested/public/img
+      - testbed/public/img
     expire_in: 1 week
 
 lint-sass-app:
