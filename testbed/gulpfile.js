@@ -73,7 +73,7 @@ gulp.task('clean--samples', cleanSamples);
 gulp.task('clean--public-archive', cleanPublicArchive);
 
 gulp.task('build--css-testbed', buildCssTestbed);
-gulp.task('build--samples', buildSamples);
+gulp.task('build--individual-samples', buildSamples);
 gulp.task('build--sample-redirects', buildSampleRedirects);
 gulp.task('build--samples-index', buildSampleIndex);
 gulp.task('build--legal-pages', buildLegalPages);
@@ -89,6 +89,13 @@ gulp.task('copy--img', gulp.parallel(
 
 gulp.task('archive--public', archivePublic);
 
+gulp.task('build--samples', gulp.series(
+  'build--individual-samples',
+  'build--sample-redirects',
+  'build--samples-index',
+  'build--legal-pages'
+));
+
 gulp.task('clean', gulp.parallel(
   'clean--css',
   'clean--img',
@@ -97,12 +104,8 @@ gulp.task('clean', gulp.parallel(
 ));
 gulp.task('build', gulp.parallel(
   'build--css',
-  gulp.series(
-    'build--samples',
-    'build--sample-redirects',
-    'build--samples-index',
-    'build--legal-pages'
-  )
+  'build--samples',
+  'build--legal-pages'
 ));
 gulp.task('copy', gulp.parallel(
   'copy--img'

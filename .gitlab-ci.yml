@@ -123,8 +123,6 @@ compile-pug-testbed:
   script:
     - "cd testbed"
     - "./node_modules/gulp/bin/gulp.js build--samples"
-    - "./node_modules/gulp/bin/gulp.js build--sample-redirects"
-    - "./node_modules/gulp/bin/gulp.js build--samples-index"
     - "./node_modules/gulp/bin/gulp.js build--legal-pages"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-templates-app"
