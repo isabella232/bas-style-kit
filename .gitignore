@@ -6,3 +6,4 @@ testbed/node_modules
 dist
 dist-archive
 testbed/public
+/provisioning/terraform/.terraform
