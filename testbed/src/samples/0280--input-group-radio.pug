@@ -1,0 +1,34 @@
+//-
+  sample:
+    title: Input group - radio input
+    code: .bsk-form-group .bsk-input-group input[type='radio']
+  collections:
+    - components--input-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    header Before control
+    +form-input-group
+      span.bsk-input-group-addon
+        input(type='radio')
+      input.bsk-form-control(type='number' placeholder='Amount (sterling, optional surcharge)')
+
+  section.app-sample-section
+    header After control
+    +form-input-group
+      input.bsk-form-control(type='number' placeholder='Amount (thousands)')
+      span.bsk-input-group-addon
+        input(type='radio')
+
+  section.app-sample-section
+    header Before and after control
+    +form-input-group
+      span.bsk-input-group-addon
+        input(type='radio')
+      input.bsk-form-control(type='number' placeholder='Amount (£, thousands)')
+      span.bsk-input-group-addon
+        input(type='radio')

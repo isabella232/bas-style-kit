@@ -1,0 +1,31 @@
+extends ./html.pug
+
+block append vars
+  - var bsk_attributes = {};
+  - bsk_attributes.container_class = 'bsk-container';
+  - bsk_attributes.css_url = 'https://cdn.web.bas.ac.uk/bas-style-kit/0.3.0/css/bas-style-kit.min.css';
+  - bsk_attributes.js_url = 'https://cdn.web.bas.ac.uk/bas-style-kit/0.3.0/js/bas-style-kit.min.js';
+  - bsk_attributes.back_to_top_target_href = '#site-top';
+  - bsk_attributes.site_title = 'title';
+  - bsk_attributes.site_description = 'description';
+  - bsk_attributes.favicon_url = 'data:;base64,iVBORw0KGgo='
+
+block head
+  include ../../includes/bas-style-kit/head--core-meta.pug
+  include ../../includes/bas-style-kit/head--seo-meta.pug
+  include ../../includes/bas-style-kit/head--favicon.pug
+
+  block styles
+    include ../../includes/bas-style-kit/head--core-styles.pug
+    //- Use 'append styles' in templates inheriting from this layout to include other styles
+
+block body
+  include ../../includes/bas-style-kit/body--back-to-top.pug
+  block pre_page
+  div#site-content
+    block page_base
+
+  block post_page
+  block scripts
+    include ../../includes/bas-style-kit/body--core-scripts.pug
+    //- Use 'append scripts' in templates inheriting from this layout to include other scripts

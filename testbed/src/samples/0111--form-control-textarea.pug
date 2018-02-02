@@ -1,0 +1,101 @@
+//-
+  sample:
+    title: Forms - textarea
+    code: textarea
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    header Textarea only
+    textarea
+
+  section.app-sample-section
+    header Form group
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Textarea
+        textarea.bsk-form-control
+
+  section.app-sample-section
+    header Form group with value
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Textarea with value
+        textarea.bsk-form-control
+          | example-value
+
+  section.app-sample-section
+    header Form group with #[code placeholder] attribute value of #[samp example]
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Textarea with placeholder attribute
+        textarea.bsk-form-control(placeholder='example-placeholder')
+
+  section.app-sample-section
+    header Form group with #[code placeholder] attribute value of #[samp example-placeholder] and value
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Textarea with placeholder and value attributes
+        textarea.bsk-form-control(placeholder='example-placeholder')
+          | example-value
+
+  section.app-sample-section
+    header Form group with #[code required] attribute
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Textarea with required attribute
+        textarea.bsk-form-control(required)
+
+  section.app-sample-section
+    header Form group with #[code readonly] attribute
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Textarea with readonly attribute
+        textarea.bsk-form-control(readonly)
+
+  section.app-sample-section
+    header Form group with #[code disabled] attribute
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Textarea with disabled attribute
+        textarea.bsk-form-control(disabled)
+
+  section.app-sample-section
+    header Form group with #[code placeholder] attribute value of #[samp example-placeholder] and #[code disabled] attribute
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Textarea with placeholder and disabled attributes
+        textarea.bsk-form-control(placeholder='example-placeholder' disabled)
+
+  section.app-sample-section
+    header Form group with a simulated focus state
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Textarea with simulated focus state
+        textarea.bsk-form-control.app-simulated-state-focus
+
+  section.app-sample-section
+    header Form group with a #[em success] validation state
+    form
+      fieldset.bsk-form-group.bsk-has-success
+        label.bsk-control-label Textarea with success validation
+        textarea.bsk-form-control
+
+  section.app-sample-section
+    header Form group with a #[em warning] validation state
+    form
+      fieldset.bsk-form-group.bsk-has-warning
+        label.bsk-control-label Textarea with warning validation
+        textarea.bsk-form-control
+
+  section.app-sample-section
+    header Form group with a #[em error] validation state
+    form
+      fieldset.bsk-form-group.bsk-has-error
+        label.bsk-control-label Textarea with error validation
+        textarea.bsk-form-control

@@ -1,0 +1,14 @@
+//-
+  sample:
+    title: Danger progress bar
+    code: .bsk-progress.bsk-progress-bar.bsk-progress-bar-danger
+  collections:
+    - components--progress-bars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/progress-bars.pug
+
+block sample
+  +progress-bar--sizes(class='bsk-progress-bar-danger')
+  +progress-bar--sizes(class='bsk-progress-bar-danger')

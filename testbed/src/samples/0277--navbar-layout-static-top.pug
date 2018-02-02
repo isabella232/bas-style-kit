@@ -1,0 +1,21 @@
+//-
+  sample:
+    title: Static top navbar
+    code: .bsk-navbar.bsk-navbar-static-top
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  +alert('warning', 'outline')
+    div.bsk-text-center This sample uses fixed positioning and may look strange.
+
+  section.app-sample-section
+    header Standard
+
+    +navbar--default(class='bsk-navbar-static-top')
+      div.bsk-navbar-text Static top navbar

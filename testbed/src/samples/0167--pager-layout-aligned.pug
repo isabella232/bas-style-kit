@@ -1,0 +1,27 @@
+//-
+  sample:
+    title: Aligned pager
+    code: .bsk-pager {.bsk-previous|.bsk-next}
+  collections:
+    - components--pagination
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  div.bsk-container-fluid
+    +alert('warning', 'outline')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+    +alert('info', 'highlight')
+      | Using a fixed-width container.
+
+  div.bsk-container.app-visible-container.app-spacing-bottom
+    section.app-sample-section
+      nav
+        ul.bsk-pager
+          li.bsk-previous: a(href='#') Previous
+          li.bsk-next: a(href='#') Next

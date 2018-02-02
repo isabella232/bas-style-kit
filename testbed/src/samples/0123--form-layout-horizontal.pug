@@ -1,0 +1,67 @@
+//-
+  sample:
+    title: Horizontal form
+    code: form.bsk-form-horizontal
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+include ../mixins/app/samples/alerts.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  div.bsk-container-fluid
+    +alert('warning', 'outline')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+    +alert('info', 'highlight')
+      | Using the medium size 12 column grid, in a fixed-width container. #[br]
+      | Each #[code control-label] is 2 columns wide, each #[code bsk-form-control] is 10 columns wide.
+
+  div.bsk-container.app-visible-container.app-spacing-bottom
+    section.app-sample-section
+      header #[code text] input
+
+      form.bsk-form-horizontal
+        fieldset.bsk-form-group.bsk-row
+          label.bsk-control-label.bsk-col-12-md-2 Text input
+          div.bsk-col-12-md-10
+            input.bsk-form-control(type='text')
+
+    section.app-sample-section
+      header #[code radio] input
+
+      form.bsk-form-horizontal
+        fieldset.bsk-form-group.bsk-row
+          label.bsk-control-label.bsk-col-12-md-2 Text input
+          div.bsk-col-12-md-10
+            div.bsk-radio-inline
+              label.bsk-control-label
+                input#example-1-a(type='radio' name='example-1' value='A')
+                | Option 1 (A)
+            div.bsk-radio-inline
+              label.bsk-control-label
+                input#example-1-a(type='radio' name='example-1' value='A')
+                | Option 1 (A)
+            div.bsk-radio-inline
+              label.bsk-control-label
+                input#example-1-a(type='radio' name='example-1' value='A')
+                | Option 1 (A)
+
+    section.app-sample-section
+      header #[code feildset] with #[code legend]
+
+      form.bsk-form-horizontal
+        fieldset
+          legend Feildset legend
+          div.bsk-form-group.bsk-row
+            label.bsk-control-label.bsk-col-12-md-2 Text input 1
+            div.bsk-col-12-md-10
+              input.bsk-form-control(type='text')
+          div.bsk-form-group.bsk-row
+            label.bsk-control-label.bsk-col-12-md-2 Text input 2
+            div.bsk-col-12-md-10
+              input.bsk-form-control(type='text')

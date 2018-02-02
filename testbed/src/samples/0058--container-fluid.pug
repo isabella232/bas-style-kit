@@ -1,0 +1,23 @@
+//-
+  sample:
+    title: Fluid width container
+    code: .bsk-container-fluid
+  collections:
+    - core--layout
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  div.bsk-container-fluid
+    +alert('warning', 'outline')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+    +alert('info', 'highlight')
+      | Using a fluid-width container.
+
+  div.bsk-container-fluid.app-visible-container.app-spacing-bottom
+    div.app-visible-col-1

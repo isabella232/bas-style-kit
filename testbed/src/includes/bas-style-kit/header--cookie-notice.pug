@@ -1,0 +1,11 @@
+if bsk_attributes.container_class == 'bsk-container'
+  - var cookie_notice_wrapper_class = 'bsk-fix-alert-static-top-fixed-container-wrapper';
+else if bsk_attributes.container_class == 'bsk-container-fluid'
+  - var cookie_notice_wrapper_class = 'bsk-fix-alert-static-top-fluid-container-wrapper';
+
+div(class=cookie_notice_wrapper_class)
+  div(class=bsk_attributes.container_class)
+    div.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role-bsk-role='cookie-notice')
+      button.bsk-close(type='button' data-dismiss='alert' aria-label='Close')
+        i.fa.fa-times(aria-hidden='true')
+      | This website uses cookies to help us make it better - #[a.bsk-alert-link(href=bsk_attributes.cookie_notice_href) find out more].

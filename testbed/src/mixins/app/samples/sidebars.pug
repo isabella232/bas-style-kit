@@ -1,0 +1,13 @@
+mixin sidebar
+  div.bsk-col-12-md-offset-9.bsk-col-12-md-3
+    aside.bsk-sidebar(class!=attributes.class)
+      block
+
+mixin sidebar--headings
+  each heading in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+    section.app-sample-section
+      header Sidebar with #[code #{ heading }]
+      div.bsk-row
+        +sidebar(class='bsk-sidebar-default')
+          #{ heading } Heading #{ heading }
+          | Sidebar content

@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Responsive embed - 4:3
+    code: .bsk-embed-responsive.bsk-embed-responsive-4by3
+  collections:
+    - components--responsive-embeds
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    div.bsk-embed-responsive.bsk-embed-responsive-4by3
+      iframe.bsk-embed-responsive-item(src='https://player.vimeo.com/video/32397612' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen)

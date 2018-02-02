@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Media object aligned bottom
+    code: .bsk-media .bsk-media-bottom
+  collections:
+    - components--media-objects
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/media-objects.pug
+
+block sample
+  +media-object--alignment('left')(class='bsk-media-left bsk-media-bottom')

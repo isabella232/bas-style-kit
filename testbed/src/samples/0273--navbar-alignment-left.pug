@@ -1,0 +1,18 @@
+//-
+  sample:
+    title: Left aligned navbar items
+    code: .bsk-navbar ul.bsk-navbar-nav.bsk-navbar-left
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +navbar--default
+      ul.bsk-nav.bsk-navbar-nav.bsk-navbar-left
+        li: a(href='#') Item

@@ -1,0 +1,24 @@
+//-
+  sample:
+    title: Media object nested layout
+    code: .bsk-media .bsk-media
+  collections:
+    - components--media-objects
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/media-objects.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +media-object('div', 64)
+      h4.bsk-media-heading Media heading
+      | Media body
+      +media-object('div', 64)
+        h4.bsk-media-heading Media heading
+        | Media body
+        +media-object('div', 64)
+          h4.bsk-media-heading Media heading
+          | Media body

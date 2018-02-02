@@ -1,0 +1,15 @@
+//-
+  sample:
+    title: Variable (code)
+    code: var
+  collections:
+    - core--code
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    p #[var e] = #[var m]#[var c #[sup 2]]

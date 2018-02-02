@@ -34,39 +34,53 @@ stages:
   - lint
   - process
   - package
-  # - review
+  - review
   - deploy
 
 image:
-  name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit:0.4.0-develop-alpine
+  name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/app:0.4.0-develop-alpine
   entrypoint: [""]
 
 variables:
   CDN_BUCKET: bas-cdn-prod
   PACKAGES_BUCKET: bas-package-service-prod
   PACKAGES_BUCKET_PATH: zips/apps
+  TESTBED_BUCKET: style-kit-testbed.web.bas.ac.uk
   APP_NAME: bas-style-kit
   REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
 
 # == Jobs ==
 
-node-dependencies:
+node-dependencies-app:
   stage: setup
   script:
     - "rm -rf node_modules"
     - "yarn install --frozen-lockfile"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-styles"
+    name: "$CI_BUILD_TOKEN-node-dependencies-app"
     paths:
       - node_modules
     expire_in: 1 hour
 
-compile-sass:
+node-dependencies-testbed:
+  stage: setup
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  script:
+    - "cd testbed"
+    - "rm -rf node_modules"
+    - "yarn install --frozen-lockfile"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-node-dependencies-testbed"
+    paths:
+      - testbed/node_modules
+    expire_in: 1 hour
+
+compile-sass-app:
   stage: build
   script:
-      - "./node_modules/gulp/bin/gulp.js build--css"
+    - "./node_modules/gulp/bin/gulp.js build--css"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-styles"
+    name: "$CI_BUILD_TOKEN-dist-styles-app"
     paths:
       - dist/css/styles-bsk.css
       - dist/css/bootstrap-bsk.css
@@ -75,64 +89,93 @@ compile-sass:
       - dist/css/bas-style-kit.min.css
     expire_in: 1 week
 
-compile-js:
+compile-sass-testbed:
+  stage: build
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  before_script:
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+  script:
+    - "cd testbed"
+    - "./node_modules/gulp/bin/gulp.js build--css"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-styles-testbed"
+    paths:
+      - testbed/public/assets/css/
+    expire_in: 1 week
+
+compile-js-app:
   stage: build
   script:
       - "./node_modules/gulp/bin/gulp.js build--js"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-scripts"
+    name: "$CI_BUILD_TOKEN-dist-scripts-app"
     paths:
       - dist/js/bas-style-kit.js
       - dist/js/bas-style-kit.min.js
     expire_in: 1 week
 
-# compile-testbed:
-#   stage: build
-#   only:
-#     - branches
-#   before_script:
-#     - "mkdir node_modules"
-#     - "cp -R $NODE_PATH/bootstrap-sass node_modules/"
-#   script:
-#     - "gulp testbed"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-testbed"
-#     paths:
-#       - dist/css/testbed-bsk.css
-#       - testbed/rendered
-#     expire_in: 1 week
+compile-pug-testbed:
+  stage: build
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  before_script:
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+  script:
+    - "cd testbed"
+    - "./node_modules/gulp/bin/gulp.js build--samples"
+    - "./node_modules/gulp/bin/gulp.js build--legal-pages"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-templates-app"
+    paths:
+      - testbed/public/s
+      - testbed/public/legal
+      - testbed/public/index.html
+    expire_in: 1 week
 
-copy-fonts:
+copy-fonts-app:
   stage: build
   script:
     - "./node_modules/gulp/bin/gulp.js copy--fonts"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-fonts"
+    name: "$CI_BUILD_TOKEN-dist-fonts-app"
     paths:
       - dist/fonts
     expire_in: 1 week
 
-copy-images:
+copy-images-app:
   stage: build
   script:
     - "./node_modules/gulp/bin/gulp.js copy--img"
   artifacts:
-    name: "$CI_BUILD_TOKEN-dist-imgs"
+    name: "$CI_BUILD_TOKEN-dist-imgs-app"
     paths:
       - dist/img
     expire_in: 1 week
 
-lint-sass:
+copy-images-testbed:
+  stage: build
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  before_script:
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+  script:
+    - "cd testbed"
+    - "./node_modules/gulp/bin/gulp.js copy--img"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-imgs-testbed"
+    paths:
+      - testbed/public/assets/img
+    expire_in: 1 week
+
+lint-sass-app:
   stage: lint
   script:
     - "./node_modules/gulp/bin/gulp.js lint--sass"
 
-lint-js:
+lint-js-app:
   stage: lint
   script:
     - "./node_modules/gulp/bin/gulp.js lint--js"
 
-compute-sri:
+compute-sri-app:
   stage: process
   script:
     - "./node_modules/gulp/bin/gulp.js sri"
@@ -142,61 +185,79 @@ compute-sri:
       - dist/bas-style-kit.sri.json
     expire_in: 1 week
 
-# review:
-#   stage: review
-#   image:
-#     name: governmentpaas/awscli:latest
-#     entrypoint: [""]
-#   only:
-#     - branches
-#   except:
-#     - master
-#     - tags
-#   script:
-#     - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
-#     - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
-#   environment:
-#     name: review/$CI_BUILD_REF_NAME
-#     url: http://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html
-#     on_stop: stop_review
+review:
+  <<: *job_template_s3_sync
+  stage: review
+  only:
+    - branches
+  except:
+    - master
+    - tags
+  script:
+    - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/
+    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    url: https://style-kit-testbed.web.bas.ac.uk/$CI_BUILD_REF_NAME/
+    on_stop: stop_review
 
-# stop_review:
-#   stage: review
-#   image: antarctica/aws-cli-image:0.1.0-alpine-gl
-#   image:
-#     name: governmentpaas/awscli:latest
-#     entrypoint: [""]
-#   script:
-#     - aws s3 rm --recursive s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME
-#   variables:
-#     GIT_STRATEGY: none
-#   when: manual
-#   environment:
-#     name: review/$CI_BUILD_REF_NAME
-#     action: stop
+stop_review:
+  <<: *job_template_s3_sync
+  stage: review
+  script:
+    - aws s3 rm --recursive s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME
+  variables:
+    GIT_STRATEGY: none
+  when: manual
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    action: stop
 
-package-dist:
+package-app:
   stage: package
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
   script:
     - "./node_modules/gulp/bin/gulp.js archive--dist"
-    - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT.zip"
+    - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-app.zip"
   artifacts:
-    name: "$CI_BUILD_TOKEN-zip"
+    name: "$CI_BUILD_TOKEN-zip-app"
     paths:
       - "*.zip"
     expire_in: 1 week
 
-s3-packages-snapshot:
+package-testbed:
+  stage: package
+  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  before_script:
+    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
+    - "export DATETIME_INSTANT=`date --utc -Iseconds`"
+  script:
+    - "cd testbed"
+    - "./node_modules/gulp/bin/gulp.js archive--public"
+    - "mv ./bas-style-kit-testbed.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-testbed.zip"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-zip-testbed"
+    paths:
+      - "testbed/*.zip"
+    expire_in: 1 week
+
+s3-packages-snapshot-app:
   <<: *job_template_s3_sync
   stage: deploy
   only:
     - master
-  script: "aws s3 cp $CI_BUILD_REF_SHORT-* s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
+  script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
 
-s3-packages-release:
+s3-packages-snapshot-testbed:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - master
+  script: "aws s3 cp testbed/$CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
+
+s3-packages-release-app:
   <<: *job_template_s3_sync
   stage: deploy
   only:
@@ -204,7 +265,7 @@ s3-packages-release:
   when: manual
   script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
 
-s3-cdn:
+s3-cdn-app:
   <<: *job_template_s3_sync
   stage: deploy
   only:
@@ -212,14 +273,14 @@ s3-cdn:
   when: manual
   script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
 
-# s3-testbed:
-#   <<: *job_template_s3_sync
-#   stage: deploy
-#   only:
-#     - master
-#   script:
-#     - aws s3 sync --delete dist/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/dist/
-#     - aws s3 sync --delete testbed/rendered/ s3://bas-style-kit-testbed/$CI_BUILD_REF_NAME/testbed/
-#   environment:
-#     name: testbed-master
-#     url: http://bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com/$CI_BUILD_REF_NAME/testbed/index.html
+s3-testbed:
+  <<: *job_template_s3_sync
+  stage: deploy
+  only:
+    - master
+  script:
+    - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/
+    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
+  environment:
+    name: testbed
+    url: https://style-kit-testbed.web.bas.ac.uk/$CI_BUILD_REF_NAME/testbed/

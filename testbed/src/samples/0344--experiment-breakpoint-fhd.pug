@@ -1,0 +1,42 @@
+//-
+  sample:
+    title: Full HD breakpoint
+    code: .bsk-container
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  div.bsk-container-fluid
+    +alert('warning', 'outline')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+
+  div.bsk-container.app-visible-container.app-spacing-bottom
+    +alert('info', 'highlight')
+      | Using a fixed-width container.
+    div.app-visible-col-1
+
+  div.bsk-container-fluid.app-visible-container.app-spacing-bottom
+    +alert('info', 'highlight')
+      | Using a fluid-width container.
+    div.app-visible-col-1
+
+  div.app-visible-container.app-spacing-bottom
+    +alert('info', 'highlight')
+      | Using no container.
+    div.app-visible-col-1
+
+  div.bsk-container-fluid
+    <h4>Notes</h4>
+    <ul>
+      <li>This experiment was used to check the Full HD breakpoint had the correct width set to give suitable left/right margins</li>
+      <li>This sample will only work when viewed at the Full HD breakpoint, which begins at <code>1920</code> pixels exactly (this can be faked using responsive mode in Dev Tools)</li>
+      <li>If working, there will be a difference in the left/right margin between the two container examples</li>
+      <li>If working, there should be visible left/right margins around the two container examples, to different degrees, similar in proportion to other breakpoint sizes</li>
+      <li>The no container example will always be full width, with no left/right margin, to act as a baseline</li>
+      <li>A screenshot of this not working <a href="https://www.evernote.com/l/ACf7-Ggc9dlN0aIECgBJiiWHqPqrtmIOwKg">link</a></li>
+    </ul>

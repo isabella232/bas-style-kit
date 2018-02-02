@@ -1,0 +1,31 @@
+//-
+  sample:
+    title: Navbar - item overflow
+    code: .bsk-navbar ul.bsk-navbar-nav a
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +navbar--default
+      ul.bsk-nav.bsk-navbar-nav
+        +navbar--lots-of-items(28)
+
+    +navbar--default
+      ul.bsk-nav.bsk-navbar-nav
+        +navbar--lots-of-items(28)
+
+  section.app-sample-section
+    header With brand text
+
+    +navbar--default
+      div.bsk-navbar-header
+        a.bsk-navbar-brand(href='#') Site Name
+      ul.bsk-nav.bsk-navbar-nav
+        +navbar--lots-of-items(28)

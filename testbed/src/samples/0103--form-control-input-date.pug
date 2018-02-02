@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Forms - date input
+    code: input[type="date"]
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  +form-input--collection(type='date')

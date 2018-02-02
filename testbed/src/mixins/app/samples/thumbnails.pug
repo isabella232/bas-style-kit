@@ -1,0 +1,46 @@
+mixin thumbnail--collection()
+  section.app-sample-section
+    header: code div
+    div.bsk-row
+      div.bsk-col-12-md-4
+        +thumbnail--basic('div', attributes.class)
+
+  section.app-sample-section
+    header: code a
+    div.bsk-row
+      div.bsk-col-12-md-4
+        +thumbnail--basic('a', attributes.class)
+
+  section.app-sample-section
+    header #[code div] with #[code bsk-caption]
+    div.bsk-row
+      div.bsk-col-12-md-4
+        +thumbnail--caption('div', attributes.class)
+          | Thumbnail caption
+
+  section.app-sample-section
+    header #[code div] with linked #[code bsk-caption]
+    div.bsk-row
+      div.bsk-col-12-md-4
+        +thumbnail--caption('div', attributes.class)
+          | Thumbnail caption #[a(href='#') with link]
+
+mixin thumbnail--basic(element, classes)
+  if element == 'a'
+    a.bsk-thumbnail(class!=classes href='#')
+      img(src='/' + testbed_version + '/assets/img/placeholder-300.png' alt='placeholder image')
+  else
+    #{ element }.bsk-thumbnail(class!=classes)
+      img(src='/' + testbed_version + '/assets/img/placeholder-300.png' alt='placeholder image')
+
+mixin thumbnail--caption(element, classes)
+  if element == 'a'
+    a.bsk-thumbnail(class!=classes href='#')
+      img(src='/' + testbed_version + '/assets/img/placeholder-300.png' alt='placeholder image')
+      div.bsk-caption
+        block
+  else
+    #{ element }.bsk-thumbnail(class!=classes)
+      img(src='/' + testbed_version + '/assets/img/placeholder-300.png' alt='placeholder image')
+      div.bsk-caption
+        block

@@ -1,0 +1,50 @@
+//-
+  sample:
+    title: Justified button group
+    code: .bsk-btn-group.bsk-btn-group-justified
+  collections:
+    - components--button-groups
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    div.app-spacing-bottom
+      div.bsk-btn-group-vertical(role='group')
+        +button--a('one')(class='bsk-btn bsk-btn-default')
+        +button--a('two')(class='bsk-btn bsk-btn-default')
+        +button--a('three')(class='bsk-btn bsk-btn-default')
+
+    div.app-spacing-bottom
+      div.bsk-btn-group-vertical(role='group')
+        +button--a('one')(class='bsk-btn bsk-btn-default')
+        +button--a('two')(class='bsk-btn bsk-btn-default')
+        div.bsk-btn-group(role='group')
+          a.bsk-btn.bsk-btn-default.bsk-dropdown-toggle(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            | Dropdown
+            span.bsk-caret
+          ul.bsk-dropdown-menu
+            li: a(href='#') Action
+            li: a(href='#') Another action
+        +button--a('three')(class='bsk-btn bsk-btn-default')
+
+    div
+      div.bsk-btn-group-vertical(role='group')
+        +button--a('1 NA NA NA NA NA NA NA NA NA NA NA NA NA NA')(class='bsk-btn bsk-btn-default')
+        +button--a('2 NA NA NA NA NA NA NA NA NA NA NA NA NA NA')(class='bsk-btn bsk-btn-default')
+        +button--a('3 (x3) NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA')(class='bsk-btn bsk-btn-default')
+        +button--a('Batman!')(class='bsk-btn bsk-btn-default')
+
+  section.app-sample-section
+    header Multiple sizes
+
+    div.app-spacing-bottom
+      div.bsk-btn-group-vertical(role='group')
+        +button--a('one')(class='bsk-btn bsk-btn-default')
+        +button--a('two')(class='bsk-btn bsk-btn-default bsk-btn-sm')
+        +button--a('three')(class='bsk-btn bsk-btn-default bsk-btn-lg')
+        +button--a('four')(class='bsk-btn bsk-btn-default')

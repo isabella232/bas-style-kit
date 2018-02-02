@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Inverse thumbnail
+    code: .bsk-thumbnail.bsk-thumbnail-inverse
+  collections:
+    - components--thumbnails
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/thumbnails.pug
+
+block sample
+  +thumbnail--collection()(class='bsk-thumbnail-inverse')

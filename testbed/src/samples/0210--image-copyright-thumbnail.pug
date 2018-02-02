@@ -1,0 +1,18 @@
+//-
+  sample:
+    title: Image copyright thumbnail
+    code: .bsk-thumbnail.bsk-image-copyright
+  collections:
+    - components--image-copyright
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    figure.bsk-thumbnail.bsk-thumbnail-default.bsk-image-copyright
+      img.bsk-image-copyright-image(src='/' + testbed_version + '/assets/img/placeholder-800-600.png' alt='thumbnail')
+      figcaption.bsk-image-copyright-attribution
+        | Thumbnail caption #[a(href='#') Copyright holder]

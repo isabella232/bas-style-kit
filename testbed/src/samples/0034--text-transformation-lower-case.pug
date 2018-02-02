@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Lowercase text
+    code: .bsk-text-lowercase
+  collections:
+    - core--typography-utilities
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +p--standard(class='bsk-text-lowercase')

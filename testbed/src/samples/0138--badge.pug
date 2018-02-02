@@ -1,0 +1,21 @@
+//-
+  sample:
+    title: Badge
+    code: .bsk-badge
+  collections:
+    - components--badges
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    div.app-spacing-bottom: a(href='#'): span.bsk-badge 42
+
+    +alert('info', 'highlight')
+      | Empty badges automatically hide
+
+    div.app-spacing-bottom: a(href='#') Notifications (with value) #[span.bsk-badge 7]
+    div: a(href='#') Notifications (without value) #[span.bsk-badge <!-- Intentionally empty --> ]

@@ -1,0 +1,89 @@
+//-
+  sample:
+    title: Font faces
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block sample
+  section.app-sample-section
+    +alert('info', 'highlight')
+      | See the #[a.bsk-alert-link(href='https://style-kit.web.bas.ac.uk/core/type/#bas-brand-font') Style Kit documentation]
+      | for where these fonts are used.
+
+    table.bsk-table
+      thead
+        tr
+          th Font Family
+          th Variant
+          th Font Weight
+          th Sample
+      tbody
+        tr
+          td Default (Open Sans)
+          td Regular
+          td Light (300)
+          td: span.app-ff-open-sans-light Open Sans regular light
+        tr
+          td Default (Open Sans)
+          td Italics
+          td Light (300)
+          td: em.app-ff-open-sans-light Open Sans italics light
+        tr
+          td Default (Open Sans)
+          td Regular
+          td Regular
+          td: span.app-ff-open-sans-regular Open Sans regular regular
+        tr
+          td Default (Open Sans)
+          td Italics
+          td Regular
+          td: em.app-ff-open-sans-regular Open Sans italics regular
+        tr
+          td Default (Open Sans)
+          td Regular
+          td Bold
+          td: strong.app-ff-open-sans-bold Open Sans regular bold
+        tr
+          td Default (Open Sans)
+          td Italics
+          td Bold
+          td: strong.app-ff-open-sans-bold <em>Open Sans italics bold
+        tr
+          td Brand (Gill Sans)
+          td Regular
+          td Light (100)
+          td: span.app-ff-gill-sans-light Gill Sans regular light
+        tr
+          td Brand (Gill Sans)
+          td Italics
+          td Light (100)
+          td: em.app-ff-gill-sans-light Gill Sans italics light
+        tr
+          td Brand (Gill Sans)
+          td Regular
+          td Book (200)
+          td: span.app-ff-gill-sans-book Gill Sans regular book
+        tr
+          td Brand (Gill Sans)
+          td Italics
+          td Book (200)
+          td: em.app-ff-gill-sans-book Gill Sans italics book
+        tr
+          td Brand (Gill Sans)
+          td Regular
+          td Roman (300)
+          td: span.app-ff-gill-sans-roman Gill Sans regular roman
+        tr
+          td Brand (Gill Sans)
+          td Italics
+          td Roman (300)
+          td: em.app-ff-gill-sans-roman Gill Sans italics roman
+        tr
+          td Monotype (Menlo)
+          td Regular
+          td Regular
+          td: span.app-ff-menlo-regular Menlo regular regular

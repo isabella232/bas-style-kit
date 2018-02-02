@@ -1,0 +1,25 @@
+//-
+  sample:
+    title: Standard colours - colour
+  collections:
+    - core--colours
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/colours.pug
+
+block sample
+  +colour--swatch-range('Yellow', 'yellow', '#FFE9C0', '#FFD484', '#FFBF47', '#AB8030', '#574118')
+  +colour--swatch-range('Orange', 'orange', '#FBD1BB', '#F8A47A', '#F47738', '#A35026', '#532813')
+  +colour--swatch-range('Aircraft red', 'aircraft-red', '#E4ADB3', '#CB5E68', '#B10E1E', '#770914', '#3C050A')
+  +colour--swatch-range('Red', 'red', '#EEA8BA', '#DD5476', '#CC0033', '#890022', '#450011')
+  +colour--swatch-range('Baby pink', 'baby-pink', '#FBDCE9', '#F8BBD3', '#F499BE', '#A3677F', '#533441')
+  +colour--swatch-range('Pink', 'pink', '#F1BBD4', '#E37AAA', '#D53880', '#8F2656', '#48132C')
+  +colour--swatch-range('Fuschia', 'fuschia', '#DAB7D7', '#B571AF', '#912B88', '#611D5B', '#310F2E')
+  +colour--swatch-range('Mauve', 'mauve', '#CECFE4', '#9FA1C9', '#6F72AF', '#4A4C75', '#26273C')
+  +colour--swatch-range('Sky blue', 'sky-blue', '#A8BCC8', '#547B92', '#003A5D', '#00273E', '#001420')
+  +colour--swatch-range('Blue', 'blue', '#B7D8EB', '#71B2D7', '#2B8CC4', '#1D5E83', '#0F3043')
+  +colour--swatch-range('Turquoise', 'turquoise', '#B6DFDC', '#6FC0B9', '#28A197', '#1B6C65', '#0E3733')
+  +colour--swatch-range('Green', 'green', '#BBDAC0', '#79B682', '#379245', '#25622E', '#133217')
+  +colour--swatch-range('NERC green', 'nerc-green', '#E2E6BB', '#C6CD79', '#AAB437', '#727925', '#3A3D13')
+  +colour--swatch-range('Brown', 'brown', '#E6D7BE', '#CDAF7F', '#B58840', '#795B2B', '#3E2E16')

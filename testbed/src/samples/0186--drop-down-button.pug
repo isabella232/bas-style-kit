@@ -1,0 +1,20 @@
+//-
+  sample:
+    title: Button drop down menu
+    code: .bsk-dropdown .bsk-dropdown-menu
+    type: javascript
+  collections:
+    - components--drop-downs
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/drop-downs.pug
+
+block sample
+  section.app-sample-section.app-spacing-bottom-xl
+    header Interactive
+    +dropdown--button('yes')
+
+  section.app-sample-section
+    header Simulated open menu
+    +dropdown--button('no')(class='app-simulated-state-open')

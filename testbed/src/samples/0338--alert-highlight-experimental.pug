@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Alert - highlight - experimental
+    code: .bsk-alert.bsk-alert-highlight.bsk-alert-experimental
+  collections:
+    - components--alerts
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block sample
+  +alert--collection('experimental', 'highlight')

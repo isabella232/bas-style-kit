@@ -1,0 +1,26 @@
+//-
+  sample:
+    title: Active button state
+    code: .bsk-btn.bsk-btn-*.bsk-active
+  collections:
+    - core--buttons
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header: code button
+
+    +button--active
+
+  section.app-sample-section
+    header: code input
+
+    +button--input('default (active)')(class='bsk-btn bsk-btn-default bsk-active')
+
+  section.app-sample-section
+    header Link #[code a]
+
+    +button--a('default (active)')(class='bsk-btn bsk-btn-default bsk-active')

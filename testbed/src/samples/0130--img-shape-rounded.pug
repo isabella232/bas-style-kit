@@ -1,0 +1,14 @@
+//-
+  sample:
+    title: Image - rounded
+    code: .bsk-img-rounded
+  collections:
+    - core--images
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    img.bsk-img-rounded(src='/' + testbed_version + '/assets/img/placeholder-150.png' alt='Rounded image')

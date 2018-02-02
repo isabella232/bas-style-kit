@@ -1,0 +1,33 @@
+//-
+  sample:
+    title: Block button
+    code: .bsk-btn-bsk-btn-*-bsk-btn-block
+  collections:
+    - core--buttons
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  div.bsk-container-fluid
+    +alert('warning', 'outline')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+    +alert('info', 'highlight')
+      | Using the medium size 12 column grid, in a fixed-width container.
+
+    section.app-sample-section
+      div.bsk-container.app-visible-container.app-spacing-bottom
+        div.bsk-row
+          div.bsk-col-12-md-4
+            button.bsk-btn.bsk-btn-default.bsk-btn-block Button 4 columns
+        div.bsk-row
+          div.bsk-col-12-md-4.app-visible-col-1
+          div.bsk-col-12-md-4
+            button.bsk-btn.bsk-btn-default.bsk-btn-block 4 column span, Button 4 columns
+        div.bsk-row
+          div.bsk-col-12-md-4.bsk-col-12-md-offset-4
+            button.bsk-btn.bsk-btn-default.bsk-btn-block Button 4 columns, 4 offset

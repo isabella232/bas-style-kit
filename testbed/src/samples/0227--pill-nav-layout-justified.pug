@@ -1,0 +1,17 @@
+//-
+  sample:
+    title: Justified pill navigation
+    code: .bsk-nav.bsk-nav-justified.bsk-nav-pills
+  collections:
+    - components--navs
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navs.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +navs--basic(class='bsk-nav-justified bsk-nav-pills')
+    div.app-spacing-bottom
+    +navs--drop-down(class='bsk-nav-justified bsk-nav-pills')

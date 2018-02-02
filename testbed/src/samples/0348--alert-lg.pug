@@ -1,0 +1,15 @@
+//-
+  sample:
+    title: large alert
+    code: .bsk-alert.bsk-alert-lg
+  collections:
+    - components--alerts
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block sample
+  +alert-large--collection('success', 'solid')
+  +alert-large--collection('success', 'outline')
+  +alert-large--collection('success', 'highlight')

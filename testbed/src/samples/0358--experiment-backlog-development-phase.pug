@@ -1,0 +1,38 @@
+//-
+  sample:
+    title: Backlog development phase label
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  style.
+    .bsk-tb-exp-option-1 {
+      background-color: #4A4C75;
+    }
+    .bsk-tb-exp-option-2 {
+      background-color: #2e358b;
+    }
+
+  <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Colour option 1 <code>#4A4C75</code></h4>
+  <p><span class="bsk-label bsk-label-phase-backlog bsk-tb-exp-option-1">Label</span></p>
+  <p>
+    <span class="bsk-label bsk-label-phase-backlog bsk-tb-exp-option-1">Backlog</span>
+    <span class="bsk-label bsk-label-phase-discovery">Discovery</span>
+    <span class="bsk-label bsk-label-phase-alpha">Alpha</span>
+    <span class="bsk-label bsk-label-phase-beta">Beta</span>
+    <span class="bsk-label bsk-label-phase-live">Live</span>
+    <span class="bsk-label bsk-label-phase-retired">Retired</span>
+  </p>
+
+  <h4 class="bsk-tb-margin-top bsk-tb-sample-sub-heading">Colour option 2 <code>#2e358b</code></h4>
+  <p><span class="bsk-label bsk-label-phase-backlog bsk-tb-exp-option-2">Label</span></p>
+  <p>
+    <span class="bsk-label bsk-label-phase-backlog bsk-tb-exp-option-2">Backlog</span>
+    <span class="bsk-label bsk-label-phase-discovery">Discovery</span>
+    <span class="bsk-label bsk-label-phase-alpha">Alpha</span>
+    <span class="bsk-label bsk-label-phase-beta">Beta</span>
+    <span class="bsk-label bsk-label-phase-live">Live</span>
+    <span class="bsk-label bsk-label-phase-retired">Retired</span>
+  </p>

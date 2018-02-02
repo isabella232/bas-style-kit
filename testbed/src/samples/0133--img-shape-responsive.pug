@@ -1,0 +1,14 @@
+//-
+  sample:
+    title: Image - responsive
+    code: .bsk-img-responsive
+  collections:
+    - core--images
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    img.bsk-img-responsive(src='/' + testbed_version + '/assets/img/responsive-image.jpg' alt='Sky at Halley VI research station')

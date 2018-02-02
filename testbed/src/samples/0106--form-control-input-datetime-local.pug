@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Forms - datetime-local input
+    code: input[type="datetime-local"]
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  +form-input--collection(type='datetime-local')

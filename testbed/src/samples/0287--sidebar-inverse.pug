@@ -1,0 +1,18 @@
+//-
+  sample:
+    title: Inverse sidebar
+    code: .bsk-sidebar.bsk-sidebar-inverse
+  collections:
+    - components--sidebars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/sidebars.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    div.bsk-row
+      +sidebar(class='bsk-sidebar-inverse')
+        | Sidebar content

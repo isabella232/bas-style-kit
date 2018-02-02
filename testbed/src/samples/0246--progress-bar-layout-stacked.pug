@@ -1,0 +1,18 @@
+//-
+  sample:
+    title: Stacked progress bar
+    code: .bsk-progress.bsk-progress-bar.bsk-progress-bar-info
+  collections:
+    - components--progress-bars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/progress-bars.pug
+
+block sample
+  div.bsk-progress
+    div.bsk-progress-bar(role='progressbar' style='width: 15%;') 15% (15%)
+    div.bsk-progress-bar.bsk-progress-bar-success(role='progressbar' style='width: 15%;') 15% (30%)
+    div.bsk-progress-bar.bsk-progress-bar-warning(role='progressbar' style='width: 15%;') 15% (45%)
+    div.bsk-progress-bar.bsk-progress-bar-danger(role='progressbar' style='width: 15%;') 15% (60%)
+    div.bsk-progress-bar.bsk-progress-bar-info(role='progressbar' style='width: 15%;') 15% (75%)

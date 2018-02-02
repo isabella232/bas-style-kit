@@ -1,0 +1,121 @@
+mixin navbar--default
+  nav.bsk-navbar(class!=attributes.class)
+    div.bsk-container-fluid
+      block
+
+mixin navbar--header
+  nav.bsk-navbar(class!=attributes.class)
+    div.bsk-container-fluid
+      div.bsk-navbar-header
+        block
+
+mixin navbar--collapse
+  nav.bsk-navbar
+    div.bsk-container-fluid
+      div.bsk-navbar-header
+        button.bsk-navbar-toggle.bsk-collapsed(type='button' data-toggle='collapse' aria-expanded='false')
+          span.bsk-sr-only Toggle navigation
+          span.bsk-icon-bar
+          span.bsk-icon-bar
+          span.bsk-icon-bar
+
+      div.bsk-collapse.bsk-navbar-collapse
+        block
+
+mixin navbar--buttons()
+  section.app-sample-section
+    header Standard
+
+    +navbar--default
+      button.bsk-btn.bsk-navbar-btn(class!=attributes.class) Action
+
+    +navbar--default
+      button.bsk-btn.bsk-navbar-btn(class!=attributes.class) Action
+      button.bsk-btn.bsk-navbar-btn.bsk-btn-default Another action
+
+  section.app-sample-section
+    header With item
+
+    +navbar--default
+      ul.bsk-nav.bsk-navbar-nav
+        li: a(href='#') Item
+      button.bsk-btn.bsk-navbar-btn(class!=attributes.class) Action
+
+mixin navbar--lots-of-items(number_of_items)
+  each item in [...Array(number_of_items - 1).keys()]
+    li: a(href="#") Item #{ item + 1 }
+
+mixin navbar--form-input
+  div.bsk-form-group
+    label.bsk-sr-only input
+    input.bsk-form-control(type='text')
+
+mixin navbar--form-select
+  div.bsk-form-group
+    label.bsk-sr-only select input
+    select.bsk-form-control
+      option(value='option-1') Option 1
+      option(value='option-2') Option 2
+      option(value='option-3') Option 3
+
+mixin navbar--form-submit
+  button.bsk-btn.bsk-navbar-btn.bsk-btn-default(type='submit') Submit
+
+mixin navbar--form-radio-checkbox(variant)
+  fieldset.bsk-form-group
+    div(class='bsk-' + variant + '-inline')
+      label.bsk-control-label
+        input(type=variant name='form-radio-example-1' id='form-radio-example-1-a' value='A')
+        | Option 1 (A)
+    div(class='bsk-' + variant + '-inline')
+      label.bsk-control-label
+        input(type=variant name='form-radio-example-1' id='form-radio-example-1-b' value='B')
+        | Option 1 (B)
+    div(class='bsk-' + variant + '-inline')
+      label.bsk-control-label
+        input(type=variant name='form-radio-example-1' id='form-radio-example-1-c' value='C')
+        | Option 1 (C)
+
+mixin navbar--dropdown
+  li.bsk-dropdown
+    a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+      | Dropdown
+      span.bsk-caret
+    ul.bsk-dropdown-menu
+      li: a(href='#') Action
+      li: a(href='#') Another item
+
+mixin navbar--link
+  a.bsk-navbar-link(href='#') Link
+
+mixin navbar--item-variant(variant)
+  section.app-sample-section
+    header Standard
+
+    +navbar--default
+      ul.bsk-nav.bsk-navbar-nav
+        li: a(href="#") Item
+        if variant == 'active'
+          li.bsk-active: a(href="#") Active item
+        else if variant == 'disabled'
+          li.bsk-disabled: a(href="#") Disabled item
+        li: a(href="#") Another item
+
+  section.app-sample-section
+    header With drop-down
+
+    +navbar--default
+      ul.bsk-nav.bsk-navbar-nav
+        li: a(href="#") Item
+        li.bsk-dropdown
+          a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+            | Dropdown
+            span.bsk-caret
+          ul.bsk-dropdown-menu
+            li: a(href='#') Action
+            if variant == 'active'
+              li.bsk-active: a(href='#') Active action
+            else if variant == 'disabled'
+              li.bsk-disabled: a(href='#') Disabled action
+            li: a(href='#') Another item
+        li: a(href="#") Another item

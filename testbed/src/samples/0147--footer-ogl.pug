@@ -1,0 +1,31 @@
+//-
+  sample:
+    title: Footer OGL symbol
+    code: .bsk-footer.bsk-footer-ogl
+  collections:
+    - components--footers
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/footers.pug
+
+block sample
+  section.app-sample-section
+    header OGL symbol
+
+    +footer--default
+      div.bsk-footer-ogl
+        a.bsk-ogl-symbol(rel='license' href='http://www.nationalarchives.gov.uk/doc/open-government-licence/')
+          img(alt='Open Government Licence logo' src='/' + testbed_version + '/dist/img/logos-symbols/ogl-symbol-inverse-transparent-32.png')
+        div.bsk-ogl-text All content is licensed under the #[a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence/') Open Government Licence v3.0], except where otherwise stated
+
+  section.app-sample-section
+    header OGL symbol with divider
+
+    +footer--default
+      | Footer content
+      div.bsk-footer-divider(role='separator')
+      div.bsk-footer-ogl
+        a.bsk-ogl-symbol(rel='license' href='http://www.nationalarchives.gov.uk/doc/open-government-licence/')
+          img(alt='Open Government Licence logo' src='/' + testbed_version + '/dist/img/logos-symbols/ogl-symbol-inverse-transparent-32.png')
+        div.bsk-ogl-text All content is licensed under the #[a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence/') Open Government Licence v3.0], except where otherwise stated

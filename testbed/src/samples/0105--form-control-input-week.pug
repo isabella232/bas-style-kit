@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Forms - week input
+    code: input[type="week"]
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  +form-input--collection(type='week')

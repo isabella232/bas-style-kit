@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Inline form - invisible lables
+    code: form.bsk-form-inline
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  +form-input-inline--collection(class='bsk-sr-only')

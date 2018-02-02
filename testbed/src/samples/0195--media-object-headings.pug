@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Media object headings
+    code: .bsk-media .bsk-media-body .bsk-media-heading
+  collections:
+    - components--media-objects
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/media-objects.pug
+
+block sample
+  +media-object--headings

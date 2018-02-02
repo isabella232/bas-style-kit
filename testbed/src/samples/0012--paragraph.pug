@@ -1,0 +1,31 @@
+//-
+  sample:
+    title: Paragraph text
+    code: p
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +p--standard
+
+  section.app-sample-section
+    header Split line (#[code br] separated)
+
+    +p--split-line
+
+  section.app-sample-section
+    header Text block (approx 300 characters)
+
+    +p--text-block
+
+  section.app-sample-section
+    header Multiple text-blocks (#[code br] separated)
+
+    +p--text-block-multiple

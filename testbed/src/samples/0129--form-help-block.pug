@@ -1,0 +1,27 @@
+//-
+  sample:
+    title: Form help text
+    code: .bsk-form-group .bsk-help-block
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Text input
+        input.bsk-form-control(type='text')
+        p.bsk-help-block Please enter your name as you would expect in a reply (e.g. Mr. A Smith).
+
+  section.app-sample-section
+    header Using #[code bsk-text-muted]
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Text input
+        input.bsk-form-control(type='text')
+        p.bsk-help-block.bsk-text-muted Please enter your name as you would expect in a reply (e.g. Mr. A Smith).

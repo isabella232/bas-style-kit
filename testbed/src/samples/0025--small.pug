@@ -1,0 +1,62 @@
+//-
+  sample:
+    title: Small text
+    code: small/.bsk-small
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+include ../mixins/app/samples/alerts.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +alert('info', 'highlight')
+      | Styles applied to #[code small] element and #[code bsk-small] class are the same.
+
+    +p--standard('small')
+    +p--standard(class='bsk-small')
+
+  section.app-sample-section
+    header Mixed single line
+
+    +p--mixed-single-line('small')
+    +p--mixed-single-line(class='bsk-small')
+
+  section.app-sample-section
+    header Split line (#[code br] separated)
+
+    +p--split-line('small')
+    +p--split-line(class='bsk-small')
+
+  section.app-sample-section
+    header Mixed split line (#[code br] separated)
+
+    +p--mixed-split-line('small')
+    +p--mixed-split-line(class='bsk-small')
+
+  section.app-sample-section
+    header Text block (approx 300 characters)
+
+    +p--text-block('small')
+    +p--text-block(class='bsk-small')
+
+  section.app-sample-section
+    header Mixed text-block (approx 300 characters)
+
+    +p--mixed-text-block('small')
+    +p--mixed-text-block(class='bsk-small')
+
+  section.app-sample-section
+    header Multiple text-blocks (#[code br] separated)
+
+    +p--text-block-multiple('small')
+    +p--text-block-multiple(class='bsk-small')
+
+  section.app-sample-section
+    header Multiple mixed text-blocks (#[code br] separated)
+
+    +p--mixed-text-block-multiple('small')
+    +p--mixed-text-block-multiple(class='bsk-small')

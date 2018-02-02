@@ -1,0 +1,45 @@
+mixin navs--basic
+  nav.app-spacing-bottom(role='navigation')
+    ul.bsk-nav(class!=attributes.class)
+      li(role='presentation'): a(href='#') nav 1
+      li(role='presentation'): a(href='#') nav 2
+      li(role='presentation'): a(href='#') nav 3
+
+  nav(role='navigation')
+    ul.bsk-nav(class!=attributes.class)
+      li(role='presentation'): a(href='#') nav 1
+      li(role='presentation'): a(href='#') NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+      li(role='presentation'): a(href='#')
+        | (x3) NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+        | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+      li(role='presentation'): a(href='#') Batman!
+
+mixin navs--drop-down
+  nav(role='navigation')
+    ul.bsk-nav(class!=attributes.class)
+      li(role='presentation'): a(href='#') nav 1
+      li(role='presentation'): a(href='#') nav 2
+      li.bsk-dropdown(role='presentation')
+        a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+          | dropdown
+          span.bsk-caret
+      ul.bsk-dropdown-menu
+        li: a(href='#') Action
+        li: a(href='#') Another item
+
+    div.bsk-dropdown
+      button.bsk-btn.bsk-btn-default.bsk-dropdown-toggle(data-toggle='dropdown' type='button')
+        | Dropdown #[span.bsk-caret]
+      ul.bsk-dropdown-menu(class!=attributes.class)
+        li: a(href='#') Action
+        li: a(href='#') Another action
+
+mixin navs--variant(variant)
+  nav(role='navigation')
+    ul.bsk-nav(class!=attributes.class)
+      li(role='presentation'): a(href='#') nav 1
+      if variant == 'active'
+        li.bsk-active(role='presentation'): a(href='#') active nav
+      else if variant == 'disabled'
+        li.bsk-disabled(role='presentation'): a(href='#') disabled nav
+      li(role='presentation'): a(href='#') nav 2

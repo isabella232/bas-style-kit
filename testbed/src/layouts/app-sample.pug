@@ -1,0 +1,39 @@
+extends ./bas-style-kit/bsk--base.pug
+
+include ../mixins/app/samples/alerts.pug
+
+block append vars
+  - bsk_attributes.css_url = '/' + testbed_version + '/dist/css/bas-style-kit.css';
+  - bsk_attributes.js_url = '/' + testbed_version + '/dist/js/bas-style-kit.js';
+  - bsk_attributes.container_class = 'bsk-container-fluid';
+  - bsk_attributes.site_title = sample.title + ' | BAS Style Kit Testbed';
+  - bsk_attributes.site_description = 'A website used by developers to test and develop parts of the BAS Style Kit';
+
+block page_base
+  main(class=bsk_attributes.container_class)
+    include ../includes/app/sample--header.pug
+
+    if sample.type == 'removed'
+      +alert--block('danger', 'solid')
+        header.bsk-alert-heading
+          h4 This sample has been removed
+          | The styles used in this sample have been removed from the Style kit, breaking this sample. It will not be recreated.
+
+    if sample.type == 'javascript'
+      +alert--block('info', 'solid')
+        header.bsk-alert-heading
+          h4 This sample uses JavaScript
+          | The Style Kit's scripts are loaded in all samples but are specfically used in this one.
+
+    if sample.type == 'experiment'
+      +alert--block('info', 'solid')
+        header.bsk-alert-heading
+          h4 This sample is an experiment
+          | These samples are permanent, but designed for a specific point in time. They likely won't be useful beyond
+          | their original purpose and will degrade over time as the Style Kit evolves. They are kept in case they are
+          | useful to others in the future.
+
+    block sample
+
+block append styles
+  link(rel='stylesheet' href='/' + testbed_version + '/assets/css/testbed-samples.css')

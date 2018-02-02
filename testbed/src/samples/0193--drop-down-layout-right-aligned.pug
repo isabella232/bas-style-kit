@@ -1,0 +1,15 @@
+//-
+  sample:
+    title: Right-aligned drop down menu
+    code: .bsk-dropdown .bsk-dropdown-menu.bsk-dropdown-menu-right
+  collections:
+    - components--drop-downs
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/drop-downs.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +dropdown--button('no')(class='bsk-dropdown-menu-right app-simulated-state-open')

@@ -1,0 +1,27 @@
+//-
+  sample:
+    title: Ordered list
+    code: ol
+  collections:
+    - core--lists
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/lists.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +ul-ol('ol')
+
+  section.app-sample-section
+    header Nested
+
+    +ul-ol--nested('ol')
+
+
+  section.app-sample-section
+    header Nested, ordered/unordered mix
+
+    +ul-ol--nested--mixed('ol', 'ul')

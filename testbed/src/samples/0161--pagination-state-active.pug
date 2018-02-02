@@ -1,0 +1,23 @@
+//-
+  sample:
+    title: Active pagination state
+    code: .bsk-pagination li.bsk-active
+  collections:
+    - components--pagination
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/pagination.pug
+
+block sample
+  section.app-sample-section
+    header Single item, also active
+    +pagination(1, 'active', 1)
+
+  section.app-sample-section
+    header Three items, second active
+    +pagination(3, 'active', 1)
+
+  section.app-sample-section
+    header 12 items, 7th active
+    +pagination(12, 'active', 7)

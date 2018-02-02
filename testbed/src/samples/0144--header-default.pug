@@ -1,0 +1,29 @@
+//-
+  sample:
+    title: Header
+    code: .bsk-header.bsk-header-default
+  collections:
+    - components--headers
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  div.bsk-container-fluid
+    +alert('warning', 'outline')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+    +alert('info', 'highlight')
+      | Using a component specific fluid-width container.
+
+  div.bsk-container.app-visible-container
+    section.app-sample-section
+      header Standard
+
+      div
+        header.bsk-header.bsk-header-default
+          div.bsk-header-container-fluid
+            a(href='#'): img.bsk-header-img-logo(alt='British Antarctic Survey logo' src='/' + testbed_version + '/dist/img/logos-symbols/bas-logo-inverse-transparent-64.png')

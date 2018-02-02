@@ -1,0 +1,25 @@
+//-
+  sample:
+    title: Footer divider
+    code: .bsk-footer.bsk-footer-divider
+  collections:
+    - components--footers
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/footers.pug
+
+block sample
+  section.app-sample-section
+    header Empty
+
+    +footer--default
+      div.bsk-footer-divider(role='separator')
+
+  section.app-sample-section
+    header With basic content
+
+    +footer--default
+      | Footer content
+      div.bsk-footer-divider(role='separator')
+      | Footer content

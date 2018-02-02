@@ -1,0 +1,44 @@
+//-
+  sample:
+    title: Forms - static control
+    code: .bsk-form-control-static
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Basic
+
+    p.bsk-form-control-static example-value
+
+  section.app-sample-section
+    header Form group with value
+
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label static input
+        p.bsk-form-control-static example-value
+
+  section.app-sample-section
+    header Form group with a #[em success] validation state
+    form
+      fieldset.bsk-form-group.bsk-has-success
+        label.bsk-control-label static input with success validation
+        p.bsk-form-control-static example-value
+
+  section.app-sample-section
+    header Form group with a #[em warning] validation state
+    form
+      fieldset.bsk-form-group.bsk-has-warning
+        label.bsk-control-label static input with warning validation
+        p.bsk-form-control-static example-value
+
+  section.app-sample-section
+    header Form group with a #[em error] validation state
+    form
+      fieldset.bsk-form-group.bsk-has-error
+        label.bsk-control-label static input with error validation
+        p.bsk-form-control-static example-value

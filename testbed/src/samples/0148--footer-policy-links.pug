@@ -1,0 +1,35 @@
+//-
+  sample:
+    title: Footer policy links
+    code: .bsk-footer.bsk-footer-policy-links
+  collections:
+    - components--footers
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/footers.pug
+
+block sample
+  section.app-sample-section
+    header Policy links
+
+    +footer--default
+      div.bsk-footer-policy-links
+        | © (Year) NERC BAS
+        ul.bsk-list-inline
+          li: a(href='#') Copyright
+          li: a(href='#') Privacy
+          li: a(href='#') Cookies
+
+  section.app-sample-section
+    header Policy links with divider
+
+    +footer--default
+      | Footer content
+      div.bsk-footer-divider(role='separator')
+      div.bsk-footer-policy-links
+        | © (Year) NERC BAS
+        ul.bsk-list-inline
+          li: a(href='#') Copyright
+          li: a(href='#') Privacy
+          li: a(href='#') Cookies

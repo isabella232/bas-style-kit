@@ -1,0 +1,51 @@
+//-
+  sample:
+    title: Marked text
+    code: mark
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +p--standard('mark')
+
+  section.app-sample-section
+    header Mixed single line
+
+    +p--mixed-single-line('mark')
+
+  section.app-sample-section
+    header Split line (#[code br] separated)
+
+    +p--split-line('mark')
+
+  section.app-sample-section
+    header Mixed split line (#[code br] separated)
+
+    +p--mixed-split-line('mark')
+
+  section.app-sample-section
+    header Text block (approx 300 characters)
+
+    +p--text-block('mark')
+
+  section.app-sample-section
+    header Mixed text-block (approx 300 characters)
+
+    +p--mixed-text-block('mark')
+
+  section.app-sample-section
+    header Multiple text-blocks (#[code br] separated)
+
+    +p--text-block-multiple('mark')
+
+  section.app-sample-section
+    header Multiple mixed text-blocks (#[code br] separated)
+
+    +p--mixed-text-block-multiple('mark')

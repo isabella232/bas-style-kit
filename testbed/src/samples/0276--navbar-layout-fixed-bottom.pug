@@ -1,0 +1,21 @@
+//-
+  sample:
+    title: Fixed bottom navbar
+    code: .bsk-navbar.bsk-navbar-fixed-bottom
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  +alert('warning', 'outline')
+    div.bsk-text-center This sample uses absolute positioning and may look strange.
+
+  section.app-sample-section
+    header Standard
+
+    +navbar--default(class='bsk-navbar-fixed-bottom')
+      div.bsk-navbar-text Fixed bottom navbar

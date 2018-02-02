@@ -1,0 +1,18 @@
+//-
+  sample:
+    title: Navbar - collapsed navbar items
+    code: .bsk-navbar .bsk-collapse.bsk-navbar-collapse ul.bsk-navbar-nav
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  section.app-sample-section
+    nav.bsk-navbar
+      div.bsk-container-fluid
+        div.bsk-collapse.bsk-navbar-collapse
+          ul.bsk-nav.bsk-navbar-nav
+            +navbar--lots-of-items(7)

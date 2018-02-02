@@ -1,0 +1,15 @@
+//-
+  sample:
+    title: Tabs navigation - drop-down item
+    code: .bsk-nav.bsk-nav-tabs .bsk-dropdown-menu
+  collections:
+    - components--navs
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navs.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +navs--drop-down(class='bsk-nav-tabs')

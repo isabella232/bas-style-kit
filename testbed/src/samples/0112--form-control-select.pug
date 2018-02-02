@@ -1,0 +1,108 @@
+//-
+  sample:
+    title: Forms - select
+    code: select
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    header Select only
+    select
+      option Option 1
+      option Option 2
+      option Option 3
+
+  section.app-sample-section
+    header Form group with value
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Select with value
+        select.bsk-form-control
+          option Option 1
+          option Option 2
+          option Option 3
+
+  section.app-sample-section
+    header Form group with selected value
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Select with selected value
+        select.bsk-form-control
+          option Option 1
+          option(selected) Option 2
+          option Option 3
+
+  section.app-sample-section
+    header Form group with #[code required] attribute
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Select with required attribute
+        select.bsk-form-control(required)
+          option Option 1
+          option Option 2
+          option Option 3
+
+  section.app-sample-section
+    header Form group with selected value and #[code readonly] attribute
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Select with readonly selected attribute
+        select.bsk-form-control(readonly)
+          option Option 1
+          option(selected) Option 2
+          option Option 3
+
+  section.app-sample-section
+    header Form group with #[code disabled] attribute
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Select with disabled attribute
+        select.bsk-form-control(disabled)
+          option Option 1
+          option Option 2
+          option Option 3
+
+  section.app-sample-section
+    header Form group with a simulated focus state
+    form
+      fieldset.bsk-form-group
+        label.bsk-control-label Select with simulated focus state
+        select.bsk-form-control.app-simulated-state-focus
+          option Option 1
+          option Option 2
+          option Option 3
+
+  section.app-sample-section
+    header Form group with a #[em success] validation state
+    form
+      fieldset.bsk-form-group.bsk-has-success
+        label.bsk-control-label Select with success validation
+        select.bsk-form-control
+          option Option 1
+          option Option 2
+          option Option 3
+
+  section.app-sample-section
+    header Form group with a #[em warning] validation state
+    form
+      fieldset.bsk-form-group.bsk-has-warning
+        label.bsk-control-label Select with warning validation
+        select.bsk-form-control
+          option Option 1
+          option Option 2
+          option Option 3
+
+  section.app-sample-section
+    header Form group with a #[em error] validation state
+    form
+      fieldset.bsk-form-group.bsk-has-error
+        label.bsk-control-label Select with error validation
+        select.bsk-form-control
+          option Option 1
+          option Option 2
+          option Option 3

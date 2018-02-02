@@ -1,0 +1,15 @@
+//-
+  sample:
+    title: Pill navigation - disabled item
+    code: .bsk-nav.bsk-nav-pills .bsk-disabled
+  collections:
+    - components--navs
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navs.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    +navs--variant('disabled')(class='bsk-nav-pills')

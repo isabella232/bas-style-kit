@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Contextual table row - info
+    code: .bsk-table.bsk-info
+  collections:
+    - core--tables
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/tables.pug
+
+block sample
+  section.app-sample-section
+    header Table only
+
+    +table--contextual-row('info')(class='bsk-info')

@@ -1,0 +1,14 @@
+//-
+  sample:
+    title: Navbar - active item
+    code: .bsk-navbar ul.bsk-navbar-nav .bsk-active
+    type: javascript
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  +navbar--item-variant('active')

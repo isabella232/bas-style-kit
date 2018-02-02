@@ -1,0 +1,18 @@
+//-
+  sample:
+    title: Default sidebar
+    code: .bsk-sidebar.bsk-sidebar-default
+  collections:
+    - components--sidebars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/sidebars.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    div.bsk-row
+      +sidebar(class='bsk-sidebar-default')
+        | Sidebar content

@@ -1,13 +1,11 @@
 'use strict';
 /*eslint-env node */
 
-var fs   = require("fs"),
-    del  = require('del'),
+var del  = require('del'),
     path = require('path');
 
 var gulp         = require('gulp'),
     pump         = require('pump'),
-    log          = require('fancy-log'),
     sri          = require('gulp-sri'),
     zip          = require('gulp-zip'),
     sass         = require('gulp-sass'),
@@ -86,13 +84,13 @@ gulp.task('concat--js', concatJS);
 gulp.task('minify--css', minifyCss);
 gulp.task('minify--js', minifyJs);
 
-gulp.task('copy--font--gill-sans', copyFontGillSans)
-gulp.task('copy--font--open-sans', copyFontOpenSans)
-gulp.task('copy--font--font-awesome', copyFontFontAwesome)
+gulp.task('copy--font--gill-sans', copyFontGillSans);
+gulp.task('copy--font--open-sans', copyFontOpenSans);
+gulp.task('copy--font--font-awesome', copyFontFontAwesome);
 
-gulp.task('copy--img--bas-logo', copyImagesBasLogo)
-gulp.task('copy--img--bas-roundel', copyImagesBasRoundel)
-gulp.task('copy--img--ogl-symbol', copyImagesOglSymbol)
+gulp.task('copy--img--bas-logo', copyImagesBasLogo);
+gulp.task('copy--img--bas-roundel', copyImagesBasRoundel);
+gulp.task('copy--img--ogl-symbol', copyImagesOglSymbol);
 
 gulp.task('lint--sass', lintSass);
 gulp.task('lint--js', lintJs);

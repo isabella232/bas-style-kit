@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Inline social media icon list
+    code: .bsk-social-media-list
+  collections:
+    - components--social-media
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  ul.bsk-list-inline.bsk-social-media-bsk-list
+    li: a.bsk-social-media-link.bsk-twitter(href='#'): i.fa.fa-3x.fa-twitter-square
+    li: a.bsk-social-media-link.bsk-facebook(href='#'): i.fa.fa-3x.fa-facebook-square
+    li: a.bsk-social-media-link.bsk-youtube(href='#'): i.fa.fa-3x.fa-youtube-square
+    li: a.bsk-social-media-link.bsk-rss(href='#'): i.fa.fa-3x.fa-rss-square

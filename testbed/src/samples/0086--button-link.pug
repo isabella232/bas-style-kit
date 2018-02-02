@@ -1,0 +1,26 @@
+//-
+  sample:
+    title: Button link
+    code: .bsk-btn.bsk-btn-link
+  collections:
+    - core--buttons
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header: code button
+
+    +button--button('link')(class='bsk-btn bsk-btn-link')
+
+  section.app-sample-section
+    header: code input
+
+    +button--input('link')(class='bsk-btn bsk-btn-link')
+
+  section.app-sample-section
+    header Link #[code a]
+
+    +button--a('link')(class='bsk-btn bsk-btn-link')

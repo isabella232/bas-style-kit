@@ -1,0 +1,22 @@
+//-
+  sample:
+    title: BAS monochrome logo
+  collections:
+    - components--logos
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/logos.pug
+
+block sample
+  section.app-sample-section
+    header White background
+    +logomark--bas('bas-logo-mono-transparent')(class='app-logomark-bg-white')
+
+  section.app-sample-section
+    header Black background
+    +logomark--bas('bas-logo-mono-transparent')(class='app-logomark-bg-black')
+
+  section.app-sample-section
+    header Transparent background
+    +logomark--bas('bas-logo-mono-transparent')(class='app-logomark-bg-transparent')

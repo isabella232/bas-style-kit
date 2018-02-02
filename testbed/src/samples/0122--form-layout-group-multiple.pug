@@ -1,0 +1,28 @@
+//-
+  sample:
+    title: Form group - multiple
+    code: feildset .bsk-form-group
+  collections:
+    - core--forms
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/forms.pug
+
+block sample
+  section.app-sample-section
+    header: code fieldset
+
+    form
+      fieldset
+        +form-input--form-group('div', 'text', 'no', 'no')
+        +form-input--form-group('div', 'text', 'no', 'no')
+
+  section.app-sample-section
+    header #[code feildset] with #[code legend]
+
+    form
+      fieldset
+        legend Fieldset legend
+        +form-input--form-group('div', 'text', 'no', 'no')
+        +form-input--form-group('div', 'text', 'no', 'no')

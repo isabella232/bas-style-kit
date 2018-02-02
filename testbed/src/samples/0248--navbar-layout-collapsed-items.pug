@@ -1,0 +1,21 @@
+//-
+  sample:
+    title: Collapsed navbar
+    code: .bsk-navbar .bsk-collapse.bsk-navbar-collapse
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  section.app-sample-section
+    header Empty
+    +navbar--collapse
+
+  section.app-sample-section
+    header With basic content
+    +navbar--collapse
+      ul.bsk-nav.bsk-navbar-nav
+        li.bsk-active: a(href='#') Item

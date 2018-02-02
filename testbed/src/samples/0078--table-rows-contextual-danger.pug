@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Contextual table row - danger
+    code: .bsk-table.bsk-danger
+  collections:
+    - core--tables
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/tables.pug
+
+block sample
+  section.app-sample-section
+    header Table only
+
+    +table--contextual-row('danger')(class='bsk-danger')

@@ -1,0 +1,164 @@
+//-
+  sample:
+    title: Cookie notice, navbar and development phase
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  div.bsk-container-fluid
+    +alert('warning', 'outline')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+
+  section.app-sample-section
+    div.bsk-container-fluid: header.app-sample-section-header Standard
+
+    div.bsk-container-fluid
+      +alert('info', 'highlight')
+        | Using a fixed-width container.
+
+    div.bsk-container.app-spacing-bottom
+      div.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role='alert')
+        button.bsk-close(type='button' data-dismiss='alert' aria-label='Close')
+          i.fa.fa-fw.fa-times(aria-hidden='true')
+        | This website uses cookies to help us make it better - #[a.bsk-alert-link(href='#') find out more].
+      nav.bsk-navbar.bsk-navbar-static-top
+        div.bsk-container-fluid
+          div.bsk-navbar-header
+            a.bsk-navbar-brand(href='#') Site Name
+          ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+            li: a(href='#') Feedback
+      div.site-development-notice
+        div.bsk-container-fluid
+          span.bsk-label.bsk-label-phase-alpha Alpha
+          | &nbsp;
+          | This is a new website – your #[a(href='#') feedback] will help us to improve it.
+        hr
+
+    div.bsk-container-fluid
+      +alert('info', 'highlight')
+        | Using a fluid-width container.
+
+    div.bsk-container-fluid.app-spacing-bottom
+      div.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role='alert')
+        button.bsk-close(type='button' data-dismiss='alert' aria-label='Close')
+          i.fa.fa-fw.fa-times(aria-hidden='true')
+        | This website uses cookies to help us make it better - #[a.bsk-alert-link(href='#') find out more].
+      nav.bsk-navbar.bsk-navbar-static-top
+        div.bsk-container-fluid
+          div.bsk-navbar-header
+            a.bsk-navbar-brand(href='#') Site Name
+          ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+            li: a(href='#') Feedback
+      div.site-development-notice
+        div.bsk-container-fluid
+          span.bsk-label.bsk-label-phase-alpha Alpha
+          | &nbsp;
+          | This is a new website – your #[a(href='#') feedback] will help us to improve it.
+        hr
+
+  section.app-sample-section
+    div.bsk-container-fluid: header.app-sample-section-header Without cookie notice
+
+    div.bsk-container-fluid
+      +alert('info', 'highlight')
+        | Using a fixed-width container.
+
+    div.bsk-container.app-spacing-bottom
+      nav.bsk-navbar.bsk-navbar-static-top
+        div.bsk-container-fluid
+          div.bsk-navbar-header
+            a.bsk-navbar-brand(href='#') Site Name
+          ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+            li: a(href='#') Feedback
+      div.site-development-notice
+        div.bsk-container-fluid
+          span.bsk-label.bsk-label-phase-alpha Alpha
+          | &nbsp;
+          | This is a new website – your #[a(href='#') feedback] will help us to improve it.
+        hr
+
+    div.bsk-container-fluid
+      +alert('info', 'highlight')
+        | Using a fluid-width container.
+
+    div.bsk-container-fluid.app-spacing-bottom
+      nav.bsk-navbar.bsk-navbar-static-top
+        div.bsk-container-fluid
+          div.bsk-navbar-header
+            a.bsk-navbar-brand(href='#') Site Name
+          ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+            li: a(href='#') Feedback
+      div.site-development-notice
+        div.bsk-container-fluid
+          span.bsk-label.bsk-label-phase-alpha Alpha
+          | &nbsp;
+          | This is a new website – your #[a(href='#') feedback] will help us to improve it.
+        hr
+
+  section.app-sample-section
+    div.bsk-container-fluid: header.app-sample-section-header Without cookie notice and follow on content
+
+    div.bsk-container-fluid
+      +alert('info', 'highlight')
+        | Using a fixed-width container.
+
+    div.bsk-container.app-spacing-bottom
+      nav.bsk-navbar.bsk-navbar-static-top
+        div.bsk-container-fluid
+          div.bsk-navbar-header
+            a.bsk-navbar-brand(href='#') Site Name
+          ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+            li: a(href='#') Feedback
+      div.site-development-notice
+        div.bsk-container-fluid
+          span.bsk-label.bsk-label-phase-alpha Alpha
+          | &nbsp;
+          | This is a new website – your #[a(href='#') feedback] will help us to improve it.
+        hr
+      div.bsk-container-fluid
+        header
+          h1 Page title
+        div
+          p
+            | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there
+            | are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+            | I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.
+          p
+            | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there
+            | are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+            | I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.
+
+    div.bsk-container-fluid
+      +alert('info', 'highlight')
+        | Using a fluid-width container.
+
+    div.bsk-container-fluid.app-spacing-bottom
+      nav.bsk-navbar.bsk-navbar-static-top
+        div.bsk-container-fluid
+          div.bsk-navbar-header
+            a.bsk-navbar-brand(href='#') Site Name
+          ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+            li: a(href='#') Feedback
+      div.site-development-notice
+        div.bsk-container-fluid
+          span.bsk-label.bsk-label-phase-alpha Alpha
+          | &nbsp;
+          | This is a new website – your #[a(href='#') feedback] will help us to improve it.
+        hr
+      div.bsk-container-fluid
+        header
+          h1 Page title
+        div
+          p
+            | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there
+            | are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+            | I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.
+          p
+            | Ann certainly has a great deal of Mass. I hate the Wetlands. They're stupid and wet, and there
+            | are bugs everywhere, and I think I maced a crane. This show was cancelled. I mean, COME ON.
+            | I could use a leather jacket for when I'm on my hog and have to go into a controlled slide.

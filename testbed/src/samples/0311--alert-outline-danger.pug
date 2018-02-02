@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Alert - outline - danger
+    code: .bsk-alert.bsk-alert-outline.bsk-alert-danger
+  collections:
+    - components--alerts
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block sample
+  +alert--collection('danger', 'outline')

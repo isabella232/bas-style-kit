@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: Facebook linked social media icon
+    code: .bsk-social-media-link.bsk-facebook
+  collections:
+    - components--social-media
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/social-media.pug
+
+block sample
+  +social-media--linked('fa-facebook-square')(class='bsk-facebook')

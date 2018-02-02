@@ -1,0 +1,23 @@
+//-
+  sample:
+    title: Disabled pagination state
+    code: .bsk-pagination li.bsk-disabled
+  collections:
+    - components--pagination
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/pagination.pug
+
+block sample
+  section.app-sample-section
+    header Single item, also disabled
+    +pagination(1, 'disabled', 1)
+
+  section.app-sample-section
+    header Three items, second disabled
+    +pagination(3, 'disabled', 1)
+
+  section.app-sample-section
+    header 12 items, 7th disabled
+    +pagination(12, 'disabled', 7)

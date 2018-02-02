@@ -1,0 +1,27 @@
+//-
+  sample:
+    title: Default navbar
+    code: .bsk-navbar
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  section.app-sample-section
+    header Empty (no container)
+    nav.bsk-navbar
+
+  section.app-sample-section
+    header With basic content (no container)
+
+    nav.bsk-navbar
+      | Navbar content
+
+  section.app-sample-section
+    header With basic content (fluid container)
+
+    +navbar--default
+      | Footer content

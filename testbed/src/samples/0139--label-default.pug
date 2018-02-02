@@ -1,0 +1,17 @@
+//-
+  sample:
+    title: Label - default
+    code: .bsk-label.bsk-label-default
+  collections:
+    - components--labels
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/labels.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    div
+      +label('default')
+        | Label

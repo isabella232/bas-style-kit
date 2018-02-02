@@ -1,0 +1,56 @@
+//-
+  sample:
+    title: Link
+    code: a
+  collections:
+    - core--typography
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/typography.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    <p><a href="#">link</a></p>
+
+  section.app-sample-section
+    header Link within text
+
+    <p>Ann certainly has a <a href="#">great deal</a> of Mass</p>
+
+  section.app-sample-section
+    header Link within bold text</h4>
+
+    <p>They're stupid and wet, <strong>and there <a href="#">are bugs</a> everywhere</strong>, and I think I maced a crane</p>
+
+  section.app-sample-section
+    header Link within marked text
+
+    <p>They're stupid and wet, <mark>and there <a href="#">are bugs</a> everywhere</mark>, and I think I maced a crane</p>
+
+  section.app-sample-section
+    header Link within success text
+
+    <p>They're stupid and wet, <span class="bsk-text-success">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>
+
+  section.app-sample-section
+    header Link within warning text
+
+    <p>They're stupid and wet, <span class="bsk-text-warning">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>
+
+  section.app-sample-section
+    header Link within danger text
+
+    <p>They're stupid and wet, <span class="bsk-text-danger">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>
+
+  section.app-sample-section
+    header Link within info text
+
+    <p>They're stupid and wet, <span class="bsk-text-info">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>
+
+  section.app-sample-section
+    header Link within muted text
+
+    <p>They're stupid and wet, <span class="bsk-text-muted">and there <a href="#">are bugs</a> everywhere</span>, and I think I maced a crane</p>

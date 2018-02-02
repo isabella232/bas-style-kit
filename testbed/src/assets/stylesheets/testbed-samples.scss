@@ -1,0 +1,65 @@
+/* BAS Style Kit - Testbed Sample Styles */
+
+// These are additional styles needed for testbed samples,
+// built using variables and styles from the main Style Kit styles.
+
+// Style Kit imports
+//
+
+// Core bootstrap variables
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+// Core BAS Style Kit variables to override Bootstrap
+// Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
+@import "../../../../assets/stylesheets/bas-style-kit/variables";
+
+// Core CSS
+@import "testbed/_scaffolding";
+@import "testbed/_grid";
+@import "testbed/_layout";
+@import "testbed/_colours";
+@import "testbed/_logos";
+@import "testbed/_forms";
+@import "testbed/_type";
+
+// Components
+@import "testbed/_dropdowns";
+@import "testbed/_labels";
+@import "testbed/_jumbotron";
+@import "testbed/_navbar";
+
+// Design
+
+html {
+  // Overrides Style Kit default
+  background-color: $bsk-colour-gen-white;
+}
+
+// Structure
+
+.sample-section {
+  margin-top: 60px;
+
+  border-top: 4px dotted $bsk-colour-std-grey-lighter;
+
+  > header {
+    font-size: 24px;
+    color: $bsk-colour-std-grey-light;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .sample-section-header {
+    font-size: 24px;
+    color: $bsk-colour-std-grey-light;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  &:first-of-type {
+    margin-top: 0;
+    border-top: none;
+  }
+}

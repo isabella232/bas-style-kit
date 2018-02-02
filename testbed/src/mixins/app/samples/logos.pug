@@ -1,0 +1,13 @@
+mixin logomark--bas(img)
+  each img_size in [32, 64, 128, 256]
+    div.app-spacing-top
+      p.bsk-text-info #[em #{ img }-#{ img_size }.png]
+      div(class!=attributes.class)
+        img(src='/' + testbed_version + '/dist/img/logos-symbols/' + img + '-' + img_size + '.png')
+
+mixin logomark--ogl(img)
+  each img_size in [27, 32, 64, 128, 256]
+    div.app-spacing-top
+      p.bsk-text-info #[em #{ img }-#{ img_size }.png]
+      div(class!=attributes.class)
+        img(src='/' + testbed_version + '/dist/img/logos-symbols/' + img + '-' + img_size + '.png')

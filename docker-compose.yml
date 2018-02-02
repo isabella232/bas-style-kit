@@ -4,19 +4,29 @@ version: '2'
 services:
   app:
     build: .
-    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit:0.4.0-develop-alpine
-    command: gulp develop
+    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/app:0.4.0-develop-alpine
     volumes:
       - ./gulpfile.js:/usr/src/app/gulpfile.js
       - ./assets:/usr/src/app/assets
       - ./dist:/usr/src/app/dist
-      - ./testbed:/usr/src/app/testbed
+
+  testbed:
+    build: ./testbed
+    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    volumes:
+      - ./assets:/usr/src/app/assets
+      - ./testbed/src:/usr/src/app/testbed/src
+      - ./testbed/public:/usr/src/app/testbed/public
+      - ./testbed/gulpfile.js:/usr/src/app/testbed/gulpfile.js
+    environment:
+      - TESTBED_VERSION=develop
+
   web:
     image: nginx:alpine
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/index.html:/usr/share/nginx/html/index.html
-      - ./testbed/rendered:/usr/share/nginx/html/testbed
-      - ./dist:/usr/share/nginx/html/dist
+      - ./testbed/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./testbed/nginx/index.html:/usr/share/nginx/html/public/index.html
+      - ./testbed/public:/usr/share/nginx/html/public/develop
+      - ./dist:/usr/share/nginx/html/public/develop/dist
     ports:
       - "9000:9000"

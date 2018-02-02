@@ -1,0 +1,36 @@
+mixin button--button(variant)
+  p: button(class!=attributes.class) <!-- no value -->
+  p: button(class!=attributes.class) #{ variant } button
+  p: button(class!=attributes.class type='submit') #{ variant } button (submit)
+  p: button(class!=attributes.class) Da da da da da da da da BATMAN!
+  p: button(class!=attributes.class) Button with a #[br] line break
+
+mixin button
+  button(class!=attributes.class type='button')
+    block
+
+mixin button--input(variant)
+  input(class!=attributes.class type='button' value=variant + ' input button')
+
+mixin button--a(variant)
+  a(class!=attributes.class href='#' role='button') #{ variant } button
+
+mixin button--active()
+  each variant in ['default', 'primary', 'success', 'warning', 'danger', 'info']
+    p: button(class='bsk-btn bsk-btn-' + variant + ' bsk-active') default (active)
+
+mixin button--disabled()
+  each variant in ['default', 'primary', 'success', 'warning', 'danger', 'info']
+    p: button(class='bsk-btn bsk-btn-' + variant disabled) default (disabled)
+
+mixin button--size(size)
+  p: button(class!=attributes.class) #{ size } button
+
+mixin button-group--size(size)
+  div.bsk-btn-group.app-spacing-bottom(class!=attributes.class role='group')
+    +button(class='bsk-btn bsk-btn-default')
+      | #{ size } one
+    +button(class='bsk-btn bsk-btn-default')
+      | #{ size } two
+    +button(class='bsk-btn bsk-btn-default')
+      | #{ size } three

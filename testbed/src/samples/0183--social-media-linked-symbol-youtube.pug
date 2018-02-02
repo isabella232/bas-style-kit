@@ -1,0 +1,13 @@
+//-
+  sample:
+    title: YouTube linked social media icon
+    code: .bsk-social-media-link.bsk-youtube
+  collections:
+    - components--social-media
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/social-media.pug
+
+block sample
+  +social-media--linked('fa-youtube-square')(class='bsk-youtube')

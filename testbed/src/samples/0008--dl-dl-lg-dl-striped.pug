@@ -1,0 +1,16 @@
+//-
+  sample:
+    title: Large striped definition list
+    code: dl.bsk-dl-lg.bsk-dl-striped
+  collections:
+    - core--lists
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/lists.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+
+    +dl(class='bsk-dl-lg bsk-dl-striped')

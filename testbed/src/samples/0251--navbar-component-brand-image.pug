@@ -1,0 +1,46 @@
+//-
+  sample:
+    title: Navbar - brand image
+    code: .bsk-navbar .bsk-navbar-header .bsk-navbar-brand
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+
+block sample
+  section.app-sample-section
+    header 32 pixel image in regular navbar using #[code bsk-navbar-brand-image-32]
+
+    +navbar--header
+      div.bsk-navbar-brand.bsk-navbar-brand-image-32
+        img(src='/' + testbed_version + '/assets/img/placeholder-32.png' alt='placeholder')
+
+  section.app-sample-section
+    header 48 pixel image in regular navbar using #[code bsk-navbar-brand-image-48]
+
+    +navbar--header
+      div.bsk-navbar-brand.bsk-navbar-brand-image-48
+        img(src='/' + testbed_version + '/assets/img/placeholder-48.png' alt='placeholder')
+
+  section.app-sample-section
+    header 48 pixel image in large navbar using #[code bsk-navbar-brand-image-48]
+
+    +navbar--header(class='bsk-navbar-lg')
+      div.bsk-navbar-brand.bsk-navbar-brand-image-48
+        img(src='/' + testbed_version + '/assets/img/placeholder-48.png' alt='placeholder')
+
+  section.app-sample-section
+    header 64 pixel image in large navbar using #[code bsk-navbar-brand-image-64]
+
+    +navbar--header(class='bsk-navbar-lg')
+      div.bsk-navbar-brand.bsk-navbar-brand-image-48
+        img(src='/' + testbed_version + '/assets/img/placeholder-64.png' alt='placeholder')
+
+  section.app-sample-section
+    header 96 pixel image in large navbar using #[code bsk-navbar-brand-image-96]
+
+    +navbar--header(class='bsk-navbar-lg')
+      div.bsk-navbar-brand.bsk-navbar-brand-image-96
+        img(src='/' + testbed_version + '/assets/img/placeholder-96.png' alt='placeholder')

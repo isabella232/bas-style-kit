@@ -1,0 +1,27 @@
+//-
+  sample:
+    title: Collapsed navbar toggle
+    code: .bsk-navbar .bsk-navbar-header .bsk-navbar-toggle
+  collections:
+    - components--navbars
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navbars.pug
+include ../mixins/app/samples/alerts.pug
+
+block sample
+  section.app-sample-section
+    +alert('info', 'highlight')
+      | This sample uses a class that mimics #[code bsk-navbar-toggle],
+      | so that it is visible even when the navbar is uncollapsed.
+    +alert('info', 'highlight')
+      | This sample uses a class that mimics #[code bsk-icon-bar],
+      | so that it is visible even when the navbar is uncollapsed.
+
+    +navbar--header
+      button.bsk-collapsed.app-simulated-state-uncollapsed(type='button' data-toggle='collapse' aria-expanded='false')
+        span.bsk-sr-only Toggle navigation
+        span.app-bsk-icon-bar
+        span.app-bsk-icon-bar
+        span.app-bsk-icon-bar
