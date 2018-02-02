@@ -47,6 +47,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Updating to latest StyleLint configuration preset
 * [Infrastructure] Tidying up Docker file
 * [Infrastructure] Tidying up Node package file
+* [Infrastructure] Updating to latest jQuery version (3.3.1)
 
 ### Removed
 
