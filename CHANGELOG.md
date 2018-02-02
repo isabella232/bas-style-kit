@@ -51,6 +51,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Removed
 
 * [Infrastructure] Unused node dependencies
+* [Infrastructure] Pager size sample as these classes don't exist
 
 ## [0.3.0] - 2018-01-09
 

@@ -1,23 +1,7 @@
 //-
   sample:
     title: Pager sizes
-    code: .bsk-pager.bsk-pager-*
-  collections:
-    - components--pagination
+    type: removed
   ---
 
 extends ../layouts/app-sample.pug
-include ../mixins/app/samples/pagination.pug
-
-block sample
-  section.app-sample-section
-    header Small pager
-    +pager('yes', 'yes', 'no', 'no')(class='bsk-pager-sm')
-
-  section.app-sample-section
-    header Regular pager
-    +pager('yes', 'yes', 'no', 'no')
-
-  section.app-sample-section
-    header Large pager
-    +pager('yes', 'yes', 'no', 'no')(class='bsk-pager-lg')
