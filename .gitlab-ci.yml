@@ -197,8 +197,8 @@ review:
     - master
     - tags
   script:
-    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
     - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/
+    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
   environment:
     name: review/$CI_BUILD_REF_NAME
     url: https://style-kit-testbed.web.bas.ac.uk/$CI_BUILD_REF_NAME/
