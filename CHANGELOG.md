@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed [BREAKING!]
 
+* [Project] This project is now duel licensed under the MIT (original bootstrap) and OGL (all other code) license
 * [Infrastructure] All Gulp tasks rewritten and refactored to be simpler, giving significantly reduced file sizes
 * [Infrastructure] Splitting 'app' Docker image into an 'app' and 'testbed' images
 * [Infrastructure] Nginx moved into the testbed
