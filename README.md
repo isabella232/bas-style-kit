@@ -419,22 +419,11 @@ The maintainer of this project is the BAS Web & Applications Team, they can be c
 
 The vast majority of this project is based on the [Bootstrap](http://getbootstrap.com) project.
 
-90% of any credit for this project should go to Boostrap's [authors and contributors](http://getbootstrap.com/about/).
-
-The original Bootstrap licensing statement is shown below,
-see their original `LICENSE-BOOTSTRAP-MIT` for further licensing information.
-
-> Code and documentation copyright 2011-2015 Twitter, Inc. Code released under
-[the MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE).
-Docs released under [Creative Commons](https://github.com/twbs/bootstrap/blob/master/docs/LICENSE).
-
-The authors of this project are incredibly grateful for their work.
+80% of any credit for this project should go to Boostrap's [authors and contributors](http://getbootstrap.com/about/).
 
 ## Licence
 
-Copyright 2018 NERC BAS.
+This project is a derivative of the [Bootstrap framework](http://getbootstrap.com) and includes additional code unique
+to this project.
 
-Unless stated otherwise, all documentation is licensed under the Creative Commons Public License - version 3.
-All code is licensed under the MIT license.
-
-Copies of these licenses are included within this project.
+See [Licence.md](/license.md) for more information.
