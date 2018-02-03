@@ -636,7 +636,7 @@ $footer-default-link-color:                   $component-inverse-link-color;
 $footer-default-link-hover-color:             $component-inverse-link-hover-color;
 
 $footer-ogl-symbol-margin-right:              ($padding-large-horizontal * 2);
-$footer-ogl-symbol-margin-bottom:             ($padding-large-vertical);
+$footer-ogl-symbol-margin-bottom:             $padding-large-vertical;
 $footer-ogl-symbol-width:                     67px;  // As recommended by the National Archives see [1] for details
 $footer-ogl-text-max-width:                   450px;
 $footer-ogl-text-line-height:                 20px;  // As recommended by the National Archives see [1] for details
