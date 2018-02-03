@@ -76,6 +76,38 @@
 }
 
 
+// Is something wrong link
+//
+// Permanent link for gathering user feedback
+
+.footer-is-something-wrong {
+  text-align: center;
+  margin-top: $footer-is-something-wrong-margin-top;
+  margin-bottom: $footer-is-something-wrong-margin-bottom;
+
+  @media (min-width: $screen-sm-min) {
+    float:      left !important;
+    text-align: left;
+    margin-bottom: 0;
+  }
+}
+
+
+// Back to top link
+//
+// Permanent link to the #site-top element
+
+.footer-back-to-top {
+  text-align: center;
+  margin-top: $footer-back-to-top-margin-top;
+
+  @media (min-width: $screen-sm-min) {
+    float:      right !important;
+    text-align: right;
+  }
+}
+
+
 // OGL symbol and descriptive text
 //
 // Proper sizing and positioning to give an attractive and usable licensing statement for the Open Government License

@@ -635,8 +635,11 @@ $footer-default-divider:                      $bsk-colour-std-grey-light;
 $footer-default-link-color:                   $component-inverse-link-color;
 $footer-default-link-hover-color:             $component-inverse-link-hover-color;
 
+$footer-is-something-wrong-margin-top:        $padding-large-vertical;
+$footer-is-something-wrong-margin-bottom:     $padding-large-vertical;
+$footer-back-to-top-margin-top:               $padding-large-vertical;
 $footer-ogl-symbol-margin-right:              ($padding-large-horizontal * 2);
-$footer-ogl-symbol-margin-bottom:             ($padding-large-vertical);
+$footer-ogl-symbol-margin-bottom:             $padding-large-vertical;
 $footer-ogl-symbol-width:                     67px;  // As recommended by the National Archives see [1] for details
 $footer-ogl-text-max-width:                   450px;
 $footer-ogl-text-line-height:                 20px;  // As recommended by the National Archives see [1] for details
