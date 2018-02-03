@@ -27,6 +27,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * [Admin] Project documentation on images
+* [Styles] Styles for 'is something wrong with this page' link in footers
 * [Styles] Specific styles for 'back to top' link in footers
 * [Styles] Fix class for using a cookie notice alert with a navbar in a fluid width container
 * [Infrastructure] jQuery and js-cookie as dependencies of the Style Kit's JS plugins
