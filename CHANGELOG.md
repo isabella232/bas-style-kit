@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.4.0-alpha] - 2018-02-03 - BREAKING!
+
 ### Changed [BREAKING!]
 
 * [Admin] This project is now duel licensed under the MIT (original bootstrap) and OGL (all other code) license
@@ -109,7 +111,7 @@ were working when they weren't
 * [Styles] Conventional icon for dismissible alerts changed from `fa-times-circle` to `fa-times`
 * [Infrastructure] Switching to GDS AWS-CLI image from our own version, should be no difference in functionality
 
-## [0.3.0-alpha] - 2017-07-06
+## [0.3.0-alpha] - 2017-07-06 - BREAKING!
 
 ### Changed - BREAKING!
 
