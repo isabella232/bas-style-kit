@@ -23,16 +23,9 @@ mixin navs--drop-down
         a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
           | dropdown
           span.bsk-caret
-      ul.bsk-dropdown-menu
-        li: a(href='#') Action
-        li: a(href='#') Another item
-
-    div.bsk-dropdown
-      button.bsk-btn.bsk-btn-default.bsk-dropdown-toggle(data-toggle='dropdown' type='button')
-        | Dropdown #[span.bsk-caret]
-      ul.bsk-dropdown-menu(class!=attributes.class)
-        li: a(href='#') Action
-        li: a(href='#') Another action
+        ul.bsk-dropdown-menu
+          li: a(href='#') Action
+          li: a(href='#') Another item
 
 mixin navs--variant(variant)
   nav(role='navigation')
