@@ -34,6 +34,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Correcting colour of dismiss icon in solid warning alerts
 * [Styles] Repeating class name in jumbotron overlay styles
+* [Styles] Import category for input group component
 * [Resources] Correcting version specified in colour charts
 
 ### Changed
