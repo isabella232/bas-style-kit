@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Admin] This project is now duel licensed under the MIT (original bootstrap) and OGL (all other code) license
 * [Styles] Deprecated band custom component removed
+* [Styles] Header logo class refactored to a more generic header image class
 * [Styles] Test (`tst`) and Special (`spc`) brand colours merged into an extended colour scheme
 * [Infrastructure] All Gulp tasks rewritten and refactored to be simpler, giving significantly reduced file sizes
 * [Infrastructure] Splitting 'app' Docker image into an 'app' and 'testbed' images
