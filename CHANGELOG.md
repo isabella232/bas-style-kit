@@ -16,6 +16,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] (Testbed) Docker image entry point set to Gulp instead of nothing
 * [infrastructure] Gulp call removed from `cmd`, now done in entry point in (App) Docker image
 * [infrastructure] Gulp call removed from `cmd`, now done in entry point in (Testbed) Docker image
+* [Infrastructure] (App) Docker Compose server set to run `watch` task, for use with `docker-compose up`
+* [Infrastructure] (Testbed) Docker Compose server set to run `watch` task, for use with `docker-compose up`
 
 ## [0.4.0-alpha] - 2018-02-03 - BREAKING!
 
