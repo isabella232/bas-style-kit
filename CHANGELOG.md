@@ -19,6 +19,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] (App) Docker Compose server set to run `watch` task, for use with `docker-compose up`
 * [Infrastructure] (Testbed) Docker Compose server set to run `watch` task, for use with `docker-compose up`
 * [Infrastructure] Updated to latest Terraform and Terraform provider versions
+* [Infrastructure] Updated to changed CDN and Packages Service bucket names
 
 ## [0.4.0-alpha] - 2018-02-03 - BREAKING!
 

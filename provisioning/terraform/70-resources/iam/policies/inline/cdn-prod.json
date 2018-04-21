@@ -8,7 +8,7 @@
               "s3:PutObject"
           ],
           "Resource": [
-              "arn:aws:s3:::bas-cdn-prod/bas-style-kit/*"
+              "arn:aws:s3:::cdn.web.bas.ac.uk/bas-style-kit/*"
           ]
       }
   ]
