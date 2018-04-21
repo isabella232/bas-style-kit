@@ -99,6 +99,8 @@ gulp.task('sri', sriAll);
 
 gulp.task('archive--dist', archiveDist);
 
+gulp.task('watch', watchBuild);
+
 gulp.task('build--css', gulp.series(
   gulp.parallel(
     'build--css-style-kit',
@@ -440,4 +442,15 @@ function archiveDist(done) {
     ],
     done
   );
+}
+
+function watchBuild(done) {
+  gulp.watch(
+    [
+      path.join(config.sources.stylesheets, '**/*.scss'),
+      path.join(config.sources.javascripts, '**/*.js')
+    ],
+    gulp.parallel('build')
+  );
+  done();
 }

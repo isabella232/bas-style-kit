@@ -96,6 +96,8 @@ gulp.task('build--samples', gulp.series(
   'build--legal-pages'
 ));
 
+gulp.task('watch', watchBuild);
+
 gulp.task('clean', gulp.parallel(
   'clean--css',
   'clean--img',
@@ -318,6 +320,15 @@ function archivePublic(done) {
   );
 }
 
+function watchBuild(done) {
+  gulp.watch(
+    [
+      path.join(config.sources.source, '**/*.*')
+    ],
+    gulp.parallel('build')
+  );
+  done();
+}
 
 // Sample processing functions
 

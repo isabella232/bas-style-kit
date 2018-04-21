@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Added
+
+* [Infrastructure] Gulp `watch` task to run `build` when a CSS or JS file is changed, for use with `docker-compose up`
+* [Infrastructure] Gulp `watch` task to run `build` when a testbed file is changed, for use with `docker-compose up`
+
 ## [0.4.0-alpha] - 2018-02-03 - BREAKING!
 
 ### Changed [BREAKING!]
