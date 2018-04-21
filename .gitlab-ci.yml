@@ -64,7 +64,9 @@ node-dependencies-app:
 
 node-dependencies-testbed:
   stage: setup
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   script:
     - "cd testbed"
     - "rm -rf node_modules"
@@ -91,7 +93,9 @@ compile-sass-app:
 
 compile-sass-testbed:
   stage: build
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
@@ -116,7 +120,9 @@ compile-js-app:
 
 compile-pug-testbed:
   stage: build
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
@@ -153,7 +159,9 @@ copy-images-app:
 
 copy-images-testbed:
   stage: build
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
@@ -229,7 +237,9 @@ package-app:
 
 package-testbed:
   stage: package
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"

@@ -10,6 +10,13 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Gulp `watch` task to run `build` when a CSS or JS file is changed, for use with `docker-compose up`
 * [Infrastructure] Gulp `watch` task to run `build` when a testbed file is changed, for use with `docker-compose up`
 
+### Changed
+
+* [Infrastructure] (App) Docker image entry point set to Gulp instead of nothing
+* [Infrastructure] (Testbed) Docker image entry point set to Gulp instead of nothing
+* [infrastructure] Gulp call removed from `cmd`, now done in entry point in (App) Docker image
+* [infrastructure] Gulp call removed from `cmd`, now done in entry point in (Testbed) Docker image
+
 ## [0.4.0-alpha] - 2018-02-03 - BREAKING!
 
 ### Changed [BREAKING!]
