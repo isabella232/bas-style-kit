@@ -23,5 +23,5 @@ RUN mkdir -p /usr/src/app/node_modules/bootstrap-sass/assets/stylesheets/bootstr
     cd /usr/src/app/testbed
 
 # Setup runtime
-ENTRYPOINT []
-CMD ["./node_modules/gulp/bin/gulp.js", "--tasks-simple"]
+ENTRYPOINT ["./node_modules/gulp/bin/gulp.js"]
+CMD ["--tasks-simple"]

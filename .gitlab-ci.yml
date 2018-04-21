@@ -64,7 +64,9 @@ node-dependencies-app:
 
 node-dependencies-testbed:
   stage: setup
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   script:
     - "cd testbed"
     - "rm -rf node_modules"
@@ -91,7 +93,9 @@ compile-sass-app:
 
 compile-sass-testbed:
   stage: build
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
@@ -116,7 +120,9 @@ compile-js-app:
 
 compile-pug-testbed:
   stage: build
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
@@ -153,7 +159,9 @@ copy-images-app:
 
 copy-images-testbed:
   stage: build
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
@@ -229,7 +237,9 @@ package-app:
 
 package-testbed:
   stage: package
-  image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-develop-alpine
+    entrypoint: [""]
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
@@ -243,44 +253,43 @@ package-testbed:
       - "testbed/*.zip"
     expire_in: 1 week
 
-s3-packages-snapshot-app:
-  <<: *job_template_s3_sync
-  stage: deploy
-  only:
-    - master
-  script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
+# s3-packages-snapshot-app:
+#   <<: *job_template_s3_sync
+#   stage: deploy
+#   only:
+#     - master
+#   script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
 
-s3-packages-snapshot-testbed:
-  <<: *job_template_s3_sync
-  stage: deploy
-  only:
-    - master
-  script: "aws s3 cp testbed/$CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
+# s3-packages-snapshot-testbed:
+#   <<: *job_template_s3_sync
+#   stage: deploy
+#   only:
+#     - master
+#   script: "aws s3 cp testbed/$CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
 
-s3-packages-release-app:
-  <<: *job_template_s3_sync
-  stage: deploy
-  only:
-    - tags
-  when: manual
-  script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
+# s3-packages-release-app:
+#   <<: *job_template_s3_sync
+#   stage: deploy
+#   only:
+#     - tags
+#   when: manual
+#   script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
 
-s3-cdn-app:
-  <<: *job_template_s3_sync
-  stage: deploy
-  only:
-    - master
-  when: manual
-  script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
+# s3-cdn-app:
+#   <<: *job_template_s3_sync
+#   stage: deploy
+#   only:
+#     - tags
+#   script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
 
-s3-testbed:
-  <<: *job_template_s3_sync
-  stage: deploy
-  only:
-    - master
-  script:
-    - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/
-    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
-  environment:
-    name: testbed
-    url: https://style-kit-testbed.web.bas.ac.uk/$CI_BUILD_REF_NAME/testbed/
+# s3-testbed:
+#   <<: *job_template_s3_sync
+#   stage: deploy
+#   only:
+#     - master
+#   script:
+#     - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/
+#     - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
+#   environment:
+#     name: testbed
+#     url: https://style-kit-testbed.web.bas.ac.uk/$CI_BUILD_REF_NAME/testbed/

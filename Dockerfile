@@ -17,8 +17,8 @@ RUN echo "node version: " && node --version && \
     echo "gulp version: " && ./node_modules/gulp/bin/gulp.js --version
 
 # Setup runtime
-ENTRYPOINT []
-CMD ["./node_modules/gulp/bin/gulp.js", "--tasks-simple"]
+ENTRYPOINT ["./node_modules/gulp/bin/gulp.js"]
+CMD ["--tasks-simple"]
 
 # Copy configuration files
 COPY .csscomb.json .stylelintrc.yml /usr/src/app/
