@@ -8,7 +8,7 @@
 # This resource relies on the AWS Terraform provider being previously configured.
 #
 # This resource implicitly depends on the 'aws_s3_bucket.bas-style-kit-testbed' resource
-# This resource explicitly depends on outputs from the the 'terraform_remote_state.BAS-AWS' data source
+# This resource implicitly depends on the 'aws_acm_certificate_validation.bas-style-kit-testbed' resource
 # This resource relies on the AWS Terraform provider being previously configured
 #
 # AWS source: https://aws.amazon.com/cloudfront/
@@ -28,7 +28,7 @@ resource "aws_cloudfront_distribution" "bas-style-kit-testbed" {
   price_class = "PriceClass_100"
 
   aliases = [
-    "style-kit-testbed.web.bas.ac.uk",
+    "${aws_s3_bucket.bas-style-kit-testbed.bucket}",
   ]
 
   # Origin configuration
@@ -36,7 +36,7 @@ resource "aws_cloudfront_distribution" "bas-style-kit-testbed" {
   # Note: CloudFront to the Origin uses HTTP, End-consumers to CloudFront uses HTTPS
   origin {
     domain_name = "${aws_s3_bucket.bas-style-kit-testbed.website_endpoint}"
-    origin_id   = "S3_style-kit-testbed.web.bas.ac.uk"
+    origin_id   = "S3_${aws_s3_bucket.bas-style-kit-testbed.bucket}"
 
     custom_origin_config {
       http_port              = 80
@@ -51,7 +51,7 @@ resource "aws_cloudfront_distribution" "bas-style-kit-testbed" {
 
   # Behaviours
   default_cache_behavior {
-    target_origin_id = "S3_style-kit-testbed.web.bas.ac.uk"
+    target_origin_id = "S3_${aws_s3_bucket.bas-style-kit-testbed.bucket}"
 
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
@@ -97,6 +97,6 @@ resource "aws_cloudfront_distribution" "bas-style-kit-testbed" {
   viewer_certificate {
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.1_2016"
-    acm_certificate_arn      = "${data.terraform_remote_state.BAS-AWS.BAS-AWS-ACM-CERT-STAR-WEB-BAS-AC-UK-ARN}"
+    acm_certificate_arn      = "${aws_acm_certificate_validation.bas-style-kit-testbed.certificate_arn}"
   }
 }

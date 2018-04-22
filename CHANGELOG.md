@@ -21,6 +21,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Updated to latest Terraform and Terraform provider versions
 * [Infrastructure] Updated to changed CDN and Packages Service bucket names
 * [Admin] Project documentation revised and updated
+* [Infrastructure] Switched to an ACM certificate for the testbed CloudFront distribution
+* [Infrastructure] Adopting latest Terraform conventions for DNS record TTLs
 
 ## [0.4.0-alpha] - 2018-02-03 - BREAKING!
 
