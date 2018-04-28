@@ -1,0 +1,51 @@
+//-
+  sample:
+    title: Footer 'Back to top' link
+    code: .bsk-footer.bsk-footer-back-to-top
+  collections:
+    - components--footers
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/footers.pug
+
+block sample
+  section.app-sample-section
+    header Standalone
+
+    +footer--default
+      div.bsk-footer-back-to-top
+        a(href='#')
+          i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+          | Back to top
+
+  section.app-sample-section
+    header With divider
+
+    +footer--default
+      div.bsk-footer-back-to-top
+        a(href='#')
+          i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+          | Back to top
+      div.bsk-footer-divider(role='separator')
+
+  section.app-sample-section
+    header With content
+
+    +footer--default
+      div.bsk-footer-back-to-top
+        a(href='#')
+          i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+          | Back to top
+      | Footer content
+
+  section.app-sample-section
+    header With divider and content
+
+    +footer--default
+      div.bsk-footer-back-to-top
+        a(href='#')
+          i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+          | Back to top
+      | Footer content
+      div.bsk-footer-divider(role='separator')
