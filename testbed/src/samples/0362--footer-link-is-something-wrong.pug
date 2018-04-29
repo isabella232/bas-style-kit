@@ -1,0 +1,43 @@
+//-
+  sample:
+    title: Footer 'Is something wrong with this page' link
+    code: .bsk-footer.bsk-footer-is-something-wrong
+  collections:
+    - components--footers
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/footers.pug
+
+block sample
+  section.app-sample-section
+    header Standalone
+
+    +footer--default
+      div.bsk-footer-is-something-wrong
+        a(href='#') Is something wrong with this page?
+
+  section.app-sample-section
+    header With divider
+
+    +footer--default
+      div.bsk-footer-is-something-wrong
+        a(href='#') Is something wrong with this page?
+      div.bsk-footer-divider(role='separator')
+
+  section.app-sample-section
+    header With content
+
+    +footer--default
+      div.bsk-footer-is-something-wrong
+        a(href='#') Is something wrong with this page?
+      | Footer content
+
+  section.app-sample-section
+    header With divider and content
+
+    +footer--default
+      div.bsk-footer-is-something-wrong
+        a(href='#') Is something wrong with this page?
+      | Footer content
+      div.bsk-footer-divider(role='separator')
