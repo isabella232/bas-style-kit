@@ -1,0 +1,17 @@
+//-
+  sample:
+    title: Success contextual background
+    code: .bsk-bg-success
+  collections:
+    - core--colours
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/colours.pug
+
+block sample
+  section.app-sample-section
+    header Colour swatch
+    div.bsk-row
+      div.bsk-col-12-md-4
+        +colour--swatch('Success contextual background', '$state-success-bg', '#BBDAC0')(class='bsk-bg-success')
