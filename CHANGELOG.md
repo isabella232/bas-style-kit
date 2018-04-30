@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Testbed samples for contextual backgrounds, including experimental and primary variants
 * [Styles] Testbed sample for experimental text
 * [Styles] Testbed samples for footer 'is something wrong' and 'back to top' links
+* [Styles] Adding 'is something wrong' and 'back to top' footer links to testbed pug footer include
 * [Infrastructure] Gulp `watch` task to run `build` when a CSS or JS file is changed, for use with `docker-compose up`
 * [Infrastructure] Gulp `watch` task to run `build` when a testbed file is changed, for use with `docker-compose up`
 

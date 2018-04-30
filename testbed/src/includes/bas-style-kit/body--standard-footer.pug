@@ -1,14 +1,15 @@
 footer.site-footer
   div.bsk-footer.bsk-footer-default
     div(class=bsk_attributes.container_class)
+      div.bsk-footer-is-something-wrong
+        a(href='#site-feedback') Is something wrong with this page?
+      div.bsk-footer-back-to-top
+        a(href='#site-top')
+          i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+          | Back to top
+        div.bsk-footer-spacer
+      div.bsk-footer-spacer
       | Testbed generated at #[i #{(new Date()).toISOString()}]
-      div.bsk-clearfix
-        div.bsk-footer-is-something-wrong
-          a(href=bsk_attributes.site_feedback_href) Is there something wrong with this page?
-        div.bsk-footer-back-to-top
-          a.bsk-back-to-top(href=bsk_attributes.back_to_top_target_href)
-            i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
-            | Back to top
       div.bsk-footer-divider(role='separator')
       div.bsk-footer-ogl
         a.bsk-ogl-symbol(rel='license' href=bsk_attributes.site_footer_ogl_symbol_a_href)
