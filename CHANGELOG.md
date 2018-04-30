@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Fixed
 
 * [Styles] Visual alignment of dismissible cookie notices and navbars
+* [Styles] Using footer components in various combinations
 * [Infrastructure] Tagged releases were not being deployed to the BAS CDN
 
 ### Changed
