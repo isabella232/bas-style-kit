@@ -1,0 +1,109 @@
+//-
+  sample:
+    title: UKRI branding
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+include ../mixins/app/samples/footers.pug
+
+block sample
+
+  section.app-sample-section
+    header Scenario 1 - Header only
+    +alert('info', 'highlight')
+      | This branding is used for applications we have very limited control over, such as pages on external websites
+
+    div
+      header.bsk-header.bsk-header-default
+        div.bsk-header-container-fluid
+          a(href='#'): img.bsk-header-image-64(alt='British Antarctic Survey logo' src='/' + testbed_version + '/dist/img/logos-symbols/bas-logo-inverse-transparent-64.png')
+
+    | Beginning of page content
+
+  section.app-sample-section
+    header Scenario 2 - Navbar only
+    +alert('info', 'highlight')
+      | This branding is used for applications we have limited control over, such as off the shelf software
+
+    nav.bsk-navbar
+      div(class=bsk_attributes.container_class)
+        div.bsk-navbar-header
+          button.bsk-navbar-toggle.bsk-collapsed(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-expanded='false')
+            span.bsk-sr-only Toggle navigation
+            span.bsk-icon-bar
+            span.bsk-icon-bar
+            span.bsk-icon-bar
+
+          a.bsk-navbar-brand(href='#') Example website
+
+        div.bsk-collapse.bsk-navbar-collapse#navbar-collapse
+          ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+            li.bsk-dropdown
+              a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                | Part of British Antarctic Survey #[span.bsk-caret]
+              ul.bsk-dropdown-menu
+                li: a(href='https://www.bas.ac.uk') BAS Home
+                li: a(href='https://data.bas.ac.uk') Discover BAS Data
+
+    | Beginning of page content
+
+  section.app-sample-section
+    header Scenario 3 - Navbar and footer
+    +alert('info', 'highlight')
+      | This branding is used for applications we have greater, or total, control over, such as internal websites
+
+    nav.bsk-navbar
+      div(class=bsk_attributes.container_class)
+        div.bsk-navbar-header
+          button.bsk-navbar-toggle.bsk-collapsed(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-expanded='false')
+            span.bsk-sr-only Toggle navigation
+            span.bsk-icon-bar
+            span.bsk-icon-bar
+            span.bsk-icon-bar
+
+          a.bsk-navbar-brand(href='#') Example website
+
+        div.bsk-collapse.bsk-navbar-collapse#navbar-collapse
+          ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+            li.bsk-dropdown
+              a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                | Part of British Antarctic Survey #[span.bsk-caret]
+              ul.bsk-dropdown-menu
+                li: a(href='https://www.bas.ac.uk') BAS Home
+                li: a(href='https://data.bas.ac.uk') Discover BAS Data
+
+    | Beginning of page content
+
+    | End of page content
+
+    +footer--default
+      div.bsk-footer-is-something-wrong
+        a(href='#') Is something wrong with this page?
+      div.bsk-footer-back-to-top
+        a(href='#')
+          i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+          | Back to top
+      div.bsk-footer-divider(role='separator')
+      div.bsk-footer-ogl
+        a.bsk-ogl-symbol(rel='license' href='http://www.nationalarchives.gov.uk/doc/open-government-licence')
+          img(alt='Open Government Licence logo' src='https://cdn.web.bas.ac.uk/bas-style-kit/0.3.0/img/logos-symbols/ogl-symbol-inverse-transparent-32.png')
+        div.bsk-ogl-text
+          | This website is licensed under the
+          |
+          a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence') Open Government Licence v3.0
+          | , except where otherwise stated
+      div.bsk-footer-policy-links
+        | © 2018 UKRI BAS
+        ul.bsk-list-inline
+          li: a(href='#') Cookies
+          li: a(href='#') Copyright
+          li: a(href='#') Privacy
+
+  hr
+
+  h4 Notes
+  ul
+    li This experiment is used to ensure the Style Kit is meetings branding and copyright conventions following the
+      | formation of UKRI
