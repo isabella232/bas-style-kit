@@ -26,7 +26,7 @@ jQuery(function($){
     }
   }
 
-  // React to acknowledging the cookie banner by looking into the Bootstrap JavaScript API
+  // React to acknowledging the cookie banner by hooking into the Bootstrap JavaScript API
 
   jQuery(BSKCookieNoticeSelector).on('close.bs.alert', function () {
 

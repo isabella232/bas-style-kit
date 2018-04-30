@@ -71,6 +71,7 @@ gulp.task('clean--css', cleanCss);
 gulp.task('clean--img', cleanImg);
 gulp.task('clean--samples', cleanSamples);
 gulp.task('clean--public-archive', cleanPublicArchive);
+gulp.task('clean--runtime', cleanRuntime);
 
 gulp.task('build--css-testbed', buildCssTestbed);
 gulp.task('build--individual-samples', buildSamples);
@@ -102,7 +103,8 @@ gulp.task('clean', gulp.parallel(
   'clean--css',
   'clean--img',
   'clean--samples',
-  'clean--public-archive'
+  'clean--public-archive',
+  'clean--runtime'
 ));
 gulp.task('build', gulp.parallel(
   'build--css',
@@ -325,7 +327,7 @@ function watchBuild(done) {
     [
       path.join(config.sources.source, '**/*.*')
     ],
-    gulp.parallel('build')
+    gulp.series('clean--runtime', 'build')
   );
   done();
 }
@@ -351,4 +353,15 @@ var indexer = function indexer(file, cb) {
   }
 
   cb(null, file);
+}
+
+function cleanRuntime(done) {
+  // Reset runtime variables
+  // console.log('runtime.samples count: ' + runtime.samples.length);
+  runtime.samples = [];
+  // console.log('purged');
+  // console.log('runtime.samples count: ' + runtime.samples.length);
+  runtime.collections = {};
+
+  done();
 }

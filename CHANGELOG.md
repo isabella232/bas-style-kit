@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Testbed samples for contextual backgrounds, including experimental and primary variants
 * [Styles] Testbed sample for experimental text
 * [Styles] Testbed samples for footer 'is something wrong' and 'back to top' links
+* [Styles] Adding 'is something wrong' and 'back to top' footer links to testbed pug footer include
 * [Infrastructure] Gulp `watch` task to run `build` when a CSS or JS file is changed, for use with `docker-compose up`
 * [Infrastructure] Gulp `watch` task to run `build` when a testbed file is changed, for use with `docker-compose up`
 
@@ -17,10 +18,15 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Visual alignment of dismissible cookie notices and navbars
 * [Styles] Using footer components in various combinations
+* [Styles] Structure of the navbar pug include used in the testbed index
+* [Styles] Data attribute for cookie notice in testbed
+* [Styles] Inline favicon for testbed
 * [Infrastructure] Tagged releases were not being deployed to the BAS CDN
 
 ### Changed
 
+* [Styles] Added index of sample collections to testbed index
+* [Styles] Tweaks to testbed index
 * [Infrastructure] (App) Docker image entry point set to Gulp instead of nothing
 * [Infrastructure] (Testbed) Docker image entry point set to Gulp instead of nothing
 * [infrastructure] Gulp call removed from `cmd`, now done in entry point in (App) Docker image
