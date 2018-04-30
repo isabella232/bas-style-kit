@@ -21,6 +21,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
+* [Styles] Added index of sample collections to testbed index
+* [Styles] Tweaks to testbed index
 * [Infrastructure] (App) Docker image entry point set to Gulp instead of nothing
 * [Infrastructure] (Testbed) Docker image entry point set to Gulp instead of nothing
 * [infrastructure] Gulp call removed from `cmd`, now done in entry point in (App) Docker image

@@ -6,6 +6,13 @@ block page
   header
     h1.bsk-page-header BAS Style Kit Testbed
     p.bsk-lead This website is used by developers to test and develop parts of the BAS Style Kit
+    div.bsk-alert.bsk-alert-block.bsk-alert-warning.bsk-alert-solid
+      | This website is not designed to show how to use the Style Kit - Use the end-user documentation instead
+    div.bsk-alert.bsk-alert-block.bsk-alert-warning.bsk-alert-highlight
+      ul
+        li See #[a.bsk-alert-link(href='style-kit.web.bas.ac.uk') style-kit.web.bas.ac.uk] for the latest stable end-user documentation
+        li See #[a.bsk-alert-link(href='style-kit-testing.web.bas.ac.uk') style-kit-testing.web.bas.ac.uk] for the latest pre-release (but largely stable) end-user documentation
+
     p
       | Each part of the Style Kit is represented as one or more #[em samples], each of which may contain multiple
       | examples to test a class in a range of different scenarios.
@@ -20,10 +27,6 @@ block page
       | features. Hosted versions are used temporarily for merge requests (testbed per branch) and permanently for the
       | #[em master] branch of the project repository for reference.
 
-    div.bsk-alert.bsk-alert-block.bsk-alert-warning.bsk-alert-solid
-      ul
-        li #[strong this website is not designed to show how to use the Style Kit], use the published end-user documentation
-
     div.bsk-alert.bsk-alert-block.bsk-alert-warning.bsk-alert-outline
       ul
         li sample numbers have no implied order or grouping and may not be continuous, they will be unique
@@ -34,10 +37,6 @@ block page
       ul
         li samples may be listed in multiple sample collections
         li samples may not be listed in any sample collections
-        li End-user documentation for the Style Kit, explaining how published versions can be used, is available at:
-          ul
-            li #[a.bsk-alert-link(href='style-kit.web.bas.ac.uk') style-kit.web.bas.ac.uk] for the latest stable version
-            li #[a.bsk-alert-link(href='style-kit-testing.web.bas.ac.uk') style-kit-testing.web.bas.ac.uk] for the latest pre-release but largely stable version
 
   section
     div.bsk-row
@@ -61,9 +60,14 @@ block page
               a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html') #{sample.title}
 
       div.bsk-col-12-md-6
+        h2 Sample collections
+        ul
+          each collection_samples, collection_name in collections
+            li: a(href='#sc-' + collection_name) #{collection_name}
+
         h2 Samples by collection
         each collection_samples, collection_name in collections
-          h3.bsk-text-capitalize #{ collection_name }
+          h3.bsk-text-capitalize(id='sc-' + collection_name) #{ collection_name }
           ul
             each sample in collection_samples
               li: a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html') #[strong #{sample.sample_number}] #{sample.title}
