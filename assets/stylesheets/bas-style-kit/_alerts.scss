@@ -113,7 +113,7 @@
       padding-right: 0;
 
       .close {
-        right: 15px;
+        right: 0;
       }
     }
   }
@@ -126,6 +126,10 @@
   .container-fluid {
     .alert-cookie-notice {
       padding-left: 0;
+
+      .close {
+        right: -35px;
+      }
     }
   }
 }

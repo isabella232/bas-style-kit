@@ -1,0 +1,60 @@
+//-
+  sample:
+    title: Cookie notice alert in a fluid-width container
+    code: .bsk-container-fluid
+  collections:
+    - components--alerts
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/alerts.pug
+
+block append vars
+  - bsk_attributes.container_class = '';
+
+block sample
+  div.bsk-container-fluid
+    +alert('warning', 'outline')
+      div.bsk-text-center This sample isn't inside a container and may look strange.
+
+  div.bsk-container-fluid
+    section.app-sample-section
+      header With navbar (fluid-width)
+      +alert('info', 'highlight')
+        | Using a fluid-width container.
+  div.bsk-fix-alert-static-top-fluid-container-wrapper
+    div.bsk-container-fluid
+      div.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role='alert')
+        button.bsk-close(type='button' data-dismiss='alert' aria-label='Close')
+          i.fa.fa-times(aria-hidden='true')
+        | This website uses cookies to help us make it better - #[a.bsk-alert-link(href='#') find out more].
+  nav.bsk-navbar.bsk-navbar-static-top
+    div.bsk-container-fluid
+      div.bsk-navbar-header
+        a.bsk-navbar-brand(href='#') Example
+      div.bsk-collapse.bsk-navbar-collapse#navbar-collapse
+        ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+          li: a(href='#') Item
+  div.bsk-container-fluid.app-visible-container.app-spacing-bottom
+    div.app-visible-col-1
+
+  div.bsk-container-fluid
+    section.app-sample-section
+      header With navbar (fixed-width)
+      +alert('info', 'highlight')
+        | Using a fixed-width container.
+  div.bsk-fix-alert-static-top-fixed-container-wrapper
+    div.bsk-container
+      div.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role='alert')
+        button.bsk-close(type='button' data-dismiss='alert' aria-label='Close')
+          i.fa.fa-times(aria-hidden='true')
+        | This website uses cookies to help us make it better - #[a.bsk-alert-link(href='#') find out more].
+  nav.bsk-navbar.bsk-navbar-static-top
+    div.bsk-container
+      div.bsk-navbar-header
+        a.bsk-navbar-brand(href='#') Example
+      div.bsk-collapse.bsk-navbar-collapse#navbar-collapse
+        ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+          li: a(href='#') Item
+  div.bsk-container.app-visible-container.app-spacing-bottom
+    div.app-visible-col-1
