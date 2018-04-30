@@ -18,6 +18,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Visual alignment of dismissible cookie notices and navbars
 * [Styles] Using footer components in various combinations
 * [Styles] Structure of the navbar pug include used in the testbed index
+* [Styles] Data attribute for cookie notice in testbed
 * [Infrastructure] Tagged releases were not being deployed to the BAS CDN
 
 ### Changed
