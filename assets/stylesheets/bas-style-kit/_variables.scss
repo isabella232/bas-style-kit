@@ -623,8 +623,8 @@ $footer-font-size:                            ($font-size-base + 1px);
 
 $footer-height:                               $navbar-height;
 $footer-margin-top:                           ($line-height-computed-x2 + 10px);
-$footer-padding-top:                          $footer-margin-top;
-$footer-padding-bottom:                       ($footer-padding-top - 10px);
+$footer-padding-top:                          $line-height-computed;
+$footer-padding-bottom:                       ($footer-padding-top * 2);
 $footer-border-radius:                        $border-radius-base;
 
 $footer-default-color:                        $component-inverse-color;

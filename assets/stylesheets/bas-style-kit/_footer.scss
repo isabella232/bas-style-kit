@@ -64,15 +64,32 @@
 }
 
 
+// Spacer
+//
+// Used to separate rows of content non-visually
+
+.footer-spacer {
+  clear: both;
+  margin-bottom: $line-height-computed;
+}
+
+
 // Divider
 //
-// Used to separate bands of content, spanning the full width of the parent.
+// Used to separate rows of content visually
 
 .footer-divider {
+  clear: both;
   margin-top:    $line-height-computed;
   margin-bottom: $line-height-computed;
   border:        0;
   border-top:    1px solid;
+}
+
+// Ensures correct padding above dividers where a footer has no content, just standard links and licensing statements
+.footer-is-something-wrong + .footer-divider,
+.footer-back-to-top + .footer-divider {
+  margin-top: 60px;
 }
 
 

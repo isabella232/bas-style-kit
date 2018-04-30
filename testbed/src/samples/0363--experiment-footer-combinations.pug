@@ -1,0 +1,97 @@
+//-
+  sample:
+    title: Footer combinations
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/footers.pug
+
+block sample
+
+  section.app-sample-section
+    header Simple content
+
+    | End of page content
+
+    +footer--default
+      | Footer content
+
+  section.app-sample-section
+    header Complex content
+
+    | End of page content
+
+    +footer--default
+      div.bsk-footer-is-something-wrong
+        a(href='#') Is something wrong with this page?
+      div.bsk-footer-back-to-top
+        a(href='#')
+          i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+          | Back to top
+      div.bsk-footer-spacer
+      div.bsk-row
+        div.bsk-col-12-md-4
+          h4 About BAS
+          p The #[a(href='https://www.bas.ac.uk') British Antarctic Survey (BAS)] conducts world-leading
+            |
+            | interdisciplinary research in the Polar Regions.
+          p BAS is a part of the Natural Environment Research Council (#[a(href='https://www.nerc.ac.uk') NERC]),
+            |
+            | NERC is a part of #[a(href='https://www.ukri.org') UK Research and Innovation].
+        div.bsk-col-12-md-8.bsk-text-right
+          h4 BAS Activities
+          ul.bsk-list-unstyled
+            li: a(href='#') Research projects
+            li: a(href='#') Research opportunities
+            li: a(href='#') Fieldwork opportunities
+            li: a(href='#') Facilities, skills and logistics
+      div.bsk-footer-divider(role='separator')
+      div.bsk-footer-ogl
+        a.bsk-ogl-symbol(rel='license' href='http://www.nationalarchives.gov.uk/doc/open-government-licence')
+          img(alt='Open Government Licence logo' src='https://cdn.web.bas.ac.uk/bas-style-kit/0.3.0/img/logos-symbols/ogl-symbol-inverse-transparent-32.png')
+        div.bsk-ogl-text
+          | This website is licensed under the
+          |
+          a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence') Open Government Licence v3.0
+          | , except where otherwise stated
+      div.bsk-footer-policy-links
+        | © 2018 UKRI BAS
+        ul.bsk-list-inline
+          li: a(href='#') Cookies
+          li: a(href='#') Copyright
+          li: a(href='#') Privacy
+
+  section.app-sample-section
+    header Complex content
+
+    | No content
+
+    +footer--default
+      div.bsk-footer-is-something-wrong
+        a(href='#') Is something wrong with this page?
+      div.bsk-footer-back-to-top
+        a(href='#')
+          i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+          | Back to top
+      div.bsk-footer-divider(role='separator')
+      div.bsk-footer-ogl
+        a.bsk-ogl-symbol(rel='license' href='http://www.nationalarchives.gov.uk/doc/open-government-licence')
+          img(alt='Open Government Licence logo' src='https://cdn.web.bas.ac.uk/bas-style-kit/0.3.0/img/logos-symbols/ogl-symbol-inverse-transparent-32.png')
+        div.bsk-ogl-text
+          | This website is licensed under the
+          |
+          a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence') Open Government Licence v3.0
+          | , except where otherwise stated
+      div.bsk-footer-policy-links
+        | © 2018 UKRI BAS
+        ul.bsk-list-inline
+          li: a(href='#') Cookies
+          li: a(href='#') Copyright
+          li: a(href='#') Privacy
+
+  hr
+
+  h4 Notes
+  ul
+    li This experiment is used to test using various footer components together to ensure styles mesh together
