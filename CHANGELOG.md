@@ -21,6 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Structure of the navbar pug include used in the testbed index
 * [Styles] Data attribute for cookie notice in testbed
 * [Styles] Inline favicon for testbed
+* [Styles] Fixing reference to OGL guidance
 * [Infrastructure] Tagged releases were not being deployed to the BAS CDN
 
 ### Changed
