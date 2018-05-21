@@ -233,6 +233,35 @@ block sample
           li: a(href='#') Copyright
           li: a(href='#') Privacy
 
+  section.app-sample-section
+    header Option 5 - small OGL, governance above, copyright in line with OGL
+
+    | End of page content
+
+    +footer--default
+      div.bsk-footer-is-something-wrong
+        a(href='#') Is something wrong with this page?
+      div.bsk-footer-back-to-top
+        a(href='#')
+          i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+          | Back to top
+      div.bsk-footer-divider(role='separator')
+      div.bsk-tb-exp-option3-governance
+        | The #[a(href='https://www.bas.ac.uk') British Antarctic Survey] (BAS) is part of the
+        | #[a(href='https://nerc.ukri.org') Natural Environment Research Council] (NERC), which is in turn part of
+        | #[a(href='https://www.ukri.org') UK Research and Innovation] (UKRI)
+        div.bsk-tb-exp-option3-ogl
+          div.bsk-tb-exp-option3-ogl-symbol: a(href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/' rel='license' style={'background': 'url(/' + testbed_version + '/assets/img/ogl-symbol-inverse-transparent-17.png)'})
+            span.bsk-sr-only Open Government Licence
+          div.bsk-tb-exp-option3-ogl-text
+            | All content is available under the #[a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence' rel='license') Open Government Licence v3.0], except where otherwise stated
+      div.bsk-footer-policy-links
+        ul.bsk-list-inline
+          li: a(href='#') Cookies
+          li: a(href='#') Copyright
+          li: a(href='#') Privacy
+        | © 2018 British Antarctic Survey
+
   hr
 
   h4 Notes
