@@ -130,14 +130,14 @@
 // Proper sizing and positioning to give an attractive and usable licensing statement for the Open Government License
 
 .footer-ogl {
-  .ogl-symbol,
-  .ogl-text {
-    text-align: center;
+  text-align: center;
+  margin-top: $footer-ogl-margin-top;
 
-    @media (min-width: $screen-sm-min) {
-      float:      left !important;
-      text-align: left;
-    }
+  @media (min-width: $screen-sm-min) {
+    position:     relative;
+    margin-top:   0;
+    padding-left: $footer-ogl-padding-left;
+    text-align:   left;
   }
 
   .ogl-symbol {
@@ -145,26 +145,31 @@
 
     margin-bottom: $footer-ogl-symbol-margin-bottom;
 
-    @media (min-width: $screen-sm-min) {
-      position:      relative;
-      top:           5px;
-      margin-left:   0;
-      margin-bottom: 0;
-      margin-right:  $footer-ogl-symbol-margin-right;
-      width:         $footer-ogl-symbol-width;
+    a {
+      display:             block;
+      width:               $footer-ogl-symbol-a-width;
+      height:              $footer-ogl-symbol-a-height;
+      overflow:            hidden;
+      text-indent:         $footer-ogl-symbol-a-text-indent;
+      background:          $footer-ogl-symbol-a-background;
+      background-repeat:   no-repeat;
+      background-position: 50% 0;
     }
-  }
-
-  .ogl-text {
-    margin-bottom: $footer-olg-text-margin-bottom;
-    line-height:   $footer-ogl-text-line-height;
 
     @media (min-width: $screen-sm-min) {
-      max-width: $footer-ogl-text-max-width;
+      position: absolute;
+      left:     $footer-ogl-symbol-left;
+      top:      $footer-ogl-symbol-top;
+      width:    $footer-ogl-symbol-width;
+      height:   $footer-ogl-symbol-height;
+
+      a {
+        width:               $footer-ogl-symbol-a-width-fw;
+        background-position: 0 0;
+      }
     }
   }
 }
-
 
 // Legal polices
 //
@@ -184,6 +189,22 @@
     li {
       padding-right: 0;
     }
+  }
+}
+
+
+// Governance
+//
+// Proper positioning for statement explaining BAS' relationship to NERC and UKRI
+
+.footer-governance {
+  text-align: center;
+  margin-bottom: $footer-governance-margin-bottom;
+
+  @media (min-width: $screen-sm-min) {
+    float: left !important;
+    text-align: left;
+    margin-bottom: 0;
   }
 }
 

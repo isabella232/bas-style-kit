@@ -5,6 +5,14 @@
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 
+// Environment
+//
+// Meta information about the Style Kit
+
+// Version
+$bsk-version:                                 '0.4.0-beta-develop';
+
+
 // Colours
 //
 // Brand and background colours for use across the BAS Style Kit.
@@ -637,13 +645,24 @@ $footer-default-link-hover-color:             $component-inverse-link-hover-colo
 
 $footer-is-something-wrong-margin-top:        $padding-large-vertical;
 $footer-is-something-wrong-margin-bottom:     $padding-large-vertical;
+
 $footer-back-to-top-margin-top:               $padding-large-vertical;
-$footer-ogl-symbol-margin-right:              ($padding-large-horizontal * 2);
+
+$footer-ogl-margin-top:                       ($padding-large-vertical *2);
+$footer-ogl-padding-left:                     53px;
+
 $footer-ogl-symbol-margin-bottom:             $padding-large-vertical;
-$footer-ogl-symbol-width:                     67px;  // As recommended by the National Archives see [1] for details
-$footer-ogl-text-max-width:                   450px;
-$footer-ogl-text-line-height:                 20px;  // As recommended by the National Archives see [1] for details
-$footer-olg-text-margin-bottom:               ($padding-large-vertical * 2);
+$footer-ogl-symbol-left:                      0;
+$footer-ogl-symbol-top:                       3px;
+$footer-ogl-symbol-width:                     100%;
+$footer-ogl-symbol-height:                    100%;
+$footer-ogl-symbol-a-width:                   100%;
+$footer-ogl-symbol-a-width-fw:                41px;  // As recommended by the National Archives see [1] for details
+$footer-ogl-symbol-a-height:                  17px;
+$footer-ogl-symbol-a-text-indent:             -999em;
+$footer-ogl-symbol-a-background:              url('https://cdn.web.bas.ac.uk/bas-style-kit/#{$bsk-version}/img/logos-symbols/ogl-inverse-transparent-17.png');
+
+$footer-governance-margin-bottom:             ($padding-large-vertical *2);
 
 // [1] http://www.nationalarchives.gov.uk/documents/information-management/ogl-symbol-guidelines-v1.pdf - Page 8
 

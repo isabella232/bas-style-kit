@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Styles] Footer styles and samples for a Governance statement indicating BAS is part of NERC is part of UKRI
 * [Styles] Testbed samples for contextual backgrounds, including experimental and primary variants
 * [Styles] Testbed sample for experimental text
 * [Styles] Testbed samples for footer 'is something wrong' and 'back to top' links
@@ -26,6 +27,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
+* [Styles] Footer OGL styles updated to work with the added governance statement, now single line
+* [Styles] Footer testbed samples updated
 * [Styles] Added index of sample collections to testbed index
 * [Styles] Tweaks to testbed index
 * [Infrastructure] (App) Docker image entry point set to Gulp instead of nothing
