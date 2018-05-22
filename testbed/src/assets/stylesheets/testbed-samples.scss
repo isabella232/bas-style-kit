@@ -6,12 +6,17 @@
 // Style Kit imports
 //
 
-// Core bootstrap variables
+// Bootstrap variables
 @import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
-// Core BAS Style Kit variables to override Bootstrap
+// BAS Style Kit variables to override Bootstrap
 // Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
 @import "../../../../assets/stylesheets/bas-style-kit/variables";
+
+// Testbed variables to override the Style Kit
+// Note: This file **MUST** be loaded after the Style Kit's variables, and before other all other styles
+@import "testbed/_variables";
+
 
 // Core CSS
 @import "testbed/_scaffolding";
@@ -27,6 +32,7 @@
 @import "testbed/_labels";
 @import "testbed/_jumbotron";
 @import "testbed/_navbar";
+@import "testbed/_footer";
 
 // Design
 

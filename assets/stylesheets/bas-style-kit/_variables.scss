@@ -5,22 +5,30 @@
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 
+// Environment
+//
+// Meta information about the Style Kit
+
+// Version
+$bsk-version:                                 '0.4.0-beta-develop';
+
+
 // Colours
 //
 // Brand and background colours for use across the BAS Style Kit.
 
 // Control variables
-$bsk-colour-x-mix-1st-fundermental: 33%;
-$bsk-colour-x-mix-2rd-fundermental: 66%;
+$bsk-colour-x-mix-1st-fundermental:           33%;
+$bsk-colour-x-mix-2rd-fundermental:           66%;
 
 // Generic colours
-$bsk-colour-gen-white:                         #FFFFFF;
-$bsk-colour-gen-black:                         #000000;
+$bsk-colour-gen-white:                        #FFFFFF;
+$bsk-colour-gen-black:                        #000000;
 
 // Special colours
-$bsk-colour-spc-bas-blue:                      #003A5D;
-$bsk-colour-spc-nerc-green:                    #AAB437;
-$bsk-colour-spc-bas-aircraft-red:              #CC0033;
+$bsk-colour-spc-bas-blue:                     #003A5D;
+$bsk-colour-spc-nerc-green:                   #AAB437;
+$bsk-colour-spc-bas-aircraft-red:             #CC0033;
 
 // Standard colours - base colours
 $bsk-colour-std-white:                        mix($bsk-colour-gen-black, $bsk-colour-gen-white, 0%);     // #FFFFFF (GDS: $white)
@@ -98,10 +106,10 @@ $bsk-colour-std-blue-light:                   mix($bsk-colour-gen-white, $bsk-co
 $bsk-colour-std-blue-dark:                    mix($bsk-colour-gen-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-1st-fundermental);  // #00273E
 $bsk-colour-std-blue-darker:                  mix($bsk-colour-gen-black, $bsk-colour-std-blue-base, $bsk-colour-x-mix-2rd-fundermental);  // #001420
 
-$bsk-colour-std-turquoise-lighter:             mix($bsk-colour-gen-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #B6DFDC
-$bsk-colour-std-turquoise-light:               mix($bsk-colour-gen-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #6FC0B9
-$bsk-colour-std-turquoise-dark:                mix($bsk-colour-gen-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #1B6C65
-$bsk-colour-std-turquoise-darker:              mix($bsk-colour-gen-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #0E3733
+$bsk-colour-std-turquoise-lighter:            mix($bsk-colour-gen-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #B6DFDC
+$bsk-colour-std-turquoise-light:              mix($bsk-colour-gen-white, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #6FC0B9
+$bsk-colour-std-turquoise-dark:               mix($bsk-colour-gen-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-1st-fundermental);  // #1B6C65
+$bsk-colour-std-turquoise-darker:             mix($bsk-colour-gen-black, $bsk-colour-std-turquoise-base, $bsk-colour-x-mix-2rd-fundermental);  // #0E3733
 
 $bsk-colour-std-green-lighter:                mix($bsk-colour-gen-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-2rd-fundermental);  // #BBDAC0
 $bsk-colour-std-green-light:                  mix($bsk-colour-gen-white, $bsk-colour-std-green-base, $bsk-colour-x-mix-1st-fundermental);  // #79B682
@@ -127,10 +135,10 @@ $bsk-colour-ext-sky-blue-lighter-light:       mix($bsk-colour-gen-white, $bsk-co
 $bsk-colour-ext-purple-base:                  #2E358B;
 
 // Extended colours - brand colours
-$bsk-colour-ext-twitter-base:                  #55ACEE;  // as defined by brand
-$bsk-colour-ext-facebook-base:                 #3B5998;  // as defined by brand
-$bsk-colour-ext-youtube-base:                  #CD201F;  // as defined by brand
-$bsk-colour-ext-rss-base:                      #F26522;  // as defined by convention
+$bsk-colour-ext-twitter-base:                 #55ACEE;  // as defined by brand
+$bsk-colour-ext-facebook-base:                #3B5998;  // as defined by brand
+$bsk-colour-ext-youtube-base:                 #CD201F;  // as defined by brand
+$bsk-colour-ext-rss-base:                     #F26522;  // as defined by convention
 
 // Bootstrap colour overrides
 $brand-primary:                               $bsk-colour-std-turquoise-base;
@@ -252,8 +260,8 @@ $container-fhd:                               $container-full-hd;
 //
 // Define responsive grid columns
 
-$grid-12-columns:                            12;
-$grid-24-columns:                            24;
+$grid-12-columns:                             12;
+$grid-24-columns:                             24;
 
 
 // Description lists
@@ -501,9 +509,9 @@ $jumbotron-overlay-bg:                        $component-overlay-bg;
 $jumbotron-overlay-padding:                   0 5px 5px 10px;
 
 
-//== Labels
+// Labels
 //
-//##
+//
 
 $label-color:                                 $bsk-colour-std-white;
 $label-border-radius:                         $border-radius-base;
@@ -527,9 +535,9 @@ $label-phase-retired-bg:                      $development-phase-retired;
 $label-experimental-bg:                       $brand-experimental;
 
 
-//== Alerts
+// Alerts
 //
-//## Define alert colors, border radius, and padding.
+// Define alert colours, border radius, and padding.
 
 $alert-border-radius:                         $border-radius-base;
 $alert-border-width:                          5px;
@@ -565,9 +573,9 @@ $alert-experimental-base:                     $state-experimental-base;
 $alert-experimental-highlight:                $state-experimental-text;
 
 
-//== Progress bars
+// Progress bars
 //
-//##
+//
 
 $progress-border-radius:                      $border-radius-base;
 
@@ -598,19 +606,19 @@ $thumbnail-inverse-link-hover-color:          $component-inverse-link-hover-colo
 $thumbnail-inverse-caption-color:             $component-inverse-color;
 
 
-//== Close button
+// Close button
 //
-//##
+//
 
 $close-text-shadow:                           none;
 
 
-//== Code
+// Code
 //
-//##
+//
 
-$code-color:                                $bsk-colour-std-sky-blue-dark;
-$code-bg:                                   $bsk-colour-ext-sky-blue-lighter-light;
+$code-color:                                  $bsk-colour-std-sky-blue-dark;
+$code-bg:                                     $bsk-colour-ext-sky-blue-lighter-light;
 
 
 // Footers
@@ -637,15 +645,26 @@ $footer-default-link-hover-color:             $component-inverse-link-hover-colo
 
 $footer-is-something-wrong-margin-top:        $padding-large-vertical;
 $footer-is-something-wrong-margin-bottom:     $padding-large-vertical;
-$footer-back-to-top-margin-top:               $padding-large-vertical;
-$footer-ogl-symbol-margin-right:              ($padding-large-horizontal * 2);
-$footer-ogl-symbol-margin-bottom:             $padding-large-vertical;
-$footer-ogl-symbol-width:                     67px;  // As recommended by the National Archives see [1] for details
-$footer-ogl-text-max-width:                   450px;
-$footer-ogl-text-line-height:                 20px;  // As recommended by the National Archives see [1] for details
-$footer-olg-text-margin-bottom:               ($padding-large-vertical * 2);
 
-// [1] http://www.nationalarchives.gov.uk/documents/information-management/ogl-symbol-guidelines-v1.pdf [PDF!]
+$footer-back-to-top-margin-top:               $padding-large-vertical;
+
+$footer-ogl-margin-top:                       ($padding-large-vertical *2);
+$footer-ogl-padding-left:                     53px;
+
+$footer-ogl-symbol-margin-bottom:             $padding-large-vertical;
+$footer-ogl-symbol-left:                      0;
+$footer-ogl-symbol-top:                       3px;
+$footer-ogl-symbol-width:                     100%;
+$footer-ogl-symbol-height:                    100%;
+$footer-ogl-symbol-a-width:                   100%;
+$footer-ogl-symbol-a-width-fw:                41px;  // As recommended by the National Archives see [1] for details
+$footer-ogl-symbol-a-height:                  17px;
+$footer-ogl-symbol-a-text-indent:             -999em;
+$footer-ogl-symbol-a-background:              url('https://cdn.web.bas.ac.uk/bas-style-kit/#{$bsk-version}/img/logos-symbols/ogl-inverse-transparent-17.png');
+
+$footer-governance-margin-bottom:             ($padding-large-vertical *2);
+
+// [1] http://www.nationalarchives.gov.uk/documents/information-management/ogl-symbol-guidelines-v1.pdf - Page 8
 
 
 // Headers

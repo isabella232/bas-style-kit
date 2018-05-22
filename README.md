@@ -616,6 +616,7 @@ Merge requests **WILL NOT** be accepted on this mirror.
     * `package.json`
     * `docker-compose.yml` - `app` Docker image
     * `.gitlab-ci.yml` - default Docker image
+    * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
 3. build & push the docker image
 4. close release in `CHANGELOG.md`
 5. merge release branch with master and tag with version
@@ -651,6 +652,7 @@ $ npm pack
     * `package.json`
     * `docker-compose.yml` - `app` Docker image
     * `.gitlab-ci.yml` - default Docker image
+    * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
 2. build & push the docker image
 
 This is to guard against updating the Docker image for a released version.
