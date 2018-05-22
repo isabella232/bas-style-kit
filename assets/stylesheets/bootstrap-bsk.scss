@@ -6,10 +6,10 @@
 // Annoyingly Sass doesn't allow dynamic importing using a variable :(
 // https://github.com/sass/sass/issues/279
 
-// Core bootstrap variables
+// Bootstrap variables
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
-// Core BAS Style Kit variables to override Bootstrap
+// BAS Style Kit variables to override Bootstrap
 // Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
 @import "bas-style-kit/variables";
 

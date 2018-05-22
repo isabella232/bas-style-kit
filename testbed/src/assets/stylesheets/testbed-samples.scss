@@ -6,10 +6,10 @@
 // Style Kit imports
 //
 
-// Core bootstrap variables
+// Bootstrap variables
 @import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
-// Core BAS Style Kit variables to override Bootstrap
+// BAS Style Kit variables to override Bootstrap
 // Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
 @import "../../../../assets/stylesheets/bas-style-kit/variables";
 
