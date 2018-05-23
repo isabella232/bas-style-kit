@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.4.0-beta] - 2018-05-23
+
 ### Added
 
 * [Styles] Footer styles and samples for a Governance statement indicating BAS is part of NERC is part of UKRI
