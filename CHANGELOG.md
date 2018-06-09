@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Fixed
+
+* [Infrastructure] Undefined lack of dependencies for review app CI task
+
 ## [0.4.0-beta] - 2018-05-23
 
 ### Added
