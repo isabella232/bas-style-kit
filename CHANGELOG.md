@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Infrastructure] Undefined lack of dependencies for review app CI task
 * [Infrastructure] Missing output for SRI Gulp task
+* [Infrastructure] Extra `develop` flag in Sass version variable
 
 ## [0.4.0-beta] - 2018-05-23
 
