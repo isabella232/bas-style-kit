@@ -424,7 +424,8 @@ function sriAll(done) {
       ]),
       sri({
         'fileName': 'bas-style-kit.sri.json'
-      })
+      }),
+      gulp.dest(path.join(config.destinations.dist))
     ],
     done
   );
