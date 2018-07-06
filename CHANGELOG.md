@@ -12,6 +12,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Missing output for SRI Gulp task
 * [Infrastructure] Extra `develop` flag in Sass version variable
 
+### Changed
+
+* [Style] Length of governance statement shortened
+
 ## [0.4.0-beta] - 2018-05-23
 
 ### Added
