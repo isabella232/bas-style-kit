@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Fixed
+
+* [Infrastructure] Corrected NPM package publishing steps
+
 ## [0.4.0] - 2018-07-06
 
 ### Added
