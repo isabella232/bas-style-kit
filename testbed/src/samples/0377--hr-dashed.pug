@@ -1,0 +1,36 @@
+//-
+  sample:
+    title: Dashed horizontal rule
+    code: hr.bsk-hr-dashed
+  collections:
+    - core--layout
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standalone
+
+    hr.bsk-hr-dashed
+
+  section.app-sample-section
+    header Dashed followed by standard HR
+
+    hr.bsk-hr-dashed
+    hr
+
+  section.app-sample-section
+    header Preceded by content
+
+    | There are dozens of us! DOZENS!
+    hr.bsk-hr-dashed
+
+  section.app-sample-section
+    header Preceded by content, followed by standard HR
+
+    | There are dozens of us! DOZENS!
+    hr.bsk-hr-dashed
+
+    | There are dozens of us! DOZENS!
+    hr

@@ -1,0 +1,21 @@
+//-
+  sample:
+    title: Horizontal rule
+    code: hr
+  collections:
+    - core--layout
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standalone
+
+    hr
+
+  section.app-sample-section
+    header Preceded by content
+
+    | There are dozens of us! DOZENS!
+    hr
