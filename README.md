@@ -53,7 +53,7 @@ This will launch three containers:
 2. `testbed` - runs the Gulp `watch` task to build the Style Kit's Testbed (samples, etc.)
 3. `web` - hosts the Testbed as a static website using Nginx
 
-See the *Gulp tasks* and *Testbed* sub-sections for more information on the `app` and `testbed` containers.
+See the [Gulp tasks](#gulp-tasks) and [Testbed](#testbed) sections for more information on what these containers do.
 
 Visit [localhost:9000](http://localhost:9000) to access a local version of the Testbed.
 
