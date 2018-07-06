@@ -21,3 +21,12 @@ body {
 .img-rounded {
   border-radius: $border-radius-rounded;
 }
+
+// Horizontal rules
+
+hr {
+  &.hr-dashed {
+    border-top-style: dashed;
+    border-top-width: $hr-dashed-border-width;
+  }
+}
