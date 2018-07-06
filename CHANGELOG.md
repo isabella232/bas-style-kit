@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.4.0] - 2018-07-06
+
 ### Added
 
 * [Styles] Added `hr-dashed` HR variant
