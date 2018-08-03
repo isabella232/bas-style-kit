@@ -630,22 +630,20 @@ Merge requests **WILL NOT** be accepted on this mirror.
 ### Publishing NPM package
 
 ```shell
-# Add `entrypoint: ash` and comment out the `command` parameter of the 'app' service in docker-compose.yml
+$ docker-compose run --entrypoint='' app ash
 $ docker-compose run app
 $ ./node_modules/gulp/bin/gulp.js archive
 $ npm login
 $ npm publish
-# Undo changes made to docker-compose.yml
 ```
 
 To preview the contents of the NPM package:
 
 ```shell
-# Add `entrypoint: ash` and comment out the `command` parameter of the 'app' service in docker-compose.yml
+$ docker-compose run --entrypoint='' app ash
 $ docker-compose run app
 $ ./node_modules/gulp/bin/gulp.js archive
 $ npm pack
-# Undo changes made to docker-compose.yml
 ```
 
 **Note:** This project includes a `.npmignore` file to exclude additional files from NPM packages.
