@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://trello.com/b/0Mhzizpk"
   },
-  "license": "MIT",
+  "license": "Open Government Licence 3.0",
   "dependencies": {
     "bootstrap-sass": "3.3.7",
     "font-awesome": "^4.7.0",
