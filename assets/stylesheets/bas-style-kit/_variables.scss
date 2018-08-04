@@ -362,6 +362,8 @@ $table-border-color:                          $bsk-colour-std-grey-light;
 //
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in Bootstrap v4
 
+$input-border-focus:                          $component-active-bg;
+
 $input-border-radius:                         $border-radius-base;
 $input-border-radius-base:                    $border-radius-base;
 

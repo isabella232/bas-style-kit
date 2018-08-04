@@ -1,0 +1,42 @@
+//
+// Forms
+// --------------------------------------------------
+
+// Common form controls
+//
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+
+.form-control {
+  box-shadow: none;
+
+  @include form-control-focus;
+}
+
+// Feedback states
+.has-success {
+  @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
+}
+.has-warning {
+  @include form-control-validation($state-warning-text, $state-warning-text, $state-warning-bg);
+}
+.has-error {
+  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+}
