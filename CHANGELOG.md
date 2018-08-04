@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
+* [Styles] Refactoring focus state for form inputs to act like the GDS styles but using our active component colour
 * [Styles] Moving use of margin-top from alert component in preparation for Bootstrap 4
 
 ### Removed
