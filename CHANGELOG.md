@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Removed [BREAKING!]
+
+* [Styles] Bootstrap 'well' component
+
 ### Fixed
 
 * [Styles] Documenting the backlog development phase is custom
