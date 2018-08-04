@@ -71,7 +71,6 @@
     padding-bottom: 15px;
 
     h4 {
-      margin-top: 0;
       color: inherit;  // To prevent conflicts of changing $headings-color
     }
   }
@@ -94,7 +93,6 @@
 // Adjusts positioning of alerts for use as banners
 
 .alert-static-top {
-  margin-top: 0;
   margin-bottom: 0;
   border: none;
 }
