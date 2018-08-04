@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Bootstrap 'well' component
 
+### Added
+
+* [Scripts] Tool tip plugin adapted from Bootstrap plugin
+
 ### Fixed
 
 * [Styles] Documenting the backlog development phase is custom

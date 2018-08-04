@@ -1,0 +1,26 @@
+//-
+  sample:
+    title: Tool tip
+    code: data-toggle="tooltip"
+    type: javascript
+  collections:
+    - components--tooltip
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/tool-tips.pug
+
+block sample
+  +tool-tip--standard('top')
+  +tool-tip--standard('left')
+  +tool-tip--standard('bottom')
+  +tool-tip--standard('right')
+
+  hr
+
+  h4 Notes
+  ul
+    li
+      | To enable interactivity, run the following javascript in the browser console:
+      |
+      code $('[data-toggle="tooltip"]').tooltip()
