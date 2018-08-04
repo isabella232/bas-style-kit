@@ -18,6 +18,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Moving use of margin-top from alert component in preparation for Bootstrap 4
 
+### Removed
+
+* [Styles] Orphaned variables for the removed band component
+
 ## [0.4.0] - 2018-07-06
 
 ### Added
