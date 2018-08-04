@@ -15,7 +15,7 @@ mixin form-input--collection()
 
 mixin form-input--basic(type)
   section.app-sample-section
-    header Input only
+    header Input only (unstyled)
     input(type=type)
 
 mixin form-input--form-group(element_type, type, use_section, use_form)
@@ -89,7 +89,7 @@ mixin form-input--form-group-validation-state(type, validation_state)
   section.app-sample-section
     header Form group with a #[em #{ validation_state }] validation state
     form
-      fieldset.bsk-form-group(class='bsk-has-#{ validation_state }')
+      fieldset.bsk-form-group(class='bsk-has-' + validation_state)
         label.bsk-control-label #{ type } input with #{ validation_state } validation
         input.bsk-form-control(type='#{ type }')
 
