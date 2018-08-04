@@ -7,13 +7,21 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
+* [Styles] Documenting the backlog development phase is custom
+* [Styles] Clarifying in the forms testbed mixin how the first example of an input is unstyled
+* [Styles] Correcting how validation classes for testing validation states are applied in the forms testbed mixin
 * [Infrastructure] Corrected NPM package publishing steps
 * [Infrastructure] Ignoring testbed form NPM package
 * [Infrastructure] Corrected license in package definition
 
 ### Changed
 
+* [Styles] Refactoring focus state for form inputs to act like the GDS styles but using our active component colour
 * [Styles] Moving use of margin-top from alert component in preparation for Bootstrap 4
+
+### Removed
+
+* [Styles] Orphaned variables for the removed band component
 
 ## [0.4.0] - 2018-07-06
 

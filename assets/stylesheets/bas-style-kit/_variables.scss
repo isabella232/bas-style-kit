@@ -150,7 +150,7 @@ $brand-danger:                                $bsk-colour-std-red-base;
 $brand-experimental:                          $bsk-colour-std-mauve-base;
 
 // GDS agile development phases
-$development-phase-backlog:                   $bsk-colour-ext-purple-base;
+$development-phase-backlog:                   $bsk-colour-ext-purple-base;  // Custom - from DWP
 $development-phase-discovery:                 $bsk-colour-std-fuschia-base;
 $development-phase-alpha:                     $bsk-colour-std-pink-base;
 $development-phase-beta:                      $bsk-colour-std-orange-base;
@@ -361,6 +361,8 @@ $table-border-color:                          $bsk-colour-std-grey-light;
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
 //
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in Bootstrap v4
+
+$input-border-focus:                          $component-active-bg;
 
 $input-border-radius:                         $border-radius-base;
 $input-border-radius-base:                    $border-radius-base;
@@ -704,19 +706,6 @@ $sidebar-default-bg:                          $bsk-colour-std-grey-lighter;
 
 $sidebar-inverse-colour:                      $component-inverse-color;
 $sidebar-inverse-bg:                          $component-inverse-bg;
-
-
-// Bands
-//
-// Custom component - based loosely on the well component
-
-$band-padding-vertical:                       ($padding-large-vertical * 4);
-
-$band-md-padding-vertical:                    ($padding-large-vertical * 3);
-$band-sm-padding-vertical:                    $padding-large-vertical;
-
-$band-default-bg:                             $bsk-colour-std-white;
-$band-inverse-bg:                             $component-inverse-bg;
 
 
 // Image Copyright
