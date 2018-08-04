@@ -1,0 +1,25 @@
+mixin tool-tip--standard(direction)
+  section.app-sample-section.app-spacing-bottom-xl
+    if direction == 'top'
+      header Standard (direction: #{ direction }, extra top-margin added)
+      button.bsk-btn.bsk-btn-default(
+        type='button'
+        data-toggle='tooltip'
+        data-placement=direction
+        title='tooltip on the ' + direction
+        style={'margin-top': '30px'}) Tooltip (#{ direction })
+    else if direction == 'left'
+      header Standard (direction: #{ direction }, extra left-margin added)
+      button.bsk-btn.bsk-btn-default(
+        type='button'
+        data-toggle='tooltip'
+        data-placement=direction
+        title='tooltip on the ' + direction
+        style={'margin-left': '130px'}) Tooltip (#{ direction })
+    else
+      header Standard (direction: #{ direction })
+      button.bsk-btn.bsk-btn-default(
+        type='button'
+        data-toggle='tooltip'
+        data-placement=direction
+        title='tooltip on the ' + direction) Tooltip (#{ direction })
