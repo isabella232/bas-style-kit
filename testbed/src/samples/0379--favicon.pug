@@ -1,0 +1,24 @@
+//-
+  sample:
+    title: Favicon
+  collections:
+    - core--favicon
+  ---
+
+extends ../layouts/app-sample.pug
+
+block append head
+  link(rel='apple-touch-icon' sizes='180x180' href='/' + testbed_version + '/dist/img/favicon/apple-touch-icon.png')
+  link('rel'='icon' type='image/png' sizes='32x32' href='/' + testbed_version + '/dist/img/favicon/favicon-32x32.png')
+  link('rel'='icon' type='image/png' sizes='16x16' href='/' + testbed_version + '/dist/img/favicon/favicon-16x16.png')
+  link('rel'='manifest' href='/' + testbed_version + '/dist/img/favicon/site.webmanifest')
+  link('rel'='mask-icon' href='/' + testbed_version + '/dist/img/favicon/safari-pinned-tab.svg' color='#222222')
+  link('rel'='shortcut icon' href='/' + testbed_version + '/dist/img/favicon/favicon.ico')
+  meta('name'='msapplication-TileColor' content='#222222')
+  meta('name'='msapplication-config' content='/' + testbed_version + '/dist/img/favicon/browserconfig.xml')
+  meta('name'='theme-color' content='#222222')
+
+block sample
+  h4 Notes
+  ul
+    li This sample appends additional code to the HTML #[code head] element

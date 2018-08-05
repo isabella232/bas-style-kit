@@ -151,6 +151,7 @@ copy-images-app:
   stage: build
   script:
     - "./node_modules/gulp/bin/gulp.js copy--img"
+    - "./node_modules/gulp/bin/gulp.js generate--favicon--manifests"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-imgs-app"
     paths:
