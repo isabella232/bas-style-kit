@@ -650,14 +650,30 @@ $ npm pack
 
 ### After release
 
-1. bump version, and add `-develop` prefix to version string in:
-    * `package.json`
-    * `docker-compose.yml` - `app` Docker image
-    * `.gitlab-ci.yml` - default Docker image
-    * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
-2. build & push the docker image
+If a major version has just been published:
 
-This is to guard against updating the Docker image for a released version.
+1. bump the version and add `-develop` prefix in:
+  * `package.json`
+  * `docker-compose.yml` - `app` Docker image
+  * `.gitlab-ci.yml` - default Docker image
+2. bump the version and add the next development phase as a prefix in:
+  * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
+  * `/gulpfile.js` - `.bsk-version`
+3. build & push the docker image
+
+If a development phase has just been published (e.g. `0.4.0-alpha`):
+
+1. bump the development phase prefix in:
+  * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
+  * `/gulpfile.js` - `bsk-version`
+
+This is to prevent overwriting a 'released' docker image tag with future changes and prevent publishing a development
+version to a release tag in NPM (as versions cannot be overwritten).
+
+For example:
+
+* if version `0.4.0` has just been published, use `0.5.0-develop` and/or `0.5.0-alpha` as indicated
+* if version `0.5.0-alpha` has just been published, leave `0.5.0-develop` and use `0.5.0-beta` as indicated
 
 ## Issue tracking
 

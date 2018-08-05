@@ -1,7 +1,8 @@
 'use strict';
 /*eslint-env node */
 
-var del  = require('del'),
+var fs   = require('fs'),
+    del  = require('del'),
     path = require('path');
 
 var gulp         = require('gulp'),
@@ -19,7 +20,12 @@ var gulp         = require('gulp'),
     cssprefixer  = require('gulp-class-prefix'),
     autoprefixer = require('gulp-autoprefixer');
 
+const bsk_version = '0.5.0-alpha';
+
 const config = {
+  'variables': {
+    'bsk-version': bsk_version
+  },
   'sources': {
     'stylesheets': path.join('.', 'assets', 'stylesheets'),
     'javascripts': path.join('.', 'assets', 'javascripts'),
@@ -60,6 +66,29 @@ const config = {
     'cssprefixer': {
       'prefix': 'bsk-'
     }
+  },
+  'manifests': {
+    'favicon': {
+      'web_manifest': {
+        "name": "",
+        "short_name": "",
+        "icons": [
+          {
+            "src": "https://cdn.web.bas.ac.uk/bas-style-kit/" + bsk_version + "/dist/img/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "src": "https://cdn.web.bas.ac.uk/bas-style-kit/" + bsk_version + "/dist/img/favicon/android-chrome-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+          }
+        ],
+        "theme_color": "#222222",
+        "background_color": "#222222"
+      },
+      'browser_config': '<?xml version="1.0" encoding="utf-8"?><browserconfig><msapplication><tile><square150x150logo src="https://cdn.web.bas.ac.uk/bas-style-kit/' + bsk_version + '/dist/img/favicon/mstile-150x150.png"/><TileColor>#222222</TileColor></tile></msapplication></browserconfig>'
+    }
   }
 };
 
@@ -90,7 +119,11 @@ gulp.task('copy--font--font-awesome', copyFontFontAwesome);
 
 gulp.task('copy--img--bas-logo', copyImagesBasLogo);
 gulp.task('copy--img--bas-roundel', copyImagesBasRoundel);
+gulp.task('copy--img--bas-favicon', copyImagesBasFavicon);
 gulp.task('copy--img--ogl-symbol', copyImagesOglSymbol);
+
+gulp.task('generate--favicon--web-manifest', generateFaviconWebManifest);
+gulp.task('generate--favicon--browser-config', generateBrowserConfig);
 
 gulp.task('lint--sass', lintSass);
 gulp.task('lint--js', lintJs);
@@ -122,7 +155,12 @@ gulp.task('copy--fonts', gulp.parallel(
 gulp.task('copy--img', gulp.parallel(
   'copy--img--bas-logo',
   'copy--img--bas-roundel',
+  'copy--img--bas-favicon',
   'copy--img--ogl-symbol'
+));
+gulp.task('generate--favicon--manifests', gulp.parallel(
+  'generate--favicon--web-manifest',
+  'generate--favicon--browser-config'
 ));
 
 gulp.task('clean', gulp.parallel(
@@ -138,7 +176,8 @@ gulp.task('build', gulp.parallel(
 ));
 gulp.task('copy', gulp.parallel(
   'copy--fonts',
-  'copy--img'
+  'copy--img',
+  'generate--favicon--manifests'
 ));
 gulp.task('lint', gulp.parallel(
   'lint--sass',
@@ -361,6 +400,20 @@ function copyImagesBasRoundel(done) {
   );
 }
 
+function copyImagesBasFavicon(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.images, 'bas-favicon', '*.*'),
+        '!' + path.join(config.sources.images, 'bas-favicon', 'src-mstile.png'),
+        '!' + path.join(config.sources.images, 'bas-favicon', 'src.png')
+      ]),
+      gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'favicon'))
+    ],
+    done
+  );
+}
+
 function copyImagesOglSymbol(done) {
   pump(
     [
@@ -369,6 +422,22 @@ function copyImagesOglSymbol(done) {
       ]),
       gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols'))
     ],
+    done
+  );
+}
+
+function generateFaviconWebManifest(done) {
+  fs.writeFile(
+    path.join(config.destinations.dist, config.destinations.img, 'favicon', 'site.webmanifest'),
+    JSON.stringify(config.manifests.favicon.web_manifest),
+    done
+  );
+}
+
+function generateBrowserConfig(done) {
+  fs.writeFile(
+    path.join(config.destinations.dist, config.destinations.img, 'favicon', 'browserconfig.xml'),
+    config.manifests.favicon.browser_config,
     done
   );
 }
