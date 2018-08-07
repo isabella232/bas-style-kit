@@ -12,4 +12,8 @@ include ../mixins/app/samples/navs.pug
 block sample
   section.app-sample-section
     header Standard
-    +navs--drop-down(class='bsk-nav-pills')
+    +navs--drop-down(false)(class='bsk-nav-pills')
+
+  section.app-sample-section
+    header Standard (long titles)
+    +navs--drop-down(false, true)(class='bsk-nav-pills')

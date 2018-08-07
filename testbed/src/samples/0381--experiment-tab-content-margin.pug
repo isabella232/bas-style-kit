@@ -1,0 +1,58 @@
+//-
+  sample:
+    title: Tab content margin
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navs.pug
+
+block sample
+  style.
+    .bsk-tb-exp-original .bsk-tab-content {
+      margin-top: 0;
+    }
+    .bsk-tb-exp-margin1 .bsk-tab-content {
+      margin-top: 20px;
+    }
+    .bsk-tb-exp-padding1 .bsk-tab-content {
+      padding: 40px 10px;
+    }
+
+  section.app-sample-section
+    header No margin (pill)
+    div.bsk-tb-exp-original
+      +navs--basic(true)(class='bsk-nav-pills')
+
+  section.app-sample-section
+    header No margin (tabs)
+    div.bsk-tb-exp-original
+      +navs--basic(true)(class='bsk-nav-tabs')
+
+  section.app-sample-section
+    header 20px margin (pill)
+    div.bsk-tb-exp-margin1
+      +navs--basic(true)(class='bsk-nav-pills')
+
+  section.app-sample-section
+    header 20px margin (tabs)
+    div.bsk-tb-exp-margin1
+      +navs--basic(true)(class='bsk-nav-tabs')
+
+  section.app-sample-section
+    header 40px/10px content padding (pill)
+    div.bsk-tb-exp-padding1
+      +navs--basic(true)(class='bsk-nav-pills')
+
+  section.app-sample-section
+    header 40px/10px content padding (tabs)
+    div.bsk-tb-exp-padding1
+      +navs--basic(true)(class='bsk-nav-tabs')
+
+
+  hr
+
+  h4 Notes
+  ul
+    li This experiment is used to test whether spacing should be applied between a nav (pills or tabs) and nav content
+    li In this experiment #[code margin-top] is used, which is usually discouraged, this is for ease of testing only

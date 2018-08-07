@@ -1,0 +1,28 @@
+//-
+  sample:
+    title: Nav (interactive)
+    code: data-toggle="tab"
+    type: javascript
+  collections:
+    - components--navs
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/navs.pug
+
+block sample
+  section.app-sample-section
+    header Standard (pill)
+    +navs--basic(true)(class='bsk-nav-pills')
+
+  section.app-sample-section
+    header Standard (tabs)
+    +navs--basic(true)(class='bsk-nav-tabs')
+
+  section.app-sample-section
+    header Standard (pill)
+    +navs--drop-down(true)(class='bsk-nav-pills')
+
+  section.app-sample-section.spacing-bottom-xl
+    header Standard (tabs)
+    +navs--drop-down(true)(class='bsk-nav-tabs')
