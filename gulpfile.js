@@ -427,6 +427,14 @@ function copyImagesOglSymbol(done) {
 }
 
 function generateFaviconWebManifest(done) {
+  // Ensure folder structure exists
+  if(!fs.existsSync(path.join(config.destinations.dist)))
+    fs.mkdirSync(path.join(config.destinations.dist))
+  if(!fs.existsSync(path.join(config.destinations.dist, config.destinations.img)))
+    fs.mkdirSync(path.join(config.destinations.dist, config.destinations.img))
+  if(!fs.existsSync(path.join(config.destinations.dist, config.destinations.img, 'favicon')))
+    fs.mkdirSync(path.join(config.destinations.dist, config.destinations.img, 'favicon'))
+
   fs.writeFile(
     path.join(config.destinations.dist, config.destinations.img, 'favicon', 'site.webmanifest'),
     JSON.stringify(config.manifests.favicon.web_manifest),
@@ -435,6 +443,14 @@ function generateFaviconWebManifest(done) {
 }
 
 function generateBrowserConfig(done) {
+  // Ensure folder structure exists
+  if(!fs.existsSync(path.join(config.destinations.dist)))
+    fs.mkdirSync(path.join(config.destinations.dist))
+  if(!fs.existsSync(path.join(config.destinations.dist, config.destinations.img)))
+    fs.mkdirSync(path.join(config.destinations.dist, config.destinations.img))
+  if(!fs.existsSync(path.join(config.destinations.dist, config.destinations.img, 'favicon')))
+    fs.mkdirSync(path.join(config.destinations.dist, config.destinations.img, 'favicon'))
+
   fs.writeFile(
     path.join(config.destinations.dist, config.destinations.img, 'favicon', 'browserconfig.xml'),
     config.manifests.favicon.browser_config,
