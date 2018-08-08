@@ -13,7 +13,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] BAS Favicon based on the inverse BAS roundel
 * [Scripts] Tabs (Navs) plugin adapted from Bootstrap plugin
-* [Scripts] Tool tip plugin adapted from Bootstrap plugin
+* [Scripts] Tool-tip plugin adapted from Bootstrap plugin
+* [Scripts] Transitions plugin adapted from Bootstrap plugin
 
 ### Fixed
 
