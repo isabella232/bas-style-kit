@@ -1,15 +1,22 @@
-mixin navs--basic(interactive, long_titles)
-  - interactive = interactive || false
-  - long_titles = long_titles || false
+mixin navs--basic(long_titles_input, interactive_input, fade_effect_input)
+  - interactive = false
+  - long_titles = false
+  - fade_effect_panels = false
   - panel_class = 'nav-panel'
+  if long_titles_input == 'long_titles'
+    - long_titles = true
+  if interactive_input == 'interactive'
+    - interactive = true
+  if fade_effect_input == 'with_fade_effect'
+    - fade_effect_panels = true
   if attributes.class == 'bsk-nav-pills'
     - panel_class = 'nav-panelP'
   else if attributes.class == 'bsk-nav-tabs'
     - panel_class = 'nav-panelT'
 
-  nav(role='navigation')
-    ul.bsk-nav(class!=attributes.class role='tablist')
-      unless interactive
+  unless interactive
+    nav(role='navigation')
+      ul.bsk-nav(class!=attributes.class role='tablist')
         unless long_titles
           li(role='presentation'): a(href='#') nav 1
           li(role='presentation'): a(href='#') nav 2
@@ -22,13 +29,18 @@ mixin navs--basic(interactive, long_titles)
             | (x3) NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
             | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
           li(role='presentation'): a(href='#') Batman!
-      else
-        unless long_titles
+  else
+    nav.bsk-nav-wrapper(role='navigation')
+      unless long_titles
+        ul.bsk-nav(class!=attributes.class role='tablist')
           li.bsk-active(role='presentation'): a(href='#' + panel_class + 'A1' role='tab' data-toggle='tab') nav 1
           li(role='presentation'): a(href='#' + panel_class + 'A2' role='tab' data-toggle='tab') nav 2
           li(role='presentation'): a(href='#' + panel_class + 'A3' role='tab' data-toggle='tab') nav 3
           li(role='presentation'): a(href='#' + panel_class + 'A4' role='tab' data-toggle='tab') nav 4
-        else
+
+        +navs--nav-panels(panel_class + 'A', fade_effect_panels)
+      else
+        ul.bsk-nav(class!=attributes.class role='tablist')
           li.bsk-active(role='presentation'): a(href='#' + panel_class + 'B1' role='tab' data-toggle='tab') nav 1
           li(role='presentation'): a(href='#' + panel_class + 'B2' role='tab' data-toggle='tab') NA NA NA NA NA NA NA NA NA NA NA NA NA NA
           li(role='presentation'): a(href='#' + panel_class + 'B3' role='tab' data-toggle='tab')
@@ -36,47 +48,55 @@ mixin navs--basic(interactive, long_titles)
             | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
           li(role='presentation'): a(href='#' + panel_class + 'B4' role='tab' data-toggle='tab') Batman!
 
-    if interactive
-      unless long_titles
-        +navs--nav-panels(panel_class + 'A')
-      else
-        +navs--nav-panels(panel_class + 'B')
+        +navs--nav-panels(panel_class + 'B', fade_effect_panels)
 
-mixin navs--drop-down(interactive, long_titles)
-  - interactive = interactive || false
-  - long_titles = long_titles || false
+mixin navs--drop-down(long_titles_input, interactive_input, fade_effect_input)
+  - interactive = false
+  - long_titles = false
+  - fade_effect_panels = false
   - panel_class = 'nav-panel'
+  if long_titles_input == 'long_titles'
+    - long_titles = true
+  if interactive_input == 'interactive'
+    - interactive = true
+  if fade_effect_input == 'with_fade_effect'
+    - fade_effect_panels = true
   if attributes.class == 'bsk-nav-pills'
     - panel_class = 'nav-panelP'
   else if attributes.class == 'bsk-nav-tabs'
     - panel_class = 'nav-panelT'
-  nav(role='navigation')
-    ul.bsk-nav(class!=attributes.class role='tablist')
-      unless interactive
+
+  unless interactive
+    nav(role='navigation')
+      ul.bsk-nav(class!=attributes.class role='tablist')
         unless long_titles
-          li(role='presentation'): a(href='#') nav 1
-          li(role='presentation'): a(href='#') nav 2
-          li.bsk-dropdown(role='presentation')
-            a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
-              | dropdown
-              span.bsk-caret
-            ul.bsk-dropdown-menu
-              li: a(href='#') Action (nav 3)
-              li: a(href='#') Another item (nav 4)
+          ul.bsk-nav(class!=attributes.class role='tablist')
+            li(role='presentation'): a(href='#') nav 1
+            li(role='presentation'): a(href='#') nav 2
+            li.bsk-dropdown(role='presentation')
+              a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                | dropdown
+                span.bsk-caret
+              ul.bsk-dropdown-menu
+                li: a(href='#') Action (nav 3)
+                li: a(href='#') Another item (nav 4)
         else
-          li(role='presentation'): a(href='#') nav 1
-          li(role='presentation'): a(href='#') NA NA NA NA NA NA NA NA NA NA NA NA NA NA
-          li.bsk-dropdown(role='presentation')
-            a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
-              | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
-              span.bsk-caret
-            ul.bsk-dropdown-menu
-              li: a(href='#')
-                | (x3) NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
-                | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
-              li: a(href='#') Batman!
-      else
-        unless long_titles
+          ul.bsk-nav(class!=attributes.class role='tablist')
+            li(role='presentation'): a(href='#') nav 1
+            li(role='presentation'): a(href='#') NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+            li.bsk-dropdown(role='presentation')
+              a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+                span.bsk-caret
+              ul.bsk-dropdown-menu
+                li: a(href='#')
+                  | (x3) NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+                  | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+                li: a(href='#') Batman!
+  else
+    nav.bsk-nav-wrapper(role='navigation')
+      unless long_titles
+        ul.bsk-nav(class!=attributes.class role='tablist')
           li.bsk-active(role='presentation'): a(href='#' + panel_class + 'C1' role='tab' data-toggle='tab') nav 1
           li(role='presentation'): a(href='#' + panel_class + 'C2' role='tab' data-toggle='tab') nav 2
           li.bsk-dropdown(role='presentation')
@@ -86,7 +106,10 @@ mixin navs--drop-down(interactive, long_titles)
             ul.bsk-dropdown-menu
               li: a(href='#' + panel_class + 'C3' role='tab' data-toggle='tab') Action (nav 3)
               li: a(href='#' + panel_class + 'C4' role='tab' data-toggle='tab') Another item (nav 4)
-        else
+
+        +navs--nav-panels(panel_class + 'C', fade_effect_panels)
+      else
+        ul.bsk-nav(class!=attributes.class role='tablist')
           li.bsk-active(role='presentation'): a(href='#' + panel_class + 'D1' role='tab' data-toggle='tab') nav 1
           li(role='presentation'): a(href='#' + panel_class + 'D2' role='tab' data-toggle='tab') NA NA NA NA NA NA NA NA NA NA NA NA NA NA
           li.bsk-dropdown(role='presentation')
@@ -99,11 +122,7 @@ mixin navs--drop-down(interactive, long_titles)
                 | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
               li: a(href='#' + panel_class + 'D4' role='tab' data-toggle='tab') Batman!
 
-    if interactive
-      unless long_titles
-        +navs--nav-panels(panel_class + 'C')
-      else
-        +navs--nav-panels(panel_class + 'D')
+        +navs--nav-panels(panel_class + 'D', fade_effect_panels)
 
 mixin navs--variant(variant)
   nav(role='navigation')
@@ -115,9 +134,15 @@ mixin navs--variant(variant)
         li.bsk-disabled(role='presentation'): a(href='#') disabled nav
       li(role='presentation'): a(href='#') nav 2
 
-mixin navs--nav-panels(set)
+mixin navs--nav-panels(set, fade_effect)
   div.bsk-tab-content
-    div.bsk-tab-pane.bsk-active(role='tabpanel' id=set + '1') Nav pane 1
-    div.bsk-tab-pane(role='tabpanel' id=set + '2') Nav panel 2
-    div.bsk-tab-pane(role='tabpanel' id=set + '3') Nav panel 3
-    div.bsk-tab-pane(role='tabpanel' id=set + '4') Nav panel 4
+    unless fade_effect
+      div.bsk-tab-pane.bsk-active(role='tabpanel' id=set + '1') Nav pane 1
+      div.bsk-tab-pane(role='tabpanel' id=set + '2') Nav panel 2
+      div.bsk-tab-pane(role='tabpanel' id=set + '3') Nav panel 3
+      div.bsk-tab-pane(role='tabpanel' id=set + '4') Nav panel 4
+    else
+      div.bsk-tab-pane.bsk-fade.bsk-active.bsk-in(role='tabpanel' id=set + '1') Nav pane 1
+      div.bsk-tab-pane.bsk-fade(role='tabpanel' id=set + '2') Nav panel 2
+      div.bsk-tab-pane.bsk-fade(role='tabpanel' id=set + '3') Nav panel 3
+      div.bsk-tab-pane.bsk-fade(role='tabpanel' id=set + '4') Nav panel 4

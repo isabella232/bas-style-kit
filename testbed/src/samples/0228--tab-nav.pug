@@ -12,8 +12,8 @@ include ../mixins/app/samples/navs.pug
 block sample
   section.app-sample-section
     header Standard
-    +navs--basic(false)(class='bsk-nav-tabs')
+    +navs--basic('no_long_titles', 'non_interactive', 'no_fade_effect')(class='bsk-nav-tabs')
 
   section.app-sample-section
     header Standard (long titles)
-    +navs--basic(false, true)(class='bsk-nav-tabs')
+    +navs--basic('long_titles', 'non_interactive', 'no_fade_effect')(class='bsk-nav-tabs')

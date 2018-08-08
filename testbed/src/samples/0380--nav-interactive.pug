@@ -13,16 +13,23 @@ include ../mixins/app/samples/navs.pug
 block sample
   section.app-sample-section
     header Standard (pill)
-    +navs--basic(true)(class='bsk-nav-pills')
+    +navs--basic('no_long_titles', 'interactive', 'no_fade_effect')(class='bsk-nav-pills')
 
   section.app-sample-section
     header Standard (tabs)
-    +navs--basic(true)(class='bsk-nav-tabs')
+    +navs--basic('no_long_titles', 'interactive', 'no_fade_effect')(class='bsk-nav-tabs')
+
+    header Standard (pill, with fade effect)
+    +navs--basic('no_long_titles', 'interactive', 'with_fade_effect')(class='bsk-nav-pills')
 
   section.app-sample-section
-    header Standard (pill)
-    +navs--drop-down(true)(class='bsk-nav-pills')
+    header Standard (tabs, with fade effect)
+    +navs--basic('no_long_titles', 'interactive', 'with_fade_effect')(class='bsk-nav-tabs')
+
+  section.app-sample-section
+    header Drop-down (pill)
+    +navs--drop-down('no_long_titles', 'interactive', 'no_fade_effect')(class='bsk-nav-pills')
 
   section.app-sample-section.app-spacing-bottom-xl
-    header Standard (tabs)
-    +navs--drop-down(true)(class='bsk-nav-tabs')
+    header Drop-down (tabs)
+    +navs--drop-down('no_long_titles', 'interactive', 'no_fade_effect')(class='bsk-nav-tabs')
