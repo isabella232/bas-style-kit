@@ -12,5 +12,5 @@ include ../mixins/app/samples/navs.pug
 block sample
   section.app-sample-section
     header Standard
-    +navs--basic(class='bsk-nav-justified bsk-nav-tabs')
-    +navs--drop-down(class='bsk-nav-justified bsk-nav-tabs')
+    +navs--basic('no_long_titles', 'non_interactive', 'no_fade_effect')(class='bsk-nav-justified bsk-nav-tabs')
+    +navs--drop-down('no_long_titles', 'non_interactive', 'no_fade_effect')(class='bsk-nav-justified bsk-nav-tabs')
