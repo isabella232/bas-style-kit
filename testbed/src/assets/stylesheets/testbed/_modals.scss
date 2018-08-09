@@ -1,0 +1,18 @@
+//
+// Modals
+// --------------------------------------------------
+
+.modal-static {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: 1;
+  display: block;
+
+  .bsk-modal-dialog {
+    margin-top: 60px;
+  }
+}
+
