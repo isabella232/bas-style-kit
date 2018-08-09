@@ -1,0 +1,30 @@
+//-
+  sample:
+    title: Button (interactive)
+    code: data-toggle="button", data-toggle="buttons"
+    type: javascript
+  collections:
+    - core--buttons
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header Single button toggle
+    button.bsk-btn.bsk-btn-default(type='button' data-toggle='button' aria-pressed='false' autocomplete='off') single toggle button
+
+  section.app-sample-section
+    header Single button toggle (pre-toggled)
+    button.bsk-btn.bsk-btn-default.bsk-active(type='button' data-toggle='button' aria-pressed='true' autocomplete='off') single toggle button
+
+  section.app-sample-section
+    header Multiple buttons toggle
+    div.bsk-btn-group.app-spacing-bottom(role='group' data-toggle='buttons')
+      +button(class='bsk-btn bsk-btn-default')
+        | one
+      +button(class='bsk-btn bsk-btn-default')
+        | two
+      +button(class='bsk-btn bsk-btn-default')
+        | three
