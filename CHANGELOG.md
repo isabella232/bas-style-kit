@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Styles] Source EPS files for BAS roundal and logo
 * [Styles] BAS Favicon based on the inverse BAS roundel
 * [Scripts] Buttons plugin adapted from Bootstrap plugin
 * [Scripts] Tabs (Navs) plugin adapted from Bootstrap plugin
@@ -31,6 +32,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Refactoring focus state for form inputs to act like the GDS styles but using our active component colour
 * [Styles] Moving use of margin-top from alert component in preparation for Bootstrap 4
+* [Scripts] Source files prefixed with numbers to ensure correct build order
 
 ### Removed
 
