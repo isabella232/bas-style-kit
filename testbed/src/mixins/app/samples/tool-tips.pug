@@ -1,25 +1,28 @@
 mixin tool-tip--standard(direction)
   section.app-sample-section.app-spacing-bottom-xl
     if direction == 'top'
-      header Standard (direction: #{ direction }, extra top-margin added)
-      button.bsk-btn.bsk-btn-default(
-        type='button'
-        data-toggle='tooltip'
-        data-placement=direction
-        title='tooltip on the ' + direction
-        style={'margin-top': '30px'}) Tooltip (#{ direction })
+      - var style = {};
+      - style['margin-top'] = '30px'
+      +tool-top--common(direction, 'extra top-margin added', style)
     else if direction == 'left'
-      header Standard (direction: #{ direction }, extra left-margin added)
-      button.bsk-btn.bsk-btn-default(
-        type='button'
-        data-toggle='tooltip'
-        data-placement=direction
-        title='tooltip on the ' + direction
-        style={'margin-left': '130px'}) Tooltip (#{ direction })
+      - var style = {};
+      - style['margin-left'] = '130px'
+      +tool-top--common(direction, 'extra left-margin added', style)
     else
-      header Standard (direction: #{ direction })
-      button.bsk-btn.bsk-btn-default(
-        type='button'
-        data-toggle='tooltip'
-        data-placement=direction
-        title='tooltip on the ' + direction) Tooltip (#{ direction })
+      +tool-top--common(direction)
+
+mixin tool-top--common(direction, header_extra, style)
+  - var attributes = {};
+  - attributes['type'] = 'button';
+  - attributes['data-toggle'] = 'tooltip'
+  - attributes['data-placement'] = direction
+  - attributes['title'] = 'tooltip on the ' + direction
+  - attributes['style'] = style
+
+  header Standard (direction: #{ direction }) #{ header_extra }
+  button.bsk-btn.bsk-btn-default(
+    type='button'
+    data-toggle='tooltip'
+    data-placement=direction
+    style=style
+    title='tooltip on the ' + direction) Tooltip (#{ direction })
