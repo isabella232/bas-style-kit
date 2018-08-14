@@ -1,13 +1,11 @@
 'use strict';
 /*eslint-env node */
 
-var fs   = require("fs"),
-    del  = require('del'),
+var del  = require('del'),
     path = require('path');
 
 var gulp         = require('gulp'),
     pump         = require('pump'),
-    log          = require('fancy-log'),
     map          = require('map-stream'),
     pug          = require('gulp-pug'),
     zip          = require('gulp-zip'),

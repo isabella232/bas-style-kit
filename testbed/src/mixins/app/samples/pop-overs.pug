@@ -1,0 +1,39 @@
+mixin pop-over--standard(direction)
+  section.app-sample-section.app-spacing-bottom-xl
+    if direction == 'top'
+      - var style = {};
+      - style['margin-top'] = '80px'
+      - style['margin-left'] = '20px'
+      +pop-over--common(direction, 'extra top-margin and left-margin added', style)
+    else if direction == 'left'
+      - var style = {};
+      - style['margin-left'] = '160px'
+      - style['margin-top'] = '20px'
+      +pop-over--common(direction, 'extra left-margin and top-margin added', style)
+    else if direction == 'right'
+      - var style = {};
+      - style['margin-top'] = '20px'
+      +pop-over--common(direction, 'extra top-margin added', style)
+    else if direction == 'bottom'
+      - var style = {};
+      - style['margin-left'] = '20px'
+      +pop-over--common(direction, 'extra left-margin added', style)
+    else
+      +pop-over--common(direction)
+
+mixin pop-over--common(direction, header_extra, style)
+  - var attributes = {};
+  - attributes['type'] = 'button';
+  - attributes['data-toggle'] = 'tooltip'
+  - attributes['data-placement'] = direction
+  - attributes['title'] = 'tooltip on the ' + direction
+  - attributes['style'] = style
+
+  header Standard (direction: #{ direction }) #{ header_extra }
+  button.bsk-btn.bsk-btn-default(
+    type='button'
+    data-toggle='popover'
+    data-placement=direction
+    data-content='Popover content'
+    style=style
+    title='popover on the ' + direction) Popover (#{ direction })
