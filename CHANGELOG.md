@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Scripts] Buttons plugin adapted from Bootstrap plugin
 * [Scripts] Tabs (Navs) plugin adapted from Bootstrap plugin
 * [Scripts] Tool-tip plugin adapted from Bootstrap plugin
+* [Scripts] Pop-overs plugin adapted from Bootstrap plugin
 * [Scripts] Transitions plugin adapted from Bootstrap plugin
 
 ### Fixed
