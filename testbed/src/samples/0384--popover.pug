@@ -1,0 +1,26 @@
+//-
+  sample:
+    title: Pop-Over
+    code: data-toggle="popover"
+    type: javascript
+  collections:
+    - components--popover
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/pop-overs.pug
+
+block sample
+  +pop-over--standard('top')
+  +pop-over--standard('left')
+  +pop-over--standard('bottom')
+  +pop-over--standard('right')
+
+  hr
+
+  h4 Notes
+  ul
+    li
+      | To enable interactivity, run the following javascript in the browser console:
+      |
+      code $('[data-toggle="popover"]').popover()
