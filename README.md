@@ -616,7 +616,6 @@ Merge requests **WILL NOT** be accepted on this mirror.
     * `package.json`
     * `docker-compose.yml` - `app` Docker image
     * `.gitlab-ci.yml` - default Docker image
-    * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
 3. build & push the docker image
 4. close release in `CHANGELOG.md`
 5. merge release branch with master and tag with version
@@ -656,9 +655,10 @@ If a major version has just been published:
   * `package.json`
   * `docker-compose.yml` - `app` Docker image
   * `.gitlab-ci.yml` - default Docker image
-2. bump the version and add the next development phase as a prefix in:
+2. bump the version and add the next development phase in:
   * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
-  * `/gulpfile.js` - `.bsk-version`
+  * `/assets/scripts/javascripts/bas-style-kit/0_version.js` - `Version.VERSION` variable
+  * `/gulpfile.js` - `bsk-version` variable
 3. build & push the docker image
 
 If a development phase has just been published (e.g. `0.4.0-alpha`):

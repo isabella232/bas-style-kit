@@ -1,0 +1,17 @@
+//-
+  sample:
+    title: BSK Version
+    type: javascript
+  collections:
+    - core--meta
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  h4 Notes
+  ul
+    li
+      | To view the BAS Style Kit version run the following javascript in the browser console:
+      |
+      code $.fn.bsk_version.Constructor.VERSION
