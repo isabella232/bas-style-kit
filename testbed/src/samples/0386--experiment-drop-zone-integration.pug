@@ -1,0 +1,22 @@
+//-
+  sample:
+    title: Drop-zone integration
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  script(type='text/javascript' src='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/js/dropzone.min.js')
+  link(rel='stylesheet' href='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/css/dropzone.min.css')
+
+  section.app-sample-section
+    header Plugin default
+    form#example-dropzone.dropzone(action='#')
+
+  hr
+
+  h4 Notes
+  ul
+    li This experiment relies on 3rd party dependencies meaning it is more likely to degrade
+    li In this experiment #[code margin-top] is used, which is usually discouraged, this is for ease of testing only
