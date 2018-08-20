@@ -1,7 +1,7 @@
 #
 # This file is used to define resources for storage resources managed through S3
 
-# Example (Staging)
+# Testbed
 #
 # This resource relies on the AWS Terraform provider being previously configured.
 #
