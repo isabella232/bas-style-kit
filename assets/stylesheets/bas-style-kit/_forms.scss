@@ -40,3 +40,47 @@
 .has-error {
   @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
 }
+
+// Drag and Drop file form control (Dropzone)
+
+.form-control.dropzone {
+  height: auto;
+  border-width: 2px;
+  border-style: dashed;
+
+  .dropzone-upload-message {
+    padding: 80px 0;
+    background-color: $bsk-colour-std-grey-lighter;
+    text-align: center;
+    cursor: pointer;
+  }
+  .dropzone-file-list {
+    display: none;
+  }
+  .dropzone-file-list-header {
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 2px solid $bsk-colour-std-grey-lighter;
+  }
+  .dropzone-file-list-item {
+    padding: 5px 0;
+    border-bottom: 1px solid $bsk-colour-std-grey-lighter;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .item-action-remove {
+      text-decoration: underline;
+    }
+  }
+}
+
+.form-control.dropzone.dropzone-started {
+  .dropzone-upload-message {
+    display: none;
+  }
+  .dropzone-file-list {
+    display: block;
+  }
+}
