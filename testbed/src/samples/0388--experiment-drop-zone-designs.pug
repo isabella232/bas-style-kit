@@ -15,9 +15,7 @@ block sample
       padding: 90px 0 110px;
     }
     .x-dz-option.x-dz-state-populated .bsk-form-control {
-      height: 115px;
       text-align: left;
-      padding: 10px 10px 30px;
     }
 
     .x-dz-option-1 .bsk-form-control {
@@ -81,19 +79,50 @@ block sample
     }
 
     .x-dz-option-1p .bsk-form-control {
+      height: 115px;
+      padding: 10px 10px 30px;
+
       border-width: 2px;
       border-style: dashed;
+    }
+
+    .x-dz-option-2p .bsk-form-control .bsk-table > thead > tr > th,
+    .x-dz-option-2p .bsk-form-control .bsk-table > tbody > tr > td {
+      border-bottom-color: #ccc;
+    }
+
+    .x-dz-option-3p .bsk-form-control {
+      height: auto;
+      border-width: 2px;
+      border-style: dashed;
+    }
+
+    .x-dz-items-header {
+      font-weight: bold;
+      padding: 10px 0;
+      border-bottom: 2px solid #ccc;
     }
 
     .x-dx-item-option-1 {
       background-color: #eeeeee;
     }
-
     .x-dx-item-option-1 .x-dz-item-ext {
       background-color: #cccc;
       text-transform: uppercase;
       height: 64px;
       padding: 25px 20px 0px 20px;
+    }
+
+    .x-dx-item-option-2 {
+      padding: 5px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .x-dx-item-option-2:last-of-type {
+      border-bottom: none;
+    }
+
+    .x-dx-item-option-2 .x-item-action-remove {
+      text-decoration: underline;
     }
 
   section.app-sample-section
@@ -158,6 +187,123 @@ block sample
                 div.bsk-media-body
                   div.bsk-h5.bsk-media-heading rock-outcrop.png
                   | 280kb
+
+  section.app-sample-section
+    header Populated state (single file) - option 2 - in a #[code bsk-form-group] and #[code table]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-state-populated.x-dz-option-2p.x-dz-option-3
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          table.bsk-table
+            thead
+              tr
+                th File Name
+                th File Size
+                th.bsk-text-right Actions
+            tbody
+              tr
+                td foo.png
+                td 200KB
+                td.bsk-text-right: a(href='#') Remove File
+
+  section.app-sample-section
+    header Populated state (multiple files) - option 2 - in a #[code bsk-form-group] and #[code table]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-state-populated.x-dz-option-2p.x-dz-option-3
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          table.bsk-table
+            thead
+              tr
+                th File Name
+                th File Size
+                th.bsk-text-right Actions
+            tbody
+              tr
+                td foo.png
+                td 200KB
+                td.bsk-text-right: a(href='#') Remove File
+              tr
+                td bar.docx
+                td 2KB
+                td.bsk-text-right: a(href='#') Remove File
+              tr
+                td rock_outcrop_cropped_to_2m_corrected_terry's_version_2_FINAL.shp
+                td 358MB
+                td.bsk-text-right: a(href='#') Remove File
+
+  section.app-sample-section
+    header Populated state (single file) - option 3 - in a #[code bsk-form-group] and a grid
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3p
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.bsk-container-fluid
+            div.bsk-row.x-dz-items-header
+              div.bsk-col-12-md-9 File Name
+              div.bsk-col-12-md-1 File Size
+              div.bsk-col-12-md-2.bsk-text-right Actions
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-12-md-9 foo.png
+              div.bsk-col-12-md-1 200KB
+              div.bsk-col-12-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove File
+
+  section.app-sample-section
+    header Populated state (multiple files) - option 3 - in a #[code bsk-form-group] and a 12 column grid
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3p
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.bsk-container-fluid
+            div.bsk-row.x-dz-items-header
+              div.bsk-col-12-md-9 File Name
+              div.bsk-col-12-md-1 File Size
+              div.bsk-col-12-md-1 Status
+              div.bsk-col-12-md-1.bsk-text-right Actions
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-12-md-9 foo.png
+              div.bsk-col-12-md-1 200KB
+              div.bsk-col-12-md-1.bsk-text-success Uploaded
+              div.bsk-col-12-md-1.bsk-text-right: a.bsk-text-danger.x-item-action-remove(href='#') Remove
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-12-md-9 bar.docx
+              div.bsk-col-12-md-1 2KB
+              div.bsk-col-12-md-1.bsk-text-success Uploaded
+              div.bsk-col-12-md-1.bsk-text-right: a.bsk-text-danger.x-item-action-remove(href='#') Remove
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-12-md-9 rock_outcrop_cropped_to_2m_corrected_terry's_version_2_FINAL.shp
+              div.bsk-col-12-md-1 358MB
+              div.bsk-col-12-md-1.bsk-text-success Uploaded
+              div.bsk-col-12-md-1.bsk-text-right: a.bsk-text-danger(href='#') Remove
+
+  section.app-sample-section
+    header Populated state (multiple files) - option 3 - in a #[code bsk-form-group] and a 24 column grid
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3p
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.bsk-container-fluid
+            div.bsk-row.x-dz-items-header
+              div.bsk-col-24-md-17 File Name
+              div.bsk-col-24-md-2 File Size
+              div.bsk-col-24-md-2 Status
+              div.bsk-col-24-md-3.bsk-text-right Actions
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-24-md-17 foo.png
+              div.bsk-col-24-md-2 200KB
+              div.bsk-col-24-md-2.bsk-text-success Uploaded
+              div.bsk-col-24-md-3.bsk-text-right: a.bsk-text-danger(href='#') Remove File
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-24-md-17 bar.docx
+              div.bsk-col-24-md-2 2KB
+              div.bsk-col-24-md-2.bsk-text-success Uploaded
+              div.bsk-col-24-md-3.bsk-text-right: a.bsk-text-danger(href='#') Remove File
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-24-md-17 rock_outcrop_cropped_to_2m_corrected_terry's_version_2_FINAL.shp
+              div.bsk-col-24-md-2 358MB
+              div.bsk-col-24-md-2.bsk-text-success Uploaded
+              div.bsk-col-24-md-3.bsk-text-right: a.bsk-text-danger(href='#') Remove File
+
 
   hr
 
