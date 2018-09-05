@@ -73,20 +73,19 @@ block sample
           div.bsk-dropzone-file-list
             div.bsk-container-fluid
               header.bsk-row.bsk-dropzone-file-list-header
-                div.bsk-col-12-md-9 File Name
-                div.bsk-col-12-md-1 File Size
-                div.bsk-col-12-md-1 File Status
-                div.bsk-col-12-md-1.bsk-text-right Actions
+                div.bsk-col-24-md-17 File Name
+                div.bsk-col-24-md-2 File Size
+                div.bsk-col-24-md-3 File Status
+                div.bsk-col-24-md-2.bsk-text-right Actions
               div.bsk-dropzone-file-list-items
                 div.bsk-row.bsk-dropzone-file-list-item
-                  div.bsk-col-12-md-9(data-dz-name)
-                  div.bsk-col-12-md-1(data-dz-size)
-                  div.bsk-col-12-md-1(data-bsk-dz-status)
-                  div.bsk-col-12-md-1.bsk-text-right: a.bsk-text-danger.bsk-item-action-remove(href='#' data-dz-remove) Remove
+                  div.bsk-col-24-md-17(data-dz-name)
+                  div.bsk-col-24-md-2(data-dz-size)
+                  div.bsk-col-24-md-3(data-bsk-dz-status)
+                  div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger.bsk-item-action-remove(href='#' data-dz-remove) Remove
+                  div.bsk-item-progress-bar(style='width:0%;' data-dz-uploadprogress)
                   //- To be refactored
                   strong.error.text-danger(data-dz-errormessage)
-                  div.progress.progress-striped.active(role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow='0')
-                    div.progress-bar.progress-bar-success(style='width:0%;' data-dz-uploadprogress)
 
   hr
 
@@ -95,7 +94,6 @@ block sample
   ul
     li remove dropzone basic styles
     li shouldn't need to specify URL since there's an action on the parent form that isn't being found
-    li upload progress?
     li upload errors
     li experiment removing default #[code dz] classes
 
@@ -126,8 +124,11 @@ block sample
       });
 
       // Add event listeners to update file status for each file item
-      dropzone.on("processing", function(file, message) {
-        $(file.previewElement).find('[data-bsk-dz-status]').text('Uploading...');
+      dropzone.on("processing", function(file) {
+        $(file.previewElement).find('[data-bsk-dz-status]').text('Pending...');
+      });
+      dropzone.on("uploadprogress", function(file, progress) {
+        $(file.previewElement).find('[data-bsk-dz-status]').text('Uploading (' + Math.round(progress) + '%)');
       });
       dropzone.on("success", function(file, message) {
         $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-success').text('Uploaded');
