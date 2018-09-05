@@ -1,6 +1,8 @@
 //-
   sample:
     title: Drop-zone
+    code: .bsk-dropzone
+    type: experiment
   ---
 
 extends ../layouts/app-sample.pug
@@ -40,10 +42,10 @@ block sample
   hr
 
   h4 TODO
-
   ul
-    li shouldn't need to specify URL since there's an action on the parent form that isn't being found
     li upload errors
+    li mobile first
+    li part of existing form (delayed upload)
     li experiment removing default #[code dz] classes
 
   script.
