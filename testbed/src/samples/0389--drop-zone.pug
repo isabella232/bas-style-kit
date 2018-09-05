@@ -9,56 +9,6 @@ block sample
   script(type='text/javascript' src='https://cdn.web.bas.ac.uk/js-libs/jquery-3.3.1.min.js')
   script(type='text/javascript' src='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/js/dropzone.min.js')
 
-  //- Dropzone basic styles
-  style.
-    .bsk-dropzone,
-    .bsk-dropzone * {
-      box-sizing: border-box;
-    }
-    .bsk-dropzone {
-      position: relative;
-    }
-    .bsk-dropzone .dz-preview {
-      position: relative;
-      display: inline-block;
-      width: 120px;
-      margin: 0.5em;
-    }
-    .bsk-dropzone .dz-preview .dz-progress {
-      display: block;
-      height: 15px;
-      border: 1px solid #aaa;
-    }
-    .bsk-dropzone .dz-preview .dz-progress .dz-upload {
-      display: block;
-      height: 100%;
-      width: 0;
-      background: green;
-    }
-    .bsk-dropzone .dz-preview .dz-error-message {
-      color: red;
-      display: none;
-    }
-    .bsk-dropzone .dz-preview.dz-error .dz-error-message,
-    .bsk-dropzone .dz-preview.dz-error .dz-error-mark {
-      display: block;
-    }
-    .dropzone .dz-preview.dz-success .dz-success-mark {
-      display: block;
-    }
-    .bsk-dropzone .dz-preview .dz-error-mark,
-    .bsk-dropzone .dz-preview .dz-success-mark {
-      position: absolute;
-      display: none;
-      left: 30px;
-      top: 30px;
-      width: 54px;
-      height: 58px;
-      left: 50%;
-      margin-left: -27px;
-    }
-
-
   section.app-sample-section
     header Standard
     form(
@@ -92,7 +42,6 @@ block sample
   h4 TODO
 
   ul
-    li remove dropzone basic styles
     li shouldn't need to specify URL since there's an action on the parent form that isn't being found
     li upload errors
     li experiment removing default #[code dz] classes
