@@ -21,7 +21,7 @@ block sample
       fieldset.bsk-form-group
         label.bsk-control-label(for='dropzone-1') File upload (Drag and Drop)
         div#dropzone-1.bsk-form-control.bsk-dropzone
-          div.bsk-dropzone-upload-message Click to select files or drag them here
+          div.bsk-dropzone-upload-message.bsk-message-initial: div.bsk-message-inner Click to select files or drag them here
           div.bsk-dropzone-file-list
             div.bsk-container-fluid
               header.bsk-row.bsk-dropzone-file-list-header
@@ -38,6 +38,8 @@ block sample
                   div.bsk-item-progress-bar(style='width:0%;' data-dz-uploadprogress)
                   //- To be refactored
                   strong.error.text-danger(data-dz-errormessage)
+          div.bsk-dropzone-upload-message.bsk-message-additional: div.bsk-message-inner Click to select more files or drag them here
+          div.bsk-dropzone-upload-message.bsk-message-additional: div.bsk-message-inner Click to select more files or drag them here
 
   hr
 

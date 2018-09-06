@@ -97,6 +97,26 @@ block sample
       border-style: dashed;
     }
 
+    .x-dz-option-3pa .bsk-form-control {
+      height: auto;
+      border: none;
+    }
+    .x-dz-option-3pa .x-dz-option-3-ub {
+      border: 2px dashed #ccc;
+      padding: 10px;
+    }
+    .x-dz-option-3pa .x-dz-option-3-ub-inner {
+      text-align: center;
+      padding: 40px 0;
+      background-color: #eee;
+    }
+
+
+    .x-dz-items {
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+
     .x-dz-items-header {
       font-weight: bold;
       padding: 10px 0;
@@ -308,6 +328,27 @@ block sample
               div.bsk-col-24-md-2 358MB
               div.bsk-col-24-md-3.bsk-text-success Uploaded
               div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove
+
+  section.app-sample-section
+    header Populated state (multiple files) - option 3 - in a #[code bsk-form-group] and a 24 column grid (alt layout)
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3pa
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.x-dz-items
+            div.bsk-container-fluid
+              div.bsk-row.x-dz-items-header
+                div.bsk-col-24-md-17 File Name
+                div.bsk-col-24-md-2 File Size
+                div.bsk-col-24-md-3 Status
+                div.bsk-col-24-md-2.bsk-text-right Actions
+              div.bsk-row.x-dx-item-option-2
+                div.bsk-col-24-md-17 foo.png
+                div.bsk-col-24-md-2 200KB
+                div.bsk-col-24-md-3 Uploading...
+                div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove
+          div.x-dz-option-3-ub
+            div.x-dz-option-3-ub-inner Click to select more files or drag them here
 
 
   hr
