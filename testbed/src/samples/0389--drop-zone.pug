@@ -2,7 +2,7 @@
   sample:
     title: Drop-zone
     code: .bsk-dropzone
-    type: experiment
+    type: javascript
   ---
 
 extends ../layouts/app-sample.pug
@@ -43,10 +43,16 @@ block sample
 
   hr
 
+  h4 Notes
+  ul
+    li This sample includes additional JavaScript libraries:
+      ul: li: a(href='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/js/dropzone.min.js') DropzoneJS
+
   h4 TODO
   ul
     li upload errors
     li mobile first
+    li add Sass variables
     li part of existing form (delayed upload)
     li experiment removing default #[code dz] classes
 
@@ -56,34 +62,36 @@ block sample
       Dropzone.autoDiscover = false;
 
       // Prepare the file list
-      var previewsTemplate = $('#dropzone-1 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').html();
+      var previewsTemplate1 = $('#dropzone-1 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').html();
       $('#dropzone-1 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').empty();
 
       // Enable dropzone on specific element
-      var dropzone = new Dropzone('#dropzone-1', {
+      var dropzone1 = new Dropzone('#dropzone-1', {
         url: 'https://bas-style-kit-file-upload.herokuapp.com/upload-single',
         previewsContainer: '#dropzone-1 .bsk-dropzone-file-list-items',
-        previewTemplate: previewsTemplate,
+        previewTemplate: previewsTemplate1,
         createImageThumbnails: false,
-        clickable: ".bsk-dropzone-upload-message"
+        clickable: "#dropzone-1 .bsk-message-inner"
       });
 
       // Add event listeners to add Style Kit specific classes
-      dropzone.on("addedfile", function(file) {
-        $('#' + dropzone.element.id).addClass('bsk-dropzone-started');
+      dropzone1.on("addedfile", function(file) {
+        $('#' + dropzone1.element.id).addClass('bsk-dropzone-started');
       });
-      dropzone.on("reset", function(file) {
-        $('#' + dropzone.element.id).removeClass('bsk-dropzone-started');
+      dropzone1.on("reset", function(file) {
+        $('#' + dropzone1.element.id).removeClass('bsk-dropzone-started');
+      });
+      });
       });
 
       // Add event listeners to update file status for each file item
-      dropzone.on("processing", function(file) {
+      dropzone1.on("processing", function(file) {
         $(file.previewElement).find('[data-bsk-dz-status]').text('Pending...');
       });
-      dropzone.on("uploadprogress", function(file, progress) {
+      dropzone1.on("uploadprogress", function(file, progress) {
         $(file.previewElement).find('[data-bsk-dz-status]').text('Uploading (' + Math.round(progress) + '%)');
       });
-      dropzone.on("success", function(file, message) {
+      dropzone1.on("success", function(file, message) {
         $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-success').text('Uploaded');
       });
     });
