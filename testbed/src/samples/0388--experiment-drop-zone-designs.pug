@@ -111,6 +111,9 @@ block sample
       background-color: #eee;
     }
 
+    .x-dz-option-3p.bsk-has-error .bsk-form-control {
+      border-style: solid;
+    }
 
     .x-dz-items {
       margin-bottom: 20px;
@@ -350,6 +353,28 @@ block sample
           div.x-dz-option-3-ub
             div.x-dz-option-3-ub-inner Click to select more files or drag them here
 
+  section.app-sample-section
+    header Error state (single file) - option 3 - in a #[code bsk-form-group] and a 24 column grid
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3p.bsk-has-error
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.bsk-container-fluid
+            div.bsk-row.x-dz-items-header
+              div.bsk-col-24-md-17 File Name
+              div.bsk-col-24-md-2 File Size
+              div.bsk-col-24-md-3 Status
+              div.bsk-col-24-md-2.bsk-text-right Actions
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-24-md-17.bsk-text-danger foo.png
+              div.bsk-col-24-md-2 200KB
+              div.bsk-col-24-md-3.bsk-text-danger Upload Error
+              div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove
+      div.bsk-alert.bsk-alert-outline.bsk-alert-danger.x-dz-items-errors
+        h4 There is a problem
+        p There was a problem adding one or more files. They have not be uploaded. If possible, fix the problem and try adding the file again.
+        br
+        ul: li #[strong foo.png] - File type uploaded is not allowed
 
   hr
 

@@ -94,6 +94,11 @@
   }
 }
 
+.dropzone-errors-container {
+  display: none;
+  margin-bottom: 20px;
+}
+
 .form-control.dropzone.dropzone-started {
   .message-initial {
     display: none;
@@ -102,6 +107,12 @@
     display: block;
   }
   .dropzone-file-list {
+    display: block;
+  }
+}
+
+.form-control.dropzone.dropzone-errors {
+  .dropzone-errors-container {
     display: block;
   }
 }

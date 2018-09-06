@@ -36,9 +36,38 @@ block sample
                   div.bsk-col-24-md-3(data-bsk-dz-status)
                   div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger.bsk-item-action-remove(href='#' data-dz-remove) Remove
                   div.bsk-item-progress-bar(style='width:0%;' data-dz-uploadprogress)
-                  //- To be refactored
-                  strong.error.text-danger(data-dz-errormessage)
           div.bsk-dropzone-upload-message.bsk-message-additional: div.bsk-message-inner Click to select more files or drag them here
+
+  section.app-sample-section
+    header Error (file size)
+    form(
+      method='POST'
+      enctype='multipart/form-data'
+      action='https://bas-style-kit-file-upload.herokuapp.com/upload-single-restricted-size'
+    )
+      fieldset.bsk-form-group
+        label.bsk-control-label(for='dropzone-2') File upload (Drag and Drop)
+        div#dropzone-2.bsk-form-control.bsk-dropzone
+          div.bsk-dropzone-upload-message.bsk-message-initial: div.bsk-message-inner Click to select files or drag them here
+          div.bsk-alert.bsk-alert-block.bsk-alert-outline.bsk-alert-danger.bsk-dropzone-errors-container
+            h4 There is a problem
+            p There was a problem adding one or more files. They have not be uploaded. If possible, fix the problem and try adding the file again.
+            br
+            ul
+          div.bsk-dropzone-file-list
+            div.bsk-container-fluid
+              header.bsk-row.bsk-dropzone-file-list-header
+                div.bsk-col-24-md-17 File Name
+                div.bsk-col-24-md-2 File Size
+                div.bsk-col-24-md-3 File Status
+                div.bsk-col-24-md-2.bsk-text-right Actions
+              div.bsk-dropzone-file-list-items
+                div.bsk-row.bsk-dropzone-file-list-item
+                  div.bsk-col-24-md-17(data-dz-name)
+                  div.bsk-col-24-md-2(data-dz-size)
+                  div.bsk-col-24-md-3(data-bsk-dz-status)
+                  div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger.bsk-item-action-remove(href='#' data-dz-remove) Remove
+                  div.bsk-item-progress-bar(style='width:0%;' data-dz-uploadprogress)
           div.bsk-dropzone-upload-message.bsk-message-additional: div.bsk-message-inner Click to select more files or drag them here
 
   hr
@@ -50,7 +79,8 @@ block sample
 
   h4 TODO
   ul
-    li upload errors
+    li add example error handling for 413 and 415 status codes
+    li update the first example with error handling code as well
     li mobile first
     li add Sass variables
     li part of existing form (delayed upload)
@@ -65,6 +95,9 @@ block sample
       var previewsTemplate1 = $('#dropzone-1 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').html();
       $('#dropzone-1 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').empty();
 
+      var previewsTemplate2 = $('#dropzone-2 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').html();
+      $('#dropzone-2 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').empty();
+
       // Enable dropzone on specific element
       var dropzone1 = new Dropzone('#dropzone-1', {
         url: 'https://bas-style-kit-file-upload.herokuapp.com/upload-single',
@@ -74,6 +107,14 @@ block sample
         clickable: "#dropzone-1 .bsk-message-inner"
       });
 
+      var dropzone2 = new Dropzone('#dropzone-2', {
+        url: 'https://bas-style-kit-file-upload.herokuapp.com/upload-single-restricted-size',
+        previewsContainer: '#dropzone-2 .bsk-dropzone-file-list-items',
+        previewTemplate: previewsTemplate2,
+        createImageThumbnails: false,
+        clickable: "#dropzone-2 .bsk-message-inner"
+      });
+
       // Add event listeners to add Style Kit specific classes
       dropzone1.on("addedfile", function(file) {
         $('#' + dropzone1.element.id).addClass('bsk-dropzone-started');
@@ -81,7 +122,11 @@ block sample
       dropzone1.on("reset", function(file) {
         $('#' + dropzone1.element.id).removeClass('bsk-dropzone-started');
       });
+      dropzone2.on("addedfile", function(file) {
+        $('#' + dropzone2.element.id).addClass('bsk-dropzone-started');
       });
+      dropzone2.on("reset", function(file) {
+        $('#' + dropzone2.element.id).removeClass('bsk-dropzone-started');
       });
 
       // Add event listeners to update file status for each file item
@@ -93,5 +138,24 @@ block sample
       });
       dropzone1.on("success", function(file, message) {
         $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-success').text('Uploaded');
+      });
+      dropzone2.on("processing", function(file) {
+        $(file.previewElement).find('[data-bsk-dz-status]').text('Pending...');
+      });
+      dropzone2.on("uploadprogress", function(file, progress) {
+        $(file.previewElement).find('[data-bsk-dz-status]').text('Uploading (' + Math.round(progress) + '%)');
+      });
+      dropzone2.on("success", function(file, message) {
+        $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-success').text('Uploaded');
+      });
+      dropzone2.on("error", function(file, message, xhr) {
+        $('#' + dropzone2.element.id).addClass('bsk-dropzone-errors');
+
+        $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-danger').text('Upload Error');
+        $(file.previewElement).find('[data-dz-name]').addClass('bsk-text-danger');
+
+        // Rewrite as a generated element
+        var element = '<li><strong>' + file.name + '</strong> - [' + xhr.status + '] ' + xhr.statusText + '</li>';
+        $('#' + dropzone2.element.id).find('.bsk-dropzone-errors-container ul').append(element);
       });
     });
