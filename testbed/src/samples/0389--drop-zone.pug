@@ -51,7 +51,7 @@ block sample
           div.bsk-dropzone-upload-message.bsk-message-initial: div.bsk-message-inner Click to select files or drag them here
           div.bsk-alert.bsk-alert-block.bsk-alert-outline.bsk-alert-danger.bsk-dropzone-errors-container
             h4 There is a problem
-            p There was a problem adding one or more files. They have not be uploaded. If possible, fix the problem and try adding the file again.
+            p One or more files could not be uploaded uploaded. If possible, fix the problem and try again.
             br
             ul
           div.bsk-dropzone-file-list
@@ -91,6 +91,9 @@ block sample
       // [General] Disable auto discover for all elements:
       Dropzone.autoDiscover = false;
 
+      // Dropzone 1
+      // ----------
+
       // [Dropzone 1] Prepare the file list
       var previewsTemplate1 = $('#dropzone-1 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').html();
       $('#dropzone-1 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').empty();
@@ -122,6 +125,9 @@ block sample
       dropzone1.on("success", function(file, message) {
         $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-success').text('Uploaded');
       });
+
+      // Dropzone 2
+      // ----------
 
       // [Dropzone 2] Prepare the file list
       var previewsTemplate2 = $('#dropzone-2 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').html();
@@ -156,7 +162,6 @@ block sample
       });
       dropzone2.on("error", function(file, message, xhr) {
         $('#' + dropzone2.element.id).addClass('bsk-dropzone-errors');
-
         $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-danger').text('Upload Error');
         $(file.previewElement).find('[data-dz-name]').addClass('bsk-text-danger');
 
