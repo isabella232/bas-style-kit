@@ -165,7 +165,48 @@ block sample
         $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-danger').text('Upload Error');
         $(file.previewElement).find('[data-dz-name]').addClass('bsk-text-danger');
 
-        var element = '<li><strong>' + file.name + '</strong> - [' + xhr.status + '] ' + xhr.statusText + '</li>';
-        $('#' + dropzone2.element.id).find('.bsk-dropzone-errors-container ul').append(element);
+        var errorMessage = '[' + xhr.status + '] ' + xhr.statusText;
+
+        // Detect specific errors
+        if (xhr.statusText == 'REQUEST ENTITY TOO LARGE') {
+          if (message.hasOwnProperty('errors')) {
+            requestEntityTooLargeError = message.errors.find(function(error) {
+              return error.title === 'Request content length is too great'
+            })
+            if (requestEntityTooLargeError !== 'undefined') {
+              var maxSize = humanFileSize(requestEntityTooLargeError.meta.maximum_content_length_allowed);
+              var fileSize = humanFileSize(requestEntityTooLargeError.meta.request_content_length);
+              errorMessage = 'File is too large, maximum allowed is <em>' + maxSize + '</em>, the file uploaded was <em>' + fileSize + '</em>';
+            }
+          }
+        }
+
+        errorMessage = '<li data-bsk-dz-file-id="' + base64Encode(file.name) + '"><strong>' + file.name + '</strong> - ' + errorMessage + '</li>';
+        $('#' + dropzone2.element.id).find('.bsk-dropzone-errors-container ul').append(errorMessage);
       });
+      dropzone2.on("removedfile", function(file) {
+        $('#' + dropzone2.element.id).find('.bsk-dropzone-errors-container ul li[data-bsk-dz-file-id="' + base64Encode(file.name) + '"]').remove();
+
+        // Check if errors container is now empty
+        if ($('#' + dropzone2.element.id).find('.bsk-dropzone-errors-container ul li').length < 1) {
+          $('#' + dropzone2.element.id).removeClass('bsk-dropzone-errors');
+        }
+      });
+
+      function humanFileSize(size) {
+        var i = size == 0 ? 0 : Math.floor( Math.log(size) / Math.log(1024) );
+        return ( size / Math.pow(1024, i) ).toFixed(2) * 1 + ' ' + ['B', 'KB', 'MB', 'GB', 'TB'][i];
+      };
+
+      function base64Encode(str) {
+        return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+          return String.fromCharCode(parseInt(p1, 16));
+        }))
+      };
+
+      function base64Decode(str) {
+        return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+        }).join(''));
+      };
     });
