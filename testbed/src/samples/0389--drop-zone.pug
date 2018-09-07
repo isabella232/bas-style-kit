@@ -88,17 +88,14 @@ block sample
 
   script.
     jQuery(function($){
-      // Disable auto discover for all elements:
+      // [General] Disable auto discover for all elements:
       Dropzone.autoDiscover = false;
 
-      // Prepare the file list
+      // [Dropzone 1] Prepare the file list
       var previewsTemplate1 = $('#dropzone-1 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').html();
       $('#dropzone-1 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').empty();
 
-      var previewsTemplate2 = $('#dropzone-2 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').html();
-      $('#dropzone-2 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').empty();
-
-      // Enable dropzone on specific element
+      // [Dropzone 1] Enable dropzone on specific element
       var dropzone1 = new Dropzone('#dropzone-1', {
         url: 'https://bas-style-kit-file-upload.herokuapp.com/upload-single',
         previewsContainer: '#dropzone-1 .bsk-dropzone-file-list-items',
@@ -107,29 +104,15 @@ block sample
         clickable: "#dropzone-1 .bsk-message-inner"
       });
 
-      var dropzone2 = new Dropzone('#dropzone-2', {
-        url: 'https://bas-style-kit-file-upload.herokuapp.com/upload-single-restricted-size',
-        previewsContainer: '#dropzone-2 .bsk-dropzone-file-list-items',
-        previewTemplate: previewsTemplate2,
-        createImageThumbnails: false,
-        clickable: "#dropzone-2 .bsk-message-inner"
-      });
-
-      // Add event listeners to add Style Kit specific classes
+      // [Dropzone 1] Add event listeners to add Style Kit specific classes
       dropzone1.on("addedfile", function(file) {
         $('#' + dropzone1.element.id).addClass('bsk-dropzone-started');
       });
       dropzone1.on("reset", function(file) {
         $('#' + dropzone1.element.id).removeClass('bsk-dropzone-started');
       });
-      dropzone2.on("addedfile", function(file) {
-        $('#' + dropzone2.element.id).addClass('bsk-dropzone-started');
-      });
-      dropzone2.on("reset", function(file) {
-        $('#' + dropzone2.element.id).removeClass('bsk-dropzone-started');
-      });
 
-      // Add event listeners to update file status for each file item
+      // [Dropzone 1] Add event listeners to update file status for each file item
       dropzone1.on("processing", function(file) {
         $(file.previewElement).find('[data-bsk-dz-status]').text('Pending...');
       });
@@ -139,6 +122,29 @@ block sample
       dropzone1.on("success", function(file, message) {
         $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-success').text('Uploaded');
       });
+
+      // [Dropzone 2] Prepare the file list
+      var previewsTemplate2 = $('#dropzone-2 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').html();
+      $('#dropzone-2 .bsk-dropzone-file-list .bsk-dropzone-file-list-items').empty();
+
+      // [Dropzone 2] Enable dropzone on specific element
+      var dropzone2 = new Dropzone('#dropzone-2', {
+        url: 'https://bas-style-kit-file-upload.herokuapp.com/upload-single-restricted-size',
+        previewsContainer: '#dropzone-2 .bsk-dropzone-file-list-items',
+        previewTemplate: previewsTemplate2,
+        createImageThumbnails: false,
+        clickable: "#dropzone-2 .bsk-message-inner"
+      });
+
+      // [Dropzone 2] Add event listeners to add Style Kit specific classes
+      dropzone2.on("addedfile", function(file) {
+        $('#' + dropzone2.element.id).addClass('bsk-dropzone-started');
+      });
+      dropzone2.on("reset", function(file) {
+        $('#' + dropzone2.element.id).removeClass('bsk-dropzone-started');
+      });
+
+      // [Dropzone 2] Add event listeners to update file status for each file item
       dropzone2.on("processing", function(file) {
         $(file.previewElement).find('[data-bsk-dz-status]').text('Pending...');
       });
@@ -154,7 +160,6 @@ block sample
         $(file.previewElement).find('[data-bsk-dz-status]').addClass('bsk-text-danger').text('Upload Error');
         $(file.previewElement).find('[data-dz-name]').addClass('bsk-text-danger');
 
-        // Rewrite as a generated element
         var element = '<li><strong>' + file.name + '</strong> - [' + xhr.status + '] ' + xhr.statusText + '</li>';
         $('#' + dropzone2.element.id).find('.bsk-dropzone-errors-container ul').append(element);
       });
