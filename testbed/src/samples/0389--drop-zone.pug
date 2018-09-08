@@ -19,10 +19,10 @@ block sample
       fieldset.bsk-form-group
         label.bsk-control-label(for='dropzone-1') File upload (Drag and Drop)
         div#dropzone-1.bsk-form-control.bsk-dropzone
-          div.bsk-dropzone-upload-message.bsk-message-initial: div.bsk-message-inner Click to select files or drag them here
+          div.bsk-dropzone-upload-target.bsk-target-initial: div.bsk-target-inner Click to select files or drag them here
           div.bsk-alert.bsk-alert-block.bsk-alert-outline.bsk-alert-danger.bsk-dropzone-errors-container
             h4 There is a problem
-            p One or more files could not be uploaded uploaded. If possible, fix the problem and try again.
+            p One or more files could not be uploaded. If possible, fix the problem and try again.
             br
             ul
           div.bsk-dropzone-file-list
@@ -31,15 +31,15 @@ block sample
                 div.bsk-col-24-md-17 File Name
                 div.bsk-col-24-md-2 File Size
                 div.bsk-col-24-md-3 File Status
-                div.bsk-col-24-md-2.bsk-text-right Actions
+                div.bsk-col-24-md-2.bsk-header-actions Actions
               div.bsk-dropzone-file-list-items
                 div.bsk-row.bsk-dropzone-file-list-item
                   div.bsk-col-24-md-17(data-dz-name)
                   div.bsk-col-24-md-2(data-dz-size)
                   div.bsk-col-24-md-3(data-bsk-dz-status)
-                  div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger.bsk-item-action-remove(href='#' data-dz-remove) Remove
+                  div.bsk-col-24-md-2.bsk-item-action-remove: a.bsk-text-danger(href='#' data-dz-remove) Remove
                   div.bsk-item-progress-bar(style='width:0%;' data-dz-uploadprogress)
-          div.bsk-dropzone-upload-message.bsk-message-additional: div.bsk-message-inner Click to select more files or drag them here
+          div.bsk-dropzone-upload-target.bsk-target-additional: div.bsk-target-inner Click to select more files or drag them here
 
   section.app-sample-section
     header Error (file size)
@@ -52,10 +52,10 @@ block sample
       fieldset.bsk-form-group
         label.bsk-control-label(for='dropzone-2') File upload (Drag and Drop)
         div#dropzone-2.bsk-form-control.bsk-dropzone
-          div.bsk-dropzone-upload-message.bsk-message-initial: div.bsk-message-inner Click to select files or drag them here
+          div.bsk-dropzone-upload-target.bsk-target-initial: div.bsk-target-inner Click to select files or drag them here
           div.bsk-alert.bsk-alert-block.bsk-alert-outline.bsk-alert-danger.bsk-dropzone-errors-container
             h4 There is a problem
-            p One or more files could not be uploaded uploaded. If possible, fix the problem and try again.
+            p One or more files could not be uploaded. If possible, fix the problem and try again.
             br
             ul
           div.bsk-dropzone-file-list
@@ -64,15 +64,15 @@ block sample
                 div.bsk-col-24-md-17 File Name
                 div.bsk-col-24-md-2 File Size
                 div.bsk-col-24-md-3 File Status
-                div.bsk-col-24-md-2.bsk-text-right Actions
+                div.bsk-col-24-md-2.bsk-header-actions Actions
               div.bsk-dropzone-file-list-items
                 div.bsk-row.bsk-dropzone-file-list-item
                   div.bsk-col-24-md-17(data-dz-name)
                   div.bsk-col-24-md-2(data-dz-size)
                   div.bsk-col-24-md-3(data-bsk-dz-status)
-                  div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger.bsk-item-action-remove(href='#' data-dz-remove) Remove
+                  div.bsk-col-24-md-2.bsk-item-action-remove: a.bsk-text-danger(href='#' data-dz-remove) Remove
                   div.bsk-item-progress-bar(style='width:0%;' data-dz-uploadprogress)
-          div.bsk-dropzone-upload-message.bsk-message-additional: div.bsk-message-inner Click to select more files or drag them here
+          div.bsk-dropzone-upload-target.bsk-target-additional: div.bsk-target-inner Click to select more files or drag them here
 
   hr
 
@@ -80,12 +80,6 @@ block sample
   ul
     li This sample includes additional JavaScript libraries:
       ul: li: a(href='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/js/dropzone.min.js') DropzoneJS
-
-  h4 TODO
-  ul
-    li mobile first
-    li add Sass variables
-    li experiment removing default #[code dz] classes
 
   script(type='text/javascript' src='https://cdn.web.bas.ac.uk/js-libs/jquery-3.3.1.min.js')
   script(type='text/javascript' src='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/js/dropzone.min.js')

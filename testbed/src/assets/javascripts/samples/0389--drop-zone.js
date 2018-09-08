@@ -15,7 +15,7 @@ jQuery(function($){
     previewsContainer: '#dropzone-1 .bsk-dropzone-file-list-items',
     previewTemplate: previewsTemplate1,
     createImageThumbnails: false,
-    clickable: "#dropzone-1 .bsk-message-inner"
+    clickable: "#dropzone-1 .bsk-target-inner"
   });
 
   // [Dropzone 1] Add event listeners to add Style Kit specific classes
@@ -68,7 +68,7 @@ jQuery(function($){
     previewsContainer: '#dropzone-2 .bsk-dropzone-file-list-items',
     previewTemplate: previewsTemplate2,
     createImageThumbnails: false,
-    clickable: "#dropzone-2 .bsk-message-inner"
+    clickable: "#dropzone-2 .bsk-target-inner"
   });
 
   // [Dropzone 2] Add event listeners to add Style Kit specific classes

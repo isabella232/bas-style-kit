@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Source EPS files for BAS roundal and logo
 * [Styles] BAS Favicon based on the inverse BAS roundel
+* [Scripts] Dropzone.js implementation as a 'drop-zone' component
 * [Scripts] Plugin for reporting the version of the Style Kit within the browser through JavaScript
 * [Scripts] Buttons plugin adapted from Bootstrap plugin
 * [Scripts] Tabs (Navs) plugin adapted from Bootstrap plugin
