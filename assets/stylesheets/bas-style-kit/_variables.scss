@@ -357,12 +357,14 @@ $table-border-color:                          $bsk-colour-std-grey-light;
 
 //== Forms
 //
+
+$input-border:                                $bsk-colour-std-grey-light;
+$input-border-focus:                          $component-active-bg;
+
 // Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
 //
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in Bootstrap v4
-
-$input-border-focus:                          $component-active-bg;
 
 $input-border-radius:                         $border-radius-base;
 $input-border-radius-base:                    $border-radius-base;

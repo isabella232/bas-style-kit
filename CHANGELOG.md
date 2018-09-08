@@ -22,6 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
+* [Styles] Form input border pinned to a standard grayscale colour
 * [Styles] Documenting the backlog development phase is custom
 * [Styles] Clarifying in the forms testbed mixin how the first example of an input is unstyled
 * [Styles] Correcting how validation classes for testing validation states are applied in the forms testbed mixin
