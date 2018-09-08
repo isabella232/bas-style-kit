@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Source EPS files for BAS roundal and logo
 * [Styles] BAS Favicon based on the inverse BAS roundel
+* [Scripts] Dropzone.js implementation as a 'drop-zone' component
 * [Scripts] Plugin for reporting the version of the Style Kit within the browser through JavaScript
 * [Scripts] Buttons plugin adapted from Bootstrap plugin
 * [Scripts] Tabs (Navs) plugin adapted from Bootstrap plugin
@@ -22,6 +23,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
+* [Styles] Form input border pinned to a standard grayscale colour
 * [Styles] Documenting the backlog development phase is custom
 * [Styles] Clarifying in the forms testbed mixin how the first example of an input is unstyled
 * [Styles] Correcting how validation classes for testing validation states are applied in the forms testbed mixin
@@ -34,6 +36,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Refactoring focus state for form inputs to act like the GDS styles but using our active component colour
 * [Styles] Moving use of margin-top from alert component in preparation for Bootstrap 4
 * [Scripts] Source files prefixed with numbers to ensure correct build order
+* [Admin] Moving colour swatch posters into a namespaced directory
 
 ### Removed
 

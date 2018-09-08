@@ -1,0 +1,26 @@
+//-
+  sample:
+    title: Drop-zone integration
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  script(type='text/javascript' src='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/js/dropzone.min.js')
+  link(rel='stylesheet' href='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/css/dropzone.min.css')
+
+  section.app-sample-section
+    header Plugin default (full styles)
+    form#example-dropzone.dropzone(
+      method='POST'
+      enctype='multipart/form-data'
+      action='https://bas-style-kit-file-upload.herokuapp.com/upload-single'
+      name='file'
+    )
+
+  hr
+
+  h4 Notes
+  ul
+    li This experiment relies on 3rd party dependencies meaning it is more likely to degrade

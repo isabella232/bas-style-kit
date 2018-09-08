@@ -1,0 +1,87 @@
+//-
+  sample:
+    title: Drop-zone basic integration
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  script(type='text/javascript' src='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/js/dropzone.min.js')
+
+  style.
+    .dropzone,
+    .dropzone * {
+      box-sizing: border-box;
+    }
+    .dropzone {
+      position: relative;
+    }
+    .dropzone .dz-preview {
+      position: relative;
+      display: inline-block;
+      width: 120px;
+      margin: 0.5em;
+    }
+    .dropzone .dz-preview .dz-progress {
+      display: block;
+      height: 15px;
+      border: 1px solid #aaa;
+    }
+    .dropzone .dz-preview .dz-progress .dz-upload {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: green;
+    }
+    .dropzone .dz-preview .dz-error-message {
+      color: red;
+      display: none;
+    }
+    .dropzone .dz-preview.dz-error .dz-error-message,
+    .dropzone .dz-preview.dz-error .dz-error-mark {
+      display: block;
+    }
+    .dropzone .dz-preview.dz-success .dz-success-mark {
+      display: block;
+    }
+    .dropzone .dz-preview .dz-error-mark,
+    .dropzone .dz-preview .dz-success-mark {
+      position: absolute;
+      display: none;
+      left: 30px;
+      top: 30px;
+      width: 54px;
+      height: 58px;
+      left: 50%;
+      margin-left: -27px;
+    }
+
+  style.
+    .x-dropdown.dropdown.dz-started {
+      display: none;
+    }
+
+  section.app-sample-section
+    header Plugin default (basic styles only)
+    form#example-dropzone.dropzone(
+      method='POST'
+      enctype='multipart/form-data'
+      action='https://bas-style-kit-file-upload.herokuapp.com/upload-single'
+      name='file'
+    )
+
+  section.app-sample-section
+    header Plugin default (basic styles plus simple additions)
+    form#example-dropzone.dropzone.x-dropzone(
+      method='POST'
+      enctype='multipart/form-data'
+      action='https://bas-style-kit-file-upload.herokuapp.com/upload-single'
+      name='file'
+    )
+
+  hr
+
+  h4 Notes
+  ul
+    li This experiment relies on 3rd party dependencies meaning it is more likely to degrade

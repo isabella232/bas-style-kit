@@ -22,6 +22,7 @@ const config = {
   'sources': {
     'source': path.join('.', 'src'),
     'stylesheets': path.join('.', 'src', 'assets', 'stylesheets'),
+    'javascripts': path.join('.', 'src', 'assets', 'javascripts'),
     'images': path.join('.', 'src', 'assets', 'images'),
     'samples': path.join('.', 'src', 'samples'),
     'public': path.join('.', 'public')
@@ -31,6 +32,7 @@ const config = {
     'public': path.join('.', 'public'),
     'assets': path.join('.', 'public', 'assets'),
     'css': path.join('css'),
+    'js': path.join('js'),
     'img': path.join('img'),
     'samples': path.join('.', 'public', 's')
   },
@@ -66,12 +68,14 @@ var runtime = {
 // Tasks build from specific to general. It's likely you will want to run the more generic tasks.
 
 gulp.task('clean--css', cleanCss);
+gulp.task('clean--js', cleanJs);
 gulp.task('clean--img', cleanImg);
 gulp.task('clean--samples', cleanSamples);
 gulp.task('clean--public-archive', cleanPublicArchive);
 gulp.task('clean--runtime', cleanRuntime);
 
 gulp.task('build--css-testbed', buildCssTestbed);
+gulp.task('build--js-testbed', buildJsTestbed);
 gulp.task('build--individual-samples', buildSamples);
 gulp.task('build--sample-redirects', buildSampleRedirects);
 gulp.task('build--samples-index', buildSampleIndex);
@@ -81,6 +85,9 @@ gulp.task('copy--img-testbed', copyImagesTestbed);
 
 gulp.task('build--css', gulp.parallel(
   'build--css-testbed'
+));
+gulp.task('build--js', gulp.parallel(
+  'build--js-testbed'
 ));
 gulp.task('copy--img', gulp.parallel(
   'copy--img-testbed'
@@ -99,6 +106,7 @@ gulp.task('watch', watchBuild);
 
 gulp.task('clean', gulp.parallel(
   'clean--css',
+  'clean--js',
   'clean--img',
   'clean--samples',
   'clean--public-archive',
@@ -106,6 +114,7 @@ gulp.task('clean', gulp.parallel(
 ));
 gulp.task('build', gulp.parallel(
   'build--css',
+  'build--js',
   'build--samples',
   'build--legal-pages'
 ));
@@ -121,6 +130,13 @@ gulp.task('archive', gulp.parallel(
 function cleanCss(done) {
   del([
       path.join(config.destinations.assets, config.destinations.css)
+  ]);
+  done();
+}
+
+function cleanJs(done) {
+  del([
+      path.join(config.destinations.assets, config.destinations.js)
   ]);
   done();
 }
@@ -160,6 +176,18 @@ function buildCssTestbed(done) {
       cssprefixer(config.modules.cssprefixer.prefix),
       autoprefixer(config.modules.autoprefixer),
       gulp.dest(path.join(config.destinations.assets, config.destinations.css))
+    ],
+    done
+  );
+}
+
+function buildJsTestbed(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.javascripts, '**/*.js')
+      ]),
+      gulp.dest(path.join(config.destinations.assets, config.destinations.js))
     ],
     done
   );

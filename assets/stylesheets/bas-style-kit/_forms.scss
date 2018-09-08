@@ -26,6 +26,7 @@
 
 .form-control {
   box-shadow: none;
+  border-color: $input-border;
 
   @include form-control-focus;
 }

@@ -1,0 +1,86 @@
+//-
+  sample:
+    title: Drop-zone
+    code: .bsk-dropzone
+    type: javascript
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard
+    p.bsk-text-info This form simulates normal use (any file, total up to 10MB)
+    form(
+      method='POST'
+      enctype='multipart/form-data'
+      action='https://bas-style-kit-file-upload.herokuapp.com/upload-single'
+    )
+      fieldset.bsk-form-group
+        label.bsk-control-label(for='dropzone-1') File upload (Drag and Drop)
+        div#dropzone-1.bsk-form-control.bsk-dropzone
+          div.bsk-dropzone-upload-target.bsk-target-initial: div.bsk-target-inner Click to select files or drag them here
+          div.bsk-alert.bsk-alert-block.bsk-alert-outline.bsk-alert-danger.bsk-dropzone-errors-container
+            h4 There is a problem
+            p One or more files could not be uploaded. If possible, fix the problem and try again.
+            br
+            ul
+          div.bsk-dropzone-file-list
+            div.bsk-container-fluid
+              header.bsk-row.bsk-dropzone-file-list-header
+                div.bsk-col-24-md-17 File Name
+                div.bsk-col-24-md-2 File Size
+                div.bsk-col-24-md-3 File Status
+                div.bsk-col-24-md-2.bsk-header-actions Actions
+              div.bsk-dropzone-file-list-items
+                div.bsk-row.bsk-dropzone-file-list-item
+                  div.bsk-col-24-md-17(data-dz-name)
+                  div.bsk-col-24-md-2(data-dz-size)
+                  div.bsk-col-24-md-3(data-bsk-dz-status)
+                  div.bsk-col-24-md-2.bsk-item-action-remove: a.bsk-text-danger(href='#' data-dz-remove) Remove
+                  div.bsk-item-progress-bar(style='width:0%;' data-dz-uploadprogress)
+          div.bsk-dropzone-upload-target.bsk-target-additional: div.bsk-target-inner Click to select more files or drag them here
+
+  section.app-sample-section
+    header Error (file size)
+    p.bsk-text-info This form simulates uploading files that are big (any file, total up to 40KB)
+    form(
+      method='POST'
+      enctype='multipart/form-data'
+      action='https://bas-style-kit-file-upload.herokuapp.com/upload-single-restricted-size'
+    )
+      fieldset.bsk-form-group
+        label.bsk-control-label(for='dropzone-2') File upload (Drag and Drop)
+        div#dropzone-2.bsk-form-control.bsk-dropzone
+          div.bsk-dropzone-upload-target.bsk-target-initial: div.bsk-target-inner Click to select files or drag them here
+          div.bsk-alert.bsk-alert-block.bsk-alert-outline.bsk-alert-danger.bsk-dropzone-errors-container
+            h4 There is a problem
+            p One or more files could not be uploaded. If possible, fix the problem and try again.
+            br
+            ul
+          div.bsk-dropzone-file-list
+            div.bsk-container-fluid
+              header.bsk-row.bsk-dropzone-file-list-header
+                div.bsk-col-24-md-17 File Name
+                div.bsk-col-24-md-2 File Size
+                div.bsk-col-24-md-3 File Status
+                div.bsk-col-24-md-2.bsk-header-actions Actions
+              div.bsk-dropzone-file-list-items
+                div.bsk-row.bsk-dropzone-file-list-item
+                  div.bsk-col-24-md-17(data-dz-name)
+                  div.bsk-col-24-md-2(data-dz-size)
+                  div.bsk-col-24-md-3(data-bsk-dz-status)
+                  div.bsk-col-24-md-2.bsk-item-action-remove: a.bsk-text-danger(href='#' data-dz-remove) Remove
+                  div.bsk-item-progress-bar(style='width:0%;' data-dz-uploadprogress)
+          div.bsk-dropzone-upload-target.bsk-target-additional: div.bsk-target-inner Click to select more files or drag them here
+
+  hr
+
+  h4 Notes
+  ul
+    li This sample includes additional JavaScript libraries:
+      ul: li: a(href='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/js/dropzone.min.js') DropzoneJS
+
+  script(type='text/javascript' src='https://cdn.web.bas.ac.uk/js-libs/jquery-3.3.1.min.js')
+  script(type='text/javascript' src='https://cdn.web.bas.ac.uk/libs/dropzone/5.5.0/js/dropzone.min.js')
+  script(type='text/javascript' src='/' + testbed_version + '/assets/js/samples/0389--drop-zone.js')

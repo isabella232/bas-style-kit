@@ -351,18 +351,20 @@ $table-bg-accent:                             $bsk-colour-std-grey-lighter;
 $table-bg-hover:                              $bsk-colour-ext-grey-lighter-light;
 $table-bg-active:                             $table-bg-hover;
 
-//** Border color for table and cell borders
+// Border color for table and cell borders
 $table-border-color:                          $bsk-colour-std-grey-light;
 
 
 //== Forms
 //
+
+$input-border:                                $bsk-colour-std-grey-light;
+$input-border-focus:                          $component-active-bg;
+
 // Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
 //
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in Bootstrap v4
-
-$input-border-focus:                          $component-active-bg;
 
 $input-border-radius:                         $border-radius-base;
 $input-border-radius-base:                    $border-radius-base;
@@ -716,3 +718,31 @@ $image-copyright-base-padding:                3px 8px 1px;
 
 $image-copyright-base-color:                  $component-overlay-color;
 $image-copyright-base-background:             $component-overlay-bg;
+
+
+// Drop Zone
+//
+// Custom component
+
+$drop-zone-target-padding:                    $padding-large-vertical;
+$drop-zone-target-border-width:               2px;
+$drop-zone-target-border-color:               $input-border;
+
+$drop-zone-inner-target-bg:                   $component-default-bg;
+$drop-zone-inner-target-padding-v:            ($padding-large-vertical * 4);
+
+$drop-zone-initial-inner-target-padding-v:    ($drop-zone-inner-target-padding-v * 2);
+
+$drop-zone-file-list-border-width:            1px;
+$drop-zone-file-list-border-color:            $input-border;
+$drop-zone-file-list-margin-bottom:           ($padding-large-vertical * 2);
+
+$drop-zone-file-list-header-border-width:     2px;
+$drop-zone-file-list-header-border-color:     $input-border;
+$drop-zone-file-list-header-padding-v:        $padding-large-vertical;
+
+$drop-zone-file-list-item-border-width:       1px;
+$drop-zone-file-list-item-border-color:       $input-border;
+$drop-zone-file-list-item-padding-v:          ($padding-large-vertical / 2);
+
+$drop-zone-errors-margin-bottom:    ($padding-large-vertical * 2);

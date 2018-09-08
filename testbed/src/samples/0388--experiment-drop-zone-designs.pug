@@ -1,0 +1,384 @@
+//-
+  sample:
+    title: Drop-zone designs
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  style.
+    .x-dz-option .bsk-form-control {
+      width: 100%;
+      height: 200px;
+      text-align: center;
+      padding: 90px 0 110px;
+    }
+    .x-dz-option.x-dz-state-populated .bsk-form-control {
+      text-align: left;
+    }
+
+    .x-dz-option-1 .bsk-form-control {
+      border-width: 2px;
+      border-style: dashed;
+    }
+
+    .x-dz-option-2 .bsk-form-control {
+      border-width: 2px;
+      border-style: dashed;
+      background-color: #eeeeee;
+    }
+
+    .x-dz-option-3 .bsk-form-control {
+      height: 210px;
+      border-width: 2px;
+      border-style: dashed;
+      padding: 10px 10px 30px;
+    }
+    .x-dz-option-3 .x-dz-option-3-inner {
+      padding: 80px 0;
+      background-color: #eeeeee;
+    }
+
+    .x-dz-option-4 .bsk-form-control {
+      height: 210px;
+      border-color: #eeeeee;
+      padding: 10px 10px 30px;
+      background-color: #eeeeee;
+    }
+    .x-dz-option-4 .x-dz-option-4-inner {
+      padding: 80px 0;
+      border: 2px dashed #cccccc;
+      background-color: #eeeeee;
+    }
+
+    .x-dz-option-5 .bsk-form-control {
+      height: 210px;
+      border-color: #2B8CC4;
+      padding: 10px 10px 30px;
+      background-color: #2B8CC4;
+      color: #ffffff;
+    }
+    .x-dz-option-5 .x-dz-option-5-inner {
+      padding: 80px 0;
+      border: 2px dashed #ffffff;
+      background-color: #2B8CC4;
+    }
+
+    .x-dz-option-6 .bsk-form-control {
+      height: 210px;
+      border-color: #B7D8EB;
+      padding: 10px 10px 30px;
+      background-color: #B7D8EB;
+      color: #1D5E83;
+    }
+    .x-dz-option-6 .x-dz-option-6-inner {
+      padding: 80px 0;
+      border: 2px dashed #1D5E83;
+      background-color: #B7D8EB;
+    }
+
+    .x-dz-option-1p .bsk-form-control {
+      height: 115px;
+      padding: 10px 10px 30px;
+
+      border-width: 2px;
+      border-style: dashed;
+    }
+
+    .x-dz-option-2p .bsk-form-control .bsk-table > thead > tr > th,
+    .x-dz-option-2p .bsk-form-control .bsk-table > tbody > tr > td {
+      border-bottom-color: #ccc;
+    }
+
+    .x-dz-option-3p .bsk-form-control {
+      height: auto;
+      border-width: 2px;
+      border-style: dashed;
+    }
+
+    .x-dz-option-3pa .bsk-form-control {
+      height: auto;
+      border: none;
+    }
+    .x-dz-option-3pa .x-dz-option-3-ub {
+      border: 2px dashed #ccc;
+      padding: 10px;
+    }
+    .x-dz-option-3pa .x-dz-option-3-ub-inner {
+      text-align: center;
+      padding: 40px 0;
+      background-color: #eee;
+    }
+
+    .x-dz-option-3p.bsk-has-error .bsk-form-control {
+      border-style: solid;
+    }
+
+    .x-dz-items {
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .x-dz-items-header {
+      font-weight: bold;
+      padding: 10px 0;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .x-dx-item-option-1 {
+      background-color: #eeeeee;
+    }
+    .x-dx-item-option-1 .x-dz-item-ext {
+      background-color: #cccc;
+      text-transform: uppercase;
+      height: 64px;
+      padding: 25px 20px 0px 20px;
+    }
+
+    .x-dx-item-option-2 {
+      padding: 5px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .x-dx-item-option-2:last-of-type {
+      border-bottom: none;
+    }
+
+    .x-dx-item-option-2 .x-item-action-remove {
+      text-decoration: underline;
+    }
+
+  section.app-sample-section
+    header Initial state - option 1 - in a #[code bsk-form-group]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-option-1
+        label.bsk-control-label(for='init-opt1-fg') File upload (Drag and Drop)
+        div#init-opt1-fg.bsk-form-control Click to select files or drag them here
+      fieldset.bsk-form-group
+        label.bsk-control-label(for='init-opt1-fg-cp') Textarea (for comparision)
+        textarea#init-opt1-fg-cp.bsk-form-control(rows='9')
+
+  section.app-sample-section
+    header Initial state - option 2 - in a #[code bsk-form-group]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-option-2
+        label.bsk-control-label(for='init-opt2-fg') File upload (Drag and Drop)
+        div#init-opt2-fg.bsk-form-control Click to select files or drag them here
+
+  section.app-sample-section
+    header Initial state - option 3 - in a #[code bsk-form-group]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-option-3
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.x-dz-option-3-inner Click to select files or drag them here
+
+  section.app-sample-section
+    header Initial state - option 4 - in a #[code bsk-form-group]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-option-4
+        label.bsk-control-label(for='init-opt4-fg') File upload (Drag and Drop)
+        div#init-opt4-fg.bsk-form-control
+          div.x-dz-option-4-inner Click to select files or drag them here
+
+  section.app-sample-section
+    header Initial state - option 5 - in a #[code bsk-form-group]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-option-5
+        label.bsk-control-label(for='init-opt5-fg') File upload (Drag and Drop)
+        div#init-opt5-fg.bsk-form-control
+          div.x-dz-option-5-inner Click to select files or drag them here
+
+  section.app-sample-section
+    header Initial state - option 6 - in a #[code bsk-form-group]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-option-6
+        label.bsk-control-label(for='init-opt6-fg') File upload (Drag and Drop)
+        div#init-opt6-fg.bsk-form-control
+          div.x-dz-option-6-inner Click to select files or drag them here
+
+  section.app-sample-section
+    header Populated state (single file) - option 1 - in a #[code bsk-form-group]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-state-populated.x-dz-option-1p
+        label.bsk-control-label(for='init-opt1p-fg') File upload (Drag and Drop)
+        div#init-opt1p-fg.bsk-form-control
+          div.bsk-row
+            div.bsk-col-12-md-2
+              div.bsk-media.x-dz-item.x-dx-item-option-1
+                div.bsk-media-left.x-dz-item-ext png
+                div.bsk-media-body
+                  div.bsk-h5.bsk-media-heading rock-outcrop.png
+                  | 280kb
+
+  section.app-sample-section
+    header Populated state (single file) - option 2 - in a #[code bsk-form-group] and #[code table]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-state-populated.x-dz-option-2p.x-dz-option-3
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          table.bsk-table
+            thead
+              tr
+                th File Name
+                th File Size
+                th.bsk-text-right Actions
+            tbody
+              tr
+                td foo.png
+                td 200KB
+                td.bsk-text-right: a(href='#') Remove File
+
+  section.app-sample-section
+    header Populated state (multiple files) - option 2 - in a #[code bsk-form-group] and #[code table]
+    form
+      fieldset.bsk-form-group.x-dz-option.x-dz-state-populated.x-dz-option-2p.x-dz-option-3
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          table.bsk-table
+            thead
+              tr
+                th File Name
+                th File Size
+                th.bsk-text-right Actions
+            tbody
+              tr
+                td foo.png
+                td 200KB
+                td.bsk-text-right: a(href='#') Remove File
+              tr
+                td bar.docx
+                td 2KB
+                td.bsk-text-right: a(href='#') Remove File
+              tr
+                td rock_outcrop_cropped_to_2m_corrected_terry's_version_2_FINAL.shp
+                td 358MB
+                td.bsk-text-right: a(href='#') Remove File
+
+  section.app-sample-section
+    header Populated state (single file) - option 3 - in a #[code bsk-form-group] and a grid
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3p
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.bsk-container-fluid
+            div.bsk-row.x-dz-items-header
+              div.bsk-col-12-md-9 File Name
+              div.bsk-col-12-md-1 File Size
+              div.bsk-col-12-md-2.bsk-text-right Actions
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-12-md-9 foo.png
+              div.bsk-col-12-md-1 200KB
+              div.bsk-col-12-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove File
+
+  section.app-sample-section
+    header Populated state (multiple files) - option 3 - in a #[code bsk-form-group] and a 12 column grid
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3p
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.bsk-container-fluid
+            div.bsk-row.x-dz-items-header
+              div.bsk-col-12-md-9 File Name
+              div.bsk-col-12-md-1 File Size
+              div.bsk-col-12-md-1 Status
+              div.bsk-col-12-md-1.bsk-text-right Actions
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-12-md-9 foo.png
+              div.bsk-col-12-md-1 200KB
+              div.bsk-col-12-md-1.bsk-text-success Uploaded
+              div.bsk-col-12-md-1.bsk-text-right: a.bsk-text-danger.x-item-action-remove(href='#') Remove
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-12-md-9 bar.docx
+              div.bsk-col-12-md-1 2KB
+              div.bsk-col-12-md-1.bsk-text-success Uploaded
+              div.bsk-col-12-md-1.bsk-text-right: a.bsk-text-danger.x-item-action-remove(href='#') Remove
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-12-md-9 rock_outcrop_cropped_to_2m_corrected_terry's_version_2_FINAL.shp
+              div.bsk-col-12-md-1 358MB
+              div.bsk-col-12-md-1.bsk-text-success Uploaded
+              div.bsk-col-12-md-1.bsk-text-right: a.bsk-text-danger(href='#') Remove
+
+  section.app-sample-section
+    header Populated state (multiple files) - option 3 - in a #[code bsk-form-group] and a 24 column grid
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3p
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.bsk-container-fluid
+            div.bsk-row.x-dz-items-header
+              div.bsk-col-24-md-17 File Name
+              div.bsk-col-24-md-2 File Size
+              div.bsk-col-24-md-3 Status
+              div.bsk-col-24-md-2.bsk-text-right Actions
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-24-md-17 foo.png
+              div.bsk-col-24-md-2 200KB
+              div.bsk-col-24-md-3 Uploading...
+              div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-24-md-17 bar.docx
+              div.bsk-col-24-md-2 2KB
+              div.bsk-col-24-md-3 Uploading (30%)
+              div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-24-md-17 baz.txt
+              div.bsk-col-24-md-2 4KB
+              div.bsk-col-24-md-3 Uploading (100%)
+              div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-24-md-17 rock_outcrop_cropped_to_2m_corrected_terry's_version_2_FINAL.shp
+              div.bsk-col-24-md-2 358MB
+              div.bsk-col-24-md-3.bsk-text-success Uploaded
+              div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove
+
+  section.app-sample-section
+    header Populated state (multiple files) - option 3 - in a #[code bsk-form-group] and a 24 column grid (alt layout)
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3pa
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.x-dz-items
+            div.bsk-container-fluid
+              div.bsk-row.x-dz-items-header
+                div.bsk-col-24-md-17 File Name
+                div.bsk-col-24-md-2 File Size
+                div.bsk-col-24-md-3 Status
+                div.bsk-col-24-md-2.bsk-text-right Actions
+              div.bsk-row.x-dx-item-option-2
+                div.bsk-col-24-md-17 foo.png
+                div.bsk-col-24-md-2 200KB
+                div.bsk-col-24-md-3 Uploading...
+                div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove
+          div.x-dz-option-3-ub
+            div.x-dz-option-3-ub-inner Click to select more files or drag them here
+
+  section.app-sample-section
+    header Error state (single file) - option 3 - in a #[code bsk-form-group] and a 24 column grid
+    form
+      fieldset.bsk-form-group.x-dz-state-populated.x-dz-option-3p.bsk-has-error
+        label.bsk-control-label(for='init-opt3-fg') File upload (Drag and Drop)
+        div#init-opt3-fg.bsk-form-control
+          div.bsk-container-fluid
+            div.bsk-row.x-dz-items-header
+              div.bsk-col-24-md-17 File Name
+              div.bsk-col-24-md-2 File Size
+              div.bsk-col-24-md-3 Status
+              div.bsk-col-24-md-2.bsk-text-right Actions
+            div.bsk-row.x-dx-item-option-2
+              div.bsk-col-24-md-17.bsk-text-danger foo.png
+              div.bsk-col-24-md-2 200KB
+              div.bsk-col-24-md-3.bsk-text-danger Upload Error
+              div.bsk-col-24-md-2.bsk-text-right: a.bsk-text-danger(href='#') Remove
+      div.bsk-alert.bsk-alert-outline.bsk-alert-danger.x-dz-items-errors
+        h4 There is a problem
+        p There was a problem adding one or more files. They have not be uploaded. If possible, fix the problem and try adding the file again.
+        br
+        ul: li #[strong foo.png] - File type uploaded is not allowed
+
+  hr
+
+  h4 Notes
+  ul
+    li This experiment develops a number of different designs for dropzone file upload elements
+    li This includes various states, defined statically this sample
