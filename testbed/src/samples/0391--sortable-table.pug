@@ -1,0 +1,45 @@
+//-
+  sample:
+    title: Sortable table
+    code: ul.bsk-sortable.bsk-sortable-list
+    type: javascript
+    collections:
+      - components--sortable
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard table
+
+    table.bsk-table.bsk-sortable.bsk-sortable-table
+      thead
+        tr
+          th Name
+          th Location
+          th Personnel
+      tbody
+        tr
+          td Ny-Ålesund
+          td Svalbard, High Arctic
+          td 150
+        tr
+          td Rothera
+          td Adelaide Island, Antarctica
+          td 20 to 100
+        tr
+          td Halley VI
+          td Brunt Ice Shelf, Antarctica
+          td 16 to 70
+
+  hr
+
+  h4 Notes
+  ul
+    li This sample includes additional JavaScript libraries:
+      ul: li: a(href='https://cdn.web.bas.ac.uk/libs/html5sortable/0.9.4/js/html5sortable.min.js') HTML5 Sortable
+
+  script(type='text/javascript' src='https://cdn.web.bas.ac.uk/js-libs/jquery-3.3.1.min.js')
+  script(type='text/javascript' src='https://cdn.web.bas.ac.uk/libs/html5sortable/0.9.4/js/html5sortable.min.js')
+  script(type='text/javascript' src='/' + testbed_version + '/assets/js/samples/0391--sortable-table.js')

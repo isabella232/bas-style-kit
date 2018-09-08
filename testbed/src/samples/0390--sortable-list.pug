@@ -1,0 +1,52 @@
+//-
+  sample:
+    title: Sortable list
+    code: ul.bsk-sortable.bsk-sortable-list
+    type: javascript
+    collections:
+      - components--sortable
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header Standard list
+
+    ul#sortable-1.bsk-list-unstyled.bsk-sortable.bsk-sortable-list
+      li Item A
+      li Item B
+      li Item C
+      li Item D
+      li Item E
+
+  section.app-sample-section
+    header Standard list (with indicator icon)
+
+    ul#sortable-2.bsk-list-unstyled.bsk-sortable.bsk-sortable-list
+      li #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item A
+      li #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item B
+      li #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item C
+      li #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item D
+      li #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item E
+
+  section.app-sample-section
+    header Disabled list item (with indicator icon)
+
+    ul#sortable-3.bsk-list-unstyled.bsk-sortable.bsk-sortable-list
+      li #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item A
+      li #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item B
+      li.bsk-disabled(disabled) #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item C
+      li #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item D
+      li #[i.bsk-text-muted.fa.fa-fw.fa-bars] Item E
+
+  hr
+
+  h4 Notes
+  ul
+    li This sample includes additional JavaScript libraries:
+      ul: li: a(href='https://cdn.web.bas.ac.uk/libs/html5sortable/0.9.4/js/html5sortable.min.js') HTML5 Sortable
+
+  script(type='text/javascript' src='https://cdn.web.bas.ac.uk/js-libs/jquery-3.3.1.min.js')
+  script(type='text/javascript' src='https://cdn.web.bas.ac.uk/libs/html5sortable/0.9.4/js/html5sortable.min.js')
+  script(type='text/javascript' src='/' + testbed_version + '/assets/js/samples/0390--sortable-list.js')
