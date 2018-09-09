@@ -80,6 +80,7 @@ gulp.task('build--individual-samples', buildSamples);
 gulp.task('build--sample-redirects', buildSampleRedirects);
 gulp.task('build--samples-index', buildSampleIndex);
 gulp.task('build--legal-pages', buildLegalPages);
+gulp.task('build--error-page', buildErrorPage);
 
 gulp.task('copy--img-testbed', copyImagesTestbed);
 
@@ -98,7 +99,11 @@ gulp.task('archive--public', archivePublic);
 gulp.task('build--samples', gulp.series(
   'build--individual-samples',
   'build--sample-redirects',
-  'build--samples-index',
+  'build--samples-index'
+));
+
+gulp.task('build--extras', gulp.series(
+  'build--error-page',
   'build--legal-pages'
 ));
 
@@ -116,7 +121,7 @@ gulp.task('build', gulp.parallel(
   'build--css',
   'build--js',
   'build--samples',
-  'build--legal-pages'
+  'build--extras'
 ));
 gulp.task('copy', gulp.parallel(
   'copy--img'
@@ -292,6 +297,25 @@ function buildSampleIndex(done) {
         return {
           'samples': runtime.samples,
           'collections': runtime.collections,
+          'testbed_version': runtime.version
+        };
+      }),
+      rename({extname: '.html'}),
+      pug(),
+      gulp.dest(path.join(config.destinations.public))
+    ],
+    done
+  );
+}
+
+function buildErrorPage(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.source, 'error.pug')
+      ]),
+      data(function(file) {
+        return {
           'testbed_version': runtime.version
         };
       }),

@@ -22,7 +22,7 @@ resource "aws_s3_bucket" "bas-style-kit-testbed" {
 
   website {
     index_document = "index.html"
-    error_document = "error.html"
+    error_document = "/master/error.html"
   }
 
   tags {
