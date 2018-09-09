@@ -31,3 +31,17 @@ resource "aws_s3_bucket" "bas-style-kit-testbed" {
     X-Managed-By = "Terraform"
   }
 }
+
+# Testbed index
+#
+# This resource implicitly depends on the 'aws_s3_bucket.bas-style-kit-testbed' resource
+# This resource relies on the AWS Terraform provider being previously configured
+#
+# AWS source: https://aws.amazon.com/s3/
+# Terraform source: https://www.terraform.io/docs/providers/aws/r/s3_bucket_object.html
+resource "aws_s3_bucket_object" "bas-style-kit-testbed-index" {
+  bucket           = "${aws_s3_bucket.bas-style-kit-testbed.bucket}"
+  key              = "index.html"
+  content          = "BAS Style Kit Testbed"
+  website_redirect = "/master"
+}

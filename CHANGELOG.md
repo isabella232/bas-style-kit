@@ -33,6 +33,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Ignoring testbed form NPM package
 * [Infrastructure] Corrected license in package definition
 * [Infrastructure] Corrected typo in S3 bucket policy name
+* [Infrastructure] Added root redirect for Testbed S3 bucket to master branch directory
 
 ### Changed
 
