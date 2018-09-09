@@ -44,6 +44,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Removed
 
 * [Styles] Orphaned variables for the removed band component
+* [Styles] Removing testbed samples for list groups, inverse jumbotrons and input group drop-down/split button menus
 
 ## [0.4.0] - 2018-07-06
 
