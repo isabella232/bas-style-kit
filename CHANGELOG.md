@@ -39,6 +39,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Moving use of margin-top from alert component in preparation for Bootstrap 4
 * [Scripts] Source files prefixed with numbers to ensure correct build order
 * [Admin] Moving colour swatch posters into a namespaced directory
+* [Infrastructure] Improving Dockerfiles
 
 ### Removed
 
