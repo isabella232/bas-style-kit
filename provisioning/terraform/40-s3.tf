@@ -3,7 +3,7 @@
 
 # Testbed
 #
-# This resource relies on the AWS Terraform provider being previously configured.
+# This resource relies on the AWS Terraform provider being previously configured
 #
 # AWS source: https://aws.amazon.com/s3/
 # Terraform source: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
@@ -18,11 +18,11 @@ resource "aws_s3_bucket" "bas-style-kit-testbed" {
   # Bucket policy - All objects can be read by anyone, but only the owner can change them
   #
   # Source: http://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-2
-  policy = "${file("70-resources/s3/bucket-policies/tested-public-read.json")}"
+  policy = "${file("70-resources/s3/bucket-policies/testbed-public-read.json")}"
 
   website {
     index_document = "index.html"
-    error_document = "error.html"
+    error_document = "/master/error.html"
   }
 
   tags {
@@ -30,4 +30,18 @@ resource "aws_s3_bucket" "bas-style-kit-testbed" {
     X-Project    = "BAS Style Kit"
     X-Managed-By = "Terraform"
   }
+}
+
+# Testbed index
+#
+# This resource implicitly depends on the 'aws_s3_bucket.bas-style-kit-testbed' resource
+# This resource relies on the AWS Terraform provider being previously configured
+#
+# AWS source: https://aws.amazon.com/s3/
+# Terraform source: https://www.terraform.io/docs/providers/aws/r/s3_bucket_object.html
+resource "aws_s3_bucket_object" "bas-style-kit-testbed-index" {
+  bucket           = "${aws_s3_bucket.bas-style-kit-testbed.bucket}"
+  key              = "index.html"
+  content          = "BAS Style Kit Testbed"
+  website_redirect = "/master"
 }

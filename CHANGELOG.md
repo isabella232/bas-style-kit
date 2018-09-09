@@ -22,6 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Scripts] Tool-tip plugin adapted from Bootstrap plugin
 * [Scripts] Pop-overs plugin adapted from Bootstrap plugin
 * [Scripts] Transitions plugin adapted from Bootstrap plugin
+* [Infrastructure] Error (404) page for testbed
 
 ### Fixed
 
@@ -32,6 +33,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Infrastructure] Corrected NPM package publishing steps
 * [Infrastructure] Ignoring testbed form NPM package
 * [Infrastructure] Corrected license in package definition
+* [Infrastructure] Corrected typo in S3 bucket policy name
+* [Infrastructure] Added root redirect for Testbed S3 bucket to master branch directory
 
 ### Changed
 
@@ -40,10 +43,12 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Scripts] Source files prefixed with numbers to ensure correct build order
 * [Admin] Moving colour swatch posters into a namespaced directory
 * [Infrastructure] Improving Dockerfiles
+* [Infrastructure] Updated to latest Terraform and Terraform provider versions
 
 ### Removed
 
 * [Styles] Orphaned variables for the removed band component
+* [Styles] Removing testbed samples for list groups, inverse jumbotrons and input group drop-down/split button menus
 
 ## [0.4.0] - 2018-07-06
 
