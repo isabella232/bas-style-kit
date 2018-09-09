@@ -478,7 +478,7 @@ During each *alpha* release dependencies should be updated to their latest versi
 
 * the `app` and `testbed` images should use the latest Node LTS release (as we don't rely on cutting edge Node features)
 * JavaScript dependencies should be updated to their latest versions (using `package.json`) [2]
-* this includes Bootstrap and any web-fonts used (i.e. Font Awesome)
+* this includes Bootstrap and any web-fonts used (i.e. Open Sans)
 
 **Note:** When referencing dependencies ensure the full `major.minor.path` version is specified (e.g. `1.3.2`).
 

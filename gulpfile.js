@@ -33,7 +33,6 @@ const config = {
     'bootstrap-sass': path.join('.', 'node_modules', 'bootstrap-sass'),
     'gill-sans': path.join('.', 'assets', 'webfonts', 'gill-sans'),
     'open-sans': path.join('.', 'node_modules', 'open-sans-fontface'),
-    'font-awesome': path.join('.', 'node_modules', 'font-awesome'),
     'bas-style-kit-js': path.join('.', 'bas-style-kit', '**/*.js'),
     'bootstrap-overrides-js': path.join('.', 'bootstrap-overrides', '**/*.js'),
     'dist': path.join('.', 'dist'),
@@ -115,7 +114,6 @@ gulp.task('minify--js', minifyJs);
 
 gulp.task('copy--font--gill-sans', copyFontGillSans);
 gulp.task('copy--font--open-sans', copyFontOpenSans);
-gulp.task('copy--font--font-awesome', copyFontFontAwesome);
 
 gulp.task('copy--img--bas-logo', copyImagesBasLogo);
 gulp.task('copy--img--bas-roundel', copyImagesBasRoundel);
@@ -149,8 +147,7 @@ gulp.task('build--js', gulp.series(
 ));
 gulp.task('copy--fonts', gulp.parallel(
   'copy--font--gill-sans',
-  'copy--font--open-sans',
-  'copy--font--font-awesome'
+  'copy--font--open-sans'
 ));
 gulp.task('copy--img', gulp.parallel(
   'copy--img--bas-logo',
@@ -356,21 +353,6 @@ function copyFontOpenSans(done) {
         path.join(config['sources']['open-sans'], 'fonts', '**/*.woff2')
       ]),
       gulp.dest(path.join(config.destinations.dist, config.destinations.fonts, 'open-sans'))
-    ],
-    done
-  );
-}
-
-function copyFontFontAwesome(done) {
-  pump(
-    [
-      gulp.src([
-        path.join(config['sources']['font-awesome'], 'fonts', '**/*.eot'),
-        path.join(config['sources']['font-awesome'], 'fonts', '**/*.ttf'),
-        path.join(config['sources']['font-awesome'], 'fonts', '**/*.woff'),
-        path.join(config['sources']['font-awesome'], 'fonts', '**/*.woff2')
-      ]),
-      gulp.dest(path.join(config.destinations.dist, config.destinations.fonts, 'font-awesome'))
     ],
     done
   );
