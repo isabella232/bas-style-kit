@@ -40,6 +40,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Scripts] Source files prefixed with numbers to ensure correct build order
 * [Admin] Moving colour swatch posters into a namespaced directory
 * [Infrastructure] Improving Dockerfiles
+* [Infrastructure] Updated to latest Terraform and Terraform provider versions
 
 ### Removed
 
