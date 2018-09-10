@@ -652,7 +652,6 @@ If a major version has just been published:
   * `docker-compose.yml` - `app` Docker image
   * `.gitlab-ci.yml` - default Docker image
 2. bump the version and add the next development phase in:
-  * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
   * `/assets/scripts/javascripts/bas-style-kit/0_version.js` - `Version.VERSION` variable
   * `/gulpfile.js` - `bsk-version` variable
 3. build & push the docker image
