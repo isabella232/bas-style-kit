@@ -21,7 +21,8 @@ var gulp         = require('gulp'),
     cssprefixer  = require('gulp-class-prefix'),
     autoprefixer = require('gulp-autoprefixer');
 
-const bsk_version = '0.5.0-alpha';
+var bsk_package = require('./package.json');
+const bsk_version = bsk_package.version;
 
 const config = {
   'variables': {

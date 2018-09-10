@@ -47,6 +47,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Admin] Moving colour swatch posters into a namespaced directory
 * [Infrastructure] Improving Dockerfiles
 * [Infrastructure] Updated to latest Terraform and Terraform provider versions
+* [Infrastructure] Setting Style Kit version in Gulp using `package.json`, rather than redeclaring
+* [Infrastructure] Style Kit version in `package.json` now uses `alpha/beta` not just `develop`
 
 ### Removed
 

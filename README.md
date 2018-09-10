@@ -598,7 +598,6 @@ Merge requests **WILL NOT** be accepted on this mirror.
 
 1. create a release branch
 2. remove `-develop` from version string in:
-    * `package.json`
     * `docker-compose.yml` - `app` Docker image
     * `.gitlab-ci.yml` - default Docker image
 3. build & push the docker image
@@ -637,19 +636,12 @@ $ npm pack
 If a major version has just been published:
 
 1. bump the version and add `-develop` prefix in:
-  * `package.json`
   * `docker-compose.yml` - `app` Docker image
   * `.gitlab-ci.yml` - default Docker image
 2. bump the version and add the next development phase in:
+  * `package.json`
   * `/assets/scripts/javascripts/bas-style-kit/0_version.js` - `Version.VERSION` variable
-  * `/gulpfile.js` - `bsk-version` variable
 3. build & push the docker image
-
-If a development phase has just been published (e.g. `0.4.0-alpha`):
-
-1. bump the development phase prefix in:
-  * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
-  * `/gulpfile.js` - `bsk-version`
 
 This is to prevent overwriting a 'released' docker image tag with future changes and prevent publishing a development
 version to a release tag in NPM (as versions cannot be overwritten).

@@ -18,7 +18,15 @@ var gulp         = require('gulp'),
     frontmatter  = require('front-matter-pug'),
     autoprefixer = require('gulp-autoprefixer');
 
+var bsk_package = require('../package.json');
+const bsk_version = bsk_package.version;
+const testbed_version = process.env.TESTBED_VERSION
+
 const config = {
+  'variables': {
+    'bsk-version': bsk_version,
+    'testbed-version': testbed_version
+  },
   'sources': {
     'source': path.join('.', 'src'),
     'stylesheets': path.join('.', 'src', 'assets', 'stylesheets'),
@@ -62,8 +70,7 @@ const config = {
 
 var runtime = {
   'samples': [],
-  'collections': {},
-  'version': process.env.TESTBED_VERSION
+  'collections': {}
 }
 
 // Task definitions
@@ -180,7 +187,8 @@ function buildCssTestbed(done) {
         path.join(config.sources.stylesheets, 'testbed-samples.scss')
       ]),
       sassvars({
-        '$testbed-version': runtime.version
+        '$bsk-version': config.variables["bsk-version"],
+        '$testbed-version': config.variables["testbed-version"]
       }),
       sass().on('error', sass.logError),
       cssprefixer(config.modules.cssprefixer.prefix.app),
@@ -198,7 +206,8 @@ function buildCssTestbedOverrides(done) {
         path.join(config.sources.stylesheets, 'testbed-overrides.scss')
       ]),
       sassvars({
-        '$testbed_version': runtime.version
+        '$bsk-version': config.variables["bsk-version"],
+        '$testbed-version': config.variables["testbed-version"]
       }),
       sass().on('error', sass.logError),
       cssprefixer(config.modules.cssprefixer.prefix.bsk),
@@ -232,7 +241,7 @@ function buildSamples(done) {
         file.contents = new Buffer(content.body);
 
         // Add testbed version as custom attribute
-        content.attributes.testbed_version = runtime.version;
+        content.attributes.testbed_version = config.variables["testbed-version"];
 
         // Add sample number from file name as custom attribute
         var fileName = file.basename.split('--');
@@ -265,7 +274,7 @@ function buildSampleRedirects(done) {
         var attributes = {};
 
         // Add testbed version as custom attribute
-        attributes.testbed_version = runtime.version;
+        attributes.testbed_version = config.variables["testbed-version"]
 
         // Add sample file name without an extension as custom attribute for target in sample redirect file
         attributes.sample_file_name = file.basename.split('.')[0];
@@ -320,7 +329,7 @@ function buildSampleIndex(done) {
         return {
           'samples': runtime.samples,
           'collections': runtime.collections,
-          'testbed_version': runtime.version
+          'testbed_version': config.variables["testbed-version"]
         };
       }),
       rename({extname: '.html'}),
@@ -339,7 +348,7 @@ function buildErrorPage(done) {
       ]),
       data(function(file) {
         return {
-          'testbed_version': runtime.version
+          'testbed_version': config.variables["testbed-version"]
         };
       }),
       rename({extname: '.html'}),
