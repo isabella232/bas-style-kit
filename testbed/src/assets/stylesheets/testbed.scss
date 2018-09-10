@@ -13,8 +13,12 @@
 // Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
 @import "../../../../assets/stylesheets/bas-style-kit/variables";
 
-// Core CSS
-@import "testbed/_scaffolding";
+// Testbed variables to override the Style Kit
+// Note: This file **MUST** be loaded after the Style Kit's variables, and before other all other styles
+@import "testbed/_variables";
 
-// Components - labels
-@import "testbed/_labels";
+// Core CSS
+@import "testbed/scaffolding";
+
+// Components
+@import "testbed/labels";

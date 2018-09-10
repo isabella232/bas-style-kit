@@ -52,7 +52,9 @@ const config = {
       remove: true
     },
     'cssprefixer': {
-      'prefix': 'app-'
+      'prefix': {
+        'app': 'app-',
+      }
     }
   }
 };
@@ -178,7 +180,7 @@ function buildCssTestbed(done) {
         '$testbed_version': runtime.version
       }),
       sass().on('error', sass.logError),
-      cssprefixer(config.modules.cssprefixer.prefix),
+      cssprefixer(config.modules.cssprefixer.prefix.app),
       autoprefixer(config.modules.autoprefixer),
       gulp.dest(path.join(config.destinations.assets, config.destinations.css))
     ],

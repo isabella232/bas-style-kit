@@ -19,23 +19,23 @@
 
 
 // Core CSS
-@import "testbed/_scaffolding";
-@import "testbed/_grid";
-@import "testbed/_layout";
-@import "testbed/_colours";
-@import "testbed/_logos";
-@import "testbed/_forms";
-@import "testbed/_type";
+@import "testbed/scaffolding";
+@import "testbed/grid";
+@import "testbed/layout";
+@import "testbed/colours";
+@import "testbed/logos";
+@import "testbed/forms";
+@import "testbed/type";
 
 // Components
-@import "testbed/_dropdowns";
-@import "testbed/_labels";
-@import "testbed/_jumbotron";
-@import "testbed/_navbar";
-@import "testbed/_footer";
+@import "testbed/dropdowns";
+@import "testbed/labels";
+@import "testbed/jumbotron";
+@import "testbed/navbar";
+@import "testbed/footer";
 
 // Interactive components
-@import "testbed/_modals.scss";
+@import "testbed/modals.scss";
 
 // Design
 
