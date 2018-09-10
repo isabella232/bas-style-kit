@@ -5,14 +5,6 @@
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 
 
-// Environment
-//
-// Meta information about the Style Kit
-
-// Version
-$bsk-version:                                 '0.5.0-alpha';
-
-
 // Colours
 //
 // Brand and background colours for use across the BAS Style Kit.
@@ -156,6 +148,19 @@ $development-phase-alpha:                     $bsk-colour-std-pink-base;
 $development-phase-beta:                      $bsk-colour-std-orange-base;
 $development-phase-live:                      $bsk-colour-std-nerc-green-base;
 $development-phase-retired:                   $bsk-colour-std-grey-dark;
+
+// BAS themes (for use in YouTube thumbnails and digitial signage slides etc.)
+$bas-theme-polar-science:                     $bsk-colour-std-red-base;
+$bas-theme-polar-operations:                  $bsk-colour-std-orange-base;
+$bas-theme-polar-arts:                        $bsk-colour-std-fuschia-base;
+$bas-theme-polar-people:                      $bsk-colour-std-sky-blue-dark;
+$bas-theme-polar-environment:                 $bsk-colour-std-grey-darker;
+$bas-theme-polar-wildlife:                    $bsk-colour-std-yellow-base;
+
+// BAS major facilities (for consistent referencing)
+$bas-facility-rothera:                        $bsk-colour-std-sky-blue-base;
+$bas-facility-bird-island:                    $bsk-colour-std-green-base;
+$bas-facility-sir-david-attenbourgh:          $bsk-colour-std-red-base;
 
 // Z-index master list
 //
@@ -667,7 +672,7 @@ $footer-ogl-symbol-a-width:                   100%;
 $footer-ogl-symbol-a-width-fw:                41px;  // As recommended by the National Archives see [1] for details
 $footer-ogl-symbol-a-height:                  17px;
 $footer-ogl-symbol-a-text-indent:             -999em;
-$footer-ogl-symbol-a-background:              url('https://cdn.web.bas.ac.uk/bas-style-kit/#{$bsk-version}/img/logos-symbols/ogl-symbol-inverse-transparent-17.png');
+$footer-ogl-symbol-a-background:              url('https://cdn.web.bas.ac.uk/bas-style-kit/#{ $bsk-version }/img/logos-symbols/ogl-symbol-inverse-transparent-17.png');
 
 $footer-governance-margin-bottom:             ($padding-large-vertical *2);
 

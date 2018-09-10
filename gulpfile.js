@@ -16,11 +16,13 @@ var gulp         = require('gulp'),
     rename       = require('gulp-rename'),
     uglify       = require('gulp-uglify'),
     eslint       = require('gulp-eslint'),
+    sassvars     = require('gulp-sass-variables'),
     styleLint    = require('gulp-stylelint'),
     cssprefixer  = require('gulp-class-prefix'),
     autoprefixer = require('gulp-autoprefixer');
 
-const bsk_version = '0.5.0-alpha';
+var bsk_package = require('./package.json');
+const bsk_version = bsk_package.version;
 
 const config = {
   'variables': {
@@ -227,6 +229,9 @@ function buildCssStyleKit(done) {
       gulp.src([
         path.join(config.sources.stylesheets, 'styles-bsk.scss')
       ]),
+      sassvars({
+        '$bsk-version': config.variables["bsk-version"]
+      }),
       sass().on('error', sass.logError),
       cssprefixer(config.modules.cssprefixer.prefix),
       autoprefixer(config.modules.autoprefixer),
@@ -243,6 +248,9 @@ function buildCssBootstrap(done) {
       gulp.src([
         path.join(config.sources.stylesheets, 'bootstrap-bsk.scss')
       ]),
+      sassvars({
+        '$bsk-version': config.variables["bsk-version"]
+      }),
       sass().on('error', sass.logError),
       cssprefixer(config.modules.cssprefixer.prefix),
       autoprefixer(config.modules.autoprefixer),
@@ -259,6 +267,9 @@ function buildCssFonts(done) {
       gulp.src([
         path.join(config.sources.stylesheets, 'fonts-bsk.scss')
       ]),
+      sassvars({
+        '$bsk-version': config.variables["bsk-version"]
+      }),
       sass().on('error', sass.logError),
       autoprefixer(config.modules.autoprefixer),
       comb(),

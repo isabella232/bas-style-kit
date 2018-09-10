@@ -16,6 +16,7 @@ services:
     image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-alpine
     command: ['watch']
     volumes:
+      - ./package.json:/usr/src/app/package.json
       - ./assets:/usr/src/app/assets
       - ./testbed/src:/usr/src/app/testbed/src
       - ./testbed/public:/usr/src/app/testbed/public

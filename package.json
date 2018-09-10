@@ -1,7 +1,7 @@
 {
   "name": "bas-style-kit",
   "description": "A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.",
-  "version": "0.5.0-develop",
+  "version": "0.5.0-alpha",
   "homepage": "https://style-kit.web.bas.ac.uk",
   "author": "British Antarctic Survey",
   "contributors": [
@@ -41,6 +41,7 @@
     "gulp-eslint": "^4.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
+    "gulp-sass-variables": "^1.1.1",
     "gulp-sri": "^0.3.1",
     "gulp-stylelint": "^6.0.0",
     "gulp-uglify": "^3.0.0",

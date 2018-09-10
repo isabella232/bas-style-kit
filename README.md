@@ -477,12 +477,11 @@ $ docker-compose push [image]
 During each *alpha* release dependencies should be updated to their latest versions and conflicts resolved.
 
 * the `app` and `testbed` images should use the latest Node LTS release (as we don't rely on cutting edge Node features)
-* JavaScript dependencies should be updated to their latest versions (using `package.json`) [2]
-* this includes Bootstrap and any web-fonts used (i.e. Open Sans)
+* JavaScript dependencies (inc. Bootstrap and web-fonts) should be updated to their latest versions [2]
 
-**Note:** When referencing dependencies ensure the full `major.minor.path` version is specified (e.g. `1.3.2`).
+**Note:** Reference packages as `^major.minor.path`, e.g. `^1.2.3`
 
-**Note:** Commit the Yarn lock file (`yarn.lock`) this repository.
+**Note:** Commit the Yarn lock file, `yarn.lock`, to the repository.
 
 Dependencies listed in `package.json` can be checked using tools such as
 [Daivd-DM](https://david-dm.org/antarctica/bas-style-kit?type=dev) to identify outdated versions.
@@ -494,36 +493,26 @@ Dependencies listed in `package.json` can be checked using tools such as
 
 For the `app` image:
 
-1. update the packages in `package.json`
-2. set an `entrypoint` to `ash` for the `app` service in `docker-compose.yml`
-3. comment out the `command` for the `app` service in `docker-compose.yml`
-4. run the commands below
-5. reverse steps 2 and 3 (removing the `entrypoint` override)
-
-```
+```shell
+# add package to 'package.json'
 $ rm yarn.lock
 $ docker-compose build app
-$ docker-compose run app
-# mv yarn.lock ./assets/
-# exit
+$ docker-compose run --entrypoint="" app ash
+$ mv yarn.lock ./assets/
+$ exit
 $ docker-compose down
 $ mv assets/yarn.lock ./
 ```
 
 For the `testbed` image:
 
-1. update packages in `testbed/package.json`
-2. set an `entrypoint` to `ash` for the `testbed` service in `docker-compose.yml`
-3. comment out the `command` for the `testbed` service in `docker-compose.yml`
-4. run the commands below
-5. reverse steps 2 and 3 (removing the `entrypoint` override)
-
-```
+```shell
+# add package to 'package.json'
 $ rm testbed/yarn.lock
 $ docker-compose build testbed
-$ docker-compose run testbed
-# mv yarn.lock ./src/assets
-# exit
+$ docker-compose run --entrypoint="" testbed ash
+$ mv yarn.lock ./src/assets
+$ exit
 $ docker-compose down
 $ mv testbed/src/assets/yarn.lock ./testbed
 ```
@@ -601,7 +590,7 @@ This is then merged with *master* and tagged, allowing *Continuous Deployment* t
 
 ## GitHub mirror
 
-A read-only mirror of this project's repository is maintained on GitHub, to allow use by those outside of BAS.
+To allow use outside of BAS a read-only mirror of this project's repository is maintained on GitHub.
 
 Merge requests **WILL NOT** be accepted on this mirror.
 
@@ -609,7 +598,6 @@ Merge requests **WILL NOT** be accepted on this mirror.
 
 1. create a release branch
 2. remove `-develop` from version string in:
-    * `package.json`
     * `docker-compose.yml` - `app` Docker image
     * `.gitlab-ci.yml` - default Docker image
 3. build & push the docker image
@@ -648,20 +636,12 @@ $ npm pack
 If a major version has just been published:
 
 1. bump the version and add `-develop` prefix in:
-  * `package.json`
   * `docker-compose.yml` - `app` Docker image
   * `.gitlab-ci.yml` - default Docker image
 2. bump the version and add the next development phase in:
-  * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
+  * `package.json`
   * `/assets/scripts/javascripts/bas-style-kit/0_version.js` - `Version.VERSION` variable
-  * `/gulpfile.js` - `bsk-version` variable
 3. build & push the docker image
-
-If a development phase has just been published (e.g. `0.4.0-alpha`):
-
-1. bump the development phase prefix in:
-  * `/assets/stylesheets/bas-style-kit/_variables.scss` - `$bsk_version` variable
-  * `/gulpfile.js` - `bsk-version`
 
 This is to prevent overwriting a 'released' docker image tag with future changes and prevent publishing a development
 version to a release tag in NPM (as versions cannot be overwritten).
