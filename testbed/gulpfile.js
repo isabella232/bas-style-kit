@@ -180,7 +180,7 @@ function buildCssTestbed(done) {
         path.join(config.sources.stylesheets, 'testbed-samples.scss')
       ]),
       sassvars({
-        '$testbed_version': runtime.version
+        '$testbed-version': runtime.version
       }),
       sass().on('error', sass.logError),
       cssprefixer(config.modules.cssprefixer.prefix.app),
