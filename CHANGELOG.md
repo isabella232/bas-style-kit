@@ -30,6 +30,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Documenting the backlog development phase is custom
 * [Styles] Clarifying in the forms testbed mixin how the first example of an input is unstyled
 * [Styles] Correcting how validation classes for testing validation states are applied in the forms testbed mixin
+* [Admin] Removed duplicate issue tracking section
 * [Infrastructure] Corrected NPM package publishing steps
 * [Infrastructure] Ignoring testbed form NPM package
 * [Infrastructure] Corrected license in package definition
