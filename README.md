@@ -588,10 +588,6 @@ Deployment tasks can be triggered manually for any tagged commits to:
 
 **Note:** Due to caching, deployed changes may not appear for up to 1 hour.
 
-## Issue tracking
-
-This project uses a public [issue tracker](https://trello.com/b/0Mhzizpk/bas-style-kit).
-
 ## Branching model
 
 There is only one long-term branch in this repository, *master*, which represents a working, stable, version of the

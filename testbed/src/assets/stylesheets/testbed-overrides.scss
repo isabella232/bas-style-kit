@@ -17,8 +17,5 @@
 // Note: This file **MUST** be loaded after the Style Kit's variables, and before other all other styles
 @import "testbed/_variables";
 
-// Core CSS
-@import "testbed/scaffolding";
-
 // Components
-@import "testbed/labels";
+@import "testbed/footer";

@@ -6,9 +6,9 @@
 
 extends ../layouts/app-sample.pug
 
-block append vars
-  - bsk_attributes.css_url = '/' + testbed_version + '/dist/css/fonts-bsk.css';
-  - bsk_attributes.js_url = '';
+block append variables
+  - attributes.site_styles = [];
+  - attributes.site_styles.push({href: '/' + testbed_version + '/dist/css/fonts-bsk.css'});
 
 block sample
   style.

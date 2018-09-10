@@ -1,22 +1,19 @@
-extends ./bas-style-kit/bsk--standard.pug
+extends ../../node_modules/@antarctica/bas-style-kit-pug-templates/layouts/bas-style-kit/bsk--standard.pug
 
-block append vars
-  - bsk_attributes.css_url = '/' + testbed_version + '/dist/css/bas-style-kit.css';
-  - bsk_attributes.js_url = '/' + testbed_version + '/dist/js/bas-style-kit.js';
-  - bsk_attributes.container_class = 'bsk-container';
-  - bsk_attributes.cookie_notice_href = '#';
-  - bsk_attributes.site_nav_brand_href = '/' + testbed_version + '/';
+block append variables
+  - attributes.site_title = 'BAS Style Kit Testbed';
+  - attributes.site_description = 'A website used by developers to test and develop parts of the BAS Style Kit';
   - bsk_attributes.site_nav_brand_text = 'BAS Style Kit Testbed';
-  - bsk_attributes.site_nav_launcher_extras.push({'href': 'https://style-kit.web.bas.ac.uk', 'name': 'BAS Style Kit Docs'});
-  - bsk_attributes.site_nav_launcher_extras.push({'href': 'https://style-kit-testing.web.bas.ac.uk', 'name': 'BAS Style Kit Docs (Testing)'});
+  - bsk_attributes.site_nav_brand_href = '/' + testbed_version + '/';
   - bsk_attributes.site_development_phase = 'experimental';
   - bsk_attributes.site_feedback_href = '/' + testbed_version + '/#site-feedback';
+  - bsk_attributes.cookie_notice_href = '/' + testbed_version + '/legal/cookies.html';
   - bsk_attributes.site_footer_policies_cookies_href = '/' + testbed_version + '/legal/cookies.html';
   - bsk_attributes.site_footer_policies_copyright_href = '/' + testbed_version + '/legal/copyright.html';
   - bsk_attributes.site_footer_policies_privacy_href = '/' + testbed_version + '/legal/privacy.html';
-  - bsk_attributes.site_title = 'BAS Style Kit Testbed';
-  - bsk_attributes.site_description = 'A website used by developers to test and develop parts of the BAS Style Kit';
-
-block append styles
-  // Testbed (application) specific styles
-  link(rel='stylesheet' href='/' + testbed_version + '/assets/css/testbed.css')
+  - attributes.site_favicon_url = 'data:;base64,iVBORw0KGgo=';
+  //- Navigation menu items
+  - bsk_attributes.site_nav_launcher_extras.push({title: 'Style Kit Documentation', href: 'https://style-kit.web.bas.ac.uk'});
+  - bsk_attributes.site_nav_launcher_extras.push({title: 'Style Kit Documentation (Testing)', href: 'https://style-kit-testing.web.bas.ac.uk'});
+  //- Custom CSS and JS
+  include ../includes/app/assets.pug
