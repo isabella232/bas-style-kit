@@ -54,6 +54,7 @@ const config = {
     'cssprefixer': {
       'prefix': {
         'app': 'app-',
+        'bsk': 'bsk-'
       }
     }
   }
@@ -77,6 +78,7 @@ gulp.task('clean--public-archive', cleanPublicArchive);
 gulp.task('clean--runtime', cleanRuntime);
 
 gulp.task('build--css-testbed', buildCssTestbed);
+gulp.task('build--css-testbed-overrides', buildCssTestbedOverrides);
 gulp.task('build--js-testbed', buildJsTestbed);
 gulp.task('build--individual-samples', buildSamples);
 gulp.task('build--sample-redirects', buildSampleRedirects);
@@ -87,7 +89,8 @@ gulp.task('build--error-page', buildErrorPage);
 gulp.task('copy--img-testbed', copyImagesTestbed);
 
 gulp.task('build--css', gulp.parallel(
-  'build--css-testbed'
+  'build--css-testbed',
+  'build--css-testbed-overrides'
 ));
 gulp.task('build--js', gulp.parallel(
   'build--js-testbed'
@@ -181,6 +184,24 @@ function buildCssTestbed(done) {
       }),
       sass().on('error', sass.logError),
       cssprefixer(config.modules.cssprefixer.prefix.app),
+      autoprefixer(config.modules.autoprefixer),
+      gulp.dest(path.join(config.destinations.assets, config.destinations.css))
+    ],
+    done
+  );
+}
+
+function buildCssTestbedOverrides(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.stylesheets, 'testbed-overrides.scss')
+      ]),
+      sassvars({
+        '$testbed_version': runtime.version
+      }),
+      sass().on('error', sass.logError),
+      cssprefixer(config.modules.cssprefixer.prefix.bsk),
       autoprefixer(config.modules.autoprefixer),
       gulp.dest(path.join(config.destinations.assets, config.destinations.css))
     ],
