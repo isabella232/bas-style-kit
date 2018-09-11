@@ -576,12 +576,8 @@ var patternIndexer = function patternIndexer(file, cb) {
 
 function cleanRuntime(done) {
   // Reset runtime variables
-  // console.log('runtime.samples count: ' + runtime.samples.length);
   runtime.samples = [];
-  // console.log('purged');
-  // console.log('runtime.samples count: ' + runtime.samples.length);
   runtime.patterns = [];
   runtime.collections = {};
-
   done();
 }
