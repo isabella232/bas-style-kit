@@ -127,9 +127,7 @@ compile-pug-testbed:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
     - "cd testbed"
-    - "./node_modules/gulp/bin/gulp.js build--samples"
-    - "./node_modules/gulp/bin/gulp.js build--patterns"
-    - "./node_modules/gulp/bin/gulp.js build--extras"
+    - "./node_modules/gulp/bin/gulp.js build--pages"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-templates-app"
     paths:

@@ -129,6 +129,13 @@ gulp.task('build--extras', gulp.series(
   'build--error-page',
   'build--legal-pages'
 ));
+gulp.task('build--pages', gulp.series(
+  gulp.parallel(
+    'build--samples',
+    'build--patterns'
+  ),
+  'build--extras'
+));
 
 gulp.task('watch', watchBuild);
 
@@ -144,13 +151,7 @@ gulp.task('clean', gulp.parallel(
 gulp.task('build', gulp.parallel(
   'build--css',
   'build--js',
-  gulp.series(
-    gulp.parallel(
-      'build--samples',
-      'build--patterns'
-    ),
-    'build--extras'
-  )
+  'build--pages'
 ));
 gulp.task('copy', gulp.parallel(
   'copy--img'
