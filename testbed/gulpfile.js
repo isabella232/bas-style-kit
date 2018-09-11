@@ -89,9 +89,9 @@ gulp.task('build--css-testbed-overrides', buildCssTestbedOverrides);
 gulp.task('build--js-testbed', buildJsTestbed);
 gulp.task('build--individual-samples', buildSamples);
 gulp.task('build--sample-redirects', buildSampleRedirects);
-gulp.task('build--samples-index', buildSampleIndex);
-gulp.task('build--legal-pages', buildLegalPages);
+gulp.task('build--index-page', buildIndexPage);
 gulp.task('build--error-page', buildErrorPage);
+gulp.task('build--legal-pages', buildLegalPages);
 
 gulp.task('copy--img-testbed', copyImagesTestbed);
 
@@ -110,11 +110,11 @@ gulp.task('archive--public', archivePublic);
 
 gulp.task('build--samples', gulp.series(
   'build--individual-samples',
-  'build--sample-redirects',
-  'build--samples-index'
+  'build--sample-redirects'
 ));
 
 gulp.task('build--extras', gulp.series(
+  'build--index-page',
   'build--error-page',
   'build--legal-pages'
 ));
@@ -132,8 +132,12 @@ gulp.task('clean', gulp.parallel(
 gulp.task('build', gulp.parallel(
   'build--css',
   'build--js',
-  'build--samples',
-  'build--extras'
+  gulp.series(
+    gulp.parallel(
+      'build--samples',
+    ),
+    'build--extras'
+  )
 ));
 gulp.task('copy', gulp.parallel(
   'copy--img'
@@ -255,7 +259,7 @@ function buildSamples(done) {
 
         return content.attributes;
       }),
-      map(indexer),
+      map(sampleIndexer),
       rename({extname: '.html'}),
       pug(),
       gulp.dest(path.join(config.destinations.samples))
@@ -319,7 +323,7 @@ function buildSampleRedirects(done) {
   );
 }
 
-function buildSampleIndex(done) {
+function buildIndexPage(done) {
   pump(
     [
       gulp.src([
@@ -414,11 +418,11 @@ function watchBuild(done) {
   done();
 }
 
-// Sample processing functions
+// Processing functions
 
-var indexer = function indexer(file, cb) {
+var sampleIndexer = function sampleIndexer(file, cb) {
   if (!('sample' in file.data)) {
-    throw new Error('Sample file [' + file.basename + '] does not have sample attribute and cannot be indexed');
+    throw new Error('Sample file [' + file.basename + '] does not have a \'sample\' attribute and cannot be indexed');
   }
 
   // Index each sample's metadata
