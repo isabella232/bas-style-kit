@@ -128,13 +128,16 @@ compile-pug-testbed:
   script:
     - "cd testbed"
     - "./node_modules/gulp/bin/gulp.js build--samples"
-    - "./node_modules/gulp/bin/gulp.js build--legal-pages"
+    - "./node_modules/gulp/bin/gulp.js build--patterns"
+    - "./node_modules/gulp/bin/gulp.js build--extras"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-templates-app"
     paths:
       - testbed/public/s
+      - testbed/public/p
       - testbed/public/legal
       - testbed/public/index.html
+      - testbed/public/error.html
     expire_in: 1 week
 
 copy-fonts-app:
