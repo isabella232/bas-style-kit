@@ -18,10 +18,10 @@
   min-height: 50vh;
 
   @media (min-width: $screen-sm-min) {
-    min-height: 60vh;
+    min-height: 55vh;
   }
 
-  @media (min-width: $screen-sm-min) {
-    min-height: 70vh;
+  @media (min-width: $screen-md-min) {
+    min-height: 65vh;
   }
 }
