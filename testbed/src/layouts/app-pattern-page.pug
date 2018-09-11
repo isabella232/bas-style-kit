@@ -1,0 +1,28 @@
+extends ../../node_modules/@antarctica/bas-style-kit-pug-templates/layouts/bas-style-kit/bsk--standard.pug
+
+block append variables
+  - attributes.site_title = 'BAS Style Kit Testbed';
+  - attributes.site_description = 'A website used by developers to test and develop parts of the BAS Style Kit';
+  - bsk_attributes.site_nav_brand_text = 'Sample Service';
+  - bsk_attributes.site_nav_brand_href = '#';
+  - bsk_attributes.site_development_phase = 'experimental';
+  - bsk_attributes.site_feedback_href = '/' + testbed_version + '/#site-feedback';
+  - bsk_attributes.cookie_notice_href = '/' + testbed_version + '/legal/cookies.html';
+  - bsk_attributes.site_footer_policies_cookies_href = '/' + testbed_version + '/legal/cookies.html';
+  - bsk_attributes.site_footer_policies_copyright_href = '/' + testbed_version + '/legal/copyright.html';
+  - bsk_attributes.site_footer_policies_privacy_href = '/' + testbed_version + '/legal/privacy.html';
+  - attributes.site_favicon_url = 'data:;base64,iVBORw0KGgo=';
+  //- Navigation menu items
+  - bsk_attributes.site_nav_launcher_extras.push({title: 'Style Kit Documentation', href: 'https://style-kit.web.bas.ac.uk'});
+  - bsk_attributes.site_nav_launcher_extras.push({title: 'Style Kit Documentation (Testing)', href: 'https://style-kit-testing.web.bas.ac.uk'});
+  //- Custom CSS and JS
+  include ../includes/app/assets.pug
+  //- This can be removed when 'https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/issues/17' is fixed
+  - bsk_attributes.main_content_classes = [];
+  - bsk_attributes.main_content_classes.push(bsk_attributes.container_class);
+
+//- Overloading parent template - can be avoided when 'https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-pug-templates/issues/17' is fixed
+block main_content_container
+  main#site-main-content(class=bsk_attributes.main_content_classes)
+    block main_content
+      block pattern

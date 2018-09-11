@@ -12,6 +12,24 @@ block main_content
       p See #[a.bsk-alert-link(href='style-kit.web.bas.ac.uk') style-kit.web.bas.ac.uk] for the latest stable end-user documentation
       p See #[a.bsk-alert-link(href='style-kit-testing.web.bas.ac.uk') style-kit-testing.web.bas.ac.uk] for the latest pre-release (but largely stable) end-user documentation
 
+  section
+    header
+      h2.bsk-page-header Patterns
+      p
+        | Patterns are best practice design solutions for specific user-focused tasks and page types. They combine the
+        | low level styles, components and interactive elements provided by the Style Kit into higher level solutions.
+      p
+        | The Testbed provides examples of how each pattern can be used. Guidance to using these patterns is available
+        | through the Style Kit Documentation.
+    section
+      div.bsk-row
+        div.bsk-col-12-md-6
+          h3 All patterns
+          ul
+            each pattern in patterns
+              li
+                a(href='/' + testbed_version + '/p/' + pattern.pattern_number + '.html')
+                  | #[strong #{pattern.pattern_number}] &nbsp; #{pattern.title}
 
   section
     header
