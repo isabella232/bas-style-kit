@@ -12,5 +12,16 @@
 
 
 .pattern-page-not-found {
-  min-height: 55vh;  // formalise
+  // Ensures there is suitable minimum whitespace under the page content.
+  // A scaling factor is used based on breakpoints, as these are width (not height) based, values are approximate.
+
+  min-height: 50vh;
+
+  @media (min-width: $screen-sm-min) {
+    min-height: 60vh;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    min-height: 70vh;
+  }
 }
