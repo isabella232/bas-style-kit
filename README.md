@@ -8,7 +8,7 @@ what the Style Kit contains and how it use it.
 ## Overview
 
 The BAS Style Kit is a CSS and JavaScript framework, incorporating the BAS brand to establish a consistent visual
-design across BAS services and websites. It aims to build-in technical and accessibility best practice where practical.
+design across BAS services and websites. It aims to build-in technical and accessibility best practices where practical.
 
 The Style Kit is based on the official Sass port of [Bootstrap 3](http://getbootstrap.com) and consists of:
 
@@ -16,6 +16,20 @@ The Style Kit is based on the official Sass port of [Bootstrap 3](http://getboot
 * customised version of the Bootstrap framework (using Sass variable overrides)
 * custom variants of Bootstrap components
 * additional components inspired by other frameworks or organisations
+* design patterns (see below)
+
+### Patterns
+
+Design patterns are used to demonstrate preferred ways to pass on information to users, or ask them for information.
+For example, information to show when a service is unavailable, formatting dates consistently or asking users for their
+username in a consistent way.
+
+Patterns should be based on evidence for their effectiveness, for common patterns evidence from organisations such as
+GDS and other government departments should be strongly considered, for BAS/NERC use-cases, local research should be
+conducted, though it is accepted this will be less developed than general use-cases.
+
+Examples of each pattern are listed in the [Testbed](#testbed). For released patterns, these form reference examples to aid their
+implementation in themes and templates, or use directly by copying the design/markup.
 
 ## Usage
 
@@ -113,12 +127,91 @@ A Gulp task, `sri`, in the `app` container, is used to compute values for Style 
 
 ### Testbed
 
-To aid developing and testing the Style Kit, a *Testbed* is included. It consists of a number of atomic *samples*,
-designed to isolate individual styles to check for regressions or ensure various components fit together well.
+To aid developing and testing the Style Kit, a *Testbed* is included. It consists of a number of atomic *samples* and
+reference implementations of *patterns*.
+
+Samples are designed to isolate individual styles to check for regressions or ensure various components fit together
+well. [Patterns](#patterns) are best practice design solutions for specific user-focused tasks and page types.
 
 When running locally, the testbed can be accessed at [localhost:9000](https://localhost:9000).
 
-A hosted instance of the testbed for the *master* branch of the (GitLab) repository is available at: [style-kit-testbed.web.bas.ac.uk/master](https://style-kit-testbed.web.bas.ac.uk/master)
+A hosted instance of the testbed for the *master* branch is available at:
+[style-kit-testbed.web.bas.ac.uk/master](https://style-kit-testbed.web.bas.ac.uk/master).
+
+### Patterns (Testbed)
+
+The Testbed includes released patterns, where they act as reference implementations, as well as patterns under
+development. For each pattern, multiple variants may be listed to show different use-cases or test different designs.
+
+Patterns are numbered, but these do not imply any order, and may not be congruous for the variants of each pattern. For
+example variants for the 'service unavailable' pattern may be numbered *0001*, *0003*, *0030* and *0500*. Where a
+pattern has been removed, its number will not be reused.
+
+Pattern files **MUST** be named as `testbed/src/patterns/[pattern number]--[pattern label].pug` where:
+
+* `[pattern number]` is the next highest pattern number (i.e. if the last sample was 5 the next would be 6)
+* `[pattern label]` a hyphenated label for the pattern expressed from least to most specific (e.g.
+  `service-unavailable-planned` not `planned-service-unavailable`)
+
+Patterns use the [Pug](https://pugjs.org/api/getting-started.html) (formally Jade) template engine to wrap each pattern
+in a lightweight layout to include a local version of the Style Kit for testing.
+
+This layout exposes a `pattern` block to contain each pattern's content.
+
+A minimal pattern would look like:
+
+```pug
+//-
+  pattern:
+    title: Pattern title
+  ---
+
+extends ../layouts/app-pattern-page.pug
+
+block pattern
+  ul
+    li example list item
+```
+
+A typical sample would look like:
+
+```pug
+//- To be added
+```
+
+See the other pattern sub-sections for more information on different aspects of a sample.
+
+A Gulp task, `build`, in the `testbed` container, is used to generate pattern variants, indexes and assets.
+
+#### Pattern labels and titles
+
+...
+
+#### Pattern variants
+
+...
+
+#### Pattern types
+
+...
+
+#### Pattern front matter
+
+Each pattern **MUST** include some metadata to help organise and classify patterns.
+
+| Property        | Description                                | Required | Example Value    | Notes                                     |
+| --------------- | ------------------------------------------ | -------- | ---------------- | ----------------------------------------- |
+| `pattern`       | Container for properties about the pattern | Yes      | *N/A*            | -                                         |
+| `pattern.title` | A short title for the pattern              | Yes      | `Page not found` | Use most readable form, opposite of label |
+
+**Note:** For a property, wild cards (`*`), represent an item in a list.
+
+**Note:** For a property, dots (`.`) represent an indented level - e.g. `foo.bar` should be expressed as:
+
+```
+foo:
+  bar:
+```
 
 ### Samples
 
@@ -132,7 +225,7 @@ will not be reused.
 Sample files **MUST** be named as `testbed/src/samples/[sample number]--[sample label].pug` where:
 
 * `[sample number]` is the next highest sample number (i.e. if the last sample was 5 the next would be 6)
-* `[sample title]` a hyphenated label for the sample expressed from least to most specific (e.g. `ul-unstyled` not
+* `[sample label]` a hyphenated label for the sample expressed from least to most specific (e.g. `ul-unstyled` not
   `unstyled-ul`)
 
 Samples use the [Pug](https://pugjs.org/api/getting-started.html) (formally Jade) template engine to wrap each sample
@@ -203,14 +296,12 @@ section.app-sample-section
 Where you find yourself repeating the same structure, but applying different classes or properties, consider using a
 Mixin to keep code DRY.
 
-Other conventions/patterns for samples can be found by reading existing samples.
+Other conventions/patterns for samples can be found by reading existing samples. See the other sample sub-sections for
+more information on different aspects of a sample.
 
-See the *Sample collections*, *Sample types*, *Sample front-matter* and *Sample mixins* sub-sections for more
-information on other aspects of a sample.
+A Gulp task, `build`, in the `testbed` container, is used to generate samples, collections, indexes and assets.
 
-A Gulp task, `build`, in the `testbed` container, is used to generate Testbed samples, collections and assets.
-
-##### Sample label and title
+#### Sample label and title
 
 Each sample will have a *label* (taken from the sample file name) and *title* (taken from the sample front matter) each
 serving different functions.
@@ -354,9 +445,9 @@ block sample
 The Testbed relies on local, development, versions of the Style Kit's styles and scripts, generated using the `build`
 Gulp task in the `app` container.
 
-The Testbed also has a limited set of styles and other assets of it's own (for things like the index of samples and
-displaying the current responsive breakpoint) located in `testbed/src/assets/`. These assets are generated using the
-`build` Gulp task in the `testbed` container.
+The Testbed also has a limited set of styles and other assets of it's own (for things like the index of patterns/samples
+and displaying the current responsive breakpoint) located in `testbed/src/assets/`. These assets are also generated
+using the `build` Gulp task in the `testbed` container.
 
 ## Developing
 
@@ -446,8 +537,11 @@ Gulp is used to combine these scripts into one file. Additional tasks are used t
 jQuery is a dependency of all JavaScript plugins. Some plugins depend on other external scripts for specific
 functionality, such as managing cookies or auto-complete inputs.
 
-These dependencies are expressed in `package.json` for when the Style Kit is used as a Node package, and loaded from the
-[BAS CDN](https://gitlab.data.bas.ac.uk/WSF/bas-cdn) when used directly in a browser.
+Dependencies for 'core' plugins are listed in `package.json` for use when the Style Kit is used as a Node package, or
+loaded from the [BAS CDN](https://gitlab.data.bas.ac.uk/WSF/bas-cdn) when used directly in a browser.
+
+Dependencies for optional plugins will need to be included manually as listed in the
+[end-user documentation](https://style-kit.web.bas.ac.uk). They are usually also available from the BAS CDN.
 
 **Note:** This project uses [Yarn](https://yarnpkg.com/lang/en/) instead of
 [NPM](https://docs.npmjs.com/getting-started/what-is-npm) for installing dependencies within the `app` Docker image.
@@ -464,7 +558,7 @@ To edit these resources you will need to install these fonts locally:
 ### Updating dependencies
 
 If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `.eslintrc.yml` in the `app` Docker image, or `package.json`
-in the `testbed` Docker image are changed, the relevant image will need to be rebuilt and pushed to the private BAS
+in the `testbed` Docker image, are changed the relevant image will need to be rebuilt and pushed to the private BAS
 Docker Repository [1].
 
 ```
@@ -479,7 +573,7 @@ During each *alpha* release dependencies should be updated to their latest versi
 * the `app` and `testbed` images should use the latest Node LTS release (as we don't rely on cutting edge Node features)
 * JavaScript dependencies (inc. Bootstrap and web-fonts) should be updated to their latest versions [2]
 
-**Note:** Reference packages as `^major.minor.path`, e.g. `^1.2.3`
+**Note:** Reference packages as `^[major].[minor].[path]`, e.g. `^1.2.3`
 
 **Note:** Commit the Yarn lock file, `yarn.lock`, to the repository.
 

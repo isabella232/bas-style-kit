@@ -33,6 +33,7 @@ const config = {
     'javascripts': path.join('.', 'src', 'assets', 'javascripts'),
     'images': path.join('.', 'src', 'assets', 'images'),
     'samples': path.join('.', 'src', 'samples'),
+    'patterns': path.join('.', 'src', 'patterns'),
     'public': path.join('.', 'public')
   },
   'destinations': {
@@ -42,7 +43,8 @@ const config = {
     'css': path.join('css'),
     'js': path.join('js'),
     'img': path.join('img'),
-    'samples': path.join('.', 'public', 's')
+    'samples': path.join('.', 'public', 's'),
+    'patterns': path.join('.', 'public', 'p')
   },
   'modules': {
     'autoprefixer': {
@@ -70,6 +72,7 @@ const config = {
 
 var runtime = {
   'samples': [],
+  'patterns': [],
   'collections': {}
 }
 
@@ -81,6 +84,7 @@ gulp.task('clean--css', cleanCss);
 gulp.task('clean--js', cleanJs);
 gulp.task('clean--img', cleanImg);
 gulp.task('clean--samples', cleanSamples);
+gulp.task('clean--patterns', cleanPatterns);
 gulp.task('clean--public-archive', cleanPublicArchive);
 gulp.task('clean--runtime', cleanRuntime);
 
@@ -89,9 +93,11 @@ gulp.task('build--css-testbed-overrides', buildCssTestbedOverrides);
 gulp.task('build--js-testbed', buildJsTestbed);
 gulp.task('build--individual-samples', buildSamples);
 gulp.task('build--sample-redirects', buildSampleRedirects);
-gulp.task('build--samples-index', buildSampleIndex);
-gulp.task('build--legal-pages', buildLegalPages);
+gulp.task('build--individual-patterns', buildPatterns);
+gulp.task('build--pattern-redirects', buildPatternRedirects);
+gulp.task('build--index-page', buildIndexPage);
 gulp.task('build--error-page', buildErrorPage);
+gulp.task('build--legal-pages', buildLegalPages);
 
 gulp.task('copy--img-testbed', copyImagesTestbed);
 
@@ -110,13 +116,25 @@ gulp.task('archive--public', archivePublic);
 
 gulp.task('build--samples', gulp.series(
   'build--individual-samples',
-  'build--sample-redirects',
-  'build--samples-index'
+  'build--sample-redirects'
+));
+
+gulp.task('build--patterns', gulp.series(
+  'build--individual-patterns',
+  'build--pattern-redirects'
 ));
 
 gulp.task('build--extras', gulp.series(
+  'build--index-page',
   'build--error-page',
   'build--legal-pages'
+));
+gulp.task('build--pages', gulp.series(
+  gulp.parallel(
+    'build--samples',
+    'build--patterns'
+  ),
+  'build--extras'
 ));
 
 gulp.task('watch', watchBuild);
@@ -126,14 +144,14 @@ gulp.task('clean', gulp.parallel(
   'clean--js',
   'clean--img',
   'clean--samples',
+  'clean--patterns',
   'clean--public-archive',
   'clean--runtime'
 ));
 gulp.task('build', gulp.parallel(
   'build--css',
   'build--js',
-  'build--samples',
-  'build--extras'
+  'build--pages'
 ));
 gulp.task('copy', gulp.parallel(
   'copy--img'
@@ -168,6 +186,13 @@ function cleanImg(done) {
 function cleanSamples(done) {
   del([
       path.join(config.destinations.samples)
+  ]);
+  done();
+}
+
+function cleanPatterns(done) {
+  del([
+      path.join(config.destinations.patterns)
   ]);
   done();
 }
@@ -255,10 +280,44 @@ function buildSamples(done) {
 
         return content.attributes;
       }),
-      map(indexer),
+      map(sampleIndexer),
       rename({extname: '.html'}),
       pug(),
       gulp.dest(path.join(config.destinations.samples))
+    ],
+    done
+  );
+}
+
+function buildPatterns(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.patterns, '*.pug')
+      ]),
+      data(function(file) {
+        var content = frontmatter(String(file.contents));
+        file.contents = new Buffer(content.body);
+
+        // Add testbed version as custom attribute
+        content.attributes.testbed_version = config.variables["testbed-version"];
+
+        // Add pattern number from file name as custom attribute
+        var fileName = file.basename.split('--');
+        if (fileName.length != 2) {
+          throw new Error('Pattern file [' + fileName + '] does not fit the expected name format [1234--pattern-name]');
+        }
+        if (!("pattern" in content.attributes)) {
+          content.attributes.pattern = {}
+        }
+        content.attributes.pattern.pattern_number = fileName[0];
+
+        return content.attributes;
+      }),
+      map(patternIndexer),
+      rename({extname: '.html'}),
+      pug(),
+      gulp.dest(path.join(config.destinations.patterns))
     ],
     done
   );
@@ -319,7 +378,62 @@ function buildSampleRedirects(done) {
   );
 }
 
-function buildSampleIndex(done) {
+function buildPatternRedirects(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.patterns, '*.pug')
+      ]),
+      data(function(file) {
+        var attributes = {};
+
+        // Add testbed version as custom attribute
+        attributes.testbed_version = config.variables["testbed-version"]
+
+        // Add sample file name without an extension as custom attribute for target in sample redirect file
+        attributes.pattern_file_name = file.basename.split('.')[0];
+
+        // Add sample number from sample file name to name sample redirect file
+        var fileName = file.basename.split('--');
+        if (fileName.length != 2) {
+          throw new Error('Pattern file [' + fileName + '] does not fit the expected name format [1234--pattern-name]');
+        }
+        attributes.pattern_number = fileName[0];
+
+        file.contents = new Buffer(`
+          <!DOCTYPE html>
+          <html lang="en-GB">
+            <head>
+              <meta charset="utf-8">
+              <title>Redirecting&hellip;</title>
+              <link rel="canonical" href="./${attributes.pattern_file_name}.html">
+              <meta http-equiv="refresh" content="0; url=./${attributes.pattern_file_name}.html">
+              <meta name="robots" content="noindex">
+            </head>
+            <body>
+              <h1>Redirecting&hellip;</h1>
+              <a href="./${attributes.pattern_file_name}.html">Click here if you are not redirected.</a>
+              <script>location="./${attributes.pattern_file_name}.html"</script>
+            </body>
+          </html>`);
+
+        return attributes;
+      }),
+      through.obj(function(file, enc, cb) {
+        // Gulp rename doesn't allow accessing dynamic properties (i.e. from gulp-data) so we have to
+        // manually manipulate the file object to rename it.
+        //
+        // source: https://github.com/hparra/gulp-rename/issues/54#issuecomment-131412099
+        file.basename = file.data.pattern_number + '.html';
+        cb(null, file);
+      }),
+      gulp.dest(path.join(config.destinations.patterns))
+    ],
+    done
+  );
+}
+
+function buildIndexPage(done) {
   pump(
     [
       gulp.src([
@@ -328,6 +442,7 @@ function buildSampleIndex(done) {
       data(function(file) {
         return {
           'samples': runtime.samples,
+          'patterns': runtime.patterns,
           'collections': runtime.collections,
           'testbed_version': config.variables["testbed-version"]
         };
@@ -367,7 +482,7 @@ function buildLegalPages(done) {
       ]),
       data(function(file) {
         return {
-          'testbed_version': runtime.version
+          'testbed_version': config.variables["testbed-version"]
         };
       }),
       rename({extname: '.html'}),
@@ -414,11 +529,11 @@ function watchBuild(done) {
   done();
 }
 
-// Sample processing functions
+// Processing functions
 
-var indexer = function indexer(file, cb) {
+var sampleIndexer = function sampleIndexer(file, cb) {
   if (!('sample' in file.data)) {
-    throw new Error('Sample file [' + file.basename + '] does not have sample attribute and cannot be indexed');
+    throw new Error('Sample file [' + file.basename + '] does not have a \'sample\' attribute and cannot be indexed');
   }
 
   // Index each sample's metadata
@@ -437,13 +552,33 @@ var indexer = function indexer(file, cb) {
   cb(null, file);
 }
 
+var patternIndexer = function patternIndexer(file, cb) {
+  if (!('pattern' in file.data)) {
+    throw new Error('Pattern file [' + file.basename + '] does not have a \'pattern\' attribute and cannot be indexed');
+  }
+
+  // Index each sample's metadata
+  runtime.patterns.push(file.data.pattern);
+
+  // TO FIX
+  //
+  // // Add each sample to any collections it should belong too (specified by the sample)
+  // if ('collections' in file.data) {
+  //   file.data.collections.forEach(function(collection) {
+  //       if (!(collection in runtime.collections)) {
+  //         runtime.collections[collection] = []
+  //       }
+  //       runtime.collections[collection].push(file.data.sample);
+  //   });
+  // }
+
+  cb(null, file);
+}
+
 function cleanRuntime(done) {
   // Reset runtime variables
-  // console.log('runtime.samples count: ' + runtime.samples.length);
   runtime.samples = [];
-  // console.log('purged');
-  // console.log('runtime.samples count: ' + runtime.samples.length);
+  runtime.patterns = [];
   runtime.collections = {};
-
   done();
 }

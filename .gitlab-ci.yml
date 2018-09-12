@@ -118,6 +118,22 @@ compile-js-app:
       - dist/js/bas-style-kit.min.js
     expire_in: 1 week
 
+compile-js-testbed:
+  stage: build
+  image:
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-alpine
+    entrypoint: [""]
+  before_script:
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+  script:
+    - "cd testbed"
+    - "./node_modules/gulp/bin/gulp.js build--js"
+  artifacts:
+    name: "$CI_BUILD_TOKEN-dist-styles-testbed"
+    paths:
+      - testbed/public/assets/js/
+    expire_in: 1 week
+
 compile-pug-testbed:
   stage: build
   image:
@@ -127,14 +143,15 @@ compile-pug-testbed:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
   script:
     - "cd testbed"
-    - "./node_modules/gulp/bin/gulp.js build--samples"
-    - "./node_modules/gulp/bin/gulp.js build--legal-pages"
+    - "./node_modules/gulp/bin/gulp.js build--pages"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-templates-app"
     paths:
       - testbed/public/s
+      - testbed/public/p
       - testbed/public/legal
       - testbed/public/index.html
+      - testbed/public/error.html
     expire_in: 1 week
 
 copy-fonts-app:

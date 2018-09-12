@@ -1,6 +1,14 @@
-extends ./layouts/app.pug
+//-
+  pattern:
+    title: Page not found
+  ---
 
-block main_content
+extends ../layouts/app-pattern-page.pug
+
+block append variables
+  - bsk_attributes.main_content_classes.push('bsk-pattern-page-not-found');
+
+block pattern
   h1.bsk-page-header Page not found
   p If you typed the web address, check it is correct.
   p If you pasted the web address, check you copied the entire address.
