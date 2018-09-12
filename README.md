@@ -8,7 +8,7 @@ what the Style Kit contains and how it use it.
 ## Overview
 
 The BAS Style Kit is a CSS and JavaScript framework, incorporating the BAS brand to establish a consistent visual
-design across BAS services and websites. It aims to build-in technical and accessibility best practice where practical.
+design across BAS services and websites. It aims to build-in technical and accessibility best practices where practical.
 
 The Style Kit is based on the official Sass port of [Bootstrap 3](http://getbootstrap.com) and consists of:
 
@@ -118,7 +118,9 @@ designed to isolate individual styles to check for regressions or ensure various
 
 When running locally, the testbed can be accessed at [localhost:9000](https://localhost:9000).
 
-A hosted instance of the testbed for the *master* branch of the (GitLab) repository is available at: [style-kit-testbed.web.bas.ac.uk/master](https://style-kit-testbed.web.bas.ac.uk/master)
+A hosted instance of the testbed for the *master* branch is available at:
+[style-kit-testbed.web.bas.ac.uk/master](https://style-kit-testbed.web.bas.ac.uk/master).
+
 
 ### Samples
 
@@ -132,7 +134,7 @@ will not be reused.
 Sample files **MUST** be named as `testbed/src/samples/[sample number]--[sample label].pug` where:
 
 * `[sample number]` is the next highest sample number (i.e. if the last sample was 5 the next would be 6)
-* `[sample title]` a hyphenated label for the sample expressed from least to most specific (e.g. `ul-unstyled` not
+* `[sample label]` a hyphenated label for the sample expressed from least to most specific (e.g. `ul-unstyled` not
   `unstyled-ul`)
 
 Samples use the [Pug](https://pugjs.org/api/getting-started.html) (formally Jade) template engine to wrap each sample
@@ -203,14 +205,12 @@ section.app-sample-section
 Where you find yourself repeating the same structure, but applying different classes or properties, consider using a
 Mixin to keep code DRY.
 
-Other conventions/patterns for samples can be found by reading existing samples.
+Other conventions/patterns for samples can be found by reading existing samples. See the other sample sub-sections for
+more information on different aspects of a sample.
 
-See the *Sample collections*, *Sample types*, *Sample front-matter* and *Sample mixins* sub-sections for more
-information on other aspects of a sample.
+A Gulp task, `build`, in the `testbed` container, is used to generate samples, collections, indexes and assets.
 
-A Gulp task, `build`, in the `testbed` container, is used to generate Testbed samples, collections and assets.
-
-##### Sample label and title
+#### Sample label and title
 
 Each sample will have a *label* (taken from the sample file name) and *title* (taken from the sample front matter) each
 serving different functions.
@@ -446,8 +446,11 @@ Gulp is used to combine these scripts into one file. Additional tasks are used t
 jQuery is a dependency of all JavaScript plugins. Some plugins depend on other external scripts for specific
 functionality, such as managing cookies or auto-complete inputs.
 
-These dependencies are expressed in `package.json` for when the Style Kit is used as a Node package, and loaded from the
-[BAS CDN](https://gitlab.data.bas.ac.uk/WSF/bas-cdn) when used directly in a browser.
+Dependencies for 'core' plugins are listed in `package.json` for use when the Style Kit is used as a Node package, or
+loaded from the [BAS CDN](https://gitlab.data.bas.ac.uk/WSF/bas-cdn) when used directly in a browser.
+
+Dependencies for optional plugins will need to be included manually as listed in the
+[end-user documentation](https://style-kit.web.bas.ac.uk). They are usually also available from the BAS CDN.
 
 **Note:** This project uses [Yarn](https://yarnpkg.com/lang/en/) instead of
 [NPM](https://docs.npmjs.com/getting-started/what-is-npm) for installing dependencies within the `app` Docker image.
@@ -464,7 +467,7 @@ To edit these resources you will need to install these fonts locally:
 ### Updating dependencies
 
 If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `.eslintrc.yml` in the `app` Docker image, or `package.json`
-in the `testbed` Docker image are changed, the relevant image will need to be rebuilt and pushed to the private BAS
+in the `testbed` Docker image, are changed the relevant image will need to be rebuilt and pushed to the private BAS
 Docker Repository [1].
 
 ```
@@ -479,7 +482,7 @@ During each *alpha* release dependencies should be updated to their latest versi
 * the `app` and `testbed` images should use the latest Node LTS release (as we don't rely on cutting edge Node features)
 * JavaScript dependencies (inc. Bootstrap and web-fonts) should be updated to their latest versions [2]
 
-**Note:** Reference packages as `^major.minor.path`, e.g. `^1.2.3`
+**Note:** Reference packages as `^[major].[minor].[path]`, e.g. `^1.2.3`
 
 **Note:** Commit the Yarn lock file, `yarn.lock`, to the repository.
 
