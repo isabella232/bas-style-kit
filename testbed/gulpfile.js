@@ -482,7 +482,7 @@ function buildLegalPages(done) {
       ]),
       data(function(file) {
         return {
-          'testbed_version': runtime.version
+          'testbed_version': config.variables["testbed-version"]
         };
       }),
       rename({extname: '.html'}),
