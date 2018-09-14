@@ -12,14 +12,5 @@
 
 
 .pattern-page-not-found {
-  // Ensures there is suitable minimum whitespace under the page content.
-  // A scaling factor is used based on breakpoints, as these are width (not height) based, values are approximate.
-  min-height: 0;
-
-  @media (min-width: $screen-lg-min) {
-    min-height: 40vh;
-  }
-  @media (min-width: $screen-xl-min) {
-    min-height: 55vh;
-  }
+  @include pattern-min-height()
 }

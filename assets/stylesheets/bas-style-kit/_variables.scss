@@ -266,6 +266,15 @@ $grid-12-columns:                             12;
 $grid-24-columns:                             24;
 
 
+// Page layouts
+//
+// Define minimum page heights to prevent footers riding too high up the page.
+
+$page-layout-min-height-base: 0;
+$page-layout-min-height-lg: 40vh;
+$page-layout-min-height-xl: 55vh;
+
+
 // Description lists
 //
 // For each of Bootstrap's buttons, define text, background and border color.
