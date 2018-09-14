@@ -191,10 +191,6 @@ A Gulp task, `build`, in the `testbed` container, is used to generate pattern va
 
 ...
 
-#### Pattern types
-
-...
-
 #### Pattern front matter
 
 Each pattern **MUST** include some metadata to help organise and classify patterns.
@@ -530,7 +526,7 @@ The Style Kit is distributed as a single JS file, but is made up of multiple par
 
 Gulp is used to combine these scripts into one file. Additional tasks are used to:
 
-* minifying scripts to give compressed and non-compressed versions
+* minify scripts to give compressed and non-compressed versions
 
 #### JavaScript dependencies
 
@@ -546,6 +542,10 @@ Dependencies for optional plugins will need to be included manually as listed in
 **Note:** This project uses [Yarn](https://yarnpkg.com/lang/en/) instead of
 [NPM](https://docs.npmjs.com/getting-started/what-is-npm) for installing dependencies within the `app` Docker image.
 This still uses the NPM package registry.
+
+**Note:** This project uses [Snyk](https://snyk.io) to check for vulnerabilities in NodeJS/Javascript dependencies used
+in the Style Kit. See the [Dependency vulnerability scanning](#dependency-vulnerability-scanning) section for more
+information.
 
 ### Design resources
 
@@ -610,6 +610,17 @@ $ exit
 $ docker-compose down
 $ mv testbed/src/assets/yarn.lock ./testbed
 ```
+
+#### Dependency vulnerability scanning
+
+To ensure the security of this project, and users of the Style Kit, all dependencies are checked against
+[Snyk](https://snyk.io) for vulnerabilities.
+
+* [Style Kit](https://app.snyk.io/org/antarctica/project/daa6bfb7-f029-43fb-b12b-6687147fc1b7)
+* [Testbed](https://app.snyk.io/org/antarctica/project/092fb27b-fcba-428e-88f8-1d5a8c7724f0)
+
+Through [Continuous Integration](#continuous-integration), on each commit current dependencies are tested and a snapshot
+uploaded to Snyk. This snapshot is then monitored for vulnerabilities.
 
 ## Testing
 
