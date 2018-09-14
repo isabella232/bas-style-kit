@@ -5,10 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.5.0-alpha] - 2018-09-14
+
 ### Removed [BREAKING!]
 
 * [Styles] Bootstrap 'well' component
 * [Styles] Font Awesome icon font - due to licensing constraints bundling Font Awesome 5 Pro into a theme
+* [Infrastructure] NPM package named changed to a scoped package (`@antarctica/bas-style-kit`)
 
 ### Added
 
@@ -48,6 +51,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Moving use of margin-top from alert component in preparation for Bootstrap 4
 * [Scripts] Source files prefixed with numbers to ensure correct build order
 * [Admin] Moving colour swatch posters into a namespaced directory
+* [Infrastructure] Updating release procedures
 * [Infrastructure] Improving Dockerfiles
 * [Infrastructure] Updated to latest Terraform and Terraform provider versions
 * [Infrastructure] Setting Style Kit version in Gulp using `package.json`, rather than redeclaring

@@ -1,5 +1,5 @@
 {
-  "name": "bas-style-kit",
+  "name": "@antarctica/bas-style-kit",
   "description": "A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.",
   "version": "0.5.0-alpha",
   "homepage": "https://style-kit.web.bas.ac.uk",

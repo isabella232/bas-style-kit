@@ -701,16 +701,21 @@ Merge requests **WILL NOT** be accepted on this mirror.
 
 ## Release procedures
 
+For all releases:
+
 1. create a release branch
-2. remove `-develop` from version string in:
+2. build & push docker images (`app` & `testbed`)
+3. close release in `CHANGELOG.md`
+4. merge release branch with master and tag with version
+5. copy SRI values into the Style Kit Documentation project [1]
+6. re-publish NPM package
+
+For non-alpha/beta releases:
+
+1. before building and pushing docker images, remove `-develop` from version string in:
     * `docker-compose.yml` - `app` Docker image
     * `.gitlab-ci.yml` - default Docker image
-3. build & push the docker image
-4. close release in `CHANGELOG.md`
-5. merge release branch with master and tag with version
-6. copy SRI values into the Style Kit Documentation project [1]
-7. re-publish NPM package
-8. push commits and tags to GitHub mirror
+2. if needed, bump the version of the `testbed` image and update references in `.gitlab-ci.yml`
 
 [1] This is currently a manual process described in the relevant
 [project documentation](https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-docs/README.md).
