@@ -724,7 +724,6 @@ For non-alpha/beta releases:
 
 ```shell
 $ docker-compose run --entrypoint='' app ash
-$ docker-compose run app
 $ ./node_modules/gulp/bin/gulp.js archive
 $ npm login
 $ npm publish
@@ -734,7 +733,6 @@ To preview the contents of the NPM package:
 
 ```shell
 $ docker-compose run --entrypoint='' app ash
-$ docker-compose run app
 $ ./node_modules/gulp/bin/gulp.js archive
 $ npm pack
 ```
@@ -743,15 +741,18 @@ $ npm pack
 
 ### After release
 
-If a major version has just been published:
+For all releases:
+
+1. bump the version and add the next development phase in:
+  * `package.json`
+  * `/assets/scripts/javascripts/bas-style-kit/0_version.js` - `Version.VERSION` variable
+
+For non-alpha/beta releases:
 
 1. bump the version and add `-develop` prefix in:
   * `docker-compose.yml` - `app` Docker image
   * `.gitlab-ci.yml` - default Docker image
-2. bump the version and add the next development phase in:
-  * `package.json`
-  * `/assets/scripts/javascripts/bas-style-kit/0_version.js` - `Version.VERSION` variable
-3. build & push the docker image
+2. build & push the docker image
 
 This is to prevent overwriting a 'released' docker image tag with future changes and prevent publishing a development
 version to a release tag in NPM (as versions cannot be overwritten).
