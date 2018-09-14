@@ -14,6 +14,9 @@
 # - AWS IAM id/secret keys for 'bas-gitlab-deploy-bas-style-kit' user
 # > AWS_ACCESS_KEY_ID: "[Sensetive]"
 # > AWS_SECRET_ACCESS_KEY: "[Sensetive]"
+#
+# - Snyk
+# > SNYK_TOKEN: "[Sensitive]"
 
 # == Job Templates ==
 
@@ -30,6 +33,7 @@
 
 stages:
   - setup
+  - security
   - build
   - lint
   - process
@@ -48,6 +52,8 @@ variables:
   TESTBED_BUCKET: style-kit-testbed.web.bas.ac.uk
   APP_NAME: bas-style-kit
   REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
+  SNYK_PROJECT_NAME_APP: bas-style-kit-core
+  SNYK_PROJECT_NAME_TESTBED: bas-style-kit-testbed
 
 # == Jobs ==
 
@@ -76,6 +82,24 @@ node-dependencies-testbed:
     paths:
       - testbed/node_modules
     expire_in: 1 hour
+
+check-dependencies-app:
+  stage: security
+  image:
+    name: snyk/snyk-cli:npm
+    entrypoint: [""]
+  script:
+    - "snyk test --file=yarn.lock"
+    - "snyk monitor --file=yarn.lock --project-name=$SNYK_PROJECT_NAME_APP --org=$SNYK_ORG"
+
+check-dependencies-testbed:
+  stage: security
+  image:
+    name: snyk/snyk-cli:npm
+    entrypoint: [""]
+  script:
+    - "snyk test --file=testbed/yarn.lock"
+    - "snyk monitor --file=testbed/yarn.lock --project-name=$SNYK_PROJECT_NAME_TESTBED --org=$SNYK_ORG"
 
 compile-sass-app:
   stage: build
