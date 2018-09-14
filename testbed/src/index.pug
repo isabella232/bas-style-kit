@@ -28,8 +28,15 @@ block main_content
           ul
             each pattern in patterns
               li
-                a(href='/' + testbed_version + '/p/' + pattern.pattern_number + '.html')
-                  | #[strong #{pattern.pattern_number}] &nbsp; #{pattern.title}
+                if pattern.variants
+                  | #{ pattern.title }
+                  ul
+                    each pattern_variant in pattern.variants
+                      li: a(href='/' + testbed_version + '/p/' + pattern_variant.pattern_number + '.html')
+                        | #[strong #{ pattern_variant.pattern_number }] &nbsp; #{ pattern_variant.title }
+                else
+                  a(href='/' + testbed_version + '/p/' + pattern.pattern_number + '.html')
+                    | #[strong #{ pattern.pattern_number }] &nbsp; #{ pattern.title }
 
   section
     header

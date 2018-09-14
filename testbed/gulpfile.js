@@ -72,7 +72,7 @@ const config = {
 
 var runtime = {
   'samples': [],
-  'patterns': [],
+  'patterns': {},
   'collections': {}
 }
 
@@ -204,6 +204,14 @@ function cleanPublicArchive(done) {
   done();
 }
 
+function cleanRuntime(done) {
+  // Reset runtime variables
+  runtime.samples = [];
+  runtime.patterns = {};
+  runtime.collections = {};
+  done();
+}
+
 function buildCssTestbed(done) {
   pump(
     [
@@ -273,6 +281,7 @@ function buildSamples(done) {
         if (fileName.length != 2) {
           throw new Error('Sample file [' + fileName + '] does not fit the expected name format [1234--sample-name]');
         }
+
         if (!("sample" in content.attributes)) {
           content.attributes.sample = {}
         }
@@ -307,6 +316,7 @@ function buildPatterns(done) {
         if (fileName.length != 2) {
           throw new Error('Pattern file [' + fileName + '] does not fit the expected name format [1234--pattern-name]');
         }
+
         if (!("pattern" in content.attributes)) {
           content.attributes.pattern = {}
         }
@@ -557,28 +567,34 @@ var patternIndexer = function patternIndexer(file, cb) {
     throw new Error('Pattern file [' + file.basename + '] does not have a \'pattern\' attribute and cannot be indexed');
   }
 
-  // Index each sample's metadata
-  runtime.patterns.push(file.data.pattern);
+  if ('pattern_variant' in file.data) {
+    // Create new pattern if needed
+    if (!(file.data.pattern.title in runtime.patterns)) {
+      runtime.patterns[file.data.pattern.title] = {
+        'title': file.data.pattern.title,
+        'variants': []
+      };
+    }
 
-  // TO FIX
-  //
-  // // Add each sample to any collections it should belong too (specified by the sample)
-  // if ('collections' in file.data) {
-  //   file.data.collections.forEach(function(collection) {
-  //       if (!(collection in runtime.collections)) {
-  //         runtime.collections[collection] = []
-  //       }
-  //       runtime.collections[collection].push(file.data.sample);
-  //   });
-  // }
+    if (!('variants' in runtime.patterns[file.data.pattern.title])) {
+      throw new Error('Pattern [' + file.data.pattern.title + '] has already been added as a standalone pattern. Patterns must either use variants only, or as a (single) direct pattern.');
+    }
+
+    runtime.patterns[file.data.pattern.title].variants.push({
+      'title': file.data.pattern_variant.title,
+      'pattern_number': file.data.pattern.pattern_number
+    });
+  } else {
+    // Treat pattern as a standalone
+    if (file.data.pattern.title in runtime.patterns) {
+      throw new Error('Pattern [' + file.data.pattern.title + '] has already been added, either as a duplicate pattern or as a pattern with variants. Patterns must either use variants only, or as a (single) direct pattern.');
+    }
+
+    runtime.patterns[file.data.pattern.title] = {
+      'title': file.data.pattern.title,
+      'pattern_number': file.data.pattern.pattern_number
+    };
+  }
 
   cb(null, file);
-}
-
-function cleanRuntime(done) {
-  // Reset runtime variables
-  runtime.samples = [];
-  runtime.patterns = [];
-  runtime.collections = {};
-  done();
 }
