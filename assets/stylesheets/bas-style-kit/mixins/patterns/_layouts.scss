@@ -1,0 +1,14 @@
+// Layouts (Patterns)
+
+@mixin pattern-min-height() {
+  // Ensures there is suitable minimum whitespace under the page content.
+  // A scaling factor is used based on breakpoints, as these are width (not height) based, values are approximate.
+  min-height: $page-layout-min-height-base;
+
+  @media (min-width: $screen-lg-min) {
+    min-height: $page-layout-min-height-lg;
+  }
+  @media (min-width: $screen-xl-min) {
+    min-height: $page-layout-min-height-xl;
+  }
+}
