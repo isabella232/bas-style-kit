@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [0.5.0-alpha] - 2018-09-14
 
+### Changed
+
+* [Infrastructure] Updating release procedures
+
 ### Removed [BREAKING!]
 
 * [Styles] Bootstrap 'well' component
