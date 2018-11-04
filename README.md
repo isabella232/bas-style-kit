@@ -28,8 +28,8 @@ Patterns should be based on evidence for their effectiveness, for common pattern
 GDS and other government departments should be strongly considered, for BAS/NERC use-cases, local research should be
 conducted, though it is accepted this will be less developed than general use-cases.
 
-Examples of each pattern are listed in the [Testbed](#testbed). For released patterns, these form reference examples to aid their
-implementation in themes and templates, or use directly by copying the design/markup.
+Examples of each pattern are listed in the [Testbed](#testbed). For released patterns, these form reference examples to
+aid their implementation in themes and templates, or use directly by copying the design/markup.
 
 ## Usage
 
@@ -561,9 +561,8 @@ If `package.json`, `.csscomb.json`, `.stylelintrc.yml` or `.eslintrc.yml` in the
 in the `testbed` Docker image, are changed the relevant image will need to be rebuilt and pushed to the private BAS
 Docker Repository [1].
 
-```
+```shell
 $ cd bas-style-kit/
-
 $ docker-compose build [image]
 $ docker-compose push [image]
 ```
@@ -572,10 +571,6 @@ During each *alpha* release dependencies should be updated to their latest versi
 
 * the `app` and `testbed` images should use the latest Node LTS release (as we don't rely on cutting edge Node features)
 * JavaScript dependencies (inc. Bootstrap and web-fonts) should be updated to their latest versions [2]
-
-**Note:** Reference packages as `^[major].[minor].[path]`, e.g. `^1.2.3`
-
-**Note:** Commit the Yarn lock file, `yarn.lock`, to the repository.
 
 Dependencies listed in `package.json` can be checked using tools such as
 [Daivd-DM](https://david-dm.org/antarctica/bas-style-kit?type=dev) to identify outdated versions.
@@ -588,7 +583,7 @@ Dependencies listed in `package.json` can be checked using tools such as
 For the `app` image:
 
 ```shell
-# add package to 'package.json'
+# add or update package to 'package.json'
 $ rm yarn.lock
 $ docker-compose build app
 $ docker-compose run --entrypoint="" app ash
@@ -598,10 +593,12 @@ $ docker-compose down
 $ mv assets/yarn.lock ./
 ```
 
+**Note:** Commit the Yarn lock file, `yarn.lock`, to the repository.
+
 For the `testbed` image:
 
 ```shell
-# add package to 'package.json'
+# add or update package to 'package.json'
 $ rm testbed/yarn.lock
 $ docker-compose build testbed
 $ docker-compose run --entrypoint="" testbed ash
@@ -610,6 +607,8 @@ $ exit
 $ docker-compose down
 $ mv testbed/src/assets/yarn.lock ./testbed
 ```
+
+**Note:** Commit the Yarn lock file, `testbed/yarn.lock`, to the repository.
 
 #### Dependency vulnerability scanning
 
@@ -653,7 +652,7 @@ will show links to Review App instances within each merge request.
 [Git](https://git-scm.com), [Terraform](https://terrafrom.io) and permissions to the
 [BAS AWS](https://gitlab.data.bas.ac.uk/WSF/bas-aws) environment are required to provision resources for this project.
 
-```
+```shell
 $ cd bas-style-kit/provisioning/terraform
 $ terraform init
 $ terraform validate
@@ -770,7 +769,7 @@ features/improvements and reporting bugs.
 ## Feedback
 
 The maintainer of this project is the BAS Web & Applications Team, they can be contacted through the
-[BAS Service Desk](mailto:servicedesk@bas.ac.uk)
+[BAS Service Desk](mailto:servicedesk@bas.ac.uk).
 
 ## Acknowledgements
 
