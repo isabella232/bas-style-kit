@@ -21,6 +21,17 @@
 }
 
 
+// Dismissible alerts
+//
+
+.alert-dismissible {
+  .close {
+    font-size: 200%;
+    top: -5px;
+  }
+}
+
+
 // Alert styles
 //
 // Note there is no class for the 'solid' variant as it simply sets a background colour
