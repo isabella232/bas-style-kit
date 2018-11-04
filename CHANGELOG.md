@@ -5,11 +5,16 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
-## [0.5.0-alpha] - 2018-09-14
+### Fixed
+
+* [Styles] Including EPS logos in distribution package
+* [Infrastructure] Added missing Synk organisation environment variable
 
 ### Changed
 
-* [Infrastructure] Updating release procedures
+* [Styles] Updating to latest Pug Templates (0.2.0) for Testbed
+
+## [0.5.0-alpha] - 2018-09-14
 
 ### Removed [BREAKING!]
 

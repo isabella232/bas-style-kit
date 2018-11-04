@@ -93,8 +93,7 @@ block main_content
             ul
               each sample in collection_samples
                 li: a(href='/' + testbed_version + '/s/' + sample.sample_number + '.html')
-                  strong #{sample.sample_number}
-                  | #{sample.title}
+                  | #[strong #{sample.sample_number}] #{sample.title}
 
   section#site-feedback
     header.bsk-header: h2 Feedback
