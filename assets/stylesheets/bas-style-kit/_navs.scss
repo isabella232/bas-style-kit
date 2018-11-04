@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 // Pills
-// -------------------------
+//
 
 .nav-pills {
   > li {
@@ -43,13 +43,44 @@
 }
 
 
-// Nav wrapper
-// -------------------------
-// Where nav-pills or nav-tabs are used with a tab-pane (i.e. tabbed content) this nav wrapper can be used to apply
-// some suitable spacing between tabs and their tab-panes.
+// Tabs
+//
 
-.nav-wrapper {
+.nav-tabs {
+  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+}
+
+.nav-tabs {
+  > li {
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        border-color: $nav-tabs-border-color;
+        border-bottom-color: transparent;
+      }
+    }
+  }
+}
+
+
+// Nav wrappers
+//
+// Where nav-pills or nav-tabs are used with tab-panes (i.e. tabbed content) a nav wrapper is neededto apply suitable
+// spacing and other styles between pills/tabs and panes.
+//
+// Note: 'tab-pane' a generic term for both pill and tab navs.
+
+.nav-wrapper.nav-wrapper-pills {
   .tab-pane {
-    margin-top: $nav-wrapper-tab-pane-margin-top;
+    padding: $nav-content-pane-padding-vertical 0;
+  }
+}
+
+.nav-wrapper.nav-wrapper-tabs {
+  .tab-pane {
+    padding: $nav-content-pane-padding-vertical $nav-content-pane-padding-horizontal;
+    border: $nav-tabs-border-width solid $nav-tabs-border-color;
+    border-top: none;
   }
 }

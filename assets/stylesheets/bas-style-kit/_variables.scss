@@ -500,9 +500,13 @@ $nav-pills-link-margin-right:                 $padding-xs-horizontal;
 $nav-pills-active-link-hover-bg:              $component-active-bg;
 $nav-pills-disabled-link-bg:                  $bsk-colour-std-white;
 
-// Wrappers
-$nav-wrapper-tab-pane-margin-top:             ($padding-large-vertical * 2);
+//== Tabs
+$nav-tabs-border-width:                       1px;
+$nav-tabs-border-color:                       $bsk-colour-std-grey-light;
 
+// Wrappers
+$nav-content-pane-padding-vertical:           ($padding-large-vertical * 2);
+$nav-content-pane-padding-horizontal:         $padding-large-vertical;
 
 // Jumbotron
 //

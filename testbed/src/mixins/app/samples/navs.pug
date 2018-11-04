@@ -3,6 +3,7 @@ mixin navs--basic(long_titles_input, interactive_input, fade_effect_input)
   - long_titles = false
   - fade_effect_panels = false
   - panel_class = 'nav-panel'
+  - wrapper_class = 'nav-wrapper'
   if long_titles_input == 'long_titles'
     - long_titles = true
   if interactive_input == 'interactive'
@@ -11,8 +12,10 @@ mixin navs--basic(long_titles_input, interactive_input, fade_effect_input)
     - fade_effect_panels = true
   if attributes.class == 'bsk-nav-pills'
     - panel_class = 'nav-panelP'
+    - wrapper_class = 'bsk-nav-wrapper-pills'
   else if attributes.class == 'bsk-nav-tabs'
     - panel_class = 'nav-panelT'
+    - wrapper_class = 'bsk-nav-wrapper-tabs'
 
   unless interactive
     nav(role='navigation')
@@ -30,7 +33,7 @@ mixin navs--basic(long_titles_input, interactive_input, fade_effect_input)
             | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
           li(role='presentation'): a(href='#') Batman!
   else
-    nav.bsk-nav-wrapper(role='navigation')
+    nav.bsk-nav-wrapper(class=wrapper_class role='navigation')
       unless long_titles
         ul.bsk-nav(class!=attributes.class role='tablist')
           li.bsk-active(role='presentation'): a(href='#' + panel_class + 'A1' role='tab' data-toggle='tab') nav 1
@@ -94,7 +97,7 @@ mixin navs--drop-down(long_titles_input, interactive_input, fade_effect_input)
                   | NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
                 li: a(href='#') Batman!
   else
-    nav.bsk-nav-wrapper(role='navigation')
+    nav.bsk-nav-wrapper(class=wrapper_class role='navigation')
       unless long_titles
         ul.bsk-nav(class!=attributes.class role='tablist')
           li.bsk-active(role='presentation'): a(href='#' + panel_class + 'C1' role='tab' data-toggle='tab') nav 1

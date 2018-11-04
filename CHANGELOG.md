@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Added
+
+* [Styles] Styles for tab nav component based on GDS Design System
+
 ### Fixed
 
 * [Styles] Including EPS logos in distribution package
