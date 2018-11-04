@@ -52,6 +52,7 @@ variables:
   TESTBED_BUCKET: style-kit-testbed.web.bas.ac.uk
   APP_NAME: bas-style-kit
   REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
+  SNYK_ORG: antarctica
   SNYK_PROJECT_NAME_APP: bas-style-kit-core
   SNYK_PROJECT_NAME_TESTBED: bas-style-kit-testbed
 
