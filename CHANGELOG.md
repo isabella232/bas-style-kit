@@ -5,13 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
-## [0.5.0-alpha] - 2018-09-14
 ### Fixed
 
-### Changed
 * [Infrastructure] Added missing Synk organisation environment variable
 
-* [Infrastructure] Updating release procedures
+## [0.5.0-alpha] - 2018-09-14
 
 ### Removed [BREAKING!]
 
