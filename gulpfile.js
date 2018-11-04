@@ -373,7 +373,8 @@ function copyImagesBasLogo(done) {
   pump(
     [
       gulp.src([
-        path.join(config.sources.images, 'bas-logo', '*.png')
+        path.join(config.sources.images, 'bas-logo', '*.png'),
+        path.join(config.sources.images, 'bas-logo', '*.eps')
       ]),
       gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols'))
     ],
@@ -385,7 +386,8 @@ function copyImagesBasRoundel(done) {
   pump(
     [
       gulp.src([
-        path.join(config.sources.images, 'bas-roundel', '*.png')
+        path.join(config.sources.images, 'bas-roundel', '*.png'),
+        path.join(config.sources.images, 'bas-roundel', '*.eps')
       ]),
       gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols'))
     ],

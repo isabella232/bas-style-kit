@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
+* [Styles] Including EPS logos in distribution package
 * [Infrastructure] Added missing Synk organisation environment variable
 
 ## [0.5.0-alpha] - 2018-09-14
