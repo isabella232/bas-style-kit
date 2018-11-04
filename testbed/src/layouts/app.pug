@@ -13,7 +13,6 @@ block append variables
   - bsk_attributes.site_footer_policies_privacy_href = '/' + testbed_version + '/legal/privacy.html';
   - attributes.site_favicon_url = 'data:;base64,iVBORw0KGgo=';
   //- Navigation menu items
-  - bsk_attributes.site_nav_launcher_extras.push({title: 'Style Kit Documentation', href: 'https://style-kit.web.bas.ac.uk'});
-  - bsk_attributes.site_nav_launcher_extras.push({title: 'Style Kit Documentation (Testing)', href: 'https://style-kit-testing.web.bas.ac.uk'});
+  include ../includes/app/nav-launcher.pug
   //- Custom CSS and JS
   include ../includes/app/assets.pug
