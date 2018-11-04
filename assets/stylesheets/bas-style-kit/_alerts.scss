@@ -70,7 +70,8 @@
   .alert-heading {
     padding-bottom: 15px;
 
-    h4 {
+    h4,
+    .h4 {
       color: inherit;  // To prevent conflicts of changing $headings-color
     }
   }
