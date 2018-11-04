@@ -102,7 +102,7 @@
   margin-top:    $footer-is-something-wrong-margin-top;
   margin-bottom: $footer-is-something-wrong-margin-bottom;
 
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-md-min) {
     float:         left !important;
     text-align:    left;
     margin-bottom: 0;
@@ -118,9 +118,25 @@
   text-align: center;
   margin-top: $footer-back-to-top-margin-top;
 
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-md-min) {
     float:      right !important;
     text-align: right;
+  }
+}
+
+
+// Governance
+//
+// Proper positioning for statement explaining BAS' relationship to NERC and UKRI
+
+.footer-governance {
+  text-align: center;
+  margin-bottom: $footer-governance-margin-bottom;
+
+  @media (min-width: $screen-md-min) {
+    float: left !important;
+    text-align: left;
+    margin-bottom: 0;
   }
 }
 
@@ -133,7 +149,7 @@
   text-align: center;
   margin-top: $footer-ogl-margin-top;
 
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-md-min) {
     position:     relative;
     margin-top:   0;
     padding-left: $footer-ogl-padding-left;
@@ -156,7 +172,7 @@
       background-position: 50% 0;
     }
 
-    @media (min-width: $screen-sm-min) {
+    @media (min-width: $screen-md-min) {
       position: absolute;
       left:     $footer-ogl-symbol-left;
       top:      $footer-ogl-symbol-top;
@@ -171,6 +187,7 @@
   }
 }
 
+
 // Legal polices
 //
 // Proper positioning for an inline list so that it sits flush with the split line OGL licensing statement
@@ -178,7 +195,7 @@
 .footer-policy-links {
   text-align: center;
 
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-md-min) {
     float:      right !important;
     text-align: right;
   }
@@ -189,22 +206,6 @@
     li {
       padding-right: 0;
     }
-  }
-}
-
-
-// Governance
-//
-// Proper positioning for statement explaining BAS' relationship to NERC and UKRI
-
-.footer-governance {
-  text-align: center;
-  margin-bottom: $footer-governance-margin-bottom;
-
-  @media (min-width: $screen-sm-min) {
-    float: left !important;
-    text-align: left;
-    margin-bottom: 0;
   }
 }
 
