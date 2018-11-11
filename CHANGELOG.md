@@ -18,6 +18,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Styles] Improving footer layout at medium screen sizes
 * [Styles] Updating to latest Pug Templates (0.2.0) for Testbed
+* [Admin] Adopting official identifier for OGL licence
 
 ## [0.5.0-alpha] - 2018-09-14
 
