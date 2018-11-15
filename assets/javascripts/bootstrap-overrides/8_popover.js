@@ -28,7 +28,7 @@
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="bsk-popover" role="tooltip"><div class="bsk-arrow"></div><h3 class="bsk-popover-title"></h3><div class="bsk-popover-content"></div></div>'
+    template: '<div class="bsk-popover" role="tooltip"><div class="bsk-arrow"></div><h4 class="bsk-popover-title"></h4><div class="bsk-popover-content"></div></div>'
   })
 
 

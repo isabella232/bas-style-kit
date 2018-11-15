@@ -4,24 +4,24 @@ mixin pop-over--standard(direction)
       - var style = {};
       - style['margin-top'] = '80px'
       - style['margin-left'] = '20px'
-      +pop-over--common(direction, 'extra top-margin and left-margin added', style)
+      +pop-over--standard-common(direction, 'extra top-margin and left-margin added', style)
     else if direction == 'left'
       - var style = {};
       - style['margin-left'] = '160px'
       - style['margin-top'] = '20px'
-      +pop-over--common(direction, 'extra left-margin and top-margin added', style)
+      +pop-over--standard-common(direction, 'extra left-margin and top-margin added', style)
     else if direction == 'right'
       - var style = {};
       - style['margin-top'] = '20px'
-      +pop-over--common(direction, 'extra top-margin added', style)
+      +pop-over--standard-common(direction, 'extra top-margin added', style)
     else if direction == 'bottom'
       - var style = {};
       - style['margin-left'] = '20px'
-      +pop-over--common(direction, 'extra left-margin added', style)
+      +pop-over--standard-common(direction, 'extra left-margin added', style)
     else
-      +pop-over--common(direction)
+      +pop-over--standard-common(direction)
 
-mixin pop-over--common(direction, header_extra, style)
+mixin pop-over--standard-common(direction, header_extra, style)
   - var attributes = {};
   - attributes['type'] = 'button';
   - attributes['data-toggle'] = 'tooltip'
@@ -37,3 +37,12 @@ mixin pop-over--common(direction, header_extra, style)
     data-content='Popover content'
     style=style
     title='popover on the ' + direction) Popover (#{ direction })
+
+mixin pop-over--static(direction)
+  div.bsk-popover.bsk-fade.bsk-in.app-popover-simulated-state-active(class='bsk-' + direction)
+    if direction == 'top' || direction == 'bottom'
+      div.bsk-arrow(style='left: 50%;')
+    else
+      div.bsk-arrow(style='top: 50%;')
+    h3.bsk-popover-title popover on the #{ direction }
+    div.bsk-popover-content Popover content
