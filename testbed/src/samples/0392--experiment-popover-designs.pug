@@ -1,0 +1,115 @@
+//-
+  sample:
+    title: Pop-Over designs
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  style.
+    .x-popover-original {
+      padding: 1px;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, .2);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    }
+    .x-popover-original .bsk-popover-title {
+      padding: 8px 14px;
+      margin: 0;
+      font-size: 16px;
+      background-color: #f7f7f7;
+      border-bottom: 1px solid #ebebeb;
+    }
+    .x-popover-original .bsk-popover-content {
+      padding: 9px 14px;
+    }
+
+    .x-popover-design1 {
+      padding: 0;
+      background-color: #eee;
+      border: none;
+      box-shadow: none;
+    }
+    .x-popover-design1 .bsk-arrow {
+      border: none;
+    }
+    .x-popover-design1.bsk-popover.bsk-top > .bsk-arrow:after
+    {
+      border-top-color: #eee;
+    }
+    .x-popover-design1.bsk-popover.bsk-bottom > .bsk-arrow:after {
+      border-bottom-color: #eee;
+    }
+    .x-popover-design1.bsk-popover.bsk-left > .bsk-arrow:after {
+      border-left-color: #eee;
+    }
+    .x-popover-design1.bsk-popover.bsk-right > .bsk-arrow:after {
+      border-right-color: #eee;
+    }
+    .x-popover-design1 .bsk-popover-title {
+      padding: 10px 15px;
+      margin: 0;
+      font-size: 24px;
+      background-color: transparent;
+      border-bottom: none;
+    }
+    .x-popover-design1 .bsk-popover-content {
+      padding: 10px 15px 15px;
+    }
+
+  section.app-sample-section
+    header Bootstrap original
+
+    div.bsk-row
+      div.bsk-col-12-md-3
+        div.bsk-popover.bsk-fade.bsk-top.bsk-in.app-popover-simulated-state-active.x-popover-original
+          div.bsk-arrow(style='left: 50%;')
+          h3.bsk-popover-title popover on the top
+          div.bsk-popover-content Popover content
+      div.bsk-col-12-md-3
+        div.bsk-popover.bsk-fade.bsk-bottom.bsk-in.app-popover-simulated-state-active.x-popover-original
+          div.bsk-arrow(style='left: 50%;')
+          h3.bsk-popover-title popover on the bottom
+          div.bsk-popover-content Popover content
+      div.bsk-col-12-md-3
+        div.bsk-popover.bsk-fade.bsk-left.bsk-in.app-popover-simulated-state-active.x-popover-original
+          div.bsk-arrow(style='top: 50%;')
+          h3.bsk-popover-title popover on the left
+          div.bsk-popover-content Popover content
+      div.bsk-col-12-md-3
+        div.bsk-popover.bsk-fade.bsk-right.bsk-in.app-popover-simulated-state-active.x-popover-original
+          div.bsk-arrow(style='top: 50%;')
+          h3.bsk-popover-title popover on the right
+          div.bsk-popover-content Popover content
+
+  section.app-sample-section
+    header Design 1
+
+    div.bsk-row
+      div.bsk-col-12-md-3
+        div.bsk-popover.bsk-fade.bsk-top.bsk-in.app-popover-simulated-state-active.x-popover-design1
+          div.bsk-arrow(style='left: 50%;')
+          h3.bsk-popover-title popover on the top
+          div.bsk-popover-content Popover content
+      div.bsk-col-12-md-3
+        div.bsk-popover.bsk-fade.bsk-bottom.bsk-in.app-popover-simulated-state-active.x-popover-design1
+          div.bsk-arrow(style='left: 50%;')
+          h3.bsk-popover-title popover on the bottom
+          div.bsk-popover-content Popover content
+      div.bsk-col-12-md-3
+        div.bsk-popover.bsk-fade.bsk-left.bsk-in.app-popover-simulated-state-active.x-popover-design1
+          div.bsk-arrow(style='top: 50%;')
+          h3.bsk-popover-title popover on the left
+          div.bsk-popover-content Popover content
+      div.bsk-col-12-md-3
+        div.bsk-popover.bsk-fade.bsk-right.bsk-in.app-popover-simulated-state-active.x-popover-design1
+          div.bsk-arrow(style='top: 50%;')
+          h3.bsk-popover-title popover on the right
+          div.bsk-popover-content Popover content
+
+  hr
+
+  h4 Notes
+  ul
+    li This experiment develops a number of different designs for popover interactive elements

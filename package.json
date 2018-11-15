@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://trello.com/b/0Mhzizpk"
   },
-  "license": "Open Government Licence 3.0",
+  "license": "OGL-UK-3.0",
   "dependencies": {
     "bootstrap-sass": "3.3.7",
     "jquery": "^3.3.1",
