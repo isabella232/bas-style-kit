@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Styles] Variable for additional BAS facility colour
 * [Styles] Styles for tab nav component based on GDS Design System
 * [Styles] Styles for pop-over component based on other existing components
 
@@ -37,6 +38,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * [Patterns] First pattern for 'page not found' pages, with associated Testbed changes
+* [Styles] Variables for BAS theme colours
+* [Styles] Variables for BAS facility colours
 * [Styles] Source EPS files for BAS roundal and logo
 * [Styles] BAS Favicon based on the inverse BAS roundel
 * [Scripts] Sortable list/table component using HTML5 Sortable
