@@ -758,6 +758,7 @@ $image-copyright-base-background:             $component-overlay-bg;
 // Custom component
 
 $drop-zone-target-padding:                    $padding-large-vertical;
+$drop-zone-target-additional-margin:          $padding-large-vertical 0;
 $drop-zone-target-border-width:               2px;
 $drop-zone-target-border-color:               $input-border;
 
