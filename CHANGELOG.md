@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Removed [BREAKING!]
+
+* [Styles] Warning validation status no longer supported
+
 ### Added
 
 * [Styles] Styles for tab nav component based on GDS Design System
