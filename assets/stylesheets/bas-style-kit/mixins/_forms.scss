@@ -10,9 +10,33 @@
 
 // Form control validation states
 //
-@mixin form-control-validation($x-text-color: $text-color, $border-color: #ccc, $background-color: #f5f5f5) {
-  // Redefine the focus state
+@mixin form-control-validation($text-color: $page-text, $border-color: $input-border, $background-color: #f5f5f5) {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label  {
+    color: $text-color;
+  }
+
   .form-control {
+    border-color: $border-color;
+    box-shadow: none;
     @include form-control-focus($border-color);
+  }
+
+  .input-group-addon {
+    color: $text-color;
+    border-color: $border-color;
+    background-color: $background-color;
+  }
+  // Optional feedback icon
+  .form-control-feedback {
+    color: $text-color;
   }
 }
