@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Styles] Variable for additional BAS facility colour
 * [Styles] Styles for tab nav component based on GDS Design System
 * [Styles] Styles for pop-over component based on other existing components
 
