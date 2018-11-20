@@ -145,7 +145,7 @@ development. For each pattern, multiple variants may be listed to show different
 
 Patterns are numbered, but these do not imply any order, and may not be congruous for the variants of each pattern. For
 example variants for the 'service unavailable' pattern may be numbered *0001*, *0003*, *0030* and *0500*. Where a
-pattern has been removed, its number will not be reused.
+pattern has been removed, its number will not be reused. Pattern variants will each be numbered separately.
 
 Pattern files **MUST** be named as `testbed/src/patterns/[pattern number]--[pattern label].pug` where:
 
@@ -173,10 +173,21 @@ block pattern
     li example list item
 ```
 
-A typical sample would look like:
+A minimal pattern variant would look like:
 
 ```pug
-//- To be added
+//-
+  pattern_variant:
+    title: Pattern variant title
+  pattern:
+    title: Pattern title
+  ---
+
+extends ../layouts/app-pattern-page.pug
+
+block pattern
+  ul
+    li example list item
 ```
 
 See the other pattern sub-sections for more information on different aspects of a sample.
@@ -185,20 +196,37 @@ A Gulp task, `build`, in the `testbed` container, is used to generate pattern va
 
 #### Pattern labels and titles
 
-...
+Each pattern will have a *label* (taken from the pattern file name) and *title* (taken from the pattern front matter),
+following the same conventions as [Sample labels and titles](#sample-label-and-title).
 
 #### Pattern variants
 
-...
+Patterns may consist of multiple variants, representing differences in circumstance or context but part of a general
+use case / purpose. For example, a 'service unavailable' pattern may include variants for services unavailable
+unexpectedly or due to planned maintenance. In both situations the same general information will be shown, with some
+extra details for planned maintenance, such as a duration.
+
+Pattern variants are related to a pattern using the `pattern.title` [Front matter](#pattern-front-matter) option. For
+example:
+
+| `pattern.title`       | `pattern_variant.title`           | Notes                       |
+| --------------------- | --------------------------------- | --------------------------- |
+| "Service unavailable" | "Service unavailable (basic)"     | Generic variant of pattern  |
+| "Service unavailable" | "Service unavailable (planned)"   | Specific variant of pattern |
+| "Service unavailable" | "Service unavailable (unplanned)" | Specific variant of pattern |
+
+The pattern index will automatically group pattern variants together as a list.
 
 #### Pattern front matter
 
 Each pattern **MUST** include some metadata to help organise and classify patterns.
 
-| Property        | Description                                | Required | Example Value    | Notes                                     |
-| --------------- | ------------------------------------------ | -------- | ---------------- | ----------------------------------------- |
-| `pattern`       | Container for properties about the pattern | Yes      | *N/A*            | -                                         |
-| `pattern.title` | A short title for the pattern              | Yes      | `Page not found` | Use most readable form, opposite of label |
+| Property                | Description                                        | Required                 | Example Value                   | Notes                                     |
+| ----------------------- | -------------------------------------------------- | ------------------------ | ------------------------------- | ----------------------------------------- |
+| `pattern`               | Container for properties about the pattern         | Yes                      | *N/A*                           | -                                         |
+| `pattern.title`         | A short title for the pattern                      | Yes                      | "Service unavailable"           | Use most readable form, opposite of label |
+| `pattern_variant`       | Container for properties about the pattern variant | No                       | *N/A*                           | Only used for pattern variants            |
+| `pattern_variant.title` | A short title for the pattern variant              | Yes (if pattern variant) | "Service unavailable (planned)" | Only used for pattern variants            |
 
 **Note:** For a property, wild cards (`*`), represent an item in a list.
 
