@@ -11,6 +11,13 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Patterns] Service unavailable (basic) pattern
+* [Patterns] Service unavailable (contact details) pattern
+* [Patterns] Service unavailable (known availability) pattern
+* [Patterns] Service unavailable (alternative service) pattern
+* [Patterns] Service unavailable (partly closed) pattern
+* [Patterns] Service unavailable (closed) pattern
+* [Patterns] Service unavailable (replaced) pattern
 * [Styles] Variable for additional BAS facility colour
 * [Styles] Styles for tab nav component based on GDS Design System
 * [Styles] Styles for pop-over component based on other existing components

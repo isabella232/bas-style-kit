@@ -1,6 +1,6 @@
 //-
   pattern_variant:
-    title: Service unavailable (basic)
+    title: Service unavailable (replaced)
   pattern:
     title: Service unavailable
   ---
@@ -12,5 +12,6 @@ block append variables
 
 block pattern
   h1.bsk-page-header Sorry, Sample Service is unavailable
-  p.bsk-lead You will be able to use the service later.
+  p.bsk-lead This service has been replaced and can longer be used.
+  p Use #[a(href='#') another service] if you need to do something.
   p (#[a(href='/' + testbed_version + '/') Back to testbed index])
