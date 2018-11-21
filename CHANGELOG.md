@@ -33,6 +33,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
+* [Styles] Error pages now implemented using Pug template views
 * [Styles] Refining and error validation styles changed
 * [Styles] Refining success and error validation styles
 * [Styles] Improving footer layout at medium screen sizes

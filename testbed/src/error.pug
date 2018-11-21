@@ -1,7 +1,13 @@
-extends ./layouts/app.pug
+extends ../node_modules/@antarctica/bas-style-kit-pug-templates/views/bas-style-kit/bsk--page-not-found.pug
 
-block main_content
-  h1.bsk-page-header Page not found
-  p If you typed the web address, check it is correct.
-  p If you pasted the web address, check you copied the entire address.
-  p If the web address is correct or you selected a link or button, #[a(href='/' + testbed_version + '/#site-feedback') contact us] to let us know.
+block append variables
+  - attributes.site_title = 'BAS Style Kit Testbed';
+  - attributes.site_description = 'A website used by developers to test and develop parts of the BAS Style Kit';
+  - bsk_attributes.site_nav_brand_text = 'BAS Style Kit Testbed';
+  - bsk_attributes.site_nav_brand_href = '/' + testbed_version + '/';
+  - bsk_attributes.site_development_phase = 'experimental';
+  - bsk_attributes.site_feedback_href = '/' + testbed_version + '/#site-feedback';
+  - bsk_attributes.cookie_notice_href = '/' + testbed_version + '/legal/cookies.html';
+  - bsk_attributes.site_footer_policies_cookies_href = '/' + testbed_version + '/legal/cookies.html';
+  - bsk_attributes.site_footer_policies_copyright_href = '/' + testbed_version + '/legal/copyright.html';
+  - bsk_attributes.site_footer_policies_privacy_href = '/' + testbed_version + '/legal/privacy.html';
