@@ -11,6 +11,9 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Patterns] Problem with this service (basic) pattern
+* [Patterns] Problem with this service (contact) pattern
+* [Patterns] Problem with this service (alternative) pattern
 * [Patterns] Service unavailable (basic) pattern
 * [Patterns] Service unavailable (contact details) pattern
 * [Patterns] Service unavailable (known availability) pattern
