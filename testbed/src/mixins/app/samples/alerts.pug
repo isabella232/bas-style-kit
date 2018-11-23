@@ -1,65 +1,63 @@
 mixin alert(variant, style, icon, dismissible)
   if dismissible == 'yes'
     div(class='bsk-alert bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible')
-      button.bsk-close(type='button' data-dismiss='alert' aria-label='close')
-        i.fa.fa-fw.fa-times(aria-hidden='true')
+      button.bsk-close(type='button' data-dismiss='alert' aria-label='close') &times;
       if icon == 'yes'
         if variant == 'success'
-          i.fa.fa-fw.fa-check.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-check(aria-hidden='true')
         if variant == 'warning'
-          i.fa.fa-fw.fa-exclamation-triangle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-exclamation-triangle(aria-hidden='true')
         if variant == 'danger'
-          i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.fas.fa-exclamation-circle(aria-hidden='true')
         if variant == 'info'
-          i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-info-square(aria-hidden='true')
         if variant == 'experimental'
-          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-flask(aria-hidden='true')
       block
   else
     div(class='bsk-alert bsk-alert-' + variant + ' bsk-alert-' + style)
       if icon == 'yes'
         if variant == 'success'
-          i.fa.fa-fw.fa-check.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-check(aria-hidden='true')
         if variant == 'warning'
-          i.fa.fa-fw.fa-exclamation-triangle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-exclamation-triangle(aria-hidden='true')
         if variant == 'danger'
-          i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.fas.fa-exclamation-circle(aria-hidden='true')
         if variant == 'info'
-          i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-info-square(aria-hidden='true')
         if variant == 'experimental'
-          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-flask(aria-hidden='true')
       block
 
 mixin alert--block(variant, style, icon, dismissible)
   if dismissible == 'yes'
     div(class='bsk-alert bsk-alert-block bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible')
-      button.bsk-close(type='button' data-dismiss='alert' aria-label='close')
-        i.fa.fa-fw.fa-times(aria-hidden='true')
+      button.bsk-close(type='button' data-dismiss='alert' aria-label='close') &times;
       if icon == 'yes'
         if variant == 'success'
-          i.fa.fa-fw.fa-check.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-check(aria-hidden='true')
         if variant == 'warning'
-          i.fa.fa-fw.fa-exclamation-triangle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-exclamation-triangle(aria-hidden='true')
         if variant == 'danger'
-          i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.fas.fa-exclamation-circle(aria-hidden='true')
         if variant == 'info'
-          i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-info-square(aria-hidden='true')
         if variant == 'experimental'
-          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-flask(aria-hidden='true')
       block
   else
     div(class='bsk-alert bsk-alert-block bsk-alert-' + variant + ' bsk-alert-' + style)
       if icon == 'yes'
         if variant == 'success'
-          i.fa.fa-fw.fa-check.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-check(aria-hidden='true')
         if variant == 'warning'
-          i.fa.fa-fw.fa-exclamation-triangle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-exclamation-triangle(aria-hidden='true')
         if variant == 'danger'
-          i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.fas.fa-exclamation-circle(aria-hidden='true')
         if variant == 'info'
-          i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-info-square(aria-hidden='true')
         if variant == 'experimental'
-          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-flask(aria-hidden='true')
       block
 
 mixin alert--collection(variant, style)
@@ -128,7 +126,12 @@ mixin alert-block--collection-variant(variant, style, icon)
 
   +alert-block--collection-variant-alert(variant, style, icon, 'with heading and icon')
     header.bsk-alert-heading
-      h4 #[i.fa.fa-fw.bsk-alert-icon(class=icon aria-hidden='true')] #{ style } alert header
+      h4
+        unless icon == 'fa-exclamation-circle'
+          i.bsk-alert-icon.fa-fw.far(class=icon aria-hidden='true')
+        else
+          i.bsk-alert-icon.fa-fw.fas(class=icon aria-hidden='true')
+        | #{ style } alert header
     div.bsk-alert-body
       | #{ style } alert text - Ann certainly has a great deal of Mass. I hate the Wetlands.
       | They're stupid and wet, and there are bugs everywhere, and I think I maced a crane. This show
@@ -137,7 +140,12 @@ mixin alert-block--collection-variant(variant, style, icon)
 
   +alert-block--collection-variant-alert(variant, style, icon, 'with heading, icon and list')
     header.bsk-alert-heading
-      h4 #[i.fa.fa-fw.bsk-alert-icon(class=icon aria-hidden='true')] #{ style } alert header
+      h4
+        unless icon == 'fa-exclamation-circle'
+          i.bsk-alert-icon.fa-fw.far(class=icon aria-hidden='true')
+        else
+          i.bsk-alert-icon.fa-fw.fas(class=icon aria-hidden='true')
+        | #{ style } alert header
     div.bsk-alert-body
       | A list
       ul
@@ -158,33 +166,32 @@ mixin alert-block--collection-variant-alert(variant, style, icon, title)
 mixin alert-large(variant, style, icon, dismissible)
   if dismissible == 'yes'
     div(class='bsk-alert bsk-alert-lg bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible')
-      button.bsk-close(type='button' data-dismiss='alert' aria-label='close')
-        i.fa.fa-fw.fa-times(aria-hidden='true')
+      button.bsk-close(type='button' data-dismiss='alert' aria-label='close') &times;
       if icon == 'yes'
         if variant == 'success'
-          i.fa.fa-fw.fa-check.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-check(aria-hidden='true')
         if variant == 'warning'
-          i.fa.fa-fw.fa-exclamation-triangle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-exclamation-triangle(aria-hidden='true')
         if variant == 'danger'
-          i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.fas.fa-exclamation-circle(aria-hidden='true')
         if variant == 'info'
-          i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-info-square(aria-hidden='true')
         if variant == 'experimental'
-          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-flask(aria-hidden='true')
       block
   else
     div(class='bsk-alert bsk-alert-lg bsk-alert-' + variant + ' bsk-alert-' + style)
       if icon == 'yes'
         if variant == 'success'
-          i.fa.fa-fw.fa-check.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-check(aria-hidden='true')
         if variant == 'warning'
-          i.fa.fa-fw.fa-exclamation-triangle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-exclamation-triangle(aria-hidden='true')
         if variant == 'danger'
-          i.fa.fa-fw.fa-exclamation-circle.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.fas.fa-exclamation-circle(aria-hidden='true')
         if variant == 'info'
-          i.fa.fa-fw.fa-info.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-info-square(aria-hidden='true')
         if variant == 'experimental'
-          i.fa.fa-fw.fa-flask.bsk-alert-icon(aria-hidden='true')
+          i.bsk-alert-icon.fa-fw.far.fa-flask(aria-hidden='true')
       block
 
 mixin alert-large--collection(variant, style)
