@@ -7,6 +7,9 @@
 
 extends ../layouts/app-sample.pug
 
+block append variables
+  - bsk_attributes.site_favicon = false;
+
 block append head
   link(rel='apple-touch-icon' sizes='180x180' href='/' + testbed_version + '/dist/img/favicon/apple-touch-icon.png')
   link('rel'='icon' type='image/png' sizes='32x32' href='/' + testbed_version + '/dist/img/favicon/favicon-32x32.png')

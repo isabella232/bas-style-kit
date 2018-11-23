@@ -28,6 +28,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
+* [Styles] Overriding default favicon in the favicon testbed sample
 * [Styles] Updating testbed samples using icons for decoration to use Font Awesome 5
 * [Styles] Including EPS logos in distribution package
 * [Infrastructure] Added missing Synk organisation environment variable
