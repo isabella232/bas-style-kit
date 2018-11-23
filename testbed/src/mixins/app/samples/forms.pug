@@ -10,7 +10,6 @@ mixin form-input--collection()
   +form-input--form-group-placeholder-disabled(attributes.type)
   +form-input--form-group-state-focus(attributes.type)
   +form-input--form-group-validation-state(attributes.type, 'success')
-  +form-input--form-group-validation-state(attributes.type, 'warning')
   +form-input--form-group-validation-state(attributes.type, 'error')
 
 mixin form-input--basic(type)
@@ -102,8 +101,7 @@ mixin form-input-radio-checkbox--collection(type, type_class)
   +form-input-radio-checkbox--form-group-attribute(type, type_class, 'disabled', {'disabled': 'disabled'}, 5)
   +form-input-radio-checkbox--form-group-state-focus(type, type_class)
   +form-input-radio-checkbox--form-group-validation-state(type, type_class, 'success', 7)
-  +form-input-radio-checkbox--form-group-validation-state(type, type_class, 'warning', 8)
-  +form-input-radio-checkbox--form-group-validation-state(type, type_class, 'error', 9)
+  +form-input-radio-checkbox--form-group-validation-state(type, type_class, 'error', 8)
 
 mixin form-input-radio-checkbox--basic(type, type_class)
   section.app-sample-section
