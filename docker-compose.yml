@@ -7,9 +7,10 @@ services:
     image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/app:0.5.0-develop-alpine
     command: ['watch']
     volumes:
-      - ./gulpfile.js:/usr/src/app/gulpfile.js
       - ./assets:/usr/src/app/assets
       - ./dist:/usr/src/app/dist
+      - ./gulpfile.js:/usr/src/app/gulpfile.js
+      - ./LICENSE.md:/usr/src/app/LICENSE.md
 
   testbed:
     build: ./testbed
