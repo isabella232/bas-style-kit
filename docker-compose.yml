@@ -4,7 +4,7 @@ version: '2'
 services:
   app:
     build: .
-    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/app:0.5.0-develop-alpine
+    image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/app:0.5.0-alpine
     command: ['watch']
     volumes:
       - ./assets:/usr/src/app/assets
