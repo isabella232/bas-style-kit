@@ -42,7 +42,7 @@ stages:
   - deploy
 
 image:
-  name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/app:0.5.0-alpine
+  name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/app:0.6.0-develop-alpine
   entrypoint: [""]
 
 variables:
@@ -72,7 +72,7 @@ node-dependencies-app:
 node-dependencies-testbed:
   stage: setup
   image:
-    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-alpine
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.3.0-alpine
     entrypoint: [""]
   script:
     - "cd testbed"
@@ -119,7 +119,7 @@ compile-sass-app:
 compile-sass-testbed:
   stage: build
   image:
-    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-alpine
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.3.0-alpine
     entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
@@ -146,7 +146,7 @@ compile-js-app:
 compile-js-testbed:
   stage: build
   image:
-    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-alpine
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.3.0-alpine
     entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
@@ -162,7 +162,7 @@ compile-js-testbed:
 compile-pug-testbed:
   stage: build
   image:
-    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-alpine
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.3.0-alpine
     entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
@@ -203,7 +203,7 @@ copy-images-app:
 copy-images-testbed:
   stage: build
   image:
-    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-alpine
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.3.0-alpine
     entrypoint: [""]
   before_script:
     - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
@@ -282,7 +282,7 @@ package-app:
 package-testbed:
   stage: package
   image:
-    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.2.0-alpine
+    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:0.3.0-alpine
     entrypoint: [""]
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
