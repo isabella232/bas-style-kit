@@ -1,16 +1,7 @@
 //-
   sample:
     title: Input group - button sizes
-    code: .bsk-form-group.bsk-form-group-* .bsk-input-group .bsk-input-group-btn button.bsk-btn
-  collections:
-    - components--input-groups
+    type: removed
   ---
 
 extends ../layouts/app-sample.pug
-include ../mixins/app/samples/forms.pug
-
-block sample
-  section.app-sample-section
-    +form-input-group--button-after('small')(class='bsk-form-group-sm')
-    +form-input-group--button-after('regular')
-    +form-input-group--button-after('large')(class='bsk-form-group-lg')
