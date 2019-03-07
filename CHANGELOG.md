@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Removed [BREAKING!]
 
+* [Styles] Previously deprecated button input group, drop-down button input group and split-button input group component
 * [Styles] Previously deprecated list group component
 * [Styles] Previously deprecated inverse jumbotron component
 
