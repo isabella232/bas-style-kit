@@ -1,15 +1,7 @@
 //
 // 'Problem with this service' page pattern
 // --------------------------------------------------
-// Page pattern for 'problem with this service' pages where a service cannot be used (AKA 500, 503 error)
-//
-// Patterns are best practice design solutions for specific user-focused tasks and page types. They combine the
-// low level styles, components and interactive elements provided by the Style Kit into higher level solutions.
-//
-// Page patterns are designed to act as whole, complete, pages or views.
-//
 // Patterns are not part of Bootstrap and only available in the Style Kit.
-
 
 .pattern-problem-with-service {
   @include pattern-min-height()

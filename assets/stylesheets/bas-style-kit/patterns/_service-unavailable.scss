@@ -1,15 +1,7 @@
 //
 // 'Service unavailable' page pattern
 // --------------------------------------------------
-// Page pattern for 'service unavailable' pages where a service cannot be used (AKA 503 error)
-//
-// Patterns are best practice design solutions for specific user-focused tasks and page types. They combine the
-// low level styles, components and interactive elements provided by the Style Kit into higher level solutions.
-//
-// Page patterns are designed to act as whole, complete, pages or views.
-//
 // Patterns are not part of Bootstrap and only available in the Style Kit.
-
 
 .pattern-service-unavailable {
   @include pattern-min-height()
