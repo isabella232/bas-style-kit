@@ -13,6 +13,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Patterns] Start page (basic) pattern
+* [Patterns] Start page (more information) pattern
+* [Patterns] Start page (before you start) pattern
+* [Patterns] Start page (microsoft-sign-in) pattern
 * [Styles] Microsoft account button variant using Microsoft pictogram
 * [Infrastructure] Updating app and testbed NPM dependencies to latest versions
 * [Infrastructure] Instructions for calculating SRI values manually

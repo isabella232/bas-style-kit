@@ -1,0 +1,33 @@
+//-
+  pattern_variant:
+    title: Start (more information)
+  pattern:
+    title: Start
+  ---
+
+extends ../layouts/app-pattern-page.pug
+
+block append variables
+  - attributes.main_content_classes.push('bsk-pattern-start');
+
+block pattern
+  h1.bsk-page-header Sample Service
+
+  section.bsk-service-uses
+    h2.bsk-h3 Use this service to:
+    ul
+      li access some information
+      li perform an action
+      li etc.
+
+  section.bsk-call-to-action
+    button.bsk-btn.bsk-btn-primary.bsk-btn-lg
+      | Start Now
+      i.fa-fw.fas.fa-chevron-right
+
+  section.bsk-more-information
+    h2.bsk-h3 More information
+    p See the #[a(href='#') BAS Digital Workplace] for information on how to use this service.
+    p You can also #[a(href='#') contact the Sample Team] for additional support.
+
+  p (#[a(href='/' + testbed_version + '/') Back to testbed index])

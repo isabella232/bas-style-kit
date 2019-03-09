@@ -1,0 +1,25 @@
+//
+// 'Start' page pattern
+// --------------------------------------------------
+// Patterns are not part of Bootstrap and only available in the Style Kit.
+
+.pattern-start {
+  @include pattern-min-height();
+
+  .service-uses,
+  .call-to-action,
+  .more-information,
+  .before-you-start {
+    margin-top: 60px;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  .call-to-action {
+    .sign-in-hint {
+      margin-top: 20px;
+    }
+  }
+}
