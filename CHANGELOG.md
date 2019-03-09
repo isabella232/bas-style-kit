@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Styles] Microsoft account button variant using Microsoft pictogram
 * [Infrastructure] Updating app and testbed NPM dependencies to latest versions
 * [Infrastructure] Instructions for calculating SRI values manually
 

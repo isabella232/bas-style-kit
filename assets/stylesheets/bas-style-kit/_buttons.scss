@@ -9,3 +9,11 @@
 .btn-experimental {
   @include button-variant($btn-experimental-color, $btn-experimental-bg, $btn-experimental-border);
 }
+
+.btn-ms-account {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+
+  object.ms-pictogram {
+    @include align-svg-to-baseline();
+  }
+}

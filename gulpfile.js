@@ -121,6 +121,7 @@ gulp.task('copy--img--bas-logo', copyImagesBasLogo);
 gulp.task('copy--img--bas-roundel', copyImagesBasRoundel);
 gulp.task('copy--img--bas-favicon', copyImagesBasFavicon);
 gulp.task('copy--img--ogl-symbol', copyImagesOglSymbol);
+gulp.task('copy--img--ms-pictogram', copyImagesMSPictogram);
 
 gulp.task('generate--favicon--web-manifest', generateFaviconWebManifest);
 gulp.task('generate--favicon--browser-config', generateBrowserConfig);
@@ -155,7 +156,8 @@ gulp.task('copy--img', gulp.parallel(
   'copy--img--bas-logo',
   'copy--img--bas-roundel',
   'copy--img--bas-favicon',
-  'copy--img--ogl-symbol'
+  'copy--img--ogl-symbol',
+  'copy--img--ms-pictogram'
 ));
 gulp.task('generate--favicon--manifests', gulp.parallel(
   'generate--favicon--web-manifest',
@@ -414,6 +416,18 @@ function copyImagesOglSymbol(done) {
     [
       gulp.src([
         path.join(config.sources.images, 'ogl-symbol', '*.png')
+      ]),
+      gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols'))
+    ],
+    done
+  );
+}
+
+function copyImagesMSPictogram(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.images, 'ms-pictogram', '*.svg')
       ]),
       gulp.dest(path.join(config.destinations.dist, config.destinations.img, 'logos-symbols'))
     ],

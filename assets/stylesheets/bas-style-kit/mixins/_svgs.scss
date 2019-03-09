@@ -1,0 +1,9 @@
+// SVGs
+
+@mixin align-svg-to-baseline {
+  // Source: https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
+  height: 1em;
+  width: 1em;
+  top: .125em;
+  position: relative;
+}

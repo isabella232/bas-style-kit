@@ -552,6 +552,7 @@ The Style Kit includes images for:
 * `assets/images/bas-logo` - the full BAS logo (roundel and text)
 * `assets/images/bas-roundel` - the BAS roundel
 * `assets/images/ogl-symbol` - the Open Government License (OGL) symbol
+* `assets/images/ms-pictogram.svg` - the recommended Microsoft Account pictogram
 
 Gulp is used to copy these images into `dist/`.
 
