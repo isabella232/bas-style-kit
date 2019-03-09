@@ -1,0 +1,28 @@
+//-
+  pattern_variant:
+    title: Start (basic)
+  pattern:
+    title: Start
+  ---
+
+extends ../layouts/app-pattern-page.pug
+
+block append variables
+  - attributes.main_content_classes.push('bsk-pattern-start');
+
+block pattern
+  h1.bsk-page-header Sample Service
+
+  section.bsk-service-uses
+    p Use this service to:
+    ul
+      li access some information
+      li perform an action
+      li etc.
+
+  section.bsk-call-to-action
+    button.bsk-btn.bsk-btn-primary.bsk-btn-lg
+      | Start Now
+      i.fa-fw.fas.fa-chevron-right
+
+  p (#[a(href='/' + testbed_version + '/') Back to testbed index])

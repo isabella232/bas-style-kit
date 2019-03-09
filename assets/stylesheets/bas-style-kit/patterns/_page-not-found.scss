@@ -1,15 +1,7 @@
 //
 // 'Page not found' page pattern
 // --------------------------------------------------
-// Page pattern for 'page not found' pages where a page or URL cannot be found (AKA 404 error)
-//
-// Patterns are best practice design solutions for specific user-focused tasks and page types. They combine the
-// low level styles, components and interactive elements provided by the Style Kit into higher level solutions.
-//
-// Page patterns are designed to act as whole, complete, pages or views.
-//
 // Patterns are not part of Bootstrap and only available in the Style Kit.
-
 
 .pattern-page-not-found {
   @include pattern-min-height()

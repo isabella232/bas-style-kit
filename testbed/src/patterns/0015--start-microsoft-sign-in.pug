@@ -1,0 +1,39 @@
+//-
+  pattern_variant:
+    title: Start (sign in - microsoft account)
+  pattern:
+    title: Start
+  ---
+
+extends ../layouts/app-pattern-page.pug
+
+block append variables
+  - attributes.main_content_classes.push('bsk-pattern-start');
+
+block pattern
+  h1.bsk-page-header Sample Service
+
+  section.bsk-service-uses
+    h2.bsk-h3 Use this service to:
+    ul
+      li access some information
+      li perform an action
+      li etc.
+    p.bsk-alert.bsk-alert-highlight.bsk-alert-info
+      | This service is intended for internal use by the Sample team. For some information, please use
+      | #[a.bsk-alert-link(href='#') Another service] instead.
+
+  section.bsk-call-to-action
+    button.bsk-btn.bsk-btn-ms-account.bsk-btn-lg
+      object.bsk-ms-pictogram(type='image/svg+xml' data='/' + testbed_version + '/dist/img/logos-symbols/ms-pictogram.svg')
+      |
+      | Sign in to Start
+      i.fa-fw.fas.fa-chevron-right
+    p.bsk-sign-in-hint.bsk-text-muted Use the account you use for your NERC email to sign into this service.
+
+  section.bsk-more-information
+    h2.bsk-h3 More information
+    p See the #[a(href='#') Sample service] project on GitLab for information on how to use this service.
+    p #[a(href='mailto:servicedesk@bas.ac.uk') Contact the IT Service Desk] if you are unable to sign in.
+
+  p (#[a(href='/' + testbed_version + '/') Back to testbed index])
