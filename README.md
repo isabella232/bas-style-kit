@@ -122,8 +122,29 @@ security feature using file hashing to prevent remote resources (for example, fr
 
 A Gulp task, `sri`, in the `app` container, is used to compute values for Style Kit assets, saving them to a JSON file.
 
-**Note:** Currently there is no ideal place, or automated process, to host SRI values. This is considered to be a
-[bug](https://trello.com/c/NebCWKex) and will be addressed.
+If SRI values need to be calculated manually:
+
+```
+$ docker-compose run --entrypoint="" app ash
+$ apk update
+$ apk add openssl
+$ openssl dgst -sha256 -binary [file] | openssl base64 -A
+$ exit
+```
+
+For example:
+
+```
+$ docker-compose run --entrypoint="" app ash
+$ apk update
+$ apk add openssl
+$ openssl dgst -sha256 -binary dist/css/bas-style-kit.css | openssl base64 -A
+> Qb7inHp6i7iH2aWYv1LLe3N5x+Eu93lwo5mKzNAxkoo=/usr/src/app
+$ exit
+```
+
+**Note:** Currently there is no ideal place, or automated process, to host SRI values. This is considered a
+[bug](https://trello.com/c/NebCWKex).
 
 ### Testbed
 
