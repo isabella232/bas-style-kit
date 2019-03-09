@@ -507,8 +507,9 @@ function copyImagesTestbed(done) {
   pump(
     [
       gulp.src([
-        path.join(config.sources.images, '*.jpg'),
-        path.join(config.sources.images, '*.png')
+        path.join(config.sources.images, '**/*.jpg'),
+        path.join(config.sources.images, '**/*.png'),
+        path.join(config.sources.images, '**/*.svg')
       ]),
       gulp.dest(path.join(config.destinations.assets, config.destinations.img))
     ],

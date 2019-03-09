@@ -1,0 +1,145 @@
+//-
+  sample:
+    title: Microsoft account button designs
+    code: .btn-ms-account
+    type: experiment
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  style.
+    .x-grey-dark {
+      color: #555;
+    }
+    .x-grey-base {
+      color: #777;
+    }
+
+    .x-svg-icon-baseline-fix {
+      height: 1em;
+      width: 1em;
+      top: .125em;
+      position: relative;
+    }
+
+  section.app-sample-section
+    header No icon (phasing only)
+
+    div.bsk-row
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default Sign In
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg Sign In
+
+  section.app-sample-section
+    header Font Awesome icon (Grey darker)
+
+    div.bsk-row
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default
+          i.fa-fw.fab.fa-microsoft
+          |  Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default
+          i.fa-fw.fab.fa-microsoft
+          |  Sign In
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          i.fa-fw.fab.fa-microsoft
+          |  Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          i.fa-fw.fab.fa-microsoft
+          |  Sign In
+
+  section.app-sample-section
+    header Font Awesome icon (Grey dark)
+
+    div.bsk-row
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default
+          i.fa-fw.fab.fa-microsoft.x-grey-dark
+          |  Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default
+          i.fa-fw.fab.fa-microsoft.x-grey-dark
+          |  Sign In
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          i.fa-fw.fab.fa-microsoft.x-grey-dark
+          |  Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          i.fa-fw.fab.fa-microsoft.x-grey-dark
+          |  Sign In
+
+  section.app-sample-section
+    header Font Awesome icon (Grey base)
+
+    div.bsk-row
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default
+          i.fa-fw.fab.fa-microsoft.x-grey-base
+          |  Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default
+          i.fa-fw.fab.fa-microsoft.x-grey-base
+          |  Sign In
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          i.fa-fw.fab.fa-microsoft.x-grey-base
+          |  Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          i.fa-fw.fab.fa-microsoft.x-grey-base
+          |  Sign In
+
+  section.app-sample-section
+    header Microsoft SVG icon
+
+    div.bsk-row
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default
+          object.x-svg-icon-baseline-fix(type='image/svg+xml' data='/' + testbed_version + '/assets/img/experiments/0393/ms-pictogram.svg')
+          |  Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default
+          object.x-svg-icon-baseline-fix(type='image/svg+xml' data='/' + testbed_version + '/assets/img/experiments/0393/ms-pictogram.svg')
+          |  Sign In
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          object.x-svg-icon-baseline-fix(type='image/svg+xml' data='/' + testbed_version + '/assets/img/experiments/0393/ms-pictogram.svg')
+          |  Sign in with Microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          object.x-svg-icon-baseline-fix(type='image/svg+xml' data='/' + testbed_version + '/assets/img/experiments/0393/ms-pictogram.svg')
+          |  Sign In
+
+  section.app-sample-section
+    header Icon only (no phrasing)
+
+    div.bsk-row
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          i.fa-fw.fab.fa-microsoft
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          i.fa-fw.fab.fa-microsoft.x-grey-dark
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          i.fa-fw.fab.fa-microsoft.x-grey-base
+      div.bsk-col-12-md-3
+        button.bsk-btn.bsk-btn-default.bsk-btn-lg
+          object.x-svg-icon-baseline-fix(type='image/svg+xml' data='/' + testbed_version + '/assets/img/experiments/0393/ms-pictogram.svg')
+
+  hr
+
+  h4 Notes
+  ul
+    li This experiment develops a number of different designs for the 'Sign in with Microsoft' button variant
+    li The Microsoft SVG icon is #[a(href='https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-add-branding-in-azure-ad-apps#user-account-pictogram') recommended by Microsoft]

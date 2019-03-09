@@ -1,0 +1,23 @@
+//-
+  sample:
+    title: Microsoft account button
+    code: .bsk-btn.bsk-btn-ms-account.bsk-btn-*
+  collections:
+    - core--buttons
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    +button--ms-account-size('Sign in with Microsoft')(class='bsk-btn bsk-btn-ms-account bsk-btn-xs')
+    +button--ms-account-size('Sign in with Microsoft')(class='bsk-btn bsk-btn-ms-account bsk-btn-sm')
+    +button--ms-account-size('Sign in with Microsoft')(class='bsk-btn bsk-btn-ms-account')
+    +button--ms-account-size('Sign in with Microsoft')(class='bsk-btn bsk-btn-ms-account bsk-btn-lg')
+
+  section.app-sample-section
+    +button--ms-account-size('Sign In')(class='bsk-btn bsk-btn-ms-account bsk-btn-xs')
+    +button--ms-account-size('Sign In')(class='bsk-btn bsk-btn-ms-account bsk-btn-sm')
+    +button--ms-account-size('Sign In')(class='bsk-btn bsk-btn-ms-account')
+    +button--ms-account-size('Sign In')(class='bsk-btn bsk-btn-ms-account bsk-btn-lg')

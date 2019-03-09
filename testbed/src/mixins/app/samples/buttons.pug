@@ -26,6 +26,12 @@ mixin button--disabled()
 mixin button--size(size)
   p: button(class!=attributes.class) #{ size } button
 
+mixin button--ms-account-size(size)
+  p: button(class!=attributes.class)
+    object.bsk-ms-pictogram(type='image/svg+xml' data='/' + testbed_version + '/dist/img/logos-symbols/ms-pictogram.svg')
+    |
+    | #{ size }
+
 mixin button-group--size(size)
   div.bsk-btn-group.app-spacing-bottom(class!=attributes.class role='group')
     +button(class='bsk-btn bsk-btn-default')
