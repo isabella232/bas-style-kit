@@ -1,0 +1,13 @@
+//
+// 'Sign In' page pattern
+// --------------------------------------------------
+// Patterns are not part of Bootstrap and only available in the Style Kit.
+
+.pattern-sign-in {
+  @include pattern-min-height();
+
+  .call-to-action,
+  .sign-in-information {
+    margin-top: 60px;
+  }
+}
