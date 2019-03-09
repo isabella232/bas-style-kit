@@ -15,6 +15,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * [Infrastructure] Updating app and testbed NPM dependencies to latest versions
 
+### Changed
+
+* [Styles] Removed border from Thumbnails
+
 ## [0.5.0] - 2018-11-28
 
 * No changes
