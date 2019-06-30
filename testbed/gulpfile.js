@@ -11,6 +11,7 @@ var gulp         = require('gulp'),
     zip          = require('gulp-zip'),
     sass         = require('gulp-sass'),
     data         = require('gulp-data'),
+    concat       = require('gulp-concat'),
     rename       = require('gulp-rename'),
     through      = require('through2'),
     sassvars     = require('gulp-sass-variables'),
@@ -92,6 +93,7 @@ gulp.task('build--css-testbed', buildCssTestbed);
 gulp.task('build--css-testbed-overrides', buildCssTestbedOverrides);
 gulp.task('build--js-testbed', buildJsTestbed);
 gulp.task('build--individual-samples', buildSamples);
+gulp.task('build--combined-samples', buildSamplesCombined);
 gulp.task('build--sample-redirects', buildSampleRedirects);
 gulp.task('build--individual-patterns', buildPatterns);
 gulp.task('build--pattern-redirects', buildPatternRedirects);
@@ -293,6 +295,17 @@ function buildSamples(done) {
       rename({extname: '.html'}),
       pug(),
       gulp.dest(path.join(config.destinations.samples))
+    ],
+    done
+  );
+}
+
+function buildSamplesCombined(done) {
+  pump(
+    [
+      gulp.src(path.join(config.sources.public, 's', '*-*.html')),
+      concat('samples-combined.html'),
+      gulp.dest(path.join(config.destinations.public))
     ],
     done
   );
