@@ -61,7 +61,8 @@ variables:
 node-dependencies-app:
   stage: setup
   script:
-    - "ln -s /usr/src/app/node_modules ./node_modules"
+    - "rm -rf node_modules"
+    - "yarn install --frozen-lockfile"
   artifacts:
     name: "$CI_BUILD_TOKEN-node-dependencies-app"
     paths:
@@ -75,7 +76,8 @@ node-dependencies-testbed:
     entrypoint: [""]
   script:
     - "cd testbed"
-    - "ln -s /usr/src/app/node_modules ./node_modules"
+    - "rm -rf node_modules"
+    - "yarn install --frozen-lockfile"
   artifacts:
     name: "$CI_BUILD_TOKEN-node-dependencies-testbed"
     paths:
