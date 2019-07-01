@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Changed [BREAKING!]
+
+* [Styles] Bottom margin on page titles has been been tripled to 60px
+
 ### Removed [BREAKING!]
 
 * [Styles] Previously deprecated button input group, drop-down button input group and split-button input group component
@@ -13,12 +17,15 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Patterns] Item page component pattern
+* [Patterns] Standard page header component pattern (cookie notice, navbar and development phase)
 * [Patterns] Start page (basic) pattern
 * [Patterns] Start page (more information) pattern
 * [Patterns] Start page (before you start) pattern
 * [Patterns] Start page (microsoft-sign-in) pattern
 * [Patterns] Sign In page (microsoft) pattern
 * [Styles] Microsoft account button variant using Microsoft pictogram
+* [Styles] Stacked page title variant for item pages
 * [Infrastructure] Updating app and testbed NPM dependencies to latest versions
 * [Infrastructure] Instructions for calculating SRI values manually
 

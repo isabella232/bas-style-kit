@@ -15,6 +15,21 @@
 @include bg-variant('.bg-experimental', $state-experimental-bg);
 
 
+// Page header
+// -------------------------
+
+.page-header {
+  margin-bottom: ($line-height-computed * 3);
+}
+
+.page-header-stacked {
+  small {
+    font-size: 60%;
+    font-weight: inherit;
+  }
+}
+
+
 // Lists
 // -------------------------
 
