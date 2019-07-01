@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Changed [BREAKING!]
 
 * [Styles] Bottom margin on page titles has been been tripled to 60px
+* [Infrastructure] Docker images for app and testbed no longer use a version
 
 ### Removed [BREAKING!]
 
