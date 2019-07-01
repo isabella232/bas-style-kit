@@ -1,0 +1,35 @@
+//-
+  sample:
+    title: ORCID iD icon
+    code: .ai.ai-orcid
+  collections:
+    - components--icons
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header ORCID iD icon only
+    i.ai.ai-orcid.ai-3x
+
+  section.app-sample-section
+    header ORCID iD icon in brand colour
+    i.ai.ai-orcid.ai-3x.app-colour-bsk-colour-ext-orcid-base
+
+  section.app-sample-section
+    header ORCID iD #[code .bsk-orcid-id]
+    p: a.bsk-orcid-id(href='https://sandbox.orcid.org/0000-0001-8373-6934') #[i.ai.ai-orcid.bsk-orcid-id-icon] https://sandbox.orcid.org/0000-0001-8373-6934
+
+  section.app-sample-section
+    header text with ORCID iD #[code .bsk-orcid-id-icon]
+    p
+      | Constance Watson
+      sup: a(href='https://sandbox.orcid.org/0000-0001-8373-6934'): i.ai.ai-orcid.bsk-orcid-id-icon
+
+  hr
+
+  h4 Notes
+  ul
+    li This sample relies on the optional #[a(href='https://style-kit.web.bas.ac.uk/core/icons/#academicons') Academicons icon font]
+    li ORCID iDs should be displayed according to the #[a(href='https://orcid.org/trademark-and-id-display-guidelines') ORCID Trademark and Display guidelines]

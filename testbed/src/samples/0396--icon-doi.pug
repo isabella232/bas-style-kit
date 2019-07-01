@@ -1,0 +1,35 @@
+//-
+  sample:
+    title: DOI icon
+    code: .ai.ai-doi
+  collections:
+    - components--icons
+  ---
+
+extends ../layouts/app-sample.pug
+
+block sample
+  section.app-sample-section
+    header DOI icon only
+    i.ai.ai-doi.ai-3x
+
+  section.app-sample-section
+    header DOI icon in brand colour
+    i.ai.ai-doi.ai-3x.app-colour-bsk-colour-ext-doi-base
+
+  section.app-sample-section
+    header DOI #[code .bsk-doi]
+    p: a.bsk-doi(href='https://doi.org/10.1017/S0954102014000674') #[i.ai.ai-doi.bsk-doi-icon] https://doi.org/10.1017/S0954102014000674
+
+  section.app-sample-section
+    header text with DOI #[code .bsk-doi-icon]
+    p
+      | A roadmap for Antarctic and Southern Ocean science for the next two decades and beyond
+      sup: a(href='https://doi.org/10.1017/S0954102014000674'): i.ai.ai-doi.bsk-doi-icon
+
+  hr
+
+  h4 Notes
+  ul
+    li This sample relies on the optional #[a(href='https://style-kit.web.bas.ac.uk/core/icons/#academicons') Academicons icon font]
+    li DOIs should be displayed according to #[a(href='https://www.crossref.org/display-guidelines/') Crossref's DOI display guidelines]
