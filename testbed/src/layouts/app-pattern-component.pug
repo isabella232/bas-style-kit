@@ -1,0 +1,11 @@
+extends app-pattern-page.pug
+
+block append variables
+  - bsk_attributes.site_nav_brand_text = 'BAS Style Kit Testbed';
+  - bsk_attributes.site_nav_brand_href = '/' + testbed_version + '/';
+  - bsk_attributes.site_development_phase_custom.message_text = 'This is an example of a (component) design pattern.';
+
+block main_content
+  block pattern
+
+  p.bsk-text-muted (#[a.bsk-text-experimental(href='/' + testbed_version + '/') Back to testbed index])
