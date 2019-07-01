@@ -17,6 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Patterns] Item page component pattern
 * [Patterns] Standard page header component pattern (cookie notice, navbar and development phase)
 * [Patterns] Start page (basic) pattern
 * [Patterns] Start page (more information) pattern
