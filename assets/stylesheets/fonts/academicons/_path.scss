@@ -1,0 +1,16 @@
+//
+// Academicons - Font file paths
+// --------------------------------------------------
+
+// Academicons
+@font-face {
+  font-family: "Academicons";
+  src: url("#{$gs-font-path}/academicons/academicons.eot");
+  src:
+    url("#{$ai-font-path}/academicons/academicons.eot?v=1.8.6") format("eot"),
+    url("#{$ai-font-path}/academicons/academicons.eot?v=1.8.6") format("embedded-opentype"),
+    url("#{$ai-font-path}/academicons/academicons.woff?v=1.8.6") format("woff"),
+    url("#{$ai-font-path}/academicons/academicons.ttf?v=1.8.6") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
