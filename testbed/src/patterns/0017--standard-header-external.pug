@@ -1,0 +1,53 @@
+//-
+  pattern_variant:
+    title: Standard header (external)
+  pattern:
+    title: Standard header
+  ---
+
+extends ../layouts/app-pattern-component.pug
+
+block pattern
+  div.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role='alert')
+    button.bsk-close(type='button' data-dismiss='alert' aria-label='Close') &times;
+    | This website uses cookies to help us make it better - #[a.bsk-alert-link(href='#') find out more].
+  nav.bsk-navbar
+    div.bsk-container-fluid
+      div.bsk-navbar-header
+        button.bsk-navbar-toggle.bsk-collapsed(type='button' data-toggle='collapse' data-target='#bsk-example-navbar-collapse-1' aria-expanded='false')
+          span.bsk-sr-only Toggle navigation
+          span.bsk-icon-bar
+          span.bsk-icon-bar
+          span.bsk-icon-bar
+        a.bsk-navbar-brand(href='#') Site Name
+      div.bsk-collapse.bsk-navbar-collapse#bsk-example-navbar-collapse-1
+        ul.bsk-nav.bsk-navbar-nav
+          li.bsk-active: a(href='#') Home #[span.bsk-sr-only current]
+          li: a(href='#') About
+          li.bsk-dropdown
+            a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+              | Dropdown
+              span.bsk-caret
+            ul.bsk-dropdown-menu
+              li: a(href='#') Action
+              li: a(href='#') Another action
+              li: a(href='#') Something else here
+              li.bsk-divider(role='separator')
+              li: a(href='#') Separated link
+              li.bsk-divider(role='separator')
+              li: a(href='#') One more separated link
+        ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+          li.bsk-dropdown
+            a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+              | Part of British Antarctic Survey
+              span.bsk-caret
+            ul.bsk-dropdown-menu
+              li: a(href='https://www.bas.ac.uk') BAS Home
+              li: a(href='https://data.bas.ac.uk') Discover BAS data
+              li: a(href='#') Another service (optional)
+  div.site-development-notice
+    div.bsk-container-fluid
+      span.bsk-label.bsk-label-phase-alpha Alpha
+      | &nbsp;
+      | This is a new website – your #[a(href='#') feedback] will help us to improve it.
+    hr
