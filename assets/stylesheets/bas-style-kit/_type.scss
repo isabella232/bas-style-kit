@@ -22,6 +22,13 @@
   margin-bottom: ($line-height-computed * 3);
 }
 
+.page-header-stacked {
+  small {
+    font-size: 60%;
+    font-weight: inherit;
+  }
+}
+
 
 // Lists
 // -------------------------
