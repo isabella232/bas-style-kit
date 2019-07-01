@@ -759,13 +759,6 @@ For all releases:
 5. copy SRI values into the Style Kit Documentation project [1]
 6. re-publish NPM package
 
-For non-alpha/beta releases:
-
-1. before building and pushing docker images, remove `-develop` from version string in:
-    * `docker-compose.yml` - `app` Docker image
-    * `.gitlab-ci.yml` - default Docker image
-2. if needed, bump the version of the `testbed` image and update references in `.gitlab-ci.yml`
-
 [1] This is currently a manual process described in the relevant
 [project documentation](https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit-docs/README.md).
 
@@ -795,16 +788,6 @@ For all releases:
 1. bump the version and add the next development phase in:
   * `package.json`
   * `/assets/scripts/javascripts/bas-style-kit/0_version.js` - `Version.VERSION` variable
-
-For non-alpha/beta releases:
-
-1. bump the version and add `-develop` prefix in:
-  * `docker-compose.yml` - `app` Docker image
-  * `.gitlab-ci.yml` - default Docker image
-2. build & push the docker image
-
-This is to prevent overwriting a 'released' docker image tag with future changes and prevent publishing a development
-version to a release tag in NPM (as versions cannot be overwritten).
 
 For example:
 
