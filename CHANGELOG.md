@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Changed [BREAKING!]
+
+* [Styles] Bottom margin on page titles has been been tripled to 60px
+
 ### Removed [BREAKING!]
 
 * [Styles] Previously deprecated button input group, drop-down button input group and split-button input group component

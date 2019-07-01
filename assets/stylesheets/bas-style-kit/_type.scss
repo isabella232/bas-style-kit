@@ -15,6 +15,14 @@
 @include bg-variant('.bg-experimental', $state-experimental-bg);
 
 
+// Page header
+// -------------------------
+
+.page-header {
+  margin-bottom: ($line-height-computed * 3);
+}
+
+
 // Lists
 // -------------------------
 
