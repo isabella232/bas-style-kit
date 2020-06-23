@@ -9,11 +9,11 @@
 
 # = Secret variables
 # - Variables are grouped by section in KEY: "value" format (e.g. FOO: "bar")
-#   Sensetive values are represented by "[Sensetive]"
+#   Sensitive values are represented by "[Sensitive]"
 #
 # - AWS IAM id/secret keys for 'bas-gitlab-deploy-bas-style-kit' user
-# > AWS_ACCESS_KEY_ID: "[Sensetive]"
-# > AWS_SECRET_ACCESS_KEY: "[Sensetive]"
+# > AWS_ACCESS_KEY_ID: "[Sensitive]"
+# > AWS_SECRET_ACCESS_KEY: "[Sensitive]"
 #
 # - Snyk
 # > SNYK_TOKEN: "[Sensitive]"
@@ -30,7 +30,6 @@
 # == Global settings ==
 
 stages:
-  # - setup
   # - security
   - build
   - lint
@@ -323,7 +322,7 @@ package-testbed:
       - "testbed/bas-style-kit-testbed.zip"
     expire_in: 1 week
 
-s3-cdn-app:
+upload-app:
   <<: *job_template_s3_sync
   stage: deploy
   only:
@@ -331,7 +330,7 @@ s3-cdn-app:
   script:
     - "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CI_BUILD_TAG_SHORT/"
 
-s3-testbed:
+upload-testbed:
   <<: *job_template_s3_sync
   stage: deploy
   only:
