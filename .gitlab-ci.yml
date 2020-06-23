@@ -129,6 +129,9 @@ compile-sass-testbed:
     - "yarn install"
   script:
     - "yarn gulp build--css"
+  only:
+    - merge_requests
+    - master
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-styles-testbed"
     paths:
@@ -161,6 +164,9 @@ compile-js-testbed:
     - "yarn install"
   script:
     - "yarn gulp build--js"
+  only:
+    - merge_requests
+    - master
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-styles-testbed"
     paths:
@@ -179,6 +185,9 @@ compile-pug-testbed:
     - "yarn install"
   script:
     - "yarn gulp build--pages"
+  only:
+    - merge_requests
+    - master
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-templates-app"
     paths:
@@ -228,6 +237,9 @@ copy-images-testbed:
     - "yarn install"
   script:
     - "yarn gulp copy--img"
+  only:
+    - merge_requests
+    - master
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-imgs-testbed"
     paths:
@@ -241,6 +253,7 @@ lint-sass-app:
     - "yarn install"
   script:
     - "yarn gulp lint--sass"
+  needs: ["compile-sass-app"]
 
 lint-js-app:
   stage: lint
@@ -249,6 +262,7 @@ lint-js-app:
     - "yarn install"
   script:
     - "yarn gulp lint--js"
+  needs: ["compile-js-app"]
 
 compute-sri-app:
   stage: process
@@ -262,6 +276,10 @@ compute-sri-app:
     paths:
       - dist/bas-style-kit.sri.json
     expire_in: 1 week
+  needs: [
+    "compile-sass-app",
+    "compile-js-app"
+  ]
 
 review:
   <<: *job_template_s3_sync
@@ -274,6 +292,8 @@ review:
   script:
     - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/
     - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/dist/
+  only:
+    - merge_requests
   environment:
     name: review/$CI_COMMIT_REF_SLUG
     url: https://style-kit-testbed.web.bas.ac.uk/$CI_COMMIT_REF_SLUG/
