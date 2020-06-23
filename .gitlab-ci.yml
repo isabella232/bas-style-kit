@@ -107,6 +107,9 @@ compile-sass-app:
     - "yarn install"
   script:
     - "yarn gulp build--css"
+  only:
+    - merge_requests
+    - master
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-styles-app"
     paths:
@@ -145,6 +148,9 @@ compile-js-app:
     - "yarn install"
   script:
       - "yarn gulp build--js"
+  only:
+    - merge_requests
+    - master
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-scripts-app"
     paths:
@@ -205,6 +211,9 @@ copy-fonts-app:
     - "yarn install"
   script:
     - "yarn gulp copy--fonts"
+  only:
+    - merge_requests
+    - master
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-fonts-app"
     paths:
@@ -219,6 +228,9 @@ copy-images-app:
   script:
     - "yarn gulp copy--img"
     - "yarn gulp generate--favicon--manifests"
+  only:
+    - merge_requests
+    - master
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-imgs-app"
     paths:
@@ -254,6 +266,9 @@ lint-sass-app:
   script:
     - "yarn gulp lint--sass"
   needs: ["compile-sass-app"]
+  only:
+    - merge_requests
+    - master
 
 lint-js-app:
   stage: lint
@@ -263,6 +278,9 @@ lint-js-app:
   script:
     - "yarn gulp lint--js"
   needs: ["compile-js-app"]
+  only:
+    - merge_requests
+    - master
 
 compute-sri-app:
   stage: process
@@ -280,12 +298,13 @@ compute-sri-app:
     "compile-sass-app",
     "compile-js-app"
   ]
+  only:
+    - merge_requests
+    - master
 
 review:
   <<: *job_template_s3_sync
   stage: review
-  only:
-    - branches
   except:
     - master
     - tags
@@ -324,6 +343,9 @@ package-app:
     paths:
       - "bas-style-kit.zip"
     expire_in: 1 week
+  only:
+    - master
+    - tags
 
 package-testbed:
   stage: package
@@ -341,6 +363,9 @@ package-testbed:
     paths:
       - "testbed/bas-style-kit-testbed.zip"
     expire_in: 1 week
+  only:
+    - master
+    - tags
 
 upload-app:
   <<: *job_template_s3_sync
