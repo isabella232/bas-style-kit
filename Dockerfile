@@ -1,4 +1,4 @@
-FROM node:carbon-alpine
+FROM node:erbium-alpine
 
 LABEL maintainer="Felix Fennell <felnne@bas.ac.uk>"
 
@@ -6,21 +6,25 @@ LABEL maintainer="Felix Fennell <felnne@bas.ac.uk>"
 WORKDIR /usr/src/app
 
 # Setup project dependencies
+ENV YARN_ENABLE_GLOBAL_CACHE=true
+ENV YARN_GLOBAL_FOLDER=/usr/src/lib/yarn
 COPY package.json /usr/src/app/
-RUN npm install --global yarn && yarn install
+RUN mkdir -p /usr/src/lib/yarn && \
+    yarn set version berry && \
+    yarn install
 
 # Run tests
 RUN echo "node version: " && node --version && \
     echo "npm version: " && npm --version && \
     echo "yarn version: " && yarn --version && \
-    echo "gulp version: " && ./node_modules/gulp/bin/gulp.js --version
-
-# Setup runtime
-ENTRYPOINT ["./node_modules/gulp/bin/gulp.js"]
-CMD ["--tasks-simple"]
+    echo "gulp version: " && yarn gulp --version
 
 # Copy configuration files
-COPY .csscomb.json .stylelintrc.yml /usr/src/app/
+COPY .csscomb.json .stylelintrc.yml .browserslistrc /usr/src/app/
 
 # Copy meta files for NPM packages
 COPY .gitattributes .gitignore .npmignore README.md /usr/src/app/
+
+# Setup runtime
+ENTRYPOINT ["yarn", "gulp"]
+CMD ["--tasks-simple"]

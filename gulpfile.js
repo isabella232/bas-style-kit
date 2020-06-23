@@ -34,8 +34,8 @@ const config = {
     'images': path.join('.', 'assets', 'images'),
     'bootstrap-sass': path.join('.', 'node_modules', 'bootstrap-sass'),
     'gill-sans': path.join('.', 'assets', 'webfonts', 'gill-sans'),
-    'open-sans': path.join('.', 'node_modules', 'open-sans-fontface'),
     'academicons': path.join('.', 'assets', 'webfonts', 'academicons'),
+    'open-sans': path.join('.', 'assets', 'webfonts', 'open-sans'),
     'bas-style-kit-js': path.join('.', 'bas-style-kit', '**/*.js'),
     'bootstrap-overrides-js': path.join('.', 'bootstrap-overrides', '**/*.js'),
     'dist': path.join('.', 'dist'),
@@ -51,20 +51,6 @@ const config = {
     'img': path.join('img')
   },
   'modules': {
-    'autoprefixer': {
-      browsers: [
-        "Android >= 4.4",
-        "Chrome >= 45",
-        "Firefox >= 38",
-        "Explorer >= 11",
-        'Edge >= 12',
-        "iOS >= 9",
-        "Opera >= 30",
-        "Safari >= 9"
-      ],
-      cascade: false,
-      remove: true
-    },
     'cssprefixer': {
       'prefix': 'bsk-'
     }

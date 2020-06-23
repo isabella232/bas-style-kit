@@ -19,6 +19,7 @@ services:
     volumes:
       - ./package.json:/usr/src/app/package.json
       - ./assets:/usr/src/app/assets
+      - ./testbed/lib:/usr/src/app/testbed/lib
       - ./testbed/src:/usr/src/app/testbed/src
       - ./testbed/public:/usr/src/app/testbed/public
       - ./testbed/gulpfile.js:/usr/src/app/testbed/gulpfile.js

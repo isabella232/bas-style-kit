@@ -1,0 +1,30 @@
+extends ./bsk--base.pug
+
+block append variables
+  - bsk_attributes.site_nav_primary = [];
+  - bsk_attributes.site_nav_secondary = [];
+  - bsk_attributes.site_nav_launcher = [];
+  - bsk_attributes.site_development_phase_custom = {};
+  - bsk_attributes.site_development_phase_custom.label_classes = [];
+  - bsk_attributes.site_nav_brand_text = 'site name';
+  - bsk_attributes.site_nav_brand_img_href = '';
+  - bsk_attributes.site_nav_brand_href = '/';
+  - bsk_attributes.site_nav_launcher.unshift({title: 'Discover BAS Data', href: 'https://data.bas.ac.uk'});
+  - bsk_attributes.site_nav_launcher.unshift({title: 'BAS Home', href: 'https://www.bas.ac.uk'});
+  - bsk_attributes.site_nav_launcher_title = 'Part of British Antarctic Survey';
+  - bsk_attributes.site_development_phase = 'alpha';
+  - bsk_attributes.site_development_phase_custom.label_text = '';
+  - bsk_attributes.site_development_phase_custom.message_text = '';
+  - bsk_attributes.site_feedback_href = '#';
+  - bsk_attributes.site_footer_ogl_symbol_a_href = 'http://www.nationalarchives.gov.uk/doc/open-government-licence';
+  - bsk_attributes.site_footer_ogl_text_href = 'http://www.nationalarchives.gov.uk/doc/open-government-licence';
+  - bsk_attributes.site_footer_ogl_text_version = 'v3.0';
+  - bsk_attributes.site_footer_policies_cookies_href = '#';
+  - bsk_attributes.site_footer_policies_copyright_href = '#';
+  - bsk_attributes.site_footer_policies_privacy_href = '#';
+
+block pre_main_content
+  include  ../../includes/bas-style-kit/bsk--body--standard-header.pug
+
+block post_main_content
+  include ../../includes/bas-style-kit/bsk--body--standard-footer.pug
