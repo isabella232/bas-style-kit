@@ -1,0 +1,7 @@
+
+# Browsers that we support
+# https://browserl.ist/?q=last+1+major+version%2C+%3E%3D+1%25%2C+not+dead
+
+last 1 major version
+>= 1%
+not dead

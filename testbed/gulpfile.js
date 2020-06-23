@@ -48,20 +48,6 @@ const config = {
     'patterns': path.join('.', 'public', 'p')
   },
   'modules': {
-    'autoprefixer': {
-      browsers: [
-        "Android >= 4.4",
-        "Chrome >= 45",
-        "Firefox >= 38",
-        "Explorer >= 11",
-        'Edge >= 12',
-        "iOS >= 9",
-        "Opera >= 30",
-        "Safari >= 9"
-      ],
-      cascade: false,
-      remove: true
-    },
     'cssprefixer': {
       'prefix': {
         'app': 'app-',
@@ -273,7 +259,7 @@ function buildSamples(done) {
       ]),
       data(function(file) {
         var content = frontmatter(String(file.contents));
-        file.contents = new Buffer(content.body);
+        file.contents = new Buffer.from(content.body);
 
         // Add testbed version as custom attribute
         content.attributes.testbed_version = config.variables["testbed-version"];
@@ -319,7 +305,7 @@ function buildPatterns(done) {
       ]),
       data(function(file) {
         var content = frontmatter(String(file.contents));
-        file.contents = new Buffer(content.body);
+        file.contents = new Buffer.from(content.body);
 
         // Add testbed version as custom attribute
         content.attributes.testbed_version = config.variables["testbed-version"];
@@ -368,7 +354,7 @@ function buildSampleRedirects(done) {
         }
         attributes.sample_number = fileName[0];
 
-        file.contents = new Buffer(`
+        file.contents = new Buffer.from(`
           <!DOCTYPE html>
           <html lang="en-GB">
             <head>
@@ -423,7 +409,7 @@ function buildPatternRedirects(done) {
         }
         attributes.pattern_number = fileName[0];
 
-        file.contents = new Buffer(`
+        file.contents = new Buffer.from(`
           <!DOCTYPE html>
           <html lang="en-GB">
             <head>

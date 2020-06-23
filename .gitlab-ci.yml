@@ -32,8 +32,8 @@
 # == Global settings ==
 
 stages:
-  - setup
-  - security
+  # - setup
+  # - security
   - build
   - lint
   - process
@@ -58,54 +58,60 @@ variables:
 
 # == Jobs ==
 
-node-dependencies-app:
-  stage: setup
-  script:
-    - "rm -rf node_modules"
-    - "yarn install --frozen-lockfile"
-  artifacts:
-    name: "$CI_BUILD_TOKEN-node-dependencies-app"
-    paths:
-      - node_modules
-    expire_in: 1 hour
+# node-dependencies-app:
+#   stage: setup
+#   script:
+#     - "yarn install --frozen-lockfile"
+#   artifacts:
+#     name: "$CI_BUILD_TOKEN-node-dependencies-app"
+#     paths:
+#       - node_modules
+#     expire_in: 1 hour
 
-node-dependencies-testbed:
-  stage: setup
-  image:
-    name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:latest-alpine
-    entrypoint: [""]
-  script:
-    - "cd testbed"
-    - "rm -rf node_modules"
-    - "yarn install --frozen-lockfile"
-  artifacts:
-    name: "$CI_BUILD_TOKEN-node-dependencies-testbed"
-    paths:
-      - testbed/node_modules
-    expire_in: 1 hour
+# node-dependencies-testbed:
+#   stage: setup
+#   image:
+#     name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:latest-alpine
+#     entrypoint: [""]
+#   script:
+#     - "cd testbed"
+#     - "yarn install --frozen-lockfile"
+#   artifacts:
+#     name: "$CI_BUILD_TOKEN-node-dependencies-testbed"
+#     paths:
+#       - testbed/node_modules
+#     expire_in: 1 hour
 
-check-dependencies-app:
-  stage: security
-  image:
-    name: snyk/snyk-cli:npm
-    entrypoint: [""]
-  script:
-    - "snyk test --file=yarn.lock"
-    - "snyk monitor --file=yarn.lock --project-name=$SNYK_PROJECT_NAME_APP --org=$SNYK_ORG"
 
-check-dependencies-testbed:
-  stage: security
-  image:
-    name: snyk/snyk-cli:npm
-    entrypoint: [""]
-  script:
-    - "snyk test --file=testbed/yarn.lock"
-    - "snyk monitor --file=testbed/yarn.lock --project-name=$SNYK_PROJECT_NAME_TESTBED --org=$SNYK_ORG"
+# Disabled until https://github.com/snyk/nodejs-lockfile-parser/issues/56 is resolved
+#
+# check-dependencies-app:
+#   stage: security
+#   image:
+#     name: snyk/snyk-cli:npm
+#     entrypoint: [""]
+#   script:
+#     - "snyk test --file=yarn.lock"
+#     - "snyk monitor --file=yarn.lock --project-name=$SNYK_PROJECT_NAME_APP --org=$SNYK_ORG"
+
+# Disabled until https://github.com/snyk/nodejs-lockfile-parser/issues/56 is resolved
+#
+# check-dependencies-testbed:
+#   stage: security
+#   image:
+#     name: snyk/snyk-cli:npm
+#     entrypoint: [""]
+#   script:
+#     - "snyk test --file=testbed/yarn.lock"
+#     - "snyk monitor --file=testbed/yarn.lock --project-name=$SNYK_PROJECT_NAME_TESTBED --org=$SNYK_ORG"
 
 compile-sass-app:
   stage: build
+  before_script:
+    - "yarn set version berry"
+    - "yarn install"
   script:
-    - "./node_modules/gulp/bin/gulp.js build--css"
+    - "yarn gulp build--css"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-styles-app"
     paths:
@@ -122,10 +128,12 @@ compile-sass-testbed:
     name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:latest-alpine
     entrypoint: [""]
   before_script:
-    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
-  script:
     - "cd testbed"
-    - "./node_modules/gulp/bin/gulp.js build--css"
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+    - "yarn set version berry"
+    - "yarn install"
+  script:
+    - "yarn gulp build--css"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-styles-testbed"
     paths:
@@ -134,8 +142,11 @@ compile-sass-testbed:
 
 compile-js-app:
   stage: build
+  before_script:
+    - "yarn set version berry"
+    - "yarn install"
   script:
-      - "./node_modules/gulp/bin/gulp.js build--js"
+      - "yarn gulp build--js"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-scripts-app"
     paths:
@@ -149,10 +160,12 @@ compile-js-testbed:
     name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:latest-alpine
     entrypoint: [""]
   before_script:
-    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
-  script:
     - "cd testbed"
-    - "./node_modules/gulp/bin/gulp.js build--js"
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+    - "yarn set version berry"
+    - "yarn install"
+  script:
+    - "yarn gulp build--js"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-styles-testbed"
     paths:
@@ -165,10 +178,12 @@ compile-pug-testbed:
     name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:latest-alpine
     entrypoint: [""]
   before_script:
-    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
-  script:
     - "cd testbed"
-    - "./node_modules/gulp/bin/gulp.js build--pages"
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+    - "yarn set version berry"
+    - "yarn install"
+  script:
+    - "yarn gulp build--pages"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-templates-app"
     paths:
@@ -181,8 +196,11 @@ compile-pug-testbed:
 
 copy-fonts-app:
   stage: build
+  before_script:
+    - "yarn set version berry"
+    - "yarn install"
   script:
-    - "./node_modules/gulp/bin/gulp.js copy--fonts"
+    - "yarn gulp copy--fonts"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-fonts-app"
     paths:
@@ -191,9 +209,12 @@ copy-fonts-app:
 
 copy-images-app:
   stage: build
+  before_script:
+    - "yarn set version berry"
+    - "yarn install"
   script:
-    - "./node_modules/gulp/bin/gulp.js copy--img"
-    - "./node_modules/gulp/bin/gulp.js generate--favicon--manifests"
+    - "yarn gulp copy--img"
+    - "yarn gulp generate--favicon--manifests"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-imgs-app"
     paths:
@@ -206,10 +227,12 @@ copy-images-testbed:
     name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:latest-alpine
     entrypoint: [""]
   before_script:
-    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
-  script:
     - "cd testbed"
-    - "./node_modules/gulp/bin/gulp.js copy--img"
+    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+    - "yarn set version berry"
+    - "yarn install"
+  script:
+    - "yarn gulp copy--img"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-imgs-testbed"
     paths:
@@ -218,18 +241,27 @@ copy-images-testbed:
 
 lint-sass-app:
   stage: lint
+  before_script:
+    - "yarn set version berry"
+    - "yarn install"
   script:
-    - "./node_modules/gulp/bin/gulp.js lint--sass"
+    - "yarn gulp lint--sass"
 
 lint-js-app:
   stage: lint
+  before_script:
+    - "yarn set version berry"
+    - "yarn install"
   script:
-    - "./node_modules/gulp/bin/gulp.js lint--js"
+    - "yarn gulp lint--js"
 
 compute-sri-app:
   stage: process
+  before_script:
+    - "yarn set version berry"
+    - "yarn install"
   script:
-    - "./node_modules/gulp/bin/gulp.js sri"
+    - "yarn gulp sri"
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-sri"
     paths:
@@ -270,8 +302,10 @@ package-app:
   before_script:
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
+    - "yarn set version berry"
+    - "yarn install"
   script:
-    - "./node_modules/gulp/bin/gulp.js archive--dist"
+    - "yarn gulp archive--dist"
     - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-app.zip"
   artifacts:
     name: "$CI_BUILD_TOKEN-zip-app"
@@ -285,11 +319,13 @@ package-testbed:
     name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:latest-alpine
     entrypoint: [""]
   before_script:
+    - "cd testbed"
     - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export DATETIME_INSTANT=`date --utc -Iseconds`"
+    - "yarn set version berry"
+    - "yarn install"
   script:
-    - "cd testbed"
-    - "./node_modules/gulp/bin/gulp.js archive--public"
+    - "yarn gulp archive--public"
     - "mv ./bas-style-kit-testbed.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-testbed.zip"
   artifacts:
     name: "$CI_BUILD_TOKEN-zip-testbed"

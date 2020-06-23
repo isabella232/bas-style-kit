@@ -766,7 +766,7 @@ For all releases:
 
 ```shell
 $ docker-compose run --entrypoint='' app ash
-$ ./node_modules/gulp/bin/gulp.js archive
+$ yarn gulp archive
 $ npm login
 $ npm publish
 ```
@@ -775,7 +775,7 @@ To preview the contents of the NPM package:
 
 ```shell
 $ docker-compose run --entrypoint='' app ash
-$ ./node_modules/gulp/bin/gulp.js archive
+$ yarn gulp archive
 $ npm pack
 ```
 

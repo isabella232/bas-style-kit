@@ -1,0 +1,12 @@
+mixin nav_menu(items)
+    ul.bsk-nav.bsk-navbar-nav(class!=attributes.class)
+        each item in items
+            unless item.items
+                li: a(href=item.href) #{item.title}
+            else
+                li.bsk-dropdown
+                    a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                        | #{item.title} #[span.bsk-caret]
+                    ul.bsk-dropdown-menu
+                        each sub_item in item.items
+                            li: a(href=sub_item.href) #{sub_item.title}
