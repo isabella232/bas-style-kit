@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 * Switched from Yarn 1 to Yarn 2, removing `node_modules` directory
 * Imports to dependencies in `node_modules` directory have been changed to bundle dependencies directly
+* Updating to newer predefined CI variables
 
 ## [0.6.0-alpha] - 2019-07-01
 
