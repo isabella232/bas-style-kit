@@ -305,9 +305,6 @@ compute-sri-app:
 review:
   <<: *job_template_s3_sync
   stage: review
-  except:
-    - master
-    - tags
   script:
     - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/
     - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/dist/
@@ -326,6 +323,8 @@ stop_review:
   variables:
     GIT_STRATEGY: none
   when: manual
+  only:
+    - merge_requests
   environment:
     name: review/$CI_COMMIT_REF_SLUG
     action: stop
