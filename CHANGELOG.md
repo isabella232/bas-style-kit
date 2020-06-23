@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * Project dependencies updated to latest versions
+* Adding merge request CI features
 
 ### Changed
 
