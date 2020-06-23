@@ -9,11 +9,11 @@
 
 # = Secret variables
 # - Variables are grouped by section in KEY: "value" format (e.g. FOO: "bar")
-#   Sensetive values are represented by "[Sensetive]"
+#   Sensitive values are represented by "[Sensitive]"
 #
 # - AWS IAM id/secret keys for 'bas-gitlab-deploy-bas-style-kit' user
-# > AWS_ACCESS_KEY_ID: "[Sensetive]"
-# > AWS_SECRET_ACCESS_KEY: "[Sensetive]"
+# > AWS_ACCESS_KEY_ID: "[Sensitive]"
+# > AWS_SECRET_ACCESS_KEY: "[Sensitive]"
 #
 # - Snyk
 # > SNYK_TOKEN: "[Sensitive]"
@@ -25,14 +25,11 @@
     name: governmentpaas/awscli:latest
     entrypoint: [""]
   before_script:
-    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
     - "export CI_BUILD_TAG_SHORT=`echo $CI_COMMIT_TAG | cut -c 2-`"
-    - "export CDN_PROJECT_VERSION=$CI_BUILD_TAG_SHORT"
 
 # == Global settings ==
 
 stages:
-  # - setup
   # - security
   - build
   - lint
@@ -47,8 +44,6 @@ image:
 
 variables:
   CDN_BUCKET: cdn.web.bas.ac.uk
-  PACKAGES_BUCKET: packages.data.bas.ac.uk
-  PACKAGES_BUCKET_PATH: zips/apps
   TESTBED_BUCKET: style-kit-testbed.web.bas.ac.uk
   APP_NAME: bas-style-kit
   REVIEW_APP_DOMAIN: bas-style-kit-testbed.s3-website-eu-west-1.amazonaws.com
@@ -129,7 +124,7 @@ compile-sass-testbed:
     entrypoint: [""]
   before_script:
     - "cd testbed"
-    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+    - "export TESTBED_VERSION=$CI_COMMIT_REF_SLUG"
     - "yarn set version berry"
     - "yarn install"
   script:
@@ -161,7 +156,7 @@ compile-js-testbed:
     entrypoint: [""]
   before_script:
     - "cd testbed"
-    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+    - "export TESTBED_VERSION=$CI_COMMIT_REF_SLUG"
     - "yarn set version berry"
     - "yarn install"
   script:
@@ -179,7 +174,7 @@ compile-pug-testbed:
     entrypoint: [""]
   before_script:
     - "cd testbed"
-    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+    - "export TESTBED_VERSION=$CI_COMMIT_REF_SLUG"
     - "yarn set version berry"
     - "yarn install"
   script:
@@ -228,7 +223,7 @@ copy-images-testbed:
     entrypoint: [""]
   before_script:
     - "cd testbed"
-    - "export TESTBED_VERSION=$CI_BUILD_REF_NAME"
+    - "export TESTBED_VERSION=$CI_COMMIT_REF_SLUG"
     - "yarn set version berry"
     - "yarn install"
   script:
@@ -277,40 +272,37 @@ review:
     - master
     - tags
   script:
-    - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/
-    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
+    - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/
+    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/dist/
   environment:
-    name: review/$CI_BUILD_REF_NAME
-    url: https://style-kit-testbed.web.bas.ac.uk/$CI_BUILD_REF_NAME/
+    name: review/$CI_COMMIT_REF_SLUG
+    url: https://style-kit-testbed.web.bas.ac.uk/$CI_COMMIT_REF_SLUG/
     on_stop: stop_review
 
 stop_review:
   <<: *job_template_s3_sync
   stage: review
   script:
-    - aws s3 rm --recursive s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME
+    - aws s3 rm --recursive s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG
   variables:
     GIT_STRATEGY: none
   when: manual
   environment:
-    name: review/$CI_BUILD_REF_NAME
+    name: review/$CI_COMMIT_REF_SLUG
     action: stop
   dependencies: []
 
 package-app:
   stage: package
   before_script:
-    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
-    - "export DATETIME_INSTANT=`date --utc -Iseconds`"
     - "yarn set version berry"
     - "yarn install"
   script:
     - "yarn gulp archive--dist"
-    - "mv ./bas-style-kit.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-app.zip"
   artifacts:
     name: "$CI_BUILD_TOKEN-zip-app"
     paths:
-      - "*.zip"
+      - "bas-style-kit.zip"
     expire_in: 1 week
 
 package-testbed:
@@ -320,56 +312,32 @@ package-testbed:
     entrypoint: [""]
   before_script:
     - "cd testbed"
-    - "export CI_BUILD_REF_SHORT=`echo $CI_BUILD_REF | cut -c1-7`"
-    - "export DATETIME_INSTANT=`date --utc -Iseconds`"
     - "yarn set version berry"
     - "yarn install"
   script:
     - "yarn gulp archive--public"
-    - "mv ./bas-style-kit-testbed.zip ./$CI_BUILD_REF_SHORT-$DATETIME_INSTANT-testbed.zip"
   artifacts:
     name: "$CI_BUILD_TOKEN-zip-testbed"
     paths:
-      - "testbed/*.zip"
+      - "testbed/bas-style-kit-testbed.zip"
     expire_in: 1 week
 
-s3-packages-snapshot-app:
-  <<: *job_template_s3_sync
-  stage: deploy
-  only:
-    - master
-  script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
-
-s3-packages-snapshot-testbed:
-  <<: *job_template_s3_sync
-  stage: deploy
-  only:
-    - master
-  script: "aws s3 cp testbed/$CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/snapshots/"
-
-s3-packages-release-app:
+upload-app:
   <<: *job_template_s3_sync
   stage: deploy
   only:
     - tags
-  when: manual
-  script: "aws s3 cp $CI_BUILD_REF_SHORT-*.zip s3://$PACKAGES_BUCKET/$PACKAGES_BUCKET_PATH/$APP_NAME/releases/$CDN_PROJECT_VERSION.zip"
+  script:
+    - "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CI_BUILD_TAG_SHORT/"
 
-s3-cdn-app:
-  <<: *job_template_s3_sync
-  stage: deploy
-  only:
-    - tags
-  script: "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CDN_PROJECT_VERSION/"
-
-s3-testbed:
+upload-testbed:
   <<: *job_template_s3_sync
   stage: deploy
   only:
     - master
   script:
-    - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/
-    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_BUILD_REF_NAME/dist/
+    - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/
+    - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/dist/
   environment:
     name: testbed
-    url: https://style-kit-testbed.web.bas.ac.uk/$CI_BUILD_REF_NAME/testbed/
+    url: https://style-kit-testbed.web.bas.ac.uk/$CI_COMMIT_REF_SLUG/testbed/
