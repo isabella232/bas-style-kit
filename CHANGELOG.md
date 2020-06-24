@@ -15,6 +15,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Project dependencies updated to latest versions
 * Adding merge request CI features
 
+### Fixed
+
+* [Patterns] 'sign in' page patterns language inconsistency
+
 ### Changed
 
 * Switched from Yarn 1 to Yarn 2, removing `node_modules` directory
