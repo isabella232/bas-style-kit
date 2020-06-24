@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Removed [BREAKING!]
 
 * DOI icon
+* [Styles] Academicons
 
 ### Added
 
@@ -19,6 +20,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * Switched from Yarn 1 to Yarn 2, removing `node_modules` directory
 * Imports to dependencies in `node_modules` directory have been changed to bundle dependencies directly
 * Updating to newer predefined CI variables
+* [Styles] Switching to Font Awesome ORCID icon
 
 ### Removed
 
