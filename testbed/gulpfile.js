@@ -319,6 +319,9 @@ function buildPatterns(done) {
         if (!("pattern" in content.attributes)) {
           content.attributes.pattern = {}
         }
+        if (!("pattern_variant" in content.attributes)) {
+          content.attributes.pattern_variant = {}
+        }
         content.attributes.pattern.pattern_number = fileName[0];
 
         return content.attributes;
@@ -580,20 +583,28 @@ var patternIndexer = function patternIndexer(file, cb) {
       throw new Error('Pattern [' + file.data.pattern.title + '] has already been added as a standalone pattern. Patterns must either use variants only, or as a (single) direct pattern.');
     }
 
-    runtime.patterns[file.data.pattern.title].variants.push({
+    var properties = {
       'title': file.data.pattern_variant.title,
       'pattern_number': file.data.pattern.pattern_number
-    });
+    }
+    if (typeof(file.data.pattern_variant.type) !== 'undefined') {
+      properties['type'] = file.data.pattern_variant.type
+    }
+    runtime.patterns[file.data.pattern.title].variants.push(properties);
   } else {
     // Treat pattern as a standalone
     if (file.data.pattern.title in runtime.patterns) {
       throw new Error('Pattern [' + file.data.pattern.title + '] has already been added, either as a duplicate pattern or as a pattern with variants. Patterns must either use variants only, or as a (single) direct pattern.');
     }
 
-    runtime.patterns[file.data.pattern.title] = {
+    var properties = {
       'title': file.data.pattern.title,
       'pattern_number': file.data.pattern.pattern_number
-    };
+    }
+    if (typeof(file.data.pattern.type) !== 'undefined') {
+      properties['type'] = file.data.pattern.type
+    }
+    runtime.patterns[file.data.pattern.title] = properties;
   }
 
   cb(null, file);
