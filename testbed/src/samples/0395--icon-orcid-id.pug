@@ -1,7 +1,7 @@
 //-
   sample:
     title: ORCID iD icon
-    code: .ai.ai-orcid
+    code: .fab.fa-orcid
   collections:
     - components--icons
   ---
@@ -11,25 +11,27 @@ extends ../layouts/app-sample.pug
 block sample
   section.app-sample-section
     header ORCID iD icon only
-    i.ai.ai-orcid.ai-3x
+    i.fab.fa-orcid.fa-3x
 
   section.app-sample-section
     header ORCID iD icon in brand colour
-    i.ai.ai-orcid.ai-3x.app-colour-bsk-colour-ext-orcid-base
+    i.fab.fa-orcid.fa-3x.app-colour-bsk-colour-ext-orcid-base
 
   section.app-sample-section
-    header ORCID iD #[code .bsk-orcid-id]
-    p: a.bsk-orcid-id(href='https://sandbox.orcid.org/0000-0001-8373-6934') #[i.ai.ai-orcid.bsk-orcid-id-icon] https://sandbox.orcid.org/0000-0001-8373-6934
+    header ORCID iD with text
+    p: a(href='https://sandbox.orcid.org/0000-0001-8373-6934') #[i.fab.fa-orcid.bsk-orcid-id] https://sandbox.orcid.org/0000-0001-8373-6934
+    p: a(href='https://sandbox.orcid.org/0000-0001-8373-6934') https://sandbox.orcid.org/0000-0001-8373-6934 #[i.fab.fa-orcid.bsk-orcid-id]
 
   section.app-sample-section
-    header text with ORCID iD #[code .bsk-orcid-id-icon]
+    header text with superscript ORCID iD #[code .bsk-orcid-id]
     p
       | Constance Watson
-      sup: a(href='https://sandbox.orcid.org/0000-0001-8373-6934'): i.ai.ai-orcid.bsk-orcid-id-icon
+      |
+      sup: a(href='https://sandbox.orcid.org/0000-0001-8373-6934'): i.fab.fa-orcid.bsk-orcid-id
 
   hr
 
   h4 Notes
   ul
-    li This sample relies on the optional #[a(href='https://style-kit.web.bas.ac.uk/core/icons/#academicons') Academicons icon font]
-    li ORCID iDs should be displayed according to the #[a(href='https://orcid.org/trademark-and-id-display-guidelines') ORCID Trademark and Display guidelines]
+    li This sample relies on the optional #[a(href='https://style-kit.web.bas.ac.uk/core/icons/#font-awesome') Font Awesome icon font]
+    li ORCID iDs should follow the #[a(href='https://orcid.org/trademark-and-id-display-guidelines') ORCID Trademark and Display guidelines]
