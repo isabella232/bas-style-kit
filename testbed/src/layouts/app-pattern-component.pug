@@ -5,7 +5,22 @@ block append variables
   - bsk_attributes.site_nav_brand_href = '/' + testbed_version + '/';
   - bsk_attributes.site_development_phase_custom.message_text = 'This is an example of a (component) design pattern.';
 
+include ../mixins/app/samples/alerts.pug
+
 block main_content
+  if typeof(pattern.type) !== 'undefined'
+    if pattern.type == 'removed'
+      +alert--block('danger', 'solid')
+        header.bsk-alert-heading
+          h4 This pattern has been removed
+          | This pattern has been removed from the Style kit.
+  if typeof(pattern_variant.type) !== 'undefined'
+    if pattern_variant.type == 'removed'
+      +alert--block('danger', 'solid')
+        header.bsk-alert-heading
+          h4 This pattern variant has been removed
+          | This pattern variant has been removed from the Style kit.
+
   block pattern
 
   p.bsk-text-muted (#[a.bsk-text-experimental(href='/' + testbed_version + '/') Back to testbed index])

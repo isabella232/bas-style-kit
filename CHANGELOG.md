@@ -7,13 +7,14 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Removed [BREAKING!]
 
-* DOI icon
+* [Styles] DOI icon
 * [Styles] Academicons
 
 ### Added
 
-* Project dependencies updated to latest versions
-* Adding merge request CI features
+* [Infrastructure] Project dependencies updated to latest versions
+* [Infrastructure] Adding merge request CI features
+* [Infrastructure] Variants for Testbed patterns (e.g. removed)
 
 ### Fixed
 
@@ -21,14 +22,16 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
-* Switched from Yarn 1 to Yarn 2, removing `node_modules` directory
-* Imports to dependencies in `node_modules` directory have been changed to bundle dependencies directly
-* Updating to newer predefined CI variables
+* [Patterns] All page patterns now include contact information
+* [Styles] Improving Address component in Testbed
 * [Styles] Switching to Font Awesome ORCID icon
+* [Infrastructure] Switched from Yarn 1 to Yarn 2, removing `node_modules` directory
+* [Infrastructure] Imports to dependencies in `node_modules` directory have been changed to bundle dependencies directly
+* [Infrastructure] Updating to newer predefined CI variables
 
 ### Removed
 
-* Removing old BAS Packages Service jobs
+* [Infrastructure] Removing old BAS Packages Service jobs
 
 ## [0.6.0-alpha] - 2019-07-01
 

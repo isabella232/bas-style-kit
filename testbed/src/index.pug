@@ -33,10 +33,25 @@ block main_content
                   ul
                     each pattern_variant in pattern.variants
                       li: a(href='/' + testbed_version + '/p/' + pattern_variant.pattern_number + '.html')
-                        | #[strong #{ pattern_variant.pattern_number }] &nbsp; #{ pattern_variant.title }
+                        strong #{ pattern_variant.pattern_number }
+                        if pattern_variant.type == 'removed'
+                          |
+                          |
+                          +label('danger')
+                            | Removed
+                        | &nbsp;
+                        | #{ pattern_variant.title }
                 else
                   a(href='/' + testbed_version + '/p/' + pattern.pattern_number + '.html')
-                    | #[strong #{ pattern.pattern_number }] &nbsp; #{ pattern.title }
+                    strong #{ pattern.pattern_number }
+                    if pattern.type == 'removed'
+                      |
+                      +label('danger')
+                        | Removed
+                    else
+                      | rencia
+                    | &nbsp;
+                    | #{ pattern.title }
 
   section
     header

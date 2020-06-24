@@ -21,5 +21,20 @@ block append variables
   //- Custom CSS and JS
   include ../includes/app/assets.pug
 
+include ../mixins/app/samples/alerts.pug
+
 block main_content
+  if typeof(pattern.type) !== 'undefined'
+    if pattern.type == 'removed'
+      +alert--block('danger', 'solid')
+        header.bsk-alert-heading
+          h4 This pattern has been removed
+          | This pattern has been removed from the Style kit.
+  if typeof(pattern_variant.type) !== 'undefined'
+    if pattern_variant.type == 'removed'
+      +alert--block('danger', 'solid')
+        header.bsk-alert-heading
+          h4 This pattern variant has been removed
+          | This pattern variant has been removed from the Style kit.
+
   block pattern

@@ -1,18 +1,9 @@
 //-
   pattern_variant:
     title: Service unavailable (contact details)
+    type: removed
   pattern:
     title: Service unavailable
   ---
 
 extends ../layouts/app-pattern-page.pug
-
-block append variables
-  - attributes.main_content_classes.push('bsk-pattern-service-unavailable');
-
-block pattern
-  h1.bsk-page-header Sorry, Sample Service is unavailable
-  p.bsk-lead You will be able to use the service later.
-  p #[a(href='#') Contact the Sample Team] if you need to do something.
-
-  p.bsk-text-muted (#[a.bsk-text-experimental(href='/' + testbed_version + '/') Back to testbed index])
