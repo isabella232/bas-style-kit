@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Removed [BREAKING!]
 
 * DOI icon
+* [Styles] Academicons
 
 ### Added
 
