@@ -47,25 +47,6 @@ resource "aws_iam_user_policy" "bas-style-kit-testbed" {
   policy = "${file("70-resources/iam/policies/inline/testbed-bucket.json")}"
 }
 
-# BAS packages service policy - Testbed
-#
-# Policy to upload builds of the testbed
-#
-# Inline policy
-#
-# This resource implicitly depends on the 'aws_iam_user.bas-gitlab-deploy-bas-style-kit' resource
-# This resource relies on the AWS Terraform provider being previously configured.
-#
-# AWS source: http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies
-# Terraform source: https://www.terraform.io/docs/providers/aws/r/iam_user_policy.html
-#
-# Tags are not supported by this resource
-resource "aws_iam_user_policy" "upload-snapshot-bas-style-kit" {
-  name   = "upload-testbed-snapshot"
-  user   = "${aws_iam_user.bas-gitlab-deploy-bas-style-kit.name}"
-  policy = "${file("70-resources/iam/policies/inline/packages-service-prod.json")}"
-}
-
 # BAS CDN policy - Testbed
 #
 # Policy to upload assets for the testbed
