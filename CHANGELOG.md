@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.6.0-beta] - 2020-06-25
+
 ### Removed [BREAKING!]
 
 * [Styles] DOI icon
