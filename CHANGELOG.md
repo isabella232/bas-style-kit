@@ -24,6 +24,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
+* [Project] Updating copyright holder to UKRI
 * [Patterns] All page patterns now include contact information
 * [Styles] Improving Address component in Testbed
 * [Styles] Switching to Font Awesome ORCID icon
