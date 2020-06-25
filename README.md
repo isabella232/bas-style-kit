@@ -86,7 +86,7 @@ etc.
 * see `gulpfile.js` for tasks available in the `app` container
 * see `testbed/gulpfile.js` for tasks available in the `testbed` container
 
-#### Running task
+#### Running tasks
 
 To run a gulp task `foo` in the `app` container:
 

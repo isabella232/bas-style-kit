@@ -5,6 +5,8 @@
 # - GitLab automatically passes artifacts from previous stages by default
 # - This configuration file uses some advanced YAML features (namely anchors) which may not be correctly displayed
 #   by syntax highlighting
+# - This configuration uses the 'Need' keyword meaning jobs in later stages may start before all jobs in previous
+#   stages have completed
 # - Set required secret variables at: https://gitlab.data.bas.ac.uk/web-apps/bsk/bas-style-kit/settings/ci_cd
 
 # = Secret variables

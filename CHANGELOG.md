@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.6.0-beta] - 2020-06-25
+
 ### Removed [BREAKING!]
 
 * [Styles] DOI icon
@@ -12,6 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Patterns] ORCID iD component pattern
 * [Patterns] Item type header page pattern
 * [Infrastructure] Project dependencies updated to latest versions
 * [Infrastructure] Adding merge request CI features
@@ -23,6 +26,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Changed
 
+* [Project] Updating copyright holder to UKRI
 * [Patterns] All page patterns now include contact information
 * [Styles] Improving Address component in Testbed
 * [Styles] Switching to Font Awesome ORCID icon
