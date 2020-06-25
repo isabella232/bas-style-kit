@@ -12,6 +12,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Added
 
+* [Patterns] Item type header page pattern
 * [Infrastructure] Project dependencies updated to latest versions
 * [Infrastructure] Adding merge request CI features
 * [Infrastructure] Variants for Testbed patterns (e.g. removed)
