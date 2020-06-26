@@ -32,7 +32,6 @@
 # == Global settings ==
 
 stages:
-  # - security
   - build
   - lint
   - process
@@ -54,31 +53,6 @@ variables:
   SNYK_PROJECT_NAME_TESTBED: bas-style-kit-testbed
 
 # == Jobs ==
-
-# node-dependencies-app:
-#   stage: setup
-#   script:
-#     - "yarn install --frozen-lockfile"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-node-dependencies-app"
-#     paths:
-#       - node_modules
-#     expire_in: 1 hour
-
-# node-dependencies-testbed:
-#   stage: setup
-#   image:
-#     name: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:latest-alpine
-#     entrypoint: [""]
-#   script:
-#     - "cd testbed"
-#     - "yarn install --frozen-lockfile"
-#   artifacts:
-#     name: "$CI_BUILD_TOKEN-node-dependencies-testbed"
-#     paths:
-#       - testbed/node_modules
-#     expire_in: 1 hour
-
 
 # Disabled until https://github.com/snyk/nodejs-lockfile-parser/issues/56 is resolved
 #
