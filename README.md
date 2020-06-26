@@ -776,7 +776,7 @@ To preview the contents of the NPM package:
 ```shell
 $ docker-compose run --entrypoint='' app ash
 $ yarn gulp archive
-$ npm pack
+$ npm pack --dry-run
 ```
 
 **Note:** This project includes a `.npmignore` file to exclude additional files from NPM packages.
