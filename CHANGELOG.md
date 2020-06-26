@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
-## [0.6.0-beta] - 2020-06-25
+## [0.6.0-beta] - 2020-06-26
 
 ### Removed [BREAKING!]
 
@@ -23,6 +23,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Fixed
 
 * [Patterns] 'sign in' page patterns language inconsistency
+* [Infrastructure] Reduced NPM package size by ~50%
 
 ### Changed
 

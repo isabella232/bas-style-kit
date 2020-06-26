@@ -1,3 +1,7 @@
 dist-archive
 testbed
+.yarn
 gulpfile.js
+bas-style-kit.zip
+antarctica-bas-style-kit-*.tgz
+.pnp.js
