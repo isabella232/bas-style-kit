@@ -112,6 +112,7 @@ compile-sass-app:
   only:
     - merge_requests
     - master
+    - tags
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-styles-app"
     paths:
@@ -153,6 +154,7 @@ compile-js-app:
   only:
     - merge_requests
     - master
+    - tags
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-scripts-app"
     paths:
@@ -216,6 +218,7 @@ copy-fonts-app:
   only:
     - merge_requests
     - master
+    - tags
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-fonts-app"
     paths:
@@ -233,6 +236,7 @@ copy-images-app:
   only:
     - merge_requests
     - master
+    - tags
   artifacts:
     name: "$CI_BUILD_TOKEN-dist-imgs-app"
     paths:
@@ -271,6 +275,7 @@ lint-sass-app:
   only:
     - merge_requests
     - master
+    - tags
 
 lint-js-app:
   stage: lint
@@ -283,6 +288,7 @@ lint-js-app:
   only:
     - merge_requests
     - master
+    - tags
 
 compute-sri-app:
   stage: process
@@ -303,6 +309,7 @@ compute-sri-app:
   only:
     - merge_requests
     - master
+    - tags
 
 review:
   <<: *job_template_s3_sync
@@ -366,24 +373,23 @@ package-testbed:
     expire_in: 1 week
   only:
     - master
-    - tags
 
 upload-app:
   <<: *job_template_s3_sync
   stage: deploy
-  only:
-    - tags
   script:
     - "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CI_BUILD_TAG_SHORT/"
+  only:
+    - tags
 
 upload-testbed:
   <<: *job_template_s3_sync
   stage: deploy
-  only:
-    - master
   script:
     - aws s3 sync --delete testbed/public/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/
     - aws s3 sync --delete dist/ s3://$TESTBED_BUCKET/$CI_COMMIT_REF_SLUG/dist/
   environment:
     name: testbed
     url: https://style-kit-testbed.web.bas.ac.uk/$CI_COMMIT_REF_SLUG/testbed/
+  only:
+    - master
