@@ -28,6 +28,10 @@
     background: $image-copyright-base-background;
     font-size: $component-font-size-small;
     text-transform: uppercase;
+
+    a {
+      color: $image-copyright-base-color;
+    }
   }
 
 

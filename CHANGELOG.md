@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Fixed
+
+* [Styles] Link colour in thumbnail attribution
+
 ## [0.6.0-beta] - 2020-06-26
 
 ### Removed [BREAKING!]
