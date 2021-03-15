@@ -8,10 +8,15 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Added
 
 * [Infrastructure] Updating testbed to BSK Pug templates 0.6.0
+* [Infrastructure] Project dependencies updated to latest versions
 
 ### Fixed
 
 * [Styles] Link colour in thumbnail attribution
+
+### Removed
+
+* [Infrastructure] Outdated Synk vulnerability scanning documentation
 
 ## [0.6.0-beta] - 2020-06-26
 
