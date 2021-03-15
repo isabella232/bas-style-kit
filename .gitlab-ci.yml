@@ -353,6 +353,7 @@ upload-app:
   stage: deploy
   script:
     - "aws s3 sync --delete dist/ s3://$CDN_BUCKET/$APP_NAME/$CI_BUILD_TAG_SHORT/"
+    - "aws s3 cp bas-style-kit.zip s3://$CDN_BUCKET/$APP_NAME/$CI_BUILD_TAG_SHORT/$CI_BUILD_TAG_SHORT.zip"
   only:
     - tags
 
