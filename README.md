@@ -660,17 +660,6 @@ $ mv testbed/src/assets/yarn.lock ./testbed
 
 **Note:** Commit the Yarn lock file, `testbed/yarn.lock`, to the repository.
 
-#### Dependency vulnerability scanning
-
-To ensure the security of this project, and users of the Style Kit, all dependencies are checked against
-[Snyk](https://snyk.io) for vulnerabilities.
-
-* [Style Kit](https://app.snyk.io/org/antarctica/project/daa6bfb7-f029-43fb-b12b-6687147fc1b7)
-* [Testbed](https://app.snyk.io/org/antarctica/project/092fb27b-fcba-428e-88f8-1d5a8c7724f0)
-
-Through [Continuous Integration](#continuous-integration), on each commit current dependencies are tested and a snapshot
-uploaded to Snyk. This snapshot is then monitored for vulnerabilities.
-
 ## Testing
 
 ### Integration tests
