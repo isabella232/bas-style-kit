@@ -1,0 +1,21 @@
+//-
+  pattern:
+    title: Markdown textarea
+  ---
+
+extends ../layouts/app-pattern-component.pug
+
+block pattern
+  fieldset
+    div.bsk-form-group
+      label(for='content') Markdown textarea
+      textarea#content.bsk-form-control(name='content' rows='8')
+    div.bsk-help-block.bsk-text-muted
+      i.fab.fa-markdown
+      |
+      | You can use #[a(href='https://commonmark.org/help/') Markdown] to format your message.
+
+  hr
+
+  h4 Notes
+  ul: li This sample relies on the optional #[a(href='https://style-kit.web.bas.ac.uk/core/icons/#font-awesome') font awesome icon font]
