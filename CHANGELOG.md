@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.6.0] - 2021-03-16
+
 ### Removed [BREAKING!]
 
 * [Styles] EOT and SVG web font formats
