@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Fixed
 
+* [Patterns] Correcting item type header pattern name
 * [Styles] Link colour in thumbnail attribution
 * [Infrastructure] Missing distribution Zip file S3 upload
 
