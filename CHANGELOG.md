@@ -15,6 +15,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 * [Styles] Link colour in thumbnail attribution
 * [Infrastructure] Missing distribution Zip file S3 upload
 
+### Changed
+
+* [Styles] Text colour in alerts changed to black rather than based on variant
+
 ### Removed
 
 * [Infrastructure] Outdated Synk vulnerability scanning documentation
