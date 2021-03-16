@@ -3,7 +3,7 @@
 This project is a derivative of the [Bootstrap framework](http://getbootstrap.com), with additional code unique to this
 project.
 
-All original code is licensed under the *Boostrap license*. All other code is licensed under the *Project license*.
+All original code is licensed under the *Bootstrap license*. All other code is licensed under the *Project license*.
 
 ## Bootstrap license
 
@@ -32,7 +32,7 @@ THE SOFTWARE.
 
 ## Project license
 
-© UK Research and Innovation (UKRI), 2018 - 2020, British Antarctic Survey.
+© UK Research and Innovation (UKRI), 2018 - 2021, British Antarctic Survey.
 
 You may use and re-use this software and associated documentation files free of charge in any format or medium, under
 the terms of the Open Government Licence v3.0.

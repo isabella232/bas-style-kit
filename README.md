@@ -71,6 +71,16 @@ See the [Gulp tasks](#gulp-tasks) and [Testbed](#testbed) sections for more info
 
 Visit [localhost:9000](http://localhost:9000) to access a local version of the Testbed.
 
+**Note:** On first run you will need to run these commands to generate Style Kit assets and the Testbed locally:
+
+```
+$ docker-compose run app build
+$ docker-compose run app copy
+
+$ docker-compose run testbed build
+$ docker-compose run testbed copy
+```
+
 [1] If you have access to the [BAS GitLab](https://gitlab.data.bas.ac.uk) instance, you will need to authenticate to use
 the BAS private Docker registry initially:
 
