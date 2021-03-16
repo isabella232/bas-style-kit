@@ -12,7 +12,7 @@
 
   var Version   = function () {}
 
-  Version.VERSION = '0.6.0-beta'
+  Version.VERSION = '0.6.1'
 
 
   // VERSION PLUGIN DEFINITION
