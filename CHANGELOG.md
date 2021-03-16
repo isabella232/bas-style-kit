@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+### Removed [BREAKING!]
+
+* [Styles] EOT and SVG web font formats
+
 ### Added
 
 * [Infrastructure] Updating testbed to BSK Pug templates 0.6.0
